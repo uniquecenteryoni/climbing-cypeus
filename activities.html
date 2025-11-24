@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="טיפוס צוקים וסנפלינג בקפריסין - חוויה מעצימה והרפתקאה יוצאת דופן">
+    <title>טיפוס צוקים וסנפלינג - קפריסין בעין אחרת</title>
+    <link rel="icon" type="image/png" href="pics/עין.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="tour-page.css">
+    <style>
+        .activities-hero {
+            position: relative;
+            height: 60vh;
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .activities-hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .activities-hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(44, 95, 45, 0.5);
+        }
+
+        .activities-hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: white;
+            padding: var(--spacing-md);
+        }
+
+        .activities-hero-content h1 {
+            font-size: 3rem;
+            margin-bottom: var(--spacing-sm);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .activities-hero-content p {
+            font-size: 1.5rem;
+            margin-bottom: 0;
+        }
+
+        .activity-sections {
+            padding: var(--spacing-xl) 0;
+        }
+
+        .activity-section {
+            margin-bottom: var(--spacing-xl);
+            padding: var(--spacing-lg) 0;
+        }
+
+        .activity-section:not(:last-child) {
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .activity-header {
+            text-align: center;
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .activity-header h2 {
+            color: var(--primary-color);
+            font-size: 2.5rem;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .activity-header p {
+            font-size: 1.2rem;
+            color: var(--text-color);
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        .activity-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-lg);
+            align-items: center;
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .activity-content.reverse {
+            direction: ltr;
+        }
+
+        .activity-content.reverse .activity-text {
+            direction: rtl;
+        }
+
+        .activity-image {
+            width: 100%;
+            height: 400px;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .activity-image img,
+        .activity-image video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .activity-image:hover img {
+            transform: scale(1.05);
+        }
+
+        .activity-text h3 {
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .activity-text p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .activity-text ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .activity-text ul li {
+            padding: 0.5rem 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .activity-text ul li i {
+            color: var(--primary-color);
+            margin-left: 0.5rem;
+        }
+
+        .pricing-box {
+            background: linear-gradient(135deg, #2c5f2d 0%, #3a7a3d 100%);
+            color: white;
+            padding: var(--spacing-lg);
+            border-radius: 8px;
+            text-align: center;
+            margin-top: var(--spacing-lg);
+        }
+
+        .pricing-box h3 {
+            font-size: 2rem;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .pricing-box .price {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .pricing-box .price .currency {
+            font-size: 2rem;
+        }
+
+        .pricing-box p {
+            font-size: 1.1rem;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .pricing-box .cta-button {
+            display: inline-block;
+            background: white;
+            color: var(--primary-color);
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .pricing-box .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        @media (max-width: 768px) {
+            .activities-hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .activities-hero-content p {
+                font-size: 1.2rem;
+            }
+
+            .activity-content {
+                grid-template-columns: 1fr;
+            }
+
+            .activity-content.reverse {
+                direction: rtl;
+            }
+
+            .activity-header h2 {
+                font-size: 2rem;
+            }
+
+            .activity-image {
+                height: 300px;
+            }
+
+            .activity-image img,
+            .activity-image video {
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <img src="pics/עין.png" alt="Cyprus Adventures Logo">
+                <div class="logo-text">
+                    <h2 data-i18n="site-title">קפריסין בעין אחרת</h2>
+                    <p class="tagline" data-i18n="site-tagline">טיפוס צוקים וטיולים מודרכים</p>
+                </div>
+            </a>
+            
+            <ul class="nav-menu">
+                <li><a href="index.html#home">בית</a></li>
+                <li><a href="index.html#about-me">אודות</a></li>
+                <li><a href="index.html#tours">טיולים</a></li>
+                <li><a href="index.html#activities">טיפוס צוקים וסנפלינג</a></li>
+                <li><a href="index.html#gallery">גלריה</a></li>
+                <li><a href="index.html#contact">צור קשר</a></li>
+            </ul>
+            
+            <div class="nav-right">
+                <div class="language-switcher">
+                    <button id="langToggle" class="lang-toggle">
+                        <span class="current-lang">HE</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div id="langDropdown" class="lang-dropdown">
+                        <div class="lang-option active" data-lang="he">HE - עברית</div>
+                        <div class="lang-option" data-lang="en">EN - English</div>
+                        <div class="lang-option" data-lang="ru">RU - Русский</div>
+                        <div class="lang-option" data-lang="el">EL - Ελληνικά</div>
+                    </div>
+                </div>
+                
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="activities-hero">
+        <img src="pics/Galerry/climb22.jpg" alt="טיפוס צוקים בקפריסין" class="activities-hero-bg">
+        <div class="activities-hero-overlay"></div>
+        <div class="activities-hero-content">
+            <h1>טיפוס צוקים וסנפלינג בקפריסין</h1>
+            <p>חוויה מעצימה והרפתקאה יוצאת דופן</p>
+        </div>
+    </section>
+
+    <!-- Activities Sections -->
+    <section class="activity-sections">
+        <div class="container">
+            <!-- Rock Climbing Section -->
+            <div class="activity-section">
+                <div class="activity-header">
+                    <h2>חשיפה והתנסות בטיפוס צוקים</h2>
+                    <p>יום טיפוס בו נתמודד עם מסלולי טיפוס סלע כאשר המטפס מאובטח מלמעלה</p>
+                </div>
+
+                <div class="activity-content">
+                    <div class="activity-image">
+                        <video autoplay loop muted playsinline>
+                            <source src="pics/short1.mp4" type="video/mp4">
+                            סנפלינג בקפריסין
+                        </video>
+                    </div>
+                    <div class="activity-text">
+                        <h3>יום חווייתי המשלב התמודדות והעצמה</h3>
+                        <ul>
+                            <li><i class="fas fa-check-circle"></i>מתאים לכל בני המשפחה</li>
+                            <li><i class="fas fa-check-circle"></i>אין צורך בניסיון מוקדם</li>
+                            <li><i class="fas fa-check-circle"></i>ציוד מקצועי ומלא כלול</li>
+                            <li><i class="fas fa-check-circle"></i>הדרכה מקצועית ואישית</li>
+                            <li><i class="fas fa-check-circle"></i>אבטחה מלמעלה לבטיחות מקסימלית</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="activity-content reverse">
+                    <div class="activity-text">
+                        <h3>אתרי טיפוס מרהיבים</h3>
+                        <p>יחד נבחר, בהתאם למזג האוויר, מיקומכם והעדפתכם את יעד הטיפוס המתאים בו נרצה לעבור את היום שלנו יחד.</p>
+                        <p>אתרי הטיפוס של קפריסין ברובם במקומות פשוט עוצרי נשימה! הצוקים נמצאים בנקודות תצפית מדהימות עם נופים של הים התיכון וההרים.</p>
+                    </div>
+                    <div class="activity-image">
+                        <img src="pics/Galerry/climb1.jpg" alt="אתרי טיפוס">
+                    </div>
+                </div>
+
+                <div class="activity-content">
+                    <div class="activity-image">
+                        <img src="pics/Galerry/climb2.jpg" alt="טיפוס משפחתי">
+                    </div>
+                    <div class="activity-text">
+                        <h3>מתאים לכל הגילאים</h3>
+                        <p>ישנם מסלולי טיפוס לכל הרמות ולנו את כל הציוד המתאים כך שכל אחד מכם יוכל להתנסות, להתמודד ולהנות מהחוויה של טיפוס בטבע.</p>
+                        <p>מגיל 6 ועד 99 - כולם יכולים להתנסות בטיפוס! המדריך שלנו יתאים את המסלולים והאתגרים לכל משתתף באופן אישי.</p>
+                    </div>
+                </div>
+
+                <!-- Climbing Pricing -->
+                <div class="pricing-box">
+                    <h3>מחירון טיפוס צוקים</h3>
+                    <div class="price">
+                        <span class="currency">€</span>60
+                    </div>
+                    <p>החל מ-60€ למשתתף (מינימום 5) | כולל ציוד מקצועי | הדרכה אישית</p>
+                    <a href="index.html#contact" class="cta-button">הזמינו עכשיו</a>
+                </div>
+            </div>
+
+            <!-- Rappelling Section -->
+            <div class="activity-section" id="rappelling">
+                <div class="activity-header">
+                    <h2>סנפלינג (גלישה בחבלים)</h2>
+                    <p>חוויה אדרנלינית של גלישה בחבלים ממצוקים ומפלים מרהיבים</p>
+                </div>
+
+                <div class="activity-content">
+                    <div class="activity-image">
+                        <img src="pics/Galerry/rapelling.jpg" alt="סנפלינג">
+                    </div>
+                    <div class="activity-text">
+                        <h3>אתגר מרגש ובטוח</h3>
+                        <p>סנפלינג הוא אחת החוויות המרגשות ביותר שאפשר לעבור בטבע. גלישה מבוקרת במורד צוק או מפל תוך שליטה מלאה.</p>
+                        <ul>
+                            <li><i class="fas fa-check-circle"></i>ציוד בטיחות מתקדם</li>
+                            <li><i class="fas fa-check-circle"></i>הדרכה מקדימה מפורטת</li>
+                            <li><i class="fas fa-check-circle"></i>ליווי צמוד של מדריך מוסמך</li>
+                            <li><i class="fas fa-check-circle"></i>מתאים למתחילים ומתקדמים</li>
+                            <li><i class="fas fa-check-circle"></i>נקודות סנפלינג מרהיבות</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="activity-content reverse">
+                    <div class="activity-text">
+                        <h3>מיקומים ייחודיים</h3>
+                        <p>קפריסין מציעה מגוון רחב של נקודות סנפלינג - ממפלי מים מרהיבים ועד צוקים בגובה עשרות מטרים מעל הים.</p>
+                        <p>נבחר יחד את המיקום המתאים ביותר על פי רמתכם, מזג האוויר והעדפותיכם.</p>
+                    </div>
+                    <div class="activity-image">
+                        <img src="pics/Galerry/rapell2.jpg" alt="סנפלינג במיקומים ייחודיים">
+                    </div>
+                </div>
+
+                <!-- Rappelling Pricing -->
+                <div class="pricing-box">
+                    <h3>מחירון סנפלינג</h3>
+                    <div class="price">
+                        <span class="currency">€</span>40
+                    </div>
+                    <p>החל מ-40€ למשתתף (מינימום 5) | כולל ציוד מקצועי | הדרכה מלאה</p>
+                    <a href="index.html#contact" class="cta-button">הזמינו עכשיו</a>
+                </div>
+            </div>
+
+            <!-- Combined Package -->
+            <div class="activity-section">
+                <div class="activity-header">
+                    <h2>חבילות משולבות</h2>
+                    <p>שלבו כמה פעילויות ליום הרפתקאות מושלם</p>
+                </div>
+
+                <div class="pricing-box" style="margin-bottom: var(--spacing-lg);">
+                    <h3>חבילת טיפוס + סנפלינג</h3>
+                    <div class="price">
+                        <span class="currency">€</span>70
+                    </div>
+                    <p>החל מ-70€ למשתתף (מינימום 5) | ליום מלא | כולל כל הציוד</p>
+                    <a href="index.html#contact" class="cta-button">הזמינו עכשיו</a>
+                </div>
+
+                <div class="pricing-box">
+                    <h3>חבילת טיול + סנפלינג</h3>
+                    <div class="price">
+                        <span class="currency">€</span>65
+                    </div>
+                    <p>החל מ-65€ למשתתף (מינימום 5) | ליום מלא | כולל כל הציוד</p>
+                    <a href="index.html#contact" class="cta-button">הזמינו עכשיו</a>
+                </div>
+            </div>
+
+            <!-- What's Included -->
+            <div class="activity-section">
+                <div class="activity-header">
+                    <h2>מה כלול בכל פעילות?</h2>
+                </div>
+
+                <div class="tour-content-grid">
+                    <div class="tour-main-content">
+                        <ul class="tour-highlights-list">
+                            <li><i class="fas fa-user-tie"></i> מדריך מוסמך ומנוסה</li>
+                            <li><i class="fas fa-hard-hat"></i> ציוד בטיחות מקצועי ומלא</li>
+                            <li><i class="fas fa-water"></i> מים ושתייה קלה</li>
+                            <li><i class="fas fa-camera"></i> צילומים במהלך הפעילות</li>
+                            <li><i class="fas fa-book"></i> הדרכה מקדימה מפורטת</li>
+                            <li><i class="fas fa-first-aid"></i> ערכת עזרה ראשונה</li>
+                        </ul>
+
+                        <h3 style="margin-top: var(--spacing-lg);">מה להביא?</h3>
+                        <ul class="tour-highlights-list">
+                            <li><i class="fas fa-shoe-prints"></i> נעליים סגורות ונוחות (נעלי ספורט)</li>
+                            <li><i class="fas fa-tshirt"></i> ביגוד נוח ונושם</li>
+                            <li><i class="fas fa-sun"></i> כובע וקרם הגנה</li>
+                            <li><i class="fas fa-bottle-water"></i> בקבוק מים נוסף</li>
+                            <li><i class="fas fa-candy-cane"></i> חטיף אנרגיה</li>
+                            <li><i class="fas fa-camera"></i> מצלמה (אופציונלי)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 קפריסין בעין אחרת. כל הזכויות שמורות.</p>
+        </div>
+    </footer>
+
+    <script src="translations.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

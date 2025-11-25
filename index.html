@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ר<!DOCTYPE html>
 <html lang="he" dir="rtl">
 <head>
     <meta charset="UTF-8">
@@ -123,10 +123,8 @@
 
     <!-- Video Section -->
     <section class="video-section">
-        <div class="container">
-            <div class="video-container">
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/Eele4A2vs-g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
+        <div class="video-container-full">
+            <iframe id="videoIframe" width="100%" height="100%" src="https://www.youtube.com/embed/Eele4A2vs-g?enablejsapi=1&mute=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
     </section>
 
@@ -142,8 +140,8 @@
                     </div>
                     <div class="activity-content">
                         <h3 data-i18n="activity-climbing-title">יום טיפוס צוקים</h3>
-                        <p data-i18n="activity-climbing-desc">למתחילים – היכרות בטוחה עם עולם הטיפוס דרך טיפוס טופ-רופ, כשאתם מאובטחים כל הזמן על ידי מדריך.<br><br>
-למנוסים – הובלה במסלולים נבחרים, עם דגש על שיפור טכניקה, התייעלות בתנועה ובטיחות, תחת ליווי מקצועי צמוד.</p>
+                        <p data-i18n="activity-climbing-desc"><strong>למתחילים:</strong> היכרות בטוחה עם עולם הטיפוס דרך טיפוס "טופ רופ".<br><br>
+<strong>למנוסים:</strong> הובלת מסלולים נבחרים עם דגש על שיפור טכניקה והתייעלות בתנועה עם ליווי מקצועי צמוד.</p>
                         <a href="activities.html" class="activity-btn" data-i18n="activity-btn">לפרטים נוספים</a>
                     </div>
                 </div>
@@ -161,12 +159,23 @@
 
                 <div class="activity-card">
                     <div class="activity-image">
-                        <img src="pics/Galerry/climb1.jpg" alt="קורס טיפוס" loading="lazy">
+                        <img src="pics/Galerry/climb1.jpg" alt="קורס טיפוס הובלה" loading="lazy">
                     </div>
                     <div class="activity-content">
-                        <h3>קורס טיפוס</h3>
+                        <h3>קורס טיפוס הובלה</h3>
                         <p>קורס מרוכז ומעשי בן יומיים המיועד למטפסים שרוצים לקחת את הטיפוס צעד אחד קדימה.</p>
                         <a href="course.html" class="activity-btn">לפרטים נוספים</a>
+                    </div>
+                </div>
+
+                <div class="activity-card">
+                    <div class="activity-image">
+                        <img src="pics/rent.jpg" alt="השכרת ציוד טיפוס" loading="lazy">
+                    </div>
+                    <div class="activity-content">
+                        <h3>השכרת ציוד טיפוס</h3>
+                        <p>השכרת ציוד מקצועי לטיפוס - חבלים, רתמות, קסדות, מכשירי אבטחה, ראנרים וקראשפדים. מושלם למטפסים שרוצים לצאת לעצמאות או לתרגל בולדרינג.</p>
+                        <a href="equipment.html" class="activity-btn">לפרטים נוספים</a>
                     </div>
                 </div>
             </div>
@@ -193,11 +202,11 @@
                     
                     <div class="testimonial-card">
                         <div class="testimonial-image">
-                            <img src="pics/costumers/customer2.png" alt="טלי הראל">
+                            <img src="pics/costumers/customer2.png" alt="טל הראל">
                         </div>
                         <div class="testimonial-content">
                             <p class="testimonial-quote" data-i18n="testimonial-2-text">"טיול משפחתי מושלם! הילדים שלנו (6, 9, 12) נהנו בטירוף, ויוני הצליח לגרום לכל אחד להרגיש גיבור. אנחנו כבר מתכננים לחזור!"</p>
-                            <p class="testimonial-author"><strong data-i18n="testimonial-2-name">טלי הראל</strong></p>
+                            <p class="testimonial-author"><strong data-i18n="testimonial-2-name">טל הראל</strong></p>
                             <p class="testimonial-location" data-i18n="testimonial-2-city">ירושלים</p>
                         </div>
                     </div>
@@ -229,7 +238,7 @@
                             <img src="pics/costumers/customer5.png" alt="אייל שרעבי">
                         </div>
                         <div class="testimonial-content">
-                            <p class="testimonial-quote" data-i18n="testimonial-5-text">"חוויה משפחתית מעולה! הילדים (9 ו-13) למדו הרבה על הטבע והגיאולוגיה של קפריסין. יונתן היה גם מדריך מצוין וגם מורה מעניין!"</p>
+                            <p class="testimonial-quote" data-i18n="testimonial-5-text">"הגעתי עם חבורה של חברים וחיפשנו משהו אתגרי ומרגש. יום הטיפוס עם יונתן היה בדיוק מה שחיפשנו! הוא התאים את הקושי לרמה שלנו, היה מקצועי ובעיקר יודע לגרום לכל הקבוצה להרגיש בטוחים ולהנות. חוויה מעולה שנזכור עוד הרבה זמן!"</p>
                             <p class="testimonial-author"><strong data-i18n="testimonial-5-name">אייל שרעבי</strong></p>
                             <p class="testimonial-location" data-i18n="testimonial-5-city">נתניה</p>
                         </div>
@@ -304,7 +313,7 @@
                             <img src="pics/hikes /avaksd.jpeg" alt="קניון אווקאס">
                         </div>
                         <div class="tour-content">
-                            <h3 data-i18n="tour3-title">טיול חד-כיווני (הלוך-חזור) לקניון אווקאס</h3>
+                            <h3 data-i18n="tour3-title">טיול חד-כיווני לקניון אווקאס</h3>
                             <p data-i18n="tour3-desc">טיול מרהיב בקניון דומה לאלו שבירדן ושביוטה הטבע (מהסרט המפורסם "127 שעות").</p>
                             <span class="tour-author">Yonatan Cohen</span>
                             <span class="tour-date">Jan 13, 2024</span>

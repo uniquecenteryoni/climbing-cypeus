@@ -470,7 +470,7 @@ body.rtl {
 
 .activities-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: var(--spacing-lg);
 }
 
@@ -723,8 +723,24 @@ body.rtl {
 
 /* Video Section */
 .video-section {
-    padding: var(--spacing-xl) 0;
+    padding: 0;
     background: var(--light-gray);
+    position: relative;
+    width: 100%;
+}
+
+.video-container-full {
+    width: 100%;
+    height: 600px;
+    position: relative;
+    overflow: hidden;
+}
+
+.video-container-full iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
 }
 
 .video-section h2 {
@@ -744,6 +760,19 @@ body.rtl {
 
 .video-container iframe {
     display: block;
+}
+
+/* Responsive Video */
+@media (max-width: 768px) {
+    .video-container-full {
+        height: 400px;
+    }
+}
+
+@media (max-width: 480px) {
+    .video-container-full {
+        height: 300px;
+    }
 }
 
 /* Tours Section */
@@ -1510,5 +1539,261 @@ body.rtl {
     
     .testimonials-carousel {
         padding: 0 35px;
+    }
+}
+
+/* Equipment Rental Page Styles */
+.equipment-package {
+    background: white;
+    border-radius: 12px;
+    padding: var(--spacing-lg);
+    margin-bottom: var(--spacing-lg);
+    box-shadow: var(--shadow-md);
+}
+
+.equipment-header {
+    margin-bottom: var(--spacing-lg);
+}
+
+.equipment-header-with-image {
+    display: flex;
+    gap: var(--spacing-lg);
+    align-items: flex-start;
+    margin-bottom: var(--spacing-md);
+}
+
+.equipment-text {
+    flex: 1;
+}
+
+.equipment-image-box {
+    width: 300px;
+    height: 200px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+}
+
+.equipment-image-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.equipment-package h2 {
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-md);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.equipment-package h2 i {
+    color: var(--accent-color);
+}
+
+.equipment-intro {
+    font-size: 1.1rem;
+    color: var(--text-light);
+    margin-bottom: var(--spacing-md);
+}
+
+.equipment-list {
+    margin: var(--spacing-md) 0;
+}
+
+.equipment-list h3 {
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-sm);
+}
+
+.equipment-list ul {
+    list-style: none;
+    padding: 0;
+}
+
+.equipment-list ul li {
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.equipment-list ul li:last-child {
+    border-bottom: none;
+}
+
+.equipment-list ul li i {
+    color: var(--accent-color);
+    font-size: 1.2rem;
+}
+
+.equipment-pricing {
+    margin-top: var(--spacing-lg);
+    display: flex;
+    justify-content: center;
+}
+
+.price-box {
+    background: linear-gradient(135deg, #2ecc71, #27ae60);
+    color: white;
+    padding: var(--spacing-lg);
+    border-radius: 12px;
+    text-align: center;
+    min-width: 300px;
+}
+
+.price-box h3 {
+    color: white;
+    margin-bottom: var(--spacing-sm);
+    font-size: 1.3rem;
+}
+
+.price {
+    font-size: 3rem;
+    font-weight: bold;
+    margin: var(--spacing-sm) 0;
+}
+
+.price span {
+    font-size: 1.2rem;
+    font-weight: normal;
+}
+
+.price-note {
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+.bouldering-prices {
+    display: flex;
+    gap: var(--spacing-md);
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.price-option {
+    background: rgba(255, 255, 255, 0.1);
+    padding: var(--spacing-md);
+    border-radius: 8px;
+    min-width: 150px;
+    position: relative;
+}
+
+.price-option.special {
+    background: rgba(255, 255, 255, 0.2);
+    border: 2px solid white;
+}
+
+.price-option .price {
+    font-size: 2rem;
+}
+
+.badge {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background: #ffd700;
+    color: var(--primary-color);
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.equipment-order-btn {
+    display: inline-block;
+    margin-top: var(--spacing-md);
+    padding: 12px 30px;
+    background: white;
+    color: #27ae60;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    border: 2px solid white;
+}
+
+.equipment-order-btn:hover {
+    background: transparent;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.equipment-info {
+    background: #f8f9fa;
+    border-radius: 12px;
+    padding: var(--spacing-lg);
+    margin-bottom: var(--spacing-lg);
+}
+
+.equipment-info h2 {
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-md);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.equipment-info ul {
+    list-style: none;
+    padding: 0;
+}
+
+.equipment-info ul li {
+    padding: 12px 0;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.equipment-info ul li i {
+    color: var(--accent-color);
+    margin-top: 3px;
+}
+
+.equipment-cta {
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    color: white;
+    text-align: center;
+    padding: var(--spacing-xl);
+    border-radius: 12px;
+    margin-top: var(--spacing-lg);
+}
+
+.equipment-cta h2 {
+    color: white;
+    margin-bottom: var(--spacing-sm);
+}
+
+.equipment-cta p {
+    color: white;
+    font-size: 1.1rem;
+    margin-bottom: var(--spacing-md);
+}
+
+@media (max-width: 768px) {
+    .bouldering-prices {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .price-box {
+        min-width: 100%;
+    }
+    
+    .equipment-package {
+        padding: var(--spacing-md);
+    }
+    
+    .equipment-header-with-image {
+        flex-direction: column;
+    }
+    
+    .equipment-image-box {
+        width: 100%;
+        height: 250px;
     }
 }

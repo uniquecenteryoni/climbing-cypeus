@@ -313,5 +313,93 @@ document.addEventListener('DOMContentLoaded', () => {
             if (e.key === 'Escape') closeVideoModal();
         }
     });
+
+    // Video autoplay on hover
+    const videoContainer = document.querySelector('.video-container-full');
+    const videoIframe = document.getElementById('videoIframe');
+    
+    
+    if (videoContainer && videoIframe) {
+        videoContainer.addEventListener('mouseenter', () => {
+            // Send play command to YouTube iframe
+            videoIframe.contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
+        });
+        
+        videoContainer.addEventListener('mouseleave', () => {
+            // Send pause command to YouTube iframe
+            videoIframe.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
+        });
+    }
+
+    // Auto-fill contact form message based on source
+    function prefillContactMessage() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const equipmentType = urlParams.get('equipment');
+        const tourType = urlParams.get('tour');
+        const activityType = urlParams.get('activity');
+        
+        const messageField = document.getElementById('message');
+        
+        if (messageField) {
+            let prefillText = '';
+            
+            if (equipmentType) {
+                prefillText = `היי, אני מתעניין/ת בהשכרת ${equipmentType}. `;
+            } else if (tourType) {
+                prefillText = `היי, אני מתעניין/ת בטיול ${tourType}. `;
+            } else if (activityType) {
+                prefillText = `היי, אני מתעניין/ת ב${activityType}. `;
+            }
+            
+            if (prefillText) {
+                messageField.value = prefillText;
+                // Scroll to contact form
+                setTimeout(() => {
+                    document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+                }, 100);
+            }
+        }
+    }
+    
+    // Run on page load
+    prefillContactMessage();
+    
+    // Handle equipment order buttons
+    document.querySelectorAll('.equipment-order-btn').forEach(button => {
+        button.addEventListener('click', function(e) {
+            e.preventDefault();
+            const equipmentType = this.getAttribute('data-equipment-type');
+            window.location.href = `index.html?equipment=${encodeURIComponent(equipmentType)}#contact`;
+        });
+    });
+    
+    // Handle activity booking buttons
+    document.querySelectorAll('.activity-btn').forEach(button => {
+        button.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            if (href && href.includes('#contact')) {
+                e.preventDefault();
+                const activityCard = this.closest('.activity-card');
+                const activityTitle = activityCard ? activityCard.querySelector('h3').textContent : '';
+                window.location.href = `index.html?activity=${encodeURIComponent(activityTitle)}#contact`;
+            }
+        });
+    });
+    
+    // Handle tour booking buttons
+    document.querySelectorAll('.tour-book-btn, .cta-button, .book-btn').forEach(button => {
+        button.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            if (href && href.includes('#contact')) {
+                e.preventDefault();
+                const tourTitle = document.querySelector('.tour-hero h1')?.textContent || 
+                                document.querySelector('h1')?.textContent || '';
+                window.location.href = `index.html?tour=${encodeURIComponent(tourTitle)}#contact`;
+            }
+        });
+    });
 });
+
+
+
 

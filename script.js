@@ -1,5 +1,5 @@
 // Language switcher and interaction functionality
-let currentLang = 'he';
+let currentLang = localStorage.getItem('preferred-language') || 'he';
 
 // Initialize the page
 document.addEventListener('DOMContentLoaded', () => {
@@ -130,26 +130,23 @@ function setLanguage(lang) {
     localStorage.setItem('preferred-language', lang);
 }
 
-// Load saved language preference on page load
+// Update displayed language code on load
 window.addEventListener('load', () => {
-    const savedLang = localStorage.getItem('preferred-language');
-    if (savedLang && translations[savedLang]) {
-        setLanguage(savedLang);
-        
-        // Update option active state
-        document.querySelectorAll('.lang-option').forEach(option => {
-            option.classList.remove('active');
-            if (option.getAttribute('data-lang') === savedLang) {
-                option.classList.add('active');
-            }
-        });
-        
-        // Update displayed language code
-        const langCodes = { 'he': 'HE', 'en': 'EN', 'ru': 'RU', 'el': 'EL' };
-        const currentLangElement = document.querySelector('.current-lang');
-        if (currentLangElement) {
-            currentLangElement.textContent = langCodes[savedLang];
+    const savedLang = localStorage.getItem('preferred-language') || 'he';
+    
+    // Update option active state
+    document.querySelectorAll('.lang-option').forEach(option => {
+        option.classList.remove('active');
+        if (option.getAttribute('data-lang') === savedLang) {
+            option.classList.add('active');
         }
+    });
+    
+    // Update displayed language code
+    const langCodes = { 'he': 'HE', 'en': 'EN', 'ru': 'RU', 'el': 'EL' };
+    const currentLangElement = document.querySelector('.current-lang');
+    if (currentLangElement) {
+        currentLangElement.textContent = langCodes[savedLang];
     }
 });
 

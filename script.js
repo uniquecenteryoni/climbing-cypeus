@@ -45,27 +45,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
     
-    // Contact form submission
-    const contactForm = document.getElementById('contactForm');
-    if (contactForm) {
-        contactForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            
-            const formData = {
-                name: document.getElementById('name').value,
-                email: document.getElementById('email').value,
-                phone: document.getElementById('phone').value,
-                message: document.getElementById('message').value
-            };
-            
-            // Here you would normally send the data to a server
-            // For now, we'll just show an alert
-            alert(translations[currentLang]['form-success'] || 'ההודעה נשלחה בהצלחה! נחזור אליכם בהקדם.');
-            
-            // Reset form
-            contactForm.reset();
-        });
-    }
+    // Contact form is now handled by Formspree
+    // No need for JavaScript form handling
     
     // Mobile menu toggle
     const hamburger = document.querySelector('.hamburger');

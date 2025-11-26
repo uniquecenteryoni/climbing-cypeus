@@ -1,9 +1,24 @@
 // Language switcher and interaction functionality
 let currentLang = localStorage.getItem('preferred-language') || 'he';
 
+// Apply language immediately to prevent flash of wrong language
+(function() {
+    const html = document.documentElement;
+    html.setAttribute('lang', currentLang);
+    
+    // Set text direction (RTL for Hebrew, LTR for others)
+    if (currentLang === 'he') {
+        html.setAttribute('dir', 'rtl');
+        document.body.classList.add('rtl');
+    } else {
+        html.setAttribute('dir', 'ltr');
+        document.body.classList.add('ltr');
+    }
+})();
+
 // Initialize the page
 document.addEventListener('DOMContentLoaded', () => {
-    // Set initial language
+    // Set initial language and translate content
     setLanguage(currentLang);
     
     // Language switcher dropdown
@@ -126,29 +141,24 @@ function setLanguage(lang) {
         }
     });
     
-    // Save language preference
-    localStorage.setItem('preferred-language', lang);
-}
-
-// Update displayed language code on load
-window.addEventListener('load', () => {
-    const savedLang = localStorage.getItem('preferred-language') || 'he';
-    
-    // Update option active state
-    document.querySelectorAll('.lang-option').forEach(option => {
-        option.classList.remove('active');
-        if (option.getAttribute('data-lang') === savedLang) {
-            option.classList.add('active');
-        }
-    });
-    
     // Update displayed language code
     const langCodes = { 'he': 'HE', 'en': 'EN', 'ru': 'RU', 'el': 'EL' };
     const currentLangElement = document.querySelector('.current-lang');
     if (currentLangElement) {
-        currentLangElement.textContent = langCodes[savedLang];
+        currentLangElement.textContent = langCodes[lang];
     }
-});
+    
+    // Update active option state
+    document.querySelectorAll('.lang-option').forEach(option => {
+        option.classList.remove('active');
+        if (option.getAttribute('data-lang') === lang) {
+            option.classList.add('active');
+        }
+    });
+    
+    // Save language preference
+    localStorage.setItem('preferred-language', lang);
+}
 
 // Testimonials Carousel Function
 function initTestimonialsCarousel() {

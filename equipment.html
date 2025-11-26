@@ -14,6 +14,21 @@
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
+    
+    <!-- Apply language settings immediately to prevent flash -->
+    <script>
+        (function() {
+            const savedLang = localStorage.getItem('preferred-language') || 'he';
+            const html = document.documentElement;
+            html.setAttribute('lang', savedLang);
+            html.setAttribute('dir', savedLang === 'he' ? 'rtl' : 'ltr');
+            if (savedLang === 'he') {
+                document.body?.classList.add('rtl');
+            } else {
+                document.body?.classList.add('ltr');
+            }
+        })();
+    </script>
 </head>
 <body>
     <!-- Navigation -->

@@ -15,6 +15,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
     
+    <!-- Load translations first -->
+    <script src="translations.js"></script>
+    
     <!-- Apply language settings immediately to prevent flash -->
     <script>
         (function() {
@@ -22,10 +25,27 @@
             const html = document.documentElement;
             html.setAttribute('lang', savedLang);
             html.setAttribute('dir', savedLang === 'he' ? 'rtl' : 'ltr');
-            if (savedLang === 'he') {
-                document.body?.classList.add('rtl');
+            
+            // Apply translations as soon as DOM is ready
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', function() {
+                    applyTranslations(savedLang);
+                });
             } else {
-                document.body?.classList.add('ltr');
+                applyTranslations(savedLang);
+            }
+            
+            function applyTranslations(lang) {
+                document.body?.classList.toggle('rtl', lang === 'he');
+                document.body?.classList.toggle('ltr', lang !== 'he');
+                
+                const elements = document.querySelectorAll('[data-i18n]');
+                elements.forEach(element => {
+                    const key = element.getAttribute('data-i18n');
+                    if (translations[lang] && translations[lang][key]) {
+                        element.innerHTML = translations[lang][key];
+                    }
+                });
             }
         })();
     </script>
@@ -209,7 +229,6 @@
         </div>
     </footer>
 
-    <script src="translations.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

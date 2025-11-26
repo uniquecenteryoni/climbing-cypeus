@@ -431,6 +431,9 @@ const translations = {
         "tour-overview-title": "סקירה כללית",
         "tour-highlights-title": "עיקרי הטיול",
         "tour-itinerary-title": "תוכנית הטיול",
+        "tour-cta-title": "מעוניינים בטיול?",
+        "tour-cta-text": "צרו איתנו קשר ונבנה ביחד את הטיול המושלם עבורכם",
+        "tour-cta-button": "צרו קשר",
         
     },
     
@@ -889,6 +892,9 @@ const translations = {
         "tour-overview-title": "Overview",
         "tour-highlights-title": "Tour Highlights",
         "tour-itinerary-title": "Tour Itinerary",
+        "tour-cta-title": "Interested in this tour?",
+        "tour-cta-text": "Contact us and we'll build the perfect tour for you together",
+        "tour-cta-button": "Contact Us",
         
     },
     
@@ -1332,6 +1338,9 @@ const translations = {
         "tour-overview-title": "Обзор",
         "tour-highlights-title": "Основные Моменты Тура",
         "tour-itinerary-title": "Программа Тура",
+        "tour-cta-title": "Заинтересованы в этом туре?",
+        "tour-cta-text": "Свяжитесь с нами, и мы вместе создадим идеальный тур для вас",
+        "tour-cta-button": "Свяжитесь с Нами",
         
     },
     
@@ -1770,6 +1779,9 @@ const translations = {
         "tour-overview-title": "Επισκόπηση",
         "tour-highlights-title": "Κύρια Σημεία της Περιήγησης",
         "tour-itinerary-title": "Πρόγραμμα Περιήγησης",
+        "tour-cta-title": "Ενδιαφέρεστε για αυτήν την περιήγηση;",
+        "tour-cta-text": "Επικοινωνήστε μαζί μας και θα δημιουργήσουμε μαζί την τέλεια περιήγηση για εσάς",
+        "tour-cta-button": "Επικοινωνήστε Μαζί Μας",
         
     }
 };

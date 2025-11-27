@@ -143,6 +143,12 @@ const translations = {
         "tour2-desc": "אם חיפשתם חוויה של נחל מקסים עם אבני משחק כמו בסרטים, שלוליות מים זורמים תחתיו - זה המסלול שלכם. עונה מומלצת: כל השנה.",
         "tour3-title": "טיול חד-כיווני לקניון אווקאס",
         "tour3-desc": "טיול מרהיב בקניון דומה לאלו שבירדן ושביוטה הטבע (מהסרט המפורסם \"127 שעות\").",
+        "tour4-title": "מסלול מפל קלידוניה",
+        "tour4-desc": "מסלול קל ונגיש ליער אשוחים צפוף המוביל למפל קלידוניה המרהיב. מתאים לכל המשפחה!",
+        "tour5-title": "טיול לכפר פיניקריה ההררי",
+        "tour5-desc": "כפר הררי מסורתי עם נופים מרהיבים, ארכיטקטורה מאבן, ומפגש עם תרבות קפריסאית אותנטית.",
+        "tour6-title": "טיול לעמק הארזים (Cedar Valley)",
+        "tour6-desc": "יער ארזים עתיק ונדיר עם עצי ארז קפריסאים אנדמיים, נופי הרים מרהיבים וטבע בר מדהים.",
         "tours-more": "עוד מסלולים",
         
         // Gallery
@@ -474,7 +480,7 @@ const translations = {
         "feature-climbing": "Climbing and Rappelling Activities",
         "feature-trails": "Spectacular Hiking Trails",
         "feature-custom": "Custom Tailored Tour Planning",
-        "feature-hebrew": "Professional Guidance in Hebrew",
+        "feature-hebrew": "Professional Guidance in English",
         
         // Activities
         "activities-title": "Rock Climbing & Rappelling",
@@ -604,6 +610,12 @@ const translations = {
         "tour2-desc": "If you were looking for an experience of a charming stream with playful rocks like in the movies, pools with flowing water underneath - this is your trail. Recommended season: all year round.",
         "tour3-title": "One-Way Hike to Avakas Canyon",
         "tour3-desc": "Spectacular hike in a canyon similar to those in Jordan and Utah (from the famous movie \"127 Hours\").",
+        "tour4-title": "Caledonia Waterfall Trail",
+        "tour4-desc": "Easy and accessible trail through dense pine forest leading to the magnificent Caledonia waterfall. Suitable for the whole family!",
+        "tour5-title": "Hike to Phinikaria Mountain Village",
+        "tour5-desc": "Traditional mountain village with stunning views, stone architecture, and encounter with authentic Cypriot culture.",
+        "tour6-title": "Cedar Valley Hike",
+        "tour6-desc": "Ancient and rare cedar forest with endemic Cypriot cedar trees, spectacular mountain views and amazing wildlife.",
         "tours-more": "More Routes",
         
         // Gallery
@@ -1050,6 +1062,12 @@ const translations = {
         "tour2-desc": "Если вы искали впечатление от очаровательного ручья с игровыми камнями, как в кино, лужами с текущей водой внизу - это ваша тропа. Рекомендуемый сезон: круглый год.",
         "tour3-title": "Линейная Тропа (Туда-Обратно) к Каньону Авакас",
         "tour3-desc": "Захватывающий поход в каньон, похожий на те, что в Иордании и Юте (из знаменитого фильма \"127 часов\").",
+        "tour4-title": "Тропа к Водопаду Каледония",
+        "tour4-desc": "Легкая и доступная тропа через густой сосновый лес, ведущая к великолепному водопаду Каледония. Подходит для всей семьи!",
+        "tour5-title": "Поход в Горную Деревню Финикария",
+        "tour5-desc": "Традиционная горная деревня с потрясающими видами, каменной архитектурой и встречей с аутентичной кипрской культурой.",
+        "tour6-title": "Поход в Кедровую Долину",
+        "tour6-desc": "Древний и редкий кедровый лес с эндемичными кипрскими кедрами, захватывающими горными пейзажами и удивительной дикой природой.",
         "tours-more": "Больше Маршрутов",
         
         // Gallery
@@ -1491,6 +1509,12 @@ const translations = {
         "tour2-desc": "Αν ψάχνατε για την εμπειρία ενός γοητευτικού ρέματος με πέτρες παιχνιδιού όπως στις ταινίες, λακκούβες με ρέον νερό από κάτω - αυτό είναι το μονοπάτι σας. Προτεινόμενη εποχή: όλο το χρόνο.",
         "tour3-title": "Γραμμικό Μονοπάτι (Μετ' Επιστροφής) στο Φαράγγι Αβάκας",
         "tour3-desc": "Εντυπωσιακή πεζοπορία σε φαράγγι παρόμοιο με αυτά στην Ιορδανία και τη Γιούτα (από τη διάσημη ταινία \"127 Ώρες\").",
+        "tour4-title": "Μονοπάτι προς τον Καταρράκτη Καληδονία",
+        "tour4-desc": "Εύκολο και προσβάσιμο μονοπάτι μέσα από πυκνό πευκοδάσος που οδηγεί στον υπέροχο καταρράκτη Καληδονία. Κατάλληλο για όλη την οικογένεια!",
+        "tour5-title": "Πεζοπορία στο Ορεινό Χωριό Φοινικαριά",
+        "tour5-desc": "Παραδοσιακό ορεινό χωριό με εκπληκτικές θέες, πέτρινη αρχιτεκτονική και συνάντηση με την αυθεντική κυπριακή κουλτούρα.",
+        "tour6-title": "Πεζοπορία στην Κοιλάδα των Κέδρων",
+        "tour6-desc": "Αρχαίο και σπάνιο δάσος κέδρων με ενδημικά κυπριακά κέδρα, εντυπωσιακές ορεινές θέες και καταπληκτική άγρια ζωή.",
         "tours-more": "Περισσότερες Διαδρομές",
         
         // Gallery

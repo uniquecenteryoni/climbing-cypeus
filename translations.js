@@ -150,6 +150,7 @@ const translations = {
         "tour6-title": "טיול לעמק הארזים (Cedar Valley)",
         "tour6-desc": "יער ארזים עתיק ונדיר עם עצי ארז קפריסאים אנדמיים, נופי הרים מרהיבים וטבע בר מדהים.",
         "tours-more": "עוד מסלולים",
+        "read-more": "קרא עוד ›",
         
         // Gallery
         "gallery-title": "הרגעים שלכם",
@@ -617,6 +618,7 @@ const translations = {
         "tour6-title": "Cedar Valley Hike",
         "tour6-desc": "Ancient and rare cedar forest with endemic Cypriot cedar trees, spectacular mountain views and amazing wildlife.",
         "tours-more": "More Routes",
+        "read-more": "Read More ›",
         
         // Gallery
         "gallery-title": "Your Moments",
@@ -1069,6 +1071,7 @@ const translations = {
         "tour6-title": "Поход в Кедровую Долину",
         "tour6-desc": "Древний и редкий кедровый лес с эндемичными кипрскими кедрами, захватывающими горными пейзажами и удивительной дикой природой.",
         "tours-more": "Больше Маршрутов",
+        "read-more": "Читать Далее ›",
         
         // Gallery
         "gallery-title": "Поделитесь С Нами Своими Моментами",
@@ -1516,6 +1519,7 @@ const translations = {
         "tour6-title": "Πεζοπορία στην Κοιλάδα των Κέδρων",
         "tour6-desc": "Αρχαίο και σπάνιο δάσος κέδρων με ενδημικά κυπριακά κέδρα, εντυπωσιακές ορεινές θέες και καταπληκτική άγρια ζωή.",
         "tours-more": "Περισσότερες Διαδρομές",
+        "read-more": "Διαβάστε Περισσότερα ›",
         
         // Gallery
         "gallery-title": "Μοιραστείτε τις Στιγμές σας Μαζί μας",

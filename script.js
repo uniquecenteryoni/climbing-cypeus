@@ -111,6 +111,35 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Lightbox
     initLightbox();
+    
+    // Handle guidebook order button clicks
+    const guidebookButtons = document.querySelectorAll('a[href="#contact"][data-i18n="activity-guidebook-btn"]');
+    guidebookButtons.forEach(button => {
+        button.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Scroll to contact form
+            const contactSection = document.querySelector('#contact');
+            if (contactSection) {
+                contactSection.scrollIntoView({ behavior: 'smooth' });
+                
+                // Wait for scroll, then fill in the message
+                setTimeout(() => {
+                    const messageField = document.querySelector('#message');
+                    if (messageField) {
+                        const messages = {
+                            'he': 'שלום, אני מעוניין/ת בהזמנת גייד בוק של קפריסין ואיסוף ציוד טיפוס דרכך. נשמח לפרטים נוספים.',
+                            'en': 'Hello, I am interested in ordering the Cyprus climbing guidebook and picking up climbing gear from you. I would appreciate more details.',
+                            'ru': 'Здравствуйте, я заинтересован в заказе путеводителя по скалолазанию на Кипре и получении снаряжения от вас. Буду рад дополнительной информации.',
+                            'el': 'Γεια σας, ενδιαφέρομαι να παραγγείλω τον οδηγό αναρρίχησης της Κύπρου και να παραλάβω εξοπλισμό από εσάς. Θα εκτιμούσα περισσότερες λεπτομέρειες.'
+                        };
+                        messageField.value = messages[currentLang] || messages['he'];
+                        messageField.focus();
+                    }
+                }, 1000);
+            }
+        });
+    });
 });
 
 // Set language function

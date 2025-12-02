@@ -54,20 +54,19 @@
     <!-- Navigation -->
     <nav class="navbar">
         <div class="container">
-            <div class="logo">
+            <a href="index.html#home" class="logo" style="text-decoration: none; color: inherit;">
                 <img src="pics/עין.png" alt="Cyprus Adventures Logo">
                 <div class="logo-text">
                     <h2 data-i18n="site-title">קפריסין בעין אחרת</h2>
                     <p class="tagline" data-i18n="site-tagline">טיפוס צוקים וטיולים מודרכים</p>
                 </div>
-            </div>
+            </a>
             <ul class="nav-menu">
-                <li><a href="index.html#home" data-i18n="nav-home">בית</a></li>
-                <li><a href="index.html#about-me" data-i18n="nav-about-me">אודות</a></li>
+                <li><a href="climber-guide.html" data-i18n="nav-climber-guide">המדריך למטפס</a></li>
                 <li><a href="index.html#activities" data-i18n="nav-climbing">טיפוס צוקים וסנפלינג</a></li>
-                <li><a href="index.html#testimonials" data-i18n="nav-testimonials">ממליצים</a></li>
                 <li><a href="index.html#tours" data-i18n="nav-tours">טיולים רגליים</a></li>
                 <li><a href="index.html#gallery" data-i18n="nav-gallery">גלריה</a></li>
+                <li><a href="index.html#about-me" data-i18n="nav-about-me">אודות</a></li>
                 <li><a href="index.html#contact" data-i18n="nav-contact">יצירת קשר</a></li>
             </ul>
             <!-- Language Switcher Dropdown -->
@@ -78,8 +77,6 @@
                 <div class="lang-dropdown" id="langDropdown">
                     <button class="lang-option active" data-lang="he">HE - עברית</button>
                     <button class="lang-option" data-lang="en">EN - English</button>
-                    <button class="lang-option" data-lang="ru">RU - Русский</button>
-                    <button class="lang-option" data-lang="el">EL - Ελληνικά</button>
                 </div>
             </div>
             <div class="hamburger">
@@ -91,23 +88,40 @@
     </nav>
 
     <!-- Equipment Rental Hero -->
-    <section class="tour-hero">
+    <section class="tour-hero" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('pics/rent.jpg') center 30%/cover;">
         <div class="tour-hero-content">
             <div class="container">
-                <h1 data-i18n="equipment-title">השכרת ציוד טיפוס</h1>
-                <p data-i18n="equipment-subtitle">ציוד מקצועי ואיכותי להובלה ובולדרינג</p>
+                <h1 data-i18n="equipment-title" style="color: white;">השכרת ציוד טיפוס וגייד בוק</h1>
+                <p data-i18n="equipment-subtitle" style="color: white;">ציוד מקצועי ואיכותי + מדריך טיפוס מקיף</p>
             </div>
         </div>
     </section>
 
+    <!-- Quick Navigation Menu -->
+    <div style="background: #2c5f2d; padding: 1rem 0; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 10px rgba(0,0,0,0.2);">
+        <div class="container">
+            <nav style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap;">
+                <a href="#rental" style="color: white; text-decoration: none; padding: 0.5rem 1.5rem; border-radius: 5px; transition: all 0.3s; font-weight: 500;" onmouseover="this.style.background='rgba(255,255,255,0.2)'" onmouseout="this.style.background='transparent'">
+                    <i class="fas fa-hiking"></i> <span data-i18n="nav-equipment-rental">השכרת ציוד טיפוס</span>
+                </a>
+                <a href="#bouldering" style="color: white; text-decoration: none; padding: 0.5rem 1.5rem; border-radius: 5px; transition: all 0.3s; font-weight: 500;" onmouseover="this.style.background='rgba(255,255,255,0.2)'" onmouseout="this.style.background='transparent'">
+                    <i class="fas fa-hands"></i> <span data-i18n="nav-equipment-bouldering">השכרת ציוד בולדרינג</span>
+                </a>
+                <a href="#guidebook" style="color: white; text-decoration: none; padding: 0.5rem 1.5rem; border-radius: 5px; transition: all 0.3s; font-weight: 500;" onmouseover="this.style.background='rgba(255,255,255,0.2)'" onmouseout="this.style.background='transparent'">
+                    <i class="fas fa-book"></i> <span data-i18n="nav-equipment-guidebook">הזמנת גייד הטיפוס</span>
+                </a>
+            </nav>
+        </div>
+    </div>
+
     <!-- Equipment Details Section -->
-    <section class="tour-details">
+    <section class="tour-details" id="rental">
         <div class="container">
             <div class="tour-content">
                 <!-- Lead Climbing Equipment -->
                 <div class="equipment-package">
                     <div class="equipment-header">
-                        <h2><i class="fas fa-mountain"></i> <span data-i18n="equipment-lead-title">ציוד להובלה ספורטיבית וטראד (Sport & Trad Climbing)</span></h2>
+                        <h2><i class="fas fa-mountain"></i> <span data-i18n="equipment-lead-title">ציוד להובלה ספורטיבית וטראד</span></h2>
                         <p class="equipment-intro" data-i18n="equipment-lead-intro">חבילה מושלמת למטפסים שרוצים לצאת לעצמאות בהובלה ספורטיבית או טראד</p>
                     </div>
                     
@@ -118,8 +132,8 @@
                             <li><i class="fas fa-check-circle"></i> <strong data-i18n="equipment-harness">רתמה</strong> <span data-i18n="equipment-harness-desc">(2 יחידות לזוג)</span></li>
                             <li><i class="fas fa-check-circle"></i> <strong data-i18n="equipment-helmet">קסדות</strong> <span data-i18n="equipment-helmet-desc">(2 יחידות לזוג)</span></li>
                             <li><i class="fas fa-check-circle"></i> <strong data-i18n="equipment-belay">מכשיר אבטחה</strong> <span data-i18n="equipment-belay-desc">(GriGri / ATC)</span></li>
-                            <li><i class="fas fa-check-circle"></i> <strong data-i18n="equipment-quickdraws">ראנרים</strong> (Quickdraws) - <span data-i18n="equipment-quickdraws-desc">סט של 12 יחידות להובלה ספורטיבית</span></li>
-                            <li><i class="fas fa-check-circle"></i> <strong data-i18n="equipment-trad">ציוד טראד</strong> - <span data-i18n="equipment-trad-desc">סט של קאמים (Cams), נאטס (Nuts) וסלינגים (Slings) להובלה טראדיציונלית</span></li>
+                            <li><i class="fas fa-check-circle"></i> <strong data-i18n="equipment-quickdraws">ראנרים (Quickdraws)</strong> - <span data-i18n="equipment-quickdraws-desc">סט של 12 יחידות</span></li>
+                            <li><i class="fas fa-check-circle"></i> <strong data-i18n="equipment-trad">ציוד טראד</strong> - <span data-i18n="equipment-trad-desc">נאטס (Nuts) וסלינגים (Slings)</span></li>
                             <li><i class="fas fa-check-circle"></i> <strong data-i18n="equipment-chalk">שקי מגנזיום</strong> <span data-i18n="equipment-chalk-desc">(2 יחידות)</span></li>
                         </ul>
                     </div>
@@ -135,13 +149,17 @@
                 </div>
 
                 <!-- Bouldering Equipment -->
-                <div class="equipment-package">
+                <div class="equipment-package" id="bouldering">
                     <div class="equipment-header">
                         <h2><i class="fas fa-hands"></i> <span data-i18n="equipment-boulder-title">ציוד לבולדרינג (Bouldering)</span></h2>
                         <p class="equipment-intro" data-i18n="equipment-boulder-intro">קראשפדים איכותיים למטפסים שרוצים לתרגל בולדרינג</p>
                     </div>
                     
                     <div class="equipment-list">
+                        <div class="guide-image" style="margin: 2rem 0;">
+                            <img src="pics/padrent.jpg" alt="בולדרינג בקפריסין" loading="lazy" style="max-width: 100%; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+                        </div>
+                        
                         <h3 data-i18n="equipment-options">אפשרויות השכרה:</h3>
                         <ul>
                             <li><i class="fas fa-check-circle"></i> <strong data-i18n="equipment-crashpad-single">קראשפד בודד</strong> - <span data-i18n="equipment-crashpad-single-desc">מזרן נחיתה איכותי</span></li>
@@ -164,6 +182,60 @@
                                 </div>
                             </div>
                             <a href="index.html#contact" class="equipment-order-btn" data-equipment-type="קראשפדים לבולדרינג" data-i18n="equipment-order-btn">הזמן עכשיו</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cyprus Climbing Guidebook Section -->
+                <div class="equipment-package" id="guidebook" style="background: linear-gradient(rgba(255,255,255,0.95), rgba(255,255,255,0.95)), url('pics/guide.jpeg') center/cover; padding: 3rem 2rem; border-radius: 15px; margin-top: 3rem;">
+                    <div class="equipment-header">
+                        <h2><i class="fas fa-book"></i> <span data-i18n="guidebook-title">גייד בוק לטיפוס בקפריסין</span></h2>
+                    </div>
+                    
+                    <div class="guidebook-gallery" style="margin: 2rem 0;">
+                        <img src="pics/guide.jpeg" alt="Cyprus Guidebook" loading="lazy" style="max-width: 600px; width: 100%; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.3); display: block; margin: 0 auto 2rem;">
+                    </div>
+                    
+                    <div class="guidebook-content" style="max-width: 800px; margin: 0 auto; line-height: 1.8;">
+                        <h3 style="color: #2c5f2d; margin-top: 2rem;" data-i18n="guidebook-about">אודות הטיפוס בקפריסין</h3>
+                        <p data-i18n="guidebook-desc-1">
+                            קפריסין מציעה מספר אזורי טיפוס עם מסלולים למטפסים בכל רמות המיומנות. פאפוס מארחת הן את המצוקים הקשים ביותר והן את הפופולריים ביותר באי, חצי האי אקאמס מציע נופים מרהיבים לאורך החוף הצפון-מערבי, מצוקים איכותיים רבים נמצאים לאורך רכס הרי קירניה, הרי טרודוס משתרעים במרכז האי, וקאבו גרקו משקיף על החוף היפה של איה נאפה.
+                        </p>
+                        
+                        <div style="display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap; margin: 2rem 0;">
+                            <img src="pics/guidebook1.png" alt="Cyprus Guidebook Page 1" loading="lazy" style="max-width: 350px; width: 100%; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.3);">
+                            <img src="pics/guidebook2.png" alt="Cyprus Guidebook Page 2" loading="lazy" style="max-width: 350px; width: 100%; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.3);">
+                        </div>
+                        
+                        <p data-i18n="guidebook-desc-2">
+                            האזורים העיקריים מורכבים מסוגים שונים של אבן גיר שהיא קשה ומסיבית (ללא שכבות) בדיאריזוס ואפיסקופי, עשירה בתכונות (כולל טופות) ברכס קירניה, וחדה ומעוטרת בקאבו גרקו. סלעי חצי האי אקאמס, המציעים טיפוס ספורט, טראד ובולדרינג, הם צורה של אבן חול קומפקטית.
+                        </p>
+                        
+                        <p data-i18n="guidebook-desc-3">
+                            כל המגזרים הללו מספקים טיפוס ספורט מרמת 5 נמוכה ועד בערך 8b+/8c, עם פרויקטים רבים שעדיין פתוחים, ועם יותר מ-<strong>600 מסלולים ביותר מ-20 מגזרים</strong>, קפריסין היא יעד מצוין למטפסים בכל רמה.
+                        </p>
+                        
+                        <div style="background: #f0f8f0; padding: 1.5rem; border-radius: 10px; margin: 2rem 0; border-left: 4px solid #97c24a;">
+                            <h4 style="color: #2c5f2d; margin-top: 0;" data-i18n="guidebook-includes">מה כולל הגייד בוק:</h4>
+                            <ul style="margin: 1rem 0;">
+                                <li><i class="fas fa-check-circle" style="color: #97c24a;"></i> <span data-i18n="guidebook-feature-1">תיאורי מסלולים מפורטים ל-600+ טיפוסים</span></li>
+                                <li><i class="fas fa-check-circle" style="color: #97c24a;"></i> <span data-i18n="guidebook-feature-2">קואורדינטות GPS מדויקות לכל המגזרים</span></li>
+                                <li><i class="fas fa-check-circle" style="color: #97c24a;"></i> <span data-i18n="guidebook-feature-3">טופו צבעוני ותמונות</span></li>
+                                <li><i class="fas fa-check-circle" style="color: #97c24a;"></i> <span data-i18n="guidebook-feature-4">טיפים מקומיים ובטא</span></li>
+                                <li><i class="fas fa-check-circle" style="color: #97c24a;"></i> <span data-i18n="guidebook-feature-5">מידע גישה וחניה</span></li>
+                                <li><i class="fas fa-check-circle" style="color: #97c24a;"></i> <span data-i18n="guidebook-feature-6">העונות הטובות ביותר לטפס בכל אזור</span></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="equipment-pricing">
+                        <div class="price-box">
+                            <h3 data-i18n="guidebook-order-title">הזמן את הגייד בוק</h3>
+                            <p class="price-note" data-i18n="guidebook-order-note" style="font-size: 1.1rem; margin: 1.5rem 0;">קבל את הגייד בוק ישירות ממני - חוסך משלוח!</p>
+                            <p style="margin-top: 1rem; color: #666; font-size: 0.9rem;">
+                                <i class="fas fa-info-circle"></i> <span data-i18n="guidebook-combo-tip">קומבו מושלם: הזמן את הגייד בוק + השכר ציוד באותו יום</span>
+                            </p>
+                            <a href="index.html#contact" class="equipment-order-btn" data-equipment-type="גייד בוק לטיפוס בקפריסין" data-i18n="guidebook-order-btn">צור קשר להזמנה</a>
                         </div>
                     </div>
                 </div>

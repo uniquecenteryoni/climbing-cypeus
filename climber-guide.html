@@ -1,0 +1,1068 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="המדריך למטפס בקפריסין - סקירה מקיפה של מצוקי הטיפוס, בולדרים וקירות טיפוס באי. מאת יוני כהן">
+    <meta name="keywords" content="מדריך טיפוס קפריסין, מצוקי קפריסין, בולדר קפריסין, Gerakopetra, Episkopi, climbing guide Cyprus">
+    <title>המדריך למטפס בקפריסין - קפריסין בעין אחרת</title>
+    
+    <!-- Favicons -->
+    <link rel="icon" type="image/png" sizes="32x32" href="pics/עין.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="pics/עין.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="pics/עין.png">
+    <link rel="shortcut icon" href="pics/עין.png">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="tour-page.css">
+    
+    <!-- Load translations first -->
+    <script src="translations.js"></script>
+    
+    <!-- Apply language settings immediately to prevent flash -->
+    <script>
+        (function() {
+            const savedLang = localStorage.getItem('preferred-language') || 'he';
+            const html = document.documentElement;
+            html.setAttribute('lang', savedLang);
+            html.setAttribute('dir', savedLang === 'he' ? 'rtl' : 'ltr');
+            
+            // Apply translations as soon as DOM is ready
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', function() {
+                    applyTranslations(savedLang);
+                });
+            } else {
+                applyTranslations(savedLang);
+            }
+            
+            function applyTranslations(lang) {
+                document.body?.classList.toggle('rtl', lang === 'he');
+                document.body?.classList.toggle('ltr', lang !== 'he');
+                
+                const elements = document.querySelectorAll('[data-i18n]');
+                elements.forEach(element => {
+                    const key = element.getAttribute('data-i18n');
+                    if (translations[lang] && translations[lang][key]) {
+                        element.innerHTML = translations[lang][key];
+                    }
+                });
+            }
+        })();
+    </script>
+    
+    <style>
+        .guide-hero {
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
+                        url('pics/climberguide/ineia2.jpg') center 60%/cover;
+            height: 40vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+        }
+        
+        .guide-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+            line-height: 1.8;
+        }
+        
+        .guide-content h2 {
+            color: #2c5f2d;
+            margin-top: 3rem;
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+            border-bottom: 3px solid #97c24a;
+            padding-bottom: 0.5rem;
+        }
+        
+        .guide-content h3 {
+            color: #2c5f2d;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+        
+        .guide-content p {
+            margin-bottom: 1.5rem;
+            text-align: justify;
+        }
+        
+        .guide-content ul, .guide-content ol {
+            margin: 1.5rem 0;
+            padding-right: 2rem;
+        }
+        
+        .guide-content li {
+            margin-bottom: 1rem;
+        }
+        
+        .guide-image {
+            margin: 2rem 0;
+            text-align: center;
+        }
+        
+        .guide-image img {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        
+        .guide-image-caption {
+            text-align: center !important;
+            font-style: italic;
+            color: #666;
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+        }
+        
+        /* Image Carousel Styles */
+        .image-carousel {
+            position: relative;
+            margin: 2rem 0;
+            text-align: center;
+        }
+        
+        .carousel-container {
+            position: relative;
+            max-width: 100%;
+            margin: 0 auto;
+            height: 500px;
+            overflow: hidden;
+            cursor: pointer;
+        }
+        
+        .carousel-image {
+            display: none;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 40%;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            cursor: pointer;
+            pointer-events: auto;
+        }
+        
+        .carousel-image.active {
+            display: block;
+        }
+        
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(44, 95, 45, 0.7);
+            color: white;
+            border: none;
+            padding: 1rem;
+            cursor: pointer;
+            font-size: 1.5rem;
+            border-radius: 5px;
+            transition: all 0.3s;
+            z-index: 10;
+            pointer-events: auto;
+        }
+        
+        .carousel-btn:hover {
+            background: rgba(44, 95, 45, 0.9);
+        }
+        
+        .carousel-btn.prev {
+            left: 10px;
+        }
+        
+        .carousel-btn.next {
+            right: 10px;
+        }
+        
+        .carousel-dots {
+            text-align: center;
+            margin-top: 1rem;
+        }
+        
+        .carousel-dot {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #ccc;
+            margin: 0 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .carousel-dot.active {
+            background: #2c5f2d;
+            width: 14px;
+            height: 14px;
+        }
+        
+        .guide-image-caption {
+            text-align: center !important;
+            font-style: italic;
+            color: #666;
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+            direction: ltr;
+        }
+        
+        .climbing-wall-box {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+            border-right: 4px solid #97c24a;
+        }
+        
+        .intro-quote {
+            font-size: 1.2rem;
+            font-style: italic;
+            color: #555;
+            border-right: 4px solid #97c24a;
+            padding-right: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        @media (max-width: 768px) {
+            .guide-hero {
+                height: 40vh;
+            }
+            
+            .guide-content {
+                padding: 2rem 1rem;
+            }
+            
+            .guide-content h2 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html#home" class="logo" style="text-decoration: none; color: inherit;">
+                <img src="pics/עין.png" alt="Cyprus Adventures Logo">
+                <div class="logo-text">
+                    <h2 data-i18n="site-title">קפריסין בעין אחרת</h2>
+                    <p class="tagline" data-i18n="site-tagline">טיפוס צוקים וטיולים מודרכים</p>
+                </div>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="climber-guide.html" class="active" data-i18n="nav-climber-guide">המדריך למטפס</a></li>
+                <li><a href="index.html#activities" data-i18n="nav-climbing">טיפוס צוקים וסנפלינג</a></li>
+                <li><a href="index.html#tours" data-i18n="nav-tours">טיולים רגליים</a></li>
+                <li><a href="index.html#gallery" data-i18n="nav-gallery">גלריה</a></li>
+                <li><a href="index.html#about-me" data-i18n="nav-about-me">אודות</a></li>
+                <li><a href="index.html#contact" data-i18n="nav-contact">יצירת קשר</a></li>
+            </ul>
+            <!-- Language Switcher -->
+            <div class="language-switcher">
+                <button class="lang-toggle" id="langToggle" aria-label="Change Language">
+                    <span class="current-lang">HE</span>
+                </button>
+                <div class="lang-dropdown" id="langDropdown">
+                    <button class="lang-option active" data-lang="he">HE - עברית</button>
+                    <button class="lang-option" data-lang="en">EN - English</button>
+                </div>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="guide-hero">
+        <div class="container">
+            <h1 data-i18n="climber-guide-title">המדריך למטפס בקפריסין</h1>
+            <p data-i18n="climber-guide-subtitle">על האי השכן והאבנים שפזורים בו</p>
+        </div>
+    </section>
+
+    <!-- Language Note for English Visitors -->
+    <div class="language-note" style="background: #fff3cd; border: 2px solid #ffc107; border-radius: 10px; padding: 1.5rem; margin: 2rem auto; max-width: 800px; text-align: center; display: none;">
+        <p style="margin: 0; color: #856404; font-size: 1.1rem;">
+            <i class="fas fa-info-circle"></i> <strong>Note:</strong> This climbing guide article is available in Hebrew only. For detailed climbing information in English, please check out the <a href="equipment.html#guidebook" style="color: #856404; text-decoration: underline;">Cyprus Climbing Guidebook</a>.
+        </p>
+    </div>
+
+    <!-- Quick Navigation Menu -->
+    <div style="background: #2c5f2d; padding: 1rem 0; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 10px rgba(0,0,0,0.2);">
+        <div class="container">
+            <nav style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap;">
+                <a href="#logistics" style="color: white; text-decoration: none; padding: 0.5rem 1.5rem; border-radius: 5px; transition: all 0.3s; font-weight: 500;" onmouseover="this.style.background='rgba(255,255,255,0.2)'" onmouseout="this.style.background='transparent'">
+                    <i class="fas fa-info-circle"></i> לוגיסטיקה
+                </a>
+                <a href="#north" style="color: white; text-decoration: none; padding: 0.5rem 1.5rem; border-radius: 5px; transition: all 0.3s; font-weight: 500;" onmouseover="this.style.background='rgba(255,255,255,0.2)'" onmouseout="this.style.background='transparent'">
+                    <i class="fas fa-mountain"></i> טיפוס בצפון האי
+                </a>
+                <a href="#south" style="color: white; text-decoration: none; padding: 0.5rem 1.5rem; border-radius: 5px; transition: all 0.3s; font-weight: 500;" onmouseover="this.style.background='rgba(255,255,255,0.2)'" onmouseout="this.style.background='transparent'">
+                    <i class="fas fa-hiking"></i> טיפוס בדרום האי
+                </a>
+                <a href="#bouldering" style="color: white; text-decoration: none; padding: 0.5rem 1.5rem; border-radius: 5px; transition: all 0.3s; font-weight: 500;" onmouseover="this.style.background='rgba(255,255,255,0.2)'" onmouseout="this.style.background='transparent'">
+                    <i class="fas fa-hands"></i> בולדרינג
+                </a>
+                <a href="#shade-calc" style="color: white; text-decoration: none; padding: 0.5rem 1.5rem; border-radius: 5px; transition: all 0.3s; font-weight: 500;" onmouseover="this.style.background='rgba(255,255,255,0.2)'" onmouseout="this.style.background='transparent'">
+                    <i class="fas fa-sun"></i> מחשבון צל
+                </a>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Article Content -->
+    <article class="guide-content">
+        <div class="intro-quote">
+            קפריסין, במרחק של 45 דקות טיסה, האי השכן הידוע בשל מלונותיו, אבן אפרודיטה ומסיבות סוף תיכון באיי נאפה, וחוץ מזה לא באמת עניין אף אחד אף פעם. את האמת? גם אותי לא.
+        </div>
+
+        <p>
+            מפה לשם התגלגלתי לכך שהעברתי מספר חודשים באי וכמובן כמו כל מהלך בחיים? איפה הטיפוס נכנס פה בכל הסיפור הזה?
+        </p>
+
+        <p>
+            היי, אני יונתן, כיום מתגורר באי, מדריך טיפוס, אבא לטבע ונשוי לבר. הנה לכם מדריך קצר-ארוך שיעשה לכם קצת סדר ויגלה לכם קצת מכל הטוב שיש לקפריסין להציע
+        </p>
+
+        <h2 id="logistics">קצת לוגיסטיקה</h2>
+        
+        <p>
+            <strong>תחבורה:</strong> חובה להשכיר רכב, אין אפשרות להסתדר בתחבורה ציבורית, רישיון ישראלי מספיק. שימו לב שהנהיגה פה היא בצד ההפוך.
+        </p>
+
+        <p>
+            <strong>לאן טסים:</strong> 2 שדות תעופה מרכזיים: לרנקה ופאפוס. כל הטיפוס מתרכז בפאפוס ולכן אם אתם מצליחים למצוא טיסה לשם - הרווחתם!
+        </p>
+
+        <p>
+            <strong>איפה ישנים:</strong> האופציה הטובה ביותר היא למצוא דירה דרך AirBnb, יש מצב שיתמזל מזלכם ותצליחו למצוא מקום לינה גם בקרבת המצוקים שזה נהדר. חפשו את הבית שלכם ליד הכפרים Ineia ו-Droushia. למי שרוצה להיות קרוב לים ולהנות מ-2 העולמות אפשר לישון גם בפאפוס (קצת יותר חיי לילה ומסעדות) או בפוליס (חופים מדהימים), שני ערים אלו במרחק נסיעה של 45 דקות למצוקים.
+        </p>
+
+        <p>
+            <strong>מטבע:</strong> המטבע הרשמי בקפריסין (הרפובליקה של קפריסין, החלק הדרומי) הוא אירו (€). השימוש בכרטיסי אשראי וכרטיסי חיוב (Debit Cards) מסוג ויזה (Visa) ומסטרקארד (Mastercard) הוא נפוץ מאוד ומקובל ברוב המכריע של בתי המלון, המסעדות, החנויות הגדולות וסוכנויות השכרת הרכב.
+        </p>
+
+        <p>
+            <strong>ויזה:</strong> אזרחי ישראל ואזרחי האיחוד האירופי (EU) ומדינות ה-EEA אינם נדרשים לוויזה כדי להיכנס ולשהות בקפריסין למטרות תיירות לתקופה של עד 90 יום. אזרחים מכל מדינה אחרת מחויבים לבדוק באופן עצמאי את דרישות הוויזה והאישורים הרלוונטיים מול שגרירות קפריסין המקומית או משרד החוץ הקפריסאי.
+        </p>
+
+        <p>
+            <strong>ציוד:</strong> מי שמעוניין להשכיר ציוד טיפוס ובולדרינג, ניתן לפנות אליי - <a href="equipment.html" style="color: #2c5f2d; font-weight: bold; text-decoration: underline;">לחצו כאן</a>
+        </p>
+
+        <h2>קירות הטיפוס בקפריסין</h2>
+        
+        <p>
+            קפריסין מציעה מספר קירות טיפוס פנים איכותיים המפוזרים ברחבי האי. בשנים האחרונות נפתחו מתקנים חדשים ומודרניים המציעים אפשרויות טיפוס מגוונות למטפסים בכל הרמות. הקירות ממוקמים בעיקר בערים הגדולות ומציעים מקום מצוין לאימון, פגישת מטפסים מקומיים ושמירה על כושר בימי גשם או חום קיצוני.
+        </p>
+
+        <div class="climbing-wall-box">
+            <h3>ניקוסיה</h3>
+            <ol>
+                <li>
+                    <strong><a href="https://www.redpointcy.com" target="_blank" rel="noopener" style="color: #2c5f2d; text-decoration: underline;">RedPoint</a></strong> - המתקן החדש והמודרני ביותר באי, נפתח ב-2022. משולב עם מתחם פארקור ומציע חוויית טיפוס מקצועית עם Moonboard, Campus board, חדר אימונים מאובזר, ומגוון רחב של מסלולים. הצוות המקצועי והידידותי יעזור לכם להתקדם. מתאים למתחילים ולמטפסים מנוסים כאחד.
+                </li>
+                <li>
+                    <strong><a href="https://ungravityclimbing.com/" target="_blank" rel="noopener" style="color: #2c5f2d; text-decoration: underline;">Ungravity</a></strong> - קיר טיפוס ותיק שנפתח ב-2019, ממוקם בשכונת סטודנטים ומציע אווירה נעימה וקהילתית. מקום מצוין להכיר מטפסים מקומיים ולהצטרף לקבוצות טיפוס. מחירים סבירים ואווירה ידידותית במיוחד למטפסים חדשים.
+                </li>
+                <li>
+                    <strong><a href="https://rockstarclimbing.cy/" target="_blank" rel="noopener" style="color: #2c5f2d; text-decoration: underline;">Rockstar Climbing Gym</a></strong> - המתקן החדש ביותר בניקוסיה, נפתח ב2025, קיר טיפוס מודרני ומאתגר עם מסלולים מגוונים, ציוד מתקדם ואזור בולדרינג. מושלם למי שמחפש אתגר חדש בבירה.
+                </li>
+            </ol>
+
+            <h3>לימסול</h3>
+            <ol>
+                <li>
+                    <strong><a href="https://limassolclimbing.com/home" target="_blank" rel="noopener" style="color: #2c5f2d; text-decoration: underline;">Limassol Climbing Club (LLC)</a></strong> - קיר טיפוס אינטימי בלימסול, מציע אפשרות נוחה למי שנמצא באזור לשמור על כושר ולהכיר את קהילת המטפסים המקומית. אידיאלי לאימונים קבועים ופגישה עם מטפסים מהאזור.
+                </li>
+            </ol>
+        </div>
+
+        <p>
+            <strong>טיפ מועיל:</strong> מחיר מנוי חודשי בקירות נע בין 50-70 יורו, ורוב הקירות מציעים גם כניסות בודדות. מומלץ להצטרף לקבוצות הפייסבוק של המטפסים המקומיים - זו הדרך הטובה ביותר להכיר שותפים לטיפוס בטבע ולקבל מידע מעודכן על פתיחת מסלולים חדשים.
+        </p>
+
+        <h2>רקע להבנת ענייני המצוקים באי</h2>
+
+        <p>
+            קפריסין נשלטה ע"י האנגליים ובה חיו זה לצד זה קפריסאים וטורקים (מזכיר משהו, לא?). בשנת 1974 חלה הפיכה באי ע"י הטורקים שרצו שיכירו בהם כמדינה ("מבצע אטילה" למתעניינים) והתוצאה, המדינה חולקה כך שהרפובליקה הטורקית שולטת ב-37% מהחלק הצפוני של האי, ולה מטבע, שפה, וסממנים אתניים משלה. ולקפריסאים נשאר מטען ריגשי, סופלקי ו-63% מהמדינה.
+        </p>
+
+        <p>
+            הם נוהגים לקרוא לחלק הטורקי: "החלק הכבוש של צפון קפריסין" ולמעשה מצאתי המון דברים דומים בין המצב בארץ למה שקורה פה. אבל הרבה יותר light אפשר לומר. אבל לא באנו לדבר על פוליטיקה.
+        </p>
+        <p>
+            ומפה אנחנו קופצים לסקירת המצוקים שאם הבנתם נכון, אנחנו נחלק את זה למצוקים בקפריסין עצמה (דרום) ובחלק הצפוני של קפריסין ששייך לטורקים. הדגש יהיה במצוקים המרכזיים בלבד.
+        </p>
+        
+        <div style="background: #f0f8f0; padding: 2rem; border-radius: 10px; margin: 2rem 0; text-align: center; border: 2px solid #97c24a;">
+            <h3 style="color: #2c5f2d; margin-bottom: 1.5rem; margin-top: 0;">מתכננים לטפס בקפריסין?</h3>
+            <p style="margin-bottom: 1.5rem; font-size: 1.1rem;">הזמינו ציוד טיפוס איכותי או קבלו את הגייד בוק המקיף</p>
+            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                <a href="equipment.html#rental" class="cta-button" style="background: #2c5f2d; color: white; padding: 1rem 2rem; text-decoration: none; border-radius: 5px; display: inline-block; transition: all 0.3s;">
+                    <i class="fas fa-hiking"></i> הזמנת ציוד טיפוס
+                </a>
+                <a href="equipment.html#guidebook" class="cta-button" style="background: #97c24a; color: white; padding: 1rem 2rem; text-decoration: none; border-radius: 5px; display: inline-block; transition: all 0.3s;">
+                    <i class="fas fa-book"></i> הזמנת גייד בוק
+                </a>
+            </div>
+        </div>
+
+        <h2 id="north">החלק הצפוני של קפריסין</h2>
+
+        <p>
+            ראשית כדי לעבור לחלק זה יש לעבור גבול ולהציג דרכונים. לא תהליך מסובך אבל יכול לקחת חצי שעה אם יש פקקים בצ'קפוינט. המטבע המקומי שם הוא לירה טורקית אבל הם מקבלים כמובן גם יורו.
+        </p>
+
+        <p>
+            החסרון המובהק לתיירים הוא שלעבור עם רכב שכור מהצד של קפריסין לצד הטורקי זה לא כזה עניין פשוט\משתלם ולכן למצוא מטפסים מקומיים ולהצטרף אליהם תהיה אפשרות מעולה.. מה שבטוח על המצוקים האלה אסור לוותר!
+        </p>
+
+        <p>
+            בחלק זה של האי הטיפוס הספורטיבי עולה על כל דימיון ומציע אתרים שלא נופלים מיעדים עולמיים! עם מסלולים ארוכים, טופות, מערות וסלע איכותי ביותר. אני רושם פה חלק מהמצוקים שאסור לפספס, יתר המידע כמו דרכי הגעה, פירוט מסלולים תוכלו למצוא בגיידבוק (ניתן להזמין אליי לאיסוף)
+        </p>
+
+        <div class="image-carousel" data-captions='["coco jumbo 7c, Buffa wall photo:@stef47", "Sawina on Sikofagos Ext 8a, Goat House"]'>
+            <div class="carousel-container">
+                <img src="pics/climberguide/north.jpg" alt="החלק הצפוני של קפריסין" loading="lazy" class="carousel-image active">
+                <img src="pics/climberguide/north3-1.jpg" alt="החלק הצפוני של קפריסין" loading="lazy" class="carousel-image">
+                <button class="carousel-btn prev" onclick="changeSlide(this, -1, event)">❮</button>
+                <button class="carousel-btn next" onclick="changeSlide(this, 1, event)">❯</button>
+            </div>
+            <div class="carousel-dots">
+                <span class="carousel-dot active" onclick="currentSlide(this, 0, event)"></span>
+                <span class="carousel-dot" onclick="currentSlide(this, 1, event)"></span>
+            </div>
+            <p class="guide-image-caption">coco jumbo 7c, Buffa wall photo:@stef47</p>
+        </div>
+
+        <h3>1. Buffawall</h3>
+        <p>
+            שוכן בלב של עמק ירוק, פסטורלי מאוד עם נוף כמובן לים הפתוח. המסלולים רובם כפייסים חלקים וארוכים עד 40 מטר. כ-15 מסלולים נכון להיום. רובם מסלולים קשים (7 ומעלה) שנפתחו ממש לאחרונה (2022). יש מספר טופות במצוק מה שמוסיף עניין לטיפוס!
+        </p>
+
+        <h3>2. Garga-Suyu</h3>
+        <p>
+            אחד המצוקים הותיקים באי, המון מסלולים, סלע איכותי, דירוגים מגוונים מאוד. חסרון בולט זה שהמצוק קרוב לכביש ויש מעט רעש.
+        </p>
+
+        <h3>3. Kozan Koy / Larnaka of Lapithos</h3>
+        <p>
+            שוכן לצד הכפר Kozan ולצידו עוד 2 מצוקי ספורט משניים. סגנון ורטיקלי עם מעט טופות. גיוון בדירוגים כך שכל אחד יוכל למצוא לו פרוייקט נחמד.
+        </p>
+
+        <div class="guide-image">
+            <figure style="margin: 0;">
+                <img src="pics/climberguide/north3.jpg" alt="טיפוס בצפון קפריסין" loading="lazy">
+                <figcaption style="text-align: center; margin-top: 0.5rem; font-style: italic; color: #666;">grand pasha 7b Goat house</figcaption>
+            </figure>
+        </div>
+
+        <h3>4. Goat House</h3>
+        <p>
+            כנראה המצוק הטוב ביותר בחלק הצפוני! מצוי באזור הרי קירניה, מציע שילוב ייחודי של טיפוס ספורט וטראד. המצוק מתאפיין בסלע איכותי ומסלולים טכניים שמאתגרים מטפסים בעלי ניסיון. הגישה למצוק כוללת הליכה קלה דרך שטח פסטורלי עם נוף פנורמי של החוף הצפון-מערבי. המצוק מציע אמפיתיאטרון טבעי עם מסלולים בדירוגים מגוונים, מה שהופך אותו למקום אידיאלי לסשן טיפוס של יום שלם. שעות הצל הטובות הן בבוקר ובשעות אחר הצהריים המאוחרות, והמקום מתאים במיוחד לעונות האביב והסתיו.
+        </p>
+
+        <h2 id="south">החלק הדרומי (קפריסין)</h2>
+
+        <h3>1. Diarizous</h3>
+        <p>
+            מצוק ידידותי ומיוחד במינו. קשת רחבה של דירוגים ומתאים מאוד למתחילים. יש שני מצוקים זה מול זה במרחק של 10 צעדים ככה שאפשר לטפס כל היום! תמיד יש צל. הגישה קלה (דקה הליכה) ויש נחל זורם במרחק של דקת הליכה נוספת במורד הכביש. סגנון טיפוס: ברובו פייסי.
+        </p>
+
+        <div class="image-carousel" data-captions='["Taxhidi Mialou 7b+, Diarizous", "Meir before Micro Cosomos 7a", "Stefanos Direct 7a+", "Guru 6c"]'>
+            <div class="carousel-container">
+                <img src="pics/climberguide/diarizous.jpg" alt="Diarizous" loading="lazy" class="carousel-image active">
+                <img src="pics/climberguide/diarizous3.jpg" alt="Diarizous" loading="lazy" class="carousel-image" style="object-position: center 80%;">
+                <img src="pics/climberguide/diarizous4.jpg" alt="Diarizous" loading="lazy" class="carousel-image">
+                <img src="pics/climberguide/dizrizous2.jpg" alt="Diarizous" loading="lazy" class="carousel-image">
+                <button class="carousel-btn prev" onclick="changeSlide(this, -1, event)">❮</button>
+                <button class="carousel-btn next" onclick="changeSlide(this, 1, event)">❯</button>
+            </div>
+            <div class="carousel-dots">
+                <span class="carousel-dot active" onclick="currentSlide(this, 0, event)"></span>
+                <span class="carousel-dot" onclick="currentSlide(this, 1, event)"></span>
+                <span class="carousel-dot" onclick="currentSlide(this, 2, event)"></span>
+                <span class="carousel-dot" onclick="currentSlide(this, 3, event)"></span>
+            </div>
+            <p class="guide-image-caption">Taxhidi Mialou 7b+, Diarizous</p>
+        </div>
+
+        <h3>2. Episkopi</h3>
+        <p>
+            כפר עתיק ליד פאפוס (לא להתבלבל יש כפר נוסף באותו שם ליד לימסול) שלמרגלותיו מצוק היסטרי של 60 מטר!! נשמע טוב מידי? צודקים. המצוק הזה תחת איסור טיפוס משיקולים של פוליטיקה וציפורים (לא נכנס לזה כעת, נושא טעון מאוד בקרב ציבור המטפסים פה).
+        </p>
+
+        <p>
+            אבל לא לדאוג! בצמוד למצוק ההיסטרי יש את המצוק "בייבי" שלו, בגובה של 35 מטר עם כל מסלולים בכל הסגנונות וכל הדירוגים. המצוק יושב כמעט כולו בסביבת עצים ענקיים שנותנים צל לאורך רוב שעות היום. מומלץ להגיע בשעות הבוקר המאוחרות. אפשר לשבת אחרי זה לקפה בבית קפה המקומי (1.5 יורו) או בהפסקה בין סשנים.
+        </p>
+        
+        <div class="image-carousel" data-captions='["OverDose 8a, Episkopi", "Episkopi, the hardcore crag of Cyprus", "Panayotis on his way, Status Negativus 7c+", "@Panayotios, Black Mamba 7c+"]'>
+            <div class="carousel-container">
+                <img src="pics/climberguide/Episkopi.jpg" alt="Episkopi" loading="lazy" class="carousel-image active">
+                <img src="pics/climberguide/Episkopi1.jpg" alt="Episkopi" loading="lazy" class="carousel-image">
+                <img src="pics/climberguide/Episkopi2.jpg" alt="Episkopi" loading="lazy" class="carousel-image">
+                <img src="pics/climberguide/Episkopi3.jpg" alt="Episkopi" loading="lazy" class="carousel-image">
+                <button class="carousel-btn prev" onclick="changeSlide(this, -1, event)">❮</button>
+                <button class="carousel-btn next" onclick="changeSlide(this, 1, event)">❯</button>
+            </div>
+            <div class="carousel-dots">
+                <span class="carousel-dot active" onclick="currentSlide(this, 0, event)"></span>
+                <span class="carousel-dot" onclick="currentSlide(this, 1, event)"></span>
+                <span class="carousel-dot" onclick="currentSlide(this, 2, event)"></span>
+                <span class="carousel-dot" onclick="currentSlide(this, 3, event)"></span>
+            </div>
+            <p class="guide-image-caption">OverDose 8a, Episkopi</p>
+        </div>
+
+        <h3>3. Ineia & Drousia</h3>
+        <p>
+            צמד הכפרים היפייפיים "אינייה-דרושיה" שמציע ממלכה אינסופית של מאות בולדרים (!!) ומספר מצוקי ספורט שהמפורסם והמעולה בינהם הוא Gerakopetra. אבן חול באיכות גבוה מאוד וכמובן שבסוף כל יום טיפוס מומלץ לקפוץ לאחד הכפרים הציוריים ולאכול בטברנה מקומית עם אוכל מזרח תיכוני טעים במחיר שווה לכל נפש. רושם לכם על מצוק הספורט המרכזי Gerakopetra, ייתר המצוקים באזור תוכלו למצוא בגייד.
+        </p>
+
+        <div class="guide-image">
+            <figure style="margin: 0;">
+                <img src="pics/climberguide/ineia2.jpg" alt="Ineia & Drousia" loading="lazy">
+                <figcaption style="text-align: center; margin-top: 0.5rem; font-style: italic; color: #666;">Edge of Glory 7c+/8a, Konefti</figcaption>
+            </figure>
+        </div>
+
+        <h3>Gerakopetra</h3>
+
+        <p>
+            מצוק מרשים, עשיר במסלולים ארוכים בכל הדירוגים עם נוף מהפנט לים התיכון ולשדה הבולדרים העצום שפרוש בכל עבר. בעל 2 מפנים ניצבים מה שמאפשר טיפוס מהבוקר עד הצהריים המאוחרים. גישה כמובן קלה ביותר (5 דק הליכה) כמו שהקפריסאים אוהבים.
+        </p>
+
+        <div class="image-carousel" data-captions='["Nomos Varititas 7a, Gerakopetra", "Amit Marcus resting infront of the sea"]'>
+            <div class="carousel-container">
+                <img src="pics/climberguide/gerakopetra.jpg" alt="Gerakopetra" loading="lazy" class="carousel-image active" style="object-position: center 10%;">
+                <img src="pics/climberguide/gerakopetra1.jpg" alt="Gerakopetra" loading="lazy" class="carousel-image">
+                <button class="carousel-btn prev" onclick="changeSlide(this, -1, event)">❮</button>
+                <button class="carousel-btn next" onclick="changeSlide(this, 1, event)">❯</button>
+            </div>
+            <div class="carousel-dots">
+                <span class="carousel-dot active" onclick="currentSlide(this, 0, event)"></span>
+                <span class="carousel-dot" onclick="currentSlide(this, 1, event)"></span>
+            </div>
+            <p class="guide-image-caption">Nomos Varititas 7a, Gerakopetra</p>
+        </div>
+
+        <h2 id="bouldering">בולדרינג - פנינה נסתרת של המזרח התיכון</h2>
+
+        <h3>Ineia & Drousia - פה הכל קורה</h3>
+
+        <p>
+            אזור אינייה-דרושיה הוא אחד הסודות הגדולים של הטיפוס במזרח התיכון - יותר מ-300 בולדרים (ומעל 700 בעיות) באיכות עולמית מפוזרים על פני שטח של כמה קילומטרים רבועים, עם אבן חול קומפקטית ייחודית שמזכירה את הסלע של פונטנבלו אבל עם חום ושמש של הים התיכון.
+        </p>
+
+        <p>
+            בתחום הבולדרים יש גישה ומידע דרך אפליקציית <strong>27crags</strong> (בתשלום) שם ניתן לראות מידע על המסלולים ודרכי הגעה. זה מרגיש ממש כמו ספארי עם מערכת שבילים\כבישים פנימית שאיתה אפשר לעבור בין בולדר לבולדר וכמובן לעשות קפינג באיזו פינה טובה שאתם מוצאים (לא חוקי בקפריסין אבל כל עוד מכבדים את הטבע הכל נעשה בשלום).
+        </p>
+
+        <p>
+            <strong>הפיתוח נמשך בקצב מהיר!</strong> כל חודש מתווספים בולדרים חדשים ע"י המטפסים המקומיים והבינלאומיים שמגלים את הפוטנציאל האדיר של האזור. כיום הדירוג הגבוה ביותר של בולדר באי נמצא על <strong>8a (V11 בסקאלה הצרפתית)</strong>, מה שמעיד על הראשוניות של הספורט ועל הפוטנציאל האדיר של המקום. ישנם עשרות פרויקטים פתוחים בדירוגים גבוהים שמחכים למי שירצה להשאיר את חותמו.
+        </p>
+
+        <div style="background: #f0f8f0; padding: 1.5rem; border-radius: 10px; margin: 2rem 0; border-right: 4px solid #97c24a;">
+            <h4 id="shade-calc" style="color: #2c5f2d; margin-top: 0;"><i class="fas fa-sun"></i> מחשבון שעות צל</h4>
+            <p style="margin-bottom: 1rem;">
+                אחד האתגרים בטיפוס בקפריסין הוא החום, במיוחד בקיץ. פיתחתי <a href="https://uniquecenteryoni.github.io/suncalc/calc.html" target="_blank" rel="noopener" style="color: #2c5f2d; font-weight: bold; text-decoration: underline;">מחשבון שעות צל</a> ייעודי שעוזר למטפסים לדעת בדיוק מתי יהיה צל בכל מצוק לפי התאריך והשעה. הכלי זמין בחינם לכל המטפסים ויכול לעזור לכם לתכנן את יום הטיפוס בצורה מושלמת.
+            </p>
+            <a href="https://uniquecenteryoni.github.io/suncalc/calc.html" target="_blank" rel="noopener" class="cta-button" style="background: #2c5f2d; color: white; padding: 0.75rem 1.5rem; text-decoration: none; border-radius: 5px; display: inline-block;">
+                <i class="fas fa-calculator"></i> לחץ למחשבון שעות הצל
+            </a>
+        </div>
+
+        <p>
+            בתור מטפס שהוא לא בולדריסט אני ממש ממליץ על האתר הזה – הוא ממש מיוחד. השילוב של הסלע האיכותי, הנופים המרהיבים לים ולעמקים, והאווירה השלווה הופכים את זה לחוויית בולדרינג ייחודית שקשה למצוא במקומות אחרים.
+        </p>
+
+        <div class="image-carousel">
+            <div class="carousel-container">
+                <img src="pics/climberguide/boulderting2.jpg" alt="בולדרינג בקפריסין" loading="lazy" class="carousel-image active">
+                <img src="pics/climberguide/boulderting3.jpg" alt="בולדרינג בקפריסין" loading="lazy" class="carousel-image">
+                <img src="pics/climberguide/boulderting4.jpg" alt="בולדרינג בקפריסין" loading="lazy" class="carousel-image">
+                <img src="pics/climberguide/boulderting5.jpg" alt="בולדרינג בקפריסין" loading="lazy" class="carousel-image">
+                <img src="pics/climberguide/boulderting6.jpg" alt="בולדרינג בקפריסין" loading="lazy" class="carousel-image">
+                <button class="carousel-btn prev" onclick="changeSlide(this, -1, event)">❮</button>
+                <button class="carousel-btn next" onclick="changeSlide(this, 1, event)">❯</button>
+            </div>
+            <div class="carousel-dots">
+                <span class="carousel-dot active" onclick="currentSlide(this, 0, event)"></span>
+                <span class="carousel-dot" onclick="currentSlide(this, 1, event)"></span>
+                <span class="carousel-dot" onclick="currentSlide(this, 2, event)"></span>
+                <span class="carousel-dot" onclick="currentSlide(this, 3, event)"></span>
+                <span class="carousel-dot" onclick="currentSlide(this, 4, event)"></span>
+            </div>
+            <p class="guide-image-caption">בולדרינג באזור Ineia & Drousia</p>
+        </div>
+        
+        <div style="margin-top: 2rem; padding: 2rem; background: #e7f3ff; border-radius: 10px; border-right: 4px solid #2196F3;">
+            <h3 style="color: #0d47a1; margin-bottom: 1rem;"><i class="fas fa-hands"></i> מתכננים חופשת בולדרינג?</h3>
+            <p style="color: #0d47a1; line-height: 1.8; margin-bottom: 1.5rem;">
+                <strong>גייד בוק לבולדרינג בקפריסין בהכנה!</strong> הגייד המקיף לבולדרינג צפוי לצאת בשנת 2026. בינתיים, כל המידע והמסלולים זמינים באפליקציית <strong>27crags</strong>.
+            </p>
+            
+            <div style="background: #fff; padding: 1.5rem; border-radius: 8px; margin: 1.5rem 0; border: 2px dashed #2196F3;">
+                <h4 style="color: #0d47a1; margin-top: 0; margin-bottom: 1rem;">
+                    <i class="fas fa-download"></i> טופו בולדרינג זמני - הורדה חינמית!
+                </h4>
+                <p style="color: #0d47a1; margin-bottom: 1rem;">
+                    עד לצאת הגייד בוק המלא, זמין טופו זמני עם מידע על הבולדרים העיקריים באזור. ההורדה חינמית לחלוטין!
+                </p>
+                <a href="https://drive.google.com/file/d/1orY-S9njxascLgNAr5QPcHZE5oQyMlos/view?usp=sharing" 
+                   target="_blank" 
+                   rel="noopener" 
+                   class="cta-button" 
+                   style="background: #2196F3; color: white; padding: 0.75rem 1.5rem; text-decoration: none; border-radius: 5px; display: inline-block; font-weight: bold;">
+                    <i class="fas fa-file-pdf"></i> הורד טופו בולדרינג בחינם
+                </a>
+            </div>
+            
+            <p style="color: #0d47a1; line-height: 1.8;">
+                צריכים קראשפדים לבולדרינג? <a href="equipment.html#bouldering" style="color: #1976d2; font-weight: bold; text-decoration: underline;">השכירו ציוד בולדרינג איכותי</a> ישירות ממני!
+            </p>
+        </div>
+
+        <div style="margin-top: 3rem; padding: 2rem; background: #fff3cd; border-radius: 10px; border-right: 4px solid #ffc107;">
+            <h3 style="color: #856404; margin-bottom: 1rem;"><i class="fas fa-info-circle"></i> חשוב לדעת</h3>
+            <p style="color: #856404; line-height: 1.8;">
+                המצוקים שתוארו כאן הם רק חלק קטן מהאפשרויות הקיימות בקפריסין. הטיפוס באי נמצא בפיתוח מתמיד עם מסלולים חדשים שנפתחים באופן קבוע, מצוקים נוספים שמתגלים ואזורים חדשים שמתפתחים. הקהילה המקומית פעילה ונלהבת, והפוטנציאל לטיפוס באי עדיין רחוק מלהתממש במלואו. מומלץ להתעדכן באינטרנט, ליצור קשר עם מטפסים מקומיים ולהצטרף לקבוצות הפייסבוק של קהילת הטיפוס הקפריסאית לקבלת מידע עדכני על פיתוחים חדשים ותנאים.
+            </p>
+        </div>
+
+        <div style="margin-top: 4rem; padding: 2rem; background: #f8f9fa; border-radius: 10px; text-align: center;">
+            <h3 style="color: #2c5f2d; margin-bottom: 1rem;">רוצים להתחיל את המסע שלכם בקפריסין?</h3>
+            <p style="margin-bottom: 1.5rem;">אני אשמח להדריך אתכם במצוקים, לעזור בתכנון הטיול ולחלוק את הידע המקומי</p>
+            <a href="index.html#contact" class="cta-button" data-i18n="nav-contact">צור קשר</a>
+        </div>
+
+        <!-- Comments Section -->
+        <div style="margin-top: 4rem; padding: 2rem; background: white; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+            <h3 style="color: #2c5f2d; margin-bottom: 1.5rem; text-align: center;">💬 תגובות ושאלות</h3>
+            <p style="text-align: center; color: #666; margin-bottom: 2rem;">שתפו את החוויות שלכם, שאלו שאלות או הוסיפו טיפים נוספים למטפסים!</p>
+            
+            <!-- Simple comment form -->
+            <div id="comments-container">
+                <div class="comment-form" style="background: #f8f9fa; padding: 1.5rem; border-radius: 8px; margin-bottom: 2rem;">
+                    <h4 style="color: #2c5f2d; margin-bottom: 1rem;">הוסף תגובה</h4>
+                    <form id="commentForm" style="display: flex; flex-direction: column; gap: 1rem;">
+                        <input type="text" id="commentName" placeholder="שם" required style="padding: 0.75rem; border: 1px solid #ddd; border-radius: 5px; font-family: inherit;">
+                        <input type="email" id="commentEmail" placeholder="אימייל (לא יפורסם)" required style="padding: 0.75rem; border: 1px solid #ddd; border-radius: 5px; font-family: inherit;">
+                        <textarea id="commentText" placeholder="התגובה שלך..." rows="4" required style="padding: 0.75rem; border: 1px solid #ddd; border-radius: 5px; font-family: inherit; resize: vertical;"></textarea>
+                        <button type="submit" style="padding: 0.75rem 2rem; background: #2c5f2d; color: white; border: none; border-radius: 5px; cursor: pointer; font-weight: bold; align-self: flex-start;">
+                            שלח תגובה
+                        </button>
+                    </form>
+                    <p style="font-size: 0.9rem; color: #666; margin-top: 1rem;">
+                        <i class="fas fa-info-circle"></i> התגובות נשמרות באופן מקומי ונשלחות אליי לאישור לפני פרסום
+                    </p>
+                </div>
+
+                <div id="commentsList" style="margin-top: 2rem;">
+                    <h4 style="color: #2c5f2d; margin-bottom: 1rem;">תגובות קודמות</h4>
+                    <p style="color: #666; text-align: center; padding: 2rem;">אין תגובות עדיין. היו הראשונים להגיב!</p>
+                </div>
+            </div>
+        </div>
+    </article>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 data-i18n="site-title">קפריסין בעין אחרת</h3>
+                    <p data-i18n="site-tagline">טיפוס צוקים וטיולים מודרכים</p>
+                </div>
+                <div class="footer-section">
+                    <h4 data-i18n="footer-links">קישורים</h4>
+                    <ul>
+                        <li><a href="index.html#home" data-i18n="nav-home">בית</a></li>
+                        <li><a href="index.html#about-me" data-i18n="nav-about-me">אודות</a></li>
+                        <li><a href="index.html#activities" data-i18n="nav-activities">הפעילויות שלנו</a></li>
+                        <li><a href="climber-guide.html" data-i18n="nav-climber-guide">המדריך למטפס</a></li>
+                        <li><a href="index.html#gallery" data-i18n="nav-gallery">גלריה</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 data-i18n="footer-social">עקבו אחרינו</h4>
+                    <div class="social-links-footer">
+                        <a href="https://www.facebook.com/groups/895126888648835/" target="_blank" class="social-icon facebook">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                            </svg>
+                        </a>
+                        <a href="https://youtu.be/0Cx-s4l6His" target="_blank" class="social-icon youtube">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 <span data-i18n="site-title">קפריסין בעין אחרת</span>. <span data-i18n="footer-rights">כל הזכויות שמורות</span>.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Show language note for English visitors
+        document.addEventListener('DOMContentLoaded', function() {
+            const langNote = document.querySelector('.language-note');
+            const currentLang = localStorage.getItem('preferred-language') || 'he';
+            
+            function updateLanguageNote() {
+                const lang = localStorage.getItem('preferred-language') || 'he';
+                if (langNote) {
+                    langNote.style.display = (lang === 'en') ? 'block' : 'none';
+                }
+            }
+            
+            // Update on page load
+            updateLanguageNote();
+            
+            // Update when language changes
+            const langOptions = document.querySelectorAll('.lang-option');
+            langOptions.forEach(option => {
+                option.addEventListener('click', function() {
+                    setTimeout(updateLanguageNote, 100);
+                });
+            });
+
+            // Simple comment form handling
+            const commentForm = document.getElementById('commentForm');
+            if (commentForm) {
+                commentForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    const name = document.getElementById('commentName').value;
+                    const email = document.getElementById('commentEmail').value;
+                    const text = document.getElementById('commentText').value;
+                    
+                    // Create mailto link to send comment
+                    const subject = encodeURIComponent('תגובה חדשה למדריך המטפס');
+                    const body = encodeURIComponent(`שם: ${name}\nאימייל: ${email}\n\nתגובה:\n${text}`);
+                    window.location.href = `mailto:yoni@climbing-cyprus.com?subject=${subject}&body=${body}`;
+                    
+                    // Show confirmation message
+                    alert('תודה על התגובה! היא תישלח אליי לאישור ותפורסם בקרוב.');
+                    commentForm.reset();
+                });
+            }
+            
+            // Add click handlers to carousel containers for lightbox
+            const carouselContainers = document.querySelectorAll('.carousel-container');
+            carouselContainers.forEach(container => {
+                container.addEventListener('click', function(e) {
+                    // Don't open lightbox if clicking on buttons or dots
+                    if (e.target.classList.contains('carousel-btn') || 
+                        e.target.classList.contains('carousel-dot') ||
+                        e.target.closest('.carousel-btn') ||
+                        e.target.closest('.carousel-dots')) {
+                        return;
+                    }
+                    
+                    // Get the carousel and active image
+                    const carousel = container.closest('.image-carousel');
+                    const images = container.querySelectorAll('.carousel-image');
+                    const activeImage = container.querySelector('.carousel-image.active');
+                    const currentIndex = Array.from(images).findIndex(img => img === activeImage);
+                    
+                    if (activeImage && currentIndex !== -1) {
+                        console.log('Clicking on carousel, opening lightbox');
+                        window.openLightbox(carousel, currentIndex);
+                    }
+                });
+            });
+        });
+    </script>
+
+    <script>
+        // Image Carousel functionality
+        function changeSlide(btn, direction, event) {
+            if (event) event.stopPropagation(); // Prevent lightbox from opening
+            const carousel = btn.closest('.carousel-container');
+            const images = carousel.querySelectorAll('.carousel-image');
+            const dotsContainer = btn.closest('.image-carousel').querySelector('.carousel-dots');
+            const dots = dotsContainer.querySelectorAll('.carousel-dot');
+            
+            let currentIndex = Array.from(images).findIndex(img => img.classList.contains('active'));
+            
+            images[currentIndex].classList.remove('active');
+            dots[currentIndex].classList.remove('active');
+            
+            currentIndex = (currentIndex + direction + images.length) % images.length;
+            
+            images[currentIndex].classList.add('active');
+            dots[currentIndex].classList.add('active');
+            
+            // Update caption if exists
+            updateCaption(btn.closest('.image-carousel'), currentIndex);
+        }
+        
+        function currentSlide(dot, index, event) {
+            if (event) event.stopPropagation(); // Prevent lightbox from opening
+            const carousel = dot.closest('.image-carousel');
+            const images = carousel.querySelectorAll('.carousel-image');
+            const dots = carousel.querySelectorAll('.carousel-dot');
+            
+            images.forEach(img => img.classList.remove('active'));
+            dots.forEach(d => d.classList.remove('active'));
+            
+            images[index].classList.add('active');
+            dots[index].classList.add('active');
+            
+            // Update caption if exists
+            updateCaption(carousel, index);
+        }
+        
+        function updateCaption(carousel, index) {
+            const captionsData = carousel.getAttribute('data-captions');
+            if (captionsData) {
+                const captions = JSON.parse(captionsData);
+                const captionElement = carousel.querySelector('.guide-image-caption');
+                if (captionElement && captions[index]) {
+                    captionElement.textContent = captions[index];
+                }
+            }
+        }
+        
+        // Lightbox functionality
+        let currentLightboxCarousel = null;
+        let currentLightboxIndex = 0;
+        
+        window.openLightbox = function(carousel, index) {
+            console.log('Opening lightbox for carousel, index:', index);
+            
+            currentLightboxCarousel = carousel;
+            currentLightboxIndex = index;
+            
+            const images = carousel.querySelectorAll('.carousel-image');
+            const imageSrc = images[index].src;
+            
+            // Create lightbox if it doesn't exist
+            let lightbox = document.getElementById('imageLightbox');
+            if (!lightbox) {
+                lightbox = document.createElement('div');
+                lightbox.id = 'imageLightbox';
+                lightbox.style.cssText = `
+                    display: none;
+                    position: fixed;
+                    z-index: 9999;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: rgba(0,0,0,0.95);
+                    justify-content: center;
+                    align-items: center;
+                `;
+                
+                // Close button (X)
+                const closeBtn = document.createElement('button');
+                closeBtn.innerHTML = '✕';
+                closeBtn.style.cssText = `
+                    position: absolute;
+                    top: 20px;
+                    right: 30px;
+                    background: rgba(255,255,255,0.2);
+                    color: white;
+                    border: 2px solid white;
+                    border-radius: 50%;
+                    width: 50px;
+                    height: 50px;
+                    font-size: 30px;
+                    cursor: pointer;
+                    z-index: 10000;
+                    transition: all 0.3s;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    line-height: 1;
+                `;
+                closeBtn.onmouseover = function() {
+                    this.style.background = 'rgba(255,255,255,0.3)';
+                    this.style.transform = 'scale(1.1)';
+                };
+                closeBtn.onmouseout = function() {
+                    this.style.background = 'rgba(255,255,255,0.2)';
+                    this.style.transform = 'scale(1)';
+                };
+                closeBtn.onclick = function(e) {
+                    e.stopPropagation();
+                    lightbox.style.display = 'none';
+                };
+                
+                // Previous button
+                const prevBtn = document.createElement('button');
+                prevBtn.innerHTML = '❮';
+                prevBtn.style.cssText = `
+                    position: absolute;
+                    left: 30px;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    background: rgba(44, 95, 45, 0.7);
+                    color: white;
+                    border: none;
+                    padding: 1rem 1.5rem;
+                    font-size: 2rem;
+                    cursor: pointer;
+                    border-radius: 5px;
+                    z-index: 10000;
+                    transition: all 0.3s;
+                `;
+                prevBtn.onmouseover = function() {
+                    this.style.background = 'rgba(44, 95, 45, 0.9)';
+                };
+                prevBtn.onmouseout = function() {
+                    this.style.background = 'rgba(44, 95, 45, 0.7)';
+                };
+                prevBtn.onclick = function(e) {
+                    e.stopPropagation();
+                    changeLightboxImage(-1);
+                };
+                
+                // Next button
+                const nextBtn = document.createElement('button');
+                nextBtn.innerHTML = '❯';
+                nextBtn.style.cssText = `
+                    position: absolute;
+                    right: 30px;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    background: rgba(44, 95, 45, 0.7);
+                    color: white;
+                    border: none;
+                    padding: 1rem 1.5rem;
+                    font-size: 2rem;
+                    cursor: pointer;
+                    border-radius: 5px;
+                    z-index: 10000;
+                    transition: all 0.3s;
+                `;
+                nextBtn.onmouseover = function() {
+                    this.style.background = 'rgba(44, 95, 45, 0.9)';
+                };
+                nextBtn.onmouseout = function() {
+                    this.style.background = 'rgba(44, 95, 45, 0.7)';
+                };
+                nextBtn.onclick = function(e) {
+                    e.stopPropagation();
+                    changeLightboxImage(1);
+                };
+                
+                // Image container
+                const imgContainer = document.createElement('div');
+                imgContainer.style.cssText = `
+                    max-width: 90%;
+                    max-height: 90%;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                `;
+                
+                const img = document.createElement('img');
+                img.id = 'lightboxImage';
+                img.style.cssText = `
+                    max-width: 100%;
+                    max-height: 85vh;
+                    object-fit: contain;
+                    border-radius: 10px;
+                    box-shadow: 0 0 30px rgba(0,0,0,0.5);
+                `;
+                
+                // Caption for lightbox
+                const caption = document.createElement('div');
+                caption.id = 'lightboxCaption';
+                caption.style.cssText = `
+                    color: white;
+                    text-align: center;
+                    font-size: 1.2rem;
+                    margin-top: 1rem;
+                    padding: 0.5rem 1rem;
+                    background: rgba(0,0,0,0.7);
+                    border-radius: 5px;
+                    max-width: 90%;
+                `;
+                
+                imgContainer.appendChild(img);
+                imgContainer.appendChild(caption);
+                lightbox.appendChild(closeBtn);
+                lightbox.appendChild(prevBtn);
+                lightbox.appendChild(nextBtn);
+                lightbox.appendChild(imgContainer);
+                document.body.appendChild(lightbox);
+                
+                // Close on background click
+                lightbox.addEventListener('click', function(e) {
+                    if (e.target === lightbox) {
+                        this.style.display = 'none';
+                    }
+                });
+                
+                // Keyboard navigation
+                document.addEventListener('keydown', function(e) {
+                    if (lightbox.style.display === 'flex') {
+                        if (e.key === 'Escape') {
+                            lightbox.style.display = 'none';
+                        } else if (e.key === 'ArrowLeft') {
+                            changeLightboxImage(-1);
+                        } else if (e.key === 'ArrowRight') {
+                            changeLightboxImage(1);
+                        }
+                    }
+                });
+            }
+            
+            // Set image and caption, then show lightbox
+            document.getElementById('lightboxImage').src = imageSrc;
+            
+            // Update caption
+            const captionsData = carousel.getAttribute('data-captions');
+            const captionElement = document.getElementById('lightboxCaption');
+            if (captionsData && captionElement) {
+                const captions = JSON.parse(captionsData);
+                captionElement.textContent = captions[index] || '';
+            } else if (captionElement) {
+                // If no data-captions, use the visible caption
+                const visibleCaption = carousel.querySelector('.guide-image-caption');
+                captionElement.textContent = visibleCaption ? visibleCaption.textContent : '';
+            }
+            
+            lightbox.style.display = 'flex';
+        }
+        
+        window.changeLightboxImage = function(direction) {
+            if (!currentLightboxCarousel) return;
+            
+            const images = currentLightboxCarousel.querySelectorAll('.carousel-image');
+            currentLightboxIndex = (currentLightboxIndex + direction + images.length) % images.length;
+            
+            document.getElementById('lightboxImage').src = images[currentLightboxIndex].src;
+            
+            // Update caption when changing images
+            const captionsData = currentLightboxCarousel.getAttribute('data-captions');
+            const captionElement = document.getElementById('lightboxCaption');
+            if (captionsData && captionElement) {
+                const captions = JSON.parse(captionsData);
+                captionElement.textContent = captions[currentLightboxIndex] || '';
+            } else if (captionElement) {
+                const visibleCaption = currentLightboxCarousel.querySelector('.guide-image-caption');
+                captionElement.textContent = visibleCaption ? visibleCaption.textContent : '';
+            }
+        }
+    </script>
+</body>
+</html>

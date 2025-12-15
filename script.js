@@ -1,6 +1,191 @@
 // Language switcher and interaction functionality
 let currentLang = localStorage.getItem('preferred-language') || 'he';
 
+const ZAPIER_WEBHOOK_URL = 'https://hooks.zapier.com/hooks/catch/25633253/ufxjpvq/';
+
+function sendLeadToZapier(payload) {
+    const data = new URLSearchParams();
+    Object.entries(payload || {}).forEach(([key, value]) => {
+        if (value === undefined || value === null) return;
+        const stringValue = String(value).trim();
+        if (!stringValue) return;
+        data.append(key, stringValue);
+    });
+
+    // Use a simple form POST to avoid CORS preflight issues.
+    return fetch(ZAPIER_WEBHOOK_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        body: data
+    });
+}
+
+window.sendLeadToZapier = sendLeadToZapier;
+
+window.handleContactSubmit = async function(event) {
+    event.preventDefault();
+
+    const form = event.target;
+    if (!(form instanceof HTMLFormElement)) return false;
+
+    const name = (form.querySelector('#name')?.value || '').trim();
+    const email = (form.querySelector('#email')?.value || '').trim();
+    const phone = (form.querySelector('#phone')?.value || '').trim();
+    const message = (form.querySelector('#message')?.value || '').trim();
+
+    if (!name || !email || !message) {
+        alert('נא למלא שם, אימייל והודעה');
+        return false;
+    }
+
+    const submitBtn = form.querySelector('button[type="submit"]');
+    if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.dataset.originalText = submitBtn.textContent;
+        submitBtn.textContent = 'שולח...';
+    }
+
+    try {
+        await sendLeadToZapier({
+            source: 'contact',
+            name,
+            email,
+            phone,
+            message,
+            page: window.location.href,
+            lang: document.documentElement.getAttribute('lang') || currentLang,
+            ts: new Date().toISOString()
+        });
+
+        form.reset();
+        alert('ההודעה נשלחה! נחזור אליכם בהקדם.');
+    } catch (err) {
+        console.error('Failed to send contact lead to Zapier', err);
+        alert('הייתה בעיה בשליחה. נסו שוב בעוד רגע.');
+    } finally {
+        if (submitBtn) {
+            submitBtn.disabled = false;
+            if (submitBtn.dataset.originalText) {
+                submitBtn.textContent = submitBtn.dataset.originalText;
+                delete submitBtn.dataset.originalText;
+            }
+        }
+    }
+
+    return false;
+};
+
+window.openGuidebookModal = function() {
+    let overlay = document.getElementById('guidebookModalOverlay');
+
+    if (!overlay) {
+        overlay = document.createElement('div');
+        overlay.id = 'guidebookModalOverlay';
+        overlay.className = 'guidebook-modal-overlay';
+        
+        // Add inline styles to ensure proper positioning
+        overlay.style.cssText = `
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.75);
+            z-index: 10002;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem;
+        `;
+        
+        overlay.innerHTML = `
+            <div class="guidebook-modal" role="dialog" aria-modal="true" aria-labelledby="guidebookModalTitle" style="position: relative; width: 100%; max-width: 460px; background: white; border-radius: 12px; padding: 2rem; box-shadow: 0 10px 25px rgba(0,0,0,0.3);">
+                <button type="button" class="guidebook-modal-close" aria-label="סגור" style="position: absolute; top: 12px; right: 12px; width: 40px; height: 40px; border-radius: 50%; border: 2px solid rgba(0,0,0,0.15); background: rgba(0,0,0,0.03); cursor: pointer; font-size: 1.6rem; display: flex; align-items: center; justify-content: center;">×</button>
+                <h3 id="guidebookModalTitle" style="margin: 0 0 0.5rem; color: #2c5f2d;">שלחו לי את הטופו למייל</h3>
+                <p class="guidebook-modal-subtitle" style="margin: 0 0 1.5rem; line-height: 1.6; color: #555;">השאירו אימייל ונשלח לכם את הטופו.</p>
+
+                <form id="guidebookLeadForm" class="guidebook-modal-form" style="display: flex; flex-direction: column; gap: 1rem;">
+                    <label for="guidebookEmail" style="font-weight: 600;">אימייל</label>
+                    <input id="guidebookEmail" name="email" type="email" required autocomplete="email" placeholder="name@example.com" style="width: 100%; padding: 0.85rem 1rem; border: 1px solid rgba(0,0,0,0.2); border-radius: 8px; font-family: inherit; font-size: 1rem;" />
+                    <button type="submit" class="cta-button" style="padding: 0.85rem 1.5rem; background: #2c5f2d; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; font-size: 1rem;">שליחה</button>
+                </form>
+
+                <div class="guidebook-modal-success" aria-live="polite" style="display: none; margin-top: 1rem; padding: 1rem; border-radius: 8px; background: rgba(44,95,45,0.08); border: 1px solid rgba(44,95,45,0.25); font-weight: 600; text-align: center;">הגייד יישלח למייל שלך בקרוב!</div>
+            </div>
+        `;
+        document.body.appendChild(overlay);
+
+        const close = () => overlay.style.display = 'none';
+
+        overlay.addEventListener('click', (e) => {
+            if (e.target === overlay) close();
+        });
+
+        overlay.querySelector('.guidebook-modal-close')?.addEventListener('click', close);
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && overlay.style.display === 'flex') {
+                close();
+            }
+        });
+
+        const form = overlay.querySelector('#guidebookLeadForm');
+        form?.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const email = (overlay.querySelector('#guidebookEmail')?.value || '').trim();
+            if (!email) return;
+
+            const submitBtn = form.querySelector('button[type="submit"]');
+            if (submitBtn) {
+                submitBtn.disabled = true;
+                submitBtn.dataset.originalText = submitBtn.textContent;
+                submitBtn.textContent = 'שולח...';
+            }
+
+            try {
+                await sendLeadToZapier({
+                    source: 'climbingtopo',
+                    email,
+                    page: window.location.href,
+                    lang: document.documentElement.getAttribute('lang') || currentLang,
+                    ts: new Date().toISOString()
+                });
+
+                form.style.display = 'none';
+                overlay.querySelector('.guidebook-modal-success').style.display = 'block';
+            } catch (err) {
+                console.error('Failed to send guidebook lead to Zapier', err);
+                alert('הייתה בעיה בשליחה. נסו שוב בעוד רגע.');
+            } finally {
+                if (submitBtn) {
+                    submitBtn.disabled = false;
+                    if (submitBtn.dataset.originalText) {
+                        submitBtn.textContent = submitBtn.dataset.originalText;
+                        delete submitBtn.dataset.originalText;
+                    }
+                }
+            }
+
+            return false;
+        });
+    }
+
+    // Reset UI state on every open
+    const form = overlay.querySelector('#guidebookLeadForm');
+    const success = overlay.querySelector('.guidebook-modal-success');
+    if (success) success.style.display = 'none';
+    if (form) {
+        form.style.display = 'flex';
+        if (form instanceof HTMLFormElement) form.reset();
+    }
+
+    overlay.style.display = 'flex';
+    setTimeout(() => overlay.querySelector('#guidebookEmail')?.focus(), 0);
+};
+
 // Apply language immediately to prevent flash of wrong language
 (function() {
     const html = document.documentElement;

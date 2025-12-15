@@ -618,13 +618,12 @@
                 <p style="color: #0d47a1; margin-bottom: 1rem;">
                     עד לצאת הגייד בוק המלא, זמין טופו זמני עם מידע על הבולדרים העיקריים באזור. ההורדה חינמית לחלוטין!
                 </p>
-                <a href="https://drive.google.com/file/d/1orY-S9njxascLgNAr5QPcHZE5oQyMlos/view?usp=sharing" 
-                   target="_blank" 
-                   rel="noopener" 
+                <button onclick="event.preventDefault(); event.stopPropagation(); if(window.openGuidebookModal) { window.openGuidebookModal(); } else { alert('טוען...'); }" 
                    class="cta-button" 
-                   style="background: #2196F3; color: white; padding: 0.75rem 1.5rem; text-decoration: none; border-radius: 5px; display: inline-block; font-weight: bold;">
+                   type="button"
+                   style="background: #2196F3; color: white; padding: 0.75rem 1.5rem; text-decoration: none; border-radius: 5px; display: inline-block; font-weight: bold; border: none; cursor: pointer;">
                     <i class="fas fa-file-pdf"></i> הורד טופו בולדרינג בחינם
-                </a>
+                </button>
             </div>
             
             <p style="color: #0d47a1; line-height: 1.8;">
@@ -669,7 +668,9 @@
 
                 <div id="commentsList" style="margin-top: 2rem;">
                     <h4 style="color: #2c5f2d; margin-bottom: 1rem;">תגובות קודמות</h4>
-                    <p style="color: #666; text-align: center; padding: 2rem;">אין תגובות עדיין. היו הראשונים להגיב!</p>
+                    <div id="commentsContainer" style="display: flex; flex-direction: column; gap: 1.5rem;">
+                        <p style="color: #666; text-align: center; padding: 2rem;">טוען תגובות...</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -743,23 +744,90 @@
             // Simple comment form handling
             const commentForm = document.getElementById('commentForm');
             if (commentForm) {
-                commentForm.addEventListener('submit', function(e) {
+                commentForm.addEventListener('submit', async function(e) {
                     e.preventDefault();
                     
-                    const name = document.getElementById('commentName').value;
-                    const email = document.getElementById('commentEmail').value;
-                    const text = document.getElementById('commentText').value;
+                    const name = document.getElementById('commentName').value.trim();
+                    const email = document.getElementById('commentEmail').value.trim();
+                    const text = document.getElementById('commentText').value.trim();
                     
-                    // Create mailto link to send comment
-                    const subject = encodeURIComponent('תגובה חדשה למדריך המטפס');
-                    const body = encodeURIComponent(`שם: ${name}\nאימייל: ${email}\n\nתגובה:\n${text}`);
-                    window.location.href = `mailto:yoni@climbing-cyprus.com?subject=${subject}&body=${body}`;
+                    if (!name || !email || !text) {
+                        alert('נא למלא את כל השדות');
+                        return;
+                    }
                     
-                    // Show confirmation message
-                    alert('תודה על התגובה! היא תישלח אליי לאישור ותפורסם בקרוב.');
-                    commentForm.reset();
+                    const submitBtn = commentForm.querySelector('button[type="submit"]');
+                    if (submitBtn) {
+                        submitBtn.disabled = true;
+                        submitBtn.dataset.originalText = submitBtn.textContent;
+                        submitBtn.textContent = 'שולח...';
+                    }
+                    
+                    try {
+                        await window.sendLeadToZapier({
+                            source: 'comments',
+                            name: name,
+                            email: email,
+                            comment: text,
+                            page: window.location.href,
+                            lang: document.documentElement.getAttribute('lang') || 'he',
+                            ts: new Date().toISOString()
+                        });
+                        
+                        alert('תודה על התגובה! היא תישלח אליי לאישור ותפורסם בקרוב.');
+                        commentForm.reset();
+                    } catch (err) {
+                        console.error('Failed to send comment to Zapier', err);
+                        alert('הייתה בעיה בשליחה. נסו שוב בעוד רגע.');
+                    } finally {
+                        if (submitBtn) {
+                            submitBtn.disabled = false;
+                            if (submitBtn.dataset.originalText) {
+                                submitBtn.textContent = submitBtn.dataset.originalText;
+                                delete submitBtn.dataset.originalText;
+                            }
+                        }
+                    }
                 });
             }
+            
+            // Load and display approved comments
+            async function loadComments() {
+                try {
+                    const response = await fetch('approved-comments.json');
+                    const data = await response.json();
+                    const container = document.getElementById('commentsContainer');
+                    
+                    if (!data.comments || data.comments.length === 0) {
+                        container.innerHTML = '<p style="color: #666; text-align: center; padding: 2rem;">אין תגובות עדיין. היו הראשונים להגיב!</p>';
+                        return;
+                    }
+                    
+                    container.innerHTML = data.comments
+                        .filter(comment => comment.approved)
+                        .map(comment => `
+                            <div style="background: #f8f9fa; padding: 1.5rem; border-radius: 8px; border-right: 3px solid #2c5f2d;">
+                                <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                                    <strong style="color: #2c5f2d;">${escapeHtml(comment.name)}</strong>
+                                    <span style="color: #999; font-size: 0.9rem;">${comment.date}</span>
+                                </div>
+                                <p style="color: #333; line-height: 1.6; margin: 0;">${escapeHtml(comment.text)}</p>
+                            </div>
+                        `).join('');
+                } catch (err) {
+                    console.error('Failed to load comments:', err);
+                    document.getElementById('commentsContainer').innerHTML = '<p style="color: #666; text-align: center; padding: 2rem;">אין תגובות עדיין. היו הראשונים להגיב!</p>';
+                }
+            }
+            
+            function escapeHtml(text) {
+                const div = document.createElement('div');
+                div.textContent = text;
+                return div.innerHTML;
+            }
+            
+            // Load comments when page loads
+            loadComments();
             
             // Add click handlers to carousel containers for lightbox
             const carouselContainers = document.querySelectorAll('.carousel-container');

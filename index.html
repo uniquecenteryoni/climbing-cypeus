@@ -213,7 +213,7 @@
     <section id="home" class="hero">
         <div class="hero-overlay"></div>
         <div class="hero-content">
-            <h1 data-i18n="hero-title">כי לא באמת צריך להרחיק<br>בשביל הרפתקאות וחוויות מיוחדות</h1>
+            <h1 data-i18n="hero-title">לא צריך להרחיק<br>בשביל הרפתקאות מיוחדות</h1>
             <p data-i18n="hero-subtitle">טיפוס צוקים וטיולים מודרכים בקפריסין</p>
             <a href="#contact" class="cta-button" data-i18n="hero-cta">צור קשר</a>
         </div>
@@ -224,8 +224,8 @@
         <div class="container">
             <div class="about-content">
                 <h2 data-i18n="about-title">קפריסין בעין אחרת</h2>
-                <p data-i18n="about-text-1">אנו מתמחים בתכנון והדרכה של פעילויות בטבע, מותאמות לכל רמה.<br><br>
-בין אם זו סדנת טיפוס מרתקת למתחילים, קורס הובלה למתקדמים שרוצים לצאת לעצמאות בטיפוס, או טיולי הליכה מותאמים אישית – אנו מציעים לכם שקט נפשי, ליווי והדרכה מקצועית בעברית ובאנגלית ליום של הרפתקאה מרגשת ובטוחה.</p>
+                <p data-i18n="about-text-1">מתמחה בתכנון והדרכה של פעילויות בטבע, מותאמות לכל רמה.<br><br>
+בין אם זו סדנת טיפוס מרתקת למתחילים, קורס הובלה למתקדמים שרוצים לצאת לעצמאות בטיפוס, או טיולי הליכה מותאמים אישית – אני מציע לכם שקט נפשי, ליווי והדרכה מקצועית בעברית ובאנגלית ליום של הרפתקאה מרגשת ובטוחה.</p>
             </div>
 
             <div class="features">
@@ -441,7 +441,7 @@
                             <img src="pics/hikes /kshatot.jpg" alt="שביל הקשתות">
                         </div>
                         <div class="tour-content">
-                            <h3 data-i18n="tour2-title">טיול חד-כיווני לשביל הקשתות</h3>
+                            <h3 data-i18n="tour2-title">שביל הקשתות</h3>
                             <p data-i18n="tour2-desc">אם חיפשתם חוויה של נחל מקסים עם אבני משחק כמו בסרטים, שלוליות מים זורמים תחתיו - זה המסלול שלכם. עונה מומלצת: כל השנה.</p>
                             <span class="tour-author">Yonatan Cohen</span>
                             <span class="tour-date">Jan 13, 2024</span>
@@ -582,7 +582,7 @@
             <p class="contact-intro" data-i18n="contact-intro">נשמח לשמוע מכם ולעזור לכם לתכנן את הטיול המושלם שלכם בקפריסין</p>
             
             <div class="contact-form-wrapper">
-                <form class="contact-form" id="contactForm" action="https://formspree.io/f/mjkdalap" method="POST">
+                <form class="contact-form" id="contactForm" onsubmit="return handleContactSubmit(event)">
                     <div class="form-group">
                         <label for="name" data-i18n="form-name">שם מלא</label>
                         <input type="text" id="name" name="name" required placeholder="">
@@ -603,7 +603,12 @@
                         <textarea id="message" name="message" rows="5" required placeholder=""></textarea>
                     </div>
                     
-                    <button type="submit" class="submit-btn" data-i18n="form-submit">שלח הודעה</button>
+                    <div class="contact-buttons">
+                        <button type="submit" class="submit-btn" data-i18n="form-submit">שלח באימייל</button>
+                        <button type="button" class="whatsapp-btn" onclick="sendWhatsApp()">
+                            <i class="fab fa-whatsapp"></i> שלח בוואטסאפ
+                        </button>
+                    </div>
                 </form>
             </div>
         </div>
@@ -649,5 +654,47 @@
     </footer>
 
     <script src="script.js"></script>
+    <script>
+        async function sendWhatsApp() {
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const message = document.getElementById('message').value;
+            
+            if (!name || !message) {
+                alert('נא למלא לפחות שם והודעה');
+                return;
+            }
+            
+            // Send to Zapier first
+            try {
+                await window.sendLeadToZapier({
+                    source: 'contact-whatsapp',
+                    name: name,
+                    email: email,
+                    phone: phone,
+                    message: message,
+                    page: window.location.href,
+                    lang: document.documentElement.getAttribute('lang') || 'he',
+                    ts: new Date().toISOString()
+                });
+            } catch (err) {
+                console.error('Failed to send WhatsApp contact to Zapier', err);
+            }
+            
+            // Open WhatsApp
+            const whatsappMessage = `שלום, שמי ${name}
+${email ? `אימייל: ${email}` : ''}
+${phone ? `טלפון: ${phone}` : ''}
+
+${message}`;
+            
+            const whatsappNumber = '972504443328';
+            const encodedMessage = encodeURIComponent(whatsappMessage);
+            const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+            
+            window.open(whatsappUrl, '_blank');
+        }
+    </script>
 </body>
 </html>

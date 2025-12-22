@@ -627,12 +627,12 @@
                 <p style="color: #0d47a1; margin-bottom: 1rem;">
                     עד לצאת הגייד בוק המלא, זמין טופו זמני עם מידע על הבולדרים העיקריים באזור. ההורדה חינמית לחלוטין!
                 </p>
-                <a href="mailto:contact@cyprus-climbing.com?subject=בקשה לטופו בולדרינג&body=שלום, אשמח לקבל את הטופו בולדרינג. תודה!"
+                <button onclick="openTopoModal()" 
                    class="cta-button" 
                    type="button"
                    style="background: #2196F3; color: white; padding: 0.75rem 1.5rem; text-decoration: none; border-radius: 5px; display: inline-block; font-weight: bold; border: none; cursor: pointer;">
                     <i class="fas fa-file-pdf"></i> הורד טופו בולדרינג בחינם
-                </a>
+                </button>
             </div>
             
             <p style="color: #0d47a1; line-height: 1.8;">
@@ -726,8 +726,129 @@
         </div>
     </footer>
 
+    <!-- Topo Download Modal -->
+    <div id="topoModal" class="modal-overlay" style="display: none;">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeTopoModal()">&times;</button>
+            <h3 style="color: #2c5f2d; margin-bottom: 1rem;">הורדת טופו בולדרינג</h3>
+            <p style="margin-bottom: 1.5rem; color: #555;">השאירו את האימייל שלכם ונשלח לכם את הטופו בחינם!</p>
+            <form id="topoForm" action="https://formspree.io/f/mjkdalap" method="POST">
+                <input type="email" name="email" placeholder="האימייל שלך" required 
+                       style="width: 100%; padding: 0.75rem; margin-bottom: 1rem; border: 1px solid #ddd; border-radius: 5px; font-family: inherit;">
+                <input type="hidden" name="_subject" value="בקשה להורדת טופו בולדרינג">
+                <input type="hidden" name="request_type" value="topo_download">
+                <button type="submit" class="cta-button" 
+                        style="width: 100%; background: #2c5f2d; color: white; padding: 0.75rem; border: none; border-radius: 5px; cursor: pointer; font-weight: bold;">
+                    שלח לי את הטופו
+                </button>
+            </form>
+        </div>
+    </div>
+
     <script src="script.js"></script>
     <script>
+        // Topo modal functions
+        function openTopoModal() {
+            document.getElementById('topoModal').style.display = 'flex';
+        }
+        
+        function closeTopoModal() {
+            document.getElementById('topoModal').style.display = 'none';
+        }
+        
+        // Close modal on outside click
+        document.addEventListener('click', function(e) {
+            const modal = document.getElementById('topoModal');
+            if (e.target === modal) {
+                closeTopoModal();
+            }
+        });
+        
+        // Handle topo form submission
+        document.addEventListener('DOMContentLoaded', function() {
+            const topoForm = document.getElementById('topoForm');
+            if (topoForm) {
+                topoForm.addEventListener('submit', async function(e) {
+                    e.preventDefault();
+                    
+                    const submitBtn = topoForm.querySelector('button[type="submit"]');
+                    const originalText = submitBtn.textContent;
+                    submitBtn.disabled = true;
+                    submitBtn.textContent = 'שולח...';
+                    
+                    try {
+                        const formData = new FormData(topoForm);
+                        const response = await fetch(topoForm.action, {
+                            method: 'POST',
+                            body: formData,
+                            headers: {
+                                'Accept': 'application/json'
+                            }
+                        });
+                        
+                        if (response.ok) {
+                            topoForm.innerHTML = '<p style="text-align: center; color: #2c5f2d; font-weight: bold;"><i class="fas fa-check-circle"></i> הטופו נשלח למייל שלך!</p>';
+                            setTimeout(() => {
+                                closeTopoModal();
+                                topoForm.reset();
+                            }, 2000);
+                        } else {
+                            alert('אירעה שגיאה. נסה שוב.');
+                            submitBtn.disabled = false;
+                            submitBtn.textContent = originalText;
+                        }
+                    } catch (error) {
+                        alert('אירעה שגיאה. נסה שוב.');
+                        submitBtn.disabled = false;
+                        submitBtn.textContent = originalText;
+                    }
+                });
+            }
+            
+            // Handle comment form submission
+            const commentForm = document.getElementById('commentForm');
+            if (commentForm) {
+                commentForm.addEventListener('submit', async function(e) {
+                    e.preventDefault();
+                    
+                    const submitBtn = commentForm.querySelector('button[type="submit"]');
+                    const originalText = submitBtn.textContent;
+                    submitBtn.disabled = true;
+                    submitBtn.textContent = 'שולח...';
+                    
+                    try {
+                        const formData = new FormData(commentForm);
+                        const response = await fetch(commentForm.action, {
+                            method: 'POST',
+                            body: formData,
+                            headers: {
+                                'Accept': 'application/json'
+                            }
+                        });
+                        
+                        if (response.ok) {
+                            const successMsg = document.createElement('div');
+                            successMsg.className = 'form-message success-message';
+                            successMsg.innerHTML = '<i class="fas fa-check-circle"></i><p>תודה על התגובה! היא תישלח אליי לאישור ותפורסם בקרוב.</p>';
+                            commentForm.parentNode.insertBefore(successMsg, commentForm);
+                            commentForm.reset();
+                            setTimeout(() => {
+                                successMsg.style.opacity = '0';
+                                setTimeout(() => successMsg.remove(), 300);
+                            }, 5000);
+                        } else {
+                            alert('אירעה שגיאה. נסה שוב.');
+                        }
+                    } catch (error) {
+                        alert('אירעה שגיאה. נסה שוב.');
+                    } finally {
+                        submitBtn.disabled = false;
+                        submitBtn.textContent = originalText;
+                    }
+                });
+            }
+        });
+        
         // Show language note for English visitors
         document.addEventListener('DOMContentLoaded', function() {
             const langNote = document.querySelector('.language-note');

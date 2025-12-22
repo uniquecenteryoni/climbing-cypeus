@@ -666,6 +666,79 @@
 
     <script src="script.js"></script>
     <script>
+        // Handle contact form submission with custom success message
+        document.addEventListener('DOMContentLoaded', function() {
+            const contactForm = document.getElementById('contactForm');
+            if (contactForm) {
+                contactForm.addEventListener('submit', async function(e) {
+                    e.preventDefault();
+                    
+                    const submitBtn = contactForm.querySelector('button[type="submit"]');
+                    const originalText = submitBtn.textContent;
+                    submitBtn.disabled = true;
+                    submitBtn.textContent = 'שולח...';
+                    
+                    try {
+                        const formData = new FormData(contactForm);
+                        const response = await fetch(contactForm.action, {
+                            method: 'POST',
+                            body: formData,
+                            headers: {
+                                'Accept': 'application/json'
+                            }
+                        });
+                        
+                        if (response.ok) {
+                            // Show success message
+                            showSuccessMessage('ההודעה נשלחה בהצלחה! נחזור אליך בהקדם.');
+                            contactForm.reset();
+                        } else {
+                            showErrorMessage('אירעה שגיאה בשליחה. נסה שוב.');
+                        }
+                    } catch (error) {
+                        showErrorMessage('אירעה שגיאה בשליחה. נסה שוב.');
+                    } finally {
+                        submitBtn.disabled = false;
+                        submitBtn.textContent = originalText;
+                    }
+                });
+            }
+        });
+        
+        function showSuccessMessage(message) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = 'form-message success-message';
+            messageDiv.innerHTML = `
+                <i class="fas fa-check-circle"></i>
+                <p>${message}</p>
+            `;
+            
+            const form = document.getElementById('contactForm');
+            form.parentNode.insertBefore(messageDiv, form);
+            
+            setTimeout(() => {
+                messageDiv.style.opacity = '0';
+                setTimeout(() => messageDiv.remove(), 300);
+            }, 5000);
+        }
+        
+        function showErrorMessage(message) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = 'form-message error-message';
+            messageDiv.innerHTML = `
+                <i class="fas fa-exclamation-circle"></i>
+                <p>${message}</p>
+            `;
+            
+            const form = document.getElementById('contactForm');
+            form.parentNode.insertBefore(messageDiv, form);
+            
+            setTimeout(() => {
+                messageDiv.style.opacity = '0';
+                setTimeout(() => messageDiv.remove(), 300);
+            }, 5000);
+        }
+
         async function sendWhatsApp() {
             const name = document.getElementById('name').value;
             const email = document.getElementById('email').value;

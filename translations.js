@@ -480,7 +480,7 @@ const translations = {
         "nav-about-me": "About Me",
         "nav-activities": "Our Activities",
         "nav-tours": "Hiking Tours",
-        "nav-climbing": "Rock Climbing & Rappelling",
+        "nav-climbing": "Rock Climbing",
         "nav-testimonials": "Testimonials",
         "nav-gallery": "Gallery",
         "nav-contact": "Contact",
@@ -510,7 +510,7 @@ const translations = {
         "feature-hebrew": "Professional Guidance in Hebrew",
         
         // Activities
-        "activities-title": "Rock Climbing & Rappelling",
+        "activities-title": "Rock Climbing",
         "activities-hero-title": "Rock Climbing and Rappelling in Cyprus",
         "activities-hero-subtitle": "An empowering experience and extraordinary adventure",
         "activity-hiking-title": "Hiking Day in Nature",

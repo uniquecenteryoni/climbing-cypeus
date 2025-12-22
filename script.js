@@ -36,6 +36,17 @@ document.addEventListener('DOMContentLoaded', () => {
     // Set initial language and translate content
     setLanguage(currentLang);
     
+    // Check if we're on climber-guide.html page in English mode
+    if (window.location.pathname.includes('climber-guide.html') && currentLang === 'en') {
+        // Hide all content
+        const mainContent = document.querySelector('main') || document.querySelector('article') || document.querySelector('.container');
+        if (mainContent) {
+            mainContent.style.display = 'none';
+        }
+        // Show the modal
+        showHebrewOnlyModal();
+    }
+    
     // Check for climber guide links when in English mode
     checkClimberGuideLinks();
     
@@ -262,8 +273,8 @@ function showHebrewOnlyModal() {
         <div style="font-size: 3rem; margin-bottom: 1rem;">🇮🇱</div>
         <h3 style="color: #2c5f2d; margin-bottom: 1rem; font-size: 1.5rem;">Climber's Guide Available in Hebrew Only</h3>
         <p style="color: #666; line-height: 1.6; margin-bottom: 1.5rem;">
-            The comprehensive climbing guide is currently available only in Hebrew. 
-            Would you like to switch to Hebrew to view this content?
+            The comprehensive climbing guide is currently available only in Hebrew.<br>
+            Please switch to Hebrew to view this content.
         </p>
         <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
             <button id="switchToHebrew" style="
@@ -290,7 +301,7 @@ function showHebrewOnlyModal() {
                 font-size: 1rem;
                 transition: all 0.3s;
             ">
-                Stay in English
+                Back to Home
             </button>
         </div>
     `;
@@ -341,8 +352,13 @@ function showHebrewOnlyModal() {
     });
     
     document.getElementById('closeModal').addEventListener('click', () => {
-        modal.style.animation = 'fadeOut 0.3s ease-out';
-        setTimeout(() => modal.remove(), 300);
+        // If we're on climber-guide page, redirect to home
+        if (window.location.pathname.includes('climber-guide.html')) {
+            window.location.href = 'index.html';
+        } else {
+            modal.style.animation = 'fadeOut 0.3s ease-out';
+            setTimeout(() => modal.remove(), 300);
+        }
     });
     
     // Close on outside click

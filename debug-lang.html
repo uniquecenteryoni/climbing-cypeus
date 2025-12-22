@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>כלי Debug למחליף שפות</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .box {
+            background: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #2c5f2d;
+        }
+        h2 {
+            color: #666;
+            border-bottom: 2px solid #2c5f2d;
+            padding-bottom: 10px;
+        }
+        button {
+            background: #2c5f2d;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 5px;
+        }
+        button:hover {
+            background: #1a4d1b;
+        }
+        .info {
+            background: #e8f5e9;
+            padding: 15px;
+            border-radius: 6px;
+            margin: 10px 0;
+            border-left: 4px solid #2c5f2d;
+        }
+        .warning {
+            background: #fff3cd;
+            padding: 15px;
+            border-radius: 6px;
+            margin: 10px 0;
+            border-left: 4px solid #ff9800;
+        }
+        .code {
+            background: #f4f4f4;
+            padding: 10px;
+            border-radius: 4px;
+            font-family: monospace;
+            overflow-x: auto;
+        }
+        a {
+            color: #2c5f2d;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>🔧 כלי Debug למחליף השפות</h1>
+    
+    <div class="box">
+        <h2>📊 מצב נוכחי</h2>
+        <div class="info">
+            <p><strong>URL הנוכחי:</strong> <span id="current-url"></span></p>
+            <p><strong>פרמטר lang ב-URL:</strong> <span id="url-param"></span></p>
+            <p><strong>localStorage (preferred-language):</strong> <span id="storage-value"></span></p>
+        </div>
+        <button onclick="updateStatus()">🔄 רענן מצב</button>
+    </div>
+    
+    <div class="box">
+        <h2>🧹 ניקוי והגדרות</h2>
+        <button onclick="clearStorage()">🗑️ נקה localStorage</button>
+        <button onclick="setHebrew()">🇮🇱 הגדר עברית</button>
+        <button onclick="setEnglish()">🇬🇧 הגדר אנגלית</button>
+    </div>
+    
+    <div class="box">
+        <h2>🔗 קישורי בדיקה</h2>
+        <p>לחץ על הקישורים האלה לבדיקה:</p>
+        <ul>
+            <li><a href="index.html">דף הבית (ללא פרמטר)</a></li>
+            <li><a href="index.html?lang=he">דף הבית בעברית (?lang=he)</a></li>
+            <li><a href="index.html?lang=en">דף הבית באנגלית (?lang=en)</a></li>
+        </ul>
+    </div>
+    
+    <div class="box">
+        <h2>⚡ פעולות מהירות</h2>
+        <button onclick="clearAndOpenEnglish()">🚀 נקה הכל ופתח באנגלית</button>
+        <button onclick="clearAndOpenHebrew()">🚀 נקה הכל ופתח בעברית</button>
+    </div>
+    
+    <div class="box">
+        <h2>💡 טיפים</h2>
+        <div class="warning">
+            <strong>⚠️ חשוב:</strong>
+            <p>אם האתר לא מתחלף לאנגלית, זה כנראה בגלל localStorage שמור מהפתיחה הקודמת.</p>
+            <p><strong>פתרון:</strong> לחץ על "נקה localStorage" ואז על "נקה הכל ופתח באנגלית"</p>
+        </div>
+    </div>
+    
+    <div class="box">
+        <h2>🧪 בדיקת קונסול</h2>
+        <p>פתח את הקונסול (F12) והדבק את הקוד הזה:</p>
+        <div class="code">
+console.log('URL:', window.location.href);<br>
+console.log('Param:', new URLSearchParams(window.location.search).get('lang'));<br>
+console.log('Storage:', localStorage.getItem('preferred-language'));<br>
+        </div>
+    </div>
+    
+    <script>
+        function updateStatus() {
+            const urlParams = new URLSearchParams(window.location.search);
+            document.getElementById('current-url').textContent = window.location.href;
+            document.getElementById('url-param').textContent = urlParams.get('lang') || 'אין';
+            document.getElementById('storage-value').textContent = localStorage.getItem('preferred-language') || 'אין';
+        }
+        
+        function clearStorage() {
+            localStorage.clear();
+            alert('✅ localStorage נוקה!');
+            updateStatus();
+        }
+        
+        function setHebrew() {
+            localStorage.setItem('preferred-language', 'he');
+            alert('✅ השפה הוגדרה לעברית!');
+            updateStatus();
+        }
+        
+        function setEnglish() {
+            localStorage.setItem('preferred-language', 'en');
+            alert('✅ השפה הוגדרה לאנגלית!');
+            updateStatus();
+        }
+        
+        function clearAndOpenEnglish() {
+            localStorage.clear();
+            window.location.href = 'index.html?lang=en';
+        }
+        
+        function clearAndOpenHebrew() {
+            localStorage.clear();
+            window.location.href = 'index.html?lang=he';
+        }
+        
+        // Update on load
+        updateStatus();
+    </script>
+</body>
+</html>

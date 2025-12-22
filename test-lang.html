@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Language Test</title>
+    <script>
+        // Check what we get from URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const urlLang = urlParams.get('lang');
+        
+        console.log('URL parameter lang:', urlLang);
+        console.log('Current localStorage:', localStorage.getItem('preferred-language'));
+        
+        // Display on page
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('url-lang').textContent = urlLang || 'none';
+            document.getElementById('storage-lang').textContent = localStorage.getItem('preferred-language') || 'none';
+            document.getElementById('full-url').textContent = window.location.href;
+        });
+    </script>
+</head>
+<body>
+    <h1>Language Test Page</h1>
+    <p><strong>URL Parameter (lang):</strong> <span id="url-lang"></span></p>
+    <p><strong>localStorage:</strong> <span id="storage-lang"></span></p>
+    <p><strong>Full URL:</strong> <span id="full-url"></span></p>
+    
+    <hr>
+    <h2>Test Links:</h2>
+    <ul>
+        <li><a href="test-lang.html?lang=en">Open with ?lang=en</a></li>
+        <li><a href="test-lang.html?lang=he">Open with ?lang=he</a></li>
+        <li><a href="test-lang.html">Open without parameter</a></li>
+    </ul>
+    
+    <button onclick="localStorage.clear(); location.reload();">Clear localStorage and reload</button>
+</body>
+</html>

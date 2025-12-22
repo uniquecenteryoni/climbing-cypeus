@@ -5,8 +5,10 @@ Static website for rock climbing and guided tours in Cyprus
 
 ## תכונות / Features
 
-- 🌍 תמיכה ב-4 שפות: עברית, אנגלית, רוסית ויוונית
-- 🌍 Multi-language support: Hebrew, English, Russian, Greek
+- � **מחליף שפות חדש!** כפתור גלובוס להחלפה בין עברית ואנגלית
+- 🌐 **New Language Switcher!** Globe button to switch between Hebrew and English
+- 🔗 תמיכה בקישור ישיר לגרסה באנגלית (`?lang=en`)
+- 🔗 Direct link support for English version (`?lang=en`)
 - 📱 עיצוב רספונסיבי המתאים לכל המכשירים
 - 📱 Responsive design for all devices
 - ⚡ אתר סטטי מהיר וקל
@@ -209,6 +211,35 @@ To add more contact details, edit the contact section in `index.html`:
     <p>📍 Location: Cyprus</p>
 </div>
 ```
+
+## שימוש במחליף השפות / Using the Language Switcher
+
+### שינוי שפה באתר / Changing Language on Site
+
+1. לחץ על כפתור הגלובוס 🌐 בפינה השמאלית העליונה
+   Click the globe button 🌐 in the top-left corner
+
+2. בחר "עברית" או "English"
+   Select "עברית" or "English"
+
+3. האתר יתרגם אוטומטית את כל התוכן
+   The site will automatically translate all content
+
+### קישור ישיר לגרסה באנגלית / Direct Link to English Version
+
+ניתן לקשר ישירות לגרסה באנגלית של כל עמוד על ידי הוספת `?lang=en` לסוף הכתובת:
+You can link directly to the English version of any page by adding `?lang=en` to the URL:
+
+**דוגמאות / Examples:**
+- דף הבית באנגלית: `https://your-site.com/?lang=en`
+- פעילויות באנגלית: `https://your-site.com/activities.html?lang=en`
+
+**שימושים:**
+- קישור בתיאור סרטוני יוטיוב
+- שיתוף ברשתות חברתיות באנגלית
+- אימיילים ללקוחות בינלאומיים
+
+📝 **רשימה מלאה של קישורים באנגלית זמינה בקובץ [ENGLISH-LINKS.md](ENGLISH-LINKS.md)**
 
 ## טיפים לאופטימיזציה / Optimization Tips
 

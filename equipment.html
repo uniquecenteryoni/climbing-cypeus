@@ -21,7 +21,22 @@
     <!-- Apply language settings immediately to prevent flash -->
     <script>
         (function() {
-            const savedLang = localStorage.getItem('preferred-language') || 'he';
+            // Get language from URL parameter, then localStorage, then default to Hebrew
+            function getInitialLanguage() {
+                const urlParams = new URLSearchParams(window.location.search);
+                const urlLang = urlParams.get('lang');
+                
+                // If lang is in URL, use it and save to localStorage
+                if (urlLang && ['he', 'en'].includes(urlLang)) {
+                    localStorage.setItem('preferred-language', urlLang);
+                    return urlLang;
+                }
+                
+                // Otherwise use localStorage or default to Hebrew
+                return localStorage.getItem('preferred-language') || 'he';
+            }
+            
+            const savedLang = getInitialLanguage();
             const html = document.documentElement;
             html.setAttribute('lang', savedLang);
             html.setAttribute('dir', savedLang === 'he' ? 'rtl' : 'ltr');
@@ -68,17 +83,11 @@
                 <li><a href="index.html#gallery" data-i18n="nav-gallery">גלריה</a></li>
                 <li><a href="index.html#about-me" data-i18n="nav-about-me">אודות</a></li>
                 <li><a href="index.html#contact" data-i18n="nav-contact">יצירת קשר</a></li>
+                <li class="language-switcher">
+                    <button class="lang-btn" data-lang="he" aria-label="עברית" title="עברית">HE</button>
+                    <button class="lang-btn" data-lang="en" aria-label="English" title="English">EN</button>
+                </li>
             </ul>
-            <!-- Language Switcher Dropdown -->
-            <div class="language-switcher">
-                <button class="lang-toggle" id="langToggle" aria-label="Change Language">
-                    <span class="current-lang">HE</span>
-                </button>
-                <div class="lang-dropdown" id="langDropdown">
-                    <button class="lang-option active" data-lang="he">HE - עברית</button>
-                    <button class="lang-option" data-lang="en">EN - English</button>
-                </div>
-            </div>
             <div class="hamburger">
                 <span></span>
                 <span></span>

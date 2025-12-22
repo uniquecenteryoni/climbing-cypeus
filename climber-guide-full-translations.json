@@ -1,0 +1,79 @@
+{
+  "he": {
+    "guide-nav-logistics": "לוגיסטיקה",
+    "guide-nav-north": "טיפוס בצפון האי",
+    "guide-nav-south": "טיפוס בדרום האי",
+    "guide-nav-bouldering": "בולדרינג",
+    "guide-nav-shade-calc": "מחשבון צל"
+  },
+  "en": {
+    "guide-nav-logistics": "Logistics",
+    "guide-nav-north": "Northern Cyprus Climbing",
+    "guide-nav-south": "Southern Cyprus Climbing",
+    "guide-nav-bouldering": "Bouldering",
+    "guide-nav-shade-calc": "Shade Calculator",
+    
+    "guide-intro-quote": "Cyprus, just a 45-minute flight away, the neighboring island known for its hotels, Aphrodite's Rock, and Ayia Napa high school parties - and besides that, no one really cared about it. Truth be told? Me neither.",
+    "guide-intro-p1": "Somehow I ended up spending several months on the island, and as with any life journey - where does climbing fit into this whole story?",
+    "guide-intro-p2": "Hey, I'm Yonatan, currently living on the island, a climbing guide, nature father, and married to Bar. Here's a short-long guide that will organize things for you and reveal some of the good that Cyprus has to offer.",
+    
+    "guide-logistics-title": "Some Logistics",
+    "guide-logistics-transport-label": "Transportation:",
+    "guide-logistics-transport": "You must rent a car - there's no option to manage with public transportation. An Israeli license is sufficient. Note that driving here is on the opposite side.",
+    "guide-logistics-airports-label": "Where to fly:",
+    "guide-logistics-airports": "2 main airports: Larnaca and Paphos. All the climbing is concentrated in Paphos, so if you can find a flight there - you've won!",
+    "guide-logistics-accommodation-label": "Where to sleep:",
+    "guide-logistics-accommodation": "The best option is to find an apartment through Airbnb. You might get lucky and find accommodation near the crags, which is great. Look for your home near the villages of Ineia and Droushia. For those who want to be close to the sea and enjoy both worlds, you can also sleep in Paphos (a bit more nightlife and restaurants) or Polis (amazing beaches) - both cities are a 45-minute drive from the crags.",
+    "guide-logistics-currency-label": "Currency:",
+    "guide-logistics-currency": "The official currency in Cyprus (Republic of Cyprus, the southern part) is the Euro (€). The use of credit and debit cards (Visa and Mastercard) is very common and accepted in the vast majority of hotels, restaurants, large stores, and car rental agencies.",
+    "guide-logistics-visa-label": "Visa:",
+    "guide-logistics-visa": "Israeli citizens and citizens of the European Union (EU) and EEA countries do not require a visa to enter and stay in Cyprus for tourism purposes for up to 90 days. Citizens of any other country must independently check visa requirements and relevant permits with the local Cypriot embassy or the Cypriot Ministry of Foreign Affairs.",
+    "guide-logistics-equipment-label": "Equipment:",
+    "guide-logistics-equipment": "For those interested in renting climbing and bouldering gear, you can contact me - click here",
+    
+    "guide-climbing-walls-title": "Indoor Climbing Walls in Cyprus",
+    "guide-climbing-walls-intro": "Cyprus offers several quality indoor climbing walls scattered across the island. In recent years, new and modern facilities have opened, offering diverse climbing options for climbers of all levels. The walls are mainly located in major cities and offer an excellent place for training, meeting local climbers, and staying fit on rainy days or extreme heat.",
+    
+    "guide-nicosia-title": "Nicosia",
+    "guide-limassol-title": "Limassol",
+    
+    "guide-redpoint-desc": "The newest and most modern facility on the island, opened in 2022. Combined with a parkour complex and offers a professional climbing experience with Moonboard, Campus board, equipped training room, and a wide variety of routes. The professional and friendly staff will help you progress. Suitable for beginners and experienced climbers alike.",
+    "guide-ungravity-desc": "A veteran climbing wall that opened in 2019, located in a student neighborhood and offers a pleasant and community atmosphere. A great place to meet local climbers and join climbing groups. Reasonable prices and an especially friendly atmosphere for new climbers.",
+    "guide-rockstar-desc": "The newest facility in Nicosia, opened in 2025, a modern and challenging climbing wall with diverse routes, advanced equipment, and a bouldering area. Perfect for those looking for a new challenge in the capital.",
+    "guide-llc-desc": "An intimate climbing wall in Limassol, offers a convenient option for those in the area to stay fit and get to know the local climbing community. Ideal for regular training and meeting climbers from the area.",
+    
+    "guide-climbing-tip-label": "Useful Tip:",
+    "guide-climbing-tip": "Monthly membership prices at the walls range between 50-70 euros, and most walls also offer single entries. It's recommended to join the local climbers' Facebook groups - this is the best way to meet outdoor climbing partners and get updated information about new route openings.",
+    
+    "guide-background-title": "Background for Understanding the Island's Crags",
+    "guide-background-p1": "Cyprus was ruled by the British, and Cypriots and Turks lived side by side (sound familiar?). In 1974, there was a coup on the island by the Turks who wanted to be recognized as a state ('Operation Attila' for those interested), and the result - the country was divided so that the Turkish Republic controls 37% of the northern part of the island, with its own currency, language, and ethnic symbols. The Cypriots were left with emotional baggage, souvlaki, and 63% of the country.",
+    "guide-background-p2": "They tend to call the Turkish part: 'The occupied part of Northern Cyprus' and I actually found many similarities between the situation in Israel and what's happening here. But much lighter, one could say. But we didn't come to talk politics.",
+    "guide-background-p3": "From here we jump to the crag review, which, if you understood correctly, we'll divide into crags in Cyprus itself (south) and the northern part of Cyprus that belongs to the Turks. The emphasis will be on the main crags only.",
+    
+    "guide-cta-title": "Planning to climb in Cyprus?",
+    "guide-cta-subtitle": "Order quality climbing gear or get the comprehensive guidebook",
+    "guide-cta-equipment": "Order Climbing Gear",
+    "guide-cta-guidebook": "Order Guidebook",
+    
+    "guide-north-title": "Northern Cyprus",
+    "guide-north-intro-p1": "First, to cross to this part you need to cross a border and show passports. Not a complicated process but can take half an hour if there's traffic at the checkpoint. The local currency there is Turkish Lira, but they obviously also accept euros.",
+    "guide-north-intro-p2": "The clear disadvantage for tourists is that crossing with a rental car from the Cyprus side to the Turkish side is not such a simple/worthwhile matter, so finding local climbers and joining them will be an excellent option. What's certain is that you mustn't miss these crags!",
+    "guide-north-intro-p3": "In this part of the island, sport climbing exceeds all imagination and offers sites that are not inferior to world-class destinations! With long routes, tufas, caves, and the highest quality rock. I'm listing here some of the crags you shouldn't miss - for more information like access routes and detailed route descriptions, you can find it in the guidebook (available for pickup from me).",
+    
+    "guide-buffawall-title": "1. Buffawall",
+    "guide-buffawall-desc": "Located in the heart of a green, very pastoral valley with, of course, a view of the open sea. Most routes are smooth slabs and long up to 40 meters. About 15 routes as of today. Most are hard routes (7 and above) that were opened very recently (2022). There are several tufas on the crag, which adds interest to the climbing!",
+    
+    "guide-garga-title": "2. Garga-Suyu",
+    "guide-garga-desc": "One of the veteran crags on the island, lots of routes, quality rock, very diverse grades. A notable disadvantage is that the crag is close to the road and there's some noise.",
+    
+    "guide-kozan-title": "3. Kozan Koy / Larnaka of Lapithos",
+    "guide-kozan-desc": "Located next to the village of Kozan and beside it 2 more secondary sport crags. Vertical style with some tufas. Variety in grades so everyone can find a nice project.",
+    
+    "guide-goathouse-title": "4. Goat House",
+    "guide-goathouse-desc": "Probably the best crag in the northern part! Located in the Kyrenia Mountains area, offers a unique combination of sport and trad climbing. The crag is characterized by quality rock and technical routes that challenge experienced climbers. Access to the crag includes an easy walk through pastoral terrain with a panoramic view of the northwest coast. The crag offers a natural amphitheater with routes in diverse grades, making it an ideal place for a full day climbing session. The best shade hours are in the morning and late afternoon, and the place is especially suitable for spring and autumn seasons.",
+    
+    "guide-south-title": "Southern Cyprus",
+    "guide-diarizous-title": "1. Diarizous",
+    "guide-diarizous-desc": "A friendly and special crag. Wide range of grades and very suitable for beginners. There are two crags facing each other at a distance of 10 steps, so you can climb all day! There's always shade. Easy access (one-minute walk) and there's a flowing stream a minute's walk down the road. Climbing style: mostly slab."
+  }
+}

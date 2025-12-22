@@ -36,6 +36,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // Set initial language and translate content
     setLanguage(currentLang);
     
+    // Check for climber guide links when in English mode
+    checkClimberGuideLinks();
+    
     // Language switcher - simple buttons
     const langButtons = document.querySelectorAll('.lang-btn');
     
@@ -195,6 +198,170 @@ function setLanguage(lang) {
     
     // Save language preference
     localStorage.setItem('preferred-language', lang);
+    
+    // Re-check climber guide links when language changes
+    checkClimberGuideLinks();
+}
+
+// Check and handle climber guide links when in English mode
+function checkClimberGuideLinks() {
+    const climberGuideLinks = document.querySelectorAll('a[href*="climber-guide.html"]');
+    
+    climberGuideLinks.forEach(link => {
+        // Remove any existing event listeners
+        link.replaceWith(link.cloneNode(true));
+    });
+    
+    // Re-select links after cloning
+    const newLinks = document.querySelectorAll('a[href*="climber-guide.html"]');
+    
+    newLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            if (currentLang === 'en') {
+                e.preventDefault();
+                showHebrewOnlyModal();
+            }
+        });
+    });
+}
+
+// Show modal for Hebrew-only content
+function showHebrewOnlyModal() {
+    // Create modal overlay
+    const modal = document.createElement('div');
+    modal.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.7);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 10001;
+        padding: 1rem;
+        animation: fadeIn 0.3s ease-out;
+    `;
+    
+    // Create modal content
+    const modalContent = document.createElement('div');
+    modalContent.style.cssText = `
+        background: white;
+        border-radius: 15px;
+        padding: 2.5rem;
+        max-width: 500px;
+        width: 100%;
+        box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+        text-align: center;
+        position: relative;
+        animation: slideIn 0.3s ease-out;
+    `;
+    
+    modalContent.innerHTML = `
+        <div style="font-size: 3rem; margin-bottom: 1rem;">🇮🇱</div>
+        <h3 style="color: #2c5f2d; margin-bottom: 1rem; font-size: 1.5rem;">Climber's Guide Available in Hebrew Only</h3>
+        <p style="color: #666; line-height: 1.6; margin-bottom: 1.5rem;">
+            The comprehensive climbing guide is currently available only in Hebrew. 
+            Would you like to switch to Hebrew to view this content?
+        </p>
+        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+            <button id="switchToHebrew" style="
+                padding: 0.75rem 1.5rem;
+                background: #2c5f2d;
+                color: white;
+                border: none;
+                border-radius: 8px;
+                cursor: pointer;
+                font-weight: bold;
+                font-size: 1rem;
+                transition: all 0.3s;
+            ">
+                Switch to Hebrew
+            </button>
+            <button id="closeModal" style="
+                padding: 0.75rem 1.5rem;
+                background: #f0f0f0;
+                color: #333;
+                border: none;
+                border-radius: 8px;
+                cursor: pointer;
+                font-weight: bold;
+                font-size: 1rem;
+                transition: all 0.3s;
+            ">
+                Stay in English
+            </button>
+        </div>
+    `;
+    
+    modal.appendChild(modalContent);
+    document.body.appendChild(modal);
+    
+    // Add animations
+    const style = document.createElement('style');
+    style.textContent = `
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes slideIn {
+            from { 
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        #switchToHebrew:hover {
+            background: #3d7f3f !important;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(44, 95, 45, 0.3);
+        }
+        #closeModal:hover {
+            background: #e0e0e0 !important;
+            transform: translateY(-2px);
+        }
+    `;
+    document.head.appendChild(style);
+    
+    // Handle button clicks
+    document.getElementById('switchToHebrew').addEventListener('click', () => {
+        setLanguage('he');
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            if (btn.getAttribute('data-lang') === 'he') {
+                btn.classList.add('active');
+            } else {
+                btn.classList.remove('active');
+            }
+        });
+        window.location.href = 'climber-guide.html';
+    });
+    
+    document.getElementById('closeModal').addEventListener('click', () => {
+        modal.style.animation = 'fadeOut 0.3s ease-out';
+        setTimeout(() => modal.remove(), 300);
+    });
+    
+    // Close on outside click
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            modal.style.animation = 'fadeOut 0.3s ease-out';
+            setTimeout(() => modal.remove(), 300);
+        }
+    });
+    
+    // Add fadeOut animation
+    const fadeOutStyle = document.createElement('style');
+    fadeOutStyle.textContent = `
+        @keyframes fadeOut {
+            from { opacity: 1; }
+            to { opacity: 0; }
+        }
+    `;
+    document.head.appendChild(fadeOutStyle);
 }
 
 // Testimonials Carousel Function
@@ -301,13 +468,15 @@ function initLightbox() {
     if (prevBtn) prevBtn.addEventListener('click', prevImage);
     
     // Close on background click
-    lightbox.addEventListener('click', (e) => {
-        if (e.target === lightbox) closeLightbox();
-    });
+    if (lightbox) {
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) closeLightbox();
+        });
+    }
     
     // Keyboard navigation
     document.addEventListener('keydown', (e) => {
-        if (!lightbox.classList.contains('active')) return;
+        if (!lightbox || !lightbox.classList.contains('active')) return;
         
         if (e.key === 'Escape') closeLightbox();
         if (e.key === 'ArrowRight') nextImage();

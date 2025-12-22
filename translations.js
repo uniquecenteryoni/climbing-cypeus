@@ -1969,5 +1969,11 @@ const translations = {
         // Climber's Guide Full Content - NOT TRANSLATED (Hebrew article only)
         "guide-note": "Note: The climber's guide article is available in Hebrew only. For climbing information in English, please refer to the Cyprus Climbing Guidebook.",
         
+        // Bouldering Videos
+        "guide-bouldering-videos-title": "Cyprus Bouldering Videos",
+        "guide-bouldering-videos-subtitle": "Watch videos from the field and see the amazing boulders on the island",
+        "guide-bouldering-playlist": "Full playlist of bouldering videos",
+        "guide-bouldering-watch-youtube": "Watch all videos on YouTube",
+        
     }
 };

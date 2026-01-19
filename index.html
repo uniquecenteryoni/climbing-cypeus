@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="he" dir="rtl">
 <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4WPV84ES2X"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-4WPV84ES2X');
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
     <meta name="description" content="טיפוס צוקים בקפריסין, השכרת ציוד טיפוס, אקסטרים קפריסין, קורס הובלה קפריסין. מדריך טיפוס מוסמך בקפריסין. Rock climbing Cyprus, climbing gear rental, adventure tours Cyprus, lead climbing course Cyprus.">
@@ -480,8 +489,8 @@
                             <img src="pics/hikes /calidonia_waterfall.jpg" alt="מפל קלידוניה">
                         </div>
                         <div class="tour-content">
-                            <h3>מסלול מפל קלידוניה</h3>
-                            <p>מסלול קל ונגיש ליער אשוחים צפוף המוביל למפל קלידוניה המרהיב. מתאים לכל המשפחה!</p>
+                            <h3 data-i18n="tour-caledonia-title">מסלול מפל קלידוניה</h3>
+                            <p data-i18n="tour-caledonia-desc">מסלול קל ונגיש ליער אשוחים צפוף המוביל למפל קלידוניה המרהיב. מתאים לכל המשפחה!</p>
                             <span class="tour-author">Yonatan Cohen</span>
                             <span class="tour-date">Nov 24, 2024</span>
                             <span class="read-more" data-i18n="read-more">קרא עוד ›</span>
@@ -495,8 +504,8 @@
                             <img src="pics/hikes /כפר פיניקריה .jpg" alt="כפר פיניקריה">
                         </div>
                         <div class="tour-content">
-                            <h3>טיול לכפר פיניקריה ההררי</h3>
-                            <p>כפר הררי מסורתי עם נופים מרהיבים, ארכיטקטורה מאבן, ומפגש עם תרבות קפריסאית אותנטית.</p>
+                            <h3 data-i18n="tour-phinikaria-title">טיול לכפר פיניקריה ההררי</h3>
+                            <p data-i18n="tour-phinikaria-desc">כפר הררי מסורתי עם נופים מרהיבים, ארכיטקטורה מאבן, ומפגש עם תרבות קפריסאית אותנטית.</p>
                             <span class="tour-author">Yonatan Cohen</span>
                             <span class="tour-date">Nov 24, 2024</span>
                             <span class="read-more" data-i18n="read-more">קרא עוד ›</span>
@@ -617,7 +626,7 @@
                     <div class="contact-buttons">
                         <button type="submit" class="submit-btn" data-i18n="form-submit">שלח באימייל</button>
                         <button type="button" class="whatsapp-btn" onclick="sendWhatsApp()">
-                            <i class="fab fa-whatsapp"></i> שלח בוואטסאפ
+                            <i class="fab fa-whatsapp"></i> <span data-i18n="form-whatsapp">שלח בוואטסאפ</span>
                         </button>
                     </div>
                 </form>

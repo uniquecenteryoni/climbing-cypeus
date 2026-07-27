@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="טופס הצהרת בריאות, נטילת סיכונים ואישור השתתפות בפעילות טיפוס ואקסטרים בקפריסין.">
+    <meta name="robots" content="noindex, nofollow">
+    <title>אישור השתתפות והצהרת בריאות | קפריסין בעין אחרת</title>
+    <link rel="icon" type="image/png" href="../pics/עין.png">
+    <link rel="apple-touch-icon" href="../pics/עין.png">
+    <link rel="stylesheet" href="waiver.css">
+</head>
+<body>
+    <header class="site-header">
+        <a class="brand" href="../index.html" aria-label="חזרה לאתר קפריסין בעין אחרת">
+            <img src="../pics/עין.png" alt="">
+            <span>
+                <strong>קפריסין בעין אחרת</strong>
+                <small>טיפוס צוקים וטיולים מודרכים</small>
+            </span>
+        </a>
+        <div class="secure-note">
+            <span aria-hidden="true">✓</span>
+            טופס מאובטח
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-copy">
+                <p class="eyebrow">לפני שיוצאים להרפתקה</p>
+                <h1>אישור השתתפות<br>והצהרת בריאות</h1>
+                <p>כמה דקות של מילוי יעזרו לנו להתאים את הפעילות לקבוצה, לשמור על הבטיחות של כולם ולהגיע מוכנים ליום הפעילות.</p>
+                <div class="hero-meta">
+                    <span>משך מילוי: כ־7 דקות</span>
+                    <span>יש להכין פרטים רפואיים של כל המשתתפים</span>
+                </div>
+            </div>
+            <div class="hero-image" role="img" aria-label="מטפס על מצוק בקפריסין"></div>
+        </section>
+
+        <form id="waiverForm" action="https://formspree.io/f/mjkdalap" method="POST" novalidate>
+            <input type="hidden" name="_subject" value="וייבר חדש – בקשת פעילות טיפוס">
+            <input type="hidden" name="form_type" value="אישור השתתפות והצהרת בריאות">
+            <input type="hidden" name="submitted_at" id="submittedAt">
+
+            <div class="progress-wrap" aria-label="התקדמות בטופס">
+                <div class="progress-track"><span id="progressBar"></span></div>
+                <div class="progress-labels">
+                    <span class="active" data-step-label="1">1. פרטים</span>
+                    <span data-step-label="2">2. אישור</span>
+                </div>
+            </div>
+
+            <section class="form-step active" data-step="1" aria-labelledby="detailsTitle">
+                <div class="section-heading">
+                    <span class="step-number">01</span>
+                    <div>
+                        <p>חלק ראשון</p>
+                        <h2 id="detailsTitle">פרטי הקבוצה</h2>
+                    </div>
+                </div>
+
+                <div class="form-card representative-card">
+                    <div class="card-title">
+                        <div class="title-icon" aria-hidden="true">א</div>
+                        <div>
+                            <h3>פרטי הנציג/ה</h3>
+                            <p>האדם שממלא את הטופס ודרכו נתאם את הפעילות</p>
+                        </div>
+                    </div>
+                    <div class="field-grid">
+                        <label class="field">
+                            <span>שם מלא <b>*</b></span>
+                            <input type="text" name="representative_name" autocomplete="name" required>
+                            <small class="error-text">יש להזין שם מלא</small>
+                        </label>
+                        <label class="field">
+                            <span>כתובת אימייל <b>*</b></span>
+                            <input type="email" name="email" autocomplete="email" inputmode="email" required>
+                            <small class="error-text">יש להזין כתובת אימייל תקינה</small>
+                        </label>
+                        <label class="field">
+                            <span>טלפון <b>*</b></span>
+                            <input type="tel" name="phone" autocomplete="tel" inputmode="tel" required>
+                            <small class="error-text">יש להזין מספר טלפון</small>
+                        </label>
+                        <label class="field">
+                            <span>ארץ מגורים <b>*</b></span>
+                            <input type="text" name="country" autocomplete="country-name" required>
+                            <small class="error-text">יש להזין ארץ מגורים</small>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="participants-heading">
+                    <div>
+                        <h3>המשתתפים בפעילות</h3>
+                        <p>יש להוסיף את כל מי שצפוי להשתתף, כולל הנציג/ה אם משתתפים בפעילות.</p>
+                    </div>
+                    <span id="participantCount">משתתף 1</span>
+                </div>
+
+                <div id="participants" aria-live="polite"></div>
+
+                <button type="button" class="add-participant" id="addParticipant">
+                    <span aria-hidden="true">＋</span>
+                    הוספת משתתף/ת
+                </button>
+
+                <div class="privacy-note">
+                    <span aria-hidden="true">🔒</span>
+                    <p><strong>המידע הרפואי נשמר בדיסקרטיות.</strong> הוא ישמש רק לצורך התאמת הפעילות, ניהול סיכונים ומתן סיוע במקרה הצורך.</p>
+                </div>
+
+                <div class="step-actions first">
+                    <button type="button" class="primary-button" id="toAgreement">
+                        מעבר לקריאת האישור
+                        <span aria-hidden="true">←</span>
+                    </button>
+                </div>
+            </section>
+
+            <section class="form-step" data-step="2" aria-labelledby="agreementTitle">
+                <div class="section-heading">
+                    <span class="step-number">02</span>
+                    <div>
+                        <p>חלק שני</p>
+                        <h2 id="agreementTitle">הצהרה, נטילת סיכונים וויתור</h2>
+                    </div>
+                </div>
+
+                <div class="legal-intro">
+                    <strong>חשוב לקרוא בעיון</strong>
+                    <p>מסמך זה משפיע על זכויות משפטיות. יש לקרוא את כולו לפני האישור. אם סעיף אינו ברור, אין לאשר את הטופס לפני קבלת הבהרה.</p>
+                </div>
+
+                <article class="legal-text" tabindex="0">
+                    <h3>הצהרת משתתף/ת ואישור נציג/ת הקבוצה</h3>
+                    <p>אני, הנציג/ה ששמו/ה מופיע בטופס זה, מצהיר/ה כי הפרטים שמסרתי נכונים, מלאים ועדכניים וכי אני מוסמך/ת למסור את פרטי המשתתפים הרשומים ולהביא לידיעתם את תנאי מסמך זה. ביחס לכל משתתף/ת מתחת לגיל 18, אני מצהיר/ה כי אני הורהו/ה, אפוטרופוסו/ה החוקי/ת, או שקיבלתי הרשאה מפורשת מהורה או אפוטרופוס חוקי לפעול בשמו/ה.</p>
+
+                    <h3>1. מהות הפעילות והסיכונים</h3>
+                    <p>ידוע לי כי טיפוס צוקים, גלישה ממצוקים (סנפלינג), הליכה ושהייה בשטח, שימוש בחבלים ובציוד טיפוס, גישה למצוקים ופעילויות אקסטרים אחרות הן פעילויות הכרוכות מטבען בסיכונים צפויים ובלתי צפויים. הסיכונים כוללים, בין היתר: נפילה מגובה; החלקה או מעידה; נפילת אבנים או ציוד; כשל או שימוש שגוי בציוד; שינויי מזג אוויר; חום, קור והתייבשות; שטח לא יציב; פגיעות מבעלי חיים או צמחים; עומס גופני; תגובה אלרגית; עיכוב בגישה לטיפול רפואי; רשלנות של משתתפים אחרים; וכן חבלה, נכות, נזק לרכוש או מוות.</p>
+
+                    <h3>2. נטילת סיכון מרצון</h3>
+                    <p>אני מבין/ה שלא ניתן לבטל את כל הסיכונים גם כאשר הפעילות מתוכננת ומודרכת באופן מקצועי. לאחר שקראתי והבנתי את האמור, אני וכל המשתתפים הרשומים בוחרים להשתתף מרצוננו החופשי ומקבלים על עצמנו את הסיכונים הטבועים והנלווים לפעילות, בכפוף לכל זכות שלא ניתן לוותר עליה על פי דין.</p>
+
+                    <h3>3. כשירות רפואית וגילוי מידע</h3>
+                    <p>אני מאשר/ת כי כל משתתף/ת כשיר/ה מבחינה גופנית ונפשית להשתתף בפעילות, וכי נמסרו בטופס כל מצב רפואי, פציעה, מגבלה, תרופה קבועה, אלרגיה, רגישות או מידע אחר שעשוי להשפיע על הבטיחות. ידוע לי כי עליי לעדכן את המדריך בכל שינוי לפני תחילת הפעילות ולהביא תרופות אישיות חיוניות, לרבות משאף או מזרק אפינפרין, כשהן זמינות ומוכנות לשימוש.</p>
+
+                    <h3>4. הוראות בטיחות ושיקול דעת המדריך</h3>
+                    <p>אני מתחייב/ת שכל המשתתפים יפעלו לפי הוראות המדריך, ישתמשו בציוד כנדרש, לא יסירו ציוד בטיחות ללא אישור ולא ישתתפו תחת השפעת אלכוהול, סמים או חומר הפוגע בשיקול הדעת. אני מסכים/ה כי המדריך רשאי לשנות, לעצור או לבטל את הפעילות, או למנוע השתתפות של אדם, לפי שיקול דעתו המקצועי מטעמי בטיחות, מזג אוויר, תנאי השטח, התנהגות או מצב רפואי.</p>
+
+                    <h3>5. טיפול רפואי וחירום</h3>
+                    <p>במקרה חירום, אני מסמיך/ה את המדריך להזעיק שירותי הצלה או טיפול רפואי ולמסור לצוות המטפל מידע רלוונטי שנמסר בטופס, ככל שנדרש להגנה על חיי המשתתפים ובריאותם. אני מבין/ה כי זמני הפינוי בשטח עשויים להיות ממושכים וכי האחריות לעלויות פינוי, חילוץ וטיפול רפואי תחול על המשתתף/ת, בכפוף לדין ולהסדרי הביטוח החלים.</p>
+
+                    <h3>6. ביטוח וציוד אישי</h3>
+                    <p>ידוע לי כי מומלץ לכל משתתף/ת להחזיק ביטוח נסיעות או ביטוח תאונות מתאים המכסה במפורש טיפוס, סנפלינג, חילוץ ופעילות אקסטרים בקפריסין. האחריות לבדוק את תנאי הכיסוי הביטוחי היא של המשתתף/ת. העסק אינו אחראי לאובדן, גניבה או נזק לציוד ולחפצים אישיים, למעט ככל שאחריות כזו אינה ניתנת להגבלה לפי דין.</p>
+
+                    <h3>7. שחרור מאחריות ושיפוי</h3>
+                    <p>במידה המרבית המותרת על פי דין, אני וכל המשתתפים הרשומים משחררים את “קפריסין בעין אחרת”, בעליה, מדריכיה, עובדיה, נותני השירות מטעמה ובעלי הקרקע שבה מתקיימת הפעילות, מכל טענה או דרישה בגין נזק הנובע מהסיכונים הטבועים בפעילות או מהפרת הוראות מצד משתתף/ת. סעיף זה אינו חל על אחריות שלא ניתן לשלול או להגביל על פי דין, ואינו נועד לפטור מאחריות בגין מעשה מכוון או רשלנות חמורה ככל שהדין אוסר זאת.</p>
+
+                    <h3>8. נזק שנגרם על ידי משתתף/ת</h3>
+                    <p>אני מקבל/ת אחריות לנזק שייגרם במזיד או עקב הפרת הוראות בטיחות על ידי מי מהמשתתפים הרשומים, ומתחייב/ת לשפות את העסק בגין תביעה של צד שלישי הנובעת ממעשה כאמור, במידה המותרת על פי דין.</p>
+
+                    <h3>9. פרטיות ומידע רפואי</h3>
+                    <p>אני נותן/ת הסכמה מפורשת לאיסוף ולעיבוד פרטי הקשר והמידע הרפואי הרגיש שמסרתי, לצורך בדיקת התאמה לפעילות, תכנון בטיחותי, תקשורת עם הקבוצה, טיפול במקרה חירום והתגוננות מפני תביעות משפטיות. המידע יועבר רק למי שנדרש לצורך מטרות אלה, לרבות המדריך, ספק הטופס ושירותי חירום במקרה הצורך, ויישמר רק למשך הזמן הנדרש למטרות אלה ולפי הדין. ניתן לבקש עיון, תיקון, מחיקה או משיכת הסכמה באמצעות yonatanmalichi@gmail.com; משיכת הסכמה לפני הפעילות עלולה למנוע השתתפות אם לא ניתן לנהל את הפעילות בבטחה ללא המידע.</p>
+
+                    <h3>10. דין, פרשנות והפרדה</h3>
+                    <p>על מסמך זה יחולו דיני הרפובליקה של קפריסין, והסמכות המקומית תהיה לבתי המשפט המוסמכים בקפריסין, בכפוף לכל הוראת דין מחייבת אחרת. אם סעיף כלשהו ייקבע כבלתי תקף או בלתי אכיף, יתר הסעיפים ימשיכו לעמוד בתוקפם במידה המרבית האפשרית.</p>
+
+                    <h3>11. אישור הבנה</h3>
+                    <p>אני מאשר/ת כי ניתנה לי אפשרות לקרוא את המסמך, לשאול שאלות ולקבל הבהרות; כי הבנתי את משמעותו; וכי אישורי ניתן מרצון חופשי. אני מתחייב/ת להעביר את תוכן המסמך לכל המשתתפים הבגירים ולקבל את הסכמתם, וכן לקבל אישור מהורה או אפוטרופוס חוקי עבור כל קטין/ה.</p>
+                </article>
+
+                <div class="consent-card">
+                    <label class="check-row">
+                        <input type="checkbox" name="risk_and_terms_consent" value="מאושר" required>
+                        <span class="custom-check" aria-hidden="true"></span>
+                        <span>קראתי את המסמך במלואו, הבנתי את הסיכונים והתנאים, ואני מאשר/ת את ההצהרה ואת תנאי ההשתתפות עבורי ועבור המשתתפים שאני מוסמך/ת לייצג. <b>*</b></span>
+                    </label>
+                    <label class="check-row">
+                        <input type="checkbox" name="health_data_explicit_consent" value="מאושר" required>
+                        <span class="custom-check" aria-hidden="true"></span>
+                        <span>אני נותן/ת הסכמה מפורשת לעיבוד המידע הרפואי הרגיש למטרות הבטיחות, תכנון הפעילות וטיפול במקרה חירום, כמפורט בסעיף 9. <b>*</b></span>
+                    </label>
+                    <div class="signature-grid">
+                        <label class="field">
+                            <span>שם מלא כחתימה אלקטרונית <b>*</b></span>
+                            <input type="text" name="electronic_signature" autocomplete="name" required>
+                            <small>הקלדת השם מהווה חתימה ואישור של המסמך</small>
+                            <small class="error-text">יש להקליד שם מלא</small>
+                        </label>
+                        <label class="field">
+                            <span>תאריך</span>
+                            <input type="text" id="signatureDate" name="signature_date" readonly>
+                        </label>
+                    </div>
+                    <p class="consent-error" id="consentError">יש לסמן את שתי תיבות האישור ולחתום לפני השליחה.</p>
+                </div>
+
+                <div class="step-actions">
+                    <button type="button" class="secondary-button" id="backToDetails">חזרה לפרטים</button>
+                    <button type="submit" class="primary-button" id="submitButton">
+                        <span class="button-label">שליחת האישור</span>
+                        <span class="button-loading">שולח…</span>
+                        <span aria-hidden="true">←</span>
+                    </button>
+                </div>
+            </section>
+        </form>
+
+        <section class="success-state" id="successState" aria-live="polite">
+            <div class="success-icon">✓</div>
+            <p class="eyebrow">הטופס התקבל</p>
+            <h2>תודה, אפשר להתקדם לתיאום הפעילות</h2>
+            <p>האישור והפרטים נשלחו בהצלחה. נחזור אליכם להמשך תיאום היום המתאים.</p>
+            <a href="../index.html" class="primary-button">חזרה לאתר</a>
+        </section>
+    </main>
+
+    <template id="participantTemplate">
+        <article class="participant-card">
+            <div class="participant-top">
+                <div class="participant-title">
+                    <span class="participant-number"></span>
+                    <div>
+                        <h4></h4>
+                        <p>פרטים אישיים ובריאותיים</p>
+                    </div>
+                </div>
+                <button type="button" class="remove-participant" aria-label="הסרת משתתף">הסרה</button>
+            </div>
+            <div class="field-grid participant-fields">
+                <label class="field">
+                    <span>שם מלא <b>*</b></span>
+                    <input type="text" data-name="full_name" autocomplete="off" required>
+                    <small class="error-text">יש להזין שם מלא</small>
+                </label>
+                <label class="field">
+                    <span>גיל <b>*</b></span>
+                    <input type="number" data-name="age" min="5" max="100" inputmode="numeric" required>
+                    <small class="error-text">יש להזין גיל בין 5 ל־100</small>
+                </label>
+                <label class="field full-width">
+                    <span>מצב בריאותי, אלרגיות, תרופות ומגבלות <b>*</b></span>
+                    <textarea data-name="health_information" rows="4" required placeholder="יש לפרט כל מצב רפואי, פציעה, מגבלה, רגישות, אלרגיה או תרופה קבועה. אם אין — יש לכתוב ״ללא״."></textarea>
+                    <small class="error-text">יש לפרט מידע רפואי או לכתוב ״ללא״</small>
+                </label>
+            </div>
+        </article>
+    </template>
+
+    <footer>
+        <p>קפריסין בעין אחרת · טיפוס צוקים וטיולים מודרכים בקפריסין</p>
+        <a href="mailto:yonatanmalichi@gmail.com">yonatanmalichi@gmail.com</a>
+    </footer>
+
+    <script src="waiver.js"></script>
+</body>
+</html>

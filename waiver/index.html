@@ -23,6 +23,10 @@
             <span aria-hidden="true">✓</span>
             טופס מאובטח
         </div>
+        <nav class="waiver-languages" aria-label="בחירת שפה">
+            <a class="active" href="./" aria-current="page">עברית</a>
+            <a href="en/">English</a>
+        </nav>
     </header>
 
     <main>
@@ -39,7 +43,7 @@
             <div class="hero-image" role="img" aria-label="מטפס על מצוק בקפריסין"></div>
         </section>
 
-        <form id="waiverForm" action="https://formspree.io/f/mjkdalap" method="POST" novalidate>
+        <form id="waiverForm" action="https://formspree.io/f/mjkdalap" method="POST" enctype="multipart/form-data" novalidate>
             <input type="hidden" name="_subject" value="וייבר חדש – בקשת פעילות טיפוס">
             <input type="hidden" name="form_type" value="אישור השתתפות והצהרת בריאות">
             <input type="hidden" name="submitted_at" id="submittedAt">
@@ -215,7 +219,10 @@
             <p class="eyebrow">הטופס התקבל</p>
             <h2>תודה, אפשר להתקדם לתיאום הפעילות</h2>
             <p>האישור והפרטים נשלחו בהצלחה. נחזור אליכם להמשך תיאום היום המתאים.</p>
-            <a href="../index.html" class="primary-button">חזרה לאתר</a>
+            <div class="success-actions">
+                <button type="button" class="primary-button" id="printSubmittedWaiver">הדפסת האישור</button>
+                <a href="../index.html" class="secondary-button">חזרה לאתר</a>
+            </div>
         </section>
     </main>
 

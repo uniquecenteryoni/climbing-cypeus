@@ -92,6 +92,28 @@ textarea {
     border-radius: 50%;
 }
 
+.waiver-languages {
+    display: flex;
+    gap: 5px;
+    padding: 4px;
+    background: #eef2ef;
+    border-radius: 9px;
+}
+
+.waiver-languages a {
+    padding: 6px 11px;
+    color: var(--forest);
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: .82rem;
+    font-weight: 700;
+}
+
+.waiver-languages a.active {
+    color: white;
+    background: var(--forest);
+}
+
 main {
     overflow: hidden;
 }
@@ -392,6 +414,16 @@ main {
 
 .participant-card {
     border-right: 4px solid var(--lime);
+}
+
+[dir="ltr"] .participant-card {
+    border-right: 1px solid var(--line);
+    border-left: 4px solid var(--lime);
+}
+
+[dir="ltr"] .hero-meta span::before {
+    margin-right: 8px;
+    margin-left: 0;
 }
 
 .participant-top {
@@ -698,6 +730,13 @@ main {
     color: var(--muted);
 }
 
+.success-actions {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
 footer {
     padding: 28px 20px;
     display: flex;
@@ -735,6 +774,11 @@ footer a {
     .brand small,
     .secure-note {
         display: none;
+    }
+
+    .waiver-languages a {
+        padding: 5px 8px;
+        font-size: .76rem;
     }
 
     .hero {

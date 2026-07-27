@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Health declaration, assumption of risk and participation waiver for climbing and extreme activities in Cyprus.">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Participation Waiver & Health Declaration | Cyprus Through Different Eyes</title>
+    <link rel="icon" type="image/png" href="../../pics/עין.png">
+    <link rel="apple-touch-icon" href="../../pics/עין.png">
+    <link rel="stylesheet" href="../waiver.css">
+</head>
+<body>
+    <header class="site-header">
+        <a class="brand" href="../../index.html?lang=en" aria-label="Back to Cyprus Through Different Eyes">
+            <img src="../../pics/עין.png" alt="">
+            <span>
+                <strong>Cyprus Through Different Eyes</strong>
+                <small>Rock climbing & guided tours</small>
+            </span>
+        </a>
+        <div class="secure-note">
+            <span aria-hidden="true">✓</span>
+            Secure form
+        </div>
+        <nav class="waiver-languages" aria-label="Choose language">
+            <a href="../">עברית</a>
+            <a class="active" href="./" aria-current="page">English</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-copy">
+                <p class="eyebrow">Before the adventure begins</p>
+                <h1>Participation Waiver<br>& Health Declaration</h1>
+                <p>A few minutes of information will help us tailor the activity to your group, keep everyone safe and arrive prepared for the activity day.</p>
+                <div class="hero-meta">
+                    <span>Completion time: about 7 minutes</span>
+                    <span>Have each participant’s health details ready</span>
+                </div>
+            </div>
+            <div class="hero-image" role="img" aria-label="Rock climber on a crag in Cyprus"></div>
+        </section>
+
+        <form id="waiverForm" action="https://formspree.io/f/mjkdalap" method="POST" enctype="multipart/form-data" novalidate>
+            <input type="hidden" name="_subject" value="New waiver – climbing activity request">
+            <input type="hidden" name="form_type" value="Participation Waiver and Health Declaration">
+            <input type="hidden" name="submitted_at" id="submittedAt">
+
+            <div class="progress-wrap" aria-label="Form progress">
+                <div class="progress-track"><span id="progressBar"></span></div>
+                <div class="progress-labels">
+                    <span class="active" data-step-label="1">1. Details</span>
+                    <span data-step-label="2">2. Agreement</span>
+                </div>
+            </div>
+
+            <section class="form-step active" data-step="1" aria-labelledby="detailsTitle">
+                <div class="section-heading">
+                    <span class="step-number">01</span>
+                    <div>
+                        <p>Part one</p>
+                        <h2 id="detailsTitle">Group details</h2>
+                    </div>
+                </div>
+
+                <div class="form-card representative-card">
+                    <div class="card-title">
+                        <div class="title-icon" aria-hidden="true">R</div>
+                        <div>
+                            <h3>Representative’s details</h3>
+                            <p>The adult completing this form and coordinating the activity</p>
+                        </div>
+                    </div>
+                    <div class="field-grid">
+                        <label class="field">
+                            <span>Full name <b>*</b></span>
+                            <input type="text" name="representative_name" autocomplete="name" required>
+                            <small class="error-text">Please enter a full name</small>
+                        </label>
+                        <label class="field">
+                            <span>Email address <b>*</b></span>
+                            <input type="email" name="email" autocomplete="email" inputmode="email" required>
+                            <small class="error-text">Please enter a valid email address</small>
+                        </label>
+                        <label class="field">
+                            <span>Phone <b>*</b></span>
+                            <input type="tel" name="phone" autocomplete="tel" inputmode="tel" required>
+                            <small class="error-text">Please enter a phone number</small>
+                        </label>
+                        <label class="field">
+                            <span>Country of residence <b>*</b></span>
+                            <input type="text" name="country" autocomplete="country-name" required>
+                            <small class="error-text">Please enter a country</small>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="participants-heading">
+                    <div>
+                        <h3>Activity participants</h3>
+                        <p>Add everyone expected to participate, including the representative if they are participating.</p>
+                    </div>
+                    <span id="participantCount">1 participant</span>
+                </div>
+
+                <div id="participants" aria-live="polite"></div>
+
+                <button type="button" class="add-participant" id="addParticipant">
+                    <span aria-hidden="true">＋</span>
+                    Add participant
+                </button>
+
+                <div class="privacy-note">
+                    <span aria-hidden="true">🔒</span>
+                    <p><strong>Health information is treated confidentially.</strong> It will be used only to tailor the activity, manage risk and provide assistance when needed.</p>
+                </div>
+
+                <div class="step-actions first">
+                    <button type="button" class="primary-button" id="toAgreement">
+                        Continue to agreement
+                        <span aria-hidden="true">→</span>
+                    </button>
+                </div>
+            </section>
+
+            <section class="form-step" data-step="2" aria-labelledby="agreementTitle">
+                <div class="section-heading">
+                    <span class="step-number">02</span>
+                    <div>
+                        <p>Part two</p>
+                        <h2 id="agreementTitle">Declaration, assumption of risk and waiver</h2>
+                    </div>
+                </div>
+
+                <div class="legal-intro">
+                    <strong>Please read carefully</strong>
+                    <p>This document affects legal rights. Read it in full before accepting. If anything is unclear, do not approve the form until you have received an explanation.</p>
+                </div>
+
+                <article class="legal-text" tabindex="0">
+                    <h3>Participant declaration and group representative’s approval</h3>
+                    <p>I, the adult representative named in this form, declare that I am at least 18 years old and that all information supplied is true, complete and current. I approve and agree to this document on behalf of every participant I entered in the form, and acknowledge that my electronic signature applies to each of them. I declare that I am authorised to provide their details, bring these terms to their attention and obtain their agreement. For every participant under 18, I declare that I am their parent or legal guardian, or that I have received express authorisation from their parent or legal guardian to act on their behalf.</p>
+
+                    <h3>1. Nature of the activity and risks</h3>
+                    <p>I understand that the activity includes every stage from departure for the meeting point or crag, travel or transport where included in the arrangement, walking and approaching the crag, time in the field, rock climbing, rappelling or abseiling, use of ropes and climbing equipment, descent from the crag, and the route and travel back until the activity ends. These stages and related extreme activities involve foreseeable and unforeseeable risks. Risks include road accidents or injuries during travel or while entering or leaving a vehicle; falls from height; slips or trips; falling rocks or equipment; equipment failure or misuse; changing weather; heat, cold or dehydration; unstable terrain; animals or plants; physical exertion; allergic reactions; delayed access to medical care; negligence of other participants; injury, disability, property damage or death.</p>
+
+                    <h3>2. Voluntary assumption of risk</h3>
+                    <p>I understand that not every risk can be eliminated even when an activity is professionally planned and guided. Having read and understood the above, I confirm on behalf of every participant entered that they freely choose to participate and accept the inherent and associated risks of every stage, including travel, the approach to the crag and the return, subject to any right that cannot lawfully be waived.</p>
+
+                    <h3>3. Medical fitness and disclosure</h3>
+                    <p>I confirm that every participant is physically and mentally fit to take part and that this form discloses every medical condition, injury, limitation, regular medication, allergy, sensitivity or other matter that may affect safety. I must notify the guide of any change before the activity and ensure that essential personal medication, including an inhaler or epinephrine auto-injector, is available and ready for use.</p>
+
+                    <h3>4. Safety instructions and the guide’s judgment</h3>
+                    <p>I undertake that all participants will follow the guide’s instructions, use equipment as directed, not remove safety equipment without permission, and not participate under the influence of alcohol, drugs or any substance impairing judgment. I agree that the guide may alter, stop or cancel the activity, or prevent a person from participating, in the guide’s professional judgment for reasons of safety, weather, terrain, conduct or health.</p>
+
+                    <h3>5. Medical treatment and emergencies</h3>
+                    <p>In an emergency, I authorise the guide to contact rescue or medical services and to disclose relevant information from this form where necessary to protect life and health. I understand that evacuation from the field may be delayed and that evacuation, rescue and medical costs are the participant’s responsibility, subject to applicable law and insurance.</p>
+
+                    <h3>6. Insurance and personal property</h3>
+                    <p>Every participant is advised to hold travel or accident insurance expressly covering climbing, rappelling or abseiling, rescue and extreme activities in Cyprus. The participant is responsible for checking cover. The business is not responsible for loss, theft or damage to personal equipment or belongings except where liability cannot lawfully be limited.</p>
+
+                    <h3>7. Release from liability and indemnity</h3>
+                    <p>To the fullest extent permitted by law, I and every listed participant release “Cyprus Through Different Eyes”, its owner, guides, employees, service providers and landowners from claims arising from the inherent risks of the activity or a participant’s breach of instructions. This does not apply to liability that cannot legally be excluded or limited and is not intended to exclude intentional misconduct or gross negligence where prohibited by law.</p>
+
+                    <h3>8. Damage caused by a participant</h3>
+                    <p>I accept responsibility for damage deliberately caused, or caused through a breach of safety instructions, by a listed participant and agree to indemnify the business against a third-party claim arising from such conduct, to the extent permitted by law.</p>
+
+                    <h3>9. Privacy and health information</h3>
+                    <p>I give explicit consent to the collection and processing of the contact details and sensitive health information supplied for assessing fitness, safety planning, group communication, emergency response and the defence of legal claims. Information will be disclosed only where necessary for these purposes, including to the guide, the form provider and emergency services, and retained only for as long as necessary for those purposes and under applicable law. Access, correction, erasure or withdrawal of consent may be requested at yonatanmalichi@gmail.com. Withdrawal before the activity may prevent participation where the activity cannot be safely managed without the information.</p>
+
+                    <h3>10. Governing law, interpretation and severability</h3>
+                    <p>This document is governed by the laws of the Republic of Cyprus, and the competent courts of Cyprus shall have local jurisdiction, subject to any other mandatory provision of law. If any term is held invalid or unenforceable, the remaining terms will continue to apply to the fullest possible extent.</p>
+
+                    <h3>11. Confirmation of understanding</h3>
+                    <p>I confirm that I am at least 18 years old; that I had the opportunity to read this document, ask questions and receive explanations; that I understand its meaning; and that my approval is freely given. I expressly confirm that my electronic signature applies to every participant entered in this form and constitutes approval on their behalf of every term, including travel, the approach to the crag and the return. I declare that I communicated this document to every adult participant and obtained their agreement, and obtained approval from a parent or legal guardian for every minor.</p>
+                </article>
+
+                <div class="consent-card">
+                    <label class="check-row">
+                        <input type="checkbox" name="risk_and_terms_consent" value="Approved" required>
+                        <span class="custom-check" aria-hidden="true"></span>
+                        <span>I am at least 18 years old. I have read and understood this document and confirm that my signature applies to every participant entered in the form and approves all terms on their behalf, including travel to and return from the crag. <b>*</b></span>
+                    </label>
+                    <label class="check-row">
+                        <input type="checkbox" name="health_data_explicit_consent" value="Approved" required>
+                        <span class="custom-check" aria-hidden="true"></span>
+                        <span>I give explicit consent to the processing of sensitive health information for safety, activity planning and emergency response as described in section 9. <b>*</b></span>
+                    </label>
+                    <div class="signature-grid">
+                        <label class="field">
+                            <span>Full name as electronic signature <b>*</b></span>
+                            <input type="text" name="electronic_signature" autocomplete="name" required>
+                            <small>Typing your name signs and approves this document on behalf of every participant entered</small>
+                            <small class="error-text">Please enter your full name</small>
+                        </label>
+                        <label class="field">
+                            <span>Date</span>
+                            <input type="text" id="signatureDate" name="signature_date" readonly>
+                        </label>
+                    </div>
+                    <p class="consent-error" id="consentError">Tick both consent boxes and sign before submitting.</p>
+                </div>
+
+                <div class="step-actions">
+                    <button type="button" class="secondary-button" id="backToDetails">Back to details</button>
+                    <button type="submit" class="primary-button" id="submitButton">
+                        <span class="button-label">Submit waiver</span>
+                        <span class="button-loading">Submitting…</span>
+                        <span aria-hidden="true">→</span>
+                    </button>
+                </div>
+            </section>
+        </form>
+
+        <section class="success-state" id="successState" aria-live="polite">
+            <div class="success-icon">✓</div>
+            <p class="eyebrow">Form received</p>
+            <h2>Thank you — we can now schedule your activity</h2>
+            <p>Your approval and details were sent successfully. We will contact you to arrange a suitable day.</p>
+            <div class="success-actions">
+                <button type="button" class="primary-button" id="printSubmittedWaiver">Print waiver</button>
+                <a href="../../index.html?lang=en" class="secondary-button">Back to website</a>
+            </div>
+        </section>
+    </main>
+
+    <template id="participantTemplate">
+        <article class="participant-card">
+            <div class="participant-top">
+                <div class="participant-title">
+                    <span class="participant-number"></span>
+                    <div>
+                        <h4></h4>
+                        <p>Personal and health details</p>
+                    </div>
+                </div>
+                <button type="button" class="remove-participant" aria-label="Remove participant">Remove</button>
+            </div>
+            <div class="field-grid participant-fields">
+                <label class="field">
+                    <span>Full name <b>*</b></span>
+                    <input type="text" data-name="full_name" autocomplete="off" required>
+                    <small class="error-text">Please enter a full name</small>
+                </label>
+                <label class="field">
+                    <span>Age <b>*</b></span>
+                    <input type="number" data-name="age" min="5" max="100" inputmode="numeric" required>
+                    <small class="error-text">Enter an age between 5 and 100</small>
+                </label>
+                <label class="field full-width">
+                    <span>Health, allergies, medication and limitations <b>*</b></span>
+                    <textarea data-name="health_information" rows="4" required placeholder="List every medical condition, injury, limitation, sensitivity, allergy or regular medication. If none, write “None”."></textarea>
+                    <small class="error-text">Provide health information or write “None”</small>
+                </label>
+            </div>
+        </article>
+    </template>
+
+    <footer>
+        <p>Cyprus Through Different Eyes · Rock climbing & guided tours in Cyprus</p>
+        <a href="mailto:yonatanmalichi@gmail.com">yonatanmalichi@gmail.com</a>
+    </footer>
+
+    <script src="../waiver.js"></script>
+</body>
+</html>

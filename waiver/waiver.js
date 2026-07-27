@@ -278,18 +278,18 @@ ${participantRows}
             lastPrintLink = await buildPrintLink(lastPrintableHtml);
             let formData = new FormData(form);
             formData.append(
-                isEnglish ? "PRINT-READY SUMMARY" : "סיכום מוכן להדפסה",
-                buildPlainTextSummary()
+                isEnglish ? "01 — PRINTABLE WAIVER LINK" : "01 — קישור לאישור המלא להדפסה",
+                lastPrintLink
             );
             formData.append(
-                isEnglish ? "PRINTING INSTRUCTIONS" : "הוראות הדפסה",
+                isEnglish ? "02 — PRINTING INSTRUCTIONS" : "02 — הוראות הדפסה",
                 isEnglish
                     ? "Open the PRINTABLE WAIVER LINK below. It contains the exact complete form, all participants, all signed terms and the electronic signature, ready to print or save as PDF."
                     : "יש לפתוח את הקישור לאישור המלא להדפסה שמופיע בהמשך. הוא כולל את הטופס המלא כפי שנחתם, את כל המשתתפים, כל הסעיפים והחתימה, ומוכן להדפסה או שמירה כ־PDF."
             );
             formData.append(
-                isEnglish ? "PRINTABLE WAIVER LINK" : "קישור לאישור המלא להדפסה",
-                lastPrintLink
+                isEnglish ? "03 — FULL PRINT-READY SUMMARY" : "03 — סיכום מלא מוכן להדפסה",
+                buildPlainTextSummary()
             );
             formData.append(
                 "printable_waiver",
@@ -306,18 +306,18 @@ ${participantRows}
             if (!response.ok && [400, 402, 403, 413, 415, 422].includes(response.status)) {
                 formData = new FormData(form);
                 formData.append(
-                    isEnglish ? "PRINT-READY SUMMARY" : "סיכום מוכן להדפסה",
-                    buildPlainTextSummary()
+                    isEnglish ? "01 — PRINTABLE WAIVER LINK" : "01 — קישור לאישור המלא להדפסה",
+                    lastPrintLink
                 );
                 formData.append(
-                    isEnglish ? "PRINTING INSTRUCTIONS" : "הוראות הדפסה",
+                    isEnglish ? "02 — PRINTING INSTRUCTIONS" : "02 — הוראות הדפסה",
                     isEnglish
                         ? "Open the PRINTABLE WAIVER LINK below to print the exact complete signed form or save it as PDF."
                         : "יש לפתוח את הקישור לאישור המלא להדפסה שמופיע בהמשך כדי להדפיס את הטופס המלא שנחתם או לשמור אותו כ־PDF."
                 );
                 formData.append(
-                    isEnglish ? "PRINTABLE WAIVER LINK" : "קישור לאישור המלא להדפסה",
-                    lastPrintLink
+                    isEnglish ? "03 — FULL PRINT-READY SUMMARY" : "03 — סיכום מלא מוכן להדפסה",
+                    buildPlainTextSummary()
                 );
                 response = await fetch(form.action, {
                     method: "POST",

@@ -16,6 +16,7 @@
     const MAX_PARTICIPANTS = 20;
     const isEnglish = document.documentElement.lang === "en";
     let lastPrintableHtml = "";
+    let lastPrintLink = "";
 
     function localDate() {
         return new Intl.DateTimeFormat(isEnglish ? "en-GB" : "he-IL", {
@@ -117,7 +118,8 @@ h1,h2,h3{color:#173f35}header{border-bottom:4px solid #b8d94a;margin-bottom:24px
 .meta,.participant,.signature,.legal{border:1px solid #ccd5d1;border-radius:8px;padding:18px;margin:14px 0}
 .legal{font-size:13px}.legal h3{font-size:15px;margin-top:20px}.confirmed{font-weight:bold;color:#173f35}
 .print-button{position:fixed;top:16px;${isEnglish ? "right" : "left"}:16px;background:#ed7332;color:white;border:0;border-radius:7px;padding:11px 18px;cursor:pointer}
-@media print{.print-button{display:none}body{padding:0}.participant{break-inside:avoid}.legal{border:0;padding:0}}
+@page{size:A4;margin:15mm}
+@media print{.print-button{display:none}body{padding:0;max-width:none}.participant,.signature{break-inside:avoid}.legal{border:0;padding:0}.legal h3{break-after:avoid}}
 </style></head>
 <body>
 <button class="print-button" onclick="window.print()">${isEnglish ? "Print / Save as PDF" : "הדפסה / שמירה כ־PDF"}</button>
@@ -140,6 +142,29 @@ ${participantRows}
 <p><strong>${isEnglish ? "Date" : "תאריך"}:</strong> ${escapeHtml(signatureDate.value)}</p>
 </section>
 </body></html>`;
+    }
+
+    function bytesToBase64(bytes) {
+        let binary = "";
+        const chunkSize = 0x8000;
+        for (let index = 0; index < bytes.length; index += chunkSize) {
+            binary += String.fromCharCode(...bytes.subarray(index, index + chunkSize));
+        }
+        return btoa(binary).replaceAll("+", "-").replaceAll("/", "_").replaceAll("=", "");
+    }
+
+    async function buildPrintLink(html) {
+        const encoded = new TextEncoder().encode(html);
+        let prefix = "b64.";
+        let bytes = encoded;
+
+        if ("CompressionStream" in window) {
+            const stream = new Blob([encoded]).stream().pipeThrough(new CompressionStream("gzip"));
+            bytes = new Uint8Array(await new Response(stream).arrayBuffer());
+            prefix = "gz.";
+        }
+
+        return `${window.location.origin}/waiver/print/#${prefix}${bytesToBase64(bytes)}`;
     }
 
     function updateParticipants() {
@@ -250,6 +275,7 @@ ${participantRows}
 
         try {
             lastPrintableHtml = buildPrintableHtml();
+            lastPrintLink = await buildPrintLink(lastPrintableHtml);
             let formData = new FormData(form);
             formData.append(
                 isEnglish ? "PRINT-READY SUMMARY" : "סיכום מוכן להדפסה",
@@ -258,8 +284,12 @@ ${participantRows}
             formData.append(
                 isEnglish ? "PRINTING INSTRUCTIONS" : "הוראות הדפסה",
                 isEnglish
-                    ? "Open the printable_waiver file link in this email and choose Print / Save as PDF. If no file link appears, print this email; the complete summary is included above."
-                    : "יש לפתוח במייל את הקישור לקובץ printable_waiver ולבחור הדפסה / שמירה כ־PDF. אם לא מופיע קישור לקובץ, ניתן להדפיס את המייל עצמו; הסיכום המלא כלול בו."
+                    ? "Open the PRINTABLE WAIVER LINK below. It contains the exact complete form, all participants, all signed terms and the electronic signature, ready to print or save as PDF."
+                    : "יש לפתוח את הקישור לאישור המלא להדפסה שמופיע בהמשך. הוא כולל את הטופס המלא כפי שנחתם, את כל המשתתפים, כל הסעיפים והחתימה, ומוכן להדפסה או שמירה כ־PDF."
+            );
+            formData.append(
+                isEnglish ? "PRINTABLE WAIVER LINK" : "קישור לאישור המלא להדפסה",
+                lastPrintLink
             );
             formData.append(
                 "printable_waiver",
@@ -282,8 +312,12 @@ ${participantRows}
                 formData.append(
                     isEnglish ? "PRINTING INSTRUCTIONS" : "הוראות הדפסה",
                     isEnglish
-                        ? "Use the email client’s Print command. The complete print-ready summary is included in this message."
-                        : "יש להשתמש באפשרות ההדפסה של תוכנת המייל. הסיכום המלא והמוכן להדפסה כלול בהודעה."
+                        ? "Open the PRINTABLE WAIVER LINK below to print the exact complete signed form or save it as PDF."
+                        : "יש לפתוח את הקישור לאישור המלא להדפסה שמופיע בהמשך כדי להדפיס את הטופס המלא שנחתם או לשמור אותו כ־PDF."
+                );
+                formData.append(
+                    isEnglish ? "PRINTABLE WAIVER LINK" : "קישור לאישור המלא להדפסה",
+                    lastPrintLink
                 );
                 response = await fetch(form.action, {
                     method: "POST",
@@ -296,6 +330,7 @@ ${participantRows}
 
             form.hidden = true;
             successState.classList.add("visible");
+            printSubmittedWaiver.href = lastPrintLink;
             successState.scrollIntoView({ behavior: "smooth", block: "center" });
         } catch (error) {
             alert(isEnglish
@@ -306,18 +341,8 @@ ${participantRows}
         }
     });
 
-    printSubmittedWaiver.addEventListener("click", () => {
-        if (!lastPrintableHtml) return;
-        const printWindow = window.open("", "_blank");
-        if (!printWindow) {
-            alert(isEnglish
-                ? "Please allow pop-ups to print the waiver."
-                : "יש לאפשר חלונות קופצים כדי להדפיס את האישור.");
-            return;
-        }
-        printWindow.document.open();
-        printWindow.document.write(lastPrintableHtml);
-        printWindow.document.close();
+    printSubmittedWaiver.addEventListener("click", (event) => {
+        if (!lastPrintLink) event.preventDefault();
     });
 
     signatureDate.value = localDate();

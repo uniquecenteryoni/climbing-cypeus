@@ -1,0 +1,30 @@
+# Canonical routing: every public hostname and protocol resolves to the
+# secure apex domain while preserving the requested path.
+[[redirects]]
+  from = "http://www.climbing-cyprus.com/*"
+  to = "https://climbing-cyprus.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://www.climbing-cyprus.com/*"
+  to = "https://climbing-cyprus.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://climbing-cyprus.com/*"
+  to = "https://climbing-cyprus.com/:splat"
+  status = 301
+  force = true
+
+# Keep browsers on HTTPS after their first secure visit and apply baseline
+# security headers consistently across every static route.
+[[headers]]
+  for = "/*"
+
+  [headers.values]
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"

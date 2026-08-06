@@ -16,6 +16,11 @@ const translations = {
         "nav-gallery": "גלריה",
         "nav-contact": "יצירת קשר",
         "nav-climber-guide": "המדריך למטפס",
+        "landing-nav-guide": "המדריך למטפס",
+        "landing-nav-locations": "טיפוס צוקים וסנפלינג",
+        "landing-nav-courses": "קורסים וחוויות",
+        "landing-nav-gallery": "גלריה",
+        "landing-nav-contact": "יצירת קשר",
         
         // Hero section
         "hero-title": "לא צריך להרחיק<br>בשביל הרפתקאות מיוחדות",
@@ -494,11 +499,16 @@ const translations = {
         "nav-gallery": "Gallery",
         "nav-contact": "Contact",
         "nav-climber-guide": "Climber's Guide",
+        "landing-nav-guide": "THE GUIDE",
+        "landing-nav-locations": "LOCATIONS",
+        "landing-nav-courses": "COURSES & EXPERIENCES",
+        "landing-nav-gallery": "GALLERY",
+        "landing-nav-contact": "CONTACT",
         
         // Hero section
-        "hero-title": "You don't have to go far<br>to find adventure and special experiences",
-        "hero-subtitle": "Rock Climbing and Guided Tours in Cyprus",
-        "hero-cta": "Contact Us",
+        "hero-title": "MORE THAN A CLIMB,<br><span class=\"hero-accent\">A DIFFERENT</span> PERSPECTIVE.",
+        "hero-subtitle": "Guided rock climbing and abseiling<br>experiences across Cyprus.",
+        "hero-cta": "EXPLORE EXPERIENCES",
         
         // About Me section
         "about-me-title": "About Me",

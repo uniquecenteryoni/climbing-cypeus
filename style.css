@@ -140,6 +140,7 @@ section, header, footer, main, article {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: relative;
     padding: var(--spacing-sm) var(--spacing-md);
 }
 
@@ -151,7 +152,7 @@ section, header, footer, main, article {
 }
 
 .logo img {
-    height: 105px;
+    height: 140px;
     width: auto;
     display: block;
 }
@@ -185,6 +186,9 @@ h3 {
     display: flex;
     list-style: none;
     gap: var(--spacing-md);
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .nav-menu a {
@@ -1319,7 +1323,7 @@ h3 {
     }
 
     .logo img {
-        height: 88px;
+        height: 110px;
     }
     
     .logo-image {
@@ -1337,6 +1341,7 @@ h3 {
     .nav-menu {
         position: fixed;
         left: -100%;
+        transform: none;
         top: 70px;
         flex-direction: column;
         background: var(--light-color);

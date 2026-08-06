@@ -153,6 +153,7 @@ section, header, footer, main, article {
 .logo img {
     height: 78px;
     width: auto;
+    display: block;
 }
 
 .logo-text {
@@ -183,7 +184,7 @@ section, header, footer, main, article {
 .nav-menu a {
     color: var(--dark-color);
     text-decoration: none;
-    font-weight: 500;
+    font-weight: 400;
     transition: color 0.3s ease;
     padding: 0.5rem 0;
 }

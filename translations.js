@@ -526,6 +526,7 @@ const translations = {
         "landing-nav-locations": "LOCATIONS",
         "landing-nav-courses": "COURSES & EXPERIENCES",
         "landing-nav-gallery": "GALLERY",
+        "landing-nav-trip-planning": "TRIP PLANNING",
         "landing-nav-contact": "CONTACT",
         
         // Hero section
@@ -573,6 +574,24 @@ const translations = {
         "activity-equipment-title": "Climbing Equipment Rental",
         "activity-equipment-desc": "Professional climbing equipment rental - ropes, harnesses, helmets, belay devices, runners and crashpads. Perfect for climbers who want to go independent or practice bouldering.",
         "activity-btn": "Learn More",
+
+        // Trip planning
+        "trip-planning-kicker": "Useful trip services",
+        "trip-planning-title": "Planning your Cyprus trip?",
+        "trip-planning-intro": "Here are the things visitors usually need around a climbing or rappelling day: a place to stay, a car, an airport transfer, and extra activities for the days before or after.",
+        "trip-planning-hotels-title": "Stay in Cyprus",
+        "trip-planning-hotels-desc": "Hotels, apartments, and guest stays near climbing and hiking areas.",
+        "trip-planning-hotels-cta": "Search stays",
+        "trip-planning-cars-title": "Car rental",
+        "trip-planning-cars-desc": "A car is the easiest way to reach crags, villages, and nature trails.",
+        "trip-planning-cars-cta": "Compare cars",
+        "trip-planning-transfers-title": "Airport transfers",
+        "trip-planning-transfers-desc": "A good option if you want to arrive relaxed before the activity.",
+        "trip-planning-transfers-cta": "Check transfers",
+        "trip-planning-attractions-title": "More activities",
+        "trip-planning-attractions-desc": "Ideas for free days, families, and travelers staying a little longer on the island.",
+        "trip-planning-attractions-cta": "Explore options",
+        "trip-planning-disclosure": "Some links may be affiliate links. Your price stays the same, and in some cases the site earns a small commission that helps keep the content and recommendations going.",
         
         // Activities Page - Detailed
         "activities-climbing-header": "Rock Climbing Introduction and Experience",

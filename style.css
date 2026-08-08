@@ -794,6 +794,601 @@ h3 {
     }
 }
 
+/* Landing page editorial bridge between the hero and the rest of the page */
+.landing-page #about.about {
+    position: relative;
+    isolation: isolate;
+    padding: clamp(76px, 9vw, 118px) 0 clamp(82px, 9vw, 112px);
+    overflow: hidden;
+    background: #f7f4ee;
+    color: #2d302c;
+}
+
+.landing-page #about.about::before {
+    content: "";
+    position: absolute;
+    top: 28px;
+    left: max(24px, calc((100% - 1320px) / 2 + 48px));
+    right: max(24px, calc((100% - 1320px) / 2 + 48px));
+    height: 1px;
+    background: #ded4c5;
+}
+
+.landing-page #about .container {
+    position: relative;
+    z-index: 1;
+    max-width: 1320px;
+    padding-inline: 48px;
+}
+
+.landing-page #about .about-content {
+    max-width: 700px;
+    margin: 0 0 78px auto;
+    text-align: right;
+}
+
+.landing-page #about .about-content h2 {
+    margin-bottom: 22px;
+    color: #285c32;
+    font-size: clamp(42px, 4.3vw, 58px);
+    font-weight: 700;
+    line-height: 1.08;
+    letter-spacing: -0.035em;
+    text-align: right;
+}
+
+.landing-page #about .about-content p {
+    max-width: 680px;
+    margin: 0;
+    color: #444844;
+    font-size: clamp(18px, 1.6vw, 22px);
+    line-height: 1.75;
+    text-align: right;
+}
+
+.landing-page #about .features {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0;
+    margin: 0;
+    direction: rtl;
+}
+
+.landing-page #about .feature-card {
+    min-height: 190px;
+    padding: 0 34px;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+    text-align: center;
+}
+
+.landing-page #about .feature-card + .feature-card {
+    border-inline-start: 1px solid #d8cebf;
+}
+
+.landing-page #about .feature-icon {
+    height: 62px;
+    margin-bottom: 22px;
+}
+
+.landing-page #about .feature-icon svg {
+    width: 50px;
+    height: 50px;
+    fill: none;
+    stroke: #ed7c22;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 1.65;
+}
+
+.landing-page #about .feature-icon svg circle {
+    fill: #f7f4ee;
+}
+
+.landing-page #about .feature-card h3 {
+    margin-bottom: 12px;
+    color: #285c32;
+    font-size: clamp(18px, 1.55vw, 22px);
+    font-weight: 700;
+    line-height: 1.25;
+    text-align: center;
+}
+
+.landing-page #about .feature-card p {
+    max-width: 230px;
+    margin: 0 auto;
+    color: #4b4e4a;
+    font-size: clamp(16px, 1.25vw, 18px);
+    line-height: 1.65;
+    text-align: center;
+}
+
+.landing-page.ltr #about .about-content,
+.landing-page.ltr #about .about-content h2,
+.landing-page.ltr #about .about-content p {
+    margin-left: auto;
+    margin-right: 0;
+    text-align: left;
+}
+
+@media (max-width: 900px) {
+    .landing-page #about .container {
+        padding-inline: 28px;
+    }
+
+    .landing-page #about .about-content {
+        margin-bottom: 62px;
+    }
+
+    .landing-page #about .feature-card {
+        padding-inline: 20px;
+    }
+}
+
+@media (max-width: 640px) {
+    .landing-page #about.about {
+        padding: 68px 0 74px;
+    }
+
+    .landing-page #about.about::before {
+        top: 20px;
+        left: 20px;
+        right: 20px;
+    }
+
+    .landing-page #about .container {
+        padding-inline: 22px;
+    }
+
+    .landing-page #about .about-content,
+    .landing-page.ltr #about .about-content {
+        max-width: none;
+        margin: 0 0 52px;
+        text-align: right;
+    }
+
+    .landing-page #about .about-content h2,
+    .landing-page #about .about-content p,
+    .landing-page.ltr #about .about-content h2,
+    .landing-page.ltr #about .about-content p {
+        text-align: right;
+    }
+
+    .landing-page #about .about-content h2 {
+        margin-bottom: 18px;
+        font-size: clamp(37px, 11vw, 50px);
+    }
+
+    .landing-page #about .about-content p {
+        font-size: 18px;
+        line-height: 1.65;
+    }
+
+    .landing-page.ltr #about .about-content,
+    .landing-page.ltr #about .about-content h2,
+    .landing-page.ltr #about .about-content p {
+        text-align: left;
+    }
+
+    .landing-page #about .features {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .landing-page #about .feature-card {
+        min-height: 185px;
+        padding: 22px 14px 26px;
+    }
+
+    .landing-page #about .feature-card + .feature-card {
+        border-inline-start: 0;
+    }
+
+    .landing-page #about .feature-card:nth-child(-n + 2) {
+        border-bottom: 1px solid #d8cebf;
+    }
+
+    .landing-page #about .feature-card:nth-child(odd) {
+        border-inline-start: 1px solid #d8cebf;
+    }
+
+    .landing-page #about .feature-icon {
+        height: 50px;
+        margin-bottom: 15px;
+    }
+
+    .landing-page #about .feature-icon svg {
+        width: 42px;
+        height: 42px;
+    }
+
+    .landing-page #about .feature-card h3 {
+        margin-bottom: 8px;
+        font-size: 17px;
+    }
+
+    .landing-page #about .feature-card p {
+        font-size: 15px;
+        line-height: 1.5;
+    }
+}
+
+@media (max-width: 400px) {
+    .landing-page #about .container {
+        padding-inline: 18px;
+    }
+
+    .landing-page #about .feature-card {
+        padding-inline: 8px;
+    }
+
+    .landing-page #about .feature-card h3 {
+        font-size: 16px;
+    }
+
+    .landing-page #about .feature-card p {
+        font-size: 14px;
+    }
+}
+
+/* Shared editorial treatment for the activities, tours, and gallery strips */
+.landing-page #activities.activities,
+.landing-page #tours.tours,
+.landing-page #gallery.gallery {
+    position: relative;
+    isolation: isolate;
+    padding: clamp(82px, 9vw, 116px) 0;
+    background: #f7f4ee;
+    color: #2d302c;
+}
+
+.landing-page #activities.activities::before,
+.landing-page #tours.tours::before,
+.landing-page #gallery.gallery::before {
+    content: "";
+    position: absolute;
+    top: 28px;
+    left: max(24px, calc((100% - 1320px) / 2 + 48px));
+    right: max(24px, calc((100% - 1320px) / 2 + 48px));
+    height: 1px;
+    background: #ded4c5;
+}
+
+.landing-page #activities .container,
+.landing-page #tours .container,
+.landing-page #gallery .container {
+    position: relative;
+    z-index: 1;
+    max-width: 1320px;
+    padding-inline: 48px;
+}
+
+.landing-page #activities h2,
+.landing-page #tours h2,
+.landing-page #gallery h2 {
+    margin: 0 0 58px;
+    color: #285c32;
+    font-size: clamp(38px, 4vw, 54px);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    text-align: right;
+}
+
+.landing-page #activities .activities-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0;
+    margin: 0;
+}
+
+.landing-page #activities .activity-card {
+    min-width: 0;
+    border: 0;
+    border-inline-start: 1px solid #d8cebf;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+    overflow: visible;
+    transition: none;
+}
+
+.landing-page #activities .activity-card:first-child {
+    border-inline-start: 0;
+}
+
+.landing-page #activities .activity-card:hover {
+    transform: none;
+}
+
+.landing-page #activities .activity-image {
+    height: 220px;
+    margin-inline: 22px;
+    overflow: hidden;
+}
+
+.landing-page #activities .activity-image img,
+.landing-page #activities .activity-image video {
+    filter: saturate(0.86);
+    transition: transform 0.35s ease, filter 0.35s ease;
+}
+
+.landing-page #activities .activity-card:hover .activity-image img {
+    transform: scale(1.025);
+    filter: saturate(1);
+}
+
+.landing-page #activities .activity-content {
+    padding: 26px 34px 0;
+    text-align: right;
+}
+
+.landing-page #activities .activity-content h3,
+.landing-page #tours .tour-content h3 {
+    margin-bottom: 12px;
+    color: #285c32;
+    font-size: clamp(19px, 1.5vw, 22px);
+    font-weight: 700;
+    line-height: 1.3;
+    text-align: right;
+}
+
+.landing-page #activities .activity-content p,
+.landing-page #tours .tour-content p {
+    margin-bottom: 22px;
+    color: #4b4e4a;
+    font-size: 16px;
+    line-height: 1.7;
+    text-align: right;
+}
+
+.landing-page #activities .activity-btn {
+    align-self: flex-start;
+    margin: 0;
+    padding: 0;
+    border-bottom: 1px solid #ed7c22;
+    border-radius: 0;
+    background: transparent;
+    color: #ed7c22;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.landing-page #activities .activity-btn:hover {
+    background: transparent;
+    transform: none;
+}
+
+.landing-page #tours .tours-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0;
+    margin: 0;
+}
+
+.landing-page #tours .tour-card {
+    min-width: 0;
+    border: 0;
+    border-inline-start: 1px solid #d8cebf;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+    overflow: visible;
+    transition: none;
+}
+
+.landing-page #tours .tour-card:first-child,
+.landing-page #tours .tour-card:nth-child(4) {
+    border-inline-start: 0;
+}
+
+.landing-page #tours .tour-card:hover {
+    transform: none;
+    box-shadow: none;
+}
+
+.landing-page #tours .tour-image {
+    margin-inline: 22px;
+    overflow: hidden;
+}
+
+.landing-page #tours .tour-image img {
+    display: block;
+    height: 235px;
+    filter: saturate(0.86);
+    transition: transform 0.35s ease, filter 0.35s ease;
+}
+
+.landing-page #tours .tour-card:hover .tour-image img {
+    transform: scale(1.025);
+    filter: saturate(1);
+}
+
+.landing-page #tours .tour-content {
+    padding: 25px 34px 0;
+    text-align: right;
+}
+
+.landing-page #tours .tour-author,
+.landing-page #tours .tour-date {
+    margin: 0 0 0 14px;
+    color: #77736b;
+    font-size: 13px;
+}
+
+.landing-page #tours .read-more {
+    display: block;
+    width: fit-content;
+    margin-top: 15px;
+    border-bottom: 1px solid #ed7c22;
+    color: #ed7c22;
+    font-size: 15px;
+}
+
+.landing-page #gallery .gallery-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 10px;
+}
+
+.landing-page #gallery .gallery-item {
+    aspect-ratio: 1.15;
+    border-radius: 0;
+    background: #e9e1d5;
+}
+
+.landing-page #gallery .gallery-item:first-child {
+    grid-column: span 2;
+    grid-row: span 2;
+    aspect-ratio: 1;
+}
+
+.landing-page #gallery .gallery-item img {
+    filter: saturate(0.88);
+    transition: transform 0.35s ease, filter 0.35s ease;
+}
+
+.landing-page #gallery .gallery-item:hover img {
+    transform: scale(1.025);
+    filter: saturate(1);
+}
+
+.landing-page.ltr #activities .activity-content,
+.landing-page.ltr #activities .activity-content h3,
+.landing-page.ltr #activities .activity-content p,
+.landing-page.ltr #tours .tour-content,
+.landing-page.ltr #tours .tour-content h3,
+.landing-page.ltr #tours .tour-content p {
+    text-align: left;
+}
+
+@media (max-width: 900px) {
+    .landing-page #activities .container,
+    .landing-page #tours .container,
+    .landing-page #gallery .container {
+        padding-inline: 28px;
+    }
+
+    .landing-page #activities .activities-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        row-gap: 54px;
+    }
+
+    .landing-page #activities .activity-card:nth-child(3) {
+        border-inline-start: 0;
+    }
+
+    .landing-page #activities .activity-card:nth-child(odd) {
+        border-inline-start: 1px solid #d8cebf;
+    }
+
+    .landing-page #tours .tours-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        row-gap: 54px;
+    }
+
+    .landing-page #tours .tour-card:nth-child(3n + 1) {
+        border-inline-start: 1px solid #d8cebf;
+    }
+
+    .landing-page #tours .tour-card:nth-child(odd) {
+        border-inline-start: 0;
+    }
+
+    .landing-page #gallery .gallery-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 640px) {
+    .landing-page #activities.activities,
+    .landing-page #tours.tours,
+    .landing-page #gallery.gallery {
+        padding: 70px 0 74px;
+    }
+
+    .landing-page #activities.activities::before,
+    .landing-page #tours.tours::before,
+    .landing-page #gallery.gallery::before {
+        top: 20px;
+        left: 20px;
+        right: 20px;
+    }
+
+    .landing-page #activities .container,
+    .landing-page #tours .container,
+    .landing-page #gallery .container {
+        padding-inline: 22px;
+    }
+
+    .landing-page #activities h2,
+    .landing-page #tours h2,
+    .landing-page #gallery h2 {
+        margin-bottom: 42px;
+        font-size: clamp(36px, 10vw, 48px);
+        text-align: right;
+    }
+
+    .landing-page #activities .activities-grid,
+    .landing-page #tours .tours-grid {
+        grid-template-columns: 1fr;
+        row-gap: 44px;
+    }
+
+    .landing-page #activities .activity-card,
+    .landing-page #tours .tour-card,
+    .landing-page #activities .activity-card:nth-child(odd),
+    .landing-page #tours .tour-card:nth-child(odd),
+    .landing-page #tours .tour-card:nth-child(3n + 1) {
+        border-inline-start: 0;
+        border-top: 1px solid #d8cebf;
+        padding-top: 28px;
+    }
+
+    .landing-page #activities .activity-card:first-child,
+    .landing-page #tours .tour-card:first-child {
+        border-top: 0;
+        padding-top: 0;
+    }
+
+    .landing-page #activities .activity-image,
+    .landing-page #tours .tour-image {
+        margin-inline: 0;
+    }
+
+    .landing-page #activities .activity-content,
+    .landing-page #tours .tour-content {
+        padding: 22px 0 0;
+    }
+
+    .landing-page #activities .activity-content h3,
+    .landing-page #activities .activity-content p,
+    .landing-page #tours .tour-content h3,
+    .landing-page #tours .tour-content p,
+    .landing-page.ltr #activities .activity-content h3,
+    .landing-page.ltr #activities .activity-content p,
+    .landing-page.ltr #tours .tour-content h3,
+    .landing-page.ltr #tours .tour-content p {
+        text-align: right;
+    }
+
+    .landing-page.ltr #activities .activity-content h3,
+    .landing-page.ltr #activities .activity-content p,
+    .landing-page.ltr #tours .tour-content h3,
+    .landing-page.ltr #tours .tour-content p {
+        text-align: left;
+    }
+
+    .landing-page #gallery .gallery-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 7px;
+    }
+
+    .landing-page #gallery .gallery-item:first-child {
+        grid-column: span 2;
+        grid-row: span 1;
+        aspect-ratio: 1.25;
+    }
+}
+
 @media (max-width: 480px) {
     .video-title {
         font-size: 1.75rem;

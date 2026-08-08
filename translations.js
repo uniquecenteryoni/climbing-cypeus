@@ -20,6 +20,7 @@ const translations = {
         "landing-nav-locations": "טיפוס צוקים וסנפלינג",
         "landing-nav-courses": "קורסים וחוויות",
         "landing-nav-gallery": "גלריה",
+        "landing-nav-trip-planning": "תכנון הטיול",
         "landing-nav-contact": "יצירת קשר",
         
         // Hero section
@@ -36,13 +37,17 @@ const translations = {
         
         // About section
         "about-title": "קפריסין בעין אחרת",
-        "about-text-1": "מתמחה בתכנון והדרכה של פעילויות בטבע, מותאמות לכל רמה.<br><br>בין אם זו סדנת טיפוס מרתקת למתחילים, קורס הובלה למתקדמים שרוצים לצאת לעצמאות בטיפוס, או טיולי הליכה מותאמים אישית – אני מציע לכם שקט נפשי, ליווי והדרכה מקצועית בעברית ובאנגלית ליום של הרפתקאה מרגשת ובטוחה.",
+        "about-text-1": "אני בונה את יום הטיפוס לפי האנשים, הניסיון והאזור שמתאים לכם. בין אם זו הפעם הראשונה שלכם על הסלע ובין אם אתם מטפסים מנוסים ומחפשים חוויה אחרת בקפריסין.",
         
         // Features
-        "feature-climbing": "פעילויות טיפוס וגלישת צוקים",
-        "feature-trails": "מסלולי טיול מרהיבים",
-        "feature-custom": "בניית תוכנית טיול בהתאמה אישית",
-        "feature-hebrew": "הדרכה בעברית/אנגלית",
+        "feature-climbing": "טיפוס וסנפלינג",
+        "feature-climbing-desc": "אפשר לשלב כמה סוגי פעילות ביום אחד",
+        "feature-trails": "מצוקים נבחרים ברחבי קפריסין",
+        "feature-trails-desc": "לוקיישנים שאני באמת אוהב לטפס בהם",
+        "feature-custom": "מסלול שמתאים לכם",
+        "feature-custom-desc": "למתחילים, זוגות ומטפסים מנוסים",
+        "feature-hebrew": "עברית / English",
+        "feature-hebrew-desc": "הדרכה אישית וברורה לאורך כל היום",
         
         // Activities
         "activities-title": "טיפוס צוקים וסנפלינג",
@@ -62,6 +67,24 @@ const translations = {
         "activity-equipment-title": "השכרת ציוד טיפוס",
         "activity-equipment-desc": "השכרת ציוד מקצועי לטיפוס - חבלים, רתמות, קסדות, מכשירי אבטחה, ראנרים וקראשפדים. מושלם למטפסים שרוצים לצאת לעצמאות או לתרגל בולדרינג.",
         "activity-btn": "לפרטים נוספים",
+
+        // Trip planning
+        "trip-planning-kicker": "שירותים משלימים",
+        "trip-planning-title": "מתכננים את הטיול לקפריסין?",
+        "trip-planning-intro": "אספתי כאן את הדברים שבדרך כלל צריך לסגור סביב יום טיפוס או סנפלינג: מקום לינה, רכב, הסעה מהשדה ואטרקציות לימים שלפני או אחרי.",
+        "trip-planning-hotels-title": "לינה בקפריסין",
+        "trip-planning-hotels-desc": "מלונות, דירות ואירוח ליד אזורי הטיפוס והטיול.",
+        "trip-planning-hotels-cta": "חיפוש לינה",
+        "trip-planning-cars-title": "השכרת רכב",
+        "trip-planning-cars-desc": "רכב הוא הדרך הנוחה ביותר להגיע למצוקים, כפרים ומסלולי טבע.",
+        "trip-planning-cars-cta": "השוואת רכבים",
+        "trip-planning-transfers-title": "הסעה משדה התעופה",
+        "trip-planning-transfers-desc": "מתאים למי שמעדיף להגיע רגוע למלון לפני הפעילות.",
+        "trip-planning-transfers-cta": "בדיקת הסעות",
+        "trip-planning-attractions-title": "אטרקציות נוספות",
+        "trip-planning-attractions-desc": "רעיונות לימים חופשיים, משפחות ומי שנשאר עוד קצת באי.",
+        "trip-planning-attractions-cta": "לראות אפשרויות",
+        "trip-planning-disclosure": "חלק מהקישורים עשויים להיות קישורי שותפים. המחיר עבורכם נשאר זהה, ובמקרים מסוימים האתר מקבל עמלה קטנה שעוזרת להמשיך ליצור תוכן והמלצות.",
         
         // Activities Page - Detailed
         "activities-climbing-header": "חשיפה והתנסות בטיפוס צוקים",
@@ -519,14 +542,18 @@ const translations = {
         
         // About section
         "about-title": "Cyprus Through Different Eyes",
-        "about-text-1": "We specialize in planning and guiding outdoor activities, tailored to every level.<br><br>Whether it's an exciting climbing workshop for beginners, a lead climbing course for advanced climbers who want to gain independence, or personalized hiking tours - we offer you peace of mind, professional guidance in Hebrew and English for a day of exciting and safe adventure.",
+        "about-text-1": "I shape each climbing day around your people, experience, and the area that suits you best. Whether it is your first time on rock or you are experienced climbers looking for a different side of Cyprus.",
         
         
         // Features
-        "feature-climbing": "Climbing and Rappelling Activities",
-        "feature-trails": "Spectacular Hiking Trails",
-        "feature-custom": "Custom Tailored Tour Planning",
-        "feature-hebrew": "Professional Guidance in Hebrew",
+        "feature-climbing": "Climbing and rappelling",
+        "feature-climbing-desc": "Combine several kinds of activity in one day",
+        "feature-trails": "Selected crags across Cyprus",
+        "feature-trails-desc": "Places I genuinely love to climb",
+        "feature-custom": "A route made for you",
+        "feature-custom-desc": "For beginners, couples, and experienced climbers",
+        "feature-hebrew": "עברית / English",
+        "feature-hebrew-desc": "Clear, personal guidance throughout the day",
         
         // Activities
         "activities-title": "Rock Climbing",

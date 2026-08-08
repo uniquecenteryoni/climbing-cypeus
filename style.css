@@ -8,6 +8,83 @@
     box-sizing: border-box;
 }
 
+/* Guidebook selector and dual guidebook cards */
+.guidebook-choice {
+    margin: 0.5rem 0 1rem;
+    color: var(--gray-color);
+}
+
+.guidebook-choice-links,
+.guidebook-actions {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.guidebook-choice-links a {
+    color: var(--primary-color);
+    border: 1px solid var(--secondary-color);
+    border-radius: 999px;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.bouldering-guidebook-card {
+    margin-top: 2rem;
+    padding: 2rem;
+    background: linear-gradient(135deg, #f5faf2, #fff);
+    border-radius: 15px;
+    border-inline-start: 4px solid var(--secondary-color);
+}
+
+.bouldering-guidebook-layout {
+    display: grid;
+    grid-template-columns: minmax(150px, 230px) 1fr;
+    gap: 2rem;
+    align-items: center;
+}
+
+.bouldering-guidebook-layout > img {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: var(--shadow-md);
+}
+
+.guidebook-benefits {
+    margin: 0 0 1rem;
+    padding-inline-start: 1.25rem;
+}
+
+.guidebook-benefits li {
+    margin-bottom: 0.45rem;
+}
+
+.guidebook-pickup {
+    color: var(--gray-color);
+}
+
+.guidebook-actions .equipment-order-btn {
+    text-decoration: none;
+}
+
+.guidebook-actions .equipment-order-btn.pickup {
+    background: var(--secondary-color);
+    color: #173619;
+}
+
+@media (max-width: 700px) {
+    .bouldering-guidebook-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .bouldering-guidebook-layout > img {
+        max-width: 220px;
+        margin: 0 auto;
+    }
+}
+
 :root {
     /* Color Scheme */
     --primary-color: #2c5f2d;
@@ -1205,7 +1282,7 @@ h3 {
 
 .landing-page #activities .activity-image {
     height: 220px;
-    margin-inline: 22px;
+    margin-inline: 0;
     overflow: hidden;
 }
 
@@ -1289,7 +1366,7 @@ h3 {
 }
 
 .landing-page #tours .tour-image {
-    margin-inline: 22px;
+    margin-inline: 0;
     overflow: hidden;
 }
 
@@ -1306,7 +1383,7 @@ h3 {
 }
 
 .landing-page #tours .tour-content {
-    padding: 25px 34px 0;
+    padding: 25px 34px 32px;
     text-align: right;
 }
 
@@ -2851,14 +2928,14 @@ h3 {
 .landing-page .navbar {
     position: absolute;
     inset: 0 0 auto;
-    background: rgba(10, 14, 10, 0.58);
+    background: rgba(255, 255, 255, 0.9);
     box-shadow: none;
     backdrop-filter: none;
     -webkit-backdrop-filter: none;
 }
 
 .landing-page .navbar.scrolled {
-    background: rgba(10, 14, 10, 0.64);
+    background: rgba(255, 255, 255, 0.96);
     box-shadow: none;
 }
 
@@ -2913,7 +2990,7 @@ h3 {
 }
 
 .landing-page .nav-menu a {
-    color: #fff;
+    color: #111;
     font-size: 15px;
     font-weight: 500;
     letter-spacing: 0.025em;
@@ -2925,7 +3002,7 @@ h3 {
 }
 
 .landing-page .nav-menu a:hover {
-    color: #a8c56b;
+    color: #2c5f2d;
 }
 
 .landing-page .language-switcher {
@@ -2951,7 +3028,7 @@ h3 {
     padding: 0 7px;
     border: 0;
     background: transparent;
-    color: #fff;
+    color: #111;
     font-size: 0.78rem;
     font-weight: 400;
     letter-spacing: 0.08em;
@@ -2971,7 +3048,7 @@ h3 {
     content: "|";
     display: inline-block;
     margin-right: 7px;
-    color: rgba(255, 255, 255, 0.7);
+    color: rgba(17, 17, 17, 0.55);
     font-weight: 400;
 }
 

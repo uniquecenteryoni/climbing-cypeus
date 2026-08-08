@@ -65,6 +65,11 @@
                 document.body?.classList.toggle('rtl', lang === 'he');
                 document.body?.classList.toggle('ltr', lang !== 'he');
                 
+                // Keep the English guide focused on climbing and logistics.
+                document.querySelectorAll('[data-hide-in-en]').forEach(element => {
+                    element.hidden = lang === 'en';
+                });
+
                 // Handle regular data-i18n attributes
                 const elements = document.querySelectorAll('[data-i18n]');
                 elements.forEach(element => {
@@ -88,14 +93,63 @@
     
     <style>
         .guide-hero {
-            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
-                        url('pics/climberguide/ineia2.jpg') center 60%/cover;
-            height: 40vh;
+            position: relative;
+            height: 600px;
+            overflow: hidden;
             display: flex;
             align-items: center;
-            justify-content: center;
+            justify-content: flex-start;
             color: white;
-            text-align: center;
+            text-align: start;
+        }
+
+        .guide-hero iframe {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+            pointer-events: none;
+            transform: scale(1.18);
+        }
+
+        .guide-hero::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(10, 35, 22, 0.3), rgba(10, 35, 22, 0.72));
+        }
+
+        .guide-hero .container {
+            position: relative;
+            z-index: 1;
+            width: min(720px, calc(100% - 48px));
+            max-width: 720px;
+            margin-left: auto;
+            margin-right: clamp(32px, 7vw, 110px);
+            padding-top: 100px;
+        }
+
+        .guide-hero h1 {
+            font-size: clamp(48px, 5vw, 78px);
+            line-height: 1;
+            margin-bottom: 24px;
+            text-shadow: 0 2px 16px rgba(0,0,0,0.45);
+            text-align: inherit;
+        }
+
+        .guide-hero p {
+            font-size: 1.5rem;
+            margin-bottom: 0;
+        }
+
+        html[dir="ltr"] .guide-hero .container {
+            margin-left: clamp(32px, 7vw, 110px);
+            margin-right: auto;
+        }
+
+        html[dir="rtl"] .guide-hero .container {
+            text-align: right;
         }
         
         .guide-content {
@@ -261,10 +315,284 @@
             padding-right: 1.5rem;
             margin: 2rem 0;
         }
+
+        .bouldering-guide-feature {
+            display: grid;
+            grid-template-columns: minmax(120px, 180px) 1fr;
+            gap: 1.25rem;
+            align-items: center;
+            background: rgba(255,255,255,0.82);
+            padding: 1rem;
+            border-radius: 10px;
+            margin: 1rem 0 1.5rem;
+        }
+
+        .bouldering-guide-feature img {
+            width: 100%;
+            border-radius: 6px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.16);
+        }
+
+        .firstbolt-promo {
+            display: grid;
+            grid-template-columns: 72px 1fr;
+            gap: 1rem;
+            align-items: center;
+            margin: 2rem 0;
+            padding: 1.25rem 1.5rem;
+            background: linear-gradient(115deg, #111b2a 0%, #172c45 58%, #223d59 100%);
+            border: 0;
+            border-radius: 10px;
+            color: #fff;
+            box-shadow: 0 8px 22px rgba(12, 28, 46, 0.18);
+        }
+
+        .firstbolt-promo-logo {
+            width: 64px;
+            height: 64px;
+            object-fit: contain;
+            border-radius: 50%;
+            background: #ffca3a;
+        }
+
+        .firstbolt-promo h3 {
+            color: #fff;
+            margin: 0 0 0.5rem;
+            text-align: start;
+        }
+
+        .firstbolt-kicker {
+            margin-bottom: 0.2rem !important;
+            color: #ffca3a !important;
+            font-size: 0.72rem;
+            font-weight: 800;
+            letter-spacing: 0.16em;
+        }
+
+        .firstbolt-promo p {
+            color: rgba(255,255,255,0.84);
+        }
+
+        .bouldering-resources p,
+        .bouldering-resources p,
+        .resource-note {
+            color: #45604a;
+        }
+
+        .firstbolt-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 0.35rem;
+            padding: 0.65rem 1rem;
+            border-radius: 6px;
+            background: #ffca3a;
+            color: #172c45;
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        .bouldering-resources {
+            margin: 2rem 0;
+            padding: 0;
+        }
+
+        .bouldering-resources > h3 {
+            color: #2c5f2d;
+            margin-bottom: 0.75rem;
+            text-align: start;
+        }
+
+        .bouldering-guide-cover {
+            min-width: 0;
+        }
+
+        .facebook-reel-embed {
+            width: 100%;
+            max-width: 420px;
+            aspect-ratio: 1 / 1;
+            margin-top: 0.75rem;
+            overflow: hidden;
+            border-radius: 8px;
+            background: #eef2ec;
+        }
+
+        .facebook-reel-embed iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .topo-download-compact {
+            max-width: 680px;
+            padding: 0.75rem 0;
+            border-top: 1px solid #d7ddd2;
+            border-bottom: 1px solid #d7ddd2;
+            margin: 1.25rem 0;
+        }
+
+        .topo-download-compact h4,
+        .topo-form-compact h4 {
+            color: #2c5f2d;
+            margin: 0 0 0.45rem;
+        }
+
+        .topo-download-compact p,
+        .topo-form-compact p {
+            margin-bottom: 0.75rem;
+        }
+
+        .topo-form-compact {
+            padding: 0.75rem;
+            background: #f8faf7;
+            border-radius: 8px;
+        }
+
+        .beside-climbing-section {
+            margin: 3rem 0 1rem;
+        }
+
+        .beside-climbing-intro {
+            color: #5a665b;
+            text-align: start !important;
+        }
+
+        .beside-climbing-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .beside-category {
+            padding: 1.1rem;
+            background: #fafbf8;
+            border: 1px solid #e1e8da;
+            border-radius: 10px;
+        }
+
+        .beside-category h3 {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin: 0 0 0.75rem;
+            color: #2c5f2d;
+            font-size: 1.2rem;
+            text-align: start;
+        }
+
+        .beside-place {
+            display: block;
+            padding: 0.7rem 0;
+            color: inherit;
+            text-decoration: none;
+            border-top: 1px solid #e7ece3;
+        }
+
+        .beside-place strong,
+        .beside-place span,
+        .beside-place em {
+            display: block;
+        }
+
+        .beside-place strong {
+            color: #1e4120;
+        }
+
+        .beside-place span {
+            color: #5e685e;
+            font-size: 0.92rem;
+        }
+
+        .beside-place em {
+            margin-top: 0.25rem;
+            color: #2c5f2d;
+            font-size: 0.82rem;
+            font-style: normal;
+            font-weight: 700;
+        }
+
+        .beside-place:hover strong,
+        .beside-place:hover em {
+            color: #f47920;
+        }
+
+        .beside-affiliate-box {
+            padding: 1.25rem;
+            background: #f0f8f0;
+            border-inline-start: 4px solid #97c24a;
+            border-radius: 10px;
+        }
+
+        .beside-affiliate-box h3 {
+            margin: 0 0 0.8rem;
+            color: #2c5f2d;
+            text-align: start;
+        }
+
+        .beside-affiliate-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .beside-affiliate-links a {
+            padding: 0.55rem 0.85rem;
+            border-radius: 999px;
+            background: #fff;
+            color: #2c5f2d;
+            text-decoration: none;
+            font-weight: 700;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+        }
+
+        .beside-affiliate-box small {
+            color: #647064;
+        }
+
+        .bouldering-guide-feature h4 {
+            color: #0d47a1;
+            margin: 0 0 0.5rem;
+            font-size: 1.15rem;
+        }
+
+        .bouldering-guide-feature p {
+            margin-bottom: 0.75rem;
+            color: #234b72;
+        }
+
+        .guide-video-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            color: #1976d2;
+            font-weight: 700;
+            text-decoration: underline;
+        }
+
+        .topo-download-compact {
+            max-width: 720px;
+            margin-left: auto !important;
+            margin-right: auto !important;
+        }
+
+        .topo-download-compact form {
+            gap: 0.45rem !important;
+        }
+
+        [data-hide-in-en][hidden] { display: none !important; }
         
         @media (max-width: 768px) {
             .guide-hero {
-                height: 40vh;
+                height: 500px;
+            }
+
+            .guide-hero .container {
+                width: calc(100% - 32px);
+                margin: 0 auto;
+                padding-top: 60px;
+                text-align: center;
             }
             
             .guide-content {
@@ -273,6 +601,26 @@
             
             .guide-content h2 {
                 font-size: 1.5rem;
+            }
+
+            .bouldering-guide-feature {
+                grid-template-columns: 96px 1fr;
+                gap: 0.9rem;
+                padding: 0.85rem;
+            }
+
+            .firstbolt-promo {
+                grid-template-columns: 56px 1fr;
+                padding: 1rem;
+            }
+
+            .firstbolt-promo-logo {
+                width: 52px;
+                height: 52px;
+            }
+
+            .beside-climbing-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -288,23 +636,26 @@
     </script>
 </head>
 
-<body>
+<body class="landing-page">
     <!-- Navigation -->
     <nav class="navbar">
         <div class="container nav-container">
             <a href="index.html#home" class="logo" style="text-decoration: none; color: inherit;">
-                <img src="pics/climbing-cyprus-logo.webp" alt="Climbing Cyprus Logo">
+                <span class="logo-surface">
+                    <img src="pics/climbing-cyprus-logo.webp" alt="Climbing Cyprus Logo">
+                </span>
             </a>
             <ul class="nav-menu">
-                <li><a href="climber-guide.html" class="active" data-i18n="nav-climber-guide">המדריך למטפס</a></li>
-                <li><a href="index.html#activities" data-i18n="nav-climbing">טיפוס צוקים וסנפלינג</a></li>
-                <li><a href="index.html#gallery" data-i18n="nav-gallery">גלריה</a></li>
-                <li><a href="index.html#contact" data-i18n="nav-contact">יצירת קשר</a></li>
-                <li class="language-switcher">
-                    <button class="lang-btn" data-lang="he" aria-label="עברית" title="עברית">HE</button>
-                    <button class="lang-btn" data-lang="en" aria-label="English" title="English">EN</button>
-                </li>
+                <li><a href="climber-guide.html" data-i18n="landing-nav-guide">המדריך למטפס</a></li>
+                <li><a href="index.html#activities" data-i18n="landing-nav-locations">טיפוס צוקים וסנפלינג</a></li>
+                <li><a href="index.html#gallery" data-i18n="landing-nav-gallery">גלריה</a></li>
+                <li><a href="index.html#trip-planning" data-i18n="landing-nav-trip-planning">תכנון הטיול</a></li>
+                <li><a href="index.html#contact" data-i18n="landing-nav-contact">יצירת קשר</a></li>
             </ul>
+            <div class="language-switcher">
+                <button class="lang-btn" data-lang="en" aria-label="English" title="English">EN</button>
+                <button class="lang-btn" data-lang="he" aria-label="עברית" title="עברית">HE</button>
+            </div>
             <div class="hamburger">
                 <span></span>
                 <span></span>
@@ -315,6 +666,7 @@
 
     <!-- Hero Section -->
     <section class="guide-hero">
+        <iframe src="https://www.youtube.com/embed/S_oiiK-iIwY?autoplay=1&mute=1&controls=0&loop=1&playlist=S_oiiK-iIwY&modestbranding=1&playsinline=1" title="Bouldering in Cyprus" allow="autoplay; encrypted-media" aria-hidden="true"></iframe>
         <div class="container">
             <h1 data-i18n="climber-guide-title">המדריך למטפס בקפריסין</h1>
             <p data-i18n="climber-guide-subtitle">על האי השכן והאבנים שפזורים בו</p>
@@ -328,6 +680,9 @@
                 <a href="#logistics" style="color: white; text-decoration: none; padding: 0.5rem 1.5rem; border-radius: 5px; transition: all 0.3s; font-weight: 500;" onmouseover="this.style.background='rgba(255,255,255,0.2)'" onmouseout="this.style.background='transparent'">
                     <i class="fas fa-info-circle"></i> <span data-i18n="guide-nav-logistics">לוגיסטיקה</span>
                 </a>
+                <a href="#beside-climbing" style="color: white; text-decoration: none; padding: 0.5rem 1.5rem; border-radius: 5px; transition: all 0.3s; font-weight: 500;" onmouseover="this.style.background='rgba(255,255,255,0.2)'" onmouseout="this.style.background='transparent'">
+                    <i class="fas fa-coffee"></i> <span data-i18n="guide-nav-beside-climbing">לצד הטיפוס</span>
+                </a>
                 <a href="#north" style="color: white; text-decoration: none; padding: 0.5rem 1.5rem; border-radius: 5px; transition: all 0.3s; font-weight: 500;" onmouseover="this.style.background='rgba(255,255,255,0.2)'" onmouseout="this.style.background='transparent'">
                     <i class="fas fa-mountain"></i> <span data-i18n="guide-nav-north">טיפוס בצפון האי</span>
                 </a>
@@ -336,6 +691,9 @@
                 </a>
                 <a href="#bouldering" style="color: white; text-decoration: none; padding: 0.5rem 1.5rem; border-radius: 5px; transition: all 0.3s; font-weight: 500;" onmouseover="this.style.background='rgba(255,255,255,0.2)'" onmouseout="this.style.background='transparent'">
                     <i class="fas fa-hands"></i> <span data-i18n="guide-nav-bouldering">בולדרינג</span>
+                </a>
+                <a href="equipment.html#rental" style="color: white; text-decoration: none; padding: 0.5rem 1.5rem; border-radius: 5px; transition: all 0.3s; font-weight: 500;" onmouseover="this.style.background='rgba(255,255,255,0.2)'" onmouseout="this.style.background='transparent'">
+                    <i class="fas fa-hiking"></i> <span data-i18n="nav-equipment-rental">השכרת ציוד</span>
                 </a>
                 <a href="#shade-calc" style="color: white; text-decoration: none; padding: 0.5rem 1.5rem; border-radius: 5px; transition: all 0.3s; font-weight: 500;" onmouseover="this.style.background='rgba(255,255,255,0.2)'" onmouseout="this.style.background='transparent'">
                     <i class="fas fa-sun"></i> <span data-i18n="guide-nav-shade-calc">מחשבון צל</span>
@@ -384,6 +742,64 @@
             <strong>ציוד:</strong> מי שמעוניין להשכיר ציוד טיפוס ובולדרינג, ניתן לפנות אליי - <a href="equipment.html" style="color: #2c5f2d; font-weight: bold; text-decoration: underline;">לחצו כאן</a>
         </p>
 
+        <section id="beside-climbing" class="beside-climbing-section" aria-labelledby="beside-climbing-title">
+            <h2 id="beside-climbing-title" data-i18n="guide-beside-climbing-title">לצד הטיפוס</h2>
+            <p class="beside-climbing-intro" data-i18n="guide-beside-climbing-intro">המלצות למקומות שכיף לעצור בהם לפני הטיפוס, אחריו או ביום מנוחה — קפה, אוכל, ים וטבע.</p>
+
+            <div class="beside-climbing-grid">
+                <div class="beside-category">
+                    <h3><i class="fas fa-mug-hot"></i> <span data-i18n="guide-beside-coffee-title">בתי קפה</span></h3>
+                    <a class="beside-place" href="https://www.google.com/maps/search/?api=1&query=Kallikas+Coffee+Corner+Pano+Arodes+Cyprus" target="_blank" rel="noopener">
+                        <strong>Kallikas Coffee Corner</strong><span data-i18n="guide-beside-kallikas">Pano Arodes · קפה דרייב־אין</span><em data-i18n="guide-beside-map">פתיחה ב־Google Maps ↗</em>
+                    </a>
+                    <a class="beside-place" href="https://www.google.com/maps/search/?api=1&query=Droushia+Platea+Cafe+Cyprus" target="_blank" rel="noopener">
+                        <strong>Droushia Platea Cafe</strong><span data-i18n="guide-beside-droushia">Droushia · מקום טוב לאוכל וקפה</span><em data-i18n="guide-beside-map">פתיחה ב־Google Maps ↗</em>
+                    </a>
+                </div>
+
+                <div class="beside-category">
+                    <h3><i class="fas fa-utensils"></i> <span data-i18n="guide-beside-food-title">מסעדות</span></h3>
+                    <a class="beside-place" href="https://www.google.com/maps/search/?api=1&query=Farm+Yard+Kathikas+Cyprus" target="_blank" rel="noopener">
+                        <strong>Farm Yard</strong><span data-i18n="guide-beside-farm-yard">Kathikas · אוכל אסייתי מעולה</span><em data-i18n="guide-beside-map">פתיחה ב־Google Maps ↗</em>
+                    </a>
+                    <a class="beside-place" href="https://www.google.com/maps/search/?api=1&query=Saropoulos+Fish+Tavern+Latchi+Cyprus" target="_blank" rel="noopener">
+                        <strong>Saropoulos Fish Tavern</strong><span data-i18n="guide-beside-saropoulos">Latchi · מסעדת דגים טובה באזור</span><em data-i18n="guide-beside-map">פתיחה ב־Google Maps ↗</em>
+                    </a>
+                </div>
+
+                <div class="beside-category">
+                    <h3><i class="fas fa-water"></i> <span data-i18n="guide-beside-nature-title">חופים וטבע</span></h3>
+                    <a class="beside-place" href="https://www.google.com/maps/search/?api=1&query=Bath+of+Aphrodite+Green+Lagoon+Cyprus" target="_blank" rel="noopener">
+                        <strong>Bath of Aphrodite & Green Lagoon</strong><span data-i18n="guide-beside-aphrodite">Latchi · חוף יפה, שקט ומבודד יחסית</span><em data-i18n="guide-beside-map">פתיחה ב־Google Maps ↗</em>
+                    </a>
+                    <a class="beside-place" href="https://www.google.com/maps/search/?api=1&query=C+Caves+Peyia+Cyprus" target="_blank" rel="noopener">
+                        <strong>C Caves</strong><span data-i18n="guide-beside-c-caves">ליד Peyia · חוף עם מערות ונוף מרהיב</span><em data-i18n="guide-beside-map">פתיחה ב־Google Maps ↗</em>
+                    </a>
+                    <a class="beside-place" href="https://www.google.com/maps/search/?api=1&query=Blue+Lagoon+Latchi+Cyprus" target="_blank" rel="noopener">
+                        <strong>Blue Lagoon</strong><span data-i18n="guide-beside-blue-lagoon">Latchi · מים טורקיז ושייט</span><em data-i18n="guide-beside-map">פתיחה ב־Google Maps ↗</em>
+                    </a>
+                </div>
+
+                <div class="beside-category">
+                    <h3><i class="fas fa-leaf"></i> <span data-i18n="guide-beside-springs-title">מעיינות וטבע</span></h3>
+                    <a class="beside-place" href="https://www.google.com/maps/search/?api=1&query=Kremiotis+Waterfall+Cyprus" target="_blank" rel="noopener">
+                        <strong>Kremiotis Spring</strong><span data-i18n="guide-beside-kremiotis">ליד Kremiotis Waterfall · מעיין טבעי לצד מפל</span><em data-i18n="guide-beside-map">פתיחה ב־Google Maps ↗</em>
+                    </a>
+                </div>
+            </div>
+
+            <div class="beside-affiliate-box">
+                <h3 data-i18n="guide-beside-plan-title">סוגרים את יום הטיפוס</h3>
+                <div class="beside-affiliate-links">
+                    <a href="https://www.booking.com/searchresults.html?ss=Cyprus" target="_blank" rel="nofollow sponsored noopener" data-i18n="guide-beside-hotels">לינה בקפריסין</a>
+                    <a href="https://getrentacar.tp.st/FD6yLXgf" target="_blank" rel="nofollow sponsored noopener" data-i18n="guide-beside-cars">השוואת רכבים</a>
+                    <a href="https://kiwitaxi.tp.st/8Xvx72mG" target="_blank" rel="nofollow sponsored noopener" data-i18n="guide-beside-transfers">הסעה משדה התעופה</a>
+                    <a href="https://klook.tp.st/9luqAvsS" target="_blank" rel="nofollow sponsored noopener" data-i18n="guide-beside-activities">אטרקציות ופעילויות</a>
+                </div>
+                <small data-i18n="guide-affiliate-disclosure">חלק מהקישורים הם קישורי שותפים. אם תזמינו דרכם, האתר עשוי לקבל עמלה קטנה ללא שינוי במחיר עבורכם.</small>
+            </div>
+        </section>
+
         <h2 data-i18n="guide-climbing-walls-title">קירות הטיפוס בקפריסין</h2>
         
         <p data-i18n="guide-climbing-walls-intro">
@@ -416,6 +832,7 @@
             <strong>טיפ מועיל:</strong> מחיר מנוי חודשי בקירות נע בין 50-70 יורו, ורוב הקירות מציעים גם כניסות בודדות. מומלץ להצטרף לקבוצות הפייסבוק של המטפסים המקומיים - זו הדרך הטובה ביותר להכיר שותפים לטיפוס בטבע ולקבל מידע מעודכן על פתיחת מסלולים חדשים.
         </p>
 
+        <div data-hide-in-en>
         <h2 data-i18n="guide-background-title">רקע להבנת ענייני המצוקים באי</h2>
 
         <p data-i18n="guide-background-p1">
@@ -428,6 +845,7 @@
         <p data-i18n="guide-background-p3">
             ומפה אנחנו קופצים לסקירת המצוקים שאם הבנתם נכון, אנחנו נחלק את זה למצוקים בקפריסין עצמה (דרום) ובחלק הצפוני של קפריסין ששייך לטורקים. הדגש יהיה במצוקים המרכזיים בלבד.
         </p>
+        </div>
         
         <div style="background: #f0f8f0; padding: 2rem; border-radius: 10px; margin: 2rem 0; text-align: center; border: 2px solid #97c24a;">
             <h3 style="color: #2c5f2d; margin-bottom: 1.5rem; margin-top: 0;" data-i18n="guide-cta-title">מתכננים לטפס בקפריסין?</h3>
@@ -590,12 +1008,22 @@
         </p>
 
         <p data-i18n-html="guide-bouldering-p2">
-            בתחום הבולדרים יש גישה ומידע דרך אפליקציית <strong>27crags</strong> (בתשלום) שם ניתן לראות מידע על המסלולים ודרכי הגעה. זה מרגיש ממש כמו ספארי עם מערכת שבילים\כבישים פנימית שאיתה אפשר לעבור בין בולדר לבולדר וכמובן לעשות קפינג באיזו פינה טובה שאתם מוצאים (לא חוקי בקפריסין אבל כל עוד מכבדים את הטבע הכל נעשה בשלום).
+            בתחום הבולדרים יש גישה ומידע דרך אפליקציית <a href="https://www.first-bolt.com/" target="_blank" rel="noopener"><strong>FirstBolt</strong></a>, שמכילה את כל מסלולי הטיפוס בקפריסין. כ־80% מהמסלולים כבר ממופים וניתנים לסריקה, וניתן לראות בה מידע על המסלולים ודרכי הגעה.
         </p>
 
         <p data-i18n-html="guide-bouldering-p3">
             <strong>הפיתוח נמשך בקצב מהיר!</strong> כל חודש מתווספים בולדרים חדשים ע"י המטפסים המקומיים והבינלאומיים שמגלים את הפוטנציאל האדיר של האזור. כיום הדירוג הגבוה ביותר של בולדר באי נמצא על <strong>8a (V11 בסקאלה הצרפתית)</strong>, מה שמעיד על הראשוניות של הספורט ועל הפוטנציאל האדיר של המקום. ישנם עשרות פרויקטים פתוחים בדירוגים גבוהים שמחכים למי שירצה להשאיר את חותמו.
         </p>
+
+        <section class="firstbolt-promo" aria-labelledby="firstbolt-title">
+            <img class="firstbolt-promo-logo" src="pics/firstbolt-logo.png" alt="First Bolt logo">
+            <div>
+                <p class="firstbolt-kicker" data-i18n="firstbolt-kicker">SMART GUIDEBOOK</p>
+                <h3 id="firstbolt-title" data-i18n="firstbolt-title">FirstBolt — מדריך חכם למטפסים</h3>
+                <p data-i18n="firstbolt-desc">סרקו את הבולט הראשון וקבלו את המסלול, הדירוג והמידע הרלוונטי. האפליקציה כוללת את מסלולי הטיפוס בקפריסין, וכ־80% מהם כבר ממופים וניתנים לסריקה.</p>
+                <a class="firstbolt-cta" href="https://www.first-bolt.com/" target="_blank" rel="noopener" data-i18n="firstbolt-cta"><i class="fas fa-download"></i> הורדה ומידע על FirstBolt</a>
+            </div>
+        </section>
 
         <!-- YouTube Videos Section -->
         <div style="margin: 3rem 0;">
@@ -754,35 +1182,43 @@
             <p class="guide-image-caption">בולדרינג באזור Ineia & Drousia</p>
         </div>
         
-        <div style="margin-top: 2rem; padding: 2rem; background: #e7f3ff; border-radius: 10px; border-right: 4px solid #2196F3;">
-            <h3 style="color: #0d47a1; margin-bottom: 1rem;" data-i18n-html="guide-topo-vacation-title"><i class="fas fa-hands"></i> מתכננים חופשת בולדרינג?</h3>
-            <p style="color: #0d47a1; line-height: 1.8; margin-bottom: 1.5rem;" data-i18n-html="guide-topo-guidebook-coming">
-                <strong>גייד בוק לבולדרינג בקפריסין בהכנה!</strong> הגייד המקיף לבולדרינג צפוי לצאת בשנת 2026. בינתיים, כל המידע והמסלולים זמינים באפליקציית <strong>27crags</strong>.
-            </p>
+        <section class="bouldering-resources" aria-labelledby="bouldering-resources-title">
+            <div class="bouldering-guide-feature">
+                <div class="bouldering-guide-cover">
+                    <img src="pics/bouldering-guide-cover.png" alt="כריכת גייד הבולדרינג של קפריסין" loading="lazy">
+                </div>
+                <div>
+                    <h4 data-i18n="guide-bouldering-guide-title">גייד הבולדרינג של קפריסין</h4>
+                    <p data-i18n="guide-bouldering-guide-desc">הגייד החדש עושה סדר באחד מאזורי הבולדרינג המיוחדים באי. צפו בריל וקבלו הצצה למה שמחכה לכם בשטח.</p>
+                    <div class="facebook-reel-embed">
+                        <iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F972148269067805&show_text=false&width=500" title="Cyprus bouldering guide reel" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
             
-            <div style="background: #fff; padding: 1.5rem; border-radius: 8px; margin: 1.5rem 0; border: 2px dashed #2196F3;">
-                <h4 style="color: #0d47a1; margin-top: 0; margin-bottom: 1rem;" data-i18n-html="guide-topo-temp-title">
+            <div class="topo-download-compact">
+                <h4 id="bouldering-resources-title" data-i18n-html="guide-topo-temp-title">
                     <i class="fas fa-download"></i> טופו בולדרינג זמני - הורדה חינמית!
                 </h4>
-                <p style="color: #0d47a1; margin-bottom: 1rem;" data-i18n="guide-topo-temp-desc">
+                <p data-i18n="guide-topo-temp-desc">
                     עד לצאת הגייד בוק המלא, זמין טופו זמני עם מידע על הבולדרים העיקריים באזור. ההורדה חינמית לחלוטין!
                 </p>
                 
                 <!-- Topo Download Form -->
-                <div style="background: #f0f8ff; padding: 1.5rem; border-radius: 10px; border: 2px solid #2196F3; margin: 1rem 0;">
-                    <h4 style="color: #2196F3; margin: 0 0 1rem 0; font-size: 1.1rem;" data-i18n-html="guide-topo-form-title">
+                <div class="topo-form-compact">
+                    <h4 data-i18n-html="guide-topo-form-title">
                         <i class="fas fa-file-pdf"></i> הורדת טופו בולדרינג בחינם
                     </h4>
-                    <p style="color: #555; margin-bottom: 1rem; font-size: 0.95rem;" data-i18n="guide-topo-form-subtitle">
+                    <p data-i18n="guide-topo-form-subtitle">
                         השאירו את האימייל שלכם ונשלח לכם את הטופו מיד!
                     </p>
                     <form action="https://formspree.io/f/mjkdalap" method="POST" style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
                         <input type="email" name="email" placeholder="האימייל שלך" required 
-                               style="flex: 1; min-width: 200px; padding: 0.75rem; border: 2px solid #2196F3; border-radius: 5px; font-family: inherit; font-size: 1rem;">
+                               style="flex: 1; min-width: 200px; padding: 0.75rem; border: 1px solid #d7ddd2; border-radius: 5px; font-family: inherit; font-size: 1rem;">
                         <input type="hidden" name="_subject" value="בקשה להורדת טופו בולדרינג">
                         <input type="hidden" name="request_type" value="topo_download">
                         <button type="submit" class="cta-button" data-i18n="guide-topo-form-button"
-                                style="background: #2196F3; color: white; padding: 0.75rem 1.5rem; border: none; border-radius: 5px; cursor: pointer; font-weight: bold; font-size: 1rem;">
+                                style="background: #2c5f2d; color: white; padding: 0.75rem 1.5rem; border: none; border-radius: 5px; cursor: pointer; font-weight: bold; font-size: 1rem;">
                             שלח לי את הטופו
                         </button>
                     </form>
@@ -790,13 +1226,13 @@
                 </div>
             </div>
             
-            <p style="color: #0d47a1; line-height: 1.8;" data-i18n-html="guide-topo-crashpads">
+            <p class="resource-note" data-i18n-html="guide-topo-crashpads">
                 צריכים קראשפדים לבולדרינג? <a href="equipment.html#bouldering" style="color: #1976d2; font-weight: bold; text-decoration: underline;">השכירו ציוד בולדרינג איכותי</a> ישירות ממני!
             </p>
-            <p style="color: #0d47a1; line-height: 1.8; margin-top: 1rem;" data-i18n-html="guide-topo-klook">
+            <p class="resource-note" data-i18n-html="guide-topo-klook">
                 מחפשים פעילות ליום מנוחה או למשפחה? <a href="https://klook.tp.st/9luqAvsS" target="_blank" rel="nofollow sponsored noopener" style="color: #1976d2; font-weight: bold; text-decoration: underline;">בדקו פעילויות ואטרקציות בקפריסין דרך Klook</a>.
             </p>
-        </div>
+        </section>
 
         <div style="margin-top: 3rem; padding: 2rem; background: #fff3cd; border-radius: 10px; border-right: 4px solid #ffc107;">
             <h3 style="color: #856404; margin-bottom: 1rem;" data-i18n-html="guide-important-title"><i class="fas fa-info-circle"></i> חשוב לדעת</h3>

@@ -133,6 +133,9 @@
                 <a href="#guidebook" style="color: white; text-decoration: none; padding: 0.5rem 1.5rem; border-radius: 5px; transition: all 0.3s; font-weight: 500;" onmouseover="this.style.background='rgba(255,255,255,0.2)'" onmouseout="this.style.background='transparent'">
                     <i class="fas fa-book"></i> <span data-i18n="nav-equipment-guidebook">הזמנת גייד הטיפוס</span>
                 </a>
+                <a href="#bouldering-guidebook" style="color: white; text-decoration: none; padding: 0.5rem 1.5rem; border-radius: 5px; transition: all 0.3s; font-weight: 500;" onmouseover="this.style.background='rgba(255,255,255,0.2)'" onmouseout="this.style.background='transparent'">
+                    <i class="fas fa-book-open"></i> <span data-i18n="nav-equipment-bouldering-guidebook">גייד בוק בולדרינג</span>
+                </a>
             </nav>
         </div>
     </div>
@@ -164,7 +167,7 @@
                     <div class="equipment-pricing">
                         <div class="price-box">
                             <h3 data-i18n="equipment-price-title">מחיר להשכרה</h3>
-                            <p class="price">30€ <span data-i18n="equipment-price-day">ליום</span></p>
+                            <p class="price">25€ <span data-i18n="equipment-price-day">ליום</span></p>
                             <p class="price-note" data-i18n="equipment-price-couple">לזוג מטפסים</p>
                             <a href="index.html#contact" class="equipment-order-btn" data-equipment-type="ציוד להובלה ספורטיבית" data-i18n="equipment-order-btn">הזמן עכשיו</a>
                         </div>
@@ -180,7 +183,7 @@
                     
                     <div class="equipment-list">
                         <div class="guide-image" style="margin: 2rem 0;">
-                            <img src="pics/padrent.jpg" alt="בולדרינג בקפריסין" loading="lazy" style="max-width: 100%; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+                            <img src="pics/padrent-improved.png" alt="קראשפד להשכרה לבולדרינג בקפריסין" loading="lazy" style="max-width: 100%; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
                         </div>
                         
                         <!-- YouTube Videos Section -->
@@ -336,6 +339,11 @@
                 <div class="equipment-package" id="guidebook" style="background: linear-gradient(rgba(255,255,255,0.95), rgba(255,255,255,0.95)), url('pics/guide.jpeg') center/cover; padding: 3rem 2rem; border-radius: 15px; margin-top: 3rem;">
                     <div class="equipment-header">
                         <h2><i class="fas fa-book"></i> <span data-i18n="guidebook-title">גייד בוק לטיפוס בקפריסין</span></h2>
+                        <p class="guidebook-choice" data-i18n="guidebook-choice">בחרו את הגיידבוק שמתאים לטיול שלכם: טיפוס ספורטיבי או בולדרינג.</p>
+                        <div class="guidebook-choice-links">
+                            <a href="#guidebook" data-i18n="guidebook-choice-climbing">גיידבוק טיפוס</a>
+                            <a href="#bouldering-guidebook" data-i18n="guidebook-choice-bouldering">גיידבוק בולדרינג</a>
+                        </div>
                     </div>
                     
                     <div class="guidebook-gallery" style="margin: 2rem 0;">
@@ -381,7 +389,34 @@
                             <p style="margin-top: 1rem; color: #666; font-size: 0.9rem;">
                                 <i class="fas fa-info-circle"></i> <span data-i18n="guidebook-combo-tip">קומבו מושלם: הזמן את הגייד בוק + השכר ציוד באותו יום</span>
                             </p>
-                            <a href="index.html#contact" class="equipment-order-btn" data-equipment-type="גייד בוק לטיפוס בקפריסין" data-i18n="guidebook-order-btn">צור קשר להזמנה</a>
+                            <div class="guidebook-actions">
+                                <a href="https://www.cyprusclimbing.com/" target="_blank" rel="noopener" class="equipment-order-btn" data-i18n="guidebook-official-order">רכישה באתר הרשמי</a>
+                                <a href="index.html#contact" class="equipment-order-btn pickup" data-equipment-type="גייד בוק לטיפוס בקפריסין" data-i18n="guidebook-order-btn">הזמנה ואיסוף ממני</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bouldering Guidebook -->
+                <div class="equipment-package bouldering-guidebook-card" id="bouldering-guidebook">
+                    <div class="equipment-header">
+                        <h2><i class="fas fa-hands"></i> <span data-i18n="bouldering-guidebook-title">גייד בוק לבולדרינג בקפריסין</span></h2>
+                        <p class="equipment-intro" data-i18n="bouldering-guidebook-intro">הגייד המקיף לאזורי הבולדרינג של אינייה ודרושיה — כ־700 בעיות, מפות, טופואים, תמונות ודרכי הגעה.</p>
+                    </div>
+                    <div class="bouldering-guidebook-layout">
+                        <img src="pics/bouldering-guide-cover.png" alt="Cyprus Bouldering Guidebook" loading="lazy">
+                        <div>
+                            <ul class="guidebook-benefits">
+                                <li data-i18n="bouldering-guidebook-feature-1">מפות וטופואים ברורים</li>
+                                <li data-i18n="bouldering-guidebook-feature-2">GPS ודרכי הגעה</li>
+                                <li data-i18n="bouldering-guidebook-feature-3">תמונות ותיאורי בעיות</li>
+                                <li data-i18n="bouldering-guidebook-feature-4">תכנון יום טיפוס נוח</li>
+                            </ul>
+                            <p class="guidebook-pickup" data-i18n="guidebook-pickup">אפשר להזמין מראש ולאסוף את הגיידבוק ישירות ממני בקפריסין.</p>
+                            <div class="guidebook-actions">
+                                <a href="https://boulderingcyprus.com/" target="_blank" rel="noopener" class="equipment-order-btn" data-i18n="bouldering-guidebook-official">רכישה באתר הרשמי</a>
+                                <a href="index.html#contact" class="equipment-order-btn pickup" data-equipment-type="גייד בוק לבולדרינג בקפריסין" data-i18n="bouldering-guidebook-pickup">הזמנה ואיסוף ממני</a>
+                            </div>
                         </div>
                     </div>
                 </div>

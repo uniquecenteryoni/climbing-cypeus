@@ -1232,6 +1232,17 @@ h3 {
     box-shadow: var(--shadow-md);
 }
 
+.social-icon.instagram {
+    background: linear-gradient(135deg, #833ab4 0%, #e1306c 52%, #f77737 100%);
+    color: var(--light-color);
+}
+
+.social-icon.instagram:hover {
+    filter: brightness(0.9);
+    transform: translateY(-3px) scale(1.1);
+    box-shadow: var(--shadow-md);
+}
+
 .social-text {
     color: var(--gray-color);
     font-size: 0.95rem;

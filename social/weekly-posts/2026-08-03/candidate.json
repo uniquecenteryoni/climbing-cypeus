@@ -1,0 +1,64 @@
+{
+  "status": "partially_published",
+  "draft_date": "2026-08-03",
+  "source_album": "קפריסין בעין אחרת",
+  "source_album_id": "AF1QipMlv9mvEuQuEM62JmVFv2XeIOxh7AC2RV1Vwa7U",
+  "google_photos_id": "AF1QipMZ2hdJJrC8qjK9yY3jzWDZXCF1v6YEUHYTPeHK",
+  "source_filename": "20260727_185516.jpg",
+  "captured_at": "2026-07-27T18:55:16+03:00",
+  "media_type": "photo",
+  "source_dimensions": "3060x4080",
+  "source_file": "source-candidate.jpg",
+  "selection_reason": "Strong vertical climbing action with two visible climbers; the subject remains intact in both feed and story layouts. The other album items include the two visuals already published on Instagram, while this item is visually distinct.",
+  "duplicate_check": {
+    "instagram_account": "climbing.cyprus",
+    "instagram_posts_checked": [
+      "https://www.instagram.com/climbing.cyprus/p/DbgAtbyDJI3/",
+      "https://www.instagram.com/climbing.cyprus/p/DbVk8muDBu9/"
+    ],
+    "project_history": "social/weekly-posts/history.json was not present",
+    "prior_drafts_checked": true,
+    "result": "no_prior_use_found",
+    "sha256": "46930ae13dbbb5fd78d4bbee3c176ef3c2ce7411bbb05b8ca5ae6e3188e60cd0",
+    "phash64": "add249ac66a65b93",
+    "dhash64": "8b87835191c84c84",
+    "visual_scan_notes": "Compared against 91 project images using full-frame and cropped perceptual/difference hashes. Only this week's derived feed and story previews matched; no prior-source duplicate was found. Direct visual inspection also confirmed the two existing Instagram posts use different media."
+  },
+  "location": "Ineia, Paphos, Cyprus",
+  "location_confidence": "confirmed_by_user",
+  "location_notes": "The user explicitly confirmed Ineia, Cyprus as the location.",
+  "deliverables": {
+    "feed": "feed-preview.jpg",
+    "story": "story-preview.jpg",
+    "caption": "caption.md"
+  },
+  "publishing_targets_after_approval": [
+    "Instagram climbing.cyprus — feed",
+    "Instagram climbing.cyprus — story",
+    "Facebook group 895126888648835 — group post",
+    "Facebook yoni.malichi — feed via group share",
+    "Facebook yoni.malichi — story",
+    "YouTube @ClimbingCyprus — Community post for future photo drafts / Shorts for future video drafts",
+    "climbing-cyprus.com — רגעים שלכם"
+  ],
+  "approval": {
+    "approved": true,
+    "approved_at": "2026-08-03",
+    "publishing_status": "instagram_story_pending",
+    "rule": "Any change to media, edit, caption, hashtags, location, or targets requires a new explicit approval."
+  },
+  "published_links": {
+    "instagram_feed": "https://www.instagram.com/climbing.cyprus/p/DbkToURDNBd/",
+    "facebook_group": "https://www.facebook.com/groups/895126888648835/posts/1604888874339296/",
+    "facebook_personal_feed": "shared_from_facebook_group",
+    "facebook_story": "https://www.facebook.com/stories/1369430129806549/UzpfSVNDOjEwNDEwMzA1NzE4ODU0OTQ=/"
+  },
+  "pending_targets": [
+    "instagram_story"
+  ],
+  "website": {
+    "status": "published",
+    "url": "https://climbing-cyprus.com/#gallery",
+    "asset": "https://climbing-cyprus.com/pics/Galerry/ineia-climbing-2026-08-03.webp"
+  }
+}

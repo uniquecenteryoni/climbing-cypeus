@@ -1,0 +1,27 @@
+[
+  {
+    "date": "2026-08-03",
+    "google_photos_id": "AF1QipMZ2hdJJrC8qjK9yY3jzWDZXCF1v6YEUHYTPeHK",
+    "sha256": "46930ae13dbbb5fd78d4bbee3c176ef3c2ce7411bbb05b8ca5ae6e3188e60cd0",
+    "phash64": "add249ac66a65b93",
+    "dhash64": "8b87835191c84c84",
+    "media_type": "photo",
+    "source_file": "social/weekly-posts/2026-08-03/source-candidate.jpg",
+    "feed_file": "social/weekly-posts/2026-08-03/feed-preview.jpg",
+    "story_file": "social/weekly-posts/2026-08-03/story-preview.jpg",
+    "caption_file": "social/weekly-posts/2026-08-03/caption.md",
+    "location": "Ineia, Paphos, Cyprus",
+    "status": "partially_published",
+    "links": {
+      "instagram_feed": "https://www.instagram.com/climbing.cyprus/p/DbkToURDNBd/",
+      "facebook_group": "https://www.facebook.com/groups/895126888648835/posts/1604888874339296/",
+      "facebook_personal_feed": "shared_from_facebook_group",
+      "facebook_story": "https://www.facebook.com/stories/1369430129806549/UzpfSVNDOjEwNDEwMzA1NzE4ODU0OTQ=/",
+      "website_gallery": "https://climbing-cyprus.com/#gallery"
+    },
+    "pending": [
+      "instagram_story"
+    ],
+    "notes": "Instagram Story creation is unavailable in the signed-in Instagram web UI; the available Meta Business Suite asset is not connected to climbing.cyprus. YouTube was added to future automation runs and was not part of this approved draft."
+  }
+]

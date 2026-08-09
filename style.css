@@ -5145,6 +5145,79 @@ body.landing-page { overflow-x: hidden; }
     color: #516351;
 }
 
+.beside-affiliate-subtitle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.55rem;
+    margin: 1.8rem 0 1rem;
+    color: var(--primary-color);
+    text-align: center;
+    font-size: clamp(1.15rem, 2vw, 1.5rem);
+}
+
+.beside-stay-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+}
+
+.beside-stay-card {
+    display: flex;
+    min-height: 205px;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.55rem;
+    padding: 1.25rem 1rem;
+    border: 1px solid #d5e2cc;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.86);
+    color: #2c5f2d;
+    text-align: center;
+    text-decoration: none;
+}
+
+.beside-stay-card:hover { border-color: #8db36d; transform: translateY(-2px); }
+.beside-stay-card strong { font-size: 1.12rem; }
+.beside-stay-card span:not(.beside-stay-icon) { color: #5f6b61; line-height: 1.55; }
+.beside-stay-card em { margin-top: auto; color: #2c5f2d; font-style: normal; font-weight: 700; }
+.beside-stay-icon { color: #f47920; font-size: 1.45rem; }
+
+.beside-quick-links { justify-content: center; }
+.beside-affiliate-note { margin: 1.35rem 0 0; color: #617060; text-align: center; font-size: 0.92rem; }
+
+/* Keep article details visually anchored to the right rather than centered. */
+.landing-page .guide-content.article-inner > .guide-logistics-strip,
+.landing-page .guide-content.article-inner > .guide-crag-strip {
+    width: 75% !important;
+    max-width: 75% !important;
+    margin-inline-start: 0 !important;
+    margin-inline-end: auto !important;
+}
+
+.landing-page .guide-content.article-inner > #north,
+.landing-page .guide-content.article-inner > #south,
+.landing-page .guide-content.article-inner > #logistics,
+.landing-page .guide-content.article-inner > #north ~ p,
+.landing-page .guide-content.article-inner > #south ~ p,
+.landing-page .guide-content.article-inner > #logistics ~ p {
+    text-align: right !important;
+}
+
+.landing-page .guide-content.article-inner > .guide-comments-section {
+    margin-top: 1.25rem !important;
+}
+
+@media (max-width: 700px) {
+    .landing-page .guide-content.article-inner > .guide-logistics-strip,
+    .landing-page .guide-content.article-inner > .guide-crag-strip {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+    .beside-stay-grid { grid-template-columns: 1fr; }
+}
+
 /* Consistent physical arrow direction in every guide carousel. */
 .landing-page .image-carousel .carousel-btn.prev,
 .landing-page .place-carousel-button.prev,

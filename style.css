@@ -1156,21 +1156,17 @@ body:not(.landing-page) {
     direction: rtl;
 }
 
-.activities-page .navbar .language-switcher,
-.course-page .navbar .language-switcher {
+.navbar .language-switcher {
     position: absolute;
-    left: 30%;
-    transform: translateX(-50%);
+    left: clamp(180px, 30vw, 420px);
     z-index: 2;
     margin: 0;
 }
 
 @media (max-width: 768px) {
-    .activities-page .navbar .language-switcher,
-    .course-page .navbar .language-switcher {
+    .navbar .language-switcher {
         position: relative;
         left: auto;
-        transform: none;
         margin-inline-start: auto;
     }
 }
@@ -1227,6 +1223,33 @@ body:not(.landing-page) {
     margin-right: 7px;
     color: rgba(17, 17, 17, 0.55);
     font-weight: 400;
+}
+
+/* English guide pages use the same left-to-right reading alignment throughout. */
+.landing-page.ltr .guide-content.article-inner,
+.landing-page.ltr .guide-content.article-inner * {
+    direction: ltr !important;
+    text-align: left !important;
+}
+
+.landing-page.ltr .guide-content.article-inner .guide-place-icon,
+.landing-page.ltr .guide-content.article-inner .guide-place-media {
+    justify-self: start !important;
+}
+
+/* Keep every desktop header in the same visual order: logo right, language left. */
+@media (min-width: 769px) {
+    .navbar .container {
+        direction: rtl !important;
+    }
+
+    .navbar .language-switcher {
+        position: absolute !important;
+        left: clamp(180px, 30vw, 420px) !important;
+        right: auto !important;
+        margin: 0 !important;
+        transform: none !important;
+    }
 }
 
 /* The dynamic number was inheriting the small generic .price span rule. */

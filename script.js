@@ -298,6 +298,38 @@ function setLanguage(lang) {
         }
     });
 
+    document.querySelectorAll('[data-i18n-placeholder]').forEach(element => {
+        const key = element.getAttribute('data-i18n-placeholder');
+        if (translations[lang] && translations[lang][key]) {
+            element.setAttribute('placeholder', translations[lang][key]);
+        }
+    });
+
+    const guideContent = document.querySelector('.guide-content');
+    if (guideContent) {
+        guideContent.querySelectorAll('[data-auto-hidden-en]').forEach(element => {
+            element.hidden = false;
+            element.removeAttribute('data-auto-hidden-en');
+        });
+
+        if (lang === 'en') {
+            const walker = document.createTreeWalker(guideContent, NodeFilter.SHOW_TEXT);
+            const textNodes = [];
+            let node;
+            while ((node = walker.nextNode())) textNodes.push(node);
+            textNodes.forEach(textNode => {
+                if (!/[א-ת]/.test(textNode.nodeValue || '')) return;
+                const element = textNode.parentElement?.closest('p, h1, h2, h3, h4, h5, a, button, li, label, span, div');
+                const key = element?.getAttribute('data-i18n') || element?.getAttribute('data-i18n-html');
+                const hasTranslation = key && translations[lang] && translations[lang][key];
+                if (element && !hasTranslation) {
+                    element.hidden = true;
+                    element.setAttribute('data-auto-hidden-en', 'true');
+                }
+            });
+        }
+    }
+
     document.querySelectorAll('[data-hide-in-en]').forEach(element => {
         element.hidden = lang === 'en';
     });

@@ -1621,13 +1621,13 @@
             <h4 class="beside-affiliate-subtitle"><i class="fas fa-bed" aria-hidden="true"></i> לינה קרובה למצוקים</h4>
             <div class="beside-stay-grid">
                 <a class="beside-stay-card" href="https://www.booking.com/hotel/cy/palates.en-gb.html" target="_blank" rel="nofollow noopener">
-                    <img src="https://www.droushiahotelpalates.com/uploads/images/flash/1.jpg" alt="Palates Village Hotel" loading="lazy"><span class="beside-stay-icon"><i class="fas fa-bed"></i></span><strong>Palates Village Hotel</strong><span>מלון כפרי באזור פאפוס, עם נוף פתוח ואווירה שקטה.</span><em>לפרטים והזמנה ←</em>
+                    <img src="https://www.droushiahotelpalates.com/uploads/images/flash/1.jpg" alt="Palates Village Hotel" loading="lazy"><span class="beside-stay-icon"><i class="fas fa-bed"></i></span><strong>Palates Village Hotel</strong><span>מלון כפרי באזור פאפוס, עם נוף פתוח ואווירה שקטה.</span><em data-hide-in-en>לפרטים והזמנה ←</em>
                 </a>
                 <a class="beside-stay-card" href="https://www.booking.com/hotel/cy/droushia-heights.en-gb.html" target="_blank" rel="nofollow noopener">
-                    <img src="https://www.droushiaheights.com/sites/droushiaheights/files/1.jpg" alt="Droushia Heights Hotel" loading="lazy"><span class="beside-stay-icon"><i class="fas fa-bed"></i></span><strong>Droushia Heights Hotel</strong><span>מלון משפחתי מול ההרים והכפר דרושיה, קרוב לאזורי הטיפוס.</span><em>לפרטים והזמנה ←</em>
+                    <img src="https://www.droushiaheights.com/sites/droushiaheights/files/1.jpg" alt="Droushia Heights Hotel" loading="lazy"><span class="beside-stay-icon"><i class="fas fa-bed"></i></span><strong>Droushia Heights Hotel</strong><span>מלון משפחתי מול ההרים והכפר דרושיה, קרוב לאזורי הטיפוס.</span><em data-hide-in-en>לפרטים והזמנה ←</em>
                 </a>
                 <a class="beside-stay-card" href="https://www.booking.com/hotel/cy/sappho-manor-house.en-gb.html" target="_blank" rel="nofollow noopener">
-                    <img src="https://www.salonigamou.com/wp-content/uploads/2022/03/64732188.jpg" alt="Sappho Manor House" loading="lazy"><span class="beside-stay-icon"><i class="fas fa-bed"></i></span><strong>Sappho Manor House</strong><span>בית אבן מסורתי באווירה אותנטית, במרכז הכפר דרושיה.</span><em>לפרטים והזמנה ←</em>
+                    <img src="https://www.salonigamou.com/wp-content/uploads/2022/03/64732188.jpg" alt="Sappho Manor House" loading="lazy"><span class="beside-stay-icon"><i class="fas fa-bed"></i></span><strong>Sappho Manor House</strong><span>בית אבן מסורתי באווירה אותנטית, במרכז הכפר דרושיה.</span><em data-hide-in-en>לפרטים והזמנה ←</em>
                 </a>
             </div>
 
@@ -1652,6 +1652,20 @@
                     <form id="commentForm" action="https://formspree.io/f/mjkdalap" method="POST" style="display: flex; flex-direction: column; gap: 1rem;">
                         <input type="text" name="name" id="commentName" data-i18n-placeholder="guide-comments-name" placeholder="שם" required style="padding: 0.75rem; border: 1px solid #ddd; border-radius: 5px; font-family: inherit;">
                         <input type="email" name="email" id="commentEmail" data-i18n-placeholder="guide-comments-email" placeholder="אימייל (לא יפורסם)" required style="padding: 0.75rem; border: 1px solid #ddd; border-radius: 5px; font-family: inherit;">
+                        <label for="commentCountry" data-i18n="guide-comments-country">מדינה</label>
+                        <select name="country" id="commentCountry" required style="padding: 0.75rem; border: 1px solid #ddd; border-radius: 5px; font-family: inherit;">
+                            <option value="" data-i18n="guide-comments-country-select">בחרו מדינה</option>
+                            <option value="IL" data-i18n="country-israel">ישראל</option>
+                            <option value="CY" data-i18n="country-cyprus">קפריסין</option>
+                            <option value="GR" data-i18n="country-greece">יוון</option>
+                            <option value="GB" data-i18n="country-uk">בריטניה</option>
+                            <option value="US" data-i18n="country-us">ארצות הברית</option>
+                            <option value="DE" data-i18n="country-germany">גרמניה</option>
+                            <option value="FR" data-i18n="country-france">צרפת</option>
+                            <option value="AU" data-i18n="country-australia">אוסטרליה</option>
+                            <option value="CA" data-i18n="country-canada">קנדה</option>
+                            <option value="OTHER" data-i18n="country-other">מדינה אחרת</option>
+                        </select>
                         <textarea name="comment" id="commentText" data-i18n-placeholder="guide-comments-text" placeholder="התגובה שלך..." rows="4" required style="padding: 0.75rem; border: 1px solid #ddd; border-radius: 5px; font-family: inherit; resize: vertical;"></textarea>
                         <input type="hidden" name="_subject" value="תגובה חדשה - Climber Guide">
                         <button type="submit" data-i18n="guide-comments-submit" style="padding: 0.75rem 2rem; background: #2c5f2d; color: white; border: none; border-radius: 5px; cursor: pointer; font-weight: bold; align-self: flex-start;">
@@ -1795,6 +1809,35 @@
                             }
                         }
                     });
+
+                    document.querySelectorAll('[data-i18n-placeholder]').forEach(element => {
+                        const key = element.getAttribute('data-i18n-placeholder');
+                        if (translations[lang] && translations[lang][key]) {
+                            element.setAttribute('placeholder', translations[lang][key]);
+                        }
+                    });
+
+                    document.querySelectorAll('[data-auto-hidden-en]').forEach(element => {
+                        element.hidden = false;
+                        element.removeAttribute('data-auto-hidden-en');
+                    });
+
+                    if (document.documentElement.lang === 'en') {
+                        const walker = document.createTreeWalker(document.querySelector('.guide-content'), NodeFilter.SHOW_TEXT);
+                        const textNodes = [];
+                        let node;
+                        while ((node = walker.nextNode())) textNodes.push(node);
+                        textNodes.forEach(textNode => {
+                            if (!/[א-ת]/.test(textNode.nodeValue || '')) return;
+                            const element = textNode.parentElement?.closest('p, h1, h2, h3, h4, h5, a, button, li, label, span, div');
+                            const key = element?.getAttribute('data-i18n') || element?.getAttribute('data-i18n-html');
+                            const hasTranslation = key && translations.en && translations.en[key];
+                            if (element && !hasTranslation) {
+                                element.hidden = true;
+                                element.setAttribute('data-auto-hidden-en', 'true');
+                            }
+                        });
+                    }
                 }
             });
         });
@@ -1916,26 +1959,47 @@
                     if (!container) return;
                     
                     if (!data.comments || data.comments.length === 0) {
-                        container.innerHTML = '<p style="color: #666; text-align: center; padding: 2rem;">אין תגובות עדיין. היו הראשונים להגיב!</p>';
+                        container.innerHTML = document.documentElement.lang === 'en'
+                            ? '<p style="color: #666; text-align: center; padding: 2rem;">No comments yet. Be the first to comment!</p>'
+                            : '<p style="color: #666; text-align: center; padding: 2rem;">אין תגובות עדיין. היו הראשונים להגיב!</p>';
                         return;
                     }
                     
+                    const countryMeta = {
+                        IL: { flag: '🇮🇱', he: 'ישראל', en: 'Israel' },
+                        CY: { flag: '🇨🇾', he: 'קפריסין', en: 'Cyprus' },
+                        GR: { flag: '🇬🇷', he: 'יוון', en: 'Greece' },
+                        GB: { flag: '🇬🇧', he: 'בריטניה', en: 'United Kingdom' },
+                        US: { flag: '🇺🇸', he: 'ארצות הברית', en: 'United States' },
+                        DE: { flag: '🇩🇪', he: 'גרמניה', en: 'Germany' },
+                        FR: { flag: '🇫🇷', he: 'צרפת', en: 'France' },
+                        AU: { flag: '🇦🇺', he: 'אוסטרליה', en: 'Australia' },
+                        CA: { flag: '🇨🇦', he: 'קנדה', en: 'Canada' },
+                        OTHER: { flag: '🌍', he: 'מדינה אחרת', en: 'Other' }
+                    };
+
                     container.innerHTML = data.comments
                         .filter(comment => comment.approved)
-                        .map(comment => `
+                        .map(comment => {
+                            const country = countryMeta[comment.country] || countryMeta.OTHER;
+                            const language = document.documentElement.lang === 'en' ? 'en' : 'he';
+                            return `
                             <div style="background: #f8f9fa; padding: 1.5rem; border-radius: 8px; border-right: 3px solid #2c5f2d;">
                                 <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
-                                    <strong style="color: #2c5f2d;">${escapeHtml(comment.name)}</strong>
-                                    <span style="color: #999; font-size: 0.9rem;">${comment.date}</span>
+                                    <strong style="color: #2c5f2d;">${escapeHtml(comment.name)} <span aria-label="${country.en}">${country.flag}</span></strong>
+                                    <span style="color: #999; font-size: 0.9rem;">${country[language]} · ${comment.date}</span>
                                 </div>
                                 <p style="color: #333; line-height: 1.6; margin: 0;">${escapeHtml(comment.text)}</p>
                             </div>
-                        `).join('');
+                            `;
+                        }).join('');
                 } catch (err) {
                     console.error('Failed to load comments:', err);
                     const container = document.getElementById('commentsContainer');
                     if (container) {
-                        container.innerHTML = '<p style="color: #666; text-align: center; padding: 2rem;">אין תגובות עדיין. היו הראשונים להגיב!</p>';
+                        container.innerHTML = document.documentElement.lang === 'en'
+                            ? '<p style="color: #666; text-align: center; padding: 2rem;">No comments yet. Be the first to comment!</p>'
+                            : '<p style="color: #666; text-align: center; padding: 2rem;">אין תגובות עדיין. היו הראשונים להגיב!</p>';
                     }
                 }
             }

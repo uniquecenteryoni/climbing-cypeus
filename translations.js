@@ -568,6 +568,22 @@ const translations = {
         "guide-beside-cars": "השוואת רכבים",
         "guide-beside-transfers": "הסעה משדה התעופה",
         "guide-beside-activities": "אטרקציות ופעילויות",
+        "guide-limassol-desc": "קיר טיפוס אינטימי בלימסול, מציע אפשרות נוחה לשמור על כושר ולהכיר את קהילת המטפסים המקומית.",
+        "guide-comments-name": "שם",
+        "guide-comments-email": "אימייל (לא יפורסם)",
+        "guide-comments-text": "התגובה שלך...",
+        "guide-comments-country": "מדינה",
+        "guide-comments-country-select": "בחרו מדינה",
+        "country-israel": "ישראל",
+        "country-cyprus": "קפריסין",
+        "country-greece": "יוון",
+        "country-uk": "בריטניה",
+        "country-us": "ארצות הברית",
+        "country-germany": "גרמניה",
+        "country-france": "צרפת",
+        "country-australia": "אוסטרליה",
+        "country-canada": "קנדה",
+        "country-other": "מדינה אחרת",
         
         // Equipment Page Quick Navigation
         "nav-equipment-rental": "השכרת ציוד טיפוס",
@@ -1199,12 +1215,13 @@ const translations = {
         "firstbolt-desc": "Scan the first bolt to get the route, grade, and relevant information. The app includes Cyprus climbing routes, with around 80% already mapped and scannable.",
         "firstbolt-cta": "Download and learn about FirstBolt",
         "guide-youtube-subscribe": "Subscribe on YouTube",
+        "guide-limassol-desc": "An intimate climbing gym in Limassol, offering a convenient way to stay fit and meet the local climbing community.",
         
         // Climber's Guide - Navigation
-        "guide-nav-logistics": "Logistics",
-        "guide-nav-beside-climbing": "Beside the Climb",
-        "guide-nav-north": "Northern Cyprus Climbing",
-        "guide-nav-south": "Southern Cyprus Climbing",
+        "guide-nav-logistics": "Rental",
+        "guide-nav-beside-climbing": "Beside Climbing",
+        "guide-nav-north": "North Cyprus",
+        "guide-nav-south": "South Cyprus",
         "guide-nav-bouldering": "Bouldering",
         "guide-nav-shade-calc": "Shade Calculator",
 
@@ -1234,6 +1251,21 @@ const translations = {
         "guide-comments-info": "Comments are moderated before publication.",
         "guide-comments-previous": "Previous comments",
         "guide-comments-loading": "Loading comments...",
+        "guide-comments-name": "Name",
+        "guide-comments-email": "Email (not published)",
+        "guide-comments-text": "Your comment...",
+        "guide-comments-country": "Country",
+        "guide-comments-country-select": "Choose a country",
+        "country-israel": "Israel",
+        "country-cyprus": "Cyprus",
+        "country-greece": "Greece",
+        "country-uk": "United Kingdom",
+        "country-us": "United States",
+        "country-germany": "Germany",
+        "country-france": "France",
+        "country-australia": "Australia",
+        "country-canada": "Canada",
+        "country-other": "Other",
 
         "guide-bouldering-title": "Bouldering - A Hidden Gem of the Mediterranean",
         "guide-bouldering-ineia-title": "Ineia & Drousia - Where It All Happens",
@@ -1280,7 +1312,7 @@ const translations = {
         "bouldering-guidebook-official": "Buy on the official website",
         "bouldering-guidebook-pickup": "Order and pick up from me",
         "nav-equipment-bouldering-guidebook": "Bouldering guidebook",
-        "guide-beside-climbing-title": "Beside the Climb",
+        "guide-beside-climbing-title": "Beside Climbing",
         "guide-beside-climbing-intro": "Recommendations for coffee, food, sea, and nature before climbing, after a session, or on a rest day.",
         "guide-beside-coffee-title": "Coffee shops",
         "guide-beside-food-title": "Restaurants",
@@ -1308,7 +1340,7 @@ const translations = {
         "guide-intro-p2": "I’m Yonatan, a climbing guide who lives and climbs here. I’ve put together a short, clear and useful guide to help you get to know the island a little better — from the crags to the logistics.",
         
         // Climber's Guide - Logistics
-        "guide-logistics-title": "Some Logistics",
+        "guide-logistics-title": "Rental",
         "guide-logistics-transport": "<strong>Transportation:</strong> You must rent a car - there's no option to manage with public transportation. An Israeli license is sufficient. Note that driving here is on the opposite side. <a href=\"https://getrentacar.tp.st/FD6yLXgf\" target=\"_blank\" rel=\"nofollow sponsored noopener\" style=\"color: #2c5f2d; font-weight: bold; text-decoration: underline;\">Compare rental cars</a>",
         "guide-logistics-airports": "<strong>Where to fly:</strong> 2 main airports: Larnaca and Paphos. All the climbing is concentrated in Paphos, so if you can find a flight there - you've won! You can also book an <a href=\"https://kiwitaxi.tp.st/8Xvx72mG\" target=\"_blank\" rel=\"nofollow sponsored noopener\" style=\"color: #2c5f2d; font-weight: bold; text-decoration: underline;\">airport transfer</a> directly to your accommodation.",
         "guide-logistics-accommodation": "<strong>Where to sleep:</strong> The best option is to find an apartment through Airbnb. You might get lucky and find accommodation near the crags, which is great. Look for your home near the villages of Ineia and Droushia. For those who want to be close to the sea and enjoy both worlds, you can also sleep in Paphos (a bit more nightlife and restaurants) or Polis (amazing beaches) - both cities are a 45-minute drive from the crags. <a href=\"https://www.booking.com/searchresults.html?ss=Cyprus\" target=\"_blank\" rel=\"nofollow sponsored noopener\" style=\"color: #2c5f2d; font-weight: bold; text-decoration: underline;\">Search hotels and apartments in Cyprus</a>",
@@ -1344,7 +1376,7 @@ const translations = {
         "guide-cta-guidebook": "<i class=\"fas fa-book\"></i> Order Guidebook",
         
         // Northern Cyprus
-        "guide-north-title": "Northern Cyprus",
+        "guide-north-title": "North Cyprus",
         "guide-north-intro-p1": "First, to cross to this part you need to cross a border and show passports. Not a complicated process but can take half an hour if there's traffic at the checkpoint. The local currency there is Turkish Lira, but they obviously also accept euros.",
         "guide-north-intro-p2": "The clear disadvantage for tourists is that crossing with a rental car from the Cyprus side to the Turkish side is not such a simple/worthwhile matter, so finding local climbers and joining them will be an excellent option. What's certain is that you mustn't miss these crags!",
         "guide-north-intro-p3": "In this part of the island, sport climbing exceeds all imagination and offers sites that are not inferior to world-class destinations! With long routes, tufas, caves, and the highest quality rock. I'm listing here some of the crags you shouldn't miss - for more information like access routes and detailed route descriptions, you can find it in the guidebook (available for pickup from me).",
@@ -1360,7 +1392,7 @@ const translations = {
         "guide-goathouse-desc": "Probably the best crag in the northern part! Located in the Kyrenia Mountains area, offers a unique combination of sport and trad climbing. The crag is characterized by quality rock and technical routes that challenge experienced climbers. Access to the crag includes an easy walk through pastoral terrain with a panoramic view of the northwest coast. The crag offers a natural amphitheater with routes in diverse grades, making it an ideal place for a full day climbing session. The best shade hours are in the morning and late afternoon, and the place is especially suitable for spring and autumn seasons.",
         
         // Southern Cyprus
-        "guide-south-title": "Southern Cyprus",
+        "guide-south-title": "South Cyprus",
         "guide-diarizous-title": "1. Diarizous",
         "guide-diarizous-desc": "A friendly and special crag. Wide range of grades and very suitable for beginners. There are two crags facing each other at a distance of 10 steps, so you can climb all day! There's always shade. Easy access (one-minute walk) and there's a flowing stream a minute's walk down the road. Climbing style: mostly slab.",
         

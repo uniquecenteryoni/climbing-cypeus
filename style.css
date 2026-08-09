@@ -1103,8 +1103,15 @@ body.landing-page { overflow-x: hidden; }
 .activities-page .logo img,
 .course-page .logo img {
     width: auto;
-    height: 140px;
+    height: 86px;
     object-fit: contain;
+}
+
+.activities-page .navbar .container,
+.course-page .navbar .container {
+    min-height: 100px;
+    padding: 14px clamp(40px, 4.5vw, 64px);
+    direction: rtl;
 }
 
 .activities-page .activity-subheading {

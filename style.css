@@ -5772,6 +5772,122 @@ body.landing-page {
 
 /* Final current guide pass: 7% narrower reading measure and aligned interactive medallions. */
 
+/* Bouldering video carousel: four focused slides instead of a dense video grid. */
+.landing-page .bouldering-video-carousel {
+    position: relative;
+    width: min(100%, 920px);
+    margin: 0 auto 1.5rem;
+    padding: 0 3.5rem 2.25rem;
+}
+
+.landing-page .bouldering-video-viewport {
+    position: relative;
+    overflow: hidden;
+    border-radius: 14px;
+    background: #f4f7f1;
+}
+
+.landing-page .bouldering-video-slide {
+    display: none;
+    margin: 0;
+}
+
+.landing-page .bouldering-video-slide.is-active {
+    display: block;
+}
+
+.landing-page .bouldering-video-frame {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+}
+
+.landing-page .bouldering-video-frame iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+.landing-page .bouldering-video-caption {
+    margin: 0;
+    padding: .75rem 1rem;
+    color: #2c5f2d;
+    background: #f4f7f1;
+    font-weight: 700;
+    text-align: center;
+    direction: ltr;
+}
+
+.landing-page .bouldering-video-arrow {
+    position: absolute;
+    top: calc(50% - 1.5rem);
+    z-index: 2;
+    width: 2.75rem;
+    height: 2.75rem;
+    border: 1px solid rgba(44, 95, 45, .25);
+    border-radius: 50%;
+    color: #2c5f2d;
+    background: #fff;
+    font-size: 2rem;
+    line-height: 1;
+    direction: ltr;
+    cursor: pointer;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, .12);
+}
+
+.landing-page .bouldering-video-arrow:hover,
+.landing-page .bouldering-video-arrow:focus-visible {
+    color: #fff;
+    background: #2c5f2d;
+}
+
+.landing-page .bouldering-video-arrow--prev { left: .25rem; }
+.landing-page .bouldering-video-arrow--next { right: .25rem; }
+
+.landing-page .bouldering-video-dots {
+    display: flex;
+    justify-content: center;
+    gap: .5rem;
+    margin-top: .85rem;
+}
+
+.landing-page .bouldering-video-dots button {
+    width: .65rem;
+    height: .65rem;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: #cbd9c5;
+    cursor: pointer;
+}
+
+.landing-page .bouldering-video-dots button.is-active {
+    background: #2c5f2d;
+    transform: scale(1.2);
+}
+
+/* Full-width shade strip with the same constrained reading measure as the article. */
+.landing-page .guide-content.article-inner > .guide-shade-strip.guide-shade-strip {
+    width: 100vw !important;
+    max-width: none !important;
+    margin-inline: calc(50% - 50vw) !important;
+    padding-inline: 12.5% !important;
+    background: #eef5e8 !important;
+    border-block: 1px solid #cbdcc3 !important;
+    border-radius: 0 !important;
+}
+
+.landing-page .guide-content.article-inner > .guide-shade-strip.guide-shade-strip > .article-container {
+    width: min(100%, var(--guide-article-max-width)) !important;
+    max-width: var(--guide-article-max-width) !important;
+    margin-inline: auto !important;
+    padding-block: 2.25rem !important;
+    text-align: right !important;
+    direction: rtl !important;
+}
+
 /* Definitive right-edge alignment for logistics and crag strips. */
 .landing-page .guide-content.article-inner > .guide-logistics-strip.guide-logistics-strip,
 .landing-page .guide-content.article-inner > .guide-crag-strip.guide-crag-strip {
@@ -5827,8 +5943,17 @@ body.landing-page {
         max-width: none !important;
         margin-inline: 0 !important;
         padding-inline: 20px !important;
-        grid-template-columns: 64px minmax(0, 1fr) !important;
+        grid-template-columns: minmax(0, 1fr) 64px !important;
+        grid-template-areas: "copy media" !important;
     }
+
+    .landing-page .bouldering-video-carousel {
+        width: 100%;
+        padding-inline: 2.5rem;
+    }
+
+    .landing-page .bouldering-video-arrow--prev { left: .1rem; }
+    .landing-page .bouldering-video-arrow--next { right: .1rem; }
 }
 .landing-page {
     --guide-article-max-width: 1098px !important;

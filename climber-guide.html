@@ -23,7 +23,7 @@
     <link rel="shortcut icon" type="image/webp" href="pics/climbing-cyprus-profile.webp">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css?v=20260809-1234">
+    <link rel="stylesheet" href="style.css?v=20260809-1245">
     <link rel="stylesheet" href="tour-page.css">
     
     <!-- Load translations first -->
@@ -1409,105 +1409,42 @@
                 צפו בסרטונים מהשטח ותתרשמו מהבולדרים המדהימים באי
             </p>
             
-            <div class="video-grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.75rem; margin-bottom: 1.5rem;">
-                <!-- Video 1 -->
-                <div style="background: #f8f9fa; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.1); transition: all 0.3s;" onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.15)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 2px 8px rgba(0,0,0,0.1)';">
-                    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-                        <iframe 
-                            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
-                            src="https://www.youtube.com/embed?listType=playlist&list=PLmA5rGUfC4Mh3-zzd6W3v00wD6WzBFfP3&index=0" 
-                            title="Cyprus Bouldering Video 1" 
-                            frameborder="0" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                            allowfullscreen>
-                        </iframe>
-                    </div>
+            <div class="bouldering-video-carousel" aria-label="סרטוני בולדרינג">
+                <div class="bouldering-video-viewport">
+                    <article class="bouldering-video-slide is-active" data-video-index="0">
+                        <div class="bouldering-video-frame">
+                            <iframe src="https://www.youtube.com/embed/SRHMxcG2Cac" title="Cyprus Bouldering — Ratatouille 6A" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                        </div>
+                        <p class="bouldering-video-caption">Ratatouille · 6A</p>
+                    </article>
+                    <article class="bouldering-video-slide" data-video-index="1">
+                        <div class="bouldering-video-frame">
+                            <iframe src="https://www.youtube.com/embed/f99Y6tn190M" title="Cyprus Bouldering — Carpaccio 6A+" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                        </div>
+                        <p class="bouldering-video-caption">Carpaccio · 6A+</p>
+                    </article>
+                    <article class="bouldering-video-slide" data-video-index="2">
+                        <div class="bouldering-video-frame">
+                            <iframe src="https://www.youtube.com/embed/zO5FReTJbM4" title="Cyprus Bouldering — The Montessori Teach 6A+" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                        </div>
+                        <p class="bouldering-video-caption">The Montessori Teach · 6A+</p>
+                    </article>
+                    <article class="bouldering-video-slide" data-video-index="3">
+                        <div class="bouldering-video-frame">
+                            <iframe src="https://www.youtube.com/embed/9pDrJCdEiMQ" title="Cyprus Bouldering — Tartare 6B+" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                        </div>
+                        <p class="bouldering-video-caption">Tartare · 6B+</p>
+                    </article>
                 </div>
-                
-                <!-- Video 2 -->
-                <div style="background: #f8f9fa; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.1); transition: all 0.3s;" onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.15)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 2px 8px rgba(0,0,0,0.1)';">
-                    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-                        <iframe 
-                            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
-                            src="https://www.youtube.com/embed?listType=playlist&list=PLmA5rGUfC4Mh3-zzd6W3v00wD6WzBFfP3&index=1" 
-                            title="Cyprus Bouldering Video 2" 
-                            frameborder="0" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                            allowfullscreen>
-                        </iframe>
-                    </div>
+                <button type="button" class="bouldering-video-arrow bouldering-video-arrow--prev" aria-label="הסרטון הקודם" onclick="changeBoulderingVideo(-1)">←</button>
+                <button type="button" class="bouldering-video-arrow bouldering-video-arrow--next" aria-label="הסרטון הבא" onclick="changeBoulderingVideo(1)">→</button>
+                <div class="bouldering-video-dots" role="tablist" aria-label="בחירת סרטון">
+                    <button type="button" class="is-active" role="tab" aria-label="סרטון 1" aria-selected="true" onclick="showBoulderingVideo(0)"></button>
+                    <button type="button" role="tab" aria-label="סרטון 2" aria-selected="false" onclick="showBoulderingVideo(1)"></button>
+                    <button type="button" role="tab" aria-label="סרטון 3" aria-selected="false" onclick="showBoulderingVideo(2)"></button>
+                    <button type="button" role="tab" aria-label="סרטון 4" aria-selected="false" onclick="showBoulderingVideo(3)"></button>
                 </div>
-                
-                <!-- Video 3 -->
-                <div style="background: #f8f9fa; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.1); transition: all 0.3s;" onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.15)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 2px 8px rgba(0,0,0,0.1)';">
-                    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-                        <iframe 
-                            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
-                            src="https://www.youtube.com/embed?listType=playlist&list=PLmA5rGUfC4Mh3-zzd6W3v00wD6WzBFfP3&index=2" 
-                            title="Cyprus Bouldering Video 3" 
-                            frameborder="0" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                            allowfullscreen>
-                        </iframe>
-                    </div>
-                </div>
-                
-                <!-- Video 4 -->
-                <div style="background: #f8f9fa; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.1); transition: all 0.3s;" onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.15)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 2px 8px rgba(0,0,0,0.1)';">
-                    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-                        <iframe 
-                            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
-                            src="https://www.youtube.com/embed?listType=playlist&list=PLmA5rGUfC4Mh3-zzd6W3v00wD6WzBFfP3&index=3" 
-                            title="Cyprus Bouldering Video 4" 
-                            frameborder="0" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                            allowfullscreen>
-                        </iframe>
-                    </div>
-                </div>
-                
-                <!-- Video 5 -->
-                <div style="background: #f8f9fa; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.1); transition: all 0.3s;" onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.15)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 2px 8px rgba(0,0,0,0.1)';">
-                    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-                        <iframe 
-                            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
-                            src="https://www.youtube.com/embed?listType=playlist&list=PLmA5rGUfC4Mh3-zzd6W3v00wD6WzBFfP3&index=4" 
-                            title="Cyprus Bouldering Video 5" 
-                            frameborder="0" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                            allowfullscreen>
-                        </iframe>
-                    </div>
-                </div>
-                
-                <!-- Video 6 -->
-                <div style="background: #f8f9fa; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.1); transition: all 0.3s;" onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.15)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 2px 8px rgba(0,0,0,0.1)';">
-                    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-                        <iframe 
-                            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
-                            src="https://www.youtube.com/embed?listType=playlist&list=PLmA5rGUfC4Mh3-zzd6W3v00wD6WzBFfP3&index=5" 
-                            title="Cyprus Bouldering Video 6" 
-                            frameborder="0" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                            allowfullscreen>
-                        </iframe>
-                    </div>
-                </div>
-                
             </div>
-            
-            <style>
-                @media (max-width: 768px) {
-                    .video-grid {
-                        grid-template-columns: 1fr !important;
-                    }
-                }
-                @media (max-width: 640px) {
-                    .video-grid {
-                        grid-template-columns: 1fr !important;
-                    }
-                }
-            </style>
             
             <div style="text-align: center;">
                 <a href="https://www.youtube.com/playlist?list=PLmA5rGUfC4Mh3-zzd6W3v00wD6WzBFfP3" 
@@ -2366,6 +2303,32 @@
                 captionElement.textContent = visibleCaption ? visibleCaption.textContent : '';
             }
         }
+    </script>
+
+    <script>
+        // Lightweight four-item carousel for the bouldering videos.
+        let currentBoulderingVideo = 0;
+
+        window.showBoulderingVideo = function(index) {
+            const slides = [...document.querySelectorAll('.bouldering-video-slide')];
+            const dots = [...document.querySelectorAll('.bouldering-video-dots button')];
+            if (!slides.length) return;
+
+            currentBoulderingVideo = (index + slides.length) % slides.length;
+            slides.forEach((slide, slideIndex) => {
+                slide.classList.toggle('is-active', slideIndex === currentBoulderingVideo);
+            });
+            dots.forEach((dot, dotIndex) => {
+                const isActive = dotIndex === currentBoulderingVideo;
+                dot.classList.toggle('is-active', isActive);
+                dot.setAttribute('aria-selected', String(isActive));
+            });
+        };
+
+        window.changeBoulderingVideo = function(direction) {
+            window.showBoulderingVideo(currentBoulderingVideo + direction);
+        };
+
     </script>
 
     <script>

@@ -5781,8 +5781,8 @@ body.landing-page {
     padding-inline: 12.5% !important;
     display: grid !important;
     direction: ltr !important;
-    grid-template-columns: 25% 75% !important;
-    grid-template-areas: "media copy" !important;
+    grid-template-columns: 75% 25% !important;
+    grid-template-areas: "copy media" !important;
     text-align: right !important;
 }
 
@@ -5798,6 +5798,26 @@ body.landing-page {
     direction: rtl !important;
     text-align: right !important;
     justify-self: stretch !important;
+}
+
+/* Place the contact CTA below the copy and centered across the strip. */
+.landing-page .guide-content.article-inner > .guide-contact-strip > .article-container {
+    grid-template-columns: minmax(0, 1fr) 170px minmax(0, 1fr) !important;
+    grid-template-areas: "copy copy photo" "button button button" !important;
+    align-items: center !important;
+}
+
+.landing-page .guide-content.article-inner > .guide-contact-strip .cta-button {
+    grid-area: button !important;
+    justify-self: center !important;
+    align-self: start !important;
+}
+
+@media (max-width: 700px) {
+    .landing-page .guide-content.article-inner > .guide-contact-strip > .article-container {
+        grid-template-columns: 1fr !important;
+        grid-template-areas: "copy" "photo" "button" !important;
+    }
 }
 
 @media (max-width: 700px) {

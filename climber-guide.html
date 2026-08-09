@@ -1759,6 +1759,7 @@
     <script>
         // Handle topo form submission inline
         document.addEventListener('DOMContentLoaded', function() {
+            const lang = document.documentElement.lang || 'he';
             const topoForms = document.querySelectorAll('form[action*="formspree"]');
             topoForms.forEach(form => {
                 if (form.querySelector('input[name="request_type"][value="topo_download"]')) {
@@ -1919,7 +1920,7 @@
                         if (response.ok) {
                             const successMsg = document.createElement('div');
                             successMsg.className = 'form-message success-message';
-                            successMsg.innerHTML = '<i class="fas fa-check-circle"></i><p>תודה על התגובה! היא תישלח אליי לאישור ותפורסם בקרוב.</p>';
+                            successMsg.innerHTML = '<i class="fas fa-check-circle"></i><p>תודה על התגובה! היא התקבלה ונשלחה אליי בהתראה.</p>';
                             commentForm.parentNode.insertBefore(successMsg, commentForm);
                             commentForm.reset();
                             setTimeout(() => {
@@ -1979,7 +1980,7 @@
                     };
 
                     container.innerHTML = data.comments
-                        .filter(comment => comment.approved)
+                        .filter(comment => comment && comment.name && comment.text)
                         .map(comment => {
                             const country = countryMeta[comment.country] || countryMeta.OTHER;
                             const language = document.documentElement.lang === 'en' ? 'en' : 'he';

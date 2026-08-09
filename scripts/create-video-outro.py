@@ -13,15 +13,15 @@ from PIL import Image, ImageDraw, ImageFilter, ImageFont
 
 
 ROOT = Path(__file__).resolve().parents[1]
-LOGO_PATH = ROOT / "pics" / "climbing-cyprus-logo.webp"
 OUTPUT_DIR = ROOT / "social" / "video-branding"
-OUTPUT_PATH = OUTPUT_DIR / "climbing-cyprus-outro-v1.mp4"
-TRANSPARENT_OUTPUT_PATH = OUTPUT_DIR / "climbing-cyprus-outro-transparent-v1.mov"
-PREVIEW_PATH = OUTPUT_DIR / "climbing-cyprus-outro-v1-preview.png"
+LOGO_PATH = OUTPUT_DIR / "logo-outro-transparent-v2.png"
+OUTPUT_PATH = OUTPUT_DIR / "climbing-cyprus-outro-v10-2s.mp4"
+TRANSPARENT_OUTPUT_PATH = OUTPUT_DIR / "climbing-cyprus-outro-transparent-v10-2s.mov"
+PREVIEW_PATH = OUTPUT_DIR / "climbing-cyprus-outro-v10-2s-preview.png"
 
 WIDTH, HEIGHT = 1080, 1920
 FPS = 30
-DURATION = 3.0
+DURATION = 2.0
 YELLOW = (246, 194, 24)
 WHITE = (255, 255, 255)
 
@@ -59,9 +59,12 @@ def tracked_text(draw: ImageDraw.ImageDraw, text: str, center_x: float, y: float
         x += char_width + tracking
 
 
-logo_source = Image.open(LOGO_PATH).convert("RGB")
+logo_source = Image.open(LOGO_PATH).convert("RGBA")
+logo_alpha_bounds = logo_source.getchannel("A").getbbox()
+if logo_alpha_bounds:
+    logo_source = logo_source.crop(logo_alpha_bounds)
 font_bold = ImageFont.truetype("/System/Library/Fonts/Avenir Next Condensed.ttc", 58, index=5)
-font_url = ImageFont.truetype("/System/Library/Fonts/Avenir Next.ttc", 36, index=5)
+font_url = ImageFont.truetype("/System/Library/Fonts/Avenir Next.ttc", 48, index=5)
 
 
 def make_frame(t: float, transparent: bool = False) -> Image.Image:
@@ -85,12 +88,14 @@ def make_frame(t: float, transparent: bool = False) -> Image.Image:
     frame.alpha_composite(glow)
 
     logo_progress = ease_out_back((t - 0.10) / 0.52)
-    badge_size = max(2, int(555 * (0.72 + 0.28 * logo_progress)))
+    # Start from the twice-reduced unit (0.64), then enlarge it by 10%.
+    badge_size = max(2, int((555 * 0.704) * (0.72 + 0.28 * logo_progress)))
+    disk_size = badge_size + 68
     center = (WIDTH // 2, 1000)
 
     shadow = Image.new("RGBA", frame.size, (0, 0, 0, 0))
     shadow_draw = ImageDraw.Draw(shadow)
-    half = badge_size // 2
+    half = disk_size // 2
     shadow_draw.ellipse(
         (center[0] - half, center[1] - half + 18, center[0] + half, center[1] + half + 18),
         fill=(0, 0, 0, int(170 * logo_progress)),
@@ -98,26 +103,28 @@ def make_frame(t: float, transparent: bool = False) -> Image.Image:
     shadow = shadow.filter(ImageFilter.GaussianBlur(42))
     frame.alpha_composite(shadow)
 
-    badge = Image.new("RGBA", (badge_size, badge_size), (0, 0, 0, 0))
+    badge = Image.new("RGBA", (disk_size, disk_size), (0, 0, 0, 0))
     badge_draw = ImageDraw.Draw(badge)
-    badge_draw.ellipse((0, 0, badge_size - 1, badge_size - 1), fill=(*WHITE, int(255 * logo_progress)))
+    badge_draw.ellipse((0, 0, disk_size - 1, disk_size - 1), fill=(*WHITE, int(255 * logo_progress)))
 
-    inner_width = int(badge_size * 0.88)
+    # Keep the square wordmark inside the circle's safe area so no letters clip.
+    inner_width = int(badge_size * 0.759)
     logo_aspect = logo_source.width / logo_source.height
     inner_height = int(inner_width / logo_aspect)
-    resized_logo = logo_source.resize((inner_width, inner_height), Image.Resampling.LANCZOS).convert("RGBA")
-    resized_logo.putalpha(int(255 * logo_progress))
-    alpha_composite_center(badge, resized_logo, (badge_size // 2, badge_size // 2))
+    resized_logo = logo_source.resize((inner_width, inner_height), Image.Resampling.LANCZOS)
+    animated_alpha = resized_logo.getchannel("A").point(lambda alpha: int(alpha * logo_progress))
+    resized_logo.putalpha(animated_alpha)
+    alpha_composite_center(badge, resized_logo, (disk_size // 2, disk_size // 2))
     alpha_composite_center(frame, badge, center)
 
     ring_progress = clamp((t - 0.30) / 0.75)
     ring = Image.new("RGBA", frame.size, (0, 0, 0, 0))
     ring_draw = ImageDraw.Draw(ring)
-    radius = badge_size / 2 + 40
+    radius = disk_size / 2 + 5
     bounds = (center[0] - radius, center[1] - radius, center[0] + radius, center[1] + radius)
     start = -90 + t * 7
-    ring_draw.arc(bounds, start=start, end=start + 360 * ring_progress, fill=(*YELLOW, int(255 * ring_progress)), width=14)
-    outer_radius = radius + 29
+    ring_draw.arc(bounds, start=start, end=start + 360 * ring_progress, fill=(*YELLOW, int(255 * ring_progress)), width=6)
+    outer_radius = radius + 20
     outer_bounds = (
         center[0] - outer_radius,
         center[1] - outer_radius,
@@ -129,14 +136,14 @@ def make_frame(t: float, transparent: bool = False) -> Image.Image:
         start=90 - t * 10,
         end=90 - t * 10 + 360 * ring_progress,
         fill=(255, 255, 255, int(150 * ring_progress)),
-        width=4,
+        width=3,
     )
     frame.alpha_composite(ring)
 
     text_layer = Image.new("RGBA", frame.size, (0, 0, 0, 0))
     text_draw = ImageDraw.Draw(text_layer)
     motto_progress = ease_out_cubic((t - 0.85) / 0.55)
-    motto_y = 1405 + int((1 - motto_progress) * 30)
+    motto_y = 1345 + int((1 - motto_progress) * 30)
     tracked_text(
         text_draw,
         "CLIMB  |  EXPLORE  |  CONNECT",
@@ -148,7 +155,7 @@ def make_frame(t: float, transparent: bool = False) -> Image.Image:
     )
     url_progress = ease_out_cubic((t - 1.25) / 0.45)
     text_draw.text(
-        (WIDTH / 2, 1505 + int((1 - url_progress) * 18)),
+        (WIDTH / 2, 1445 + int((1 - url_progress) * 18)),
         "climbing-cyprus.com",
         font=font_url,
         fill=(238, 238, 235, int(255 * url_progress)),
@@ -205,7 +212,7 @@ def main() -> None:
 
     process = subprocess.Popen(command, stdin=subprocess.PIPE)
     assert process.stdin is not None
-    preview_frame = int(1.8 * FPS)
+    preview_frame = int(1.55 * FPS)
     for frame_index in range(int(DURATION * FPS)):
         frame = make_frame(frame_index / FPS)
         if frame_index == preview_frame:

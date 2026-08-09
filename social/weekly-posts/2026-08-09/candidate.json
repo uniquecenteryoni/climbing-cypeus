@@ -1,0 +1,70 @@
+{
+  "status": "pending_approval",
+  "draft_date": "2026-08-09",
+  "source_type": "google_photos_album",
+  "source_album": "קפריסין בעין אחרת",
+  "source_album_id": "AF1QipMlv9mvEuQuEM62JmVFv2XeIOxh7AC2RV1Vwa7U",
+  "google_photos_id": "AF1QipPnAbH6qT2sP8WxeP9WawvGft4dwQDOZk3_NAPh",
+  "source_filename": "20260802_191249.jpg",
+  "captured_at": "2026-08-02T19:12:49+03:00",
+  "media_type": "photo",
+  "source_original_dimensions_from_metadata": "3060x4080",
+  "working_source_dimensions": "1080x1440",
+  "source_file": "source-candidate.jpg",
+  "selection_reason": "Strong vertical climbing scene with a climber high on the cliff, an attentive belayer below, and an unobstructed coastal landscape. Both people and the central landscape remain visible in the feed and story versions.",
+  "duplicate_check": {
+    "instagram_account": "climbing.cyprus",
+    "instagram_items_checked": [
+      "https://www.instagram.com/climbing.cyprus/reel/DbxkJrvsyaI/",
+      "https://www.instagram.com/climbing.cyprus/p/DbkToURDNBd/",
+      "https://www.instagram.com/climbing.cyprus/p/DbgAtbyDJI3/",
+      "https://www.instagram.com/climbing.cyprus/p/DbVk8muDBu9/"
+    ],
+    "project_history_checked": "social/weekly-posts/history.json",
+    "prior_drafts_checked": true,
+    "project_images_checked": 143,
+    "result": "no_prior_use_found",
+    "downloaded_google_asset_sha256": "38ca859e5f2d5b834216aac4e8e3d2b74b77838a91d453d6498debf8398417e0",
+    "working_source_sha256": "05b6c8eeb509f9e83ac0b05cd8139b51e6614b1b73ad90be1a5e92a22f918eea",
+    "phash64": "988e4e47b3c16897",
+    "dhash64": "6f37b71b3d90944a",
+    "instagram_phash_distance_range": "25-39",
+    "instagram_dhash_distance_range": "34-42",
+    "visual_scan_notes": "The first album photo matched the 3 Aug Instagram post and the second album photo matched the 28 Jul Instagram post, so both were skipped. This candidate is visually distinct from every Instagram post/reel thumbnail, history record, prior draft, and local project image inspected. No close perceptual-hash match was found."
+  },
+  "location": "Cyprus / קפריסין",
+  "location_confidence": "general_only",
+  "location_notes": "Google Photos shows no embedded location for this item. No precise location was inferred.",
+  "branding": {
+    "palette": "black/white/yellow",
+    "logo": "pics/climbing-cyprus-logo.webp",
+    "motto": "CLIMB | EXPLORE | CONNECT",
+    "website": "climbing-cyprus.com",
+    "story_new_post_sticker": {
+      "included": true,
+      "interactive": false,
+      "position": "upper right, within the empty sky safe area",
+      "not_used_on": ["feed", "YouTube Community"]
+    }
+  },
+  "deliverables": {
+    "feed": "feed-preview.jpg",
+    "story": "story-preview.jpg",
+    "caption": "caption.md"
+  },
+  "publishing_targets_after_explicit_approval": [
+    "Instagram climbing.cyprus — Feed with full bilingual caption",
+    "Instagram climbing.cyprus — Story with branded media only",
+    "Facebook group 895126888648835 — image post with full bilingual caption",
+    "Facebook yoni.malichi — Personal Feed via share of the Facebook Group post only",
+    "Facebook yoni.malichi — Story with branded media only",
+    "YouTube @ClimbingCyprus — Community image post with the approved shortened copy, if Community is available",
+    "climbing-cyprus.com — add to section#gallery under הרגעים שלכם only after all approved social destinations succeed and are verified"
+  ],
+  "approval": {
+    "approved": false,
+    "rule": "Approval from any earlier run is invalid. Any change to media, edit, caption, hashtags, location, YouTube copy, or targets requires a new explicit approval for this exact draft."
+  },
+  "publishing_performed": false,
+  "website_action": "pending_social_publication"
+}

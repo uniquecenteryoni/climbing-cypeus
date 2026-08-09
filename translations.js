@@ -13,15 +13,18 @@ const translations = {
         "nav-tours": "טיולי הליכה",
         "nav-climbing": "טיפוס צוקים וסנפלינג",
         "nav-testimonials": "ממליצים",
-        "nav-gallery": "גלריה",
+        "nav-gallery": "תמונות",
         "nav-contact": "יצירת קשר",
         "nav-climber-guide": "המדריך למטפס",
         "landing-nav-guide": "המדריך למטפס",
         "landing-nav-locations": "טיפוס צוקים וסנפלינג",
         "landing-nav-courses": "קורסים וחוויות",
-        "landing-nav-gallery": "גלריה",
+        "landing-nav-gallery": "תמונות",
         "landing-nav-trip-planning": "תכנון הטיול",
         "landing-nav-contact": "יצירת קשר",
+        "instagram-gallery-title": "רגעים שלכם מהשטח",
+        "instagram-gallery-subtitle": "עוד תמונות, סרטונים והשראה מחיי הטיפוס בקפריסין",
+        "instagram-gallery-follow": "לעקוב באינסטגרם",
         
         // Hero section
         "hero-title": "לא צריך להרחיק<br>בשביל הרפתקאות מיוחדות",
@@ -206,6 +209,8 @@ const translations = {
         "footer-links": "קישורים",
         "footer-social": "עקבו אחרינו",
         "footer-rights": "כל הזכויות שמורות",
+        "footer-instagram-cta": "רגעים שלכם מהשטח — עקבו אחרינו באינסטגרם",
+        "footer-instagram-follow": "לעקוב באינסטגרם",
         
         // Course Page
         "course-title": "קורס טיפוס הובלה",
@@ -290,7 +295,7 @@ const translations = {
         // Equipment Page
         "equipment-title": "השכרת ציוד טיפוס",
         "equipment-subtitle": "ציוד מקצועי ואיכותי להובלה ובולדרינג",
-        "equipment-lead-title": "ציוד להובלה ספורטיבית וטראד (Sport & Trad Climbing)",
+        "equipment-lead-title": "ציוד להובלה ספורטיבית",
         "equipment-lead-intro": "חבילה מושלמת למטפסים שרוצים לצאת לעצמאות בהובלה ספורטיבית או טראד",
         "equipment-includes": "החבילה כוללת:",
         "equipment-rope": "חבל טיפוס",
@@ -483,6 +488,24 @@ const translations = {
         "firstbolt-title": "FirstBolt — מדריך חכם למטפסים",
         "firstbolt-desc": "סרקו את הבולט הראשון וקבלו את המסלול, הדירוג והמידע הרלוונטי. האפליקציה כוללת את מסלולי הטיפוס בקפריסין, וכ־80% מהם כבר ממופים וניתנים לסריקה.",
         "firstbolt-cta": "הורדה ומידע על FirstBolt",
+        "guide-youtube-subscribe": "להירשם לערוץ ביוטיוב",
+        "guide-intro-title": "מטפסים בקפריסין? הגעתם למקום הנכון.",
+        "guide-intro-p1": "קפריסין מציעה הרבה יותר מחופים ונופים — יש כאן מצוקים מעולים, כפרים יפים ואזורי טיפוס ששווה להכיר.",
+        "guide-intro-p2": "אני יונתן, מדריך טיפוס שחי ומטפס כאן. ריכזתי עבורכם מדריך קצר, ברור ושימושי שיעזור לכם להכיר את האי קצת יותר טוב — מהמצוקים ועד הלוגיסטיקה.",
+        "guide-bouldering-guide-kicker": "המלצה שימושית למטפסים",
+        "guide-bouldering-guide-title": "הגיידבוק בולדרינג הרישמי של קפריסין כבר מוכן!",
+        "guide-bouldering-guide-desc": "הגיידבוק הרשמי ממפה את אזורי הבולדרינג סביב אקאמס, אינייה ודרושיה: כמעט 700 בעיות בדירוגי Font 3–8A, מפות ברורות, נקודות GPS, הוראות הגעה ותמונות של המסלולים. רוב הגישות קצרות, והאזור מתאים במיוחד לסשנים בחורף. צפו בהצצה וקבלו פרטים נוספים.",
+        "guide-bouldering-guide-cta": "לפרטים על המדריך",
+        "guide-bouldering-reel-kicker": "הצצה למדריך",
+        "guide-cta-order-equipment": "הזמנת ציוד טיפוס",
+        "guide-cta-order-guidebook": "הזמנת גייד בוק",
+        "guide-south-episkopi-title": "3. Episkopi",
+        "guide-south-episkopi-desc-1": "כפר עתיק ליד פאפוס, שלמרגלותיו מצוק מרשים של 60 מטר. המצוק המרכזי אינו פתוח לטיפוס כרגע, לכן חשוב לבדוק את המצב המקומי לפני ההגעה.",
+        "guide-south-episkopi-desc-2": "בצמוד למצוק יש מצוק \"בייבי\" בגובה 35 מטר עם מסלולים בכל הסגנונות והדירוגים. המצוק מוצל ברוב שעות היום ומציע גישה נוחה, עם בית קפה מקומי קרוב להפסקה בין סשנים.",
+        "guide-north-goat-desc": "כנראה המצוק הטוב ביותר בחלק הצפוני! מצוי באזור הרי קירניה, מציע טיפוס ספורטיבי איכותי על סלע טכני. הגישה למצוק כוללת הליכה קלה דרך שטח פסטורלי עם נוף פנורמי של החוף הצפון-מערבי. המצוק מציע אמפיתיאטרון טבעי עם מסלולים בדירוגים מגוונים, מה שהופך אותו למקום אידיאלי לסשן טיפוס של יום שלם.",
+        "guide-climbing-walls-carousel-kicker": "קירות טיפוס מומלצים בקפריסין",
+        "guide-parking-link": "קח אותי לחנייה",
+        "guide-instagram-strip-copy": "עוד רגעים והמלצות מהאי",
         
         // Guidebook Section in Equipment Page
         "guidebook-title": "גייד בוק לטיפוס בקפריסין",
@@ -536,10 +559,9 @@ const translations = {
         "guide-beside-cars": "השוואת רכבים",
         "guide-beside-transfers": "הסעה משדה התעופה",
         "guide-beside-activities": "אטרקציות ופעילויות",
-        "guide-affiliate-disclosure": "חלק מהקישורים הם קישורי שותפים. אם תזמינו דרכם, האתר עשוי לקבל עמלה קטנה ללא שינוי במחיר עבורכם.",
         
         // Equipment Page Quick Navigation
-        "nav-equipment-rental": "השכרת ציוד",
+        "nav-equipment-rental": "השכרת ציוד טיפוס",
         "nav-equipment-bouldering": "השכרת ציוד בולדרינג",
         "nav-equipment-guidebook": "הזמנת גייד הטיפוס",
         
@@ -558,15 +580,18 @@ const translations = {
         "nav-tours": "Hiking Tours",
         "nav-climbing": "Rock Climbing",
         "nav-testimonials": "Testimonials",
-        "nav-gallery": "Gallery",
+        "nav-gallery": "Photos",
         "nav-contact": "Contact",
         "nav-climber-guide": "Climber's Guide",
         "landing-nav-guide": "THE GUIDE",
         "landing-nav-locations": "LOCATIONS",
         "landing-nav-courses": "COURSES & EXPERIENCES",
-        "landing-nav-gallery": "GALLERY",
+        "landing-nav-gallery": "Photos",
         "landing-nav-trip-planning": "TRIP PLANNING",
         "landing-nav-contact": "CONTACT",
+        "instagram-gallery-title": "Your moments from the field",
+        "instagram-gallery-subtitle": "More photos, videos, and inspiration from climbing in Cyprus",
+        "instagram-gallery-follow": "Follow on Instagram",
         
         // Hero section
         "hero-title": "MORE THAN A CLIMB,<br><span class=\"hero-accent\">A DIFFERENT</span> PERSPECTIVE.",
@@ -775,6 +800,8 @@ const translations = {
         "footer-links": "Links",
         "footer-social": "Follow Us",
         "footer-rights": "All Rights Reserved",
+        "footer-instagram-cta": "Your moments from the field — follow us on Instagram",
+        "footer-instagram-follow": "Follow on Instagram",
         
         // Course Page
         "course-title": "Lead Climbing Course",
@@ -1155,6 +1182,7 @@ const translations = {
         "firstbolt-title": "FirstBolt — A Smart Guide for Climbers",
         "firstbolt-desc": "Scan the first bolt to get the route, grade, and relevant information. The app includes Cyprus climbing routes, with around 80% already mapped and scannable.",
         "firstbolt-cta": "Download and learn about FirstBolt",
+        "guide-youtube-subscribe": "Subscribe on YouTube",
         
         // Climber's Guide - Navigation
         "guide-nav-logistics": "Logistics",
@@ -1165,19 +1193,19 @@ const translations = {
         "guide-nav-shade-calc": "Shade Calculator",
 
         "guide-climbing-walls-tip": "<strong>Useful tip:</strong> Monthly memberships at the walls range from €50–70, and most gyms also offer single-entry passes. Local climbers' Facebook groups are the best way to find outdoor partners and current route updates.",
-        "guide-north-buffawall-title": "1. Buffawall",
+        "guide-north-buffawall-title": "3. Buffawall",
         "guide-north-buffawall-desc": "Located in a green pastoral valley with views of the open sea. Most routes are smooth slabs up to 40 metres long. There are around 15 routes, mostly grades 7 and above, with several tufas adding variety.",
         "guide-north-garga-title": "2. Garga-Suyu",
         "guide-north-garga-desc": "One of the island's established crags, with plenty of routes, quality rock, and a wide range of grades. The main drawback is some road noise.",
         "guide-north-kozan-title": "3. Kozan Koy / Larnaka of Lapithos",
         "guide-north-kozan-desc": "Located beside the village of Kozan, with two smaller sport crags nearby. Mostly vertical climbing with a few tufas and a broad range of grades.",
-        "guide-north-goat-title": "4. Goat House",
-        "guide-north-goat-desc": "Probably the best crag in the north. In the Kyrenia Mountains, it combines sport and trad climbing on quality rock with technical routes, varied grades, and panoramic views. It is ideal for a full day in spring or autumn, with the best shade in the morning and late afternoon.",
-        "guide-south-diarizous-title": "1. Diarizous",
+        "guide-north-goat-title": "1. Goat House",
+        "guide-north-goat-desc": "Probably the best crag in the north. Located in the Kyrenia Mountains, it offers quality sport climbing on technical rock, varied grades, and panoramic views. The easy approach crosses open countryside, making it ideal for a full day of climbing in spring or autumn.",
+        "guide-south-diarizous-title": "2. Diarizous",
         "guide-south-diarizous-desc": "A friendly crag with a wide range of grades, especially suitable for beginners. Two sectors face each other just a few steps apart, so you can climb all day. There is consistent shade, a one-minute approach, and a stream nearby. The style is mostly slab climbing.",
         "guide-south-ineia-title": "3. Ineia & Drousia",
         "guide-south-ineia-intro": "These beautiful villages offer a vast kingdom of hundreds of boulders and several sport crags. The most famous is Gerakopetra, with high-quality sandstone and a welcoming village-taverna atmosphere after climbing. More sectors in the area are covered in the guidebook.",
-        "guide-south-gerakopetra-title": "Gerakopetra",
+        "guide-south-gerakopetra-title": "1. Gerakopetra",
         "guide-south-gerakopetra-desc": "An impressive crag with long routes across a wide range of grades, overlooking the Mediterranean and the huge boulder field below. Two opposing faces allow climbing from morning into the afternoon, with an easy five-minute approach.",
         "guide-important-title": "<i class=\"fas fa-info-circle\"></i> Good to know",
         "guide-important-text": "Conditions, access, and route information can change. Check current local information before heading out and climb responsibly.",
@@ -1197,7 +1225,7 @@ const translations = {
         "guide-bouldering-p2": "The <a href=\"https://www.first-bolt.com/\" target=\"_blank\" rel=\"noopener\"><strong>FirstBolt</strong></a> app contains Cyprus climbing routes, with around 80% already mapped and scannable. It includes problem details and approach directions, making it a useful companion for exploring the island's boulders and crags.",
         "guide-bouldering-p3": "<strong>Development is moving quickly!</strong> Local and international climbers add new boulders every month. The island's current hardest boulder is rated <strong>8a (V11)</strong>, and dozens of high-grade projects are still waiting for first ascents.",
         "guide-bouldering-p4": "Even as a climber who is not primarily a boulderer, I highly recommend this area. The combination of quality rock, views across the sea and valleys, and a peaceful atmosphere creates a unique bouldering experience.",
-        "guide-bouldering-videos-title": "Cyprus Bouldering Videos",
+        "guide-bouldering-videos-title": "Cyprus Bouldering",
         "guide-bouldering-videos-subtitle": "Watch videos from the field and see the island's amazing boulders",
         "guide-bouldering-watch-youtube": "Watch all videos on YouTube",
         "guide-shade-calc-title": "<i class=\"fas fa-sun\"></i> Shade Hours Calculator",
@@ -1205,9 +1233,16 @@ const translations = {
         "guide-shade-calc-button": "<i class=\"fas fa-calculator\"></i> Open the shade calculator",
         "guide-topo-vacation-title": "<i class=\"fas fa-hands\"></i> Planning a bouldering trip?",
         "guide-topo-guidebook-coming": "<strong>The Cyprus bouldering guidebook is now available to order!</strong> It brings together the area's sectors, boulders, and key problems. All routes are also available through <a href=\"https://www.first-bolt.com/\" target=\"_blank\" rel=\"noopener\"><strong>FirstBolt</strong></a>.",
-        "guide-bouldering-guide-title": "The Cyprus Bouldering Guide",
-        "guide-bouldering-guide-desc": "The new guide brings together one of the island's most special bouldering areas. Watch the reel for a preview of what is waiting in the field.",
-        "guide-bouldering-guide-cta": "Watch the Facebook reel",
+        "guide-bouldering-guide-kicker": "A useful recommendation for climbers",
+        "guide-bouldering-guide-title": "The official Cyprus bouldering guidebook is ready!",
+        "guide-bouldering-guide-desc": "The official guide maps the bouldering areas around Akamas, Ineia and Droushia: nearly 700 problems from Font 3 to 8A, clear maps, GPS pins, approach directions and route photos. Most approaches are short, making the area especially good for winter sessions. Watch the preview and learn more.",
+        "guide-bouldering-guide-cta": "Details about the guide",
+        "guide-bouldering-reel-kicker": "A preview of the guide",
+        "guide-cta-order-equipment": "Order climbing equipment",
+        "guide-cta-order-guidebook": "Order the guidebook",
+        "guide-south-episkopi-title": "3. Episkopi",
+        "guide-south-episkopi-desc-1": "An old village near Paphos, below an impressive 60-metre crag. The main wall is currently closed to climbing, so check local conditions before visiting.",
+        "guide-south-episkopi-desc-2": "Next to it is a 35-metre \"Baby\" crag with routes in a range of styles and grades. It is shaded for much of the day and has an easy approach, with a local café nearby for a break between sessions.",
         "guide-topo-temp-title": "<i class=\"fas fa-download\"></i> Temporary bouldering topo - free download",
         "guide-topo-temp-desc": "A concise free topo is available for climbers who want a quick starting point while planning their session.",
         "guide-topo-form-title": "<i class=\"fas fa-file-pdf\"></i> Download the free bouldering topo",
@@ -1248,12 +1283,11 @@ const translations = {
         "guide-beside-cars": "Compare rental cars",
         "guide-beside-transfers": "Airport transfer",
         "guide-beside-activities": "Activities and attractions",
-        "guide-affiliate-disclosure": "Some links are affiliate links. If you book through them, the site may receive a small commission at no extra cost to you.",
         
         // Climber's Guide - Intro
-        "guide-intro-quote": "Cyprus, just a 45-minute flight away, the neighboring island known for its hotels, Aphrodite's Rock, and Ayia Napa high school parties - and besides that, no one really cared about it. Truth be told? Me neither.",
-        "guide-intro-p1": "Somehow I ended up spending several months on the island, and as with any life journey - where does climbing fit into this whole story?",
-        "guide-intro-p2": "Hey, I'm Yonatan, currently living on the island, a climbing guide, nature father, and married to Bar. Here's a short-long guide that will organize things for you and reveal some of the good that Cyprus has to offer.",
+        "guide-intro-title": "Climbing in Cyprus? You’re in the right place.",
+        "guide-intro-p1": "Cyprus offers much more than beaches and views — there are excellent crags, beautiful villages, and climbing areas worth getting to know.",
+        "guide-intro-p2": "I’m Yonatan, a climbing guide who lives and climbs here. I’ve put together a short, clear and useful guide to help you get to know the island a little better — from the crags to the logistics.",
         
         // Climber's Guide - Logistics
         "guide-logistics-title": "Some Logistics",
@@ -1267,6 +1301,9 @@ const translations = {
         
         // Climbing Walls
         "guide-climbing-walls-title": "Indoor Climbing Walls in Cyprus",
+        "guide-climbing-walls-carousel-kicker": "Recommended climbing walls in Cyprus",
+        "guide-parking-link": "Take me to parking",
+        "guide-instagram-strip-copy": "More island moments and recommendations",
         "guide-climbing-walls-intro": "Cyprus offers several quality indoor climbing walls scattered across the island. In recent years, new and modern facilities have opened, offering diverse climbing options for climbers of all levels. The walls are mainly located in major cities and offer an excellent place for training, meeting local climbers, and staying fit on rainy days or extreme heat.",
         "guide-nicosia-title": "Nicosia",
         "guide-redpoint-desc": "<strong><a href=\"https://www.redpointcy.com\" target=\"_blank\" rel=\"noopener\" style=\"color: #2c5f2d; text-decoration: underline;\">RedPoint</a></strong> - The newest and most modern facility on the island, opened in 2022. Combined with a parkour complex and offers a professional climbing experience with Moonboard, Campus board, equipped training room, and a wide variety of routes. The professional and friendly staff will help you progress. Suitable for beginners and experienced climbers alike.",
@@ -1329,7 +1366,7 @@ const translations = {
         "guidebook-order-btn": "Contact to Order",
         
         // Equipment Page Quick Navigation
-        "nav-equipment-rental": "Gear Rental",
+        "nav-equipment-rental": "Climbing Equipment Rental",
         "nav-equipment-bouldering": "Bouldering Gear Rental",
         "nav-equipment-guidebook": "Order Climbing Guidebook",
         
@@ -1348,7 +1385,7 @@ const translations = {
         "nav-tours": "Пешие Туры",
         "nav-climbing": "Скалолазание и Спуск",
         "nav-testimonials": "Отзывы",
-        "nav-gallery": "Галерея",
+        "nav-gallery": "INSTAGRAM",
         "nav-contact": "Контакты",
         "nav-climber-guide": "Путеводитель Альпиниста",
         
@@ -1515,6 +1552,8 @@ const translations = {
         "footer-links": "Ссылки",
         "footer-social": "Следите За Нами",
         "footer-rights": "Все Права Защищены",
+        "footer-instagram-cta": "Ваши моменты с маршрутов — подписывайтесь на нас в Instagram",
+        "footer-instagram-follow": "Подписаться в Instagram",
         
         // Course Page
         "course-title": "Курс Ведущего Скалолазания",
@@ -1821,7 +1860,7 @@ const translations = {
         "nav-tours": "Πεζοπορίες",
         "nav-climbing": "Αναρρίχηση & Rappel",
         "nav-testimonials": "Κριτικές",
-        "nav-gallery": "Γκαλερί",
+        "nav-gallery": "INSTAGRAM",
         "nav-contact": "Επικοινωνία",
         "nav-climber-guide": "Οδηγός Ορειβατών",
         
@@ -1983,6 +2022,8 @@ const translations = {
         "footer-links": "Σύνδεσμοι",
         "footer-social": "Ακολουθήστε μας",
         "footer-rights": "Όλα τα Δικαιώματα Διατηρούνται",
+        "footer-instagram-cta": "Οι στιγμές σας από την αναρρίχηση — ακολουθήστε μας στο Instagram",
+        "footer-instagram-follow": "Ακολουθήστε στο Instagram",
         
         // Course Page
         "course-title": "Μάθημα Ορειβασίας με Οδηγό",
@@ -2275,7 +2316,7 @@ const translations = {
         "guidebook-order-btn": "Επικοινωνήστε για Παραγγελία",
         
         // Bouldering Videos
-        "guide-bouldering-videos-title": "Cyprus Bouldering Videos",
+        "guide-bouldering-videos-title": "Cyprus Bouldering",
         "guide-bouldering-videos-subtitle": "Watch videos from the field and see the amazing boulders on the island",
         "guide-bouldering-playlist": "Full playlist of bouldering videos",
         "guide-bouldering-watch-youtube": "Watch all videos on YouTube",

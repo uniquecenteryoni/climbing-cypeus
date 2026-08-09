@@ -122,7 +122,25 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Lightbox
     initLightbox();
-    
+
+    // Single-strip climbing-wall carousel on the climber guide page.
+    const wallsCarousel = document.querySelector('[data-walls-carousel]');
+    if (wallsCarousel) {
+        const slides = [...wallsCarousel.querySelectorAll('.walls-carousel-slide')];
+        const dots = [...wallsCarousel.querySelectorAll('.walls-carousel-dots button')];
+        let wallsIndex = Math.max(0, slides.findIndex(slide => slide.classList.contains('active')));
+        const renderWallsSlide = (index) => {
+            if (!slides.length) return;
+            wallsIndex = (index + slides.length) % slides.length;
+            slides.forEach((slide, i) => slide.classList.toggle('active', i === wallsIndex));
+            dots.forEach((dot, i) => dot.classList.toggle('active', i === wallsIndex));
+        };
+        wallsCarousel.querySelector('.walls-carousel-button.prev')?.addEventListener('click', () => renderWallsSlide(wallsIndex - 1));
+        wallsCarousel.querySelector('.walls-carousel-button.next')?.addEventListener('click', () => renderWallsSlide(wallsIndex + 1));
+        dots.forEach((dot, i) => dot.addEventListener('click', () => renderWallsSlide(i)));
+        renderWallsSlide(wallsIndex);
+    }
+
     // Handle guidebook order button clicks
     const guidebookButtons = document.querySelectorAll('a[href="#contact"][data-i18n="activity-guidebook-btn"]');
     guidebookButtons.forEach(button => {
@@ -152,6 +170,34 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+
+// Lightweight fallback controls for carousels on pages without the guide's inline script.
+if (typeof window.changeSlide !== 'function') {
+    window.changeSlide = function(btn, direction, event) {
+        if (event) event.stopPropagation();
+        const carousel = btn.closest('.image-carousel');
+        if (!carousel) return;
+        const images = [...carousel.querySelectorAll('.carousel-image')];
+        const dots = [...carousel.querySelectorAll('.carousel-dot')];
+        const current = images.findIndex(image => image.classList.contains('active'));
+        if (!images.length || current < 0) return;
+        const next = (current + direction + images.length) % images.length;
+        images.forEach((image, index) => image.classList.toggle('active', index === next));
+        dots.forEach((dot, index) => dot.classList.toggle('active', index === next));
+    };
+}
+
+if (typeof window.currentSlide !== 'function') {
+    window.currentSlide = function(dot, index, event) {
+        if (event) event.stopPropagation();
+        const carousel = dot.closest('.image-carousel');
+        if (!carousel) return;
+        const images = [...carousel.querySelectorAll('.carousel-image')];
+        const dots = [...carousel.querySelectorAll('.carousel-dot')];
+        images.forEach((image, imageIndex) => image.classList.toggle('active', imageIndex === index));
+        dots.forEach((item, dotIndex) => item.classList.toggle('active', dotIndex === index));
+    };
+}
 
 // Set language function
 function setLanguage(lang) {
@@ -397,6 +443,15 @@ document.addEventListener('DOMContentLoaded', () => {
             // Send pause command to YouTube iframe
             videoIframe.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
         });
+
+        // Start the muted homepage film when it reaches the viewport.
+        const playWhenVisible = new IntersectionObserver((entries, observer) => {
+            if (entries.some(entry => entry.isIntersecting)) {
+                videoIframe.contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
+                observer.disconnect();
+            }
+        }, { threshold: 0.55 });
+        playWhenVisible.observe(videoContainer);
     }
 
     // Auto-fill contact form message based on source

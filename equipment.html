@@ -23,6 +23,7 @@
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="tour-page.css">
     
     <!-- Load translations first -->
     <script src="translations.js"></script>
@@ -85,17 +86,17 @@
     </script>
 </head>
 
-<body>
+<body class="landing-page equipment-page">
     <!-- Navigation -->
     <nav class="navbar">
         <div class="container">
             <a href="index.html#home" class="logo" style="text-decoration: none; color: inherit;">
-                <img src="pics/climbing-cyprus-logo.webp" alt="Climbing Cyprus Logo">
+                <span class="logo-surface"><img src="pics/climbing-cyprus-logo.webp" alt="Climbing Cyprus Logo"></span>
             </a>
             <ul class="nav-menu">
                 <li><a href="climber-guide.html" data-i18n="nav-climber-guide">המדריך למטפס</a></li>
                 <li><a href="index.html#activities" data-i18n="nav-climbing">טיפוס צוקים וסנפלינג</a></li>
-                <li><a href="index.html#gallery" data-i18n="nav-gallery">גלריה</a></li>
+                <li><a href="index.html#gallery" data-i18n="nav-gallery">Instagram</a></li>
                 <li><a href="index.html#contact" data-i18n="nav-contact">יצירת קשר</a></li>
                 <li class="language-switcher">
                     <button class="lang-btn" data-lang="he" aria-label="עברית" title="עברית">HE</button>
@@ -111,7 +112,7 @@
     </nav>
 
     <!-- Equipment Rental Hero -->
-    <section class="tour-hero" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('pics/rent.jpg') center 30%/cover;">
+    <section class="tour-hero equipment-hero" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('pics/rent.jpg') center 30%/cover;">
         <div class="tour-hero-content">
             <div class="container">
                 <h1 data-i18n="equipment-title" style="color: white;">השכרת ציוד טיפוס וגייד בוק</h1>
@@ -121,7 +122,7 @@
     </section>
 
     <!-- Quick Navigation Menu -->
-    <div style="background: #2c5f2d; padding: 1rem 0; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 10px rgba(0,0,0,0.2);">
+    <div class="equipment-section-nav">
         <div class="container">
             <nav style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap;">
                 <a href="#rental" style="color: white; text-decoration: none; padding: 0.5rem 1.5rem; border-radius: 5px; transition: all 0.3s; font-weight: 500;" onmouseover="this.style.background='rgba(255,255,255,0.2)'" onmouseout="this.style.background='transparent'">
@@ -132,9 +133,6 @@
                 </a>
                 <a href="#guidebook" style="color: white; text-decoration: none; padding: 0.5rem 1.5rem; border-radius: 5px; transition: all 0.3s; font-weight: 500;" onmouseover="this.style.background='rgba(255,255,255,0.2)'" onmouseout="this.style.background='transparent'">
                     <i class="fas fa-book"></i> <span data-i18n="nav-equipment-guidebook">הזמנת גייד הטיפוס</span>
-                </a>
-                <a href="#bouldering-guidebook" style="color: white; text-decoration: none; padding: 0.5rem 1.5rem; border-radius: 5px; transition: all 0.3s; font-weight: 500;" onmouseover="this.style.background='rgba(255,255,255,0.2)'" onmouseout="this.style.background='transparent'">
-                    <i class="fas fa-book-open"></i> <span data-i18n="nav-equipment-bouldering-guidebook">גייד בוק בולדרינג</span>
                 </a>
             </nav>
         </div>
@@ -154,13 +152,13 @@
                     <div class="equipment-list">
                         <h3 data-i18n="equipment-includes">החבילה כוללת:</h3>
                         <ul>
-                            <li><i class="fas fa-check-circle"></i> <strong data-i18n="equipment-rope">חבל טיפוס</strong> - <span data-i18n="equipment-rope-desc">60-70 מטר</span></li>
-                            <li><i class="fas fa-check-circle"></i> <strong data-i18n="equipment-harness">רתמה</strong> <span data-i18n="equipment-harness-desc">(2 יחידות לזוג)</span></li>
-                            <li><i class="fas fa-check-circle"></i> <strong data-i18n="equipment-helmet">קסדות</strong> <span data-i18n="equipment-helmet-desc">(2 יחידות לזוג)</span></li>
-                            <li><i class="fas fa-check-circle"></i> <strong data-i18n="equipment-belay">מכשיר אבטחה</strong> <span data-i18n="equipment-belay-desc">(GriGri / ATC)</span></li>
-                            <li><i class="fas fa-check-circle"></i> <strong data-i18n="equipment-quickdraws">ראנרים (Quickdraws)</strong> - <span data-i18n="equipment-quickdraws-desc">סט של 12 יחידות</span></li>
-                            <li><i class="fas fa-check-circle"></i> <strong data-i18n="equipment-trad">ציוד טראד</strong> - <span data-i18n="equipment-trad-desc">נאטס (Nuts) וסלינגים (Slings)</span></li>
-                            <li><i class="fas fa-check-circle"></i> <strong data-i18n="equipment-chalk">שקי מגנזיום</strong> <span data-i18n="equipment-chalk-desc">(2 יחידות)</span></li>
+                            <li><i class="fas fa-grip-lines-vertical"></i> <strong data-i18n="equipment-rope">חבל טיפוס</strong> - <span data-i18n="equipment-rope-desc">60-70 מטר</span></li>
+                            <li><i class="fas fa-person-hiking"></i> <strong data-i18n="equipment-harness">רתמה</strong> <span data-i18n="equipment-harness-desc">(2 יחידות לזוג)</span></li>
+                            <li><i class="fas fa-hard-hat"></i> <strong data-i18n="equipment-helmet">קסדות</strong> <span data-i18n="equipment-helmet-desc">(2 יחידות לזוג)</span></li>
+                            <li><i class="fas fa-shield-halved"></i> <strong data-i18n="equipment-belay">מכשיר אבטחה</strong> <span data-i18n="equipment-belay-desc">(GriGri / ATC)</span></li>
+                            <li><i class="fas fa-link"></i> <strong data-i18n="equipment-quickdraws">ראנרים (Quickdraws)</strong> - <span data-i18n="equipment-quickdraws-desc">סט של 12 יחידות</span></li>
+                            <li><i class="fas fa-compass"></i> <strong data-i18n="equipment-trad">ציוד טראד</strong> - <span data-i18n="equipment-trad-desc">נאטס (Nuts) וסלינגים (Slings)</span></li>
+                            <li><i class="fas fa-cloud"></i> <strong data-i18n="equipment-chalk">שקי מגנזיום</strong> <span data-i18n="equipment-chalk-desc">(2 יחידות)</span></li>
                         </ul>
                     </div>
 
@@ -182,9 +180,19 @@
                     </div>
                     
                     <div class="equipment-list">
-                        <div class="guide-image" style="margin: 2rem 0;">
-                            <img src="pics/padrent-improved.png" alt="קראשפד להשכרה לבולדרינג בקפריסין" loading="lazy" style="max-width: 100%; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+                        <div class="image-carousel equipment-crashpad-carousel" aria-label="תמונות קראשפדים להשכרה">
+                            <div class="carousel-container">
+                                <img src="pics/padrent-improved.png" alt="קראשפד Ocun להשכרה לבולדרינג בקפריסין" loading="lazy" class="carousel-image active">
+                                <img src="pics/climberguide/crashpad-rental-user.png" alt="קראשפד בשטח בקפריסין" loading="lazy" class="carousel-image">
+                                <button class="carousel-btn prev" onclick="changeSlide(this, -1, event)" aria-label="תמונה קודמת">❮</button>
+                                <button class="carousel-btn next" onclick="changeSlide(this, 1, event)" aria-label="תמונה הבאה">❯</button>
+                            </div>
+                            <div class="carousel-dots" aria-label="בחירת תמונת קראשפד">
+                                <span class="carousel-dot active" onclick="currentSlide(this, 0, event)"></span>
+                                <span class="carousel-dot" onclick="currentSlide(this, 1, event)"></span>
+                            </div>
                         </div>
+                        <p class="crashpad-specs"><strong>Ocun Dominator</strong> — קראשפד מתקפל בגודל כ־100×130 ס״מ, מתאים לבולדרינג ולכיסוי אזור נחיתה בשטח.</p>
                         
                         <!-- YouTube Videos Section -->
                         <div style="margin: 3rem 0;">
@@ -457,7 +465,7 @@
                         <li><a href="index.html#home" data-i18n="nav-home">בית</a></li>
                         <li><a href="index.html#about-me" data-i18n="nav-about-me">מי אני</a></li>
                         <li><a href="index.html#activities" data-i18n="nav-activities">הפעילויות שלנו</a></li>
-                        <li><a href="index.html#gallery" data-i18n="nav-gallery">גלריה</a></li>
+                <li><a href="index.html#gallery" data-i18n="nav-gallery">תמונות</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">

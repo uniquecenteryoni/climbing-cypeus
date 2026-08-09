@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow,noarchive">
+  <title>דשבורד ניהול — Climbing Cyprus</title>
+  <style>
+    :root { color-scheme: light; --green:#2c5f2d; --soft:#f5f8f2; --line:#dce7d8; --ink:#243524; }
+    * { box-sizing:border-box; }
+    body { margin:0; background:#fbfcfa; color:var(--ink); font-family:Rubik,Arial,sans-serif; }
+    .shell { width:min(1120px,calc(100% - 40px)); margin:0 auto; padding:42px 0 64px; }
+    header { display:flex; justify-content:space-between; align-items:end; gap:24px; border-bottom:1px solid var(--line); padding-bottom:24px; }
+    h1 { margin:0; color:var(--green); font-size:clamp(2rem,4vw,3.2rem); }
+    h2 { margin:0 0 12px; color:var(--green); font-size:1.25rem; }
+    p { line-height:1.7; }
+    .private-note { color:#5c6a5c; max-width:560px; }
+    .button { display:inline-flex; align-items:center; justify-content:center; min-height:46px; padding:0 18px; border-radius:8px; background:var(--green); color:#fff; text-decoration:none; font-weight:700; }
+    .button.secondary { background:#e8f0e4; color:var(--green); }
+    .notice { margin:28px 0; padding:18px 20px; background:#fff7e5; border-inline-start:4px solid #d99727; }
+    .grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:14px; }
+    .card { background:#fff; border:1px solid var(--line); padding:20px; min-height:130px; }
+    .value { display:block; margin-top:12px; color:var(--green); font-size:1.8rem; font-weight:700; }
+    .section { margin-top:34px; }
+    .links { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; }
+    .link-card { display:block; padding:18px; border:1px solid var(--line); background:#fff; color:var(--green); text-decoration:none; font-weight:700; }
+    small { color:#667466; font-weight:400; }
+    @media (max-width:760px) { .shell{width:min(100% - 28px,560px);padding-top:26px;} header{display:block;} header .button{margin-top:18px;width:100%;} .grid,.links{grid-template-columns:1fr 1fr;} }
+    @media (max-width:430px) { .grid{grid-template-columns:1fr;} }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <header>
+      <div>
+        <h1>דשבורד ניהול</h1>
+        <p class="private-note">אזור פרטי לבעל האתר. נתוני התנועה עצמם זמינים רק לאחר התחברות לחשבון Google Analytics שיש לו הרשאה לנכס של האתר.</p>
+      </div>
+      <a class="button" href="https://analytics.google.com/analytics/web/" target="_blank" rel="noopener">פתיחת Google Analytics</a>
+    </header>
+
+    <div class="notice">
+      <strong>חשוב:</strong> האתר משתמש ב־GA4 עם מזהה המדידה <code>G-4WPV84ES2X</code>. דף סטטי לא יכול להחזיק סיסמה או אסימון API בצורה בטוחה; אל תוסיף כאן פרטי התחברות. כדי שרק אתה תוכל לפתוח את הדף, הפעל Password Protection / Access Control אצל ספק האחסון.
+    </div>
+
+    <section class="section">
+      <h2>מדדים שיופיעו בדוח</h2>
+      <div class="grid">
+        <div class="card">משתמשים<span class="value">GA4</span><small>Users</small></div>
+        <div class="card">ביקורים<span class="value">GA4</span><small>Sessions</small></div>
+        <div class="card">דפים נצפים<span class="value">GA4</span><small>Views</small></div>
+        <div class="card">מעורבות<span class="value">GA4</span><small>Engagement</small></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>פילוחים חשובים</h2>
+      <div class="links">
+        <a class="link-card" href="https://analytics.google.com/analytics/web/" target="_blank" rel="noopener">מקורות תנועה <small>Google, Instagram, Facebook, חיפוש ישיר</small></a>
+        <a class="link-card" href="https://analytics.google.com/analytics/web/" target="_blank" rel="noopener">שעות וימים <small>מתי נכנסים לאתר</small></a>
+        <a class="link-card" href="https://analytics.google.com/analytics/web/" target="_blank" rel="noopener">מיקום גאוגרפי <small>מדינה, אזור ועיר בקירוב</small></a>
+        <a class="link-card" href="https://analytics.google.com/analytics/web/" target="_blank" rel="noopener">מכשירים ודפדפנים <small>נייד, מחשב, מערכת הפעלה</small></a>
+        <a class="link-card" href="https://analytics.google.com/analytics/web/" target="_blank" rel="noopener">עמודים פופולריים <small>מדריך, ציוד, פעילויות ועוד</small></a>
+        <a class="link-card" href="https://analytics.google.com/analytics/web/" target="_blank" rel="noopener">אירועים והמרות <small>לחיצות על רכישה, קשר וקישורים</small></a>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

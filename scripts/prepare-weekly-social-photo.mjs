@@ -51,6 +51,30 @@ function brandingSvg(width, height, { bottom = 48, scale = 1 } = {}) {
   `);
 }
 
+function newPostStickerSvg(width, height) {
+  const stickerWidth = 252;
+  const stickerHeight = 92;
+  const x = width - stickerWidth - 70;
+  const y = 285;
+
+  return Buffer.from(`
+    <svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}">
+      <defs>
+        <filter id="sticker-shadow" x="-30%" y="-40%" width="170%" height="190%">
+          <feDropShadow dx="0" dy="5" stdDeviation="7" flood-color="#000" flood-opacity="0.42"/>
+        </filter>
+      </defs>
+      <g filter="url(#sticker-shadow)">
+        <rect x="${x}" y="${y}" width="${stickerWidth}" height="${stickerHeight}" rx="22" fill="#090909" stroke="#fff" stroke-width="3"/>
+        <rect x="${x}" y="${y}" width="18" height="${stickerHeight}" rx="9" fill="#f4c51d"/>
+        <text x="${x + 43}" y="${y + 59}" fill="#fff"
+          font-family="Helvetica Neue, Helvetica, Arial, sans-serif"
+          font-size="38" font-weight="800" letter-spacing="1.8">NEW POST</text>
+      </g>
+    </svg>
+  `);
+}
+
 async function logoForBadge(size) {
   const inner = Math.round(size * 0.78);
   return sharp(logoPath)
@@ -101,6 +125,7 @@ async function renderStory() {
   return sharp(background)
     .composite([
       { input: foreground, left: 0, top: 0 },
+      { input: newPostStickerSvg(story.width, story.height), left: 0, top: 0 },
       { input: brandingSvg(story.width, story.height, { bottom }), left: 0, top: 0 },
       { input: logo, left: 48 + Math.round((badgeSize - 0.78 * badgeSize) / 2), top: story.height - bottom - badgeSize + Math.round((badgeSize - 0.78 * badgeSize) / 2) },
     ])
@@ -108,7 +133,15 @@ async function renderStory() {
     .toFile(path.join(outputDir, "story-preview.jpg"));
 }
 
+async function renderSource() {
+  return sharp(inputPath)
+    .rotate()
+    .jpeg({ quality: 98, chromaSubsampling: "4:4:4" })
+    .toFile(path.join(outputDir, "source-candidate.jpg"));
+}
+
 await fs.mkdir(outputDir, { recursive: true });
-await Promise.all([renderFeed(), renderStory()]);
+await Promise.all([renderSource(), renderFeed(), renderStory()]);
+console.log(path.join(outputDir, "source-candidate.jpg"));
 console.log(path.join(outputDir, "feed-preview.jpg"));
 console.log(path.join(outputDir, "story-preview.jpg"));

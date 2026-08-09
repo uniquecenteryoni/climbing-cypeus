@@ -1,10 +1,11 @@
 {
   "assets": [
-    "climbing-cyprus-outro-v1.mp4",
-    "climbing-cyprus-outro-transparent-v1.mov"
+    "climbing-cyprus-outro-v10-2s.mp4",
+    "climbing-cyprus-outro-transparent-v10-2s.mov"
   ],
-  "status": "pending",
+  "status": "approved",
   "created_at": "2026-08-03",
-  "approved_at": null,
-  "notes": "Three-second opaque and transparent versions; awaiting explicit user approval before use in published videos."
+  "approved_at": "2026-08-09",
+  "duration_seconds": 2,
+  "notes": "Approved v10 design in opaque and transparent variants. Apply it over the final two seconds of every published video; choose the transparent or opaque version according to the footage."
 }

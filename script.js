@@ -184,7 +184,6 @@ function initClimbingPricing() {
     const currency = pricing.querySelector('[data-pricing-currency]');
     const from = pricing.querySelector('[data-pricing-from]');
     const perParticipant = pricing.querySelector('[data-pricing-per]');
-    const description = pricing.querySelector('[data-pricing-description]');
     const states = {
         group: { value: '300', descriptionKey: 'pricing-desc-group', currency: true, from: true, perParticipant: true },
         couple: { value: '250', descriptionKey: 'pricing-desc-couple', currency: true, from: true, perParticipant: true },
@@ -202,8 +201,6 @@ function initClimbingPricing() {
         currency.hidden = !selected.currency;
         if (from) from.hidden = !selected.from;
         if (perParticipant) perParticipant.hidden = !selected.perParticipant;
-        description.dataset.i18n = selected.descriptionKey;
-        description.textContent = translations[currentLang]?.[selected.descriptionKey] || description.textContent;
     }
 
     options.forEach(option => {

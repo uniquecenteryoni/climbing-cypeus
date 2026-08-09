@@ -349,6 +349,22 @@
     --guide-article-max-width: 1098px !important;
 }
 
+/* About climbing follows the same centered article treatment as the guide sections. */
+.landing-page .guide-content.article-inner > .guide-about-climbing.guide-shade-strip {
+    width: min(calc(100% - (var(--guide-page-padding) * 2)), var(--guide-article-max-width)) !important;
+    max-width: var(--guide-article-max-width) !important;
+    margin: 2.5rem auto !important;
+    padding: 2rem 0 !important;
+    background: #fff !important;
+    border-block: 1px solid rgba(44, 95, 45, .16) !important;
+}
+
+.landing-page .guide-content.article-inner > .guide-about-climbing.guide-shade-strip > .guide-about-climbing-inner {
+    width: 100% !important;
+    max-width: none !important;
+    padding: 0 !important;
+}
+
 .landing-page .guide-content.article-inner > .intro-story .intro-title {
     border-bottom: 0 !important;
     padding-bottom: 0 !important;
@@ -1086,20 +1102,20 @@ body.landing-page { overflow-x: hidden; }
 
 .activities-page .logo img,
 .course-page .logo img {
-    width: 150px;
-    height: 86px;
+    width: auto;
+    height: 140px;
     object-fit: contain;
 }
 
 .activities-page .activity-subheading {
-    margin: var(--spacing-lg) 0 var(--spacing-md);
-    padding-bottom: var(--spacing-sm);
-    border-bottom: 2px solid var(--secondary-color);
-    color: var(--primary-color);
-    font-size: 2rem;
-    font-weight: 600;
-    line-height: 1.25;
-    text-align: right;
+    margin: var(--spacing-lg) 0 var(--spacing-md) !important;
+    padding: 0 0 var(--spacing-sm) !important;
+    border-bottom: 2px solid var(--secondary-color) !important;
+    color: var(--primary-color) !important;
+    font-size: 2rem !important;
+    font-weight: 600 !important;
+    line-height: 1.25 !important;
+    text-align: right !important;
 }
 
 .activities-page .pricing-box .cta-button::before,
@@ -1107,20 +1123,26 @@ body.landing-page { overflow-x: hidden; }
     display: none !important;
 }
 .guide-about-climbing {
-    width: 100vw;
-    margin: 2.5rem calc(50% - 50vw);
-    padding: 3.5rem 12.5%;
-    background:
-        linear-gradient(rgba(255,255,255,.92), rgba(255,255,255,.92)),
-        url('pics/guide.jpeg') center / cover;
+    width: min(calc(100% - (var(--guide-page-padding) * 2)), var(--guide-article-max-width)) !important;
+    max-width: var(--guide-article-max-width) !important;
+    margin: 2.5rem auto !important;
+    padding: 2rem 0 !important;
+    background: #fff !important;
+    border-block: 1px solid rgba(44, 95, 45, .16) !important;
 }
 .guide-about-climbing-inner {
-    width: min(100%, var(--guide-article-max-width));
+    width: 100% !important;
+    max-width: none !important;
     margin: 0 auto;
     line-height: 1.8;
 }
 .guide-about-climbing h2 {
-    margin-top: 0 !important;
+    margin: 0 0 1.25rem !important;
+    padding-bottom: .75rem !important;
+    border-bottom: 2px solid var(--secondary-color) !important;
+    color: var(--primary-color) !important;
+    font-size: 2rem !important;
+    text-align: right !important;
 }
 .guide-about-climbing-gallery {
     display: flex;
@@ -6210,6 +6232,21 @@ body.landing-page {
     border-radius: 0 !important;
 }
 
+.landing-page .guide-content.article-inner > .guide-about-climbing.guide-shade-strip {
+    width: min(calc(100% - (var(--guide-page-padding) * 2)), var(--guide-article-max-width)) !important;
+    max-width: var(--guide-article-max-width) !important;
+    margin: 2.5rem auto !important;
+    padding: 2rem 0 !important;
+    background: #fff !important;
+    border-block: 1px solid rgba(44, 95, 45, .16) !important;
+}
+
+.landing-page .guide-content.article-inner > .guide-about-climbing.guide-shade-strip > .guide-about-climbing-inner {
+    width: 100% !important;
+    max-width: none !important;
+    padding: 0 !important;
+}
+
 .landing-page .guide-content.article-inner > .guide-shade-strip.guide-shade-strip > .article-container {
     width: min(100%, var(--guide-article-max-width)) !important;
     max-width: var(--guide-article-max-width) !important;
@@ -6221,7 +6258,7 @@ body.landing-page {
 
 /* Definitive alignment: logistics starts exactly where the article heading starts. */
 .landing-page .guide-content.article-inner > .guide-logistics-strip.guide-logistics-strip {
-    width: min(100%, var(--guide-article-max-width)) !important;
+    width: min(calc(100% - (var(--guide-page-padding) * 2)), var(--guide-article-max-width)) !important;
     max-width: var(--guide-article-max-width) !important;
     margin: 0.85rem auto !important;
     padding-inline: 0 !important;

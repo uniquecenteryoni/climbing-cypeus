@@ -234,7 +234,7 @@
         }
 
         .pricing-box .price {
-            font-size: 3rem;
+            font-size: 4rem;
             font-weight: bold;
             margin-bottom: var(--spacing-sm);
             display: flex;
@@ -245,7 +245,7 @@
         }
 
         .pricing-box .price .currency {
-            font-size: 2rem;
+            font-size: 4rem;
         }
 
         .pricing-box .price .price-prefix,
@@ -344,7 +344,6 @@
             background: #fff;
             color: #2c5f2d;
         }
-        .climbing-session-pricing [data-pricing-description] { min-height: 2.2em; }
         .climbing-session-pricing [data-pricing-value] { white-space: nowrap; }
         .climbing-session-pricing [data-pricing-currency][hidden] { display: none; }
     </style>
@@ -360,7 +359,7 @@
             
             <ul class="nav-menu">
                 <li><a href="climber-guide.html" data-i18n="nav-climber-guide">המדריך למטפס</a></li>
-                <li><a href="index.html#activities" data-i18n="nav-climbing">טיפוס צוקים וסנפלינג</a></li>
+                <li><a href="activities.html#climbing" data-i18n="nav-climbing">טיפוס צוקים וסנפלינג</a></li>
                 <li><a href="index.html#gallery" data-i18n="nav-gallery">Instagram</a></li>
                 <li><a href="index.html#contact" data-i18n="nav-contact">יצירת קשר</a></li>
                 <li class="language-switcher">
@@ -393,7 +392,7 @@
     <section class="activity-sections">
         <div class="container">
             <!-- Rock Climbing Section -->
-            <div class="activity-section">
+            <div class="activity-section" id="climbing">
                 <div class="activity-header">
                     <h2 data-i18n="activities-climbing-header">חשיפה והתנסות בטיפוס צוקים</h2>
                     <p data-i18n="activities-climbing-subheader">יום טיפוס בו נתמודד עם מסלולי טיפוס סלע כאשר המטפס מאובטח מלמעלה</p>
@@ -446,14 +445,13 @@
                     <div class="pricing-switcher" role="tablist" aria-label="בחירת גודל קבוצה">
                         <button type="button" class="pricing-switcher-option is-active" role="tab" aria-selected="true" data-pricing-option="group" data-i18n="pricing-option-group">קבוצה עד 5</button>
                         <button type="button" class="pricing-switcher-option" role="tab" aria-selected="false" data-pricing-option="couple" data-i18n="pricing-option-couple">זוג/יחיד</button>
-                        <button type="button" class="pricing-switcher-option" role="tab" aria-selected="false" data-pricing-option="larger" data-i18n="pricing-option-larger">5+</button>
+                        <button type="button" class="pricing-switcher-option" role="tab" aria-selected="false" data-pricing-option="larger" data-i18n="pricing-option-larger">מעל 5 משתתפים</button>
                     </div>
                     <div class="price">
                         <span class="price-prefix" data-pricing-from data-i18n="pricing-from">החל מ</span>
                         <span class="currency" data-pricing-currency>€</span><span data-pricing-value>300</span>
                         <span class="price-per-participant" data-pricing-per data-i18n="pricing-per-participant">למשתתף</span>
                     </div>
-                    <p data-pricing-description data-i18n="pricing-desc-group">קבוצה עד 5 משתתפים</p>
                     <a href="index.html#contact" class="cta-button" data-i18n="activities-climbing-book">הזמינו עכשיו</a>
                 </div>
             </div>

@@ -1,2 +1,3 @@
 # GitHub rejects regular files larger than 100 MB.
 /social/video-branding/climbing-cyprus-outro-transparent-v1.mov
+/social/video-branding/*.mov

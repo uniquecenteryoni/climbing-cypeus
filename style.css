@@ -1083,13 +1083,30 @@ body.landing-page { overflow-x: hidden; }
     line-height: 1.15;
 }
 
+.course-page .tour-hero-content {
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 0 !important;
+    text-align: center !important;
+}
+
+.course-page .tour-hero-content .container {
+    width: min(100% - 2rem, 1200px);
+    margin-inline: auto;
+    text-align: center !important;
+}
+
+.course-page .tour-hero-content .tour-meta {
+    justify-content: center;
+}
+
 /* Keep the header consistent on every page, including the activity and course heroes. */
 .navbar,
 .landing-page .navbar {
     position: sticky !important;
     top: 0 !important;
     inset-inline: 0 !important;
-    background: rgba(255, 255, 255, 0.9) !important;
+    background: rgba(255, 255, 255, 0.85) !important;
     box-shadow: var(--shadow-sm) !important;
     opacity: 1 !important;
     backdrop-filter: none !important;

@@ -238,6 +238,18 @@
     text-align: right !important;
 }
 
+/* Keep logistics and crag details anchored to the right edge of the article measure. */
+.landing-page .guide-content.article-inner > .guide-logistics-strip,
+.landing-page .guide-content.article-inner > .guide-crag-strip {
+    justify-items: stretch !important;
+}
+
+.landing-page .guide-content.article-inner > .guide-logistics-strip > div:last-child,
+.landing-page .guide-content.article-inner > .guide-crag-strip > div:last-child {
+    text-align: right !important;
+    justify-self: stretch !important;
+}
+
 .landing-page .guide-content.article-inner > .resource-note,
 .landing-page .guide-content.article-inner .bouldering-resources .resource-note {
     width: min(calc(100% - (var(--guide-page-padding) * 2)), var(--guide-article-max-width)) !important;
@@ -4622,13 +4634,13 @@ h3 {
 
 .guide-contact-strip {
     direction: ltr;
-    grid-template-columns: auto minmax(0, 1fr) 170px !important;
-    grid-template-areas: "button copy photo";
+    grid-template-columns: minmax(0, 1fr) 170px minmax(0, 1fr) !important;
+    grid-template-areas: "button button photo" "copy copy photo";
     gap: 1.25rem;
 }
 .guide-contact-copy { grid-area: copy; direction: rtl; text-align: center; }
 .guide-contact-strip .guide-contact-photo { grid-area: photo; justify-self: end; }
-.guide-contact-strip .cta-button { grid-area: button; justify-self: start; text-align: center; }
+.guide-contact-strip .cta-button { grid-area: button; justify-self: center; align-self: start; text-align: center; }
 
 @media (max-width: 700px) {
     .video-section .video-container-full { min-height: 300px; }

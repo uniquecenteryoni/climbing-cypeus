@@ -123,6 +123,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // Lightbox
     initLightbox();
 
+    // Interactive climbing-session pricing selector.
+    initClimbingPricing();
+
     // Single-strip climbing-wall carousel on the climber guide page.
     const wallsCarousel = document.querySelector('[data-walls-carousel]');
     if (wallsCarousel) {
@@ -170,6 +173,39 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+
+function initClimbingPricing() {
+    const pricing = document.querySelector('[data-climbing-pricing]');
+    if (!pricing) return;
+
+    const options = pricing.querySelectorAll('[data-pricing-option]');
+    const value = pricing.querySelector('[data-pricing-value]');
+    const currency = pricing.querySelector('[data-pricing-currency]');
+    const description = pricing.querySelector('[data-pricing-description]');
+    const states = {
+        group: { value: '300', descriptionKey: 'pricing-desc-group', currency: true },
+        couple: { value: '250', descriptionKey: 'pricing-desc-couple', currency: true },
+        larger: { value: 'בתיאום מראש', descriptionKey: 'pricing-desc-larger', currency: false }
+    };
+
+    function renderPricing(state) {
+        const selected = states[state] || states.group;
+        options.forEach(option => {
+            const isActive = option.dataset.pricingOption === state;
+            option.classList.toggle('is-active', isActive);
+            option.setAttribute('aria-selected', String(isActive));
+        });
+        value.textContent = selected.value;
+        currency.hidden = !selected.currency;
+        description.dataset.i18n = selected.descriptionKey;
+        description.textContent = translations[currentLang]?.[selected.descriptionKey] || description.textContent;
+    }
+
+    options.forEach(option => {
+        option.addEventListener('click', () => renderPricing(option.dataset.pricingOption));
+    });
+    renderPricing('group');
+}
 
 // Lightweight fallback controls for carousels on pages without the guide's inline script.
 if (typeof window.changeSlide !== 'function') {

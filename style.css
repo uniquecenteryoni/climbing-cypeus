@@ -1058,6 +1058,27 @@ body.landing-page { overflow-x: hidden; }
 .equipment-page .equipment-hero .hero-content { text-align: center; }
 .equipment-page .equipment-hero .tour-hero-content p,
 .equipment-page .equipment-hero .hero-content p { margin-inline: auto; text-align: center; }
+.equipment-page .video-grid { display: none !important; }
+.equipment-bouldering-video-carousel { margin: 1.5rem 0 2rem; }
+.bouldering-video-empty {
+    display: grid;
+    min-height: 220px;
+    place-items: center;
+    padding: 2rem;
+    border: 1px solid #d9e5d4;
+    border-radius: 14px;
+    background: #f4f7f1;
+    color: #2c5f2d;
+    font-size: 1.15rem;
+    font-weight: 600;
+    text-align: center;
+}
+.activities-page .nav-menu a,
+.landing-page .nav-menu a { font-weight: 400 !important; }
+.activities-page .activity-header h2 { font-weight: 600; }
+.landing-page .guide-content.article-inner > .guide-logistics-strip.guide-logistics-strip {
+    border: 0 !important;
+}
 .equipment-page #guidebook .equipment-pricing { background: transparent; padding: 0; }
 .equipment-page #guidebook .equipment-pricing .price-box { background: transparent !important; box-shadow: none; padding: 0; }
 .equipment-page #guidebook .equipment-pricing .price-box > *:not(.guidebook-actions) { display: none; }
@@ -4473,7 +4494,7 @@ h3 {
 .landing-page .nav-menu a {
     color: #111;
     font-size: 15px;
-    font-weight: 500;
+    font-weight: 400;
     letter-spacing: 0.025em;
     padding: 8px 0;
 }

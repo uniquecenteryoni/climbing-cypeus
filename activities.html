@@ -306,9 +306,36 @@
           document.head.appendChild(script);
       })();
     </script>
+    <style>
+        .climbing-session-pricing .pricing-switcher {
+            display: flex;
+            justify-content: center;
+            gap: .55rem;
+            flex-wrap: wrap;
+            margin: 0 0 1.25rem;
+        }
+        .climbing-session-pricing .pricing-switcher-option {
+            border: 1px solid rgba(255,255,255,.65);
+            border-radius: 999px;
+            padding: .55rem 1rem;
+            background: transparent;
+            color: #fff;
+            cursor: pointer;
+            font: inherit;
+            transition: .2s ease;
+        }
+        .climbing-session-pricing .pricing-switcher-option:hover,
+        .climbing-session-pricing .pricing-switcher-option.is-active {
+            background: #fff;
+            color: #2c5f2d;
+        }
+        .climbing-session-pricing [data-pricing-description] { min-height: 2.2em; }
+        .climbing-session-pricing [data-pricing-value] { white-space: nowrap; }
+        .climbing-session-pricing [data-pricing-currency][hidden] { display: none; }
+    </style>
 </head>
 
-<body>
+<body class="landing-page activities-page">
     <!-- Navigation -->
     <nav class="navbar">
         <div class="container nav-container">
@@ -399,12 +426,17 @@
                 </div>
 
                 <!-- Climbing Pricing -->
-                <div class="pricing-box">
+                <div class="pricing-box climbing-session-pricing" data-climbing-pricing>
                     <h3 data-i18n="activities-climbing-pricing-title">מחירון טיפוס צוקים</h3>
-                    <div class="price">
-                        <span class="currency">€</span>60
+                    <div class="pricing-switcher" role="tablist" aria-label="בחירת גודל קבוצה">
+                        <button type="button" class="pricing-switcher-option is-active" role="tab" aria-selected="true" data-pricing-option="group" data-i18n="pricing-option-group">קבוצה עד 5</button>
+                        <button type="button" class="pricing-switcher-option" role="tab" aria-selected="false" data-pricing-option="couple" data-i18n="pricing-option-couple">זוג/יחיד</button>
+                        <button type="button" class="pricing-switcher-option" role="tab" aria-selected="false" data-pricing-option="larger" data-i18n="pricing-option-larger">5+</button>
                     </div>
-                    <p data-i18n="activities-climbing-pricing-desc">זוג/יחיד 250 יורו | קבוצה עד 5: 300 יורו | מעבר לזה יש לתאם פרטנית</p>
+                    <div class="price">
+                        <span class="currency" data-pricing-currency>€</span><span data-pricing-value>300</span>
+                    </div>
+                    <p data-pricing-description data-i18n="pricing-desc-group">קבוצה עד 5 משתתפים · 300 יורו</p>
                     <a href="index.html#contact" class="cta-button" data-i18n="activities-climbing-book">הזמינו עכשיו</a>
                 </div>
             </div>
@@ -465,18 +497,18 @@
                 <div class="pricing-box" style="margin-bottom: var(--spacing-lg);">
                     <h3 data-i18n="activities-combined-climbing-rappelling-title">חבילת טיפוס + סנפלינג</h3>
                     <div class="price">
-                        <span class="currency">€</span>70
+                        <span class="currency">€</span>85
                     </div>
-                    <p data-i18n="activities-combined-climbing-rappelling-desc">החל מ-70€ למשתתף (מינימום 5) | ליום מלא | כולל כל הציוד</p>
+                    <p data-i18n="activities-combined-climbing-rappelling-desc">85 יורו למשתתף | ליום מלא | כולל כל הציוד</p>
                     <a href="index.html#contact" class="cta-button" data-i18n="activities-climbing-book">הזמינו עכשיו</a>
                 </div>
 
                 <div class="pricing-box">
                     <h3 data-i18n="activities-combined-hiking-rappelling-title">חבילת טיול + סנפלינג</h3>
                     <div class="price">
-                        <span class="currency">€</span>65
+                        <span class="currency">€</span>100
                     </div>
-                    <p data-i18n="activities-combined-hiking-rappelling-desc">החל מ-65€ למשתתף (מינימום 5) | ליום מלא | כולל כל הציוד</p>
+                    <p data-i18n="activities-combined-hiking-rappelling-desc">100 יורו למשתתף | ליום מלא | כולל כל הציוד</p>
                     <a href="index.html#contact" class="cta-button" data-i18n="activities-climbing-book">הזמינו עכשיו</a>
                 </div>
             </div>

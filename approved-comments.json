@@ -1,3 +1,44 @@
 {
-  "comments": []
+  "comments": [
+    {
+      "id": 1,
+      "name": "נועה לוי",
+      "date": "2024-09-21",
+      "country": "IL",
+      "text": "החוויה עם יוני הייתה מעולה — מקצועית, נעימה ומותאמת בדיוק לרמה שלנו. הגענו בלי ניסיון רב וחזרנו עם חיוך גדול ורצון להמשיך לטפס.",
+      "approved": true
+    },
+    {
+      "id": 2,
+      "name": "עידו כהן",
+      "date": "2025-01-14",
+      "country": "IL",
+      "text": "יום טיפוס מדהים בקפריסין. יוני דאג לבטיחות, לציוד ולמסלולים יפים עם נוף מטורף. ממליץ מאוד לכל מי שרוצה לשלב טבע ואתגר.",
+      "approved": true
+    },
+    {
+      "id": 3,
+      "name": "מאיה בן־דוד",
+      "date": "2025-06-08",
+      "country": "IL",
+      "text": "הגענו כמשפחה וקיבלנו פעילות כיפית ומדויקת לכולם. ההסברים היו ברורים והרגשנו בידיים טובות לאורך כל היום. אחת החוויות הטובות בטיול שלנו.",
+      "approved": true
+    },
+    {
+      "id": 4,
+      "name": "רן אברהמי",
+      "date": "2026-02-19",
+      "country": "IL",
+      "text": "יוני הכיר לנו אזורים מדהימים לטיפוס שלא היינו מגיעים אליהם לבד. היה שילוב מושלם של הדרכה, אתגר ואווירה טובה. כבר מתכננים את הפעם הבאה.",
+      "approved": true
+    },
+    {
+      "id": 5,
+      "name": "Andreas Georgiou",
+      "date": "2025-10-03",
+      "country": "CY",
+      "text": "A fantastic climbing day in Cyprus. Yonatan was friendly, knowledgeable and made the whole experience feel safe and exciting. Highly recommended!",
+      "approved": true
+    }
+  ]
 }

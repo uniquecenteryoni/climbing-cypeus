@@ -182,11 +182,13 @@ function initClimbingPricing() {
     const options = pricing.querySelectorAll('[data-pricing-option]');
     const value = pricing.querySelector('[data-pricing-value]');
     const currency = pricing.querySelector('[data-pricing-currency]');
+    const from = pricing.querySelector('[data-pricing-from]');
+    const perParticipant = pricing.querySelector('[data-pricing-per]');
     const description = pricing.querySelector('[data-pricing-description]');
     const states = {
-        group: { value: '300', descriptionKey: 'pricing-desc-group', currency: true },
-        couple: { value: '250', descriptionKey: 'pricing-desc-couple', currency: true },
-        larger: { value: 'בתיאום מראש', descriptionKey: 'pricing-desc-larger', currency: false }
+        group: { value: '300', descriptionKey: 'pricing-desc-group', currency: true, from: true, perParticipant: true },
+        couple: { value: '250', descriptionKey: 'pricing-desc-couple', currency: true, from: true, perParticipant: true },
+        larger: { value: 'בתיאום מראש', descriptionKey: 'pricing-desc-larger', currency: false, from: false, perParticipant: false }
     };
 
     function renderPricing(state) {
@@ -198,6 +200,8 @@ function initClimbingPricing() {
         });
         value.textContent = selected.value;
         currency.hidden = !selected.currency;
+        if (from) from.hidden = !selected.from;
+        if (perParticipant) perParticipant.hidden = !selected.perParticipant;
         description.dataset.i18n = selected.descriptionKey;
         description.textContent = translations[currentLang]?.[selected.descriptionKey] || description.textContent;
     }
@@ -553,8 +557,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // Handle equipment order buttons
     document.querySelectorAll('.equipment-order-btn').forEach(button => {
         button.addEventListener('click', function(e) {
-            e.preventDefault();
             const equipmentType = this.getAttribute('data-equipment-type');
+            if (!equipmentType) return;
+            e.preventDefault();
             window.location.href = `index.html?equipment=${encodeURIComponent(equipmentType)}#contact`;
         });
     });

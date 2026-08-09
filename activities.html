@@ -237,10 +237,25 @@
             font-size: 3rem;
             font-weight: bold;
             margin-bottom: var(--spacing-sm);
+            display: flex;
+            align-items: baseline;
+            justify-content: center;
+            gap: 0.35rem;
+            flex-wrap: wrap;
         }
 
         .pricing-box .price .currency {
             font-size: 2rem;
+        }
+
+        .pricing-box .price .price-prefix,
+        .pricing-box .price .price-per-participant {
+            font-size: 1.35rem;
+            font-weight: 600;
+        }
+
+        .pricing-box .price [hidden] {
+            display: none;
         }
 
         .pricing-box p {
@@ -335,7 +350,7 @@
     </style>
 </head>
 
-<body class="landing-page activities-page">
+<body class="activities-page">
     <!-- Navigation -->
     <nav class="navbar">
         <div class="container nav-container">
@@ -434,9 +449,11 @@
                         <button type="button" class="pricing-switcher-option" role="tab" aria-selected="false" data-pricing-option="larger" data-i18n="pricing-option-larger">5+</button>
                     </div>
                     <div class="price">
+                        <span class="price-prefix" data-pricing-from data-i18n="pricing-from">החל מ</span>
                         <span class="currency" data-pricing-currency>€</span><span data-pricing-value>300</span>
+                        <span class="price-per-participant" data-pricing-per data-i18n="pricing-per-participant">למשתתף</span>
                     </div>
-                    <p data-pricing-description data-i18n="pricing-desc-group">קבוצה עד 5 משתתפים · 300 יורו</p>
+                    <p data-pricing-description data-i18n="pricing-desc-group">קבוצה עד 5 משתתפים</p>
                     <a href="index.html#contact" class="cta-button" data-i18n="activities-climbing-book">הזמינו עכשיו</a>
                 </div>
             </div>
@@ -480,9 +497,11 @@
                 <div class="pricing-box">
                     <h3 data-i18n="activities-rappelling-pricing-title">מחירון סנפלינג</h3>
                     <div class="price">
+                        <span class="price-prefix" data-i18n="pricing-from">החל מ</span>
                         <span class="currency">€</span>40
+                        <span class="price-per-participant" data-i18n="pricing-per-participant">למשתתף</span>
                     </div>
-                    <p data-i18n="activities-rappelling-pricing-desc">החל מ-40€ למשתתף (מינימום 5) | כולל ציוד מקצועי | הדרכה מלאה</p>
+                    <p data-i18n="activities-rappelling-pricing-desc">מינימום 5 משתתפים | כולל ציוד מקצועי | הדרכה מלאה</p>
                     <a href="index.html#contact" class="cta-button" data-i18n="activities-rappelling-book">הזמינו עכשיו</a>
                 </div>
             </div>
@@ -529,7 +548,7 @@
                             <li><i class="fas fa-first-aid"></i><span data-i18n="activities-included-firstaid">ערכת עזרה ראשונה</span></li>
                         </ul>
 
-                        <h3 style="margin-top: var(--spacing-lg);" data-i18n="activities-bring-header">מה להביא?</h3>
+                        <h3 class="activity-subheading" data-i18n="activities-bring-header">מה להביא?</h3>
                         <ul class="tour-highlights-list">
                             <li><i class="fas fa-shoe-prints"></i><span data-i18n="activities-bring-shoes">נעליים סגורות ונוחות (נעלי ספורט)</span></li>
                             <li><i class="fas fa-tshirt"></i><span data-i18n="activities-bring-clothes">ביגוד נוח ונושם</span></li>

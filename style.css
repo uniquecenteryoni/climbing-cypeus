@@ -1066,6 +1066,46 @@ body.landing-page { overflow-x: hidden; }
     font-size: 3rem !important;
     line-height: 1.15;
 }
+
+/* Keep the header consistent on every page, including the activity and course heroes. */
+.navbar,
+.landing-page .navbar {
+    position: sticky !important;
+    top: 0 !important;
+    inset-inline: 0 !important;
+    background: var(--light-color) !important;
+    box-shadow: var(--shadow-sm) !important;
+    opacity: 1 !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+}
+
+.navbar .nav-menu a {
+    font-weight: 400 !important;
+}
+
+.activities-page .logo img,
+.course-page .logo img {
+    width: 150px;
+    height: 86px;
+    object-fit: contain;
+}
+
+.activities-page .activity-subheading {
+    margin: var(--spacing-lg) 0 var(--spacing-md);
+    padding-bottom: var(--spacing-sm);
+    border-bottom: 2px solid var(--secondary-color);
+    color: var(--primary-color);
+    font-size: 2rem;
+    font-weight: 600;
+    line-height: 1.25;
+    text-align: right;
+}
+
+.activities-page .pricing-box .cta-button::before,
+.activities-page .pricing-box .cta-button::after {
+    display: none !important;
+}
 .guide-about-climbing {
     width: 100vw;
     margin: 2.5rem calc(50% - 50vw);
@@ -4464,17 +4504,19 @@ h3 {
 
 /* Landing screen: scoped to the home page so the rest of the site is unchanged. */
 .landing-page .navbar {
-    position: absolute;
-    inset: 0 0 auto;
-    background: rgba(255, 255, 255, 0.9);
-    box-shadow: none;
+    position: sticky;
+    top: 0;
+    inset-inline: 0;
+    background: var(--light-color);
+    box-shadow: var(--shadow-sm);
+    opacity: 1;
     backdrop-filter: none;
     -webkit-backdrop-filter: none;
 }
 
 .landing-page .navbar.scrolled {
-    background: rgba(255, 255, 255, 0.96);
-    box-shadow: none;
+    background: var(--light-color);
+    box-shadow: var(--shadow-sm);
 }
 
 .landing-page .navbar .container {
@@ -5619,6 +5661,33 @@ body.landing-page { overflow-x: hidden; }
     object-fit: cover;
 }
 
+.beside-place-featured {
+    margin: 0.15rem -0.35rem 0.35rem;
+    padding: 0.85rem 0.7rem;
+    border: 2px solid #f47920;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #fff8ee, #f7fbef);
+}
+
+.beside-place-featured strong {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+}
+
+.beside-place-badge {
+    display: inline-block !important;
+    flex: 0 0 auto;
+    padding: 0.18rem 0.45rem;
+    border-radius: 999px;
+    background: #f47920;
+    color: #fff !important;
+    font-size: 0.72rem !important;
+    font-weight: 700;
+    line-height: 1.25;
+}
+
 .landing-page .guide-content.article-inner > .guide-logistics-strip,
 .landing-page .guide-content.article-inner > .guide-crag-strip {
     width: 75% !important;
@@ -6152,9 +6221,9 @@ body.landing-page {
 
 /* Definitive alignment: logistics starts exactly where the article heading starts. */
 .landing-page .guide-content.article-inner > .guide-logistics-strip.guide-logistics-strip {
-    width: 100% !important;
-    max-width: none !important;
-    margin: 0.85rem 0 !important;
+    width: min(100%, var(--guide-article-max-width)) !important;
+    max-width: var(--guide-article-max-width) !important;
+    margin: 0.85rem auto !important;
     padding-inline: 0 !important;
     display: grid !important;
     direction: rtl !important;

@@ -1156,6 +1156,13 @@ body:not(.landing-page) {
     direction: rtl;
 }
 
+.activities-page .navbar .language-switcher,
+.course-page .navbar .language-switcher {
+    position: relative;
+    z-index: 2;
+    margin-right: auto;
+}
+
 .activities-page .activity-subheading {
     margin: 0 0 var(--spacing-md) !important;
     padding: 0 !important;

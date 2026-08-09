@@ -193,6 +193,45 @@
     }
 }
 
+/* Match logistics/crag copy to the right edge of the regular article text. */
+.landing-page .guide-content.article-inner > .guide-logistics-strip,
+.landing-page .guide-content.article-inner > .guide-crag-strip {
+    width: 100vw !important;
+    max-width: none !important;
+    margin-inline: calc(50% - 50vw) !important;
+    padding-inline: 12.5% !important;
+    direction: ltr !important;
+    display: grid !important;
+    grid-template-columns: 25% 75% !important;
+    grid-template-areas: "media copy" !important;
+    text-align: right !important;
+}
+
+.landing-page .guide-content.article-inner > .guide-logistics-strip > .guide-place-icon,
+.landing-page .guide-content.article-inner > .guide-crag-strip > .guide-place-media {
+    grid-area: media !important;
+}
+
+.landing-page .guide-content.article-inner > .guide-logistics-strip > div:last-child,
+.landing-page .guide-content.article-inner > .guide-crag-strip > div:last-child {
+    grid-area: copy !important;
+    width: 100% !important;
+    direction: rtl !important;
+    text-align: right !important;
+    justify-self: stretch !important;
+}
+
+@media (max-width: 700px) {
+    .landing-page .guide-content.article-inner > .guide-logistics-strip,
+    .landing-page .guide-content.article-inner > .guide-crag-strip {
+        width: 100% !important;
+        max-width: none !important;
+        margin-inline: 0 !important;
+        padding-inline: 20px !important;
+        grid-template-columns: 64px minmax(0, 1fr) !important;
+    }
+}
+
 /* Final alignment and spacing refinements for the current guide content. */
 .landing-page .guide-content.article-inner > #logistics,
 .landing-page .guide-content.article-inner > h2,

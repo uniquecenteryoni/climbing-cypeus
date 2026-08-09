@@ -1103,12 +1103,12 @@ body.landing-page { overflow-x: hidden; }
 /* Keep the header consistent on every page, including the activity and course heroes. */
 .navbar,
 .landing-page .navbar {
-    position: fixed !important;
-    top: 0 !important;
-    left: 0 !important;
-    right: 0 !important;
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
     width: 100% !important;
-    inset-inline: 0 !important;
+    inset-inline: auto !important;
     background: rgba(255, 255, 255, 0.85) !important;
     box-shadow: var(--shadow-sm) !important;
     opacity: 1 !important;
@@ -1116,9 +1116,9 @@ body.landing-page { overflow-x: hidden; }
     -webkit-backdrop-filter: none !important;
 }
 
-/* Fixed header space for inner pages; landing pages keep the header over the hero. */
+/* The header participates in normal page flow on every page. */
 body:not(.landing-page) {
-    padding-top: 100px;
+    padding-top: 0 !important;
 }
 
 .navbar .nav-menu a {
@@ -1158,9 +1158,21 @@ body:not(.landing-page) {
 
 .activities-page .navbar .language-switcher,
 .course-page .navbar .language-switcher {
-    position: relative;
+    position: absolute;
+    left: 30%;
+    transform: translateX(-50%);
     z-index: 2;
-    margin-right: auto;
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    .activities-page .navbar .language-switcher,
+    .course-page .navbar .language-switcher {
+        position: relative;
+        left: auto;
+        transform: none;
+        margin-inline-start: auto;
+    }
 }
 
 .activities-page .activity-subheading {

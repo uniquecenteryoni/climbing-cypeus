@@ -1089,7 +1089,7 @@ body.landing-page { overflow-x: hidden; }
     position: sticky !important;
     top: 0 !important;
     inset-inline: 0 !important;
-    background: var(--light-color) !important;
+    background: rgba(255, 255, 255, 0.9) !important;
     box-shadow: var(--shadow-sm) !important;
     opacity: 1 !important;
     backdrop-filter: none !important;
@@ -1102,9 +1102,26 @@ body.landing-page { overflow-x: hidden; }
 
 .activities-page .logo img,
 .course-page .logo img {
-    width: auto;
+    width: 150px;
     height: 86px;
     object-fit: contain;
+}
+
+.activities-page .logo,
+.course-page .logo {
+    width: 150px;
+    height: 86px;
+    justify-content: center;
+}
+
+.activities-page .nav-menu,
+.course-page .nav-menu {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    align-items: center;
+    gap: clamp(18px, 2.2vw, 36px);
+    white-space: nowrap;
 }
 
 .activities-page .navbar .container,
@@ -1115,14 +1132,14 @@ body.landing-page { overflow-x: hidden; }
 }
 
 .activities-page .activity-subheading {
-    margin: var(--spacing-lg) 0 var(--spacing-md) !important;
-    padding: 0 0 var(--spacing-sm) !important;
-    border-bottom: 2px solid var(--secondary-color) !important;
+    margin: 0 0 var(--spacing-md) !important;
+    padding: 0 !important;
+    border: 0 !important;
     color: var(--primary-color) !important;
-    font-size: 2rem !important;
+    font-size: 2.5rem !important;
     font-weight: 600 !important;
     line-height: 1.25 !important;
-    text-align: right !important;
+    text-align: center !important;
 }
 
 .activities-page .pricing-box .cta-button::before,
@@ -4536,7 +4553,7 @@ h3 {
     position: sticky;
     top: 0;
     inset-inline: 0;
-    background: var(--light-color);
+    background: rgba(255, 255, 255, 0.9);
     box-shadow: var(--shadow-sm);
     opacity: 1;
     backdrop-filter: none;

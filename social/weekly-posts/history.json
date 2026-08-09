@@ -23,5 +23,42 @@
       "instagram_story"
     ],
     "notes": "Instagram Story creation is unavailable in the signed-in Instagram web UI; the available Meta Business Suite asset is not connected to climbing.cyprus. YouTube was added to future automation runs and was not part of this approved draft."
+  },
+  {
+    "date": "2026-08-09",
+    "draft_id": "CC-20260809-AF1QipPn-R4",
+    "google_photos_id": "AF1QipPnAbH6qT2sP8WxeP9WawvGft4dwQDOZk3_NAPh",
+    "sha256": "4bfd1269301496043c7f8ef6ec3139dd641f31290c3f44ff7b46f6e77d65e7ac",
+    "phash64": "988e4e47b3c16897",
+    "dhash64": "6f37b71b3d90944a",
+    "media_type": "photo",
+    "source_type": "google_photos_album",
+    "source_file": "social/weekly-posts/2026-08-09/source-candidate.jpg",
+    "feed_file": "social/weekly-posts/2026-08-09/feed-preview.jpg",
+    "story_file": "social/weekly-posts/2026-08-09/story-preview.jpg",
+    "caption_file": "social/weekly-posts/2026-08-09/caption.md",
+    "location": "Cyprus / קפריסין",
+    "status": "partially_published",
+    "links": {
+      "instagram_feed": "https://www.instagram.com/climbing.cyprus/p/Db0Z_pbjEZv/",
+      "facebook_group": "https://www.facebook.com/groups/895126888648835/posts/1610239033804280/",
+      "facebook_personal_feed": "shared_from_facebook_group",
+      "facebook_story": "https://www.facebook.com/stories/1369430129806549/"
+    },
+    "targets": {
+      "instagram_feed": "published_verified",
+      "instagram_story": "unavailable_web_ui",
+      "facebook_group": "published_verified",
+      "facebook_personal_feed": "published_verified_group_share",
+      "facebook_story": "published_verified",
+      "youtube_community": "unavailable_wrong_account_or_community_absent",
+      "website_gallery": "blocked_social_incomplete"
+    },
+    "pending": [
+      "instagram_story",
+      "youtube_community",
+      "website_gallery"
+    ],
+    "notes": "Instagram Story creation is not available in the signed-in Instagram web UI. The signed-in YouTube account is not managing @ClimbingCyprus and no Community tab is available. Website publication was skipped because not all approved social destinations succeeded."
   }
 ]

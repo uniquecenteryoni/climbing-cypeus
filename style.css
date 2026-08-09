@@ -193,6 +193,94 @@
     }
 }
 
+/* Final carousel/logistics alignment overrides. */
+.landing-page .image-carousel .carousel-btn.prev,
+.landing-page .walls-carousel-button.prev { left: 10px !important; right: auto !important; }
+.landing-page .image-carousel .carousel-btn.next,
+.landing-page .walls-carousel-button.next { right: 10px !important; left: auto !important; }
+.landing-page .image-carousel .carousel-btn.prev::before,
+.landing-page .walls-carousel-button.prev::before { content: "←" !important; }
+.landing-page .image-carousel .carousel-btn.next::before,
+.landing-page .walls-carousel-button.next::before { content: "→" !important; }
+.landing-page .guide-content.article-inner > .guide-logistics-strip {
+    direction: rtl !important;
+    grid-template-columns: 46px minmax(0, 1fr) !important;
+    grid-template-areas: "icon copy" !important;
+    width: 75% !important;
+    max-width: 75% !important;
+    margin-inline-start: 0 !important;
+    margin-inline-end: auto !important;
+    padding-inline: 0 !important;
+    text-align: right !important;
+}
+.landing-page .guide-content.article-inner > .guide-logistics-strip > .guide-place-icon { grid-area: icon !important; }
+.landing-page .guide-content.article-inner > .guide-logistics-strip > div:last-child {
+    grid-area: copy !important;
+    direction: rtl !important;
+    text-align: right !important;
+}
+@media (max-width: 700px) {
+    .landing-page .guide-content.article-inner > .guide-logistics-strip {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding-inline: 0 !important;
+    }
+}
+
+/* Keep every image carousel arrow consistent with the bouldering video carousel. */
+.landing-page .image-carousel .carousel-btn.prev,
+.landing-page .walls-carousel-button.prev {
+    left: 10px !important;
+    right: auto !important;
+}
+.landing-page .image-carousel .carousel-btn.next,
+.landing-page .walls-carousel-button.next {
+    right: 10px !important;
+    left: auto !important;
+}
+.landing-page .image-carousel .carousel-btn,
+.landing-page .walls-carousel-button {
+    font-size: 0 !important;
+}
+.landing-page .image-carousel .carousel-btn.prev::before,
+.landing-page .walls-carousel-button.prev::before {
+    content: "←" !important;
+    font-size: 1rem !important;
+}
+.landing-page .image-carousel .carousel-btn.next::before,
+.landing-page .walls-carousel-button.next::before {
+    content: "→" !important;
+    font-size: 1rem !important;
+}
+
+/* Align logistics rows with the article heading and keep the Hebrew reading order. */
+.landing-page .guide-content.article-inner > .guide-logistics-strip {
+    direction: rtl !important;
+    grid-template-columns: 46px minmax(0, 1fr) !important;
+    grid-template-areas: "icon copy" !important;
+    width: 75% !important;
+    max-width: 75% !important;
+    margin-inline-start: 0 !important;
+    margin-inline-end: auto !important;
+    padding-inline: 0 !important;
+    text-align: right !important;
+}
+.landing-page .guide-content.article-inner > .guide-logistics-strip > .guide-place-icon {
+    grid-area: icon !important;
+}
+.landing-page .guide-content.article-inner > .guide-logistics-strip > div:last-child {
+    grid-area: copy !important;
+    direction: rtl !important;
+    text-align: right !important;
+}
+@media (max-width: 700px) {
+    .landing-page .guide-content.article-inner > .guide-logistics-strip {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding-inline: 0 !important;
+    }
+}
+
 /* Match logistics/crag copy to the right edge of the regular article text. */
 .landing-page .guide-content.article-inner > .guide-logistics-strip,
 .landing-page .guide-content.article-inner > .guide-crag-strip {
@@ -394,6 +482,32 @@
         min-width: 150px !important;
         min-height: 150px !important;
     }
+}
+
+/* Final cascade override: match the bouldering carousel arrows and article alignment. */
+.landing-page .image-carousel .carousel-btn.prev,
+.landing-page .walls-carousel-button.prev { left: 10px !important; right: auto !important; }
+.landing-page .image-carousel .carousel-btn.next,
+.landing-page .walls-carousel-button.next { right: 10px !important; left: auto !important; }
+.landing-page .image-carousel .carousel-btn.prev::before,
+.landing-page .walls-carousel-button.prev::before { content: "←" !important; }
+.landing-page .image-carousel .carousel-btn.next::before,
+.landing-page .walls-carousel-button.next::before { content: "→" !important; }
+.landing-page .guide-content.article-inner > .guide-logistics-strip {
+    direction: rtl !important;
+    grid-template-columns: 46px minmax(0, 1fr) !important;
+    grid-template-areas: "icon copy" !important;
+    width: 75% !important;
+    max-width: 75% !important;
+    margin-inline-start: 0 !important;
+    margin-inline-end: auto !important;
+    padding-inline: 0 !important;
+    text-align: right !important;
+}
+.landing-page .guide-content.article-inner > .guide-logistics-strip > .guide-place-icon { grid-area: icon !important; }
+.landing-page .guide-content.article-inner > .guide-logistics-strip > div:last-child { grid-area: copy !important; direction: rtl !important; text-align: right !important; }
+@media (max-width: 700px) {
+    .landing-page .guide-content.article-inner > .guide-logistics-strip { width: 100% !important; max-width: 100% !important; padding-inline: 0 !important; }
 }
 
 /* Definitive right-edge alignment: keep the strip background full width,

@@ -1,5 +1,8 @@
 {
-  "status": "pending_approval",
+  "draft_id": "CC-20260809-AF1QipPn-R4",
+  "revision": 4,
+  "supersedes_draft_id": "CC-20260809-AF1QipPn-R3",
+  "status": "partially_published",
   "draft_date": "2026-08-09",
   "source_type": "google_photos_album",
   "source_album": "קפריסין בעין אחרת",
@@ -44,6 +47,7 @@
       "included": true,
       "interactive": false,
       "position": "upper right, within the empty sky safe area",
+      "design": "modern tilted black card with a fine yellow outline, offset yellow depth layer, NEW status dot, bold POST typography, and an upward-right arrow",
       "not_used_on": ["feed", "YouTube Community"]
     }
   },
@@ -62,9 +66,52 @@
     "climbing-cyprus.com — add to section#gallery under הרגעים שלכם only after all approved social destinations succeed and are verified"
   ],
   "approval": {
-    "approved": false,
+    "approved": true,
+    "approval_source": "email",
+    "approved_by": "unique.center.yoni@gmail.com",
+    "approved_at": "2026-08-09T15:03:45+03:00",
+    "approval_message_id": "19fe668e44a0e6d4",
+    "processed_label": "Climbing Cyprus Approval Processed",
+    "processed_at": "2026-08-09T15:23:08+03:00",
+    "email_recipient": "unique.center.yoni@gmail.com",
+    "email_sender": "outlesson@gmail.com",
+    "email_subject": "[Climbing Cyprus Approval][CC-20260809-AF1QipPn-R4] ניסוח קצר לאישור",
+    "email_sent_at": "2026-08-09T15:01:26+03:00",
+    "email_status": "approved",
+    "email_reply_format": "מאשר CC-20260809-AF1QipPn-R4",
     "rule": "Approval from any earlier run is invalid. Any change to media, edit, caption, hashtags, location, YouTube copy, or targets requires a new explicit approval for this exact draft."
   },
-  "publishing_performed": false,
-  "website_action": "pending_social_publication"
+  "publishing_performed": true,
+  "publication": {
+    "instagram_feed": {
+      "status": "published_verified",
+      "url": "https://www.instagram.com/climbing.cyprus/p/Db0Z_pbjEZv/"
+    },
+    "facebook_group": {
+      "status": "published_verified",
+      "url": "https://www.facebook.com/groups/895126888648835/posts/1610239033804280/"
+    },
+    "facebook_personal_feed": {
+      "status": "shared_verified",
+      "source_url": "https://www.facebook.com/groups/895126888648835/posts/1610239033804280/",
+      "profile_url": "https://www.facebook.com/yoni.malichi"
+    },
+    "facebook_story": {
+      "status": "published_verified",
+      "url": "https://www.facebook.com/stories/1369430129806549/"
+    },
+    "instagram_story": {
+      "status": "unavailable",
+      "reason": "Story creation is not exposed in the signed-in Instagram web UI."
+    },
+    "youtube_community": {
+      "status": "unavailable",
+      "reason": "The signed-in YouTube account is not managing @ClimbingCyprus; the channel page shows Subscribe and no Community tab."
+    },
+    "website_gallery": {
+      "status": "blocked_social_incomplete",
+      "reason": "Website publication is allowed only after every approved social destination succeeds and is verified."
+    }
+  },
+  "website_action": "blocked_social_incomplete"
 }

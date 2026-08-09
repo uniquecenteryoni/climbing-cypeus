@@ -464,14 +464,14 @@ document.addEventListener('DOMContentLoaded', () => {
         const messageField = document.getElementById('message');
         
         if (messageField) {
-            let prefillText = '';
+            let prefillText = 'היי אני מעוניין/ת בחווית טיפוס בקפריסין';
             
             if (equipmentType) {
-                prefillText = `היי, אני מתעניין/ת בהשכרת ${equipmentType}. `;
+                prefillText += `\n\nהיי, אני מתעניין/ת בהשכרת ${equipmentType}. `;
             } else if (tourType) {
-                prefillText = `היי, אני מתעניין/ת בטיול ${tourType}. `;
+                prefillText += `\n\nהיי, אני מתעניין/ת בטיול ${tourType}. `;
             } else if (activityType) {
-                prefillText = `היי, אני מתעניין/ת ב${activityType}. `;
+                prefillText += `\n\nהיי, אני מתעניין/ת ב${activityType}. `;
             }
             
             if (prefillText) {

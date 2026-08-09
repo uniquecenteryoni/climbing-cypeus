@@ -52,24 +52,32 @@ function brandingSvg(width, height, { bottom = 48, scale = 1 } = {}) {
 }
 
 function newPostStickerSvg(width, height) {
-  const stickerWidth = 252;
-  const stickerHeight = 92;
+  const stickerWidth = 230;
+  const stickerHeight = 112;
   const x = width - stickerWidth - 70;
-  const y = 285;
+  const y = 292;
+  const centerX = x + stickerWidth / 2;
+  const centerY = y + stickerHeight / 2;
 
   return Buffer.from(`
     <svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}">
       <defs>
         <filter id="sticker-shadow" x="-30%" y="-40%" width="170%" height="190%">
-          <feDropShadow dx="0" dy="5" stdDeviation="7" flood-color="#000" flood-opacity="0.42"/>
+          <feDropShadow dx="0" dy="8" stdDeviation="9" flood-color="#000" flood-opacity="0.38"/>
         </filter>
       </defs>
-      <g filter="url(#sticker-shadow)">
-        <rect x="${x}" y="${y}" width="${stickerWidth}" height="${stickerHeight}" rx="22" fill="#090909" stroke="#fff" stroke-width="3"/>
-        <rect x="${x}" y="${y}" width="18" height="${stickerHeight}" rx="9" fill="#f4c51d"/>
-        <text x="${x + 43}" y="${y + 59}" fill="#fff"
+      <g transform="rotate(-4 ${centerX} ${centerY})" filter="url(#sticker-shadow)">
+        <rect x="${x + 8}" y="${y + 8}" width="${stickerWidth}" height="${stickerHeight}" rx="28" fill="#f4c51d"/>
+        <rect x="${x}" y="${y}" width="${stickerWidth}" height="${stickerHeight}" rx="28" fill="#0a0a0a" fill-opacity="0.90" stroke="#f4c51d" stroke-width="2"/>
+        <circle cx="${x + 30}" cy="${y + 27}" r="7" fill="#f4c51d"/>
+        <text x="${x + 47}" y="${y + 33}" fill="#f4c51d"
           font-family="Helvetica Neue, Helvetica, Arial, sans-serif"
-          font-size="38" font-weight="800" letter-spacing="1.8">NEW POST</text>
+          font-size="20" font-weight="800" letter-spacing="3.2">NEW</text>
+        <text x="${x + 25}" y="${y + 88}" fill="#fff"
+          font-family="Helvetica Neue, Helvetica, Arial, sans-serif"
+          font-size="48" font-weight="800" letter-spacing="2.2">POST</text>
+        <path d="M ${x + 174} ${y + 74} L ${x + 202} ${y + 46} M ${x + 183} ${y + 46} H ${x + 202} V ${y + 65}"
+          fill="none" stroke="#f4c51d" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
       </g>
     </svg>
   `);

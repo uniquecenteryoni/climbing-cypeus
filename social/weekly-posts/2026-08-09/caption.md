@@ -2,37 +2,37 @@
 
 ENGLISH BELOW
 
-יש רגעים שבהם כל העולם מצטמצם לסלע, לתנועה הבאה ולמי שמאבטח מלמטה. 🧗
+כמה שעות מחוץ לקצב הרגיל.
 
-מטפס גבוה על המצוק, מאבטח דרוך למרגלותיו, ומאחוריהם הנוף הפתוח של קפריסין. זו אחת הסיבות שאנחנו אוהבים לטפס כאן: ריכוז, אמון וטבע גדול בפריים אחד.
+מצוק פתוח, נוף של קפריסין, ריכוז בתנועה ותקשורת בין המטפס למאבטח.
 
-רוצים לראות את קפריסין מזווית קצת אחרת? כתבו לנו ונשמח להתאים לכם חוויית טיפוס.
+פשוט להיות בתוך הרגע.
 
-📍 קפריסין — מיקום כללי; לפריט אין מיקום מדויק במטא־דאטה
+📍 קפריסין / Cyprus
 🌍 climbing-cyprus.com
 
 ---
 
-Sometimes the whole world narrows down to the rock, the next move, and the person keeping you safe below. 🧗
+A few hours outside the usual rhythm.
 
-A climber high on the wall, an attentive belayer at its base, and Cyprus stretching out behind them. It is one of the reasons we love climbing here: focus, trust, and wild scenery in a single frame.
+An open cliff, the Cyprus landscape, focus in every move, and clear communication between climber and belayer.
 
-Want to see Cyprus from a different angle? Send us a message and we’ll help shape a climbing experience for you.
+Simply being in the moment.
 
-📍 Cyprus — general location; this item has no precise location metadata
+📍 Cyprus / קפריסין
 🌍 climbing-cyprus.com
 
 #ClimbingCyprus #RockClimbing #CyprusAdventure #OutdoorCyprus #טיפוסבקפריסין
 
 # YouTube Community — גרסה מקוצרת
 
-מטפס גבוה על המצוק, מאבטח דרוך למטה והנוף הפתוח של קפריסין מסביב. ריכוז, אמון וטבע גדול בפריים אחד. 🧗
+כמה שעות מחוץ לקצב הרגיל. מצוק פתוח, נוף של קפריסין וריכוז בתנועה. פשוט להיות בתוך הרגע. 🧗
 
-A climber high on the wall, an attentive belayer below, and the open Cyprus landscape all around. Focus, trust, and wild scenery in one frame. 🧗
+A few hours outside the usual rhythm. An open cliff, the Cyprus landscape, and focus in every move. Simply being in the moment. 🧗
 
 📍 Cyprus / קפריסין
 #ClimbingCyprus #RockClimbing #CyprusAdventure
 
 # Story
 
-ללא כיתוב ארוך וללא האשטגים. יש להשתמש רק ב־`story-preview.jpg`, שבו הסטיקר הגרפי הלא־אינטראקטיבי “NEW POST” ממוקם בפינה הימנית העליונה באזור שמיים פנוי ובטוח.
+ללא כיתוב ארוך וללא האשטגים. יש להשתמש רק ב־`story-preview.jpg`, שבו סטיקר “NEW POST” מודרני ומוטה מעט, עם מסגרת צהובה עדינה, עומק גרפי וחץ, ממוקם בפינה הימנית העליונה באזור שמיים פנוי ובטוח.

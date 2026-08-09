@@ -1103,14 +1103,22 @@ body.landing-page { overflow-x: hidden; }
 /* Keep the header consistent on every page, including the activity and course heroes. */
 .navbar,
 .landing-page .navbar {
-    position: sticky !important;
+    position: fixed !important;
     top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
     inset-inline: 0 !important;
     background: rgba(255, 255, 255, 0.85) !important;
     box-shadow: var(--shadow-sm) !important;
     opacity: 1 !important;
     backdrop-filter: none !important;
     -webkit-backdrop-filter: none !important;
+}
+
+/* Fixed header space for inner pages; landing pages keep the header over the hero. */
+body:not(.landing-page) {
+    padding-top: 100px;
 }
 
 .navbar .nav-menu a {

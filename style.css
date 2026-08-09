@@ -1058,6 +1058,42 @@ body.landing-page { overflow-x: hidden; }
 .equipment-page .equipment-hero .hero-content { text-align: center; }
 .equipment-page .equipment-hero .tour-hero-content p,
 .equipment-page .equipment-hero .hero-content p { margin-inline: auto; text-align: center; }
+.course-page .tour-hero {
+    height: clamp(460px, 68vh, 760px);
+    min-height: 460px;
+}
+.course-page .tour-hero-content h1 {
+    font-size: 3rem !important;
+    line-height: 1.15;
+}
+.guide-about-climbing {
+    width: 100vw;
+    margin: 2.5rem calc(50% - 50vw);
+    padding: 3.5rem 12.5%;
+    background:
+        linear-gradient(rgba(255,255,255,.92), rgba(255,255,255,.92)),
+        url('pics/guide.jpeg') center / cover;
+}
+.guide-about-climbing-inner {
+    width: min(100%, var(--guide-article-max-width));
+    margin: 0 auto;
+    line-height: 1.8;
+}
+.guide-about-climbing h2 {
+    margin-top: 0 !important;
+}
+.guide-about-climbing-gallery {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+.guide-about-climbing-gallery img {
+    width: min(100%, 350px);
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,.3);
+}
 .equipment-page .video-grid { display: none !important; }
 .equipment-bouldering-video-carousel { margin: 1.5rem 0 2rem; }
 .bouldering-video-empty {

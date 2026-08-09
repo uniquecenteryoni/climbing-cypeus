@@ -125,6 +125,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Interactive climbing-session pricing selector.
     initClimbingPricing();
+    initBoulderingVideoCarousels();
 
     // Single-strip climbing-wall carousel on the climber guide page.
     const wallsCarousel = document.querySelector('[data-walls-carousel]');
@@ -205,6 +206,32 @@ function initClimbingPricing() {
         option.addEventListener('click', () => renderPricing(option.dataset.pricingOption));
     });
     renderPricing('group');
+}
+
+function initBoulderingVideoCarousels() {
+    document.querySelectorAll('.bouldering-video-carousel').forEach(carousel => {
+        const slides = [...carousel.querySelectorAll('.bouldering-video-slide')];
+        const dots = [...carousel.querySelectorAll('.bouldering-video-dots button')];
+        const buttons = [...carousel.querySelectorAll('[data-bouldering-direction]')];
+        if (slides.length < 2) return;
+
+        let current = 0;
+        const render = index => {
+            current = (index + slides.length) % slides.length;
+            slides.forEach((slide, slideIndex) => slide.classList.toggle('is-active', slideIndex === current));
+            dots.forEach((dot, dotIndex) => {
+                const active = dotIndex === current;
+                dot.classList.toggle('is-active', active);
+                dot.setAttribute('aria-selected', String(active));
+            });
+        };
+
+        buttons.forEach(button => button.addEventListener('click', () => {
+            render(current + Number(button.dataset.boulderingDirection));
+        }));
+        dots.forEach((dot, dotIndex) => dot.addEventListener('click', () => render(dotIndex)));
+        render(0);
+    });
 }
 
 // Lightweight fallback controls for carousels on pages without the guide's inline script.

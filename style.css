@@ -303,6 +303,34 @@
     text-align: right !important;
 }
 
+/* LAST override: match the text column to the right edge of the article copy. */
+.landing-page .guide-content.article-inner > .guide-logistics-strip,
+.landing-page .guide-content.article-inner > .guide-crag-strip {
+    width: 100vw !important;
+    max-width: none !important;
+    margin-inline: calc(50% - 50vw) !important;
+    padding-inline: 12.5% !important;
+    display: grid !important;
+    direction: ltr !important;
+    grid-template-columns: 25% 75% !important;
+    grid-template-areas: "media copy" !important;
+    text-align: right !important;
+}
+
+.landing-page .guide-content.article-inner > .guide-logistics-strip > .guide-place-icon,
+.landing-page .guide-content.article-inner > .guide-crag-strip > .guide-place-media {
+    grid-area: media !important;
+}
+
+.landing-page .guide-content.article-inner > .guide-logistics-strip > div:last-child,
+.landing-page .guide-content.article-inner > .guide-crag-strip > div:last-child {
+    grid-area: copy !important;
+    width: 100% !important;
+    direction: rtl !important;
+    text-align: right !important;
+    justify-self: stretch !important;
+}
+
 .landing-page .guide-content.article-inner .south-crag-strip .guide-place-media,
 .landing-page .guide-content.article-inner .south-crag-strip .guide-place-media img,
 .landing-page .guide-content.article-inner .north-crag-medallion .guide-place-media,
@@ -328,6 +356,34 @@
     margin-top: 0 !important;
 }
 
+/* Definitive right-edge alignment for logistics and crag strips. */
+.landing-page .guide-content.article-inner > .guide-logistics-strip,
+.landing-page .guide-content.article-inner > .guide-crag-strip {
+    width: 100vw !important;
+    max-width: none !important;
+    margin-inline: calc(50% - 50vw) !important;
+    padding-inline: 12.5% !important;
+    display: grid !important;
+    direction: ltr !important;
+    grid-template-columns: 25% 75% !important;
+    grid-template-areas: "media copy" !important;
+    text-align: right !important;
+}
+
+.landing-page .guide-content.article-inner > .guide-logistics-strip > .guide-place-icon,
+.landing-page .guide-content.article-inner > .guide-crag-strip > .guide-place-media {
+    grid-area: media !important;
+}
+
+.landing-page .guide-content.article-inner > .guide-logistics-strip > div:last-child,
+.landing-page .guide-content.article-inner > .guide-crag-strip > div:last-child {
+    grid-area: copy !important;
+    width: 100% !important;
+    direction: rtl !important;
+    text-align: right !important;
+    justify-self: stretch !important;
+}
+
 @media (max-width: 700px) {
     .landing-page .guide-content.article-inner .south-crag-strip .guide-place-media,
     .landing-page .guide-content.article-inner .south-crag-strip .guide-place-media img,
@@ -337,6 +393,46 @@
         height: 150px !important;
         min-width: 150px !important;
         min-height: 150px !important;
+    }
+}
+
+/* Definitive right-edge alignment: keep the strip background full width,
+   but use the same 75% reading measure as the background-information text. */
+.landing-page .guide-content.article-inner > .guide-logistics-strip,
+.landing-page .guide-content.article-inner > .guide-crag-strip {
+    width: 100vw !important;
+    max-width: none !important;
+    margin-inline: calc(50% - 50vw) !important;
+    padding-inline: 12.5% !important;
+    display: grid !important;
+    direction: ltr !important;
+    grid-template-columns: 25% 75% !important;
+    grid-template-areas: "media copy" !important;
+    text-align: right !important;
+}
+
+.landing-page .guide-content.article-inner > .guide-logistics-strip > .guide-place-icon,
+.landing-page .guide-content.article-inner > .guide-crag-strip > .guide-place-media {
+    grid-area: media !important;
+}
+
+.landing-page .guide-content.article-inner > .guide-logistics-strip > div:last-child,
+.landing-page .guide-content.article-inner > .guide-crag-strip > div:last-child {
+    grid-area: copy !important;
+    width: 100% !important;
+    direction: rtl !important;
+    text-align: right !important;
+    justify-self: stretch !important;
+}
+
+@media (max-width: 700px) {
+    .landing-page .guide-content.article-inner > .guide-logistics-strip,
+    .landing-page .guide-content.article-inner > .guide-crag-strip {
+        width: 100% !important;
+        max-width: none !important;
+        margin-inline: 0 !important;
+        padding-inline: 20px !important;
+        grid-template-columns: 64px minmax(0, 1fr) !important;
     }
 }
 
@@ -5675,6 +5771,45 @@ body.landing-page {
 }
 
 /* Final current guide pass: 7% narrower reading measure and aligned interactive medallions. */
+
+/* Definitive right-edge alignment for logistics and crag strips. */
+.landing-page .guide-content.article-inner > .guide-logistics-strip.guide-logistics-strip,
+.landing-page .guide-content.article-inner > .guide-crag-strip.guide-crag-strip {
+    width: 100vw !important;
+    max-width: none !important;
+    margin-inline: calc(50% - 50vw) !important;
+    padding-inline: 12.5% !important;
+    display: grid !important;
+    direction: ltr !important;
+    grid-template-columns: 25% 75% !important;
+    grid-template-areas: "media copy" !important;
+    text-align: right !important;
+}
+
+.landing-page .guide-content.article-inner > .guide-logistics-strip.guide-logistics-strip > .guide-place-icon,
+.landing-page .guide-content.article-inner > .guide-crag-strip.guide-crag-strip > .guide-place-media {
+    grid-area: media !important;
+}
+
+.landing-page .guide-content.article-inner > .guide-logistics-strip.guide-logistics-strip > div:last-child,
+.landing-page .guide-content.article-inner > .guide-crag-strip.guide-crag-strip > div:last-child {
+    grid-area: copy !important;
+    width: 100% !important;
+    direction: rtl !important;
+    text-align: right !important;
+    justify-self: stretch !important;
+}
+
+@media (max-width: 700px) {
+    .landing-page .guide-content.article-inner > .guide-logistics-strip.guide-logistics-strip,
+    .landing-page .guide-content.article-inner > .guide-crag-strip.guide-crag-strip {
+        width: 100% !important;
+        max-width: none !important;
+        margin-inline: 0 !important;
+        padding-inline: 20px !important;
+        grid-template-columns: 64px minmax(0, 1fr) !important;
+    }
+}
 .landing-page {
     --guide-article-max-width: 1098px !important;
 }

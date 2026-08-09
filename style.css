@@ -1140,6 +1140,57 @@ body.landing-page { overflow-x: hidden; }
     font-weight: 600 !important;
     line-height: 1.25 !important;
     text-align: center !important;
+    display: block !important;
+    width: 100% !important;
+}
+
+/* Use the same minimal language control in every site header. */
+.navbar .language-switcher {
+    display: flex !important;
+    align-items: center !important;
+    gap: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    direction: ltr !important;
+}
+
+.navbar .lang-btn,
+.navbar .lang-btn:hover,
+.navbar .lang-btn.active {
+    min-width: 0 !important;
+    padding: 0 7px !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    color: #111 !important;
+    font-size: 0.78rem !important;
+    font-weight: 400 !important;
+    letter-spacing: 0.08em !important;
+    opacity: 0.62 !important;
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+.navbar .lang-btn.active {
+    font-weight: 600 !important;
+    opacity: 1 !important;
+}
+
+.navbar .lang-btn + .lang-btn::before {
+    content: "|";
+    display: inline-block;
+    margin-right: 7px;
+    color: rgba(17, 17, 17, 0.55);
+    font-weight: 400;
+}
+
+/* The dynamic number was inheriting the small generic .price span rule. */
+.activities-page .pricing-box .price span,
+.activities-page .pricing-box .price [data-pricing-value] {
+    font-size: 3rem !important;
+    font-weight: 700 !important;
+    line-height: 1 !important;
 }
 
 .activities-page .pricing-box .cta-button::before,

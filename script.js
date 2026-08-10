@@ -41,8 +41,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     const equipmentVideos = document.querySelector('.equipment-bouldering-videos');
-    const boulderingPackage = document.querySelector('#bouldering');
-    if (equipmentVideos && boulderingPackage) boulderingPackage.appendChild(equipmentVideos);
+    const rentalContent = document.querySelector('#rental .tour-content');
+    const equipmentInfo = document.querySelector('#rental .equipment-info');
+    if (equipmentVideos && rentalContent && equipmentInfo) rentalContent.insertBefore(equipmentVideos, equipmentInfo);
 
     document.querySelectorAll('.gallery-item img').forEach(image => {
         image.addEventListener('click', () => {

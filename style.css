@@ -212,6 +212,26 @@
     text-align: left !important;
 }
 
+/* Final mobile header override. */
+@media (max-width: 768px) {
+    .navbar .language-switcher,
+    .landing-page .language-switcher {
+        position: absolute !important;
+        top: 50% !important;
+        left: 50% !important;
+        right: auto !important;
+        transform: translate(-50%, -50%) !important;
+        display: flex !important;
+        margin: 0 !important;
+        background: transparent !important;
+    }
+
+    .navbar .hamburger span,
+    .landing-page .hamburger span {
+        background: #111 !important;
+    }
+}
+
 .guide-video-placeholder {
     position: absolute;
     inset: 0;
@@ -1728,19 +1748,22 @@ body:not(.landing-page) {
     text-align: right !important;
 }
 .guide-about-climbing-gallery {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 1.5rem;
     margin: 2rem 0;
 }
 .guide-about-climbing-gallery img {
-    width: min(100%, 350px);
+    width: 100%;
+    max-width: 350px;
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0,0,0,.3);
 }
 .guide-about-climbing-gallery figure { margin: 0; text-align: center; }
 .guide-about-climbing-gallery figcaption { margin-top: .55rem; color: #536252; font-size: .95rem; }
+@media (max-width: 640px) {
+    .guide-about-climbing-gallery { grid-template-columns: 1fr; }
+}
 .equipment-page .video-grid { display: none !important; }
 .equipment-bouldering-video-carousel { margin: 1.5rem 0 2rem; }
 .bouldering-video-empty {
@@ -2937,6 +2960,8 @@ h3 {
 .equipment-page #bouldering .equipment-list > ul { order: 4; }
 .equipment-page #bouldering .equipment-pricing { order: 5; }
 .equipment-page #bouldering .equipment-list > div:not(.guide-image) { order: 6; }
+.equipment-page #bouldering .equipment-list > .equipment-crashpad-carousel { order: 2 !important; }
+.equipment-page #bouldering .crashpad-specs { order: 3; }
 
 @media (max-width: 700px) {
     .place-carousel,
@@ -3072,6 +3097,18 @@ h3 {
     stroke-linejoin: round;
     stroke-width: 1.65;
 }
+.landing-page #about .feature-icon svg { display: none; }
+.landing-page #about .feature-card:nth-child(1) .feature-icon::before,
+.landing-page #about .feature-card:nth-child(2) .feature-icon::before,
+.landing-page #about .feature-card:nth-child(4) .feature-icon::before {
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    font-size: 2.8rem;
+    color: #ed7c22;
+}
+.landing-page #about .feature-card:nth-child(1) .feature-icon::before { content: "\f4d7"; }
+.landing-page #about .feature-card:nth-child(2) .feature-icon::before { content: "\f6fc"; }
+.landing-page #about .feature-card:nth-child(4) .feature-icon::before { content: "\f1ab"; }
 
 .landing-page #about .feature-icon svg circle {
     fill: #f7f4ee;

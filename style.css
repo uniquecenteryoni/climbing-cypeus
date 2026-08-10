@@ -193,6 +193,44 @@
     }
 }
 
+/* Final English guide card order: photo on the left, description on the right. */
+.landing-page.ltr .guide-content.article-inner > .guide-crag-strip {
+    direction: ltr !important;
+    grid-template-columns: minmax(180px, 34%) 1fr !important;
+}
+
+.landing-page.ltr .guide-content.article-inner > .guide-crag-strip > .guide-place-media {
+    grid-column: 1 !important;
+    grid-row: 1 !important;
+    justify-self: start !important;
+}
+
+.landing-page.ltr .guide-content.article-inner > .guide-crag-strip > div:last-child {
+    grid-column: 2 !important;
+    grid-row: 1 !important;
+    direction: ltr !important;
+    text-align: left !important;
+}
+
+/* In the English guide, crag cards read left-to-right: image first, copy second. */
+.landing-page.ltr .guide-content.article-inner > .guide-crag-strip {
+    direction: ltr !important;
+    grid-template-columns: minmax(180px, 34%) 1fr !important;
+}
+
+.landing-page.ltr .guide-content.article-inner > .guide-crag-strip > .guide-place-media {
+    grid-column: 1 !important;
+    grid-row: 1 !important;
+    justify-self: start !important;
+}
+
+.landing-page.ltr .guide-content.article-inner > .guide-crag-strip > div:last-child {
+    grid-column: 2 !important;
+    grid-row: 1 !important;
+    direction: ltr !important;
+    text-align: left !important;
+}
+
 /* Final mobile cascade: these rules intentionally remain at EOF. */
 @media (max-width: 700px) {
     html, body { width: 100%; max-width: 100%; overflow-x: hidden; }
@@ -1455,6 +1493,20 @@ body.landing-page { overflow-x: hidden; }
 .course-page .tour-hero-content h1 {
     font-size: 3rem !important;
     line-height: 1.15;
+}
+
+.course-syllabus-note {
+    margin: 1.5rem 0;
+    padding: 1rem 1.25rem;
+    border-inline-start: 4px solid var(--accent-color);
+    background: rgba(44, 95, 45, 0.07);
+    color: #49604b;
+    line-height: 1.7;
+}
+
+.course-syllabus-note i {
+    color: var(--accent-color);
+    margin-inline-end: 0.4rem;
 }
 
 .course-page .tour-hero-content {
@@ -6926,4 +6978,23 @@ body.landing-page {
         min-width: 0 !important;
         min-height: 0 !important;
     }
+}
+
+/* Final English guide card order: photo on the left, description on the right. */
+.landing-page.ltr .guide-content.article-inner > .guide-crag-strip {
+    direction: ltr !important;
+    grid-template-columns: minmax(180px, 34%) 1fr !important;
+}
+
+.landing-page.ltr .guide-content.article-inner > .guide-crag-strip > .guide-place-media {
+    grid-column: 1 !important;
+    grid-row: 1 !important;
+    justify-self: start !important;
+}
+
+.landing-page.ltr .guide-content.article-inner > .guide-crag-strip > div:last-child {
+    grid-column: 2 !important;
+    grid-row: 1 !important;
+    direction: ltr !important;
+    text-align: left !important;
 }

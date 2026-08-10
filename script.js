@@ -106,6 +106,19 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+
+    // Keep the shared logo and gallery navigation from inheriting a contact URL.
+    document.querySelectorAll('.navbar .logo').forEach(logo => {
+        logo.setAttribute('href', 'index.html#home');
+        logo.addEventListener('click', function (e) {
+            e.preventDefault();
+            window.location.assign('index.html#home');
+        });
+    });
+
+    document.querySelectorAll('.navbar a[href*="#gallery"]').forEach(galleryLink => {
+        galleryLink.setAttribute('href', 'index.html#gallery');
+    });
     
     // Add scroll effect to navbar
     window.addEventListener('scroll', () => {

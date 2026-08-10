@@ -212,6 +212,21 @@
     text-align: left !important;
 }
 
+.guide-video-placeholder {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    display: grid;
+    place-content: center;
+    gap: .75rem;
+    text-align: center;
+    color: #fff;
+    background: linear-gradient(135deg, rgba(18,48,25,.95), rgba(44,95,45,.72)), url('pics/hero-climbing-sunset.webp') center/cover;
+    transition: opacity .35s ease, visibility .35s ease;
+}
+.guide-video-placeholder i { font-size: 3rem; color: #c8e77e; }
+.guide-video-placeholder.is-hidden { opacity: 0; visibility: hidden; pointer-events: none; }
+
 /* In the English guide, crag cards read left-to-right: image first, copy second. */
 .landing-page.ltr .guide-content.article-inner > .guide-crag-strip {
     direction: ltr !important;
@@ -1724,6 +1739,8 @@ body:not(.landing-page) {
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0,0,0,.3);
 }
+.guide-about-climbing-gallery figure { margin: 0; text-align: center; }
+.guide-about-climbing-gallery figcaption { margin-top: .55rem; color: #536252; font-size: .95rem; }
 .equipment-page .video-grid { display: none !important; }
 .equipment-bouldering-video-carousel { margin: 1.5rem 0 2rem; }
 .bouldering-video-empty {
@@ -3060,6 +3077,11 @@ h3 {
     fill: #f7f4ee;
 }
 
+.landing-page #about .feature-icon i {
+    font-size: 2.8rem;
+    color: #2c5f2d;
+}
+
 .landing-page #about .feature-card h3 {
     margin-bottom: 12px;
     color: #285c32;
@@ -4246,6 +4268,10 @@ h3 {
 .footer-section p {
     color: #667066;
 }
+.footer-section:first-child p { max-width: 13rem; line-height: 1.5; }
+.footer-section:first-child { text-align: center; }
+.footer-section:first-child h3,
+.footer-section:first-child p { margin-inline: auto; }
 
 .footer-section ul {
     list-style: none;

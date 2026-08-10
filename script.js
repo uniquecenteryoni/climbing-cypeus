@@ -33,6 +33,23 @@ let currentLang = getInitialLanguage();
 
 // Initialize the page
 document.addEventListener('DOMContentLoaded', () => {
+    const guideVideo = document.querySelector('.guide-hero iframe');
+    const guidePlaceholder = document.querySelector('.guide-video-placeholder');
+    if (guideVideo && guidePlaceholder) {
+        guideVideo.addEventListener('load', () => guidePlaceholder.classList.add('is-hidden'), { once: true });
+        window.setTimeout(() => guidePlaceholder.classList.add('is-hidden'), 12000);
+    }
+
+    const equipmentVideos = document.querySelector('.equipment-bouldering-videos');
+    const boulderingPackage = document.querySelector('#bouldering');
+    if (equipmentVideos && boulderingPackage) boulderingPackage.appendChild(equipmentVideos);
+
+    document.querySelectorAll('.gallery-item img').forEach(image => {
+        image.addEventListener('click', () => {
+            if (document.getElementById('gallery')) window.location.hash = 'gallery';
+        }, true);
+    });
+
     // Set initial language and translate content
     setLanguage(currentLang);
     

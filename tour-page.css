@@ -313,3 +313,25 @@
         grid-template-columns: 1fr;
     }
 }
+
+/* Keep tour pages usable in both Hebrew and English at phone widths. */
+@media (max-width: 700px) {
+    .tour-hero { height: auto; min-height: 300px; }
+    .tour-hero-content { padding: 2rem 0; align-items: center; }
+    .tour-hero-content .container { padding-inline: 16px; }
+    .tour-hero-content h1 { font-size: clamp(1.65rem, 9vw, 2.5rem); line-height: 1.15; overflow-wrap: anywhere; }
+    .tour-meta { flex-wrap: wrap; gap: .5rem .9rem; font-size: .98rem; }
+    .tour-meta span { min-width: 0; }
+    .tour-details { padding: 2.5rem 0; }
+    .tour-details .container { padding-inline: 16px; }
+    .tour-content-grid { grid-template-columns: minmax(0, 1fr); gap: 1.5rem; }
+    .tour-main-content h2 { font-size: 1.6rem; }
+    .tour-main-content p, .tour-highlights-list li { font-size: 1rem; }
+    .booking-card, .info-card { padding: 1.15rem; }
+    .itinerary-item { flex-direction: column; gap: .35rem; }
+    .included-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .75rem; }
+}
+
+@media (max-width: 400px) {
+    .included-grid { grid-template-columns: 1fr; }
+}

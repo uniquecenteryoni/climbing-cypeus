@@ -880,3 +880,28 @@ footer a {
         transition-duration: .01ms !important;
     }
 }
+
+/* Final small-screen pass for the Hebrew and English waiver flows. */
+@media (max-width: 520px) {
+    .site-header { min-height: 68px; padding: 8px 12px; gap: 10px; }
+    .brand { min-width: 0; gap: 8px; }
+    .brand img { width: 46px; height: 46px; }
+    .brand strong { font-size: .95rem; }
+    .brand small, .secure-note { display: none; }
+    .waiver-languages { flex: 0 0 auto; }
+    .waiver-languages a { padding: 5px 7px; font-size: .74rem; }
+    .hero-copy { padding: 42px 18px 86px; }
+    .hero h1 { font-size: clamp(2.25rem, 13vw, 3.5rem); overflow-wrap: anywhere; }
+    .hero-copy > p:not(.eyebrow) { font-size: .98rem; }
+    #waiverForm { width: calc(100% - 16px); margin-top: -46px; margin-bottom: 48px; }
+    .progress-wrap { padding: 17px 14px 14px; }
+    .progress-labels { font-size: .72rem; }
+    .form-step { padding: 22px 14px 26px; }
+    .section-heading h2 { font-size: 1.35rem; overflow-wrap: anywhere; }
+    .field-grid, .signature-grid { grid-template-columns: minmax(0, 1fr); }
+    input, textarea, select { max-width: 100%; }
+    .participant-card { padding: 16px 12px; }
+    .legal-text { max-height: 440px; padding: 18px 14px; font-size: .92rem; }
+    .step-actions { gap: 10px; }
+    .step-actions .primary-button, .step-actions .secondary-button { width: 100%; }
+}

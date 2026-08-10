@@ -109,10 +109,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Keep the shared logo and gallery navigation from inheriting a contact URL.
     document.querySelectorAll('.navbar .logo').forEach(logo => {
-        logo.setAttribute('href', 'index.html#home');
+        logo.setAttribute('href', 'index.html');
         logo.addEventListener('click', function (e) {
             e.preventDefault();
-            window.location.assign('index.html#home');
+            window.location.assign('index.html');
         });
     });
 
@@ -572,7 +572,7 @@ document.addEventListener('DOMContentLoaded', () => {
         
         const messageField = document.getElementById('message');
         
-        if (messageField) {
+        if (messageField && (equipmentType || tourType || activityType)) {
             let prefillText = 'היי אני מעוניין/ת בחווית טיפוס בקפריסין';
             
             if (equipmentType) {

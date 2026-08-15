@@ -27,15 +27,21 @@ const translations = {
         "instagram-gallery-follow": "לעקוב באינסטגרם",
         
         // Hero section
-        "hero-title": "לא צריך להרחיק<br>בשביל הרפתקאות מיוחדות",
-        "hero-subtitle": "טיפוס צוקים וטיולים מודרכים בקפריסין",
-        "hero-cta": "צור קשר",
+        "hero-title": "חווית אקסטרים<br><span class=\"hero-accent\">בקפריסין</span>",
+        "hero-subtitle": "טיפוס צוקים וסנפלינג מודרכים באי",
+        "hero-cta": "הזמן את ההרפתקה שלך",
+        "hero-feature-locations": "מקומות נבחרים",
+        "hero-feature-equipment": "כל הציוד כלול",
+        "hero-feature-all": "מתאים לכולם",
+        "hero-feature-certified": "מדריך מוסמך",
+        "hero-scroll-cue": "גלו עוד",
         
         // About Me section
         "about-me-title": "אודות",
-        "about-me-intro": "היי, אני יונתן, במקור מישראל, כיום מתגורר בקפריסין. מדריך טיולים וטיפוס צוקים מוסמך עם ניסיון של שנים בהדרכות בישראל ובקפריסין.",
+        "about-me-intro": "היי, אני יונתן, במקור מישראל, כיום מתגורר בקפריסין. מדריך מוסמך לטיפוס צוקים וסנפלינג עם ניסיון רב בהדרכות וקורסים.",
         "about-me-passion": "האהבה שלי לטבע ולהרפתקאות הובילה אותי ליצור את \"קפריסין בעין אחרת\", חוויה ייחודית שמראה למבקרים את היופי הנסתר של האי הקסום הזה.",
         "about-me-experience": "אני מתמחה בטיולי הליכה בטבע, טיפוס צוקים וסנפלינג, ומספק הדרכה מקצועית ובטוחה לכל הרמות, ממתחילים ועד מתקדמים.",
+        "about-quote": "״כל יום טיפוס נבנה סביב האנשים, הניסיון והחוויה שמתאימה להם.״",
         "about-me-approach": "כל טיול נבנה בהתאם לצרכים, ליכולות ולהעדפות של המשתתפים.",
         
         // About section
@@ -643,15 +649,21 @@ const translations = {
         "instagram-gallery-follow": "Follow on Instagram",
         
         // Hero section
-        "hero-title": "MORE THAN A CLIMB,<br><span class=\"hero-accent\">A DIFFERENT</span> PERSPECTIVE.",
-        "hero-subtitle": "Guided rock climbing and abseiling<br>experiences across Cyprus.",
-        "hero-cta": "EXPLORE EXPERIENCES",
+        "hero-title": "EXTREME EXPERIENCES<br><span class=\"hero-accent\">IN CYPRUS</span>",
+        "hero-subtitle": "Guided rock climbing and abseiling on the island",
+        "hero-cta": "BOOK YOUR ADVENTURE",
+        "hero-feature-locations": "Selected locations",
+        "hero-feature-equipment": "All equipment included",
+        "hero-feature-all": "Suitable for everyone",
+        "hero-feature-certified": "Certified guide",
+        "hero-scroll-cue": "Discover more",
         
         // About Me section
         "about-me-title": "About Me",
-        "about-me-intro": "Hi, I'm Yonatan, originally from Israel, now living in Cyprus. I bring years of experience leading hiking and rock climbing tours in Israel and Cyprus.",
+        "about-me-intro": "Hi, I'm Yonatan, originally from Israel, now living in Cyprus. I am a certified rock climbing and rappelling guide with extensive experience leading tours and courses.",
         "about-me-passion": "My love for nature and adventure led me to create \"Cyprus Through Different Eyes\" - a unique experience showing visitors the hidden beauty of this magical island.",
         "about-me-experience": "I specialize in nature hikes, rock climbing and rappelling, providing professional and safe guidance for all levels - from beginners to advanced.",
+        "about-quote": "\"Every climbing day is built around the people, their experience, and the adventure that suits them.\"",
         "about-me-approach": "Each tour is built according to the needs, abilities and preferences of the participants.",
         
         // About section

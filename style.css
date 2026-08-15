@@ -212,6 +212,429 @@
     text-align: left !important;
 }
 
+/* Final compact about-strip cascade. */
+.landing-page #about.about { padding: clamp(44px, 6vw, 76px) 0 !important; background: #f7f4ee !important; }
+.landing-page #about .about-content { max-width: 1180px !important; padding: 0 !important; overflow: visible !important; border: 0 !important; border-radius: 0 !important; background: transparent !important; box-shadow: none !important; }
+.landing-page #about .about-content::after { display: none !important; }
+.landing-page #about .about-content h2 { margin: 0 0 28px !important; color: #285c32 !important; font-size: clamp(36px, 4vw, 54px) !important; letter-spacing: -0.025em; }
+.landing-page #about .about-combined-layout { grid-template-columns: minmax(230px, 31%) minmax(0, 1fr) !important; align-items: center; gap: clamp(38px, 7vw, 100px) !important; direction: ltr !important; }
+.landing-page #about .about-combined-profile { padding: 0 !important; }
+.landing-page #about .about-combined-image { width: min(100%, 300px) !important; border: 4px solid rgba(237, 195, 151, 0.72) !important; box-shadow: 0 12px 28px rgba(69, 78, 66, 0.12) !important; }
+.landing-page #about .about-combined-text { direction: rtl !important; text-align: right !important; }
+.landing-page #about .about-combined-text p { margin: 0 0 15px !important; color: #454943 !important; font-size: clamp(16px, 1.3vw, 19px) !important; line-height: 1.65 !important; }
+.landing-page #about .about-combined-text blockquote { margin: 22px 0 0 !important; padding: 5px 18px 5px 0 !important; border: 0 !important; border-inline-start: 2px solid rgba(47, 122, 67, 0.55) !important; border-radius: 0 !important; background: transparent !important; color: #397047 !important; font-size: clamp(16px, 1.25vw, 19px) !important; font-weight: 500 !important; line-height: 1.55 !important; text-align: right !important; }
+.landing-page #about .about-combined-text blockquote::before { display: none !important; }
+.landing-page #about .about-credential, .landing-page #about .about-mini-features { display: none !important; }
+@media (max-width: 700px) {
+    .landing-page #about.about { padding: 48px 0 54px !important; }
+    .landing-page #about .about-content { padding: 0 4px !important; }
+    .landing-page #about .about-content h2 { margin-bottom: 24px !important; font-size: clamp(34px, 10vw, 48px) !important; }
+    .landing-page #about .about-combined-layout { grid-template-columns: 1fr !important; gap: 26px !important; }
+    .landing-page #about .about-combined-image { width: min(72vw, 260px) !important; }
+    .landing-page #about .about-combined-text p { font-size: 17px !important; line-height: 1.65 !important; }
+    .landing-page #about .about-combined-text blockquote { margin-top: 18px !important; padding-right: 14px !important; font-size: 16px !important; }
+}
+
+/* Final compact about-strip overrides. */
+.landing-page #about.about {
+    padding: clamp(44px, 6vw, 76px) 0 !important;
+    background: #f7f4ee !important;
+}
+.landing-page #about .about-content {
+    max-width: 1180px !important;
+    padding: 0 !important;
+    overflow: visible !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+}
+.landing-page #about .about-content::after { display: none !important; }
+.landing-page #about .about-content h2 {
+    margin: 0 0 28px !important;
+    color: #285c32 !important;
+    font-size: clamp(36px, 4vw, 54px) !important;
+    letter-spacing: -0.025em;
+}
+.landing-page #about .about-combined-layout {
+    grid-template-columns: minmax(230px, 31%) minmax(0, 1fr) !important;
+    align-items: center;
+    gap: clamp(38px, 7vw, 100px) !important;
+    direction: ltr !important;
+}
+.landing-page #about .about-combined-profile { padding: 0 !important; }
+.landing-page #about .about-combined-image {
+    width: min(100%, 300px) !important;
+    border: 4px solid rgba(237, 195, 151, 0.72) !important;
+    box-shadow: 0 12px 28px rgba(69, 78, 66, 0.12) !important;
+}
+.landing-page #about .about-combined-text { direction: rtl !important; text-align: right !important; }
+.landing-page #about .about-combined-text p {
+    margin: 0 0 15px !important;
+    color: #454943 !important;
+    font-size: clamp(16px, 1.3vw, 19px) !important;
+    line-height: 1.65 !important;
+}
+.landing-page #about .about-combined-text blockquote {
+    margin: 22px 0 0 !important;
+    padding: 5px 18px 5px 0 !important;
+    border: 0 !important;
+    border-inline-start: 2px solid rgba(47, 122, 67, 0.55) !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    color: #397047 !important;
+    font-size: clamp(16px, 1.25vw, 19px) !important;
+    font-weight: 500 !important;
+    line-height: 1.55 !important;
+    text-align: right !important;
+}
+.landing-page #about .about-combined-text blockquote::before { display: none !important; }
+.landing-page #about .about-credential,
+.landing-page #about .about-mini-features { display: none !important; }
+@media (max-width: 700px) {
+    .landing-page #about.about { padding: 48px 0 54px !important; }
+    .landing-page #about .about-content { padding: 0 4px !important; }
+    .landing-page #about .about-content h2 { margin-bottom: 24px !important; font-size: clamp(34px, 10vw, 48px) !important; }
+    .landing-page #about .about-combined-layout { grid-template-columns: 1fr !important; gap: 26px !important; }
+    .landing-page #about .about-combined-image { width: min(72vw, 260px) !important; }
+    .landing-page #about .about-combined-text p { font-size: 17px !important; line-height: 1.65 !important; }
+    .landing-page #about .about-combined-text blockquote { margin-top: 18px !important; padding-right: 14px !important; font-size: 16px !important; }
+}
+
+/* Refined, compact homepage about strip. */
+.landing-page #about.about {
+    padding: clamp(44px, 6vw, 76px) 0;
+    background: #f7f4ee;
+}
+
+.landing-page #about .about-content {
+    max-width: 1180px;
+    padding: 0;
+    overflow: visible;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+}
+
+.landing-page #about .about-content::after {
+    display: none;
+}
+
+.landing-page #about .about-content h2 {
+    margin: 0 0 28px;
+    color: #285c32;
+    font-size: clamp(36px, 4vw, 54px);
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    line-height: 1.1;
+}
+
+.landing-page #about .about-combined-layout {
+    grid-template-columns: minmax(230px, 31%) minmax(0, 1fr);
+    align-items: center;
+    gap: clamp(38px, 7vw, 100px);
+    direction: ltr;
+}
+
+.landing-page #about .about-combined-profile {
+    padding: 0;
+}
+
+.landing-page #about .about-combined-image {
+    width: min(100%, 300px);
+    border: 4px solid rgba(237, 195, 151, 0.72);
+    box-shadow: 0 12px 28px rgba(69, 78, 66, 0.12);
+}
+
+.landing-page #about .about-combined-text {
+    direction: rtl;
+    text-align: right;
+}
+
+.landing-page #about .about-combined-text p {
+    margin: 0 0 15px;
+    color: #454943;
+    font-size: clamp(16px, 1.3vw, 19px);
+    line-height: 1.65;
+}
+
+.landing-page #about .about-combined-text blockquote {
+    margin: 22px 0 0;
+    padding: 5px 18px 5px 0;
+    border: 0;
+    border-inline-start: 2px solid rgba(47, 122, 67, 0.55);
+    border-radius: 0;
+    background: transparent;
+    color: #397047;
+    font-size: clamp(16px, 1.25vw, 19px);
+    font-weight: 500;
+    line-height: 1.55;
+    text-align: right;
+}
+
+.landing-page #about .about-combined-text blockquote::before,
+.landing-page #about .about-credential,
+.landing-page #about .about-mini-features {
+    display: none;
+}
+
+@media (max-width: 700px) {
+    .landing-page #about.about {
+        padding: 48px 0 54px;
+    }
+
+    .landing-page #about .about-content {
+        padding: 0 4px;
+    }
+
+    .landing-page #about .about-content h2 {
+        margin-bottom: 24px;
+        font-size: clamp(34px, 10vw, 48px);
+    }
+
+    .landing-page #about .about-combined-layout {
+        grid-template-columns: 1fr;
+        gap: 26px;
+    }
+
+    .landing-page #about .about-combined-image {
+        width: min(72vw, 260px);
+    }
+
+    .landing-page #about .about-combined-text p {
+        font-size: 17px;
+        line-height: 1.65;
+    }
+
+    .landing-page #about .about-combined-text blockquote {
+        margin-top: 18px;
+        padding-right: 14px;
+        font-size: 16px;
+    }
+}
+
+/* Homepage strips are separated by quiet tonal changes, without divider rules. */
+.landing-page #about.about,
+.landing-page #activities.activities,
+.landing-page #tours.tours,
+.landing-page #trip-planning.trip-planning,
+.landing-page #gallery.gallery {
+    border-top: 0;
+}
+
+.landing-page #about.about::before,
+.landing-page #activities.activities::before,
+.landing-page #tours.tours::before,
+.landing-page #trip-planning.trip-planning::before,
+.landing-page #gallery.gallery::before {
+    display: none;
+}
+
+.landing-page #about.about { background: #f7f4ee; }
+.landing-page #activities.activities { background: #f1f5f0; }
+.landing-page #tours.tours { background: #f7f2ec; }
+.landing-page #trip-planning.trip-planning { background: #f1f4f1; }
+.landing-page #gallery.gallery { background: #f7f4ee; }
+
+/* Homepage about strip: warm framed profile card matching the new reference layout. */
+.landing-page #about.about {
+    padding: clamp(42px, 6vw, 78px) 0;
+    background: #f5eadc;
+}
+
+.landing-page #about .container {
+    max-width: 1440px;
+    padding-inline: 28px;
+}
+
+.landing-page #about .about-content {
+    position: relative;
+    overflow: hidden;
+    max-width: 1380px;
+    padding: clamp(34px, 5vw, 70px);
+    border: 1px solid rgba(193, 151, 104, 0.28);
+    border-radius: 24px;
+    background:
+        radial-gradient(circle at 18% 20%, rgba(212, 174, 126, 0.13) 0 1px, transparent 1.5px) 0 0/18px 18px,
+        #fcf9f2;
+    box-shadow: 0 14px 36px rgba(124, 91, 57, 0.09);
+}
+
+.landing-page #about .about-content::after {
+    content: "";
+    position: absolute;
+    left: -80px;
+    bottom: -150px;
+    width: 420px;
+    height: 420px;
+    border: 1px solid rgba(193, 151, 104, 0.16);
+    border-radius: 50%;
+    box-shadow: 0 0 0 28px rgba(193, 151, 104, 0.05), 0 0 0 58px rgba(193, 151, 104, 0.04);
+    pointer-events: none;
+}
+
+.landing-page #about .about-content h2 {
+    position: relative;
+    z-index: 1;
+    margin: 0 0 28px;
+    color: #285c32;
+    font-size: clamp(38px, 4vw, 58px);
+    text-align: right;
+}
+
+.landing-page #about .about-combined-layout {
+    position: relative;
+    z-index: 1;
+    grid-template-columns: minmax(280px, 38%) minmax(0, 1fr);
+    gap: clamp(38px, 6vw, 92px);
+    direction: ltr;
+}
+
+.landing-page #about .about-combined-profile {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 8px;
+}
+
+.landing-page #about .about-combined-image {
+    width: min(100%, 360px);
+    border: 8px solid #f7e2c9;
+    box-shadow: 0 16px 26px rgba(124, 91, 57, 0.18);
+}
+
+.landing-page #about .about-credential {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: min(100%, 420px);
+    margin-top: -2px;
+    padding: 13px 18px;
+    border: 1px solid rgba(193, 151, 104, 0.26);
+    border-radius: 12px;
+    background: #fff8ec;
+    box-shadow: 0 7px 14px rgba(124, 91, 57, 0.12);
+    color: #423326;
+    font-size: clamp(15px, 1.25vw, 18px);
+    font-weight: 600;
+    direction: rtl;
+}
+
+.landing-page #about .about-credential i {
+    color: #2f7a43;
+    font-size: 20px;
+}
+
+.landing-page #about .about-combined-text {
+    direction: rtl;
+    text-align: right;
+}
+
+.landing-page #about .about-combined-text p {
+    margin-bottom: 20px;
+    color: #3f4140;
+    font-size: clamp(17px, 1.35vw, 21px);
+    line-height: 1.75;
+}
+
+.landing-page #about .about-combined-text blockquote {
+    position: relative;
+    margin-top: 28px;
+    padding: 20px 58px 20px 24px;
+    border: 1px solid #73977a;
+    border-inline-start: 1px solid #73977a;
+    border-radius: 14px;
+    background: rgba(246, 241, 228, 0.78);
+    color: #286537;
+    font-size: clamp(19px, 1.55vw, 25px);
+    font-weight: 600;
+    line-height: 1.55;
+    text-align: center;
+}
+
+.landing-page #about .about-combined-text blockquote::before {
+    content: "\201D";
+    position: absolute;
+    top: 4px;
+    right: 18px;
+    color: #2f7a43;
+    font-family: Georgia, serif;
+    font-size: 68px;
+    line-height: 1;
+}
+
+.landing-page #about .about-mini-features {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    margin-top: 24px;
+    padding: 14px 6px;
+    border: 1px solid rgba(193, 151, 104, 0.18);
+    border-radius: 14px;
+    background: rgba(255, 250, 240, 0.74);
+}
+
+.landing-page #about .about-mini-features span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    min-height: 34px;
+    color: #3d4d3d;
+    font-size: clamp(14px, 1.1vw, 17px);
+    text-align: center;
+}
+
+.landing-page #about .about-mini-features span + span {
+    border-inline-start: 0;
+}
+
+.landing-page #about .about-mini-features i {
+    color: #397647;
+    font-size: 20px;
+}
+
+@media (max-width: 700px) {
+    .landing-page #about .container {
+        padding-inline: 14px;
+    }
+
+    .landing-page #about .about-content {
+        padding: 28px 18px 30px;
+        border-radius: 18px;
+    }
+
+    .landing-page #about .about-content h2 {
+        margin-bottom: 22px;
+        font-size: clamp(34px, 10vw, 48px);
+    }
+
+    .landing-page #about .about-combined-layout {
+        grid-template-columns: 1fr;
+        gap: 28px;
+    }
+
+    .landing-page #about .about-combined-image {
+        width: min(78vw, 300px);
+    }
+
+    .landing-page #about .about-combined-text p {
+        font-size: 17px;
+        line-height: 1.65;
+    }
+
+    .landing-page #about .about-combined-text blockquote {
+        padding: 18px 42px 18px 14px;
+        font-size: 18px;
+    }
+
+    .landing-page #about .about-mini-features {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+}
+
 /* Final mobile header override. */
 @media (max-width: 768px) {
     .navbar .language-switcher,
@@ -938,6 +1361,28 @@
 }
 
 /* EOF mobile safety net for legacy rules above. */
+/* Final compact about-strip cascade. */
+.landing-page #about.about { padding: clamp(44px, 6vw, 76px) 0 !important; background: #f7f4ee !important; }
+.landing-page #about .about-content { max-width: 1180px !important; padding: 0 !important; overflow: visible !important; border: 0 !important; border-radius: 0 !important; background: transparent !important; box-shadow: none !important; }
+.landing-page #about .about-content::after { display: none !important; }
+.landing-page #about .about-content h2 { margin: 0 0 28px !important; color: #285c32 !important; font-size: clamp(36px, 4vw, 54px) !important; letter-spacing: -0.025em; }
+.landing-page #about .about-combined-layout { grid-template-columns: minmax(230px, 31%) minmax(0, 1fr) !important; align-items: center; gap: clamp(38px, 7vw, 100px) !important; direction: ltr !important; }
+.landing-page #about .about-combined-profile { padding: 0 !important; }
+.landing-page #about .about-combined-image { width: min(100%, 300px) !important; border: 4px solid rgba(237, 195, 151, 0.72) !important; box-shadow: 0 12px 28px rgba(69, 78, 66, 0.12) !important; }
+.landing-page #about .about-combined-text { direction: rtl !important; text-align: right !important; }
+.landing-page #about .about-combined-text p { margin: 0 0 15px !important; color: #454943 !important; font-size: clamp(16px, 1.3vw, 19px) !important; line-height: 1.65 !important; }
+.landing-page #about .about-combined-text blockquote { margin: 22px 0 0 !important; padding: 5px 18px 5px 0 !important; border: 0 !important; border-inline-start: 2px solid rgba(47, 122, 67, 0.55) !important; border-radius: 0 !important; background: transparent !important; color: #397047 !important; font-size: clamp(16px, 1.25vw, 19px) !important; font-weight: 500 !important; line-height: 1.55 !important; text-align: right !important; }
+.landing-page #about .about-combined-text blockquote::before { display: none !important; }
+.landing-page #about .about-credential, .landing-page #about .about-mini-features { display: none !important; }
+@media (max-width: 700px) {
+    .landing-page #about.about { padding: 48px 0 54px !important; }
+    .landing-page #about .about-content { padding: 0 4px !important; }
+    .landing-page #about .about-content h2 { margin-bottom: 24px !important; font-size: clamp(34px, 10vw, 48px) !important; }
+    .landing-page #about .about-combined-layout { grid-template-columns: 1fr !important; gap: 26px !important; }
+    .landing-page #about .about-combined-image { width: min(72vw, 260px) !important; }
+    .landing-page #about .about-combined-text p { font-size: 17px !important; line-height: 1.65 !important; }
+    .landing-page #about .about-combined-text blockquote { margin-top: 18px !important; padding-right: 14px !important; font-size: 16px !important; }
+}
 @media (max-width: 700px) {
     .landing-page .guide-content.article-inner > .guide-logistics-strip,
     .landing-page .guide-content.article-inner > .guide-crag-strip { width: 100% !important; max-width: 100% !important; margin-inline: 0 !important; padding-inline: 20px !important; grid-template-columns: minmax(0, 1fr) !important; grid-template-areas: "copy" "media" !important; }
@@ -3061,6 +3506,65 @@ h3 {
     text-align: right;
 }
 
+.landing-page #about .about-content {
+    max-width: 1180px;
+    margin: 0 auto;
+}
+
+.landing-page #about .about-combined-layout {
+    display: grid;
+    grid-template-columns: minmax(220px, 300px) minmax(0, 1fr);
+    align-items: center;
+    gap: clamp(32px, 6vw, 84px);
+    direction: rtl;
+}
+
+.landing-page #about .about-combined-image {
+    width: min(100%, 300px);
+    aspect-ratio: 1;
+    margin-inline: auto;
+    overflow: hidden;
+    border: 6px solid rgba(237, 124, 34, 0.18);
+    border-radius: 50%;
+    box-shadow: 0 18px 38px rgba(45, 48, 44, 0.16);
+}
+
+.landing-page #about .about-combined-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 24%;
+}
+
+.landing-page #about .about-combined-text {
+    min-width: 0;
+}
+
+.landing-page #about .about-combined-text p {
+    max-width: none;
+    margin: 0 0 18px;
+    font-size: clamp(17px, 1.45vw, 21px);
+    line-height: 1.75;
+}
+
+.landing-page #about .about-combined-text p:last-child {
+    margin-bottom: 0;
+}
+
+.landing-page #about .about-combined-text blockquote {
+    max-width: 760px;
+    margin: 26px 0 0;
+    padding: 14px 22px;
+    border-inline-start: 4px solid #ed7c22;
+    border-radius: 0 10px 10px 0;
+    background: rgba(237, 124, 34, 0.08);
+    color: #285c32;
+    font-size: clamp(17px, 1.35vw, 20px);
+    font-weight: 600;
+    line-height: 1.55;
+}
+
 .landing-page #about .features {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -3215,6 +3719,20 @@ h3 {
     }
 
     .landing-page #about .about-content p {
+        font-size: 18px;
+        line-height: 1.65;
+    }
+
+    .landing-page #about .about-combined-layout {
+        grid-template-columns: 1fr;
+        gap: 28px;
+    }
+
+    .landing-page #about .about-combined-image {
+        width: min(72vw, 250px);
+    }
+
+    .landing-page #about .about-combined-text p {
         font-size: 18px;
         line-height: 1.65;
     }
@@ -5307,8 +5825,9 @@ h3 {
 }
 
 .landing-page .hero {
-    min-height: 88vh;
-    height: max(720px, 88vh);
+    min-height: 0;
+    height: calc(100svh - 116px);
+    max-height: 860px;
     justify-content: initial;
     align-items: center;
     background-position: center;
@@ -5337,7 +5856,7 @@ h3 {
     max-width: 720px;
     margin-left: auto;
     margin-right: clamp(32px, 7vw, 110px);
-    padding: 100px 0 20px;
+    padding: 72px 0 150px;
     z-index: 2;
     text-align: left;
 }
@@ -5387,11 +5906,11 @@ h3 {
     width: 68px;
     height: 3px;
     margin-top: 24px;
-    background: #a8c56b;
+    background: #ed7c22;
 }
 
 .landing-page .hero-accent {
-    color: #a8c56b;
+    color: #f39a3d;
 }
 
 .landing-page .hero p {
@@ -5407,13 +5926,13 @@ h3 {
     display: inline-flex;
     align-items: center;
     gap: 14px;
-    min-height: 62px;
-    padding: 0 34px;
+    min-height: 76px;
+    padding: 0 46px;
     border-radius: 9px;
     background: var(--accent-color);
     box-shadow: none;
     color: #fff;
-    font-size: 1rem;
+    font-size: 1.12rem;
     font-weight: 600;
     letter-spacing: 0.04em;
     text-transform: uppercase;
@@ -5434,6 +5953,80 @@ h3 {
 .landing-page .cta-button:hover {
     background: #d96516;
     transform: none;
+}
+
+/* Above-the-fold landing hero: keep the key message, CTA, and benefits visible together. */
+.landing-page .hero-features {
+    position: absolute;
+    z-index: 2;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    width: 100%;
+    padding: 16px clamp(24px, 6vw, 96px) 18px;
+    border-top: 0;
+    background: rgba(10, 14, 10, 0.58);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    direction: rtl;
+}
+
+.landing-page .hero-feature {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    min-height: 54px;
+    padding: 0 clamp(12px, 2vw, 28px);
+    color: #fff;
+    font-size: clamp(15px, 1.25vw, 19px);
+    font-weight: 500;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.landing-page .hero-feature + .hero-feature {
+    border-inline-start: 0;
+}
+
+.landing-page .hero-feature svg {
+    flex: 0 0 auto;
+    width: 34px;
+    height: 34px;
+    fill: none;
+    stroke: #f5c17a;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 1.7;
+}
+
+.landing-page .hero-scroll-cue {
+    position: absolute;
+    z-index: 3;
+    bottom: 122px;
+    left: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 9px;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 16px;
+    text-decoration: none;
+    font-weight: 500;
+    transform: translateX(-50%);
+    animation: hero-scroll-bounce 1.8s ease-in-out infinite;
+}
+
+.landing-page .hero-scroll-cue i {
+    color: #f5c17a;
+    font-size: 27px;
+}
+
+@keyframes hero-scroll-bounce {
+    0%, 100% { transform: translate(-50%, 0); opacity: 0.65; }
+    50% { transform: translate(-50%, 7px); opacity: 1; }
 }
 
 .landing-page.ltr .cta-button:hover::after {
@@ -5530,6 +6123,7 @@ h3 {
     .landing-page .hero {
         min-height: 100svh;
         height: 100svh;
+        max-height: none;
         background-position: 38% center;
     }
 
@@ -5573,6 +6167,31 @@ h3 {
     .landing-page .cta-button {
         width: 100%;
         justify-content: center;
+    }
+
+    .landing-page .hero-features {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        padding: 10px 8px 12px;
+    }
+
+    .landing-page .hero-feature {
+        flex-direction: column;
+        gap: 5px;
+        min-height: 62px;
+        padding: 0 5px;
+        font-size: 11px;
+        line-height: 1.15;
+        white-space: normal;
+    }
+
+    .landing-page .hero-feature svg {
+        width: 28px;
+        height: 28px;
+    }
+
+    .landing-page .hero-scroll-cue {
+        bottom: 112px;
+        font-size: 14px;
     }
 }
 

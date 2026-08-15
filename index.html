@@ -33,7 +33,8 @@
     <link rel="shortcut icon" type="image/webp" href="pics/climbing-cyprus-profile.webp">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css?v=landing-refresh-13">
+    <link rel="stylesheet" href="style.css?v=landing-refresh-18">
+    <link rel="stylesheet" href="homepage-about-override.css?v=1">
     
     <!-- Schema.org Structured Data for SEO -->
     <script type="application/ld+json">
@@ -245,10 +246,32 @@
     <section id="home" class="hero">
         <div class="hero-overlay"></div>
         <div class="hero-content">
-            <h1 data-i18n="hero-title">לא צריך להרחיק<br>בשביל הרפתקאות מיוחדות</h1>
-            <p data-i18n="hero-subtitle">טיפוס צוקים וטיולים מודרכים בקפריסין</p>
-            <a href="#contact" class="cta-button" data-i18n="hero-cta">צור קשר</a>
+            <h1 data-i18n="hero-title">חווית אקסטרים<br><span class="hero-accent">בקפריסין</span></h1>
+            <p data-i18n="hero-subtitle">טיפוס צוקים וסנפלינג מודרכים באי</p>
+            <a href="#contact" class="cta-button" data-i18n="hero-cta">הזמן את ההרפתקה שלך</a>
         </div>
+        <div class="hero-features" aria-label="יתרונות הפעילות">
+            <div class="hero-feature">
+                <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 43s14-13 14-24A14 14 0 0 0 10 19c0 11 14 24 14 24Z"/><circle cx="24" cy="19" r="4"/></svg>
+                <span data-i18n="hero-feature-locations">מקומות נבחרים</span>
+            </div>
+            <div class="hero-feature">
+                <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M14 18h20l4 7v15H10V25l4-7Z"/><path d="M17 18v-4a7 7 0 0 1 14 0v4M18 30h12M24 25v10"/></svg>
+                <span data-i18n="hero-feature-equipment">כל הציוד כלול</span>
+            </div>
+            <div class="hero-feature">
+                <svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="14" r="6"/><circle cx="10" cy="20" r="4"/><circle cx="38" cy="20" r="4"/><path d="M12 38c0-7 5-12 12-12s12 5 12 12M3 37c0-5 3-9 8-9 2 0 4 1 5 2M45 37c0-5-3-9-8-9-2 0-4 1-5 2"/></svg>
+                <span data-i18n="hero-feature-all">מתאים לכולם</span>
+            </div>
+            <div class="hero-feature">
+                <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 5 39 11v11c0 10-6 17-15 21C15 39 9 32 9 22V11l15-6Z"/><path d="m16 24 5 5 11-12"/><path d="M19 17h10"/></svg>
+                <span data-i18n="hero-feature-certified">מדריך מוסמך</span>
+            </div>
+        </div>
+        <a class="hero-scroll-cue" href="#about" data-scroll-cue>
+            <span data-i18n="hero-scroll-cue">גלו עוד</span>
+            <i class="fas fa-chevron-down"></i>
+        </a>
     </section>
 
     <!-- About Section -->
@@ -256,39 +279,22 @@
         <div class="container">
             <div class="about-content">
                 <h2 data-i18n="about-title">קפריסין בעין אחרת</h2>
-                <p data-i18n="about-text-1">אני בונה את יום הטיפוס לפי האנשים, הניסיון והאזור שמתאים לכם. בין אם זו הפעם הראשונה שלכם על הסלע ובין אם אתם מטפסים מנוסים ומחפשים חוויה אחרת בקפריסין.</p>
+                <div class="about-combined-layout">
+                    <div class="about-combined-profile">
+                        <div class="about-combined-image">
+                            <img src="pics/climberguide/guide-contact-yonatan.png" alt="יונתן - מדריך טיפוס מוסמך" loading="lazy">
+                        </div>
+                    </div>
+                    <div class="about-combined-text">
+                        <p data-i18n="about-text-1">אני בונה את יום הטיפוס לפי האנשים, הניסיון והאזור שמתאים לכם. בין אם זו הפעם הראשונה שלכם על הסלע ובין אם אתם מטפסים מנוסים ומחפשים חוויה אחרת בקפריסין.</p>
+                        <p data-i18n="about-me-intro">היי, אני יונתן, במקור מישראל, כיום מתגורר בקפריסין. מדריך מוסמך לטיפוס צוקים וסנפלינג עם ניסיון רב בהדרכות וקורסים.</p>
+                        <p data-i18n="about-me-passion">האהבה שלי לטבע ולהרפתקאות הובילה אותי ליצור את "קפריסין בעין אחרת", חוויה ייחודית שמראה למבקרים את היופי הנסתר של האי הקסום הזה.</p>
+                        <p data-i18n="about-me-experience">אני מתמחה בטיולי הליכה בטבע, טיפוס צוקים וסנפלינג, ומספק הדרכה מקצועית ובטוחה לכל הרמות, ממתחילים ועד מתקדמים.</p>
+                        <blockquote data-i18n="about-quote">״כל יום טיפוס נבנה סביב האנשים, הניסיון והחוויה שמתאימה להם.״</blockquote>
+                    </div>
+                </div>
             </div>
 
-            <div class="features">
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M10 37c0-5 3-8 8-8h11c5 0 9-3 9-8s-4-8-9-8H19c-5 0-9 3-9-8"/><circle cx="10" cy="5" r="3"/><circle cx="38" cy="21" r="3"/></svg>
-                    </div>
-                    <h3 data-i18n="feature-custom">מסלול שמתאים לכם</h3>
-                    <p data-i18n="feature-custom-desc">למתחילים, זוגות ומטפסים מנוסים</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <svg viewBox="0 0 48 48" aria-hidden="true"><path d="m5 38 14-18 8 10 5-7 11 15H5Z"/><path d="m25 38 9-11 9 11"/><circle cx="35" cy="11" r="3"/></svg>
-                    </div>
-                    <h3 data-i18n="feature-trails">מצוקים נבחרים ברחבי קפריסין</h3>
-                    <p data-i18n="feature-trails-desc">לוקיישנים שאני באמת אוהב לטפס בהם</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-person-falling" aria-hidden="true"></i>
-                    </div>
-                    <h3 data-i18n="feature-climbing">טיפוס וסנפלינג</h3>
-                    <p data-i18n="feature-climbing-desc">אפשר לשלב כמה סוגי פעילות ביום אחד</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M8 13c5-5 10 5 15 0s10-5 17 0v22c-7-5-12 5-17 0s-10-5-15 0V13Z"/><path d="M17 15v19M31 15v19"/><path d="M21 20h6M21 26h6"/></svg>
-                    </div>
-                    <h3 data-i18n="feature-hebrew">עברית / English</h3>
-                    <p data-i18n="feature-hebrew-desc">הדרכה אישית וברורה לאורך כל היום</p>
-                </div>
-            </div>
         </div>
     </section>
 
@@ -638,24 +644,6 @@
         </video>
     </div>
 
-    <!-- About Me / Who Am I Section -->
-    <section id="about-me" class="about-me">
-        <div class="container">
-            <h2 data-i18n="about-me-title">אודות</h2>
-            <div class="about-me-content">
-                <div class="about-me-image">
-                    <img src="pics/climberguide/guide-contact-yonatan.png" alt="Yonatan Cohen">
-                </div>
-                <div class="about-me-text">
-                    <p data-i18n="about-me-intro">היי, אני יונתן, במקור מישראל, כיום מתגורר בקפריסין. מדריך טיולים וטיפוס צוקים מוסמך עם ניסיון של שנים בהדרכות בישראל ובקפריסין.</p>
-                    <p data-i18n="about-me-passion">האהבה שלי לטבע ולהרפתקאות הובילה אותי ליצור את "קפריסין בעין אחרת" - חוויה ייחודית שמראה למבקרים את היופי הנסתר של האי הקסום הזה.</p>
-                    <p data-i18n="about-me-experience">אני מתמחה בטיולי הליכה בטבע, טיפוס צוקים וסנפלינג, ומספק הדרכה מקצועית ובטוחה לכל הרמות - ממתחילים ועד מתקדמים.</p>
-                    <p data-i18n="about-me-approach">כל טיול נבנה בהתאם לצרכים, ליכולות ולהעדפות של המשתתפים.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Contact Section -->
     <section id="contact" class="contact">
         <div class="container">
@@ -709,7 +697,7 @@
                     <h4 data-i18n="footer-links">קישורים</h4>
                     <ul>
                         <li><a href="#home" data-i18n="nav-home">בית</a></li>
-                        <li><a href="#about-me" data-i18n="nav-about-me">מי אני</a></li>
+                        <li><a href="#about" data-i18n="nav-about-me">מי אני</a></li>
                         <li><a href="#activities" data-i18n="nav-activities">הפעילויות שלנו</a></li>
                         <li><a href="#gallery" data-i18n="nav-gallery">Instagram</a></li>
                     </ul>

@@ -193,6 +193,46 @@
     margin-bottom: var(--spacing-md);
 }
 
+.course-instructor-card {
+    background: white;
+    padding: 1.75rem 1.5rem;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    margin-bottom: var(--spacing-md);
+    text-align: center;
+}
+
+.course-instructor-photo {
+    width: 170px;
+    height: 170px;
+    margin: 0 auto 1rem;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 5px solid rgba(244, 121, 32, .32);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, .12);
+}
+
+.course-instructor-photo img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: center 32%;
+}
+
+.course-instructor-card h3 {
+    margin: 0 0 .45rem;
+    color: var(--primary-color);
+    font-size: 1.5rem;
+}
+
+.course-instructor-card p {
+    margin: 0;
+    color: var(--gray-color);
+    font-size: .95rem;
+    line-height: 1.55;
+}
+
 .booking-card h3,
 .info-card h3 {
     color: var(--primary-color);

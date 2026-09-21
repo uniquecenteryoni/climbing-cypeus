@@ -519,6 +519,11 @@ const translations = {
         "guide-intro-title": "מטפסים בקפריסין? הגעתם למקום הנכון.",
         "guide-intro-p1": "קפריסין מציעה הרבה יותר מחופים ונופים — יש כאן מצוקים מעולים, כפרים יפים ואזורי טיפוס ששווה להכיר.",
         "guide-intro-p2": "אני יונתן, מדריך טיפוס שחי ומטפס כאן. ריכזתי עבורכם מדריך קצר, ברור ושימושי שיעזור לכם להכיר את האי קצת יותר טוב — מהמצוקים ועד הלוגיסטיקה.",
+        "safety-quiz-kicker": "CLIMBING CYPRUS · בטיחות בהובלה",
+        "safety-quiz-title": "בוחן בטיחות בטיפוס הובלה",
+        "safety-quiz-description": "בוחן קצר שיעזור לך לבדוק את הידע שלך לפני יום טיפוס הובלה — קשרים, אבטחה, קליפים וקבלת החלטות על המצוק.",
+        "safety-quiz-cta": "עד כמה אתה מרגיש בטוח להקליפ?",
+        "safety-quiz-badge": "9 שאלות<br><small>לתרגול מהיר</small>",
         "guide-bouldering-guide-kicker": "המלצה שימושית למטפסים",
         "guide-bouldering-guide-title": "הגיידבוק בולדרינג הרישמי של קפריסין כבר מוכן!",
         "guide-bouldering-guide-desc": "הגיידבוק הרשמי ממפה את אזורי הבולדרינג סביב אקאמס, אינייה ודרושיה: כמעט 700 בעיות בדירוגי Font 3–8A, מפות ברורות, נקודות GPS, הוראות הגעה ותמונות של המסלולים. רוב הגישות קצרות, והאזור מתאים במיוחד לסשנים בחורף. צפו בהצצה וקבלו פרטים נוספים.",
@@ -1381,6 +1386,11 @@ const translations = {
         "guide-intro-title": "Climbing in Cyprus? You’re in the right place.",
         "guide-intro-p1": "Cyprus offers much more than beaches and views — there are excellent crags, beautiful villages, and climbing areas worth getting to know.",
         "guide-intro-p2": "I’m Yonatan, a climbing guide who lives and climbs here. I’ve put together a short, clear and useful guide to help you get to know the island a little better — from the crags to the logistics.",
+        "safety-quiz-kicker": "CLIMBING CYPRUS · Lead climbing safety",
+        "safety-quiz-title": "Lead Climbing Safety Quiz",
+        "safety-quiz-description": "A short quiz to check your knowledge before a lead-climbing day — knots, belaying, clipping, and decisions on the wall.",
+        "safety-quiz-cta": "How confident do you feel clipping?",
+        "safety-quiz-badge": "9 questions<br><small>Quick practice</small>",
         
         // Climber's Guide - Logistics
         "guide-logistics-title": "Logistic",

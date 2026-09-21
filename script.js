@@ -406,8 +406,9 @@ function setLanguage(lang) {
 
 // Check and handle climber guide links when in English mode
 function checkClimberGuideLinks() {
-    // The guide is available in both Hebrew and English; keep normal navigation.
-    return;
+    document.querySelectorAll('[data-quiz-link]').forEach(link => {
+        link.setAttribute('href', `safety-quiz.html?lang=${currentLang}`);
+    });
 }
 
 // Testimonials Carousel Function

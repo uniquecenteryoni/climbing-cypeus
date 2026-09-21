@@ -22,7 +22,7 @@
             margin: 0;
             background: var(--quiz-paper);
             color: var(--quiz-ink);
-            font-family: inherit;
+            font-family: var(--font-primary);
         }
 
         .quiz-shell {
@@ -42,19 +42,46 @@
         .quiz-brand {
             display: inline-flex;
             align-items: center;
-            gap: 0.75rem;
+            gap: 0;
             color: var(--quiz-green);
             font-weight: 800;
             text-decoration: none;
         }
 
         .quiz-brand img {
-            width: 52px;
-            height: 52px;
-            padding: 0.35rem;
-            border-radius: 50%;
+            width: 150px;
+            height: 86px;
+            padding: 0;
+            border-radius: 0;
             object-fit: contain;
+            background: transparent;
+        }
+
+        .quiz-brand span {
+            display: none;
+        }
+
+        .quiz-language {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            direction: ltr;
+        }
+
+        .quiz-language a {
+            padding: 0.35rem 0.55rem;
+            border: 1px solid #dfe7dc;
+            border-radius: 999px;
+            color: var(--quiz-green-light);
+            font-size: 0.82rem;
+            font-weight: 800;
+            text-decoration: none;
+        }
+
+        .quiz-language a[aria-current="page"] {
+            border-color: var(--quiz-green);
             background: var(--quiz-green);
+            color: #fff;
         }
 
         .quiz-back-link {
@@ -176,11 +203,12 @@
 
         .quiz-image {
             width: 100%;
-            max-height: 430px;
+            height: min(62vh, 620px);
             margin: 0 0 1.25rem;
             border-radius: 0.9rem;
-            object-fit: cover;
+            object-fit: contain;
             object-position: center;
+            background: #e9efe5;
         }
 
         .quiz-actions {
@@ -277,9 +305,9 @@
                 margin-bottom: 1.25rem;
             }
 
-            .quiz-brand span {
-                max-width: 140px;
-                font-size: 0.9rem;
+            .quiz-brand img {
+                width: 112px;
+                height: 64px;
             }
 
             .quiz-question-panel,
@@ -301,16 +329,19 @@
 <body class="safety-quiz-page">
     <main class="quiz-shell">
         <div class="quiz-topbar">
-            <a class="quiz-brand" href="index.html" aria-label="חזרה לאתר Climbing Cyprus">
-                <img src="pics/climbing-cyprus-logo-white.webp" alt="Climbing Cyprus">
-                <span>Climbing Cyprus<br>קפריסין בעין אחרת</span>
+            <a class="quiz-brand" href="index.html" aria-label="Climbing Cyprus">
+                <img src="pics/climbing-cyprus-logo.webp" alt="Climbing Cyprus">
             </a>
-            <a class="quiz-back-link" href="climber-guide.html">חזרה למדריך</a>
+            <div class="quiz-language" aria-label="בחירת שפה">
+                <a href="?lang=he" data-lang-link="he">עברית</a>
+                <a href="?lang=en" data-lang-link="en">English</a>
+            </div>
+            <a class="quiz-back-link" href="climber-guide.html" id="quiz-back-link">חזרה למדריך</a>
         </div>
 
         <header class="quiz-hero">
-            <h1>עד כמה אתה מרגיש בטוח להקליפ?</h1>
-            <p>9 שאלות קצרות על בטיחות בהובלה. בחרו תשובה אחת, שלחו — ועוברים מיד לשאלה הבאה.</p>
+            <h1 id="quiz-title"></h1>
+            <p id="quiz-intro"></p>
         </header>
 
         <section class="quiz-card" aria-live="polite">
@@ -320,115 +351,110 @@
     </main>
 
     <script>
+        const lang = new URLSearchParams(window.location.search).get('lang') === 'en' ? 'en' : 'he';
+        document.documentElement.lang = lang;
+        document.documentElement.dir = lang === 'he' ? 'rtl' : 'ltr';
+
+        const copy = {
+            he: {
+                title: 'עד כמה אתה מרגיש בטוח להקליפ?',
+                intro: '9 שאלות קצרות על בטיחות בהובלה. בחרו תשובה אחת, שלחו — ועוברים מיד לשאלה הבאה.',
+                back: 'חזרה למדריך',
+                question: (number, total) => `שאלה ${number} מתוך ${total}`,
+                options: 'אפשרויות תשובה',
+                submit: 'שלח תשובה',
+                error: 'בחרו תשובה כדי להמשיך.',
+                finished: 'הבוחן הסתיים',
+                retry: 'נסו שוב',
+                note: 'התבוננו בתמונה לפני שבוחרים תשובה.',
+                resultExcellent: 'יש לך בסיס מצוין. ממשיכים לתרגל, שומרים על תקשורת ובודקים כל מערכת לפני שמעמיסים עליה.',
+                resultGood: 'יש לך בסיס טוב, וכדאי לרענן כמה נקודות לפני יום הובלה נוסף.',
+                resultReview: 'כדאי לעצור לרענון מודרך של היסודות לפני שמתקדמים להובלה עצמאית.'
+            },
+            en: {
+                title: 'How confident do you feel clipping?',
+                intro: '9 short lead-climbing safety questions. Choose one answer, submit, and move straight to the next question.',
+                back: 'Back to the guide',
+                question: (number, total) => `Question ${number} of ${total}`,
+                options: 'Answer options',
+                submit: 'Submit answer',
+                error: 'Choose an answer to continue.',
+                finished: 'Quiz complete',
+                retry: 'Try again',
+                note: 'Look at the image before choosing an answer.',
+                resultExcellent: 'You have excellent foundations. Keep practicing, communicate clearly, and check every system before loading it.',
+                resultGood: 'You have a good foundation. Review a few points before your next lead-climbing day.',
+                resultReview: 'Refresh the fundamentals with an instructor before moving on to independent lead climbing.'
+            }
+        };
+
         const questions = [
             {
-                text: 'מה בודקים בשיחת בטיחות לפני שמתחילים לטפס?',
-                options: [
-                    'רק שהחבל בצבע שמתאים לציוד',
-                    'רתמה, קשר, מכשיר אבטחה, כיוון החבל והקצה החופשי',
-                    'שהמטפס הראשון יעלה לפני שהמאבטח מוכן',
-                    'רק שהקסדה יושבת נוח'
-                ],
-                answer: 1
+                image: 'pics/safety-quiz-q1.webp', imageAlt: { he: 'מטפס ומערכת חבל על קיר טיפוס', en: 'Climber and rope system on an indoor climbing wall' },
+                text: { he: 'מה בודקים בשיחת בטיחות לפני שמתחילים לטפס?', en: 'What should you check in a safety check before starting to climb?' },
+                options: { he: ['רק שהחבל בצבע שמתאים לציוד', 'רתמה, קשר, מכשיר אבטחה, כיוון החבל והקצה החופשי', 'שהמטפס הראשון יעלה לפני שהמאבטח מוכן', 'רק שהקסדה יושבת נוח'], en: ['Only that the rope color matches the gear', 'Harness, knot, belay device, rope direction, and the free end', 'That the first climber starts before the belayer is ready', 'Only that the helmet feels comfortable'] }, answer: 1
             },
             {
-                text: 'איך מזהים מצב של Back Clip?',
-                options: [
-                    'החבל עובר בצד הלא נכון של הקרבינר בקוויק-דרו',
-                    'החבל ארוך מדי',
-                    'המאבטח עומד קרוב למצוק',
-                    'הקוויק-דרו מחובר לבולט'
-                ],
-                answer: 0
+                image: 'pics/safety-quiz-q2.webp', imageAlt: { he: 'קוויק-דרו מונח על שפת סלע', en: 'Quickdraw resting on a rock edge' },
+                text: { he: 'הקרבינר התחתון נשען על שפת סלע. מה הבחירה הטובה יותר?', en: 'The lower carabiner is resting on a rock edge. What is the better choice?' },
+                options: { he: ['להשאיר אותו כך', 'להשתמש בקוויק-דרו ארוך יותר', 'לקליפ את החבל גבוה יותר', 'לסובב את החבל'], en: ['Leave it as it is', 'Use a longer quickdraw', 'Clip the rope higher', 'Twist the rope'] }, answer: 1
             },
             {
-                text: 'מהי פעולת היד הנכונה של המאבטח בזמן אבטחה?',
-                options: [
-                    'להחזיק את החבל רק בקצות האצבעות',
-                    'להשאיר את יד הבלימה מאחורי מכשיר האבטחה ולשמור על שליטה',
-                    'להעביר את החבל ליד השנייה בכל פעם שהמטפס זז',
-                    'לשחרר את החבל כשהמטפס מתקרב לבולט'
-                ],
-                answer: 1
+                image: 'pics/safety-quiz-q3.webp', imageAlt: { he: 'קוויק-דרו שחוק תלוי על קיר סלע', en: 'Worn quickdraw hanging from a bolt on a rock wall' },
+                text: { he: 'הקוויק-דרו הזה שחוק ותלוי על הקיר. האם תטפס מעליו?', en: 'This quickdraw is worn and hanging on the wall. Would you climb above it?' },
+                options: { he: ['כן', 'לא'], en: ['Yes', 'No'] }, answer: 1
             },
             {
-                text: 'איבדתם תקשורת קולית בין המטפס למאבטח. מה עושים?',
-                options: [
-                    'ממשיכים כרגיל ומקווים שהכול ברור',
-                    'מושכים בחבל כדי לסמן שהכול בסדר',
-                    'עוצרים, קובעים סימנים מוסכמים מחדש ומוודאים ששניכם מבינים אותם',
-                    'המטפס מוריד את עצמו מיד בלי לתקשר'
-                ],
-                answer: 2
+                image: 'pics/safety-quiz-q4.webp', imageAlt: { he: 'קרבינר טיפוס ורצועה', en: 'Climbing carabiner and sling' },
+                text: { he: 'איך בדרך כלל מזהים את הקרבינר בצד החבל?', en: 'How can you usually identify the rope-side carabiner?' },
+                options: { he: ['לרוב יש לו STRING keeper ו/או שער מכופף', 'הוא תמיד הקרבינר העליון', 'הוא תמיד הקרבינר הגדול יותר', 'אין ביניהם הבדל'], en: ['It often has a STRING keeper and/or a bent gate', 'It is always the upper carabiner', 'It is always the larger carabiner', 'There is no difference'] }, answer: 0
             },
             {
-                text: 'מה חשוב לבדוק מיד אחרי קליפ?',
-                options: [
-                    'שהשער של הקרבינר סגור ושהחבל יושב בתוכו בכיוון הנכון',
-                    'שהחבל נוגע בסלע',
-                    'שהקוויק-דרו מסובב הצידה',
-                    'שהחבל עובר בין הרגליים'
-                ],
-                answer: 0
+                image: 'pics/safety-quiz-q5.webp', imageAlt: { he: 'מטפס מושיט יד לקוויק-דרו גבוה', en: 'Climber reaching high to clip a quickdraw' },
+                text: { he: 'מטפס מקליפ גבוה כשהוא לא יציב. מה החיסרון העיקרי?', en: 'A climber is clipping very high while unstable. What is the main drawback?' },
+                options: { he: ['אין חיסרון; קליפ גבוה תמיד עדיף', 'זה עלול לדרוש משיכת חבל נוסף ולהגדיל את פוטנציאל הנפילה', 'זה מחזק אוטומטית את הבולט', 'זה מפחית אוטומטית את חיכוך החבל'], en: ['Nothing; high clipping is always better', 'It may require pulling extra rope and increase fall potential', 'It makes the bolt stronger', 'It automatically reduces rope drag'] }, answer: 1
             },
             {
-                text: 'מהי תגובת המאבטח הנכונה כשמטפס מודיע שהוא עומד ליפול?',
-                options: [
-                    'לרוץ לאחור כדי להתרחק מהמצוק',
-                    'לשמור יד בלימה, להיות מוכן לספוג את הנפילה ולהישאר קשוב',
-                    'לשחרר חבל כדי שהנפילה תהיה רכה יותר',
-                    'להסתכל רק על הבולט הבא'
-                ],
-                answer: 1
+                image: 'pics/safety-quiz-q6.webp', imageAlt: { he: 'חבל שעובר בצורה לא נכונה דרך קוויק-דרו', en: 'Climbing rope clipped incorrectly through a quickdraw' },
+                text: { he: 'מה הבעיה בתמונה?', en: 'What is the problem in this picture?' },
+                options: { he: ['אין בעיה', 'Back-clipping', 'Z-clipping', 'הקוויק-דרו קצר מדי'], en: ['Nothing is wrong', 'Back-clipping', 'Z-clipping', 'The quickdraw is too short'] }, answer: 1
             },
             {
-                text: 'לפני שמנקים תחנה או משנים מערכת, מה חייבים לעשות?',
-                options: [
-                    'לנתק את החבל כדי לעבוד מהר יותר',
-                    'לוודא שיש מערכת גיבוי ותכנית ברורה, ולבצע בדיקה הדדית',
-                    'לבקש מהמטפס הבא להחליט',
-                    'להסתמך על הזיכרון מהאימון הקודם'
-                ],
-                answer: 1
+                image: 'pics/safety-quiz-q7.webp', imageAlt: { he: 'מטפס לצד קוויק-דרו וחבל על קיר סלע', en: 'Climber beside a quickdraw and rope on a rock wall' },
+                text: { he: 'למה Back-clipping עלול להיות מסוכן?', en: 'Why can back-clipping be dangerous?' },
+                options: { he: ['החבל עלול לעבור מעל השער ולפתוח אותו בנפילה', 'הבולט עלול להשתחרר', 'הרצועה נהיית ארוכה מדי', 'המאבטח מאבד שליטה אוטומטית'], en: ['The rope may run over the gate and open it in a fall', 'The bolt may unscrew', 'The sling becomes too long', 'The belayer automatically loses control'] }, answer: 0
             },
             {
-                text: 'למה חשוב לקשור קשר עצירה בקצה החבל?',
-                options: [
-                    'כדי שהחבל ייראה מסודר יותר',
-                    'כדי למנוע מהקצה לעבור בטעות דרך מכשיר האבטחה',
-                    'כדי להקל על הקליפ הראשון',
-                    'אין צורך בכך אם החבל חדש'
-                ],
-                answer: 1
+                image: 'pics/safety-quiz-q8.webp', imageAlt: { he: 'מטפס מדגים מסלול חבל בין קוויק-דרואים', en: 'Climber demonstrating a rope path between quickdraws' },
+                text: { he: 'מה בדרך כלל יוצר Z-clip?', en: 'What usually creates a Z-clip?' },
+                options: { he: ['לקיחת חבל מתחת לקוויק-דרו הקודם', 'קליפ נמוך מדי', 'שימוש בקרבינר Wiregate', 'שימוש ברצועה ארוכה'], en: ['Taking rope from below the previous quickdraw', 'Clipping too low', 'Using a wiregate', 'Using a long sling'] }, answer: 0
             },
             {
-                image: 'pics/safety-quiz-q9.webp',
-                imageAlt: 'מטפס על מצוק עם קוויק-דרו וחבל',
-                note: 'התבוננו בתמונה לפני שבוחרים תשובה.',
-                text: 'מה חייבים לוודא לפני שממשיכים לטפס אחרי הקליפ שבתמונה?',
-                options: [
-                    'שהחבל יושב בקרבינר התחתון של הקוויק-דרו, שהשער סגור ושהכיוון נכון',
-                    'שהחבל עובר מאחורי הגב כדי שלא יפריע',
-                    'שהקוויק-דרו תלוי חופשי בלי חבל בתוכו',
-                    'שאפשר להמשיך בלי להביט בציוד עד הבולט הבא'
-                ],
-                answer: 0
+                image: 'pics/safety-quiz-q9.webp', imageAlt: { he: 'מטפס על מצוק עם קוויק-דרו וחבל', en: 'Climber on a rock face with a quickdraw and rope' },
+                text: { he: 'מה חייבים לוודא לפני שממשיכים לטפס אחרי הקליפ שבתמונה?', en: 'What must you verify before continuing to climb after the clip shown in the image?' },
+                options: { he: ['שהחבל יושב בקרבינר התחתון של הקוויק-דרו, שהשער סגור ושהכיוון נכון', 'שהחבל עובר מאחורי הגב כדי שלא יפריע', 'שהקוויק-דרו תלוי חופשי בלי חבל בתוכו', 'שאפשר להמשיך בלי להביט בציוד עד הבולט הבא'], en: ['The rope is in the lower carabiner, the gate is closed, and the direction is correct', 'The rope runs behind your back so it does not get in the way', 'The quickdraw hangs freely with no rope in it', 'You can continue without checking the gear until the next bolt'] }, answer: 0
             }
         ];
 
         const quizApp = document.getElementById('quiz-app');
         const result = document.getElementById('quiz-result');
+        const ui = copy[lang];
         let current = 0;
         let score = 0;
+
+        document.getElementById('quiz-title').textContent = ui.title;
+        document.getElementById('quiz-intro').textContent = ui.intro;
+        document.getElementById('quiz-back-link').textContent = ui.back;
+        document.querySelectorAll('[data-lang-link]').forEach(link => {
+            if (link.dataset.lang === lang) link.setAttribute('aria-current', 'page');
+        });
 
         function renderQuestion() {
             const question = questions[current];
             const progress = ((current + 1) / questions.length) * 100;
-            const image = question.image
-                ? `<img class="quiz-image" src="${question.image}" alt="${question.imageAlt}" loading="eager">`
-                : '';
-            const note = question.note ? `<p class="quiz-q9-note">${question.note}</p>` : '';
-            const options = question.options.map((option, index) => `
+            const image = `<img class="quiz-image" src="${question.image}" alt="${question.imageAlt[lang]}" loading="eager">`;
+            const note = `<p class="quiz-q9-note">${ui.note}</p>`;
+            const options = question.options[lang].map((option, index) => `
                 <label class="quiz-option">
                     <input type="radio" name="quiz-answer" value="${index}">
                     <span>${option}</span>
@@ -438,7 +464,7 @@
             quizApp.innerHTML = `
                 <div class="quiz-progress-wrap">
                     <div class="quiz-progress-line">
-                        <span>שאלה ${current + 1} מתוך ${questions.length}</span>
+                        <span>${ui.question(current + 1, questions.length)}</span>
                         <span>${Math.round(progress)}%</span>
                     </div>
                     <div class="quiz-progress" role="progressbar" aria-valuemin="1" aria-valuemax="${questions.length}" aria-valuenow="${current + 1}">
@@ -448,14 +474,14 @@
                 <form class="quiz-question-panel" id="quiz-form">
                     ${image}
                     ${note}
-                    <h2>${question.text}</h2>
+                    <h2>${question.text[lang]}</h2>
                     <fieldset class="quiz-options">
-                        <legend class="sr-only">אפשרויות תשובה</legend>
+                        <legend class="sr-only">${ui.options}</legend>
                         ${options}
                     </fieldset>
                     <div class="quiz-actions">
                         <div class="quiz-error" id="quiz-error" role="alert"></div>
-                        <button class="quiz-submit" type="submit">שלח תשובה</button>
+                        <button class="quiz-submit" type="submit">${ui.submit}</button>
                     </div>
                 </form>
             `;
@@ -465,7 +491,7 @@
                 const selected = document.querySelector('input[name="quiz-answer"]:checked');
                 const error = document.getElementById('quiz-error');
                 if (!selected) {
-                    error.textContent = 'בחרו תשובה כדי להמשיך.';
+                    error.textContent = ui.error;
                     return;
                 }
                 if (Number(selected.value) === question.answer) score += 1;
@@ -482,16 +508,12 @@
         function showResult() {
             quizApp.hidden = true;
             result.hidden = false;
-            const message = score >= 8
-                ? 'יש לך בסיס מצוין. ממשיכים לתרגל, שומרים על תקשורת ובודקים כל מערכת לפני שמעמיסים עליה.'
-                : score >= 5
-                    ? 'יש לך בסיס טוב, וכדאי לרענן כמה נקודות לפני יום הובלה נוסף.'
-                    : 'כדאי לעצור לרענון מודרך של היסודות לפני שמתקדמים להובלה עצמאית.';
+            const message = score >= 8 ? ui.resultExcellent : score >= 5 ? ui.resultGood : ui.resultReview;
             result.innerHTML = `
-                <h2>הבוחן הסתיים</h2>
+                <h2>${ui.finished}</h2>
                 <div class="quiz-score">${score}/${questions.length}</div>
                 <p>${message}</p>
-                <button class="quiz-restart" type="button">נסו שוב</button>
+                <button class="quiz-restart" type="button">${ui.retry}</button>
             `;
             result.querySelector('.quiz-restart').addEventListener('click', () => {
                 current = 0;

@@ -4,7 +4,6 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>עד כמה אתה מרגיש בטוח להקליפ? | Climbing Cyprus</title>
-  <meta http-equiv="refresh" content="0; url=../safety-quiz.html">
   <link rel="icon" type="image/webp" href="../favicon.webp">
 </head>
 <body>
@@ -12,5 +11,9 @@
     <p>מעבירים אותך לבוחן הבטיחות…</p>
     <a href="../safety-quiz.html">להמשך לבוחן</a>
   </main>
+  <script>
+    const lang = new URLSearchParams(window.location.search).get('lang');
+    window.location.replace(`../safety-quiz.html${lang === 'en' ? '?lang=en' : ''}`);
+  </script>
 </body>
 </html>

@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (name && lead.name) name.value = lead.name;
             if (email && lead.email) email.value = lead.email;
             if (phone && lead.phone) phone.value = lead.phone;
-            if (message && lead.interest) message.value = `Climbing safety quiz score: ${lead.score}/9. Follow-up requested: ${lead.interest}`;
+            if (message && lead.interest) message.value = `Climbing safety quiz score: ${lead.score}/10. Follow-up requested: ${lead.interest}`;
             sessionStorage.removeItem('climbingQuizLead');
         } catch (error) {
             sessionStorage.removeItem('climbingQuizLead');

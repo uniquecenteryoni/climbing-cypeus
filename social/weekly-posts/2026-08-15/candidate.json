@@ -1,0 +1,142 @@
+{
+  "draft_id": "CC-20260815-86A2CD29",
+  "revision": 3,
+  "status": "partially_published",
+  "last_checked_at": "2026-08-23T22:31:02+03:00",
+  "draft_date": "2026-08-15",
+  "source_type": "google_photos_album",
+  "source_album": "קפריסין בעין אחרת",
+  "source_album_id": "AF1QipMlv9mvEuQuEM62JmVFv2XeIOxh7AC2RV1Vwa7U",
+  "google_photos_id": "AF1QipPCB8cNsvC5RLoGrvUp1YvsPE6SYe_4xEtxfFQ4",
+  "source_filename": "20260813_184915.webp",
+  "captured_at": "2026-08-13T18:49:15+03:00",
+  "media_type": "photo",
+  "source_dimensions": "3060x4080",
+  "source_file": "source-original.webp",
+  "working_source_file": "source-candidate.webp",
+  "selection_reason": "A clear vertical climbing scene with a young climber moving on the rock and an adult close by. Both people, the rope line, the cliff profile, and the open sky remain visible in the feed and story versions.",
+  "duplicate_check": {
+    "instagram_account": "climbing.cyprus",
+    "instagram_posts_checked": [
+      "https://www.instagram.com/climbing.cyprus/p/Db0Z_pbjEZv/",
+      "https://www.instagram.com/climbing.cyprus/p/DbkToURDNBd/",
+      "https://www.instagram.com/climbing.cyprus/p/DbgAtbyDJI3/",
+      "https://www.instagram.com/climbing.cyprus/p/DbVk8muDBu9/"
+    ],
+    "instagram_reels_checked": [
+      "https://www.instagram.com/climbing.cyprus/reel/DbxkJrvsyaI/"
+    ],
+    "project_history_checked": "social/weekly-posts/history.json",
+    "prior_drafts_checked": true,
+    "project_images_checked": 147,
+    "result": "no_prior_use_found",
+    "source_sha256": "f5e1cf34c50045f16fd8a41b2fa1368329d8d889a33dcf7df9b7c0266018e1ba",
+    "working_source_sha256": "d457b9ca6ed2470cef61b2051396f3e9f5f52efc2e90b0269c94bbc3d03e6cc9",
+    "phash64": "b9b5b15a4e2e6c34",
+    "dhash64": "4527c98c8e04e6c7",
+    "instagram_phash_distance_range": "27-32",
+    "instagram_dhash_distance_range": "26-35",
+    "visual_scan_notes": "The two items added to the album on 13 Aug were inspected at full size. This photo was selected over the other new item because it gives a clearer view of both the climber and the nearby adult while preserving a strong vertical composition. It is visually distinct from all four Instagram feed posts, the existing Reel cover, both history records, previous drafts, and 147 local project images. The nearest local perceptual-hash results were visually inspected and were unrelated cliff or layout images, not copies, crops, or edits of this media."
+  },
+  "location": "Cyprus / קפריסין",
+  "location_confidence": "general_only",
+  "location_notes": "Google Photos shows no embedded location for this item, so no precise location was inferred.",
+  "branding": {
+    "palette": "black/white/yellow",
+    "logo": "pics/climbing-cyprus-logo.webp",
+    "motto": "CLIMB | EXPLORE | CONNECT",
+    "website": "climbing-cyprus.com",
+    "story_new_post_sticker": {
+      "included": true,
+      "interactive": false,
+      "position": "upper right, within the open sky safe area",
+      "design": "tilted black card with a fine yellow outline, offset yellow depth layer, NEW status dot, bold POST typography, and an upward-right arrow",
+      "not_used_on": [
+        "feed",
+        "YouTube Community"
+      ]
+    }
+  },
+  "deliverables": {
+    "feed": "feed-preview.webp",
+    "story": "story-preview.webp",
+    "caption": "caption.md"
+  },
+  "file_hashes": {
+    "feed_sha256": "80d008fabae5346646eae4de11108a4bab3e428104af2c3190ff4a2548fe1a98",
+    "story_sha256": "90b518d6c16dbec93135558fa5358cb4b2b621e89dd7c08d51b6de76f9bf77aa"
+  },
+  "publishing_targets_after_explicit_approval": [
+    "Instagram climbing.cyprus — Feed with the full bilingual caption",
+    "Instagram climbing.cyprus — Story with the approved branded media only",
+    "Facebook group 895126888648835 — image post with the full bilingual caption",
+    "Facebook yoni.malichi — Personal Feed via share of the Facebook Group post only",
+    "Facebook yoni.malichi — Story via automatic cross-share from the approved climbing.cyprus Instagram Story; no separate upload",
+    "YouTube @ClimbingCyprus — Community image post with the approved shortened copy, if Community is available",
+    "climbing-cyprus.com — section#gallery under הרגעים שלכם only after every approved social destination succeeds and is verified"
+  ],
+  "approval": {
+    "approved": true,
+    "approval_mailbox": "unique.center.yoni@gmail.com",
+    "email_recipient": "unique.center.yoni@gmail.com",
+    "email_sender": "outlesson@gmail.com",
+    "email_subject": "[Climbing Cyprus Approval][CC-20260815-86A2CD29] טיוטה לאישור",
+    "email_sent_at": "2026-08-15T14:15:14+03:00",
+    "email_reply_received_at": "2026-08-15T14:25:00+03:00",
+    "email_reply_from": "unique.center.yoni@gmail.com",
+    "email_status": "approved_via_changes",
+    "approval_method": "email_changes_plus_explicit_chat_confirmation",
+    "approved_at": "2026-08-15T14:38:58+03:00",
+    "change_request": "שינויים CC-20260815-86A2CD29: משפחה מקסימה, עולים חדשים-ישנים שהראו איך אפשר לשמור על תקשורת נהדרת גם בקבוצה גדולה עם כל הגילאים החל מהקטנה בת ה-6 ועד הגדול בן ה-18. הנה פשוט נהדר אתכם! , אמא חנה, פעם הבאה את גם מטפסת !",
+    "rule": "A valid reply from unique.center.yoni@gmail.com in the form 'שינויים DRAFT_ID: ...' both requests the stated changes and approves publication of the faithfully edited version without a second approval round. Ambiguous or expanded changes still require clarification."
+  },
+  "publishing_preflight": {
+    "checked_at": "2026-08-15T14:44:33+03:00",
+    "gmail_unique_mailbox": "available_and_verified",
+    "instagram_feed": "available_as_climbing.cyprus",
+    "instagram_story": "cross_share_to_facebook_personal_verified_but_story_uploader_unavailable_in_instagram_web_and_climbing.cyprus_not_connected_in_meta_business_suite",
+    "facebook_group": "available_as_admin",
+    "facebook_personal_feed_via_group_share": "available_after_group_post",
+    "facebook_personal_story": "available",
+    "youtube_community": "available_after_switch_to_ClimbingCyprus_channel",
+    "result": "blocked_no_partial_publication",
+    "blocking_reason": "Instagram Story cannot be published from the currently connected interfaces. Accounts Center will cross-share a climbing.cyprus Story to the personal Facebook profile, but Meta Business Suite offers Story creation only for unique.center and its Facebook Page, not for climbing.cyprus."
+  },
+  "accounts_center": {
+    "checked_at": "2026-08-15T14:54:06+03:00",
+    "facebook_personal": "Yonatan Cohen Malichi",
+    "instagram_accounts_in_same_accounts_center": [
+      "climbing.cyprus",
+      "unique.center"
+    ],
+    "climbing_story_to_personal_facebook": "enabled",
+    "climbing_posts_to_personal_facebook": "disabled_to_avoid_duplicate_personal_feed_posts",
+    "unique_center_facebook_page_connection": "already_connected_to_יוניק_-_המרכז_ללימוד_מתמטיקה_ופיזיקה",
+    "unique_center_story_to_personal_facebook": "not_available_for_current_business_account_type"
+  },
+  "publishing_performed": true,
+  "published_at": "2026-08-15T15:00:00+03:00",
+  "links": {
+    "instagram_feed": "https://www.instagram.com/climbing.cyprus/p/DcD1nSdDCAP/",
+    "facebook_group": "https://www.facebook.com/groups/895126888648835/posts/1615342763293907/",
+    "facebook_personal_feed": "https://www.facebook.com/yoni.malichi",
+    "facebook_story": "https://www.facebook.com/stories/1369430129806549/UzpfSVNDOjE1OTQyMTc0NDg4NTkxODE=/",
+    "youtube_community": "https://www.youtube.com/post/Ugkxxo-fDIYscZJ2XXR7DXDiNCbk46TfWrdy",
+    "website_gallery": "https://climbing-cyprus.com/#gallery"
+  },
+  "targets": {
+    "instagram_feed": "published_verified",
+    "instagram_story": "not_published_web_uploader_unavailable_and_reverse_cross_share_failed",
+    "facebook_group": "published_verified",
+    "facebook_personal_feed": "published_verified_group_share",
+    "facebook_story": "published_verified_direct_story_upload",
+    "youtube_community": "published_verified",
+    "website_gallery": "published_verified"
+  },
+  "pending": [
+    "instagram_story"
+  ],
+  "verification_notes": "Instagram Feed, Facebook Group, Facebook Personal Feed via group share, Facebook Story, YouTube Community, and the website gallery are published and verified. The website gallery item was deployed and verified live at 2026-08-23T21:01:22+03:00 without republishing any completed social destination. At 2026-08-23T22:31:02+03:00, Instagram Web was authenticated as climbing.cyprus but exposed only the feed composer. Meta Business Suite's Story composer offered only the Facebook Page Climbing Cyprus Adventures, no Instagram destination, and the account overview still showed Connect Instagram. No media was uploaded, no account or connection settings were changed, and no completed destination was repeated. Instagram Story remains pending.",
+  "website_action": "published_verified",
+  "website_file": "pics/Galerry/family-climbing-cyprus-2026-08-15.webp"
+}

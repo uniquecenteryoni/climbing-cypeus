@@ -175,7 +175,7 @@ main {
     background:
         linear-gradient(90deg, var(--forest) 0%, rgba(23, 63, 53, .12) 38%),
         linear-gradient(0deg, rgba(12, 43, 36, .35), rgba(12, 43, 36, .05)),
-        url("../pics/Galerry/climbing.jpg") 52% center / cover no-repeat;
+        url("../pics/Galerry/climbing.webp") 52% center / cover no-repeat;
 }
 
 #waiverForm {

@@ -1,0 +1,125 @@
+{
+  "draft_id": "CC-20260827-2CCA6C89",
+  "revision": 4,
+    "status": "completed_with_optional_stories_unpublished",
+  "draft_date": "2026-08-27",
+  "created_at": "2026-08-27T09:02:07+03:00",
+  "source_type": "website_gallery_fallback",
+  "source_album_attempt": "קפריסין בעין אחרת",
+  "source_album_status": "not_available_through_supported_connector",
+  "source_gallery_file": "pics/Galerry/506063081_10238094923733485_799602026524901628_n.webp",
+  "source_filename": "506063081_10238094923733485_799602026524901628_n.webp",
+  "media_type": "photo",
+  "source_dimensions": "960x1280",
+  "source_file": "source-original.webp",
+  "working_source_file": "source-candidate.webp",
+  "selection_reason": "Clean vertical climbing-day portrait with three smiling people, visible rope, natural shade and a clear rock-climbing context. The subjects remain legible in both 4:5 and 9:16 layouts.",
+  "duplicate_check": {
+    "instagram_account": "climbing.cyprus",
+    "instagram_posts_checked": [
+      "https://www.instagram.com/climbing.cyprus/p/DcbRYB3sOq2/",
+      "https://www.instagram.com/climbing.cyprus/p/DcN6L0vjH_Y/",
+      "https://www.instagram.com/climbing.cyprus/p/DcD1nSdDCAP/",
+      "https://www.instagram.com/climbing.cyprus/p/Db0Z_pbjEZv/",
+      "https://www.instagram.com/climbing.cyprus/p/DbkToURDNBd/",
+      "https://www.instagram.com/climbing.cyprus/p/DbgAtbyDJI3/",
+      "https://www.instagram.com/climbing.cyprus/p/DbVk8muDBu9/"
+    ],
+    "project_history_checked": "social/weekly-posts/history.json",
+    "prior_drafts_checked": true,
+    "result": "no_prior_use_found",
+    "source_sha256": "2cca6c89753f8e9a485bb000dc630198f761831b845fd34f821464fa2f7c5a9d",
+    "working_source_sha256": "a71bc357edd16d419b659b4d7ca710bfd34f1edae37f92f69525f198f54b7ffa",
+    "phash64": "f31580f66b8858af",
+    "dhash64": "b2714136b2725074",
+    "visual_scan_notes": "Compared with all seven current Instagram feed tiles, including the August 24 post, and with every recorded history item. No visual match was found."
+  },
+  "location": "Cyprus / קפריסין",
+  "location_confidence": "general_only",
+  "location_notes": "No precise location was verified, so no narrower place was inferred.",
+  "branding": {
+    "palette": "clean photo; pink/orange/white only for the NEW POST Story sticker",
+    "corner_logo_and_motto": "none",
+    "photo_branding_rule": "No logo, motto, website address, or corner branding on Feed or Story images",
+    "story_new_post_sticker": "new pink-orange NEW POST sticker from social/branding/new-post-sticker.webp, trimmed and placed discreetly at the upper right"
+  },
+  "deliverables": {
+    "feed": "feed-preview.webp",
+    "story": "story-preview.webp",
+    "caption": "caption.md"
+  },
+  "file_hashes": {
+    "feed_sha256": "c40a2e1fad5d023b99f9f004b02bbe645e382c5c4447ef4e678480a87a2a2e97",
+    "story_sha256": "78fa365c65826931f061d9422644d6e61c2ca57fcfa2d1d958b42fe07153342c"
+  },
+  "approved_copy": {
+    "instagram_feed_and_facebook_group": "ENGLISH BELOW\n\nחוויה מיוחדת של אב ובתו, רגע לפני כניסת השבת.\n\nהספקנו לטפס, לרדת קצת אל הנחל ולעצור לקפה — ולילדה, מים.\nכמה שעות פשוטות יחד, מחוץ לקצב הרגיל.\n\n📍 קפריסין / Cyprus\n🌍 climbing-cyprus.com\n\nA special father-and-daughter adventure, just before Shabbat.\n\nThere was time to climb, head down to the stream, and stop for coffee — water for her.\nA few simple hours together, away from the usual pace.\n\n📍 Cyprus / קפריסין\n🌍 climbing-cyprus.com\n\n#ClimbingCyprus #RockClimbing #CyprusOutdoors #FamilyAdventure #טיפוסבקפריסין",
+    "youtube_community": "חוויה מיוחדת של אב ובתו, רגע לפני כניסת השבת — טיפוס, ירידה לנחל ועצירה לקפה (ומים).\n\nA special father-and-daughter adventure just before Shabbat — climbing, a walk down to the stream, and a coffee stop (with water).\n\n📍 Cyprus / קפריסין\n#ClimbingCyprus #RockClimbing #CyprusOutdoors"
+  },
+  "publishing_targets_after_explicit_approval": [
+    "Instagram climbing.cyprus — Feed with the full bilingual caption",
+    "Instagram climbing.cyprus — Story with the approved branded media only",
+    "Facebook group 895126888648835 — image post with the full bilingual caption",
+    "Facebook yoni.malichi — Personal Feed via share of the Facebook Group post only",
+    "Facebook yoni.malichi — Story via automatic cross-share from Instagram Story only",
+    "YouTube @ClimbingCyprus — Community image post",
+    "Website gallery — skip because this source already exists in הרגעים שלכם"
+  ],
+  "approval": {
+    "approved": true,
+    "approval_id": "CC-20260827-2CCA6C89-R4",
+    "approval_mailbox": "unique.center.yoni@gmail.com",
+    "email_status": "approved_processed",
+    "connected_gmail_account": "unique.center.yoni@gmail.com",
+    "gmail_draft_id": "r6941239670330697844",
+    "gmail_draft_message_id": "1a04e435a08c66b7",
+    "gmail_sent_message_id": "1a04e4593be5d1f6",
+    "gmail_thread_id": "1a04783e1faadb55",
+    "superseded_email_sent_at": "2026-08-28T11:43:48+03:00",
+    "email_sent_at": "2026-08-29T19:06:01+03:00",
+    "email_subject": "[Climbing Cyprus Approval][CC-20260827-2CCA6C89-R4] נוסח מתוקן לאישור",
+    "last_checked_at": "2026-08-30T11:42:44+03:00",
+    "approval_received_at": "2026-08-29T20:17:23+03:00",
+    "approval_message_id": "1a04e86ab4d5aca3",
+    "approval_processed_at": "2026-08-30T09:01:57+03:00",
+    "required_reply": "מאשר CC-20260827-2CCA6C89-R4",
+    "processed_revision_request": {
+      "message_id": "1a0478cfd28b854e",
+      "thread_id": "1a04783e1faadb55",
+      "received_at": "2026-08-28T11:46:00+03:00",
+      "request": "שינויים CC-20260827-2CCA6C89-R3: חוויה מיוחדת של אב ובתו לפני כניסת שבת ! הספקנו גם להכנס קצת לנחל לשתות קפה (הילדה מים)"
+    },
+    "rule": "Revision R4 was approved in the same Gmail thread and the approval was marked Processed. Use this approval once for the listed media, copy, and destinations only."
+  },
+  "publication": {
+    "targets": {
+      "instagram_feed": "published_verified:id_18129694177775573",
+      "instagram_story": "published_verified",
+      "facebook_group": "published_verified:post_1628039042024279",
+      "facebook_personal_feed": "published_verified:shared_from_group_without_added_text",
+            "facebook_story": "unpublished_optional_cross_share_not_independently_verified",
+      "youtube_community": "published_verified:UgkxHPKKplRFP37zWnVcJAnq_GC8lpYoQr3U"
+    },
+        "pending": [],
+        "unpublished_optional_targets": [
+            "facebook_story"
+        ],
+    "links": {
+      "facebook_group": "https://www.facebook.com/groups/895126888648835/posts/1628039042024279/",
+      "youtube_community": "https://www.youtube.com/post/UgkxHPKKplRFP37zWnVcJAnq_GC8lpYoQr3U"
+    },
+    "website_action": "skip_existing_gallery_source",
+        "hold_reason": null,
+        "last_checked_at": "2026-09-08T11:28:02+03:00",
+        "notes": "The Facebook Personal Story target was closed as unpublished_optional on 2026-09-08 after its verification window expired. All core targets remain completed and this draft does not block later cycles."
+  },
+  "connections_verified": {
+    "verified_at": "2026-08-30T11:37:34+03:00",
+    "gmail": "connected_as_unique.center.yoni@gmail.com",
+    "meta_business_suite": "verified_business_id_1550105596794480_asset_id_1198071183394118_with_facebook_page_and_instagram_climbing.cyprus",
+    "facebook_group": "verified_yonatan_cohen_malichi_admin_access",
+    "youtube": "switched_to_and_verified_owner_controls_for_Climbing_Cyprus_channel",
+    "direct_instagram_session": "unique.center_only_not_used_for_climbing_publication"
+  },
+  "publishing_performed": false
+}

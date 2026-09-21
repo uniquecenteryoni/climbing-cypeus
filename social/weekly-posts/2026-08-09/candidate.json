@@ -8,12 +8,12 @@
   "source_album": "קפריסין בעין אחרת",
   "source_album_id": "AF1QipMlv9mvEuQuEM62JmVFv2XeIOxh7AC2RV1Vwa7U",
   "google_photos_id": "AF1QipPnAbH6qT2sP8WxeP9WawvGft4dwQDOZk3_NAPh",
-  "source_filename": "20260802_191249.jpg",
+  "source_filename": "20260802_191249.webp",
   "captured_at": "2026-08-02T19:12:49+03:00",
   "media_type": "photo",
   "source_original_dimensions_from_metadata": "3060x4080",
   "working_source_dimensions": "1080x1440",
-  "source_file": "source-candidate.jpg",
+  "source_file": "source-candidate.webp",
   "selection_reason": "Strong vertical climbing scene with a climber high on the cliff, an attentive belayer below, and an unobstructed coastal landscape. Both people and the central landscape remain visible in the feed and story versions.",
   "duplicate_check": {
     "instagram_account": "climbing.cyprus",
@@ -52,8 +52,8 @@
     }
   },
   "deliverables": {
-    "feed": "feed-preview.jpg",
-    "story": "story-preview.jpg",
+    "feed": "feed-preview.webp",
+    "story": "story-preview.webp",
     "caption": "caption.md"
   },
   "publishing_targets_after_explicit_approval": [

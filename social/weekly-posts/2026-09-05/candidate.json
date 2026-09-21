@@ -1,0 +1,103 @@
+{
+  "draft_id": "CC-20260905-BE5BE86E",
+  "revision": 3,
+  "status": "approved_not_published",
+  "draft_date": "2026-09-05",
+  "created_at": "2026-09-05T09:07:07+03:00",
+  "source_type": "google_photos_album",
+  "source_album": "קפריסין בעין אחרת",
+  "source_album_status": "accessible_as_unique.center.yoni@gmail.com",
+  "google_photos_id": "AF1QipNdxUppntLrJSHFjlRhOhaBVhw25pjwTMGOJrxQ",
+  "source_filename": "20260830_182008.webp",
+  "media_type": "photo",
+  "source_dimensions": "3060x4080",
+  "source_file": "source-original.webp",
+  "working_source_file": "source-candidate.webp",
+  "selection_reason": "Clean, high-resolution vertical climbing photo showing smiling children and adults together at the cliff, with ropes and harnesses visible and suitable framing for Feed and Story.",
+  "duplicate_check": {
+    "instagram_account": "climbing.cyprus",
+    "instagram_posts_checked": 10,
+    "project_history_checked": "social/weekly-posts/history.json",
+    "prior_drafts_checked": true,
+    "result": "no_prior_use_found",
+    "source_sha256": "be5be86e92006dbe90e1e0251fd67f4b5c29161d8c086c747c553990e7a2ca8a",
+    "phash64": "d2c1a8ae396097d7",
+    "dhash64": "8a45cc8c486c5d19",
+    "history_phash_distance_range": "27-39",
+    "history_dhash_distance_range": "30-39",
+    "visual_scan_notes": "Compared visually with all ten current Instagram feed tiles and with every item in history.json. The selected group photo does not appear in the feed, and no near-duplicate hash match was found."
+  },
+  "location": "Cyprus / קפריסין",
+  "location_confidence": "general_only",
+  "location_notes": "No precise location was verified, so no narrower place was inferred.",
+  "branding": {
+    "feed": "clean image without logo, motto, website address, or corner branding",
+    "story": "clean image with only the current pink-orange NEW POST sticker from social/branding/new-post-sticker.webp, placed discreetly at the upper right"
+  },
+  "deliverables": {
+    "feed": "feed-preview.webp",
+    "story": "story-preview.webp",
+    "caption": "caption.md"
+  },
+  "file_hashes": {
+    "feed_sha256": "8f05e78009dc0505efd01c645706ee0fea6faf7c0af2d6cf81a74cca5a21f282",
+    "story_sha256": "2d9e1174e0015e2d74e6b358fa1adb8654954cf365aac1725840847d01a99b62"
+  },
+  "proposed_copy": {
+    "instagram_feed_and_facebook_group": "ENGLISH BELOW\n\nוהפעם הגיעה אלינו משפחה מקסימה: חלקם ממרכז הארץ, חלקם מאיטליה, והסבא והסבתא בכלל בקפריסין.\nאת הקיץ הם החליטו להעביר יחד אצל הסבא והסבתא, ובאמצע עשו הפסקה קצרה ויצאו לחוות בפעם הראשונה טיפוס בטבע.\nומהיום הזה גם קיבלנו סרטון נהדר — תודה רבה!\n\n📍 קפריסין / Cyprus\n🌍 climbing-cyprus.com\n\nThis time we were joined by a lovely family: some came from central Israel, some from Italy, while the grandparents live here in Cyprus.\nThey decided to spend the summer together at their grandparents’ home, taking a short break to experience outdoor climbing for the first time.\nAnd we also received a wonderful video from the day — thank you!\n\n📍 Cyprus / קפריסין\n🌍 climbing-cyprus.com\n\n#ClimbingCyprus #RockClimbing #CyprusOutdoors #FamilyAdventure #טיפוסבקפריסין",
+    "youtube_community": "והפעם הגיעה אלינו משפחה מקסימה: חלקם ממרכז הארץ, חלקם מאיטליה, והסבא והסבתא בכלל בקפריסין. את הקיץ הם החליטו להעביר יחד אצל הסבא והסבתא, ובאמצע עשו הפסקה קצרה ויצאו לחוות בפעם הראשונה טיפוס בטבע. ומהיום הזה גם קיבלנו סרטון נהדר — תודה רבה!\n\nThis time we were joined by a lovely family: some came from central Israel, some from Italy, while the grandparents live here in Cyprus. They decided to spend the summer together at their grandparents’ home, taking a short break to experience outdoor climbing for the first time. And we also received a wonderful video from the day — thank you!\n\n📍 Cyprus / קפריסין\n#ClimbingCyprus #RockClimbing #CyprusOutdoors"
+  },
+  "publishing_targets_after_explicit_approval": [
+    "Instagram climbing.cyprus — Feed with the full bilingual caption",
+    "Instagram climbing.cyprus — Story with the approved Story media only",
+    "Facebook group 895126888648835 — image post with the full bilingual caption",
+    "Facebook yoni.malichi — Personal Feed via share of the Facebook Group post only",
+    "Facebook yoni.malichi — Story via automatic cross-share from Instagram Story only",
+    "YouTube @ClimbingCyprus — Community image post",
+    "climbing-cyprus.com section#gallery — add after core publication"
+  ],
+  "approval": {
+    "approved": true,
+    "approval_id": "CC-20260905-BE5BE86E-R3",
+    "approval_mailbox": "unique.center.yoni@gmail.com",
+    "connected_gmail_account": "unique.center.yoni@gmail.com",
+    "email_status": "reapproval_r3_approved_processed_waiting_for_browser_action_confirmation",
+    "gmail_sent_message_id": "1a0702d66d294fbe",
+    "gmail_thread_id": "1a0702d66d294fbe",
+    "email_sent_at": "2026-09-05T09:07:07+03:00",
+    "email_subject": "[Climbing Cyprus Approval][CC-20260905-BE5BE86E-R1] טיוטה חדשה לאישור",
+    "revision_r2_gmail_sent_message_id": "1a089479b801eb1c",
+    "revision_r2_email_sent_at": "2026-09-10T06:06:05+03:00",
+    "revision_r2_email_subject": "Re: [Climbing Cyprus Approval][CC-20260905-BE5BE86E-R1] טיוטה מתוקנת R2 לאישור",
+    "last_checked_at": "2026-09-21T09:01:19+03:00",
+    "approval_message_id": "1a08a0bb11cde0f6",
+    "approval_received_at": "2026-09-10T09:40:16+03:00",
+    "approval_processed_at": "2026-09-11T10:54:22+03:00",
+    "approval_message_label": "Processed",
+    "prior_approval_expired_for_upload": true,
+    "prior_approval_expiry_reason": "The approved image contains people and was not uploaded for several days; fresh approval is required before publication.",
+    "reapproval_r3_gmail_sent_message_id": "1a0a9ce97b92d29f",
+    "reapproval_r3_email_sent_at": "2026-09-16T13:44:43+03:00",
+    "reapproval_r3_approval_message_id": "1a0b090299de77ce",
+    "reapproval_r3_approval_received_at": "2026-09-17T21:10:32+03:00",
+    "reapproval_r3_approval_processed_at": "2026-09-18T09:01:54+03:00",
+    "reapproval_r3_approval_message_label": "Processed",
+    "processed_revision_request": {
+      "message_id": "1a0804bc169cf376",
+      "thread_id": "1a0702d66d294fbe",
+      "received_at": "2026-09-08T12:14:02+03:00",
+      "processed_at": "2026-09-10T06:49:22+03:00",
+      "request": "והפעם הגיעו אלינו משפחה מקסימה, חלקם ממרכז הארץ, חלק באיטליה, והסבא וסבתא בכלל בקפריסין. הם החליטו את הקיץ להעביר ביחד אצל הסבא והסבתא כאשר עשו הפסקה קצרה ויצאו לחוות טיפוס בטבע בפעם הראשונה שלהם. ותודה רבה על הסרטון הנהדר שקיבלנו מכך!!"
+    },
+    "required_reply": "מאשר CC-20260905-BE5BE86E-R3",
+    "rule": "Publish only after a valid reply from the approval mailbox in the same Gmail thread, and process the approval once."
+  },
+  "publication": {
+    "targets": {},
+    "pending": ["browser_action_confirmation"],
+    "links": {},
+    "website_action": "pending_core_publication",
+    "hold_reason": "fresh R3 approval received; browser publishing requires immediate action-time confirmation"
+  },
+  "publishing_performed": false
+}

@@ -14,10 +14,10 @@ from PIL import Image, ImageDraw, ImageFilter, ImageFont
 
 ROOT = Path(__file__).resolve().parents[1]
 OUTPUT_DIR = ROOT / "social" / "video-branding"
-LOGO_PATH = OUTPUT_DIR / "logo-outro-transparent-v2.png"
+LOGO_PATH = OUTPUT_DIR / "logo-outro-transparent-v2.webp"
 OUTPUT_PATH = OUTPUT_DIR / "climbing-cyprus-outro-v10-2s.mp4"
 TRANSPARENT_OUTPUT_PATH = OUTPUT_DIR / "climbing-cyprus-outro-transparent-v10-2s.mov"
-PREVIEW_PATH = OUTPUT_DIR / "climbing-cyprus-outro-v10-2s-preview.png"
+PREVIEW_PATH = OUTPUT_DIR / "climbing-cyprus-outro-v10-2s-preview.webp"
 
 WIDTH, HEIGHT = 1080, 1920
 FPS = 30

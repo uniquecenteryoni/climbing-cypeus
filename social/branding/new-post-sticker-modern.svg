@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="300" viewBox="0 0 600 300">
+  <g transform="translate(18 24) rotate(-3 282 126)">
+    <rect x="8" y="8" width="548" height="236" rx="42" fill="#111111" stroke="#f4c400" stroke-width="8"/>
+    <rect x="20" y="20" width="524" height="212" rx="32" fill="none" stroke="#f4c400" stroke-width="3"/>
+    <circle cx="67" cy="70" r="11" fill="#f4c400"/>
+    <text x="94" y="84" fill="#f4c400" font-family="Arial, Helvetica, sans-serif" font-size="45" font-weight="700" letter-spacing="1">NEW</text>
+    <text x="49" y="183" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="92" font-weight="700" letter-spacing="2">POST</text>
+    <path d="M438 169 L516 91 M462 88 H521 V147" fill="none" stroke="#f4c400" stroke-width="15" stroke-linecap="square" stroke-linejoin="miter"/>
+  </g>
+</svg>

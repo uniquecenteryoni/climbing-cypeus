@@ -37,7 +37,7 @@ const urlSize = Math.round(23 * scale);
 const logo = await sharp(logoPath)
   .trim({ background: { r: 0, g: 0, b: 0, alpha: 0 } })
   .resize({ width: logoWidth, fit: "inside", withoutEnlargement: true })
-  .png()
+  .webp()
   .toBuffer();
 
 const logoMeta = await sharp(logo).metadata();
@@ -74,7 +74,7 @@ await image
       top: logoTop + Math.round((Math.round(82 * scale) - (logoMeta.height ?? 0)) / 2),
     },
   ])
-  .png()
+  .webp()
   .toFile(outputPath);
 
 console.log(outputPath);

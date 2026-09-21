@@ -4,11 +4,11 @@
   "source_album": "קפריסין בעין אחרת",
   "source_album_id": "AF1QipMlv9mvEuQuEM62JmVFv2XeIOxh7AC2RV1Vwa7U",
   "google_photos_id": "AF1QipMZ2hdJJrC8qjK9yY3jzWDZXCF1v6YEUHYTPeHK",
-  "source_filename": "20260727_185516.jpg",
+  "source_filename": "20260727_185516.webp",
   "captured_at": "2026-07-27T18:55:16+03:00",
   "media_type": "photo",
   "source_dimensions": "3060x4080",
-  "source_file": "source-candidate.jpg",
+  "source_file": "source-candidate.webp",
   "selection_reason": "Strong vertical climbing action with two visible climbers; the subject remains intact in both feed and story layouts. The other album items include the two visuals already published on Instagram, while this item is visually distinct.",
   "duplicate_check": {
     "instagram_account": "climbing.cyprus",
@@ -28,8 +28,8 @@
   "location_confidence": "confirmed_by_user",
   "location_notes": "The user explicitly confirmed Ineia, Cyprus as the location.",
   "deliverables": {
-    "feed": "feed-preview.jpg",
-    "story": "story-preview.jpg",
+    "feed": "feed-preview.webp",
+    "story": "story-preview.webp",
     "caption": "caption.md"
   },
   "publishing_targets_after_approval": [

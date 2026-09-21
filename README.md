@@ -152,7 +152,7 @@ Currently the site uses placeholder images. To replace them:
 2. עדכן את ה-`src` בקובץ `index.html`:
    Update the `src` in `index.html`:
    ```html
-   <img src="path/to/your/image.jpg" alt="Description">
+   <img src="path/to/your/image.webp" alt="Description">
    ```
 
 ### הוספת לוגו / Adding Logo
@@ -162,7 +162,7 @@ Add your logo in `index.html` in the `.logo` section:
 
 ```html
 <div class="logo">
-    <img src="path/to/logo.png" alt="Cyprus Adventures Logo" style="height: 50px;">
+    <img src="path/to/logo.webp" alt="Cyprus Adventures Logo" style="height: 50px;">
     <h2 data-i18n="site-title">קפריסין בעין אחרת</h2>
 </div>
 ```
@@ -249,7 +249,7 @@ You can link directly to the English version of any page by adding `?lang=en` to
 2. **Lazy Loading** - הוסף `loading="lazy"` לתמונות:
    Add `loading="lazy"` to images:
    ```html
-   <img src="image.jpg" alt="Description" loading="lazy">
+   <img src="image.webp" alt="Description" loading="lazy">
    ```
 
 3. **CDN** - שקול שימוש ב-CDN לקבצי CSS/JS חיצוניים

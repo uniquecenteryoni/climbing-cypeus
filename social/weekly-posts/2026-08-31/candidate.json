@@ -1,0 +1,139 @@
+{
+  "draft_id": "CC-20260831-428AFB88",
+  "revision": 3,
+    "status": "completed_with_optional_stories_unpublished",
+  "draft_date": "2026-08-31",
+  "created_at": "2026-08-31T09:12:46+03:00",
+  "source_type": "google_photos_album",
+  "source_album": "קפריסין בעין אחרת",
+  "source_album_status": "accessible_as_unique.center.yoni@gmail.com",
+  "google_photos_id": "AF1QipNl9VwEqTNcSFUfEnc3lPwXvGc2XAPx8KF3MQOo",
+  "source_filename": "20260830_190045.webp",
+  "media_type": "photo",
+  "source_dimensions": "3060x4080",
+  "source_file": "source-original.webp",
+  "working_source_file": "source-candidate.webp",
+  "selection_reason": "Clean, high-resolution vertical climbing photo with a smiling child in the foreground, a second climber visible above, ropes and rock clearly shown, and strong framing for both Feed and Story.",
+  "duplicate_check": {
+    "instagram_account": "climbing.cyprus",
+    "instagram_posts_checked": [
+      "https://www.instagram.com/climbing.cyprus/p/DcqIJgUnH3b/",
+      "https://www.instagram.com/climbing.cyprus/p/DcbRYB3sOq2/",
+      "https://www.instagram.com/climbing.cyprus/p/DcN6L0vjH_Y/",
+      "https://www.instagram.com/climbing.cyprus/p/DcD1nSdDCAP/",
+      "https://www.instagram.com/climbing.cyprus/p/Db0Z_pbjEZv/",
+      "https://www.instagram.com/climbing.cyprus/p/DbkToURDNBd/",
+      "https://www.instagram.com/climbing.cyprus/p/DbgAtbyDJI3/",
+      "https://www.instagram.com/climbing.cyprus/p/DbVk8muDBu9/"
+    ],
+    "project_history_checked": "social/weekly-posts/history.json",
+    "prior_drafts_checked": true,
+    "result": "no_prior_use_found",
+    "source_sha256": "428afb88008ea8dc52010680c1f16edd67f56a5e0d85f142e65174ef7b53d9df",
+    "phash64": "f1f8c1674e80caa7",
+    "dhash64": "867bd0ca3e153525",
+    "visual_scan_notes": "Compared visually with all eight current Instagram feed tiles and with every item in history.json. No match was found; perceptual-hash distances were not near-duplicate ranges."
+  },
+  "location": "Cyprus / קפריסין",
+  "location_confidence": "general_only",
+  "location_notes": "No precise location was verified, so no narrower place was inferred.",
+  "branding": {
+    "feed": "clean image without logo, motto, website address, or corner branding",
+    "story": "clean image with only the current pink-orange NEW POST sticker from social/branding/new-post-sticker.webp, placed discreetly at the upper right"
+  },
+  "deliverables": {
+    "feed": "feed-preview.webp",
+    "story": "story-preview.webp",
+    "caption": "caption.md"
+  },
+  "file_hashes": {
+    "feed_sha256": "1cbc2d030211a4db278546063e52b791f7a7abc3f8bb52c54d02a3f7594f2360",
+    "story_sha256": "4d5fa1d445b52614400facec14f00c345f3ccf7987578e8fed56bb5e92b947f1"
+  },
+  "proposed_copy": {
+    "instagram_feed_and_facebook_group": "ENGLISH BELOW\n\nהיופי בטיפוס הוא שהוא מתאים לכל גיל.\nלא חייבים לטפס הכי קשה או להגיע הכי גבוה. מספיק לנסות, לצאת מהבית, להיקשר לרתמה ולהתנתק לרגע מהקרקע שמלווה אותנו 24 שעות ביממה.\nאין הרגשה דומה לזה.\n\n📍 קפריסין / Cyprus\n🌍 climbing-cyprus.com\n\nThe beauty of climbing is that it suits every age.\nYou don’t need to climb the hardest route or reach the highest point. It’s enough to try, step outside, tie into the harness, and leave the ground we spend 24 hours a day on — if only for a moment.\nNothing feels quite like it.\n\n📍 Cyprus / קפריסין\n🌍 climbing-cyprus.com\n\n#ClimbingCyprus #RockClimbing #CyprusOutdoors #FamilyAdventure #טיפוסבקפריסין",
+    "youtube_community": "היופי בטיפוס הוא שהוא מתאים לכל גיל. לא חייבים לטפס הכי קשה או להגיע הכי גבוה. מספיק לנסות, לצאת מהבית, להיקשר לרתמה ולהתנתק לרגע מהקרקע. אין הרגשה דומה לזה.\n\nThe beauty of climbing is that it suits every age. You don’t need to climb the hardest route or reach the highest point. It’s enough to try, step outside, tie into the harness, and leave the ground for a moment. Nothing feels quite like it.\n\n📍 Cyprus / קפריסין\n#ClimbingCyprus #RockClimbing #CyprusOutdoors"
+  },
+  "publishing_targets_after_explicit_approval": [
+    "Instagram climbing.cyprus — Feed with the full bilingual caption",
+    "Instagram climbing.cyprus — Story with the approved Story media only",
+    "Facebook group 895126888648835 — image post with the full bilingual caption",
+    "Facebook yoni.malichi — Personal Feed via share of the Facebook Group post only",
+    "Facebook yoni.malichi — Story via automatic cross-share from Instagram Story only",
+    "YouTube @ClimbingCyprus — Community image post",
+    "climbing-cyprus.com section#gallery — add after core publication"
+  ],
+  "approval": {
+    "approved": true,
+    "approval_id": "CC-20260831-428AFB88-R3",
+    "approval_mailbox": "unique.center.yoni@gmail.com",
+    "email_status": "approved_processed",
+    "connected_gmail_account": "unique.center.yoni@gmail.com",
+    "gmail_draft_id": "r705114182741689665",
+    "gmail_draft_message_id": "1a05674c173d4b43",
+    "gmail_sent_message_id": "1a05674de9ec5f36",
+    "gmail_thread_id": "1a05674c173d4b43",
+    "revision_r2_gmail_draft_id": "r5610639505165260215",
+    "revision_r2_gmail_draft_message_id": "1a060b70844e0557",
+    "revision_r2_gmail_sent_message_id": "1a060b732b899fc5",
+    "revision_r2_email_sent_at": "2026-09-02T09:03:49+03:00",
+    "revision_r2_email_subject": "Re: [Climbing Cyprus Approval][CC-20260831-428AFB88-R1] טיוטה מתוקנת R2 לאישור",
+    "revision_r3_gmail_draft_id": "r3083760708211974033",
+    "revision_r3_gmail_draft_message_id": "1a065de157f59c8f",
+    "revision_r3_gmail_sent_message_id": "1a065de385abba10",
+    "revision_r3_email_sent_at": "2026-09-03T09:04:24+03:00",
+    "revision_r3_email_subject": "Re: [Climbing Cyprus Approval][CC-20260831-428AFB88-R1] טיוטה מתוקנת R3 לאישור",
+    "email_sent_at": "2026-08-31T09:15:04+03:00",
+    "email_subject": "[Climbing Cyprus Approval][CC-20260831-428AFB88-R1] טיוטה חדשה לאישור",
+        "last_checked_at": "2026-09-04T09:52:49+03:00",
+    "approval_message_id": "1a065e384bf18d98",
+    "approval_received_at": "2026-09-03T09:10:04+03:00",
+    "approval_processed_at": "2026-09-04T09:25:36+03:00",
+    "processed_revision_request": {
+      "message_id": "1a0569109e5ccd76",
+      "thread_id": "1a05674c173d4b43",
+      "received_at": "2026-08-31T09:45:40+03:00",
+      "processed_at": "2026-09-02T09:01:56+03:00",
+      "request": "היופי בטיפוס הוא שהפעילות מתאימה לכל גיל ומכילה בתוכה שיתוף פעולה, התמודדות, הנאה, אתגר וחוויה בלתי נשכחת"
+    },
+    "processed_revision_request_r2": {
+      "message_id": "1a060c1ce5d7cb5e",
+      "thread_id": "1a05674c173d4b43",
+      "received_at": "2026-09-02T09:15:09+03:00",
+      "processed_at": "2026-09-03T09:02:29+03:00",
+      "request": "היופי בטיפוס זה שהוא הוא מתאים לכל גיל! לא חייב לטפס הכי קשה, הכי למעלה, או בכלל. מספיק לנסות, לצאת החוצה מהבית, להיקשר לרתמה ולהתנתק מהקרקע שמלווה אותנו כל הזמן 24 שעות ביממה. אין הרגשה דומה לזה!"
+    },
+    "required_reply": "מאשר CC-20260831-428AFB88-R3",
+    "rule": "Publish only after a valid reply from the approval mailbox in the same Gmail thread, and process the approval once."
+  },
+    "publication": {
+        "targets": {
+            "instagram_feed": "published_verified:Dc2wQwsnFhz",
+            "instagram_story": "published_verified",
+            "facebook_group": "published_verified:post_1632194931608690",
+            "facebook_personal_feed": "published_verified:shared_from_group_without_added_text",
+            "facebook_story": "unpublished_optional_cross_share_not_independently_verified",
+            "youtube_community": "published_verified:UgkxX5s0vvUChVuF53LSwAOw1raVvoT0MLW_",
+            "website_gallery": "published_verified:commit_1840958"
+        },
+        "pending": [],
+        "unpublished_optional_targets": [
+            "facebook_story"
+        ],
+        "links": {
+            "instagram_feed": "https://www.instagram.com/p/Dc2wQwsnFhz/",
+            "facebook_group": "https://www.facebook.com/groups/895126888648835/posts/1632194931608690/",
+            "facebook_personal_feed": "https://www.facebook.com/yoni.malichi",
+            "youtube_community": "https://www.youtube.com/post/UgkxX5s0vvUChVuF53LSwAOw1raVvoT0MLW_",
+            "website_gallery": "https://climbing-cyprus.com/#gallery"
+        },
+        "website_action": "published_verified",
+        "website_file": "pics/Galerry/young-climbers-cyprus-2026-08-31.webp",
+        "website_commit": "1840958",
+        "published_at": "2026-09-04T09:52:49+03:00",
+        "last_checked_at": "2026-09-08T11:28:02+03:00",
+        "hold_reason": null,
+        "notes": "Valid R3 approval was processed once. Instagram Feed and Story, the Facebook Group post, the personal Facebook Feed group share without added text, YouTube Community, and the website gallery were published and verified. On 2026-09-08 the Facebook Personal Story target was closed as unpublished_optional after its verification window expired; it does not block later cycles."
+    },
+    "publishing_performed": true
+}

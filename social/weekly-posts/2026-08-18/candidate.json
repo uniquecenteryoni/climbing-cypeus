@@ -1,0 +1,134 @@
+{
+  "draft_id": "CC-20260818-F3DF80B8",
+  "revision": 2,
+  "status": "completed_with_optional_stories_unpublished",
+  "draft_date": "2026-08-18",
+  "source_type": "google_photos_album",
+  "source_album": "קפריסין בעין אחרת",
+  "source_album_id": "AF1QipMlv9mvEuQuEM62JmVFv2XeIOxh7AC2RV1Vwa7U",
+  "google_photos_id": "AF1QipM5q7fO0GLBbsJojIkzKc3PWW4MN9iv2GrXEPqn",
+  "source_filename": "20260804_100726.webp",
+  "captured_at": "2026-08-04T10:07:26+03:00",
+  "media_type": "photo",
+  "source_dimensions": "3060x4080",
+  "source_file": "source-original.webp",
+  "working_source_file": "source-candidate.webp",
+  "selection_reason": "A sharp vertical climbing scene with the climber, rope, rock texture, and open sky clearly visible. The 4:5 and 9:16 compositions preserve the full climbing action without covering the subject.",
+  "duplicate_check": {
+    "instagram_account": "climbing.cyprus",
+    "instagram_posts_checked": [
+      "https://www.instagram.com/climbing.cyprus/p/DcD1nSdDCAP/",
+      "https://www.instagram.com/climbing.cyprus/p/Db0Z_pbjEZv/",
+      "https://www.instagram.com/climbing.cyprus/p/DbkToURDNBd/",
+      "https://www.instagram.com/climbing.cyprus/p/DbgAtbyDJI3/",
+      "https://www.instagram.com/climbing.cyprus/p/DbVk8muDBu9/"
+    ],
+    "instagram_reels_checked": [
+      "https://www.instagram.com/climbing.cyprus/reel/DbxkJrvsyaI/"
+    ],
+    "project_history_checked": "social/weekly-posts/history.json",
+    "prior_drafts_checked": true,
+    "project_and_instagram_images_checked": 157,
+    "result": "no_prior_use_found",
+    "source_sha256": "57fc87428e9f6776da1735fe3c6c876b3944e32a38c109bf13b787530ea34fca",
+    "working_source_sha256": "92516ac82d903b38df482dfcbd8bbaec851b638d766a5efcaa7f46a074190dbb",
+    "phash64": "d6d21ebc62670cd9",
+    "dhash64": "fcf8e9cd96367461",
+    "instagram_phash_distance_range": "25-35",
+    "instagram_dhash_distance_range": "25-37",
+    "visual_scan_notes": "Compared against all five current Instagram feed posts, the existing Reel cover, history.json, prior drafts, and local project images using source IDs, SHA-256, pHash/dHash, centered 4:5 and square crop variants, and visual inspection. A first hiking candidate was rejected after the visual comparison found it had already been published as an edited crop. This selected climbing photo is visually distinct from every published item and draft checked."
+  },
+  "location": "Cyprus / קפריסין",
+  "location_confidence": "general_only",
+  "location_notes": "Google Photos shows no embedded location for this item, so no precise location was inferred.",
+  "branding": {
+    "palette": "black/white/yellow",
+    "logo": "pics/climbing-cyprus-logo.webp",
+    "motto": "CLIMB | EXPLORE | CONNECT",
+    "website": "climbing-cyprus.com",
+    "story_new_post_sticker": {
+      "included": true,
+      "interactive": false,
+      "position": "upper right, within the open sky and rock-edge safe area",
+      "design": "tilted black card with a fine yellow outline, offset yellow depth layer, NEW status dot, bold POST typography, and an upward-right arrow",
+      "not_used_on": [
+        "feed",
+        "YouTube Community"
+      ]
+    }
+  },
+  "deliverables": {
+    "feed": "feed-preview.webp",
+    "story": "story-preview.webp",
+    "caption": "caption.md"
+  },
+  "approved_copy": {
+    "instagram_feed_and_facebook_group": "ENGLISH BELOW\n\nיותם ביום השלישי לטיפוס, מפגין בטחון והבנה בוגרת של קריאת מסלולים בטבע\n\n📍 קפריסין / Cyprus\n🌍 climbing-cyprus.com\n\nYotam, on his third day of climbing, shows confidence and a mature understanding of reading outdoor routes.\n\n📍 Cyprus / קפריסין\n🌍 climbing-cyprus.com\n\n#ClimbingCyprus #RockClimbing #CyprusOutdoors #טיפוסבקפריסין",
+    "youtube_community": "יותם ביום השלישי לטיפוס, מפגין בטחון והבנה בוגרת של קריאת מסלולים בטבע\n\nYotam, on his third day of climbing, shows confidence and a mature understanding of reading outdoor routes.\n\n📍 Cyprus / קפריסין\n🌍 climbing-cyprus.com\n\n#ClimbingCyprus #RockClimbing #CyprusOutdoors"
+  },
+  "file_hashes": {
+    "feed_sha256": "3ad7b88867692ad3f052fdc12fef4b9d7022c199884cb239c299809c2a2704de",
+    "story_sha256": "14ebfa49c648168957a80f1ff8540c633fb6af128071d1222811fda0d304769c"
+  },
+  "publishing_targets_after_explicit_approval": [
+    "Instagram climbing.cyprus — Feed with the full bilingual caption",
+    "Instagram climbing.cyprus — Story with the approved branded media only",
+    "Facebook group 895126888648835 — image post with the full bilingual caption",
+    "Facebook yoni.malichi — Personal Feed via share of the Facebook Group post only",
+    "Facebook yoni.malichi — Story via automatic cross-share from the approved climbing.cyprus Instagram Story; no separate upload",
+    "YouTube @ClimbingCyprus — Community image post with the approved shortened copy, if Community is available",
+    "climbing-cyprus.com — section#gallery under הרגעים שלכם after the approved core destinations are published and verified; Story-only technical failures may remain story_pending"
+  ],
+  "approval": {
+    "approved": true,
+    "approval_mailbox": "unique.center.yoni@gmail.com",
+    "email_recipient": "unique.center.yoni@gmail.com",
+    "email_sender": "unique.center.yoni@gmail.com",
+    "email_subject": "[Climbing Cyprus Approval][CC-20260818-F3DF80B8] טיוטה לאישור",
+    "email_sent_at": "2026-08-18T14:23:00+03:00",
+    "email_status": "approved_via_changes",
+    "email_reply_received_at": "2026-08-18T14:44:00+03:00",
+    "email_reply_from": "unique.center.yoni@gmail.com",
+    "email_reply_to": "unique.center.yoni@gmail.com",
+    "approval_source": "email",
+    "approver_email": "unique.center.yoni@gmail.com",
+    "approved_at": "2026-08-18T14:44:00+03:00",
+    "approval_message_id": "1a014b00509a5c8f",
+    "approval_method": "email_changes",
+    "processed_label": "Climbing Cyprus Approval Processed",
+    "processed_label_applied_at": "2026-08-19T13:04:23+03:00",
+    "change_request": "שינויים CC-20260818-F3DF80B8: הטקסט צריך להיות : יותם ביום השלישי לטיפוס, מפגין בטחון והבנה בוגרת של קריאת מסלולים בטבע",
+    "final_hebrew_text": "יותם ביום השלישי לטיפוס, מפגין בטחון והבנה בוגרת של קריאת מסלולים בטבע",
+    "final_english_translation": "Yotam, on his third day of climbing, shows confidence and a mature understanding of reading outdoor routes.",
+    "rule": "A valid later email from unique.center.yoni@gmail.com must contain exactly 'מאשר CC-20260818-F3DF80B8' or begin 'שינויים CC-20260818-F3DF80B8: ...'. The changes form both requests the exact edits and approves automatic publication after faithfully applying them. 'תמונה אחרת CC-20260818-F3DF80B8' requests replacement media and is not approval."
+  },
+  "approved_via_changes": true,
+  "publication": {
+    "started_at": "2026-08-19T12:51:00+03:00",
+    "last_checked_at": "2026-08-26T18:09:20+03:00",
+    "links": {
+      "instagram_feed": "https://www.instagram.com/climbing.cyprus/p/DcN6L0vjH_Y/",
+      "facebook_group": "https://www.facebook.com/groups/895126888648835/posts/1618751682953015/",
+      "facebook_personal_feed": "https://www.facebook.com/yoni.malichi",
+      "youtube_community": "https://www.youtube.com/post/Ugkx4yJlA8ZQKDHbE6OXycb72FcVZQqh2s1d",
+      "website_gallery": "https://climbing-cyprus.com/#gallery"
+    },
+    "targets": {
+      "instagram_feed": "published_verified_caption_present",
+      "instagram_story": "unpublished_optional_approval_window_expired",
+      "facebook_group": "published_verified",
+      "facebook_personal_feed": "published_verified_group_share_no_added_text",
+      "facebook_story": "unpublished_optional_instagram_story_not_created",
+      "youtube_community": "published_verified",
+      "website_gallery": "published_verified"
+    },
+    "pending": [],
+    "unpublished_optional_targets": [
+      "instagram_story",
+      "facebook_story"
+    ],
+    "website_file": "pics/Galerry/yotam-climbing-cyprus-2026-08-18.webp",
+    "notes": "The existing Instagram Feed, Facebook Group post 1618751682953015, Facebook Personal Feed group share, YouTube Community post Ugkx4yJlA8ZQKDHbE6OXycb72FcVZQqh2s1d, and website gallery item remain published and verified; none was republished. On 2026-08-26 the two optional Story targets were closed as unpublished because the separate upload-confirmation window expired without a reply. This completed draft no longer blocks creation of a new three-day-cycle draft. The approved Story asset is preserved locally and may be reused only after a fresh, explicit approval; no media was uploaded during this state repair."
+  },
+  "publishing_performed": true
+}

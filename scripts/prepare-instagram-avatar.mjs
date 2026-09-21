@@ -17,7 +17,7 @@ const size = 1080;
 const logo = await sharp(logoPath)
   .trim({ background: { r: 0, g: 0, b: 0, alpha: 0 } })
   .resize({ width: 760, height: 760, fit: "inside", withoutEnlargement: true })
-  .png()
+  .webp()
   .toBuffer();
 
 const logoMeta = await sharp(logo).metadata();
@@ -35,7 +35,7 @@ await sharp({
   },
 })
   .composite([{ input: logo, left, top }])
-  .png()
+  .webp()
   .toFile(outputPath);
 
 console.log(outputPath);

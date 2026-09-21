@@ -51,6 +51,23 @@ document.addEventListener('DOMContentLoaded', () => {
         }, true);
     });
 
+    const quizLead = sessionStorage.getItem('climbingQuizLead');
+    if (quizLead) {
+        try {
+            const lead = JSON.parse(quizLead);
+            const name = document.getElementById('name');
+            const email = document.getElementById('email');
+            const phone = document.getElementById('phone');
+            const message = document.getElementById('message');
+            if (name && lead.name) name.value = lead.name;
+            if (email && lead.email) email.value = lead.email;
+            if (phone && lead.phone) phone.value = lead.phone;
+            if (message && lead.interest) message.value = `Climbing safety quiz score: ${lead.score}/9. Follow-up requested: ${lead.interest}`;
+            sessionStorage.removeItem('climbingQuizLead');
+        } catch (error) {
+            sessionStorage.removeItem('climbingQuizLead');
+        }
+    }
     // Set initial language and translate content
     setLanguage(currentLang);
     

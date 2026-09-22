@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+
+<html dir="ltr" lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-4WPV84ES2X"></script>
+<script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-4WPV84ES2X');
+    </script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Rock climbing in Cyprus, guided climbing tours, rappelling, gear rental and lead climbing courses with Climbing Cyprus." name="description"/>
+<title>Climbing Cyprus | Rock Climbing and Adventure Tours</title>
+<!-- Favicons for all browsers and devices -->
+<link href="../favicon.webp?v=20260819" rel="icon" sizes="512x512" type="image/webp"/>
+<link href="../favicon.webp?v=20260819" rel="apple-touch-icon" sizes="512x512"/>
+<link href="../favicon.webp?v=20260819" rel="shortcut icon" type="image/webp"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<link href="../style.css" rel="stylesheet"/>
+<link href="../tour-page.css" rel="stylesheet"/>
+<!-- Load translations first -->
+<script src="../translations.js"></script>
+<!-- Apply language settings immediately to prevent flash -->
+<script>
+        (function() {
+            // Get language from URL parameter, then localStorage, then default to Hebrew
+            function getInitialLanguage() {
+                const urlParams = new URLSearchParams(window.location.search);
+                const urlLang = urlParams.get('lang');
+
+                // If lang is in URL, use it and save to localStorage
+                if (urlLang && ['he', 'en'].includes(urlLang)) {
+                    localStorage.setItem('preferred-language', urlLang);
+                    return urlLang;
+                }
+
+                // Otherwise use localStorage or default to Hebrew
+                return localStorage.getItem('preferred-language') || 'he';
+            }
+
+            const savedLang = getInitialLanguage();
+            const html = document.documentElement;
+            html.setAttribute('lang', savedLang);
+            html.setAttribute('dir', savedLang === 'he' ? 'rtl' : 'ltr');
+
+            // Apply translations as soon as DOM is ready
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', function() {
+                    applyTranslations(savedLang);
+                });
+            } else {
+                applyTranslations(savedLang);
+            }
+
+            function applyTranslations(lang) {
+                document.body?.classList.toggle('rtl', lang === 'he');
+                document.body?.classList.toggle('ltr', lang !== 'he');
+
+                const elements = document.querySelectorAll('[data-i18n]');
+                elements.forEach(element => {
+                    const key = element.getAttribute('data-i18n');
+                    if (translations[lang] && translations[lang][key]) {
+                        element.innerHTML = translations[lang][key];
+                    }
+                });
+            }
+        })();
+    </script>
+<!-- Travelpayouts affiliate tracking -->
+<script data-cfasync="false" data-cmp-ab="2" data-no-defer="1" data-noptimize="1" data-wpfc-render="false" nowprocket="" seraph-accel-crit="1">
+      (function () {
+          var script = document.createElement("script");
+          script.async = 1;
+          script.setAttribute("data-cmp-ab","2");
+          script.src = 'https://tp-em.com/NTU5OTM5.js?t=559939';
+          document.head.appendChild(script);
+      })();
+    </script>
+<link href="https://climbing-cyprus.com/tour-arches.html" hreflang="he" rel="alternate"/>
+<link href="https://climbing-cyprus.com/en/tour-arches.html" hreflang="en" rel="alternate"/>
+<link href="https://climbing-cyprus.com/tour-arches.html" hreflang="x-default" rel="alternate"/>
+</head>
+<body>
+<!-- Navigation -->
+<nav class="navbar">
+<div class="container nav-container">
+<a class="logo" href="index.html" style="text-decoration: none; color: inherit;">
+<img alt="Climbing Cyprus Logo" src="../pics/climbing-cyprus-logo.webp"/>
+</a>
+<ul class="nav-menu">
+<li><a data-i18n="nav-climber-guide" href="climber-guide.html">Climber's Guide</a></li>
+<li><a data-i18n="nav-climbing" href="index.html#activities">Rock Climbing</a></li>
+<li><a data-i18n="nav-gallery" href="index.html#gallery">Photos</a></li>
+<li><a data-i18n="nav-contact" href="index.html#contact">Contact</a></li>
+</ul>
+<div class="language-switcher">
+<button aria-label="English" class="lang-btn" data-lang="en" title="English">EN</button>
+<button aria-label="עברית" class="lang-btn" data-lang="he" title="עברית">HE</button>
+</div>
+<div class="nav-right">
+<div class="hamburger">
+<span></span>
+<span></span>
+<span></span>
+</div>
+</div>
+</div>
+</nav>
+<!-- Tour Hero -->
+<section class="tour-hero">
+<div class="tour-hero-image">
+<img alt="Arches Trail" src="../pics/hikes /kshatot.webp"/>
+</div>
+<div class="tour-hero-content">
+<div class="container">
+<h1 data-i18n="tour2-title">One-Way Hike to the Arches Trail</h1>
+<p class="tour-meta">
+<span><i class="fas fa-clock"></i> <span data-i18n="tour2-duration">3-4 hours</span></span>
+<span><i class="fas fa-chart-line"></i> <span data-i18n="tour2-difficulty">Easy-Moderate</span></span>
+<span><i class="fas fa-users"></i> <span data-i18n="tour2-group">Groups up to 12 people</span></span>
+</p>
+</div>
+</div>
+</section>
+<!-- Tour Details -->
+<section class="tour-details">
+<div class="container">
+<div class="tour-content-grid">
+<div class="tour-main-content">
+<h2 data-i18n="tour-overview-title">Overview</h2>
+<p data-i18n="tour2-overview">If you were looking for an experience of a charming stream with playful rocks like in the movies, pools with water flowing underneath - this is your trail! The Arches Trail is one of the most beautiful and special trails in Cyprus, passing through a stream with flowing water, large rocks, and rich vegetation.</p>
+<p data-i18n="tour2-description">The trail is suitable for the whole family and offers a unique experience of walking in the stream, immersion in local nature, and enjoying the peace and beauty of the natural environment. The tour also includes explanation about local flora and fauna, and the history of the area.</p>
+<h2 data-i18n="tour-highlights-title">Tour Highlights</h2>
+<ul class="tour-highlights-list">
+<li data-i18n="tour2-highlight1">Walking in stream beside flowing water</li>
+<li data-i18n="tour2-highlight2">Rich and diverse vegetation</li>
+<li data-i18n="tour2-highlight3">Suitable for the whole family</li>
+<li data-i18n="tour2-highlight4">Recommended season: all year round</li>
+</ul>
+<h2 data-i18n="tour-itinerary-title">Tour Itinerary</h2>
+<div class="itinerary">
+<div class="itinerary-item">
+<div class="itinerary-time" data-i18n="tour2-time1">09:00</div>
+<div class="itinerary-content">
+<h3 data-i18n="tour2-stop1-title">Meeting and Drive</h3>
+<p data-i18n="tour2-stop1-desc">Meeting at starting point and drive to trail head</p>
+</div>
+</div>
+<div class="itinerary-item">
+<div class="itinerary-time" data-i18n="tour2-time2">10:00</div>
+<div class="itinerary-content">
+<h3 data-i18n="tour2-stop2-title">Start of the hike</h3>
+<p data-i18n="tour2-stop2-desc">Beginning of trail in the stream, explanation about the trail and area</p>
+</div>
+</div>
+<div class="itinerary-item">
+<div class="itinerary-time" data-i18n="tour2-time3">11:30</div>
+<div class="itinerary-content">
+<h3 data-i18n="tour2-stop3-title">Lunch break</h3>
+<p data-i18n="tour2-stop3-desc">Break at a beautiful spot along the trail, light lunch</p>
+</div>
+</div>
+<div class="itinerary-item">
+<div class="itinerary-time" data-i18n="tour2-time4">13:00</div>
+<div class="itinerary-content">
+<h3 data-i18n="tour2-stop4-title">Finish and return</h3>
+<p data-i18n="tour2-stop4-desc">End of trail and return to starting point</p>
+</div>
+</div>
+</div>
+<h2 data-i18n="tour-included">What's Included</h2>
+<div class="included-grid">
+<div class="included-item">
+<i class="fas fa-user-tie"></i>
+<span data-i18n="tour-guide">Professional guide</span>
+</div>
+<div class="included-item">
+<i class="fas fa-water"></i>
+<span data-i18n="tour-water">Water</span>
+</div>
+<div class="included-item">
+<i class="fas fa-camera"></i>
+<span data-i18n="tour-photos">Photos</span>
+</div>
+</div>
+</div>
+<div class="tour-sidebar">
+<div class="booking-card">
+<h3 data-i18n="booking-title">Tour Booking</h3>
+<div class="price">
+<span class="price-amount" data-i18n="tour2-price">From €30</span>
+<span class="price-per" data-i18n="price-per-person">per participant (minimum 5)</span>
+</div>
+<a class="book-btn" data-i18n="book-now" href="index.html#contact">Book Now</a>
+</div>
+<div class="info-card">
+<h3 data-i18n="tour-info">Important Information</h3>
+<ul>
+<li data-i18n="tour2-info1">Closed and sturdy shoes required</li>
+<li data-i18n="tour2-info2">Bring swimsuit and towel recommended</li>
+<li data-i18n="tour2-info3">Bring change of clothes</li>
+<li data-i18n="tour2-info4">Suitable for ages 6+</li>
+<li><i class="fas fa-users"></i> עד 12 משתתפים</li>
+<li data-i18n="tour2-info5">Recommended especially in months March-November</li>
+<li><i class="fas fa-info-circle"></i> טעימות מקומיות - בתוספת תשלום</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="cta-section">
+<div class="container">
+<h2 data-i18n="tour-cta-title">Interested in this tour?</h2>
+<p data-i18n="tour-cta-text">Contact us and we'll build the perfect tour for you together</p>
+<a class="cta-button" data-i18n="tour-cta-button" href="index.html#contact">Contact Us</a>
+</div>
+</section>
+<!-- Footer -->
+<footer class="footer">
+<div class="container">
+<p>© 2024 <span data-i18n="site-title">ClimbCyprus</span>. <span data-i18n="footer-rights">All Rights Reserved</span>.</p>
+</div>
+</footer>
+<script src="../script.js?v=20260810-3"></script>
+</body>
+</html>

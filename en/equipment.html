@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+
+<html dir="ltr" lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-4WPV84ES2X"></script>
+<script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-4WPV84ES2X');
+    </script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="noindex, follow, noarchive" name="robots"/>
+<meta content="Rock climbing in Cyprus, guided climbing tours, rappelling, gear rental and lead climbing courses with Climbing Cyprus." name="description"/>
+<title>Climbing Cyprus | Rock Climbing and Adventure Tours</title>
+<!-- Favicons for all browsers and devices -->
+<link href="../favicon.webp?v=20260819" rel="icon" sizes="512x512" type="image/webp"/>
+<link href="../favicon.webp?v=20260819" rel="apple-touch-icon" sizes="512x512"/>
+<link href="../favicon.webp?v=20260819" rel="shortcut icon" type="image/webp"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<link href="../style.css" rel="stylesheet"/>
+<link href="../tour-page.css" rel="stylesheet"/>
+<!-- Load translations first -->
+<script src="../translations.js"></script>
+<!-- Apply language settings immediately to prevent flash -->
+<script>
+        (function() {
+            // Get language from URL parameter, then localStorage, then default to Hebrew
+            function getInitialLanguage() {
+                const urlParams = new URLSearchParams(window.location.search);
+                const urlLang = urlParams.get('lang');
+
+                // If lang is in URL, use it and save to localStorage
+                if (urlLang && ['he', 'en'].includes(urlLang)) {
+                    localStorage.setItem('preferred-language', urlLang);
+                    return urlLang;
+                }
+
+                // Otherwise use localStorage or default to Hebrew
+                return localStorage.getItem('preferred-language') || 'he';
+            }
+
+            const savedLang = getInitialLanguage();
+            const html = document.documentElement;
+            html.setAttribute('lang', savedLang);
+            html.setAttribute('dir', savedLang === 'he' ? 'rtl' : 'ltr');
+
+            // Apply translations as soon as DOM is ready
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', function() {
+                    applyTranslations(savedLang);
+                });
+            } else {
+                applyTranslations(savedLang);
+            }
+
+            function applyTranslations(lang) {
+                document.body?.classList.toggle('rtl', lang === 'he');
+                document.body?.classList.toggle('ltr', lang !== 'he');
+
+                const elements = document.querySelectorAll('[data-i18n]');
+                elements.forEach(element => {
+                    const key = element.getAttribute('data-i18n');
+                    if (translations[lang] && translations[lang][key]) {
+                        element.innerHTML = translations[lang][key];
+                    }
+                });
+            }
+        })();
+    </script>
+<!-- Travelpayouts affiliate tracking -->
+<script data-cfasync="false" data-cmp-ab="2" data-no-defer="1" data-noptimize="1" data-wpfc-render="false" nowprocket="" seraph-accel-crit="1">
+      (function () {
+          var script = document.createElement("script");
+          script.async = 1;
+          script.setAttribute("data-cmp-ab","2");
+          script.src = 'https://tp-em.com/NTU5OTM5.js?t=559939';
+          document.head.appendChild(script);
+      })();
+    </script>
+<link href="https://climbing-cyprus.com/equipment.html" hreflang="he" rel="alternate"/>
+<link href="https://climbing-cyprus.com/en/equipment.html" hreflang="en" rel="alternate"/>
+<link href="https://climbing-cyprus.com/equipment.html" hreflang="x-default" rel="alternate"/>
+</head>
+<body class="landing-page equipment-page">
+<!-- Navigation -->
+<nav class="navbar">
+<div class="container">
+<a class="logo" href="index.html" style="text-decoration: none; color: inherit;">
+<span class="logo-surface"><img alt="Climbing Cyprus Logo" src="../pics/climbing-cyprus-logo.webp"/></span>
+</a>
+<ul class="nav-menu">
+<li><a data-i18n="nav-climber-guide" href="climber-guide.html">Climber's Guide</a></li>
+<li><a data-i18n="nav-climbing" href="index.html#activities">Rock Climbing</a></li>
+<li><a data-i18n="nav-gallery" href="index.html#gallery">Photos</a></li>
+<li><a data-i18n="nav-contact" href="index.html#contact">Contact</a></li>
+</ul>
+<div class="language-switcher">
+<button aria-label="English" class="lang-btn" data-lang="en" title="English">EN</button>
+<button aria-label="עברית" class="lang-btn" data-lang="he" title="עברית">HE</button>
+</div>
+<div class="hamburger">
+<span></span>
+<span></span>
+<span></span>
+</div>
+</div>
+</nav>
+<!-- Equipment Rental Hero -->
+<section class="tour-hero equipment-hero" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('pics/rent.webp') center 30%/cover;">
+<div class="tour-hero-content">
+<div class="container">
+<h1 data-i18n="equipment-title" style="color: white;">Climbing Equipment Rental</h1>
+<p data-i18n="equipment-subtitle" style="color: white;">Professional and quality equipment for sport climbing and bouldering</p>
+</div>
+</div>
+</section>
+<!-- Quick Navigation Menu -->
+<div class="equipment-section-nav">
+<div class="container">
+<nav style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap;">
+<a href="#rental" onmouseout="this.style.background='transparent'" onmouseover="this.style.background='rgba(255,255,255,0.2)'" style="color: white; text-decoration: none; padding: 0.5rem 1.5rem; border-radius: 5px; transition: all 0.3s; font-weight: 500;">
+<i class="fas fa-hiking"></i> <span data-i18n="nav-equipment-rental">Climbing Equipment Rental</span>
+</a>
+<a href="#bouldering" onmouseout="this.style.background='transparent'" onmouseover="this.style.background='rgba(255,255,255,0.2)'" style="color: white; text-decoration: none; padding: 0.5rem 1.5rem; border-radius: 5px; transition: all 0.3s; font-weight: 500;">
+<i class="fas fa-hands"></i> <span data-i18n="nav-equipment-bouldering">Bouldering Gear Rental</span>
+</a>
+<a href="#guidebook" onmouseout="this.style.background='transparent'" onmouseover="this.style.background='rgba(255,255,255,0.2)'" style="color: white; text-decoration: none; padding: 0.5rem 1.5rem; border-radius: 5px; transition: all 0.3s; font-weight: 500;">
+<i class="fas fa-book"></i> <span data-i18n="nav-equipment-guidebook">Order Climbing Guidebook</span>
+</a>
+</nav>
+</div>
+</div>
+<!-- Equipment Details Section -->
+<section class="tour-details" id="rental">
+<div class="container">
+<div class="tour-content">
+<!-- Lead Climbing Equipment -->
+<div class="equipment-package">
+<div class="equipment-header">
+<h2><i class="fas fa-mountain"></i> <span data-i18n="equipment-lead-title">Sport &amp; Trad Climbing Equipment</span></h2>
+<p class="equipment-intro" data-i18n="equipment-lead-intro">Perfect package for climbers who want independence in sport or trad climbing</p>
+</div>
+<div class="equipment-list">
+<h3 data-i18n="equipment-includes">Package includes:</h3>
+<ul>
+<li><i class="fas fa-grip-lines-vertical"></i> <strong data-i18n="equipment-rope">Climbing rope</strong> - <span data-i18n="equipment-rope-desc">60-70 meters</span></li>
+<li><i class="fas fa-person-hiking"></i> <strong data-i18n="equipment-harness">Harness</strong> <span data-i18n="equipment-harness-desc">(2 units for couple)</span></li>
+<li><i class="fas fa-hard-hat"></i> <strong data-i18n="equipment-helmet">Helmets</strong> <span data-i18n="equipment-helmet-desc">(2 units for couple)</span></li>
+<li><i class="fas fa-shield-halved"></i> <strong data-i18n="equipment-belay">Belay device</strong> <span data-i18n="equipment-belay-desc">(GriGri / ATC)</span></li>
+<li><i class="fas fa-link"></i> <strong data-i18n="equipment-quickdraws">Quickdraws</strong> - <span data-i18n="equipment-quickdraws-desc">Set of 12 units for sport climbing</span></li>
+<li><i class="fas fa-compass"></i> <strong data-i18n="equipment-trad">Trad gear</strong> - <span data-i18n="equipment-trad-desc">Set of Cams, Nuts and Slings for traditional climbing</span></li>
+<li><i class="fas fa-cloud"></i> <strong data-i18n="equipment-chalk">Chalk bags</strong> <span data-i18n="equipment-chalk-desc">(2 units)</span></li>
+</ul>
+</div>
+<div class="equipment-pricing">
+<div class="price-box">
+<h3 data-i18n="equipment-price-title">Rental price</h3>
+<p class="price">25€ <span data-i18n="equipment-price-day">per day</span></p>
+<p class="price-note" data-i18n="equipment-price-couple">for couple climbers</p>
+<a class="equipment-order-btn" data-equipment-type="ציוד להובלה ספורטיבית" data-i18n="equipment-order-btn" href="index.html#contact">Order Now</a>
+</div>
+</div>
+</div>
+<!-- Bouldering Equipment -->
+<div class="equipment-package" id="bouldering">
+<div class="equipment-header">
+<h2><i class="fas fa-hands"></i> <span data-i18n="equipment-boulder-title">Bouldering Equipment</span></h2>
+<p class="equipment-intro" data-i18n="equipment-boulder-intro">Quality crash pads for climbers who want to practice bouldering</p>
+</div>
+<div class="equipment-list">
+<div aria-label="תמונות קראשפדים להשכרה" class="image-carousel equipment-crashpad-carousel">
+<div class="carousel-container">
+<img alt="קראשפד Ocun להשכרה לבולדרינג בקפריסין" class="carousel-image active" loading="lazy" src="../pics/padrent-improved.webp"/>
+<img alt="קראשפד בשטח בקפריסין" class="carousel-image" loading="lazy" src="../pics/climberguide/crashpad-rental-user.webp"/>
+<button aria-label="תמונה קודמת" class="carousel-btn prev" onclick="changeSlide(this, -1, event)">←</button>
+<button aria-label="תמונה הבאה" class="carousel-btn next" onclick="changeSlide(this, 1, event)">→</button>
+</div>
+<div aria-label="בחירת תמונת קראשפד" class="carousel-dots">
+<span class="carousel-dot active" onclick="currentSlide(this, 0, event)"></span>
+<span class="carousel-dot" onclick="currentSlide(this, 1, event)"></span>
+</div>
+</div>
+<p class="crashpad-specs"><strong>Ocun Dominator</strong>, קראשפד מתקפל בגודל כ־100×130 ס״מ, מתאים לבולדרינג ולכיסוי אזור נחיתה בשטח.</p>
+<!-- YouTube Videos Section -->
+<div class="equipment-bouldering-videos" style="margin: 3rem 0;">
+<h3 style="color: #2c5f2d; margin-bottom: 0.5rem; font-size: 1.5rem; display: flex; align-items: center; gap: 0.5rem;">
+<i class="fab fa-youtube" style="color: #ff0000;"></i>
+<span data-i18n="guide-bouldering-videos-title">Cyprus Bouldering</span>
+</h3>
+<p data-i18n="guide-bouldering-videos-subtitle" style="color: #666; margin-bottom: 2rem;">Videos from the Climbing Cyprus channel only, graded 7A and above</p>
+<div aria-label="סרטוני בולדרינג מערוץ Climbing Cyprus בדירוג 7A ומעלה" class="bouldering-video-carousel equipment-bouldering-video-carousel">
+<div class="bouldering-video-viewport">
+<article class="bouldering-video-slide is-active" data-video-index="0"><div class="bouldering-video-frame"><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="" loading="lazy" src="https://www.youtube.com/embed/DJCdxaEPol0" title="Cyprus Bouldering | Gymnasium | Crossfit sds - 7A (V6)"></iframe></div><p class="bouldering-video-caption">Cyprus Bouldering | Gymnasium | Crossfit sds - 7A (V6)</p></article>
+<article class="bouldering-video-slide" data-video-index="1"><div class="bouldering-video-frame"><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="" loading="lazy" src="https://www.youtube.com/embed/ye1bPBLu4CI" title="Cyprus Bouldering | Birds Watching | Black headed bunting - 7A (V6)"></iframe></div><p class="bouldering-video-caption">Cyprus Bouldering | Birds Watching | Black headed bunting - 7A (V6)</p></article>
+<article class="bouldering-video-slide" data-video-index="2"><div class="bouldering-video-frame"><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="" loading="lazy" src="https://www.youtube.com/embed/0axvzra_r1w" title="Cyprus Bouldering | Secret Garden | IP man - 7A (V6)"></iframe></div><p class="bouldering-video-caption">Cyprus Bouldering | Secret Garden | IP man - 7A (V6)</p></article>
+<article class="bouldering-video-slide" data-video-index="3"><div class="bouldering-video-frame"><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="" loading="lazy" src="https://www.youtube.com/embed/53p8OfxR5-w" title="Cyprus Bouldering | Stomata Tou Drakou | Scottie too Hottie - 7A (V6)"></iframe></div><p class="bouldering-video-caption">Cyprus Bouldering | Stomata Tou Drakou | Scottie too Hottie - 7A (V6)</p></article>
+<article class="bouldering-video-slide" data-video-index="4"><div class="bouldering-video-frame"><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="" loading="lazy" src="https://www.youtube.com/embed/yg7pxhwsAxA" title="Cyprus Bouldering | Arkham | Bane - 7A (V6)"></iframe></div><p class="bouldering-video-caption">Cyprus Bouldering | Arkham | Bane - 7A (V6)</p></article>
+<article class="bouldering-video-slide" data-video-index="5"><div class="bouldering-video-frame"><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="" loading="lazy" src="https://www.youtube.com/embed/UeHlRfCaxGQ" title="Cyprus Bouldering | Alikou Bloc | O Zografos - 7A (V6)"></iframe></div><p class="bouldering-video-caption">Cyprus Bouldering | Alikou Bloc | O Zografos - 7A (V6)</p></article>
+<article class="bouldering-video-slide" data-video-index="6"><div class="bouldering-video-frame"><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="" loading="lazy" src="https://www.youtube.com/embed/F2CbUaHU0kQ" title="Cyprus Bouldering | Secret Garden | Glory Hole - 7A (V6)"></iframe></div><p class="bouldering-video-caption">Cyprus Bouldering | Secret Garden | Glory Hole - 7A (V6)</p></article>
+</div>
+<button aria-label="סרטון קודם" class="bouldering-video-arrow bouldering-video-arrow--prev" data-bouldering-direction="-1" type="button">←</button>
+<button aria-label="סרטון הבא" class="bouldering-video-arrow bouldering-video-arrow--next" data-bouldering-direction="1" type="button">→</button>
+<div aria-label="בחירת סרטון בולדרינג" class="bouldering-video-dots" role="tablist">
+<button aria-label="סרטון 1" aria-selected="true" class="is-active" type="button"></button><button aria-label="סרטון 2" aria-selected="false" type="button"></button><button aria-label="סרטון 3" aria-selected="false" type="button"></button><button aria-label="סרטון 4" aria-selected="false" type="button"></button><button aria-label="סרטון 5" aria-selected="false" type="button"></button><button aria-label="סרטון 6" aria-selected="false" type="button"></button><button aria-label="סרטון 7" aria-selected="false" type="button"></button>
+</div>
+</div>
+<div class="video-grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.75rem; margin-bottom: 1.5rem;">
+<!-- Video 1 -->
+<div onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 2px 8px rgba(0,0,0,0.1)';" onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.15)';" style="background: #f8f9fa; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.1); transition: all 0.3s;">
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+<iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="" frameborder="0" src="about:blank" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" title="Cyprus Bouldering Video 1">
+</iframe>
+</div>
+</div>
+<!-- Video 2 -->
+<div onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 2px 8px rgba(0,0,0,0.1)';" onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.15)';" style="background: #f8f9fa; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.1); transition: all 0.3s;">
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+<iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="" frameborder="0" src="about:blank" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" title="Cyprus Bouldering Video 2">
+</iframe>
+</div>
+</div>
+<!-- Video 3 -->
+<div onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 2px 8px rgba(0,0,0,0.1)';" onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.15)';" style="background: #f8f9fa; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.1); transition: all 0.3s;">
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+<iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="" frameborder="0" src="about:blank" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" title="Cyprus Bouldering Video 3">
+</iframe>
+</div>
+</div>
+<!-- Video 4 -->
+<div onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 2px 8px rgba(0,0,0,0.1)';" onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.15)';" style="background: #f8f9fa; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.1); transition: all 0.3s;">
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+<iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="" frameborder="0" src="about:blank" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" title="Cyprus Bouldering Video 4">
+</iframe>
+</div>
+</div>
+<!-- Video 5 -->
+<div onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 2px 8px rgba(0,0,0,0.1)';" onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.15)';" style="background: #f8f9fa; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.1); transition: all 0.3s;">
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+<iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="" frameborder="0" src="about:blank" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" title="Cyprus Bouldering Video 5">
+</iframe>
+</div>
+</div>
+<!-- Video 6 -->
+<div onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 2px 8px rgba(0,0,0,0.1)';" onmouseover="this.style.transform='translateY(-4px)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.15)';" style="background: #f8f9fa; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.1); transition: all 0.3s;">
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+<iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="" frameborder="0" src="about:blank" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" title="Cyprus Bouldering Video 6">
+</iframe>
+</div>
+</div>
+</div>
+<style>
+                                @media (max-width: 768px) {
+                                    .video-grid {
+                                        grid-template-columns: 1fr !important;
+                                    }
+                                }
+                                @media (max-width: 640px) {
+                                    .video-grid {
+                                        grid-template-columns: 1fr !important;
+                                    }
+                                }
+                            </style>
+<div style="text-align: center;">
+<a href="https://www.youtube.com/@ClimbingCyprus" onmouseout="this.style.background='#2c5f2d'; this.style.transform='translateY(0)';" onmouseover="this.style.background='#3d7f3f'; this.style.transform='translateY(-2px)';" rel="noopener" style="display: inline-flex; align-items: center; gap: 0.5rem; background: #2c5f2d; color: white; padding: 0.75rem 1.5rem; border-radius: 8px; text-decoration: none; font-weight: bold; transition: all 0.3s;" target="_blank">
+<i class="fab fa-youtube" style="color: #ff0000; background: white; padding: 0.2rem 0.4rem; border-radius: 4px;"></i>
+<span data-i18n="guide-bouldering-watch-youtube">Watch all videos on YouTube</span>
+</a>
+</div>
+</div>
+<h3 data-i18n="equipment-options">Rental options:</h3>
+<ul>
+<li><i class="fas fa-check-circle"></i> <strong data-i18n="equipment-crashpad-single">Single crash pad</strong> - <span data-i18n="equipment-crashpad-single-desc">Quality landing mat</span></li>
+<li><i class="fas fa-check-circle"></i> <strong data-i18n="equipment-crashpad-double">Two crash pads</strong>, <span data-i18n="equipment-crashpad-double-desc">Maximum coverage for safety</span></li>
+</ul>
+</div>
+<div class="equipment-pricing">
+<div class="price-box">
+<h3 data-i18n="equipment-prices">Prices</h3>
+<div class="bouldering-prices">
+<div class="price-option">
+<p class="price">15€ <span data-i18n="equipment-price-day">per day</span></p>
+<p class="price-note" data-i18n="equipment-crashpad-single">Single crash pad</p>
+</div>
+<div class="price-option special">
+<p class="price">25€ <span data-i18n="equipment-price-day">per day</span></p>
+<p class="price-note" data-i18n="equipment-crashpad-double">Two crash pads</p>
+<span class="badge" data-i18n="equipment-recommended">Recommended!</span>
+</div>
+</div>
+<a class="equipment-order-btn" data-equipment-type="קראשפדים לבולדרינג" data-i18n="equipment-order-btn" href="index.html#contact">Order Now</a>
+</div>
+</div>
+</div>
+<!-- Cyprus Climbing Guidebook Section -->
+<div class="equipment-package" id="guidebook" style="background: linear-gradient(rgba(255,255,255,0.95), rgba(255,255,255,0.95)), url('pics/guide.webp') center/cover; padding: 3rem 2rem; border-radius: 15px; margin-top: 3rem;">
+<div class="equipment-header">
+<h2><i class="fas fa-book"></i> <span data-i18n="guidebook-title">Cyprus Climbing Guidebook</span></h2>
+<p class="guidebook-choice" data-i18n="guidebook-choice">Choose the guidebook that matches your trip: sport climbing or bouldering.</p>
+<div class="guidebook-choice-links">
+<a data-i18n="guidebook-choice-climbing" href="#guidebook">Climbing guidebook</a>
+<a data-i18n="guidebook-choice-bouldering" href="#bouldering-guidebook">Bouldering guidebook</a>
+</div>
+</div>
+<div class="guidebook-gallery" style="margin: 2rem 0;">
+<img alt="Cyprus Guidebook" loading="lazy" src="../pics/guide.webp" style="max-width: 600px; width: 100%; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.3); display: block; margin: 0 auto 2rem;"/>
+</div>
+<div class="guidebook-content" style="max-width: 800px; margin: 0 auto; line-height: 1.8;">
+<div style="background: #f0f8f0; padding: 1.5rem; border-radius: 10px; margin: 2rem 0; border-left: 4px solid #97c24a;">
+<h4 data-i18n="guidebook-includes" style="color: #2c5f2d; margin-top: 0;">What's Included:</h4>
+<ul style="margin: 1rem 0;">
+<li><i class="fas fa-check-circle" style="color: #97c24a;"></i> <span data-i18n="guidebook-feature-1">Detailed route descriptions for 600+ climbs</span></li>
+<li><i class="fas fa-check-circle" style="color: #97c24a;"></i> <span data-i18n="guidebook-feature-2">Accurate GPS coordinates for all sectors</span></li>
+<li><i class="fas fa-check-circle" style="color: #97c24a;"></i> <span data-i18n="guidebook-feature-3">Color topos and photos</span></li>
+<li><i class="fas fa-check-circle" style="color: #97c24a;"></i> <span data-i18n="guidebook-feature-4">Local tips and beta</span></li>
+<li><i class="fas fa-check-circle" style="color: #97c24a;"></i> <span data-i18n="guidebook-feature-5">Access information and parking</span></li>
+<li><i class="fas fa-check-circle" style="color: #97c24a;"></i> <span data-i18n="guidebook-feature-6">Best seasons to climb each area</span></li>
+</ul>
+</div>
+</div>
+<div class="equipment-pricing">
+<div class="price-box">
+<h3 data-i18n="guidebook-order-title">Order Your Guidebook</h3>
+<p class="price-note" data-i18n="guidebook-order-note" style="font-size: 1.1rem; margin: 1.5rem 0;">Pick up directly from me - save on shipping!</p>
+<p style="margin-top: 1rem; color: #666; font-size: 0.9rem;">
+<i class="fas fa-info-circle"></i> <span data-i18n="guidebook-combo-tip">Perfect combo: Order the guidebook + rent equipment on the same day</span>
+</p>
+<div class="guidebook-actions">
+<a class="equipment-order-btn" data-i18n="guidebook-official-order" href="https://www.cyprusclimbing.com/" rel="noopener" target="_blank">Buy on the official website</a>
+<a class="equipment-order-btn pickup" data-equipment-type="גייד בוק לטיפוס בקפריסין" data-i18n="guidebook-order-btn" href="index.html#contact">Contact to Order</a>
+</div>
+</div>
+</div>
+</div>
+<!-- Bouldering Guidebook -->
+<div class="equipment-package bouldering-guidebook-card" id="bouldering-guidebook">
+<div class="equipment-header">
+<h2><i class="fas fa-hands"></i> <span data-i18n="bouldering-guidebook-title">Cyprus Bouldering Guidebook</span></h2>
+<p class="equipment-intro" data-i18n="bouldering-guidebook-intro">A comprehensive guide to the bouldering areas around Inia and Droushia — around 700 problems, maps, topos, photos, and approach information.</p>
+</div>
+<div class="bouldering-guidebook-layout">
+<img alt="Cyprus Bouldering Guidebook" loading="lazy" src="../pics/bouldering-guide-cover.webp"/>
+<div>
+<ul class="guidebook-benefits">
+<li data-i18n="bouldering-guidebook-feature-1">Clear maps and topos</li>
+<li data-i18n="bouldering-guidebook-feature-2">GPS and approach information</li>
+<li data-i18n="bouldering-guidebook-feature-3">Photos and problem descriptions</li>
+<li data-i18n="bouldering-guidebook-feature-4">Practical day-planning information</li>
+</ul>
+<p class="guidebook-pickup" data-i18n="guidebook-pickup">Order in advance and pick up the guidebook directly from me in Cyprus.</p>
+<div class="guidebook-actions">
+<a class="equipment-order-btn" data-i18n="bouldering-guidebook-official" href="https://boulderingcyprus.com/" rel="noopener" target="_blank">Buy on the official website</a>
+<a class="equipment-order-btn pickup" data-equipment-type="גייד בוק לבולדרינג בקפריסין" data-i18n="bouldering-guidebook-pickup" href="index.html#contact">Order and pick up from me</a>
+</div>
+</div>
+</div>
+</div>
+<!-- Important Information -->
+<div class="equipment-info">
+<h2><i class="fas fa-info-circle"></i> <span data-i18n="equipment-info-title">Important Information</span></h2>
+<ul>
+<li><i class="fas fa-calendar-alt"></i> <strong data-i18n="equipment-booking">Advance booking:</strong> <span data-i18n="equipment-booking-desc">Recommended to book at least 24 hours in advance</span></li>
+<li><i class="fas fa-shield-alt"></i> <strong data-i18n="equipment-condition">Equipment condition:</strong> <span data-i18n="equipment-condition-desc">All equipment is regularly checked and maintained</span></li>
+<li><i class="fas fa-clock"></i> <strong data-i18n="equipment-hours">Pickup hours:</strong> <span data-i18n="equipment-hours-desc">By appointment</span></li>
+<li><i class="fas fa-credit-card"></i> <strong data-i18n="equipment-payment">Payment:</strong> <span data-i18n="equipment-payment-desc">Cash or bank transfer</span></li>
+<li><i class="fas fa-id-card"></i> <strong data-i18n="equipment-deposit">Deposit:</strong> <span data-i18n="equipment-deposit-desc">ID/Passport required</span></li>
+</ul>
+</div>
+<!-- Contact CTA -->
+<div class="equipment-cta">
+<h2 data-i18n="equipment-cta-title">Interested in renting equipment?</h2>
+<p data-i18n="equipment-cta-desc">Contact us to coordinate details and order equipment</p>
+<a class="cta-button" href="index.html#contact">Contact us</a>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="footer">
+<div class="container">
+<div class="footer-content">
+<div class="footer-section">
+<h3 data-i18n="site-title">ClimbCyprus</h3>
+<p data-i18n="site-tagline">Rock Climbing and Guided Tours</p>
+</div>
+<div class="footer-section">
+<h4 data-i18n="footer-links">Links</h4>
+<ul>
+<li><a data-i18n="nav-home" href="index.html#home">Home</a></li>
+<li><a data-i18n="nav-about-me" href="index.html#about-me">About Me</a></li>
+<li><a data-i18n="nav-activities" href="index.html#activities">Our Activities</a></li>
+<li><a data-i18n="nav-gallery" href="index.html#gallery">Photos</a></li>
+</ul>
+</div>
+<div class="footer-section">
+<h4 data-i18n="footer-social">Follow Us</h4>
+<div class="social-links-footer">
+<a aria-label="Facebook" class="social-icon facebook" href="https://www.facebook.com/groups/895126888648835/" target="_blank" title="Facebook">
+<svg fill="currentColor" height="24" viewbox="0 0 24 24" width="24">
+<path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"></path>
+</svg>
+</a>
+<a aria-label="YouTube" class="social-icon youtube" href="https://youtu.be/0Cx-s4l6His" target="_blank" title="YouTube">
+<svg fill="currentColor" height="24" viewbox="0 0 24 24" width="24">
+<path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"></path>
+</svg>
+</a>
+<a aria-label="Instagram" class="social-icon instagram" href="https://www.instagram.com/climbing.cyprus" rel="noopener" target="_blank" title="Instagram">
+<svg fill="none" height="24" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="24">
+<rect height="18" rx="5" width="18" x="3" y="3"></rect>
+<circle cx="12" cy="12" r="4"></circle>
+<circle cx="17.5" cy="6.5" fill="currentColor" r="1" stroke="none"></circle>
+</svg>
+</a>
+</div>
+</div>
+</div>
+<div class="footer-bottom">
+<p>© 2024 <span data-i18n="site-title">ClimbCyprus</span>. <span data-i18n="footer-rights">All Rights Reserved</span>.</p>
+</div>
+</div>
+</footer>
+<script src="../script.js?v=20260810-3"></script>
+</body>
+</html>

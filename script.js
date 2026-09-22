@@ -1,17 +1,86 @@
 // Language switcher and interaction functionality
-// Get language from URL parameter, then localStorage, then default to Hebrew
+// Hebrew keeps the existing URLs; English uses /en/...
+function pagePathForLanguage(lang) {
+    const current = window.location.pathname;
+    const withoutEnglishPrefix = current.replace(/^\/en(?:\/|$)/, '/');
+    const normalized = withoutEnglishPrefix === '/index.html' ? '/' : (withoutEnglishPrefix || '/');
+    return lang === 'en' ? `/en${normalized === '/' ? '/' : normalized}` : normalized;
+}
+
+function redirectLegacyLanguageUrl() {
+    const params = new URLSearchParams(window.location.search);
+    const requested = params.get('lang');
+    if (!['he', 'en'].includes(requested)) return;
+    params.delete('lang');
+    const query = params.toString();
+    const target = `${pagePathForLanguage(requested)}${query ? `?${query}` : ''}${window.location.hash}`;
+    const current = `${window.location.pathname}${window.location.search}${window.location.hash}`;
+    if (target !== current) window.location.replace(target);
+}
+
+function updateLanguageSeoLinks() {
+    const origin = window.location.origin;
+    const heUrl = `${origin}${pagePathForLanguage('he')}`;
+    const enUrl = `${origin}${pagePathForLanguage('en')}`;
+    [['he', heUrl], ['en', enUrl], ['x-default', heUrl]].forEach(([lang, href]) => {
+        let link = document.head.querySelector(`link[rel="alternate"][hreflang="${lang}"]`);
+        if (!link) {
+            link = document.createElement('link');
+            link.rel = 'alternate';
+            link.hreflang = lang;
+            document.head.appendChild(link);
+        }
+        link.href = href;
+    });
+    let canonical = document.head.querySelector('link[rel="canonical"]');
+    if (!canonical) {
+        canonical = document.createElement('link');
+        canonical.rel = 'canonical';
+        document.head.appendChild(canonical);
+    }
+    canonical.href = `${origin}${window.location.pathname}`;
+}
+
+function redirectFirstVisitByBrowserLanguage() {
+    const path = window.location.pathname;
+    const isEnglishPath = path === '/en' || path.startsWith('/en/');
+    const hasLanguageQuery = new URLSearchParams(window.location.search).has('lang');
+    const hasSavedPreference = localStorage.getItem('preferred-language');
+    const isCrawler = /bot|crawler|spider|slurp|archiver/i.test(navigator.userAgent);
+    if (isEnglishPath || hasLanguageQuery || isCrawler) return;
+
+    if (hasSavedPreference === 'en') {
+        window.location.replace(pagePathForLanguage('en'));
+        return;
+    }
+    if (hasSavedPreference) return;
+
+    const browserIsHebrew = navigator.language && navigator.language.toLowerCase().startsWith('he');
+    const preferred = browserIsHebrew ? 'he' : 'en';
+    localStorage.setItem('preferred-language', preferred);
+    if (preferred === 'en') window.location.replace(pagePathForLanguage('en'));
+}
+
+redirectFirstVisitByBrowserLanguage();
+
+// Get language from the URL path first, then localStorage, then browser preference
 function getInitialLanguage() {
     const urlParams = new URLSearchParams(window.location.search);
     const urlLang = urlParams.get('lang');
     
-    // If lang is in URL, use it and save to localStorage
+    if (window.location.pathname === '/en' || window.location.pathname.startsWith('/en/')) {
+        localStorage.setItem('preferred-language', 'en');
+        return 'en';
+    }
+
     if (urlLang && ['he', 'en'].includes(urlLang)) {
         localStorage.setItem('preferred-language', urlLang);
         return urlLang;
     }
     
-    // Otherwise use localStorage or default to Hebrew
-    return localStorage.getItem('preferred-language') || 'he';
+    const saved = localStorage.getItem('preferred-language');
+    if (saved && ['he', 'en'].includes(saved)) return saved;
+    return navigator.language && navigator.language.toLowerCase().startsWith('he') ? 'he' : 'en';
 }
 
 let currentLang = getInitialLanguage();
@@ -33,6 +102,9 @@ let currentLang = getInitialLanguage();
 
 // Initialize the page
 document.addEventListener('DOMContentLoaded', () => {
+    redirectLegacyLanguageUrl();
+    updateLanguageSeoLinks();
+
     const guideVideo = document.querySelector('.guide-hero iframe');
     const guidePlaceholder = document.querySelector('.guide-video-placeholder');
     if (guideVideo && guidePlaceholder) {
@@ -92,16 +164,8 @@ document.addEventListener('DOMContentLoaded', () => {
         langButtons.forEach(button => {
             button.addEventListener('click', () => {
                 const lang = button.getAttribute('data-lang');
-                setLanguage(lang);
-                
-                // Update URL without reloading the page
-                const url = new URL(window.location);
-                url.searchParams.set('lang', lang);
-                window.history.pushState({}, '', url);
-                
-                // Update active button
-                langButtons.forEach(btn => btn.classList.remove('active'));
-                button.classList.add('active');
+                localStorage.setItem('preferred-language', lang);
+                window.location.assign(`${pagePathForLanguage(lang)}${window.location.hash}`);
             });
         });
     }
@@ -407,7 +471,7 @@ function setLanguage(lang) {
 // Check and handle climber guide links when in English mode
 function checkClimberGuideLinks() {
     document.querySelectorAll('[data-quiz-link]').forEach(link => {
-        link.setAttribute('href', `safety-quiz.html?lang=${currentLang}`);
+        link.setAttribute('href', currentLang === 'en' ? '/en/safety-quiz.html' : '/safety-quiz.html');
     });
 }
 

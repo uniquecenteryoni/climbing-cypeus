@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+
+<html dir="ltr" lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-4WPV84ES2X"></script>
+<script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-4WPV84ES2X');
+    </script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Rock climbing in Cyprus, guided climbing tours, rappelling, gear rental and lead climbing courses with Climbing Cyprus." name="description"/>
+<meta content="index, follow, max-image-preview:large" name="robots"/>
+<link href="https://climbing-cyprus.com/en/course.html" rel="canonical"/>
+<title>Climbing Cyprus | Rock Climbing and Adventure Tours</title>
+<!-- Favicons for all browsers and devices -->
+<link href="../favicon.webp?v=20260819" rel="icon" sizes="512x512" type="image/webp"/>
+<link href="../favicon.webp?v=20260819" rel="apple-touch-icon" sizes="512x512"/>
+<link href="../favicon.webp?v=20260819" rel="shortcut icon" type="image/webp"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<link href="../style.css?v=20260810-2" rel="stylesheet"/>
+<link href="../tour-page.css" rel="stylesheet"/>
+<!-- Load translations first -->
+<script src="../translations.js?v=20260810-1"></script>
+<!-- Apply language settings immediately to prevent flash -->
+<script>
+        (function() {
+            // Get language from URL parameter, then localStorage, then default to Hebrew
+            function getInitialLanguage() {
+                const urlParams = new URLSearchParams(window.location.search);
+                const urlLang = urlParams.get('lang');
+
+                // If lang is in URL, use it and save to localStorage
+                if (urlLang && ['he', 'en'].includes(urlLang)) {
+                    localStorage.setItem('preferred-language', urlLang);
+                    return urlLang;
+                }
+
+                // Otherwise use localStorage or default to Hebrew
+                return localStorage.getItem('preferred-language') || 'he';
+            }
+
+            const savedLang = getInitialLanguage();
+            const html = document.documentElement;
+            html.setAttribute('lang', savedLang);
+            html.setAttribute('dir', savedLang === 'he' ? 'rtl' : 'ltr');
+
+            // Apply translations as soon as DOM is ready
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', function() {
+                    applyTranslations(savedLang);
+                });
+            } else {
+                applyTranslations(savedLang);
+            }
+
+            function applyTranslations(lang) {
+                document.body?.classList.toggle('rtl', lang === 'he');
+                document.body?.classList.toggle('ltr', lang !== 'he');
+
+                const elements = document.querySelectorAll('[data-i18n]');
+                elements.forEach(element => {
+                    const key = element.getAttribute('data-i18n');
+                    if (translations[lang] && translations[lang][key]) {
+                        element.innerHTML = translations[lang][key];
+                    }
+                });
+            }
+        })();
+    </script>
+<!-- Travelpayouts affiliate tracking -->
+<script data-cfasync="false" data-cmp-ab="2" data-no-defer="1" data-noptimize="1" data-wpfc-render="false" nowprocket="" seraph-accel-crit="1">
+      (function () {
+          var script = document.createElement("script");
+          script.async = 1;
+          script.setAttribute("data-cmp-ab","2");
+          script.src = 'https://tp-em.com/NTU5OTM5.js?t=559939';
+          document.head.appendChild(script);
+      })();
+    </script>
+<link href="https://climbing-cyprus.com/course.html" hreflang="he" rel="alternate"/>
+<link href="https://climbing-cyprus.com/en/course.html" hreflang="en" rel="alternate"/>
+<link href="https://climbing-cyprus.com/course.html" hreflang="x-default" rel="alternate"/>
+</head>
+<body class="course-page">
+<!-- Navigation -->
+<nav class="navbar">
+<div class="container nav-container">
+<a class="logo" href="index.html" style="text-decoration: none; color: inherit;">
+<img alt="Climbing Cyprus Logo" src="../pics/climbing-cyprus-logo.webp"/>
+</a>
+<ul class="nav-menu">
+<li><a data-i18n="nav-climber-guide" href="climber-guide.html">Climber's Guide</a></li>
+<li><a data-i18n="nav-climbing" href="index.html#activities">Rock Climbing</a></li>
+<li><a data-i18n="nav-gallery" href="index.html#gallery">Photos</a></li>
+<li><a data-i18n="nav-contact" href="index.html#contact">Contact</a></li>
+</ul>
+<div class="language-switcher">
+<button aria-label="English" class="lang-btn" data-lang="en" title="English">EN</button>
+<button aria-label="עברית" class="lang-btn" data-lang="he" title="עברית">HE</button>
+</div>
+<div class="nav-right">
+<div class="hamburger">
+<span></span>
+<span></span>
+<span></span>
+</div>
+</div>
+</div>
+</nav>
+<!-- Tour Hero -->
+<section class="tour-hero">
+<div class="tour-hero-image">
+<img alt="מטפס בטיפוס הובלה במדבר" fetchpriority="high" src="../pics/course-lead-hero.webp"/>
+</div>
+<div class="tour-hero-content">
+<div class="container">
+<h1><span data-i18n="course-title">Lead Climbing in Nature</span></h1>
+<p class="tour-meta">
+<span><i class="fas fa-calendar-days"></i> <span data-i18n="course-duration">3–4 days</span></span>
+<span><i class="fas fa-clock"></i> <span data-i18n="course-hours">20 hours of instruction</span></span>
+<span><i class="fas fa-users"></i> <span data-i18n="course-participants">Up to 4 participants</span></span>
+</p>
+</div>
+</div>
+</section>
+<!-- Tour Details -->
+<section class="tour-details">
+<div class="container">
+<div class="tour-content-grid">
+<div class="tour-main-content">
+<h2 data-i18n="course-overview-title">Overview</h2>
+<p data-i18n="course-overview-p1">An intensive, practical course for climbers who want to progress from top-rope climbing to lead climbing in a natural environment.</p>
+<p data-i18n="course-overview-p2">During the course we will learn and practise the skills needed for safe and responsible lead climbing, from rope management and lead belaying, through clipping and controlled falls, to cleaning an anchor, solving problems and planning an independent climbing day.</p>
+<p data-i18n="course-overview-p3">The course combines theory, demonstrations and plenty of practical crag practice, with gradual progression according to the participants’ level.</p>
+<h2 data-i18n="course-what-learn">What will we learn?</h2>
+<ul class="tour-highlights-list">
+<li><i class="fas fa-check"></i> <span data-i18n="course-learn-1">Safety principles in lead climbing</span></li>
+<li><i class="fas fa-check"></i> <span data-i18n="course-learn-2">Reading and understanding climbing routes</span></li>
+<li><i class="fas fa-check"></i> <span data-i18n="course-learn-3">Lead climber belaying</span></li>
+<li><i class="fas fa-check"></i> <span data-i18n="course-learn-4">Correct use of quickdraws</span></li>
+<li><i class="fas fa-check"></i> <span data-i18n="course-learn-5">Correct clipping and rope management while leading</span></li>
+<li><i class="fas fa-check"></i> <span data-i18n="course-learn-6">Proper communication between climber and belayer</span></li>
+<li><i class="fas fa-check"></i> <span data-i18n="course-learn-7">Dynamic belaying and catching falls</span></li>
+<li><i class="fas fa-check"></i> <span data-i18n="course-learn-8">Controlled falls</span></li>
+<li><i class="fas fa-check"></i> <span data-i18n="course-learn-9">Cleaning an anchor</span></li>
+<li><i class="fas fa-check"></i> <span data-i18n="course-learn-10">Solving common problems</span></li>
+<li><i class="fas fa-check"></i> <span data-i18n="course-learn-11">Planning and managing an independent climbing day</span></li>
+<li><i class="fas fa-check"></i> <span data-i18n="course-learn-12">Practical practice on routes of different grades</span></li>
+</ul>
+<h2 data-i18n="course-day1-title">Day 1, Foundations, Safety and Lead Preparation</h2>
+<div class="itinerary">
+<div class="itinerary-item"><div class="itinerary-time">08:30</div><div class="itinerary-content"><h3 data-i18n="course-day1-activity1">Introduction and Level Assessment</h3><p data-i18n="course-day1-desc1">Meet the participants, set course goals, review previous experience, check personal equipment and assess basic skills.</p></div></div>
+<div class="itinerary-item"><div class="itinerary-time">09:30</div><div class="itinerary-content"><h3 data-i18n="course-day1-activity2">The Safety Chain</h3><p data-i18n="course-day1-desc2">Partner checks, knots, communication, rope management, correct use of belay devices and identifying risks.</p></div></div>
+<div class="itinerary-item"><div class="itinerary-time">10:30</div><div class="itinerary-content"><h3 data-i18n="course-day1-activity3">Top-Rope Refresher</h3><p data-i18n="course-day1-desc3">Practise tying in, belaying, lowering and communicating correctly until the core skills are consistent.</p></div></div>
+<div class="itinerary-item"><div class="itinerary-time">11:30</div><div class="itinerary-content"><h3 data-i18n="course-day1-activity4">Lead Equipment and Clipping</h3><p data-i18n="course-day1-desc4">Introduction to ropes, runners, carabiners and belay devices. Practise quickdraw orientation, correct clipping and rope management.</p></div></div>
+<div class="itinerary-item"><div class="itinerary-time">12:30</div><div class="itinerary-content"><h3 data-i18n="course-day1-activity5">Mock Leading</h3><p data-i18n="course-day1-desc5">Practise rope movement, clipping and route decisions while the climber is protected by a top-rope.</p></div></div>
+</div>
+<h2 data-i18n="course-day2-title">Day 2, Lead Belaying and First Lead</h2>
+<div class="itinerary">
+<div class="itinerary-item"><div class="itinerary-time">08:30</div><div class="itinerary-content"><h3 data-i18n="course-day2-activity1">Review and Safety Checks</h3><p data-i18n="course-day2-desc1">Review the first day’s skills, partner checks, knots, clipping and rope management.</p></div></div>
+<div class="itinerary-item"><div class="itinerary-time">09:30</div><div class="itinerary-content"><h3 data-i18n="course-day2-activity2">Dynamic Belay</h3><p data-i18n="course-day2-desc2">Giving and taking rope, belayer positioning, correct movement while belaying and principles of dynamic fall catching.</p></div></div>
+<div class="itinerary-item"><div class="itinerary-time">10:30</div><div class="itinerary-content"><h3 data-i18n="course-day2-activity3">First Supervised Lead</h3><p data-i18n="course-day2-desc3">Gradual transition from mock leading to leading suitable routes with close instructor supervision.</p></div></div>
+<div class="itinerary-item"><div class="itinerary-time">11:30</div><div class="itinerary-content"><h3 data-i18n="course-day2-activity4">Route Management</h3><p data-i18n="course-day2-desc4">Choosing clipping points, avoiding back clips and Z-clips, keeping the rope organised and handling different situations while climbing.</p></div></div>
+<div class="itinerary-item"><div class="itinerary-time">12:30</div><div class="itinerary-content"><h3 data-i18n="course-day2-activity5">Lead and Belay Practice</h3><p data-i18n="course-day2-desc5">Rotate between climber and belayer, practise continuously and receive individual feedback.</p></div></div>
+</div>
+<h2 data-i18n="course-day3-title">Day 3, Falls, Anchor Cleaning and Problem Solving</h2>
+<div class="itinerary">
+<div class="itinerary-item"><div class="itinerary-time">08:30</div><div class="itinerary-content"><h3 data-i18n="course-day3-activity1">Fall Practice</h3><p data-i18n="course-day3-desc1">Mental and physical preparation for falling, understanding fall distance and gradually practising controlled falls in suitable conditions.</p></div></div>
+<div class="itinerary-item"><div class="itinerary-time">09:30</div><div class="itinerary-content"><h3 data-i18n="course-day3-activity2">Catching a Fall</h3><p data-i18n="course-day3-desc2">Practise the belayer’s response to a fall, body position, dynamic belaying and communication with the climber.</p></div></div>
+<div class="itinerary-item"><div class="itinerary-time">10:30</div><div class="itinerary-content"><h3 data-i18n="course-day3-activity3">Cleaning an Anchor</h3><p data-i18n="course-day3-desc3">Secure attachment, correct work at the anchor, transferring the rope, checking the system and lowering the climber in an orderly way.</p></div></div>
+<div class="itinerary-item"><div class="itinerary-time">11:30</div><div class="itinerary-content"><h3 data-i18n="course-day3-activity4">Problem Solving</h3><p data-i18n="course-day3-desc4">Practise common situations such as incorrect clipping, a short rope, poor communication, stopping mid-route and changing plans.</p></div></div>
+<div class="itinerary-item"><div class="itinerary-time">12:30</div><div class="itinerary-content"><h3 data-i18n="course-day3-activity5">Full Cycle</h3><p data-i18n="course-day3-desc5">Lead, belay, take a controlled fall and clean an anchor in sequence, with feedback after each cycle.</p></div></div>
+</div>
+<h2 data-i18n="course-day4-title">Day 4, Final Practice and Independence</h2>
+<div class="itinerary">
+<div class="itinerary-item"><div class="itinerary-time">08:30</div><div class="itinerary-content"><h3 data-i18n="course-day4-activity1">Planning a Climbing Day</h3><p data-i18n="course-day4-desc1">Choose routes by participants’ ability and conditions, check weather, required equipment and crag access, and plan for emergencies.</p></div></div>
+<div class="itinerary-item"><div class="itinerary-time">09:30</div><div class="itinerary-content"><h3 data-i18n="course-day4-activity2">Full Lead Cycles</h3><p data-i18n="course-day4-desc2">Participants complete full climbing cycles: prepare equipment, perform a partner check, lead, belay and clean the anchor under instructor supervision.</p></div></div>
+<div class="itinerary-item"><div class="itinerary-time">10:30</div><div class="itinerary-content"><h3 data-i18n="course-day4-activity3">Scenario Practice</h3><p data-i18n="course-day4-desc3">Handle situations that may occur during a climbing day and make safe, responsible decisions.</p></div></div>
+<div class="itinerary-item"><div class="itinerary-time">11:30</div><div class="itinerary-content"><h3 data-i18n="course-day4-activity4">Skills Assessment</h3><p data-i18n="course-day4-desc4">Assess control of equipment, knots, belaying, clipping, rope management, falls, anchor cleaning and responses to changing situations.</p></div></div>
+<div class="itinerary-item"><div class="itinerary-time">12:30</div><div class="itinerary-content"><h3 data-i18n="course-day4-activity5">Feedback and Next Steps</h3><p data-i18n="course-day4-desc5">Individual feedback, areas for improvement, recommendations for continued practice and clear boundaries for safe progression.</p></div></div>
+</div>
+<h2 data-i18n="course-requirements">Prerequisites</h2>
+<div class="important-info">
+<p><strong data-i18n="course-req-experience">Experience:</strong> <span data-i18n="course-req-experience-desc">Previous experience climbing with top-rope belay</span></p>
+<p><strong data-i18n="course-req-fitness">Physical fitness:</strong> <span data-i18n="course-req-fitness-desc">Good physical condition</span></p>
+<p><strong data-i18n="course-req-age">Minimum age:</strong> <span data-i18n="course-req-age-desc">16 years</span></p>
+<p><strong data-i18n="course-req-bring">What to bring:</strong> <span data-i18n="course-req-bring-desc">Climbing shoes (if available), comfortable sportswear, water, lunch, sunscreen, hat</span></p>
+</div>
+<section aria-labelledby="course-safety-quiz-title" class="safety-quiz-strip full-width-strip">
+<div class="safety-quiz-strip-inner">
+<div class="safety-quiz-strip-copy">
+<p class="safety-quiz-kicker" data-i18n="safety-quiz-kicker">CLIMBING CYPRUS · A short climber quiz</p>
+<h2 data-i18n="safety-quiz-title" id="course-safety-quiz-title">How well do you control your clipping? Test yourself.</h2>
+<p data-i18n="safety-quiz-description">A short quiz to check your clipping skills and lead-climbing decisions.</p>
+<a class="safety-quiz-cta" data-quiz-link="" href="safety-quiz.html?lang=he">
+<span data-i18n="safety-quiz-cta">Start the quiz</span>
+<i aria-hidden="true" class="fas fa-arrow-left"></i>
+</a>
+</div>
+<div class="safety-quiz-strip-media">
+<img alt="יונתן מטפס עם חולצת Petzl" loading="lazy" src="../pics/safety-quiz-yonatan.webp"/>
+</div>
+</div>
+</section>
+</div>
+<div class="tour-sidebar">
+<div class="booking-card">
+<h3 data-i18n="course-booking">Course Booking</h3>
+<div class="price">
+<span class="price-amount" data-i18n="course-price-from">€400 per participant</span>
+</div>
+<p data-i18n="course-price-note" style="font-size: 0.9rem; text-align: center; margin-bottom: 1.5rem;">3–4 days | 20 hours of instruction</p>
+<a class="book-btn" data-i18n="course-book-btn" href="index.html#contact">Book Now</a>
+</div>
+<div class="course-instructor-card">
+<div class="course-instructor-photo">
+<img alt="יונתן – מדריך טיפוס מוסמך" loading="lazy" src="../pics/climberguide/guide-contact-yonatan.webp"/>
+</div>
+<h3 data-i18n="course-instructor-name">Yonatan</h3>
+<p data-i18n="course-instructor-credential">UIAA-recognised certified climbing instructor</p>
+</div>
+<div class="info-card">
+<h3 data-i18n="course-info-title">Additional Information</h3>
+<ul>
+<li><i class="fas fa-calendar"></i> <span data-i18n="course-info-dates">Advance coordination required</span></li>
+<li><i class="fas fa-person-climbing"></i> <span data-i18n="course-info-experience">Suitable for climbers with top-rope experience</span></li>
+</ul>
+</div>
+<div class="info-card">
+<h3 data-i18n="course-included">What's Included</h3>
+<ul>
+<li><i class="fas fa-user-tie"></i> <span data-i18n="course-included-guide">UIAA-recognised certified instructor</span></li>
+<li><i class="fas fa-hard-hat"></i> <span data-i18n="course-included-equipment">Full equipment</span></li>
+<li><i class="fas fa-book"></i> <span data-i18n="course-included-materials">Course booklet</span></li>
+<li><i class="fas fa-certificate"></i> <span data-i18n="course-included-certificate">Certificate of qualification</span></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="footer">
+<div class="container">
+<p>© 2024 קפריסין בעין אחרת. כל הזכויות שמורות.</p>
+</div>
+</footer>
+<script src="../script.js?v=20260810-3"></script>
+</body>
+</html>

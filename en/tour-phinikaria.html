@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+
+<html dir="ltr" lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-4WPV84ES2X"></script>
+<script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-4WPV84ES2X');
+    </script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Rock climbing in Cyprus, guided climbing tours, rappelling, gear rental and lead climbing courses with Climbing Cyprus." name="description"/>
+<title>Climbing Cyprus | Rock Climbing and Adventure Tours</title>
+<!-- Favicons for all browsers and devices -->
+<link href="../favicon.webp?v=20260819" rel="icon" sizes="512x512" type="image/webp"/>
+<link href="../favicon.webp?v=20260819" rel="apple-touch-icon" sizes="512x512"/>
+<link href="../favicon.webp?v=20260819" rel="shortcut icon" type="image/webp"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<link href="../style.css" rel="stylesheet"/>
+<link href="../tour-page.css" rel="stylesheet"/>
+<!-- Load translations first -->
+<script src="../translations.js"></script>
+<!-- Apply language settings immediately to prevent flash -->
+<script>
+        (function() {
+            // Get language from URL parameter, then localStorage, then default to Hebrew
+            function getInitialLanguage() {
+                const urlParams = new URLSearchParams(window.location.search);
+                const urlLang = urlParams.get('lang');
+
+                // If lang is in URL, use it and save to localStorage
+                if (urlLang && ['he', 'en'].includes(urlLang)) {
+                    localStorage.setItem('preferred-language', urlLang);
+                    return urlLang;
+                }
+
+                // Otherwise use localStorage or default to Hebrew
+                return localStorage.getItem('preferred-language') || 'he';
+            }
+
+            const savedLang = getInitialLanguage();
+            const html = document.documentElement;
+            html.setAttribute('lang', savedLang);
+            html.setAttribute('dir', savedLang === 'he' ? 'rtl' : 'ltr');
+
+            // Apply translations as soon as DOM is ready
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', function() {
+                    applyTranslations(savedLang);
+                });
+            } else {
+                applyTranslations(savedLang);
+            }
+
+            function applyTranslations(lang) {
+                document.body?.classList.toggle('rtl', lang === 'he');
+                document.body?.classList.toggle('ltr', lang !== 'he');
+
+                const elements = document.querySelectorAll('[data-i18n]');
+                elements.forEach(element => {
+                    const key = element.getAttribute('data-i18n');
+                    if (translations[lang] && translations[lang][key]) {
+                        element.innerHTML = translations[lang][key];
+                    }
+                });
+            }
+        })();
+    </script>
+<!-- Travelpayouts affiliate tracking -->
+<script data-cfasync="false" data-cmp-ab="2" data-no-defer="1" data-noptimize="1" data-wpfc-render="false" nowprocket="" seraph-accel-crit="1">
+      (function () {
+          var script = document.createElement("script");
+          script.async = 1;
+          script.setAttribute("data-cmp-ab","2");
+          script.src = 'https://tp-em.com/NTU5OTM5.js?t=559939';
+          document.head.appendChild(script);
+      })();
+    </script>
+<link href="https://climbing-cyprus.com/tour-phinikaria.html" hreflang="he" rel="alternate"/>
+<link href="https://climbing-cyprus.com/en/tour-phinikaria.html" hreflang="en" rel="alternate"/>
+<link href="https://climbing-cyprus.com/tour-phinikaria.html" hreflang="x-default" rel="alternate"/>
+</head>
+<body>
+<!-- Navigation -->
+<nav class="navbar">
+<div class="container nav-container">
+<a class="logo" href="index.html" style="text-decoration: none; color: inherit;">
+<img alt="Climbing Cyprus Logo" src="../pics/climbing-cyprus-logo.webp"/>
+</a>
+<ul class="nav-menu">
+<li><a data-i18n="nav-climber-guide" href="climber-guide.html">Climber's Guide</a></li>
+<li><a data-i18n="nav-climbing" href="index.html#activities">Rock Climbing</a></li>
+<li><a data-i18n="nav-gallery" href="index.html#gallery">Photos</a></li>
+<li><a data-i18n="nav-contact" href="index.html#contact">Contact</a></li>
+</ul>
+<div class="language-switcher">
+<button aria-label="English" class="lang-btn" data-lang="en" title="English">EN</button>
+<button aria-label="עברית" class="lang-btn" data-lang="he" title="עברית">HE</button>
+</div>
+<div class="nav-right">
+<div class="hamburger">
+<span></span>
+<span></span>
+<span></span>
+</div>
+</div>
+</div>
+</nav>
+<!-- Tour Hero -->
+<section class="tour-hero">
+<div class="tour-hero-image">
+<img alt="Phinikaria Village" src="../pics/hikes /כפר פיניקריה .webp"/>
+</div>
+<div class="tour-hero-content">
+<div class="container">
+<h1 data-i18n="tour-phinikaria-title">Phinikaria Mountain Village Tour</h1>
+<p class="tour-meta">
+<span><i class="fas fa-clock"></i> <span data-i18n="tour-phinikaria-duration">3-4 hours</span></span>
+<span><i class="fas fa-chart-line"></i> <span data-i18n="tour-phinikaria-difficulty">Easy</span></span>
+<span><i class="fas fa-users"></i> <span data-i18n="tour-phinikaria-group">Groups up to 12 people</span></span>
+<span><i class="fas fa-route"></i> <span data-i18n="tour-phinikaria-distance">5 km</span></span>
+</p>
+</div>
+</div>
+</section>
+<!-- Tour Details -->
+<section class="tour-details">
+<div class="container">
+<div class="tour-content-grid">
+<div class="tour-main-content">
+<h2 data-i18n="tour-phinikaria-overview">Overview</h2>
+<p data-i18n="tour-phinikaria-p1">Phinikaria village is one of the most charming mountain villages in the Troodos area. The village sits at 900 meters above sea level and offers stunning views, authentic Cypriot atmosphere, and traditional stone architecture.</p>
+<p data-i18n="tour-phinikaria-p2">The tour includes a village tour, walking on the natural trails around, getting to know the local culture, and visiting a small traditional restaurant. The experience combines nature and culture and is suitable for those seeking an authentic and peaceful experience in the heart of the mountains.</p>
+<h2 data-i18n="tour-phinikaria-highlights">Tour Highlights</h2>
+<ul class="tour-highlights-list">
+<li><i class="fas fa-check"></i> <span data-i18n="tour-phinikaria-h1">Tour of traditional mountain village</span></li>
+<li><i class="fas fa-check"></i> <span data-i18n="tour-phinikaria-h2">Stunning views of Troodos mountains</span></li>
+<li><i class="fas fa-check"></i> <span data-i18n="tour-phinikaria-h3">Traditional stone architecture</span></li>
+<li><i class="fas fa-check"></i> <span data-i18n="tour-phinikaria-h4">Walking on natural trails</span></li>
+<li><i class="fas fa-check"></i> <span data-i18n="tour-phinikaria-h5">Meeting authentic Cypriot culture</span></li>
+<li><i class="fas fa-check"></i> <span data-i18n="tour-phinikaria-h6">Local food tasting</span></li>
+</ul>
+<h2 data-i18n="tour-phinikaria-itinerary">Tour Itinerary</h2>
+<div class="itinerary">
+<div class="itinerary-item">
+<div class="itinerary-time" data-i18n="tour-phinikaria-time1">09:30</div>
+<div class="itinerary-content">
+<h3 data-i18n="tour-phinikaria-activity1">Meeting and Drive</h3>
+<p data-i18n="tour-phinikaria-desc1">Meeting at starting point and drive to Phinikaria village</p>
+</div>
+</div>
+<div class="itinerary-item">
+<div class="itinerary-time" data-i18n="tour-phinikaria-time2">10:30</div>
+<div class="itinerary-content">
+<h3 data-i18n="tour-phinikaria-activity2">Village Tour</h3>
+<p data-i18n="tour-phinikaria-desc2">Village tour, stories and history, traditional buildings</p>
+</div>
+</div>
+<div class="itinerary-item">
+<div class="itinerary-time" data-i18n="tour-phinikaria-time3">11:30</div>
+<div class="itinerary-content">
+<h3 data-i18n="tour-phinikaria-activity3">Trail Walk</h3>
+<p data-i18n="tour-phinikaria-desc3">Short walk on natural trail with amazing views</p>
+</div>
+</div>
+<div class="itinerary-item">
+<div class="itinerary-time" data-i18n="tour-phinikaria-time4">13:00</div>
+<div class="itinerary-content">
+<h3 data-i18n="tour-phinikaria-activity4">Lunch</h3>
+<p data-i18n="tour-phinikaria-desc4">Meal at small traditional restaurant in the village</p>
+</div>
+</div>
+<div class="itinerary-item">
+<div class="itinerary-time" data-i18n="tour-phinikaria-time5">14:30</div>
+<div class="itinerary-content">
+<h3 data-i18n="tour-phinikaria-activity5">Return</h3>
+<p data-i18n="tour-phinikaria-desc5">Return to starting point</p>
+</div>
+</div>
+</div>
+<h2 data-i18n="tour-included">What's Included</h2>
+<div class="included-grid">
+<div class="included-item">
+<i class="fas fa-user-tie"></i>
+<span data-i18n="tour-included-guide">Professional guide</span>
+</div>
+<div class="included-item">
+<i class="fas fa-coffee"></i>
+<span data-i18n="tour-included-tastings">Tastings</span>
+</div>
+<div class="included-item">
+<i class="fas fa-water"></i>
+<span data-i18n="tour-included-water">Water</span>
+</div>
+</div>
+</div>
+<div class="tour-sidebar">
+<div class="booking-card">
+<h3 data-i18n="tour-booking">Tour Booking</h3>
+<div class="price">
+<span class="price-amount" data-i18n="tour-price-from">From €40</span>
+<span class="price-per" data-i18n="tour-price-per">per person</span>
+</div>
+<a class="book-btn" data-i18n="tour-book-btn" href="index.html#contact">Book Now</a>
+</div>
+<div class="info-card">
+<h3 data-i18n="tour-info-title">Additional Information</h3>
+<ul>
+<li><i class="fas fa-info-circle"></i> <span data-i18n="tour-info-suitable">Suitable for families and children</span></li>
+<li><i class="fas fa-language"></i> <span data-i18n="tour-info-language">Guidance in Hebrew and English</span></li>
+<li><i class="fas fa-bus"></i> <span data-i18n="tour-info-transport">Transportation included</span></li>
+</ul>
+</div>
+
+</div>
+</div>
+</div>
+
+</section>
+<!-- CTA Section -->
+<section class="cta-section">
+<div class="container">
+<h2 data-i18n="tour-cta-title">Interested in this tour?</h2>
+<p data-i18n="tour-cta-text">Contact us and we'll build the perfect tour for you together</p>
+<a class="cta-button" data-i18n="tour-cta-button" href="index.html#contact">Contact Us</a>
+</div>
+</section>
+<!-- Footer -->
+<footer class="footer">
+<div class="container">
+<p>© 2024 <span>Cyprus Through Different Eyes</span>. <span>All rights reserved</span>.</p>
+</div>
+</footer>
+<script src="../script.js?v=20260810-3"></script>
+</body>
+</html>

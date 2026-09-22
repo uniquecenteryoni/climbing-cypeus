@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+
+<html dir="ltr" lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-4WPV84ES2X"></script>
+<script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-4WPV84ES2X');
+    </script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Rock climbing in Cyprus, guided climbing tours, rappelling, gear rental and lead climbing courses with Climbing Cyprus." name="description"/>
+<title>Climbing Cyprus | Rock Climbing and Adventure Tours</title>
+<!-- Favicons for all browsers and devices -->
+<link href="../favicon.webp?v=20260819" rel="icon" sizes="512x512" type="image/webp"/>
+<link href="../favicon.webp?v=20260819" rel="apple-touch-icon" sizes="512x512"/>
+<link href="../favicon.webp?v=20260819" rel="shortcut icon" type="image/webp"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<link href="../style.css" rel="stylesheet"/>
+<link href="../tour-page.css" rel="stylesheet"/>
+<!-- Load translations first -->
+<script src="../translations.js"></script>
+<!-- Apply language settings immediately to prevent flash -->
+<script>
+        (function() {
+            // Get language from URL parameter, then localStorage, then default to Hebrew
+            function getInitialLanguage() {
+                const urlParams = new URLSearchParams(window.location.search);
+                const urlLang = urlParams.get('lang');
+
+                // If lang is in URL, use it and save to localStorage
+                if (urlLang && ['he', 'en'].includes(urlLang)) {
+                    localStorage.setItem('preferred-language', urlLang);
+                    return urlLang;
+                }
+
+                // Otherwise use localStorage or default to Hebrew
+                return localStorage.getItem('preferred-language') || 'he';
+            }
+
+            const savedLang = getInitialLanguage();
+            const html = document.documentElement;
+            html.setAttribute('lang', savedLang);
+            html.setAttribute('dir', savedLang === 'he' ? 'rtl' : 'ltr');
+
+            // Apply translations as soon as DOM is ready
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', function() {
+                    applyTranslations(savedLang);
+                });
+            } else {
+                applyTranslations(savedLang);
+            }
+
+            function applyTranslations(lang) {
+                document.body?.classList.toggle('rtl', lang === 'he');
+                document.body?.classList.toggle('ltr', lang !== 'he');
+
+                const elements = document.querySelectorAll('[data-i18n]');
+                elements.forEach(element => {
+                    const key = element.getAttribute('data-i18n');
+                    if (translations[lang] && translations[lang][key]) {
+                        element.innerHTML = translations[lang][key];
+                    }
+                });
+            }
+        })();
+    </script>
+<!-- Travelpayouts affiliate tracking -->
+<script data-cfasync="false" data-cmp-ab="2" data-no-defer="1" data-noptimize="1" data-wpfc-render="false" nowprocket="" seraph-accel-crit="1">
+      (function () {
+          var script = document.createElement("script");
+          script.async = 1;
+          script.setAttribute("data-cmp-ab","2");
+          script.src = 'https://tp-em.com/NTU5OTM5.js?t=559939';
+          document.head.appendChild(script);
+      })();
+    </script>
+<link href="https://climbing-cyprus.com/tour-avakas.html" hreflang="he" rel="alternate"/>
+<link href="https://climbing-cyprus.com/en/tour-avakas.html" hreflang="en" rel="alternate"/>
+<link href="https://climbing-cyprus.com/tour-avakas.html" hreflang="x-default" rel="alternate"/>
+</head>
+<body>
+<!-- Navigation -->
+<nav class="navbar">
+<div class="container nav-container">
+<a class="logo" href="index.html" style="text-decoration: none; color: inherit;">
+<img alt="Climbing Cyprus Logo" src="../pics/climbing-cyprus-logo.webp"/>
+</a>
+<ul class="nav-menu">
+<li><a data-i18n="nav-climber-guide" href="climber-guide.html">Climber's Guide</a></li>
+<li><a data-i18n="nav-climbing" href="index.html#activities">Rock Climbing</a></li>
+<li><a data-i18n="nav-gallery" href="index.html#gallery">Photos</a></li>
+<li><a data-i18n="nav-contact" href="index.html#contact">Contact</a></li>
+</ul>
+<div class="language-switcher">
+<button aria-label="English" class="lang-btn" data-lang="en" title="English">EN</button>
+<button aria-label="עברית" class="lang-btn" data-lang="he" title="עברית">HE</button>
+</div>
+<div class="nav-right">
+<div class="hamburger">
+<span></span>
+<span></span>
+<span></span>
+</div>
+</div>
+</div>
+</nav>
+<!-- Tour Hero -->
+<section class="tour-hero">
+<div class="tour-hero-image">
+<img alt="Avakas Gorge" src="../pics/hikes /avaksd.webp"/>
+</div>
+<div class="tour-hero-content">
+<div class="container">
+<h1 data-i18n="tour3-title">One-Way Hike to Avakas Canyon</h1>
+<p class="tour-meta">
+<span><i class="fas fa-clock"></i> <span data-i18n="tour3-duration">4-5 hours</span></span>
+<span><i class="fas fa-chart-line"></i> <span data-i18n="tour3-difficulty">Moderate-Challenging</span></span>
+<span><i class="fas fa-users"></i> <span data-i18n="tour3-group">Groups up to 10 people</span></span>
+</p>
+</div>
+</div>
+</section>
+<!-- Tour Details -->
+<section class="tour-details">
+<div class="container">
+<div class="tour-content-grid">
+<div class="tour-main-content">
+<h2 data-i18n="tour-overview-title">Overview</h2>
+<p data-i18n="tour3-overview">Spectacular hike in Avakas Canyon - one of the most impressive canyons in Europe! This canyon is similar to the famous canyons in Jordan and Arizona in the USA, and it also appeared in the famous movie "127 Hours". The experience includes walking between high and narrow walls, in water and on rocks, with breathtaking views.</p>
+<p data-i18n="tour3-description">The canyon is located in the Akamas Peninsula in northwest Cyprus, and it offers a physical challenge combined with stunning natural beauty. The trail is suitable for hikers with reasonable fitness and includes climbing on large rocks, walking in water and narrow passages between the high rock walls.</p>
+<h2 data-i18n="tour-highlights-title">Tour Highlights</h2>
+<ul class="tour-highlights-list">
+<li data-i18n="tour3-highlight1">Spectacular canyon with walls up to 30 meters high</li>
+<li data-i18n="tour3-highlight2">Walking in water and on large rocks</li>
+<li data-i18n="tour3-highlight3">Unique views of amazing geology</li>
+<li data-i18n="tour3-highlight4">Challenging and exciting experience</li>
+<li data-i18n="tour3-highlight5">Unique desert flora and fauna</li>
+<li data-i18n="tour3-highlight6">Out and back trail</li>
+</ul>
+<h2 data-i18n="tour-itinerary-title">Tour Itinerary</h2>
+<div class="itinerary">
+<div class="itinerary-item">
+<div class="itinerary-time" data-i18n="tour3-time1">08:30</div>
+<div class="itinerary-content">
+<h3 data-i18n="tour3-stop1-title">Meeting</h3>
+<p data-i18n="tour3-stop1-desc">Meeting at starting point</p>
+</div>
+</div>
+<div class="itinerary-item">
+<div class="itinerary-time" data-i18n="tour3-time2">10:00</div>
+<div class="itinerary-content">
+<h3 data-i18n="tour3-stop2-title">Start of the hike</h3>
+<p data-i18n="tour3-stop2-desc">Walk to canyon entrance with explanation about the area and safety</p>
+</div>
+</div>
+<div class="itinerary-item">
+<div class="itinerary-time" data-i18n="tour3-time3">11:00</div>
+<div class="itinerary-content">
+<h3 data-i18n="tour3-stop3-title">Inside the canyon</h3>
+<p data-i18n="tour3-stop3-desc">Exploring the canyon, climbing on rocks and walking in water</p>
+</div>
+</div>
+<div class="itinerary-item">
+<div class="itinerary-time" data-i18n="tour3-time4">12:30</div>
+<div class="itinerary-content">
+<h3 data-i18n="tour3-stop4-title">Break</h3>
+<p data-i18n="tour3-stop4-desc">Light lunch break in the canyon or near the exit</p>
+</div>
+</div>
+<div class="itinerary-item">
+<div class="itinerary-time" data-i18n="tour3-time5">14:00</div>
+<div class="itinerary-content">
+<h3 data-i18n="tour3-stop5-title">Return</h3>
+<p data-i18n="tour3-stop5-desc">Return to starting point</p>
+</div>
+</div>
+</div>
+<h2 data-i18n="tour-included">What's Included</h2>
+<div class="included-grid">
+<div class="included-item">
+<i class="fas fa-user-tie"></i>
+<span data-i18n="tour-guide">Professional guide</span>
+</div>
+<div class="included-item">
+<i class="fas fa-water"></i>
+<span data-i18n="tour-water">Water</span>
+</div>
+<div class="included-item">
+<i class="fas fa-first-aid"></i>
+<span data-i18n="tour-first-aid">First aid kit</span>
+</div>
+</div>
+</div>
+<div class="tour-sidebar">
+<div class="booking-card">
+<h3 data-i18n="booking-title">Tour Booking</h3>
+<div class="price">
+<span class="price-amount" data-i18n="tour3-price">From €30</span>
+<span class="price-per" data-i18n="price-per-person">per participant (minimum 5)</span>
+</div>
+<a class="book-btn" data-i18n="book-now" href="index.html#contact">Book Now</a>
+</div>
+<div class="info-card">
+<h3 data-i18n="tour-info">Important Information</h3>
+<ul>
+<li data-i18n="tour3-info1">Good physical fitness required</li>
+<li data-i18n="tour3-info2">Sturdy hiking shoes required</li>
+<li data-i18n="tour3-info3">Bring swimsuit and towel</li>
+<li data-i18n="tour3-info4">Suitable for ages 12+</li>
+<li><i class="fas fa-users"></i> עד 12 משתתפים</li>
+<li data-i18n="tour3-info5">Recommended season: April-October</li>
+<li data-i18n="tour3-info6">You may get wet in water</li>
+<li><i class="fas fa-info-circle"></i> טעימות מקומיות - בתוספת תשלום</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="cta-section">
+<div class="container">
+<h2 data-i18n="tour-cta-title">Interested in this tour?</h2>
+<p data-i18n="tour-cta-text">Contact us and we'll build the perfect tour for you together</p>
+<a class="cta-button" data-i18n="tour-cta-button" href="index.html#contact">Contact Us</a>
+</div>
+</section>
+<!-- Footer -->
+<footer class="footer">
+<div class="container">
+<p>© 2024 <span data-i18n="site-title">ClimbCyprus</span>. <span data-i18n="footer-rights">All Rights Reserved</span>.</p>
+</div>
+</footer>
+<script src="../script.js?v=20260810-3"></script>
+</body>
+</html>

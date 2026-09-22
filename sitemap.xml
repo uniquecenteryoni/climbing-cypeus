@@ -79,4 +79,18 @@
       <changefreq>monthly</changefreq>
       <priority>0.9</priority>
    </url>
+   <!-- English pages -->
+   <url><loc>https://climbing-cyprus.com/en/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
+   <url><loc>https://climbing-cyprus.com/en/activities.html</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+   <url><loc>https://climbing-cyprus.com/en/activity-hiking.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+   <url><loc>https://climbing-cyprus.com/en/climber-guide.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+   <url><loc>https://climbing-cyprus.com/en/course.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+   <url><loc>https://climbing-cyprus.com/en/equipment.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+   <url><loc>https://climbing-cyprus.com/en/safety-quiz.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+   <url><loc>https://climbing-cyprus.com/en/tour-winter-troodos.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+   <url><loc>https://climbing-cyprus.com/en/tour-arches.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+   <url><loc>https://climbing-cyprus.com/en/tour-avakas.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+   <url><loc>https://climbing-cyprus.com/en/tour-caledonia.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+   <url><loc>https://climbing-cyprus.com/en/tour-phinikaria.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+   <url><loc>https://climbing-cyprus.com/en/tour-cedar-valley.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
 </urlset>

@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+
+<html dir="ltr" lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-4WPV84ES2X"></script>
+<script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-4WPV84ES2X');
+    </script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Rock climbing in Cyprus, guided climbing tours, rappelling, gear rental and lead climbing courses with Climbing Cyprus." name="description"/>
+<meta content="index, follow, max-image-preview:large" name="robots"/>
+<link href="https://climbing-cyprus.com/en/activities.html" rel="canonical"/>
+<title>Climbing Cyprus | Rock Climbing and Adventure Tours</title>
+<!-- Favicons for all browsers and devices -->
+<link href="../favicon.webp?v=20260819" rel="icon" sizes="512x512" type="image/webp"/>
+<link href="../favicon.webp?v=20260819" rel="apple-touch-icon" sizes="512x512"/>
+<link href="../favicon.webp?v=20260819" rel="shortcut icon" type="image/webp"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<link href="../style.css" rel="stylesheet"/>
+<link href="../tour-page.css" rel="stylesheet"/>
+<!-- Load translations first -->
+<script src="../translations.js"></script>
+<!-- Apply language settings immediately to prevent flash -->
+<script>
+        (function() {
+            // Get language from URL parameter, then localStorage, then default to Hebrew
+            function getInitialLanguage() {
+                const urlParams = new URLSearchParams(window.location.search);
+                const urlLang = urlParams.get('lang');
+
+                // If lang is in URL, use it and save to localStorage
+                if (urlLang && ['he', 'en'].includes(urlLang)) {
+                    localStorage.setItem('preferred-language', urlLang);
+                    return urlLang;
+                }
+
+                // Otherwise use localStorage or default to Hebrew
+                return localStorage.getItem('preferred-language') || 'he';
+            }
+
+            const savedLang = getInitialLanguage();
+            const html = document.documentElement;
+            html.setAttribute('lang', savedLang);
+            html.setAttribute('dir', savedLang === 'he' ? 'rtl' : 'ltr');
+
+            // Apply translations as soon as DOM is ready
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', function() {
+                    applyTranslations(savedLang);
+                });
+            } else {
+                applyTranslations(savedLang);
+            }
+
+            function applyTranslations(lang) {
+                document.body?.classList.toggle('rtl', lang === 'he');
+                document.body?.classList.toggle('ltr', lang !== 'he');
+
+                const elements = document.querySelectorAll('[data-i18n]');
+                elements.forEach(element => {
+                    const key = element.getAttribute('data-i18n');
+                    if (translations[lang] && translations[lang][key]) {
+                        element.innerHTML = translations[lang][key];
+                    }
+                });
+            }
+        })();
+    </script>
+<style>
+        .activities-hero {
+            position: relative;
+            height: 60vh;
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .activities-hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .activities-hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(44, 95, 45, 0.5);
+        }
+
+        .activities-hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: white;
+            padding: var(--spacing-md);
+        }
+
+        .activities-hero-content h1 {
+            font-size: 3rem;
+            margin-bottom: var(--spacing-sm);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .activities-hero-content p {
+            font-size: 1.5rem;
+            margin-bottom: 0;
+        }
+
+        .activity-sections {
+            padding: var(--spacing-xl) 0;
+        }
+
+        .activity-section {
+            margin-bottom: var(--spacing-xl);
+            padding: var(--spacing-lg) 0;
+        }
+
+        .activity-section:not(:last-child) {
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .activity-header {
+            text-align: center;
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .activity-header h2 {
+            color: var(--primary-color);
+            font-size: 2.5rem;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .activity-header p {
+            font-size: 1.2rem;
+            color: var(--text-color);
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        .activity-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-lg);
+            align-items: center;
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .activity-content.reverse {
+            direction: ltr;
+        }
+
+        .activity-content.reverse .activity-text {
+            direction: rtl;
+        }
+
+        .activity-image {
+            width: 100%;
+            height: 400px;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .activity-image img,
+        .activity-image video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .activity-image:hover img {
+            transform: scale(1.05);
+        }
+
+        .activity-text h3 {
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .activity-text p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .activity-text ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .activity-text ul li {
+            padding: 0.5rem 0;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .activity-text ul li i {
+            color: var(--primary-color);
+            margin-left: 0.5rem;
+        }
+
+        .pricing-box {
+            background: linear-gradient(135deg, #2c5f2d 0%, #3a7a3d 100%);
+            color: white;
+            padding: var(--spacing-lg);
+            border-radius: 8px;
+            text-align: center;
+            margin-top: var(--spacing-lg);
+        }
+
+        .pricing-box h3 {
+            font-size: 2rem;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .pricing-box .price {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: var(--spacing-sm);
+            display: flex;
+            align-items: baseline;
+            justify-content: center;
+            gap: 0.35rem;
+            flex-wrap: wrap;
+        }
+
+        .pricing-box .price .currency {
+            font-size: 2rem;
+        }
+
+        .pricing-box .price [hidden] {
+            display: none;
+        }
+
+        .pricing-box p {
+            font-size: 1.1rem;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .pricing-box .cta-button {
+            display: inline-block;
+            background: white;
+            color: var(--primary-color);
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .pricing-box .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        @media (max-width: 768px) {
+            .activities-hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .activities-hero-content p {
+                font-size: 1.2rem;
+            }
+
+            .activity-content {
+                grid-template-columns: 1fr;
+            }
+
+            .activity-content.reverse {
+                direction: rtl;
+            }
+
+            .activity-header h2 {
+                font-size: 2rem;
+            }
+
+            .activity-image {
+                height: 300px;
+            }
+
+            .activity-image img,
+            .activity-image video {
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+    </style>
+<!-- Travelpayouts affiliate tracking -->
+<script data-cfasync="false" data-cmp-ab="2" data-no-defer="1" data-noptimize="1" data-wpfc-render="false" nowprocket="" seraph-accel-crit="1">
+      (function () {
+          var script = document.createElement("script");
+          script.async = 1;
+          script.setAttribute("data-cmp-ab","2");
+          script.src = 'https://tp-em.com/NTU5OTM5.js?t=559939';
+          document.head.appendChild(script);
+      })();
+    </script>
+<style>
+        .climbing-session-pricing .pricing-switcher {
+            display: flex;
+            justify-content: center;
+            gap: .55rem;
+            flex-wrap: wrap;
+            margin: 0 0 1.25rem;
+        }
+        .climbing-session-pricing .pricing-switcher-option {
+            border: 1px solid rgba(255,255,255,.65);
+            border-radius: 999px;
+            padding: .55rem 1rem;
+            background: transparent;
+            color: #fff;
+            cursor: pointer;
+            font: inherit;
+            transition: .2s ease;
+        }
+        .climbing-session-pricing .pricing-switcher-option:hover,
+        .climbing-session-pricing .pricing-switcher-option.is-active {
+            background: #fff;
+            color: #2c5f2d;
+        }
+        .climbing-session-pricing [data-pricing-value] { white-space: nowrap; }
+        .climbing-session-pricing [data-pricing-currency][hidden] { display: none; }
+    </style>
+<link href="https://climbing-cyprus.com/activities.html" hreflang="he" rel="alternate"/>
+<link href="https://climbing-cyprus.com/en/activities.html" hreflang="en" rel="alternate"/>
+<link href="https://climbing-cyprus.com/activities.html" hreflang="x-default" rel="alternate"/>
+</head>
+<body class="activities-page">
+<!-- Navigation -->
+<nav class="navbar">
+<div class="container nav-container">
+<a class="logo" href="index.html" style="text-decoration: none; color: inherit;">
+<img alt="Climbing Cyprus Logo" src="../pics/climbing-cyprus-logo.webp"/>
+</a>
+<ul class="nav-menu">
+<li><a data-i18n="nav-climber-guide" href="climber-guide.html">Climber's Guide</a></li>
+<li><a data-i18n="nav-climbing" href="index.html#activities">Rock Climbing</a></li>
+<li><a data-i18n="nav-gallery" href="index.html#gallery">Photos</a></li>
+<li><a data-i18n="nav-contact" href="index.html#contact">Contact</a></li>
+</ul>
+<div class="language-switcher">
+<button aria-label="English" class="lang-btn" data-lang="en" title="English">EN</button>
+<button aria-label="עברית" class="lang-btn" data-lang="he" title="עברית">HE</button>
+</div>
+<div class="nav-right">
+<div class="hamburger">
+<span></span>
+<span></span>
+<span></span>
+</div>
+</div>
+</div>
+</nav>
+<!-- Hero Section -->
+<section class="activities-hero">
+<img alt="טיפוס צוקים בקפריסין" class="activities-hero-bg" src="../pics/Galerry/climb22.webp"/>
+<div class="activities-hero-overlay"></div>
+<div class="activities-hero-content">
+<h1 data-i18n="activities-hero-title">Rock Climbing and Rappelling in Cyprus</h1>
+<p data-i18n="activities-hero-subtitle">An empowering experience and extraordinary adventure</p>
+</div>
+</section>
+<!-- Activities Sections -->
+<section class="activity-sections">
+<div class="container">
+<!-- Rock Climbing Section -->
+<div class="activity-section" id="climbing">
+<div class="activity-header">
+<h2 data-i18n="activities-climbing-header">Rock Climbing Introduction and Experience</h2>
+<p data-i18n="activities-climbing-subheader">A climbing day where we tackle rock climbing routes with top-rope safety</p>
+</div>
+<div class="activity-content">
+<div class="activity-image">
+<video autoplay="" loop="" muted="" playsinline="">
+<source src="../pics/short1.mp4" type="video/mp4"/>
+                            סנפלינג בקפריסין
+                        </video>
+</div>
+<div class="activity-text">
+<h3 data-i18n="activities-climbing-experience-title">An experiential day combining challenge and empowerment</h3>
+<ul>
+<li><i class="fas fa-check-circle"></i><span data-i18n="activities-climbing-feature1">Suitable for the whole family</span></li>
+<li><i class="fas fa-check-circle"></i><span data-i18n="activities-climbing-feature2">No previous experience required</span></li>
+<li><i class="fas fa-check-circle"></i><span data-i18n="activities-climbing-feature3">Full professional equipment included</span></li>
+<li><i class="fas fa-check-circle"></i><span data-i18n="activities-climbing-feature4">Professional and personal instruction</span></li>
+<li><i class="fas fa-check-circle"></i><span data-i18n="activities-climbing-feature5">Top-rope safety for maximum security</span></li>
+</ul>
+</div>
+</div>
+<div class="activity-content reverse">
+<div class="activity-text">
+<h3 data-i18n="activities-climbing-sites-title">Spectacular Climbing Sites</h3>
+<p data-i18n="activities-climbing-sites-p1">Together we'll choose, according to weather, your location and preferences, the suitable climbing destination where we'll spend our day together.</p>
+<p data-i18n="activities-climbing-sites-p2">Cyprus climbing sites are mostly in simply breathtaking locations! The cliffs are situated at stunning viewpoints with views of the Mediterranean Sea and mountains.</p>
+</div>
+<div class="activity-image">
+<img alt="אתרי טיפוס" src="../pics/Galerry/climb1.webp"/>
+</div>
+</div>
+<div class="activity-content">
+<div class="activity-image">
+<img alt="טיפוס משפחתי" src="../pics/Galerry/climb2.webp"/>
+</div>
+<div class="activity-text">
+<h3 data-i18n="activities-climbing-ages-title">Suitable for All Ages</h3>
+<p data-i18n="activities-climbing-ages-p1">There are climbing routes for all levels and we have all the appropriate equipment so each of you can try, challenge yourself and enjoy the experience of climbing in nature.</p>
+<p data-i18n="activities-climbing-ages-p2">From age 6 to 99 - everyone can try climbing! Our guide will adapt the routes and challenges to each participant personally.</p>
+</div>
+</div>
+<!-- Climbing Pricing -->
+<div class="pricing-box climbing-session-pricing" data-climbing-pricing="">
+<h3 data-i18n="activities-climbing-pricing-title">Rock Climbing Pricing</h3>
+<div aria-label="בחירת גודל קבוצה" class="pricing-switcher" role="tablist">
+<button aria-selected="true" class="pricing-switcher-option is-active" data-i18n="pricing-option-group" data-pricing-option="group" role="tab" type="button">Group up to 5</button>
+<button aria-selected="false" class="pricing-switcher-option" data-i18n="pricing-option-couple" data-pricing-option="couple" role="tab" type="button">Single/couple</button>
+<button aria-selected="false" class="pricing-switcher-option" data-i18n="pricing-option-larger" data-pricing-option="larger" role="tab" type="button">More than 5 participants</button>
+</div>
+<div class="price">
+<span class="currency" data-pricing-currency="">€</span><span data-pricing-value="">300</span>
+</div>
+<a class="cta-button" data-i18n="activities-climbing-book" href="index.html#contact">Book Now</a>
+</div>
+</div>
+<!-- Rappelling Section -->
+<div class="activity-section" id="rappelling">
+<div class="activity-header">
+<h2 data-i18n="activities-rappelling-header">Rappelling (Rope Descent)</h2>
+<p data-i18n="activities-rappelling-subheader">An adrenaline experience of rope descent from spectacular cliffs and waterfalls</p>
+</div>
+<div class="activity-content">
+<div class="activity-image">
+<img alt="סנפלינג" src="../pics/Galerry/rapelling.webp"/>
+</div>
+<div class="activity-text">
+<h3 data-i18n="activities-rappelling-challenge-title">An Exciting and Safe Challenge</h3>
+<p data-i18n="activities-rappelling-challenge-p">Rappelling is one of the most exciting experiences you can have in nature. Controlled descent down a cliff or waterfall with full control.</p>
+<ul>
+<li><i class="fas fa-check-circle"></i><span data-i18n="activities-rappelling-feature1">Advanced safety equipment</span></li>
+<li><i class="fas fa-check-circle"></i><span data-i18n="activities-rappelling-feature2">Detailed preliminary instruction</span></li>
+<li><i class="fas fa-check-circle"></i><span data-i18n="activities-rappelling-feature3">Close supervision by an experienced guide</span></li>
+<li><i class="fas fa-check-circle"></i><span data-i18n="activities-rappelling-feature4">Suitable for beginners and advanced</span></li>
+<li><i class="fas fa-check-circle"></i><span data-i18n="activities-rappelling-feature5">Spectacular rappelling points</span></li>
+</ul>
+</div>
+</div>
+<div class="activity-content reverse">
+<div class="activity-text">
+<h3 data-i18n="activities-rappelling-locations-title">Unique Locations</h3>
+<p data-i18n="activities-rappelling-locations-p1">Cyprus offers a wide variety of rappelling spots - from spectacular waterfalls to cliffs tens of meters above the sea.</p>
+<p data-i18n="activities-rappelling-locations-p2">We will choose together the most suitable location according to your level, weather and preferences.</p>
+</div>
+<div class="activity-image">
+<img alt="סנפלינג במיקומים ייחודיים" src="../pics/Galerry/rapell2.webp"/>
+</div>
+</div>
+<!-- Rappelling Pricing -->
+<div class="pricing-box">
+<h3 data-i18n="activities-rappelling-pricing-title">Rappelling Pricing</h3>
+<div class="price">
+<span class="currency">€</span>40
+                    </div>
+<p data-i18n="activities-rappelling-pricing-desc">Price per participant | Minimum 5 participants | Including professional equipment | Full instruction</p>
+<a class="cta-button" data-i18n="activities-rappelling-book" href="index.html#contact">Book Now</a>
+</div>
+</div>
+<!-- Combined Package -->
+<div class="activity-section" id="fun-days">
+<div class="activity-header">
+<h2 data-i18n="activities-combined-header">Combined Packages</h2>
+<p data-i18n="activities-combined-subheader">Combine several activities for a perfect adventure day</p>
+</div>
+<div class="pricing-box" style="margin-bottom: var(--spacing-lg);">
+<h3 data-i18n="activities-combined-climbing-rappelling-title">Climbing + Rappelling Package</h3>
+<div class="price">
+<span class="currency">€</span>85
+                    </div>
+<p data-i18n="activities-combined-climbing-rappelling-desc">Price per participant | Full day | Including all equipment</p>
+<a class="cta-button" data-i18n="activities-climbing-book" href="index.html#contact">Book Now</a>
+</div>
+<div class="pricing-box">
+<h3 data-i18n="activities-combined-hiking-rappelling-title">Hiking + Rappelling Package</h3>
+<div class="price">
+<span class="currency">€</span>100
+                    </div>
+<p data-i18n="activities-combined-hiking-rappelling-desc">Price per participant | Full day | Including all equipment</p>
+<a class="cta-button" data-i18n="activities-climbing-book" href="index.html#contact">Book Now</a>
+</div>
+</div>
+<!-- What's Included -->
+<div class="activity-section">
+<div class="activity-header">
+<h2 data-i18n="activities-included-header">What's Included in Every Activity?</h2>
+</div>
+<div class="tour-content-grid">
+<div class="tour-main-content">
+<ul class="tour-highlights-list">
+<li><i class="fas fa-user-tie"></i><span data-i18n="activities-included-guide">Experienced guide</span></li>
+<li><i class="fas fa-hard-hat"></i><span data-i18n="activities-included-equipment">Full professional safety equipment</span></li>
+<li><i class="fas fa-camera"></i><span data-i18n="activities-included-photos">Photos during the activity</span></li>
+<li><i class="fas fa-book"></i><span data-i18n="activities-included-briefing">Detailed preliminary briefing</span></li>
+<li><i class="fas fa-first-aid"></i><span data-i18n="activities-included-firstaid">First aid kit</span></li>
+</ul>
+</div>
+</div>
+<h2 class="activity-subheading" data-i18n="activities-bring-header">What to Bring?</h2>
+<div class="tour-content-grid bring-content-grid">
+<div class="tour-main-content">
+<ul class="tour-highlights-list">
+<li><i class="fas fa-shoe-prints"></i><span data-i18n="activities-bring-shoes">Closed and comfortable shoes (sneakers)</span></li>
+<li><i class="fas fa-tshirt"></i><span data-i18n="activities-bring-clothes">Comfortable and breathable clothing</span></li>
+<li><i class="fas fa-sun"></i><span data-i18n="activities-bring-sun">Hat and sunscreen</span></li>
+<li><i class="fas fa-bottle-water"></i><span data-i18n="activities-bring-water">Water bottles</span></li>
+<li><i class="fas fa-candy-cane"></i><span data-i18n="activities-bring-snack">Energy snack</span></li>
+<li><i class="fas fa-camera"></i><span data-i18n="activities-bring-camera">Camera (optional)</span></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="footer">
+<div class="container">
+<p>© 2024 קפריסין בעין אחרת. כל הזכויות שמורות.</p>
+</div>
+</footer>
+<script src="../script.js?v=20260810-3"></script>
+</body>
+</html>

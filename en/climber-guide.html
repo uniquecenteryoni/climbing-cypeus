@@ -1,0 +1,2328 @@
+<!DOCTYPE html>
+
+<html dir="ltr" lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-4WPV84ES2X"></script>
+<script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-4WPV84ES2X');
+    </script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Rock climbing in Cyprus, guided climbing tours, rappelling, gear rental and lead climbing courses with Climbing Cyprus." name="description"/>
+<meta content="מדריך טיפוס קפריסין, מצוקי קפריסין, בולדר קפריסין, Gerakopetra, Episkopi, climbing guide Cyprus" name="keywords"/>
+<title>Climbing Cyprus | Rock Climbing and Adventure Tours</title>
+<!-- Favicons -->
+<link href="../favicon.webp?v=20260819" rel="icon" sizes="512x512" type="image/webp"/>
+<link href="../favicon.webp?v=20260819" rel="apple-touch-icon" sizes="512x512"/>
+<link href="../favicon.webp?v=20260819" rel="shortcut icon" type="image/webp"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<link href="../style.css?v=20260810-2" rel="stylesheet"/>
+<link href="../tour-page.css" rel="stylesheet"/>
+<!-- Load translations first -->
+<script src="../translations.js?v=20260810-1"></script>
+<!-- Apply language settings immediately to prevent flash -->
+<script>
+        (function() {
+            // Get language from URL parameter, then localStorage, then default to Hebrew
+            function getInitialLanguage() {
+                const urlParams = new URLSearchParams(window.location.search);
+                const urlLang = urlParams.get('lang');
+
+                // If lang is in URL, use it and save to localStorage
+                if (urlLang && ['he', 'en'].includes(urlLang)) {
+                    localStorage.setItem('preferred-language', urlLang);
+                    return urlLang;
+                }
+
+                // Otherwise use localStorage or default to Hebrew
+                return localStorage.getItem('preferred-language') || 'he';
+            }
+
+            const savedLang = getInitialLanguage();
+            const html = document.documentElement;
+            html.setAttribute('lang', savedLang);
+            html.setAttribute('dir', savedLang === 'he' ? 'rtl' : 'ltr');
+
+            // Apply translations as soon as DOM is ready
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', function() {
+                    applyTranslations(savedLang);
+                });
+            } else {
+                applyTranslations(savedLang);
+            }
+
+            function applyTranslations(lang) {
+                document.body?.classList.toggle('rtl', lang === 'he');
+                document.body?.classList.toggle('ltr', lang !== 'he');
+
+                // Keep the English guide focused on climbing and logistics.
+                document.querySelectorAll('[data-hide-in-en]').forEach(element => {
+                    element.hidden = lang === 'en';
+                });
+
+                // Handle regular data-i18n attributes
+                const elements = document.querySelectorAll('[data-i18n]');
+                elements.forEach(element => {
+                    const key = element.getAttribute('data-i18n');
+                    if (translations[lang] && translations[lang][key]) {
+                        element.textContent = translations[lang][key];
+                    }
+                });
+
+                // Handle data-i18n-html attributes (allows HTML content)
+                const htmlElements = document.querySelectorAll('[data-i18n-html]');
+                htmlElements.forEach(element => {
+                    const key = element.getAttribute('data-i18n-html');
+                    if (translations[lang] && translations[lang][key]) {
+                        element.innerHTML = translations[lang][key];
+                    }
+                });
+            }
+        })();
+    </script>
+<style>
+        .guide-hero {
+            position: relative;
+            height: 600px;
+            width: 100vw;
+            margin-inline: calc(50% - 50vw);
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            color: white;
+            text-align: start;
+        }
+
+        .guide-hero iframe {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: max(100vw, 177.78vh);
+            height: max(56.25vw, 100vh);
+            border: 0;
+            pointer-events: none;
+            transform: translate(-50%, -50%) scale(1.04);
+        }
+
+        .guide-hero::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.46);
+        }
+
+        .guide-hero .container {
+            position: relative;
+            z-index: 1;
+            width: min(720px, calc(100% - 48px));
+            max-width: 720px;
+            margin-left: auto;
+            margin-right: clamp(32px, 7vw, 110px);
+            padding-top: 100px;
+        }
+
+        .guide-hero h1 {
+            font-size: clamp(48px, 5vw, 78px);
+            line-height: 1;
+            margin-bottom: 24px;
+            text-shadow: 0 2px 16px rgba(0,0,0,0.45);
+            text-align: inherit;
+        }
+
+        .guide-hero p {
+            font-size: 1.5rem;
+            margin-bottom: 0;
+        }
+
+        html[dir="ltr"] .guide-hero .container {
+            margin-left: clamp(32px, 7vw, 110px);
+            margin-right: auto;
+        }
+
+        html[dir="rtl"] .guide-hero .container {
+            text-align: right;
+        }
+
+        .guide-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+            line-height: 1.8;
+        }
+
+        .guide-content h2 {
+            color: #2c5f2d;
+            margin-top: 3rem;
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+            border-bottom: 3px solid #97c24a;
+            padding-bottom: 0.5rem;
+        }
+
+        .guide-content h3 {
+            color: #2c5f2d;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .guide-content p {
+            margin-bottom: 1.5rem;
+            text-align: justify;
+        }
+
+        .guide-content ul, .guide-content ol {
+            margin: 1.5rem 0;
+            padding-right: 2rem;
+        }
+
+        .guide-content li {
+            margin-bottom: 1rem;
+        }
+
+        .guide-image {
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .guide-image img {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .guide-image-caption {
+            text-align: center !important;
+            font-style: italic;
+            color: #666;
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        /* Image Carousel Styles */
+        .image-carousel {
+            position: relative;
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .carousel-container {
+            position: relative;
+            max-width: 100%;
+            margin: 0 auto;
+            height: 500px;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .carousel-image {
+            display: none;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 40%;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            cursor: pointer;
+            pointer-events: auto;
+        }
+
+        .carousel-image.active {
+            display: block;
+        }
+
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(44, 95, 45, 0.7);
+            color: white;
+            border: none;
+            padding: 1rem;
+            cursor: pointer;
+            font-size: 1.5rem;
+            border-radius: 5px;
+            transition: all 0.3s;
+            z-index: 10;
+            pointer-events: auto;
+        }
+
+        .carousel-btn:hover {
+            background: rgba(44, 95, 45, 0.9);
+        }
+
+        .carousel-btn.prev {
+            left: 10px;
+        }
+
+        .carousel-btn.next {
+            right: 10px;
+        }
+
+        .carousel-dots {
+            text-align: center;
+            margin-top: 1rem;
+        }
+
+        .carousel-dot {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #ccc;
+            margin: 0 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .carousel-dot.active {
+            background: #2c5f2d;
+            width: 14px;
+            height: 14px;
+        }
+
+        .guide-image-caption {
+            text-align: center !important;
+            font-style: italic;
+            color: #666;
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+            direction: ltr;
+        }
+
+        .climbing-wall-box {
+            background: transparent;
+            padding: 1.25rem 0;
+            border-radius: 0;
+            margin: 2rem 0;
+            border-top: 1px solid #dce5d5;
+            border-bottom: 1px solid #dce5d5;
+        }
+
+        .intro-quote {
+            font-size: 1.2rem;
+            font-style: italic;
+            color: #555;
+            border-right: 4px solid #97c24a;
+            padding-right: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .bouldering-guide-feature {
+            display: grid;
+            grid-template-columns: minmax(120px, 180px) 1fr;
+            gap: 1.25rem;
+            align-items: center;
+            background: transparent;
+            padding: 1rem;
+            border-radius: 0;
+            margin: 1rem 0 1.5rem;
+            border-top: 1px solid #dce5d5;
+            border-bottom: 1px solid #dce5d5;
+        }
+
+        .bouldering-guide-feature img {
+            width: 100%;
+            border-radius: 6px;
+            box-shadow: none;
+        }
+
+        .firstbolt-promo {
+            display: grid;
+            grid-template-columns: 72px 1fr;
+            gap: 1rem;
+            align-items: center;
+            margin: 2rem 0;
+            padding: 1.25rem 0;
+            background: transparent;
+            border-top: 1px solid #dce5d5;
+            border-bottom: 1px solid #dce5d5;
+            color: #243524;
+        }
+
+        .firstbolt-promo-logo {
+            width: 64px;
+            height: 64px;
+            object-fit: contain;
+            border-radius: 50%;
+            background: #ffca3a;
+        }
+
+        .firstbolt-promo h3 {
+            color: #2c5f2d;
+            margin: 0 0 0.5rem;
+            text-align: start;
+        }
+
+        .firstbolt-kicker {
+            margin-bottom: 0.2rem !important;
+            color: #6a8f43 !important;
+            font-size: 0.72rem;
+            font-weight: 800;
+            letter-spacing: 0.16em;
+        }
+
+        .firstbolt-promo p {
+            color: #45604a;
+        }
+
+        .guide-strip {
+            margin: 2.5rem 0;
+            padding: 1.25rem 0;
+            background: transparent !important;
+            border-top: 1px solid #dce5d5;
+            border-bottom: 1px solid #dce5d5;
+            border-radius: 0 !important;
+            box-shadow: none !important;
+        }
+
+        .guide-strip h3,
+        .guide-strip h4 {
+            margin-top: 0 !important;
+            margin-bottom: 0.75rem !important;
+        }
+
+        .guide-important-strip h3,
+        .guide-important-strip p {
+            color: #52614f !important;
+        }
+
+        .guide-contact-strip {
+            text-align: start;
+        }
+
+        .guide-contact-strip .cta-button {
+            display: inline-block;
+        }
+
+        .bouldering-resources p,
+        .bouldering-resources p,
+        .resource-note {
+            color: #45604a;
+        }
+
+        .firstbolt-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 0.35rem;
+            padding: 0.65rem 1rem;
+            border-radius: 6px;
+            background: #ffca3a;
+            color: #172c45;
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        .bouldering-resources {
+            margin: 2rem 0;
+            padding: 0;
+        }
+
+        .bouldering-resources > h3 {
+            color: #2c5f2d;
+            margin-bottom: 0.75rem;
+            text-align: start;
+        }
+
+        .bouldering-guide-cover {
+            min-width: 0;
+        }
+
+        .instagram-reel-embed {
+            width: 100%;
+            max-width: 540px;
+            min-height: 520px;
+            margin-top: 0.75rem;
+            overflow: hidden;
+            background: transparent;
+        }
+
+        .instagram-reel-embed blockquote {
+            width: 100%;
+            min-width: 280px;
+            margin: 0 !important;
+        }
+
+        .beside-climbing-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .beside-category {
+            padding: 1.1rem 0;
+            background: transparent;
+            border: 0;
+            border-top: 1px solid #e1e8da;
+            border-radius: 0;
+        }
+
+        .beside-affiliate-box {
+            padding: 1.25rem 0;
+            background: transparent;
+            border-inline-start: 0;
+            border-top: 1px solid #dce5d5;
+            border-bottom: 1px solid #dce5d5;
+            border-radius: 0;
+        }
+
+        .topo-download-compact {
+            max-width: 680px;
+            padding: 0.75rem 0;
+            border-top: 1px solid #d7ddd2;
+            border-bottom: 1px solid #d7ddd2;
+            margin: 1.25rem 0;
+        }
+
+        .topo-download-compact h4,
+        .topo-form-compact h4 {
+            color: #2c5f2d;
+            margin: 0 0 0.45rem;
+        }
+
+        .topo-download-compact p,
+        .topo-form-compact p {
+            margin-bottom: 0.75rem;
+        }
+
+        .topo-form-compact {
+            padding: 0.75rem;
+            background: #f8faf7;
+            border-radius: 8px;
+        }
+
+        .beside-climbing-section {
+            margin: 3rem 0 1rem;
+        }
+
+        .beside-climbing-intro {
+            color: #5a665b;
+            text-align: start !important;
+        }
+
+        .beside-climbing-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .beside-category {
+            padding: 1.1rem;
+            background: #fafbf8;
+            border: 1px solid #e1e8da;
+            border-radius: 10px;
+        }
+
+        .beside-category h3 {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin: 0 0 0.75rem;
+            color: #2c5f2d;
+            font-size: 1.2rem;
+            text-align: start;
+        }
+
+        .beside-place {
+            display: block;
+            padding: 0.7rem 0;
+            color: inherit;
+            text-decoration: none;
+            border-top: 1px solid #e7ece3;
+        }
+
+        .beside-place strong,
+        .beside-place span,
+        .beside-place em {
+            display: block;
+        }
+
+        .beside-place strong {
+            color: #1e4120;
+        }
+
+        .beside-place span {
+            color: #5e685e;
+            font-size: 0.92rem;
+        }
+
+        .beside-place em {
+            margin-top: 0.25rem;
+            color: #2c5f2d;
+            font-size: 0.82rem;
+            font-style: normal;
+            font-weight: 700;
+        }
+
+        .beside-place:hover strong,
+        .beside-place:hover em {
+            color: #f47920;
+        }
+
+        .beside-affiliate-box {
+            padding: 1.25rem;
+            background: #f0f8f0;
+            border-inline-start: 4px solid #97c24a;
+            border-radius: 10px;
+        }
+
+        .beside-affiliate-box h3 {
+            margin: 0 0 0.8rem;
+            color: #2c5f2d;
+            text-align: start;
+        }
+
+        .beside-affiliate-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .beside-affiliate-links a {
+            padding: 0.55rem 0.85rem;
+            border-radius: 999px;
+            background: #fff;
+            color: #2c5f2d;
+            text-decoration: none;
+            font-weight: 700;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+        }
+
+        .beside-affiliate-box small {
+            color: #647064;
+        }
+
+        .guide-section-nav {
+            overflow-x: auto;
+            scrollbar-width: thin;
+        }
+
+        .guide-section-nav nav {
+            flex-wrap: nowrap !important;
+            justify-content: flex-start !important;
+            width: max-content;
+            min-width: 100%;
+        }
+
+        .guide-section-nav a {
+            white-space: nowrap;
+        }
+
+        .bouldering-guide-feature h4 {
+            color: #0d47a1;
+            margin: 0 0 0.5rem;
+            font-size: 1.15rem;
+        }
+
+        .bouldering-guide-feature p {
+            margin-bottom: 0.75rem;
+            color: #234b72;
+        }
+
+        .guide-video-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            color: #1976d2;
+            font-weight: 700;
+            text-decoration: underline;
+        }
+
+        .topo-download-compact {
+            max-width: 720px;
+            margin-left: auto !important;
+            margin-right: auto !important;
+        }
+
+        .topo-download-compact form {
+            gap: 0.45rem !important;
+        }
+
+        .intro-story {
+            max-width: 780px;
+            margin: 0 0 3.75rem auto;
+            padding: 2.75rem 0 0;
+            text-align: right;
+        }
+
+        .intro-story .intro-title {
+            margin: 0;
+            color: #2c5f2d;
+            font-size: clamp(1.7rem, 3.2vw, 2.6rem);
+            font-weight: 700;
+            line-height: 1.2;
+            text-align: right;
+        }
+
+        .intro-story .intro-title::after {
+            content: "";
+            display: block;
+            width: 60px;
+            height: 3px;
+            margin: 1rem 0 1.35rem;
+            border-radius: 999px;
+            background: #97c24a;
+        }
+
+        .intro-story-body {
+            max-width: 780px;
+            margin: 0;
+            padding: 0;
+        }
+
+        .intro-story-body p {
+            margin: 0;
+            color: #3f4942;
+            font-size: clamp(1.06rem, 1.55vw, 1.35rem);
+            font-weight: 400;
+            line-height: 1.7;
+            text-align: right;
+        }
+
+        .intro-story-body p + p {
+            margin-top: 1.25rem;
+        }
+
+        .intro-story-body .intro-author {
+            color: #3f4942;
+            font-weight: 400;
+        }
+
+        .intro-story-body .intro-author strong {
+            color: #2c5f2d;
+            font-weight: 600;
+        }
+
+        .guide-place-strip {
+            display: grid;
+            grid-template-columns: 46px minmax(0, 1fr);
+            gap: 1rem;
+            align-items: start;
+            margin: 0.85rem 0;
+            padding: 1rem 0;
+            border-top: 1px solid #e0e6dc;
+            border-bottom: 1px solid #e0e6dc;
+            background: transparent;
+            text-align: start;
+        }
+
+        .guide-crag-strip,
+        .climbing-wall-box .guide-place-strip {
+            grid-template-columns: minmax(140px, 220px) minmax(0, 1fr);
+        }
+
+        .guide-place-icon {
+            display: grid;
+            place-items: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #eef5e9;
+            color: #2c5f2d;
+            font-size: 1rem;
+        }
+
+        .guide-place-strip strong {
+            color: #2c5f2d;
+        }
+
+        .guide-place-media {
+            min-height: 108px;
+            overflow: hidden;
+            border-radius: 8px;
+        }
+
+        .guide-place-media img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            min-height: 108px;
+            object-fit: cover;
+        }
+
+        .guide-place-strip h4 {
+            margin: 0 0 0.4rem;
+            font-size: 1.15rem;
+        }
+
+        .guide-place-strip h4 a {
+            color: #2c5f2d;
+            text-decoration: none;
+        }
+
+        .guide-place-tags {
+            display: inline-block;
+            margin-top: 0.35rem;
+            color: #6a8f43;
+            font-size: 0.8rem;
+            font-weight: 700;
+        }
+
+        .guide-city-heading {
+            display: flex;
+            align-items: center;
+            gap: 0.55rem;
+            margin: 2rem 0 0.5rem;
+            color: #2c5f2d;
+        }
+
+        .guide-place-strip a {
+            color: #2c5f2d !important;
+            font-weight: 700;
+        }
+
+        .guide-place-strip + .guide-place-strip {
+            margin-top: 0;
+        }
+
+        .bouldering-guide-feature {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(150px, 210px) minmax(250px, 0.9fr);
+            gap: 1.5rem;
+            align-items: center;
+            margin: 1.5rem 0 1.75rem;
+            padding: 1.5rem;
+            background: #f7f8f5;
+            border: 1px solid #e0e6dc;
+            border-radius: 14px;
+            box-shadow: 0 8px 22px rgba(44, 95, 45, 0.06);
+            text-align: start;
+        }
+
+        .bouldering-guide-copy h3 {
+            margin: 0 0 0.7rem;
+            color: #2c5f2d;
+            font-size: clamp(1.35rem, 2.5vw, 2rem);
+            line-height: 1.2;
+        }
+
+        .bouldering-guide-copy p {
+            margin-bottom: 0.9rem;
+            color: #59665a;
+            text-align: start;
+        }
+
+        .bouldering-guide-kicker {
+            margin-bottom: 0.45rem !important;
+            color: #6a8f43 !important;
+            font-size: 0.78rem;
+            font-weight: 800;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .bouldering-guide-book img {
+            display: block;
+            width: 100%;
+            max-height: 330px;
+            object-fit: contain;
+            border-radius: 6px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.12);
+        }
+
+        .bouldering-guide-reel {
+            min-width: 0;
+        }
+
+        .bouldering-guide-reel .instagram-reel-embed {
+            min-height: 410px;
+            margin-top: 0.25rem;
+        }
+
+        .bouldering-guide-reel .instagram-media {
+            min-width: 0 !important;
+        }
+
+        .guide-climbing-wall-tip {
+            display: flex;
+            gap: 0.75rem;
+            align-items: flex-start;
+            margin: 1.25rem 0 2rem;
+            padding: 1rem 1.1rem;
+            background: #f7f4ee;
+            border-inline-start: 4px solid #f47920;
+            color: #59665a;
+            text-align: start;
+        }
+
+        .guide-climbing-wall-tip::before {
+            content: '💡';
+            flex: 0 0 auto;
+        }
+
+        .beside-climbing-section {
+            margin: 4.5rem 0 1rem;
+            padding-top: 2rem;
+            border-top: 1px solid #dce5d5;
+        }
+
+        .beside-climbing-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .beside-category {
+            display: grid;
+            grid-template-columns: minmax(150px, 220px) minmax(0, 1fr);
+            gap: 1.25rem;
+            align-items: stretch;
+            padding: 1rem;
+            background: #fbfaf7;
+            border: 1px solid #e1e8da;
+            border-radius: 12px;
+            text-align: start;
+        }
+
+        .beside-category-media {
+            min-height: 155px;
+            overflow: hidden;
+            border-radius: 8px;
+        }
+
+        .beside-category-media img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            min-height: 155px;
+            object-fit: cover;
+        }
+
+        .beside-category-content {
+            min-width: 0;
+        }
+
+        .beside-category h3 {
+            margin: 0 0 0.55rem;
+        }
+
+        .beside-place em {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        .beside-place em i {
+            color: #f47920;
+        }
+
+        .beside-affiliate-box {
+            padding: 1.1rem 0;
+            background: transparent;
+            border-top: 1px solid #dce5d5;
+            border-bottom: 1px solid #dce5d5;
+            border-inline-start: 0;
+            border-radius: 0;
+        }
+
+        .beside-affiliate-links a {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.55rem 0.75rem;
+            border: 1px solid #dce5d5;
+            border-radius: 999px;
+            background: #fff;
+            box-shadow: none;
+        }
+
+        .beside-affiliate-links a i {
+            color: #f47920;
+        }
+
+        @media (max-width: 768px) {
+            .intro-story {
+                max-width: none;
+                margin: 0 0 2.75rem;
+                padding: 2rem 20px 0;
+            }
+
+            .intro-story .intro-title {
+                font-size: clamp(1.7rem, 7.5vw, 1.9rem);
+                line-height: 1.25;
+            }
+
+            .intro-story-body p {
+                font-size: 1.08rem;
+                line-height: 1.7;
+            }
+
+            .bouldering-guide-feature {
+                grid-template-columns: 1fr;
+                padding: 1rem;
+            }
+
+            .bouldering-guide-book {
+                order: 2;
+            }
+
+            .bouldering-guide-book img {
+                width: min(220px, 100%);
+                max-height: 300px;
+                margin: 0 auto;
+            }
+
+            .bouldering-guide-reel {
+                order: 3;
+            }
+
+            .bouldering-guide-reel .instagram-reel-embed {
+                min-height: 500px;
+            }
+
+            .beside-category {
+                grid-template-columns: 1fr;
+            }
+
+            .beside-category-media,
+            .beside-category-media img {
+                min-height: 170px;
+                height: 170px;
+            }
+
+            .guide-place-media {
+                min-height: 130px;
+            }
+
+            .guide-crag-strip,
+            .climbing-wall-box .guide-place-strip {
+                grid-template-columns: 1fr;
+            }
+
+            .guide-place-media img {
+                min-height: 130px;
+                height: 130px;
+            }
+        }
+
+        [data-hide-in-en][hidden] { display: none !important; }
+
+        @media (max-width: 768px) {
+            html, body {
+                overflow-x: hidden;
+            }
+
+            .guide-hero {
+                height: 500px;
+                width: 100%;
+                margin-inline: 0;
+            }
+
+            .guide-hero .container {
+                width: calc(100% - 32px);
+                margin: 0 auto;
+                padding-top: 60px;
+                text-align: center;
+            }
+
+            .guide-content {
+                padding: 2rem 1rem;
+            }
+
+            .guide-content h2 {
+                font-size: 1.5rem;
+            }
+
+            .bouldering-guide-feature {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+                padding: 1rem;
+            }
+
+            .firstbolt-promo {
+                grid-template-columns: 56px 1fr;
+                padding: 1rem 0;
+            }
+
+            .firstbolt-promo-logo {
+                width: 52px;
+                height: 52px;
+            }
+
+            .beside-climbing-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .guide-section-nav {
+                max-width: 100%;
+            }
+        }
+    </style>
+<!-- Travelpayouts affiliate tracking -->
+<script data-cfasync="false" data-cmp-ab="2" data-no-defer="1" data-noptimize="1" data-wpfc-render="false" nowprocket="" seraph-accel-crit="1">
+      (function () {
+          var script = document.createElement("script");
+          script.async = 1;
+          script.setAttribute("data-cmp-ab","2");
+          script.src = 'https://tp-em.com/NTU5OTM5.js?t=559939';
+          document.head.appendChild(script);
+      })();
+    </script>
+<link href="https://climbing-cyprus.com/climber-guide.html" hreflang="he" rel="alternate"/>
+<link href="https://climbing-cyprus.com/en/climber-guide.html" hreflang="en" rel="alternate"/>
+<link href="https://climbing-cyprus.com/climber-guide.html" hreflang="x-default" rel="alternate"/>
+</head>
+<body class="landing-page">
+<!-- Navigation -->
+<nav class="navbar">
+<div class="container nav-container">
+<a class="logo" href="index.html" style="text-decoration: none; color: inherit;">
+<span class="logo-surface">
+<img alt="Climbing Cyprus Logo" src="../pics/climbing-cyprus-logo.webp"/>
+</span>
+</a>
+<ul class="nav-menu">
+<li><a data-i18n="landing-nav-guide" href="climber-guide.html">THE GUIDE</a></li>
+<li><a data-i18n="landing-nav-locations" href="index.html#activities">LOCATIONS</a></li>
+<li><a data-i18n="landing-nav-gallery" href="index.html#gallery">Photos</a></li>
+<li><a data-i18n="landing-nav-trip-planning" href="index.html#trip-planning">TRIP PLANNING</a></li>
+<li><a data-i18n="landing-nav-contact" href="index.html#contact">CONTACT</a></li>
+</ul>
+<div class="language-switcher">
+<button aria-label="English" class="lang-btn" data-lang="en" title="English">EN</button>
+<button aria-label="עברית" class="lang-btn" data-lang="he" title="עברית">HE</button>
+</div>
+<div class="hamburger">
+<span></span>
+<span></span>
+<span></span>
+</div>
+</div>
+</nav>
+<!-- Hero Section -->
+<section class="guide-hero">
+<div aria-hidden="true" class="guide-video-placeholder"><i class="fas fa-mountain-sun"></i><span data-i18n="guide-video-loading">Loading your Cyprus climbing journey...</span></div>
+<iframe allow="autoplay; encrypted-media" aria-hidden="true" src="https://www.youtube.com/embed/S_oiiK-iIwY?autoplay=1&amp;mute=1&amp;controls=0&amp;loop=1&amp;playlist=S_oiiK-iIwY&amp;start=2&amp;end=12&amp;modestbranding=1&amp;playsinline=1" title="Bouldering in Cyprus"></iframe>
+<div class="container">
+<h1 data-i18n="climber-guide-title">Cyprus Climbing Information Guide</h1>
+<p data-i18n="climber-guide-subtitle">About the Neighboring Island and Its Rocks</p>
+</div>
+</section>
+<!-- Quick Navigation Menu -->
+<div class="guide-section-nav" style="background: #2c5f2d; padding: 1rem 0; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 10px rgba(0,0,0,0.2);">
+<div class="container">
+<nav style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap;">
+<a href="#logistics" onmouseout="this.style.background='transparent'" onmouseover="this.style.background='rgba(255,255,255,0.2)'" style="color: white; text-decoration: none; padding: 0.5rem 1.5rem; border-radius: 5px; transition: all 0.3s; font-weight: 500;">
+<i class="fas fa-info-circle"></i> <span data-i18n="guide-nav-logistics">Rental</span>
+</a>
+<a href="#beside-climbing" onmouseout="this.style.background='transparent'" onmouseover="this.style.background='rgba(255,255,255,0.2)'" style="color: white; text-decoration: none; padding: 0.5rem 1.5rem; border-radius: 5px; transition: all 0.3s; font-weight: 500;">
+<i class="fas fa-coffee"></i> <span data-i18n="guide-nav-beside-climbing">Beside Climbing</span>
+</a>
+<a href="#north" onmouseout="this.style.background='transparent'" onmouseover="this.style.background='rgba(255,255,255,0.2)'" style="color: white; text-decoration: none; padding: 0.5rem 1.5rem; border-radius: 5px; transition: all 0.3s; font-weight: 500;">
+<i class="fas fa-mountain"></i> <span data-i18n="guide-nav-north">North Cyprus</span>
+</a>
+<a href="#south" onmouseout="this.style.background='transparent'" onmouseover="this.style.background='rgba(255,255,255,0.2)'" style="color: white; text-decoration: none; padding: 0.5rem 1.5rem; border-radius: 5px; transition: all 0.3s; font-weight: 500;">
+<i class="fas fa-hiking"></i> <span data-i18n="guide-nav-south">South Cyprus</span>
+</a>
+<a href="#bouldering" onmouseout="this.style.background='transparent'" onmouseover="this.style.background='rgba(255,255,255,0.2)'" style="color: white; text-decoration: none; padding: 0.5rem 1.5rem; border-radius: 5px; transition: all 0.3s; font-weight: 500;">
+<i class="fas fa-hands"></i> <span data-i18n="guide-nav-bouldering">Bouldering</span>
+</a>
+<a href="equipment.html#rental" onmouseout="this.style.background='transparent'" onmouseover="this.style.background='rgba(255,255,255,0.2)'" style="color: white; text-decoration: none; padding: 0.5rem 1.5rem; border-radius: 5px; transition: all 0.3s; font-weight: 500;">
+<i class="fas fa-hiking"></i> <span data-i18n="nav-equipment-rental">Climbing Equipment Rental</span>
+</a>
+</nav>
+</div>
+</div>
+<!-- Article Content -->
+<article class="guide-content article-inner">
+<section aria-labelledby="guide-intro-title" class="intro-story">
+<h2 class="intro-title" data-i18n="guide-intro-title" id="guide-intro-title">Climbing in Cyprus? You’re in the right place.</h2>
+<div class="intro-story-body">
+<p data-i18n="guide-intro-p1">Cyprus offers much more than beaches and views — there are excellent crags, beautiful villages, and climbing areas worth getting to know.</p>
+<p class="intro-author" data-i18n="guide-intro-p2">I’m Yonatan, a climbing guide who lives and climbs here. I’ve put together a short, clear and useful guide to help you get to know the island a little better — from the crags to the logistics.</p>
+</div>
+</section>
+<h2 data-i18n="guide-logistics-title" id="logistics">Logistic</h2>
+<div class="guide-place-strip guide-logistics-strip">
+<div class="guide-place-icon"><i aria-hidden="true" class="fas fa-car-side"></i></div>
+<div data-i18n-html="guide-logistics-transport"><strong>Transportation:</strong> You must rent a car - there's no option to manage with public transportation. An Israeli license is sufficient. Note that driving here is on the opposite side. <a href="https://getrentacar.tp.st/FD6yLXgf" rel="nofollow sponsored noopener" style="color: #2c5f2d; font-weight: bold; text-decoration: underline;" target="_blank">Compare rental cars</a></div>
+</div>
+<div class="guide-place-strip guide-logistics-strip">
+<div class="guide-place-icon"><i aria-hidden="true" class="fas fa-plane-departure"></i></div>
+<div data-i18n-html="guide-logistics-airports"><strong>Where to fly:</strong> 2 main airports: Larnaca and Paphos. All the climbing is concentrated in Paphos, so if you can find a flight there - you've won! You can also book an <a href="https://kiwitaxi.tp.st/8Xvx72mG" rel="nofollow sponsored noopener" style="color: #2c5f2d; font-weight: bold; text-decoration: underline;" target="_blank">airport transfer</a> directly to your accommodation.</div>
+</div>
+<div class="guide-place-strip guide-logistics-strip">
+<div class="guide-place-icon"><i aria-hidden="true" class="fas fa-bed"></i></div>
+<div data-i18n-html="guide-logistics-accommodation"><strong>Where to sleep:</strong> The best option is to find an apartment through Airbnb. You might get lucky and find accommodation near the crags, which is great. Look for your home near the villages of Ineia and Droushia. For those who want to be close to the sea and enjoy both worlds, you can also sleep in Paphos (a bit more nightlife and restaurants) or Polis (amazing beaches), both cities are a 45-minute drive from the crags. <a href="https://www.booking.com/searchresults.html?ss=Cyprus" rel="nofollow sponsored noopener" style="color: #2c5f2d; font-weight: bold; text-decoration: underline;" target="_blank">Search hotels and apartments in Cyprus</a></div>
+</div>
+<div class="guide-place-strip guide-logistics-strip">
+<div class="guide-place-icon"><i aria-hidden="true" class="fas fa-euro-sign"></i></div>
+<div data-i18n-html="guide-logistics-currency"><strong>Currency:</strong> The official currency in Cyprus (Republic of Cyprus, the southern part) is the Euro (€).</div>
+</div>
+<div class="guide-place-strip guide-logistics-strip">
+<div class="guide-place-icon"><i aria-hidden="true" class="fas fa-passport"></i></div>
+<div data-i18n-html="guide-logistics-visa"><strong>Visa:</strong> Israeli citizens and citizens of the European Union (EU) and EEA countries do not require a visa to enter and stay in Cyprus for tourism purposes for up to 90 days. Citizens of any other country must independently check visa requirements and relevant permits with the local Cypriot embassy or the Cypriot Ministry of Foreign Affairs.</div>
+</div>
+<div class="guide-place-strip guide-logistics-strip">
+<div class="guide-place-icon"><i aria-hidden="true" class="fas fa-toolbox"></i></div>
+<div data-i18n-html="guide-logistics-equipment"><strong>Equipment:</strong> For those interested in renting climbing and bouldering gear, you can contact me - <a href="equipment.html" style="color: #2c5f2d; font-weight: bold; text-decoration: underline;">click here</a></div>
+</div>
+<section aria-labelledby="guide-about-climbing-title" class="guide-shade-strip guide-about-climbing">
+<div class="guide-about-climbing-inner">
+<h2 data-i18n="guide-about-climbing-title" id="guide-about-climbing-title">About Climbing</h2>
+<p data-i18n-html="guidebook-desc-1">Cyprus offers several climbing areas with routes for climbers of all skill levels. Paphos hosts both the hardest and the most popular crags on the island, the Akamas Peninsula has stunning views across the northwest coast, many high-quality crags are found throughout the Kyrenia mountain range, the Troodos Mountains span the centre of the island, and Cavo Greco overlooks the beautiful coast of Agia Napa.</p>
+<div class="guide-about-climbing-gallery">
+<figure><img alt="פריסת אזורי הטיפוס באי" loading="lazy" src="../pics/guidebook1.webp"/><figcaption data-i18n="guidebook-image-caption-left">Climbing areas across the island</figcaption></figure>
+<figure><img alt="פריסת דירוג המסלולים בקפריסין" loading="lazy" src="../pics/guidebook2.webp"/><figcaption data-i18n="guidebook-image-caption-right">Route grade distribution in Cyprus</figcaption></figure>
+</div>
+<p data-i18n-html="guidebook-desc-2">The main areas consist of various types of <a href="https://en.wikipedia.org/wiki/Limestone" rel="noopener" target="_blank">limestone</a> that are hard and massive (lacking in layers) in Dhiarizos and Episkopi, highly featured (including <a href="https://en.wikipedia.org/wiki/Tufa" rel="noopener" target="_blank">tufas</a>) in the Kyrenia range, and sharp and featured in Cavo Greco. The Akamas peninsula rocks, which offer sport, trad, and bouldering, are a form of compact <a href="https://en.wikipedia.org/wiki/Sandstone" rel="noopener" target="_blank">sandstone</a>.</p>
+<p data-i18n="guidebook-desc-3">All these sectors provide sport climbing from the low 5s to around 8b+/8c, with many projects still open, and with over 600 routes across more than 20 sectors, Cyprus is a great destination for climbers of every level.</p>
+</div>
+</section>
+<h2 data-i18n="guide-climbing-walls-title">Indoor Climbing Walls in Cyprus</h2>
+<p data-i18n="guide-climbing-walls-intro">Cyprus offers several quality indoor climbing walls scattered across the island. In recent years, new and modern facilities have opened, offering diverse climbing options for climbers of all levels. The walls are mainly located in major cities and offer an excellent place for training, meeting local climbers, and staying fit on rainy days or extreme heat.</p>
+<div class="climbing-wall-box climbing-walls-carousel" data-walls-carousel="">
+<div class="walls-carousel-track">
+<article class="walls-carousel-slide active">
+<div class="walls-carousel-media"><img alt="RedPoint climbing gym" loading="lazy" src="../pics/climberguide/wall-redpoint.webp"/></div>
+<div class="walls-carousel-copy"><h3><a href="https://www.redpointcy.com" rel="noopener" target="_blank">RedPoint (Nicosia)</a></h3><p data-i18n-html="guide-redpoint-desc"><strong><a href="https://www.redpointcy.com" rel="noopener" style="color: #2c5f2d; text-decoration: underline;" target="_blank">RedPoint</a></strong> - The newest and most modern facility on the island, opened in 2022. Combined with a parkour complex and offers a professional climbing experience with Moonboard, Campus board, equipped training room, and a wide variety of routes. The professional and friendly staff will help you progress. Suitable for beginners and experienced climbers alike.</p><span class="guide-place-tags">Indoor · בולדרינג · כל הרמות</span></div>
+</article>
+<article class="walls-carousel-slide">
+<div class="walls-carousel-media"><img alt="Ungravity climbing gym" loading="lazy" src="../pics/climberguide/wall-ungravity-1.webp"/></div>
+<div class="walls-carousel-copy"><h3><a href="https://ungravityclimbing.com/" rel="noopener" target="_blank">Ungravity (Nicosia)</a></h3><p data-i18n-html="guide-ungravity-desc"><strong><a href="https://ungravityclimbing.com/" rel="noopener" style="color: #2c5f2d; text-decoration: underline;" target="_blank">Ungravity</a></strong> - A veteran climbing wall that opened in 2019, located in a student neighborhood and offers a pleasant and community atmosphere. A great place to meet local climbers and join climbing groups. Reasonable prices and an especially friendly atmosphere for new climbers.</p><span class="guide-place-tags">Indoor · קהילה · אימון</span></div>
+</article>
+<article class="walls-carousel-slide">
+<div class="walls-carousel-media"><img alt="Rockstar Climbing Gym" loading="lazy" src="../pics/climberguide/wall-rockstar.webp"/></div>
+<div class="walls-carousel-copy"><h3><a href="https://rockstarclimbing.cy/" rel="noopener" target="_blank">Rockstar Climbing Gym (Nicosia)</a></h3><p data-i18n-html="guide-rockstar-desc"><strong><a href="https://rockstarclimbing.cy/" rel="noopener" style="color: #2c5f2d; text-decoration: underline;" target="_blank">Rockstar Climbing Gym</a></strong> - The newest facility in Nicosia, opened in 2025, a modern and challenging climbing wall with diverse routes, advanced equipment, and a bouldering area. Perfect for those looking for a new challenge in the capital.</p><span class="guide-place-tags">Indoor · חדש · בולדרינג</span></div>
+</article>
+<article class="walls-carousel-slide">
+<div class="walls-carousel-media"><img alt="Limassol Climbing Club indoor wall" loading="lazy" src="../pics/climberguide/wall-lcc-indoor.webp"/></div>
+<div class="walls-carousel-copy"><h3><a href="https://limassolclimbing.com/home" rel="noopener" target="_blank">Limassol Climbing Club (Limassol)</a></h3><p data-i18n-html="guide-limassol-desc">An intimate climbing gym in Limassol, offering a convenient way to stay fit and meet the local climbing community.</p><span class="guide-place-tags">Indoor · לימסול · אימון</span></div>
+</article>
+</div>
+<button aria-label="Previous climbing wall" class="walls-carousel-button prev" type="button">→</button>
+<button aria-label="Next climbing wall" class="walls-carousel-button next" type="button">←</button>
+<div aria-label="Climbing walls" class="walls-carousel-dots" role="tablist"><button aria-label="RedPoint" class="active" type="button"></button><button aria-label="Ungravity" type="button"></button><button aria-label="Rockstar" type="button"></button><button aria-label="Limassol Climbing Club" type="button"></button></div>
+</div>
+<p class="guide-climbing-wall-tip" data-i18n-html="guide-climbing-walls-tip"><strong>Useful tip:</strong> Monthly memberships at the walls range from €50–70, and most gyms also offer single-entry passes. Local climbers' Facebook groups are the best way to find outdoor partners and current route updates.</p>
+<div data-hide-in-en="">
+<h2 data-i18n="guide-background-title">Background for Understanding the Island's Crags</h2>
+<p data-i18n="guide-background-p1">Cyprus was ruled by the British, and Cypriots and Turks lived side by side (sound familiar?). In 1974, there was a coup on the island by the Turks who wanted to be recognized as a state ('Operation Attila' for those interested), and the result - the country was divided so that the Turkish Republic controls 37% of the northern part of the island, with its own currency, language, and ethnic symbols. The Cypriots were left with emotional baggage, souvlaki, and 63% of the country.</p>
+<p data-i18n="guide-background-p2">They tend to call the Turkish part: 'The occupied part of Northern Cyprus' and I actually found many similarities between the situation in Israel and what's happening here. But much lighter, one could say. But we didn't come to talk politics.</p>
+<p data-i18n="guide-background-p3">From here we jump to the crag review, which, if you understood correctly, we'll divide into crags in Cyprus itself (south) and the northern part of Cyprus that belongs to the Turks. The emphasis will be on the main crags only.</p>
+</div>
+<div class="guide-guidebook-cta-strip full-width-strip">
+<div class="article-container">
+<div class="guide-guidebook-cta-copy">
+<h3 data-i18n="guide-cta-title">Planning to climb in Cyprus?</h3>
+<p data-i18n="guide-cta-subtitle">Order quality climbing gear or get the comprehensive guidebook</p>
+</div>
+<div class="guide-guidebook-cta-actions">
+<a class="cta-button guide-cta-equipment" href="equipment.html#rental">
+<i class="fas fa-hiking"></i> <span data-i18n="guide-cta-order-equipment">Order climbing equipment</span>
+</a>
+<a class="cta-button guide-cta-quiz" data-quiz-link="" href="safety-quiz.html?lang=he" style="background:#f47920;">
+<i class="fas fa-shield-alt"></i> <span data-i18n="safety-quiz-cta">Start the quiz</span>
+</a>
+<a class="cta-button guide-cta-guidebook" href="https://www.cyprusclimbing.com/" rel="noopener" target="_blank">
+<i class="fas fa-book"></i> <span data-i18n="guide-cta-order-guidebook">Order the guidebook</span>
+</a>
+</div>
+</div>
+</div>
+<section aria-labelledby="safety-quiz-strip-title" class="safety-quiz-strip full-width-strip">
+<div class="safety-quiz-strip-inner">
+<div class="safety-quiz-strip-copy">
+<p class="safety-quiz-kicker" data-i18n="safety-quiz-kicker">CLIMBING CYPRUS · A short climber quiz</p>
+<h2 data-i18n="safety-quiz-title" id="safety-quiz-strip-title">How well do you control your clipping? Test yourself.</h2>
+<p data-i18n="safety-quiz-description">A short quiz to check your clipping skills and lead-climbing decisions.</p>
+<a class="safety-quiz-cta" data-quiz-link="" href="safety-quiz.html?lang=he">
+<span data-i18n="safety-quiz-cta">Start the quiz</span>
+<i aria-hidden="true" class="fas fa-arrow-left"></i>
+</a>
+</div>
+<div class="safety-quiz-strip-media">
+<img alt="יונתן מטפס עם חולצת Petzl" loading="lazy" src="../pics/safety-quiz-yonatan.webp"/>
+</div>
+</div>
+</section>
+<h2 data-i18n="guide-north-title" id="north">North Cyprus</h2>
+<p data-i18n="guide-north-intro-p1">First, to cross to this part you need to cross a border and show passports. Not a complicated process but can take half an hour if there's traffic at the checkpoint. The local currency there is Turkish Lira, but they obviously also accept euros.</p>
+<p data-i18n="guide-north-intro-p2">The clear disadvantage for tourists is that crossing with a rental car from the Cyprus side to the Turkish side is not such a simple/worthwhile matter, so finding local climbers and joining them will be an excellent option. What's certain is that you mustn't miss these crags!</p>
+<p data-i18n="guide-north-intro-p3">In this part of the island, sport climbing exceeds all imagination and offers sites that are not inferior to world-class destinations! With long routes, tufas, caves, and the highest quality rock. I'm listing here some of the crags you shouldn't miss - for more information like access routes and detailed route descriptions, you can find it in the guidebook (available for pickup from me).</p>
+<div class="image-carousel" data-captions='["coco jumbo 7c, Buffa wall photo:@stef47", "Sawina on Sikofagos Ext 8a, Goat House"]'>
+<div class="carousel-container">
+<img alt="החלק הצפוני של קפריסין" class="carousel-image active" loading="lazy" src="../pics/climberguide/north.webp"/>
+<img alt="החלק הצפוני של קפריסין" class="carousel-image" loading="lazy" src="../pics/climberguide/north3-1.webp"/>
+<button class="carousel-btn prev" onclick="changeSlide(this, -1, event)">→</button>
+<button class="carousel-btn next" onclick="changeSlide(this, 1, event)">←</button>
+</div>
+<div class="carousel-dots">
+<span class="carousel-dot active" onclick="currentSlide(this, 0, event)"></span>
+<span class="carousel-dot" onclick="currentSlide(this, 1, event)"></span>
+</div>
+<p class="guide-image-caption">coco jumbo 7c, Buffa wall photo:@stef47</p>
+</div>
+<div class="guide-place-strip guide-crag-strip north-crag-medallion">
+<div class="guide-place-media"><img alt="Buffawall" loading="lazy" src="../pics/climberguide/north.webp"/></div>
+<div><h3 data-i18n="guide-north-buffawall-title">3. Buffawall</h3><p data-i18n="guide-north-buffawall-desc">Located in a green pastoral valley with views of the open sea. Most routes are smooth slabs up to 40 metres long. There are around 15 routes, mostly grades 7 and above, with several tufas adding variety.</p><span class="guide-place-tags">Outdoor · מסלולים ארוכים · 7+</span></div>
+</div>
+<div class="guide-place-strip guide-crag-strip north-crag-medallion">
+<div class="guide-place-media"><img alt="Garga-Suyu" loading="lazy" src="../pics/climberguide/north3-1.webp"/></div>
+<div><h3 data-i18n="guide-north-garga-title">2. Garga-Suyu</h3><p data-i18n="guide-north-garga-desc">One of the island's established crags, with plenty of routes, quality rock, and a wide range of grades. The main drawback is some road noise.</p><span class="guide-place-tags">Outdoor · מגוון דירוגים · קהילה</span></div>
+</div>
+<div class="guide-image goat-house-preview">
+<figure style="margin: 0;">
+<img alt="grand pasha 7b Goat House" loading="lazy" src="../pics/climberguide/north3.webp"/>
+<figcaption style="text-align: center; margin-top: 0.5rem; font-style: italic; color: #666;">grand pasha 7b Goat House</figcaption>
+</figure>
+</div>
+<div class="guide-place-strip guide-crag-strip north-crag-medallion">
+<div class="guide-place-media"><img alt="Goat House" loading="lazy" src="../pics/climberguide/north3.webp"/></div>
+<div><h3 data-i18n="guide-north-goat-title">1. Goat House</h3><p data-i18n="guide-north-goat-desc">Probably the best crag in the north. Located in the Kyrenia Mountains, it offers quality sport climbing on technical rock, varied grades, and panoramic views. The easy approach crosses open countryside, making it ideal for a full day of climbing in spring or autumn.</p><span class="guide-place-tags">Outdoor · יום מלא</span></div>
+</div>
+<div class="guide-strip guide-shade-strip full-width-strip guide-shade-between-regions">
+<div class="article-container">
+<h4 data-i18n-html="guide-shade-calc-title" id="shade-calc" style="color: #2c5f2d; margin-top: 0;"><i class="fas fa-sun"></i> Shade Hours Calculator</h4>
+<p data-i18n-html="guide-shade-calc-desc" style="margin-bottom: 1rem;">Heat is one of the challenges of climbing in Cyprus, especially in summer. This dedicated <a href="https://uniquecenteryoni.github.io/suncalc/calc.html" rel="noopener" style="color: #2c5f2d; font-weight: bold; text-decoration: underline;" target="_blank">shade hours calculator</a> helps climbers plan the best time to visit each crag.</p>
+<a class="cta-button" data-i18n-html="guide-shade-calc-button" href="https://uniquecenteryoni.github.io/suncalc/calc.html" rel="noopener" style="background: #2c5f2d; color: white; padding: 0.75rem 1.5rem; text-decoration: none; border-radius: 5px; display: inline-block;" target="_blank"><i class="fas fa-calculator"></i> Open the shade calculator</a>
+</div>
+</div>
+<h2 data-i18n="guide-south-title" id="south">South Cyprus</h2>
+<div class="guide-place-strip guide-crag-strip south-crag-strip">
+<div class="guide-place-media"><img alt="Diarizous" loading="lazy" src="../pics/climberguide/diarizous-user.webp"/></div>
+<div><h3 data-i18n="guide-south-diarizous-title">2. Diarizous</h3><p data-i18n="guide-south-diarizous-desc">A friendly crag with a wide range of grades, especially suitable for beginners. Two sectors face each other just a few steps apart, so you can climb all day. There is consistent shade, a one-minute approach, and a stream nearby. The style is mostly slab climbing.</p><a class="guide-place-map-link" href="https://maps.app.goo.gl/oFgpi3F36XJjJKuC6" rel="noopener" target="_blank"><i class="fas fa-location-dot"></i> <span data-i18n="guide-parking-link">Take me to parking</span></a><span class="guide-place-tags">Outdoor · מתחילים · צל</span></div>
+</div>
+<div class="image-carousel" data-captions='["Taxhidi Mialou 7b+, Diarizous", "Meir before Micro Cosomos 7a", "Stefanos Direct 7a+", "Guru 6c"]'>
+<div class="carousel-container">
+<img alt="Diarizous" class="carousel-image active" loading="lazy" src="../pics/climberguide/diarizous.webp"/>
+<img alt="Diarizous" class="carousel-image" loading="lazy" src="../pics/climberguide/diarizous3.webp" style="object-position: center 80%;"/>
+<img alt="Diarizous" class="carousel-image" loading="lazy" src="../pics/climberguide/diarizous4.webp"/>
+<img alt="Diarizous" class="carousel-image" loading="lazy" src="../pics/climberguide/dizrizous2.webp"/>
+<button class="carousel-btn prev" onclick="changeSlide(this, -1, event)">→</button>
+<button class="carousel-btn next" onclick="changeSlide(this, 1, event)">←</button>
+</div>
+<div class="carousel-dots">
+<span class="carousel-dot active" onclick="currentSlide(this, 0, event)"></span>
+<span class="carousel-dot" onclick="currentSlide(this, 1, event)"></span>
+<span class="carousel-dot" onclick="currentSlide(this, 2, event)"></span>
+<span class="carousel-dot" onclick="currentSlide(this, 3, event)"></span>
+</div>
+<p class="guide-image-caption">Taxhidi Mialou 7b+, Diarizous</p>
+</div>
+<div class="guide-place-strip guide-crag-strip south-crag-strip">
+<div class="guide-place-media"><img alt="Episkopi" loading="lazy" src="../pics/climberguide/episkopi-user.webp"/></div>
+<div><h3 data-i18n="guide-south-episkopi-title">3. Episkopi</h3><p data-i18n="guide-south-episkopi-desc-1">An old village near Paphos, below an impressive 60-metre crag. The main wall is currently closed to climbing, so check local conditions before visiting.</p><p data-i18n="guide-south-episkopi-desc-2">Next to it is a 35-metre "Baby" crag with routes in a range of styles and grades. It is shaded for much of the day and has an easy approach, with a local café nearby for a break between sessions.</p><a class="guide-place-map-link" href="https://maps.app.goo.gl/E1Buq3qqFukymbSw5" rel="noopener" target="_blank"><i class="fas fa-location-dot"></i> <span data-i18n="guide-parking-link">Take me to parking</span></a><span class="guide-place-tags">Outdoor · כל הרמות · צל</span></div>
+</div>
+<div class="image-carousel" data-captions='["OverDose 8a, Episkopi", "Episkopi, the hardcore crag of Cyprus", "Panayotis on his way, Status Negativus 7c+", "@Panayotios, Black Mamba 7c+", "Nomos Varititas 7a, Gerakopetra", "Amit Marcus resting infront of the sea"]'>
+<div class="carousel-container">
+<img alt="Episkopi" class="carousel-image active" loading="lazy" src="../pics/climberguide/Episkopi.webp"/>
+<img alt="Episkopi" class="carousel-image" loading="lazy" src="../pics/climberguide/Episkopi1.webp"/>
+<img alt="Episkopi" class="carousel-image" loading="lazy" src="../pics/climberguide/Episkopi2.webp"/>
+<img alt="Episkopi" class="carousel-image" loading="lazy" src="../pics/climberguide/Episkopi3.webp"/>
+<img alt="Gerakopetra" class="carousel-image" loading="lazy" src="../pics/climberguide/gerakopetra.webp" style="object-position: center 10%;"/>
+<img alt="Gerakopetra" class="carousel-image" loading="lazy" src="../pics/climberguide/gerakopetra1.webp"/>
+<button class="carousel-btn prev" onclick="changeSlide(this, -1, event)">→</button>
+<button class="carousel-btn next" onclick="changeSlide(this, 1, event)">←</button>
+</div>
+<div class="carousel-dots">
+<span class="carousel-dot active" onclick="currentSlide(this, 0, event)"></span>
+<span class="carousel-dot" onclick="currentSlide(this, 1, event)"></span>
+<span class="carousel-dot" onclick="currentSlide(this, 2, event)"></span>
+<span class="carousel-dot" onclick="currentSlide(this, 3, event)"></span>
+<span class="carousel-dot" onclick="currentSlide(this, 4, event)"></span>
+<span class="carousel-dot" onclick="currentSlide(this, 5, event)"></span>
+</div>
+<p class="guide-image-caption">OverDose 8a, Episkopi</p>
+</div>
+<div class="guide-place-strip guide-crag-strip south-crag-strip">
+<div class="guide-place-media"><img alt="Gerakopetra" loading="lazy" src="../pics/climberguide/gerakopetra-user.webp"/></div>
+<div><h3 data-i18n="guide-south-gerakopetra-title">1. Gerakopetra</h3><p data-i18n="guide-south-gerakopetra-desc">An impressive crag with long routes across a wide range of grades, overlooking the Mediterranean and the huge boulder field below. Two opposing faces allow climbing from morning into the afternoon, with an easy five-minute approach.</p><a class="guide-place-map-link" href="https://maps.app.goo.gl/CgCbuLBTZm7s6neFA" rel="noopener" target="_blank"><i class="fas fa-location-dot"></i> <span data-i18n="guide-parking-link">Take me to parking</span></a><span class="guide-place-tags">Outdoor · כל הרמות · נוף לים</span></div>
+</div>
+<h2 data-i18n="guide-bouldering-title" id="bouldering">Bouldering - A Hidden Gem of the Mediterranean</h2>
+<h3 data-i18n="guide-bouldering-ineia-title">Ineia &amp; Drousia - Where It All Happens</h3>
+<p data-i18n="guide-bouldering-p1">The Ineia-Drousia area is one of the great climbing secrets of the Mediterranean: more than 300 boulders and over 700 problems of world-class quality spread across several square kilometres, with unique compact sandstone reminiscent of Fontainebleau, combined with Mediterranean sun and warmth.</p>
+<p data-i18n-html="guide-bouldering-p2">The <a href="https://www.first-bolt.com/" rel="noopener" target="_blank"><strong>FirstBolt</strong></a> app contains Cyprus climbing routes, with around 80% already mapped and scannable. It includes problem details and approach directions, making it a useful companion for exploring the island's boulders and crags.</p>
+<p data-i18n-html="guide-bouldering-p3"><strong>Development is moving quickly!</strong> Local and international climbers add new boulders every month. The island's current hardest boulder is rated <strong>8a (V11)</strong>, and dozens of high-grade projects are still waiting for first ascents.</p>
+<p data-i18n="guide-bouldering-p4">Even as a climber who is not primarily a boulderer, I highly recommend this area. The combination of quality rock, views across the sea and valleys, and a peaceful atmosphere creates a unique bouldering experience.</p>
+<section aria-labelledby="firstbolt-title" class="firstbolt-promo full-width-strip">
+<div class="article-container">
+<div aria-label="FirstBolt app preview" class="firstbolt-phone">
+<img alt="FirstBolt climbing app route screen" loading="lazy" src="../pics/firstbolt-app-screen.webp"/>
+</div>
+<div>
+<img alt="FirstBolt" class="firstbolt-brand-logo" loading="lazy" src="../pics/firstbolt-logo.webp"/>
+<p class="firstbolt-kicker" data-i18n="firstbolt-kicker">SMART GUIDEBOOK</p>
+<h3 data-i18n="firstbolt-title" id="firstbolt-title">FirstBolt — A Smart Guide for Climbers</h3>
+<p data-i18n="firstbolt-desc">Scan the first bolt to get the route, grade, and relevant information. The app includes Cyprus climbing routes, with around 80% already mapped and scannable.</p>
+<a class="firstbolt-cta" data-i18n="firstbolt-cta" href="https://www.first-bolt.com/" rel="noopener" target="_blank">Download and learn about FirstBolt</a>
+</div>
+</div>
+</section>
+<!-- YouTube Videos Section -->
+<div style="margin: 3rem 0;">
+<h3 style="color: #2c5f2d; margin-bottom: 0.5rem; font-size: 1.5rem; display: flex; align-items: center; gap: 0.5rem;">
+<i class="fab fa-youtube" style="color: #ff0000;"></i>
+<span data-i18n="guide-bouldering-videos-title">Cyprus Bouldering</span>
+</h3>
+<p data-i18n="guide-bouldering-videos-subtitle" style="color: #666; margin-bottom: 2rem;">Videos from the Climbing Cyprus channel only, graded 7A and above</p>
+<div aria-label="סרטוני בולדרינג מערוץ Climbing Cyprus בדירוג 7A ומעלה" class="bouldering-video-carousel">
+<div class="bouldering-video-viewport">
+<article class="bouldering-video-slide is-active" data-video-index="0"><div class="bouldering-video-frame"><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="" loading="lazy" src="https://www.youtube.com/embed/DJCdxaEPol0" title="Cyprus Bouldering | Gymnasium | Crossfit sds - 7A (V6)"></iframe></div><p class="bouldering-video-caption">Cyprus Bouldering | Gymnasium | Crossfit sds - 7A (V6)</p></article>
+<article class="bouldering-video-slide" data-video-index="1"><div class="bouldering-video-frame"><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="" loading="lazy" src="https://www.youtube.com/embed/ye1bPBLu4CI" title="Cyprus Bouldering | Birds Watching | Black headed bunting - 7A (V6)"></iframe></div><p class="bouldering-video-caption">Cyprus Bouldering | Birds Watching | Black headed bunting - 7A (V6)</p></article>
+<article class="bouldering-video-slide" data-video-index="2"><div class="bouldering-video-frame"><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="" loading="lazy" src="https://www.youtube.com/embed/0axvzra_r1w" title="Cyprus Bouldering | Secret Garden | IP man - 7A (V6)"></iframe></div><p class="bouldering-video-caption">Cyprus Bouldering | Secret Garden | IP man - 7A (V6)</p></article>
+<article class="bouldering-video-slide" data-video-index="3"><div class="bouldering-video-frame"><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="" loading="lazy" src="https://www.youtube.com/embed/53p8OfxR5-w" title="Cyprus Bouldering | Stomata Tou Drakou | Scottie too Hottie - 7A (V6)"></iframe></div><p class="bouldering-video-caption">Cyprus Bouldering | Stomata Tou Drakou | Scottie too Hottie - 7A (V6)</p></article>
+<article class="bouldering-video-slide" data-video-index="4"><div class="bouldering-video-frame"><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="" loading="lazy" src="https://www.youtube.com/embed/yg7pxhwsAxA" title="Cyprus Bouldering | Arkham | Bane - 7A (V6)"></iframe></div><p class="bouldering-video-caption">Cyprus Bouldering | Arkham | Bane - 7A (V6)</p></article>
+<article class="bouldering-video-slide" data-video-index="5"><div class="bouldering-video-frame"><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="" loading="lazy" src="https://www.youtube.com/embed/UeHlRfCaxGQ" title="Cyprus Bouldering | Alikou Bloc | O Zografos - 7A (V6)"></iframe></div><p class="bouldering-video-caption">Cyprus Bouldering | Alikou Bloc | O Zografos - 7A (V6)</p></article>
+<article class="bouldering-video-slide" data-video-index="6"><div class="bouldering-video-frame"><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="" loading="lazy" src="https://www.youtube.com/embed/F2CbUaHU0kQ" title="Cyprus Bouldering | Secret Garden | Glory Hole - 7A (V6)"></iframe></div><p class="bouldering-video-caption">Cyprus Bouldering | Secret Garden | Glory Hole - 7A (V6)</p></article>
+</div>
+<button aria-label="סרטון קודם" class="bouldering-video-arrow bouldering-video-arrow--prev" data-bouldering-direction="-1" type="button">←</button>
+<button aria-label="סרטון הבא" class="bouldering-video-arrow bouldering-video-arrow--next" data-bouldering-direction="1" type="button">→</button>
+<div aria-label="בחירת סרטון בולדרינג" class="bouldering-video-dots" role="tablist">
+<button aria-label="סרטון 1" aria-selected="true" class="is-active" type="button"></button><button aria-label="סרטון 2" aria-selected="false" type="button"></button><button aria-label="סרטון 3" aria-selected="false" type="button"></button><button aria-label="סרטון 4" aria-selected="false" type="button"></button><button aria-label="סרטון 5" aria-selected="false" type="button"></button><button aria-label="סרטון 6" aria-selected="false" type="button"></button><button aria-label="סרטון 7" aria-selected="false" type="button"></button>
+</div>
+</div>
+<div style="text-align: center;">
+<a href="https://www.youtube.com/@ClimbingCyprus" onmouseout="this.style.background='#2c5f2d'; this.style.transform='translateY(0)';" onmouseover="this.style.background='#3d7f3f'; this.style.transform='translateY(-2px)';" rel="noopener" style="display: inline-flex; align-items: center; gap: 0.5rem; background: #2c5f2d; color: white; padding: 0.75rem 1.5rem; border-radius: 8px; text-decoration: none; font-weight: bold; transition: all 0.3s;" target="_blank">
+<i class="fab fa-youtube" style="color: #ff0000; background: white; padding: 0.2rem 0.4rem; border-radius: 4px;"></i>
+<span data-i18n="guide-bouldering-watch-youtube">Watch all videos on YouTube</span>
+</a>
+<a class="youtube-subscribe-link" href="https://www.youtube.com/@climbingcyprus" rel="noopener" target="_blank">
+<i aria-hidden="true" class="fab fa-youtube"></i> <span data-i18n="guide-youtube-subscribe">Subscribe on YouTube</span>
+</a>
+</div>
+</div>
+<div class="image-carousel bouldering-photo-carousel">
+<div class="carousel-container">
+<img alt="בולדרינג בקפריסין" class="carousel-image active" loading="lazy" src="../pics/climberguide/bouldering-user-2.webp"/>
+<img alt="בולדרינג בקפריסין" class="carousel-image" loading="lazy" src="../pics/climberguide/bouldering-user-3.webp"/>
+<img alt="בולדרינג בקפריסין" class="carousel-image" loading="lazy" src="../pics/climberguide/bouldering-user-4.webp"/>
+<button class="carousel-btn prev" onclick="changeSlide(this, -1, event)">→</button>
+<button class="carousel-btn next" onclick="changeSlide(this, 1, event)">←</button>
+</div>
+<div class="carousel-dots">
+<span class="carousel-dot active" onclick="currentSlide(this, 0, event)"></span>
+<span class="carousel-dot" onclick="currentSlide(this, 1, event)"></span>
+<span class="carousel-dot" onclick="currentSlide(this, 2, event)"></span>
+<span class="carousel-dot" onclick="currentSlide(this, 3, event)"></span>
+</div>
+<p class="guide-image-caption">בולדרינג באזור Ineia &amp; Drousia</p>
+</div>
+<section aria-label="Bouldering resources" class="bouldering-resources">
+<div class="bouldering-guide-feature">
+<div class="bouldering-guide-copy">
+<h3 data-i18n="guide-bouldering-guide-title">The official Cyprus bouldering guidebook is ready!</h3>
+<p data-i18n="guide-bouldering-guide-desc">The official guide maps the bouldering areas around Akamas, Ineia and Droushia: nearly 700 problems from Font 3 to 8A, clear maps, GPS pins, approach directions and route photos. Most approaches are short, making the area especially good for winter sessions. Watch the preview and learn more.</p>
+<a class="guide-video-link" data-i18n="guide-bouldering-guide-cta" href="https://boulderingcyprus.com/" rel="noopener" target="_blank">Details about the guide</a>
+</div>
+<div class="bouldering-guide-book">
+<img alt="כריכת גייד הבולדרינג של קפריסין" loading="lazy" src="../pics/bouldering-guide-cover.webp"/>
+</div>
+</div>
+<div class="topo-download-compact">
+<!-- Topo Download Form -->
+<div class="topo-form-compact">
+<form action="https://formspree.io/f/mjkdalap" method="POST" style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+<input name="email" placeholder="האימייל שלך" required="" style="flex: 1; min-width: 200px; padding: 0.75rem; border: 1px solid #d7ddd2; border-radius: 5px; font-family: inherit; font-size: 1rem;" type="email"/>
+<input name="_subject" type="hidden" value="בקשה להורדת טופו בולדרינג"/>
+<input name="request_type" type="hidden" value="topo_download"/>
+<button class="cta-button" data-i18n="guide-topo-form-button" style="background: #2c5f2d; color: white; padding: 0.75rem 1.5rem; border: none; border-radius: 5px; cursor: pointer; font-weight: bold; font-size: 1rem;" type="submit">Send me the topo</button>
+</form>
+<p id="topoMessage" style="margin-top: 0.5rem; font-size: 0.9rem; display: none;"></p>
+</div>
+<section aria-labelledby="guide-instagram-profile-title" class="guide-instagram-profile-strip">
+<div class="guide-instagram-profile-embed">
+<blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DbVk8muDBu9/" data-instgrm-version="14">
+<a href="https://www.instagram.com/p/DbVk8muDBu9/" rel="noopener" target="_blank">View profile on Instagram</a>
+</blockquote>
+</div>
+<div class="guide-instagram-profile-copy">
+<p class="guide-bouldering-kicker">Climbing Cyprus</p>
+<h3 id="guide-instagram-profile-title">הדרכות וימי חוויה בקפריסין</h3>
+<p>אפשר להצטרף להדרכות טיפוס לקבוצות, לימי חוויה וכיף בטבע, ולבנות יחד יום שמתאים לרמה ולאופי של הקבוצה. אני מתאים את המסלול לקצב שלכם, משלב הסברים מקצועיים, תרגול בטוח וזמן ליהנות מהנוף — גם אם זו הפעם הראשונה שלכם על מצוק.</p>
+<a class="guide-instagram-profile-link" href="https://www.instagram.com/p/DbVk8muDBu9/" rel="noopener" target="_blank"><i class="fab fa-instagram"></i> View profile</a>
+</div>
+</section>
+</div>
+<p class="resource-note" data-i18n-html="guide-topo-crashpads">Need crash pads for bouldering? <a href="equipment.html#bouldering" style="color: #1976d2; font-weight: bold; text-decoration: underline;">Rent quality bouldering gear</a> directly from me.</p>
+<p class="resource-note" data-i18n-html="guide-topo-klook">Looking for an activity on a rest day or for the family? <a href="https://klook.tp.st/9luqAvsS" rel="nofollow sponsored noopener" style="color: #1976d2; font-weight: bold; text-decoration: underline;" target="_blank">Browse Cyprus activities and attractions on Klook</a>.</p>
+</section>
+<div class="guide-strip guide-important-strip full-width-strip">
+<div class="article-container">
+<h3 data-i18n-html="guide-important-title" style="color: #856404; margin-bottom: 1rem;"><i class="fas fa-info-circle"></i> Good to know</h3>
+<p data-i18n="guide-important-text" style="color: #856404; line-height: 1.8;">Conditions, access, and route information can change. Check current local information before heading out and climb responsibly.</p>
+</div>
+</div>
+<div class="guide-strip guide-contact-strip full-width-strip">
+<div class="article-container">
+<div class="guide-contact-copy">
+<h3 data-i18n="guide-contact-title" style="color: #2c5f2d; margin-bottom: 1rem;">Ready to start your Cyprus climbing adventure?</h3>
+<p data-i18n="guide-contact-subtitle" style="margin-bottom: 1.5rem;">I would be happy to guide you on the crags, help plan your trip, and share local knowledge.</p>
+</div>
+<img alt="יונתן מטפס בקפריסין" class="guide-contact-photo" loading="lazy" src="../pics/climberguide/guide-contact-yonatan.webp"/>
+<a class="cta-button" data-i18n="nav-contact" href="index.html#contact">Contact</a>
+</div>
+</div>
+<section aria-labelledby="beside-climbing-title" class="beside-climbing-section" id="beside-climbing">
+<h2 data-i18n="guide-beside-climbing-title" id="beside-climbing-title">Beside Climbing</h2>
+<p class="beside-climbing-intro" data-i18n="guide-beside-climbing-intro">Recommendations for coffee, food, sea, and nature before climbing, after a session, or on a rest day.</p>
+<div class="guide-instagram-strip">
+<span><i class="fab fa-instagram"></i> <span data-i18n="guide-instagram-strip-copy">More island moments and recommendations</span></span>
+<a href="https://www.instagram.com/climbing.cyprus" rel="noopener" target="_blank"><i aria-hidden="true" class="fab fa-instagram"></i> <span data-i18n="instagram-gallery-follow">Follow on Instagram</span> <i class="fas fa-arrow-up-right-from-square"></i></a>
+</div>
+<div class="beside-climbing-grid">
+<div class="beside-category">
+<div class="beside-category-media"><img alt="בתי קפה בקפריסין" loading="lazy" src="../pics/climberguide/recommendation-coffee-user.webp"/></div>
+<div class="beside-category-content">
+<h3><i class="fas fa-mug-hot"></i> <span data-i18n="guide-beside-coffee-title">Coffee shops</span></h3>
+<a class="beside-place beside-place-featured" href="https://www.google.com/maps/search/?api=1&amp;query=Kallikas+Coffee+Corner+Pano+Arodes+Cyprus" rel="noopener" target="_blank"><strong>Kallikas Coffee Corner <span class="beside-place-badge" data-i18n="guide-beside-featured">Recommended on the way to the crag</span></strong><span data-i18n="guide-beside-kallikas">Pano Arodes · drive-in coffee — an easy grab-and-go stop on the way to the crag</span><em><i class="fas fa-location-dot"></i> <span data-i18n="guide-beside-map">Take me there ↗</span></em></a>
+<a class="beside-place" href="https://www.google.com/maps/search/?api=1&amp;query=Droushia+Platea+Cafe+Cyprus" rel="noopener" target="_blank"><strong>Droushia Platea Cafe</strong><span data-i18n="guide-beside-droushia">Droushia · a good stop for food and coffee</span><em><i class="fas fa-location-dot"></i> <span data-i18n="guide-beside-map">Take me there ↗</span></em></a>
+</div>
+</div>
+<div class="beside-category">
+<div class="beside-category-media"><img alt="Farmyard Restaurant בקפריסין" loading="lazy" src="../pics/climberguide/recommendation-farmyard.webp"/></div>
+<div class="beside-category-content">
+<h3><i class="fas fa-utensils"></i> <span data-i18n="guide-beside-food-title">Restaurants</span></h3>
+<a class="beside-place" href="https://www.google.com/maps/search/?api=1&amp;query=Farm+Yard+Kathikas+Cyprus" rel="noopener" target="_blank"><strong>Farm Yard</strong><span data-i18n="guide-beside-farm-yard">Kathikas · excellent Asian food</span><em><i class="fas fa-location-dot"></i> <span data-i18n="guide-beside-map">Take me there ↗</span></em></a>
+<a class="beside-place" href="https://www.google.com/maps/search/?api=1&amp;query=Saropoulos+Fish+Tavern+Latchi+Cyprus" rel="noopener" target="_blank"><strong>Saropoulos Fish Tavern</strong><span data-i18n="guide-beside-saropoulos">Latchi · a good local fish tavern</span><em><i class="fas fa-location-dot"></i> <span data-i18n="guide-beside-map">Take me there ↗</span></em></a>
+</div>
+</div>
+<div class="beside-category">
+<div class="beside-category-media"><img alt="הלגונה הכחולה בקפריסין" loading="lazy" src="../pics/climberguide/recommendation-blue-lagoon.webp"/></div>
+<div class="beside-category-content">
+<h3><i class="fas fa-water"></i> <span data-i18n="guide-beside-nature-title">Beaches and nature</span></h3>
+<a class="beside-place" href="https://www.google.com/maps/search/?api=1&amp;query=Bath+of+Aphrodite+Green+Lagoon+Cyprus" rel="noopener" target="_blank"><strong>Bath of Aphrodite &amp; Green Lagoon</strong><span data-i18n="guide-beside-aphrodite">Latchi · a beautiful, relatively quiet beach</span><em><i class="fas fa-location-dot"></i> <span data-i18n="guide-beside-map">Take me there ↗</span></em></a>
+<a class="beside-place" href="https://www.google.com/maps/search/?api=1&amp;query=Sea+Caves+Peyia+Cyprus" rel="noopener" target="_blank"><strong>Sea Caves</strong><span data-i18n="guide-beside-c-caves">Near Peyia · caves, sea, and dramatic views</span><em><i class="fas fa-location-dot"></i> <span data-i18n="guide-beside-map">Take me there ↗</span></em></a>
+<a class="beside-place" href="https://www.google.com/maps/search/?api=1&amp;query=Blue+Lagoon+Latchi+Cyprus" rel="noopener" target="_blank"><strong>Blue Lagoon</strong><span data-i18n="guide-beside-blue-lagoon">Latchi · turquoise water and boat trips</span><em><i class="fas fa-location-dot"></i> <span data-i18n="guide-beside-map">Take me there ↗</span></em></a>
+</div>
+</div>
+<div class="beside-category">
+<div class="beside-category-media"><img alt="מפל קרמוטיס בקפריסין" loading="lazy" src="../pics/climberguide/recommendation-waterfall.webp"/></div>
+<div class="beside-category-content">
+<h3><i class="fas fa-leaf"></i> <span data-i18n="guide-beside-springs-title">Springs and nature</span></h3>
+<a class="beside-place" href="https://www.google.com/maps/search/?api=1&amp;query=Kremiotis+Waterfall+Cyprus" rel="noopener" target="_blank"><strong>Kremiotis Waterfall</strong><span data-i18n="guide-beside-kremiotis">Near Kremiotis Waterfall · an impressive natural waterfall</span><em><i class="fas fa-location-dot"></i> <span data-i18n="guide-beside-map">Take me there ↗</span></em></a>
+</div>
+</div>
+</div>
+</section>
+<div class="beside-affiliate-box">
+<h3 data-i18n="guide-beside-plan-title">Plan the rest of your day</h3>
+<p class="beside-affiliate-intro">אחרי יום על המצוקים אפשר להמשיך לארוחה טובה, לינה נוחה או פעילות רגועה ליד הים. ריכזתי כאן כמה אפשרויות נבחרות שיעזרו לכם לסגור את היום בקלות ולהישאר קרובים לאזורי הטיפוס.</p>
+<h4 class="beside-affiliate-subtitle"><i aria-hidden="true" class="fas fa-bed"></i> לינה קרובה למצוקים</h4>
+<div class="beside-stay-grid">
+<a class="beside-stay-card" href="https://www.booking.com/hotel/cy/palates.en-gb.html" rel="nofollow noopener" target="_blank">
+<img alt="Palates Village Hotel" loading="lazy" src="../pics/climberguide/palates-village.webp"/><span class="beside-stay-icon"><i class="fas fa-bed"></i></span><strong>Palates Village Hotel</strong><span>מלון כפרי באזור פאפוס, עם נוף פתוח ואווירה שקטה.</span><em data-hide-in-en="">לפרטים והזמנה ←</em>
+</a>
+<a class="beside-stay-card" href="https://www.booking.com/hotel/cy/droushia-heights.en-gb.html" rel="nofollow noopener" target="_blank">
+<img alt="Droushia Heights Hotel" loading="lazy" src="../pics/climberguide/droushia-heights.webp"/><span class="beside-stay-icon"><i class="fas fa-bed"></i></span><strong>Droushia Heights Hotel</strong><span>מלון משפחתי מול ההרים והכפר דרושיה, קרוב לאזורי הטיפוס.</span><em data-hide-in-en="">לפרטים והזמנה ←</em>
+</a>
+<a class="beside-stay-card" href="https://www.booking.com/hotel/cy/sappho-manor-house.en-gb.html" rel="nofollow noopener" target="_blank">
+<img alt="Sappho Manor House" loading="lazy" src="../pics/climberguide/sappho-manor.webp"/><span class="beside-stay-icon"><i class="fas fa-bed"></i></span><strong>Sappho Manor House</strong><span>בית אבן מסורתי באווירה אותנטית, במרכז הכפר דרושיה.</span><em data-hide-in-en="">לפרטים והזמנה ←</em>
+</a>
+</div>
+<h4 class="beside-affiliate-subtitle"><i aria-hidden="true" class="fas fa-route"></i> עוד דברים שיעזרו לכם</h4>
+<div class="beside-affiliate-links beside-quick-links">
+<a data-i18n="guide-beside-cars" href="https://getrentacar.tp.st/FD6yLXgf" rel="nofollow sponsored noopener" target="_blank">Compare rental cars</a>
+<a data-i18n="guide-beside-transfers" href="https://kiwitaxi.tp.st/8Xvx72mG" rel="nofollow sponsored noopener" target="_blank">Airport transfer</a>
+<a data-i18n="guide-beside-activities" href="https://klook.tp.st/9luqAvsS" rel="nofollow sponsored noopener" target="_blank">Activities and attractions</a>
+</div>
+</div>
+<!-- Comments Section -->
+<div class="guide-comments-section article-section full-width-strip">
+<div class="article-container">
+<h3 data-i18n="guide-comments-title" style="color: #2c5f2d; margin-bottom: 1.5rem; text-align: center;">💬 Comments and questions</h3>
+<p data-i18n="guide-comments-subtitle" style="text-align: center; color: #666; margin-bottom: 2rem;">Share your experience, ask a question, or add a tip for other climbers.</p>
+<!-- Simple comment form -->
+<div id="comments-container">
+<div class="comment-form" style="background: #f8f9fa; padding: 1.5rem; border-radius: 8px; margin-bottom: 2rem;">
+<h4 data-i18n="guide-comments-add" style="color: #2c5f2d; margin-bottom: 1rem;">Add a comment</h4>
+<form action="https://formspree.io/f/mjkdalap" id="commentForm" method="POST" style="display: flex; flex-direction: column; gap: 1rem;">
+<input data-i18n-placeholder="guide-comments-name" id="commentName" name="name" placeholder="Name" required="" style="padding: 0.75rem; border: 1px solid #ddd; border-radius: 5px; font-family: inherit;" type="text"/>
+<input data-i18n-placeholder="guide-comments-email" id="commentEmail" name="email" placeholder="Email (not published)" required="" style="padding: 0.75rem; border: 1px solid #ddd; border-radius: 5px; font-family: inherit;" type="email"/>
+<label data-i18n="guide-comments-country" for="commentCountry">Country</label>
+<select id="commentCountry" name="country" required="" style="padding: 0.75rem; border: 1px solid #ddd; border-radius: 5px; font-family: inherit;">
+<option data-i18n="guide-comments-country-select" value="">Choose a country</option>
+<option data-i18n="country-israel" value="IL">Israel</option>
+<option data-i18n="country-cyprus" value="CY">Cyprus</option>
+<option data-i18n="country-greece" value="GR">Greece</option>
+<option data-i18n="country-uk" value="GB">United Kingdom</option>
+<option data-i18n="country-us" value="US">United States</option>
+<option data-i18n="country-germany" value="DE">Germany</option>
+<option data-i18n="country-france" value="FR">France</option>
+<option data-i18n="country-australia" value="AU">Australia</option>
+<option data-i18n="country-canada" value="CA">Canada</option>
+<option data-i18n="country-other" value="OTHER">Other</option>
+</select>
+<textarea data-i18n-placeholder="guide-comments-text" id="commentText" name="comment" placeholder="Your comment..." required="" rows="4" style="padding: 0.75rem; border: 1px solid #ddd; border-radius: 5px; font-family: inherit; resize: vertical;"></textarea>
+<input name="_subject" type="hidden" value="תגובה חדשה - Climber Guide"/>
+<button data-i18n="guide-comments-submit" style="padding: 0.75rem 2rem; background: #2c5f2d; color: white; border: none; border-radius: 5px; cursor: pointer; font-weight: bold; align-self: flex-start;" type="submit">Submit comment</button>
+</form>
+<p data-i18n-html="guide-comments-info" style="font-size: 0.9rem; color: #666; margin-top: 1rem;"><i class="fas fa-info-circle"></i> Comments are sent to me by notification and published without manual approval.</p>
+</div>
+<div id="commentsList" style="margin-top: 2rem;">
+<h4 data-i18n="guide-comments-previous" style="color: #2c5f2d; margin-bottom: 1rem;">Previous comments</h4>
+<div id="commentsContainer" style="display: flex; flex-direction: column; gap: 1.5rem;">
+<p data-i18n="guide-comments-loading" style="color: #666; text-align: center; padding: 2rem;">Loading comments...</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</article>
+<!-- Footer -->
+<footer class="footer">
+<div class="container">
+<div class="footer-content">
+<div class="footer-section">
+<h3 data-i18n="site-title">ClimbCyprus</h3>
+<p data-i18n="site-tagline">Rock Climbing and Guided Tours</p>
+</div>
+<div class="footer-section">
+<h4 data-i18n="footer-links">Links</h4>
+<ul>
+<li><a data-i18n="nav-home" href="index.html#home">Home</a></li>
+<li><a data-i18n="nav-about-me" href="index.html#about-me">About Me</a></li>
+<li><a data-i18n="nav-activities" href="index.html#activities">Our Activities</a></li>
+<li><a data-i18n="nav-climber-guide" href="climber-guide.html">Climber's Guide</a></li>
+<li><a data-i18n="nav-gallery" href="index.html#gallery">Photos</a></li>
+</ul>
+</div>
+<div class="footer-section">
+<h4 data-i18n="footer-social">Follow Us</h4>
+<div class="social-links-footer">
+<a class="social-icon facebook" href="https://www.facebook.com/groups/895126888648835/" target="_blank">
+<svg fill="currentColor" height="24" viewbox="0 0 24 24" width="24">
+<path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"></path>
+</svg>
+</a>
+<a class="social-icon youtube" href="https://youtu.be/0Cx-s4l6His" target="_blank">
+<svg fill="currentColor" height="24" viewbox="0 0 24 24" width="24">
+<path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"></path>
+</svg>
+</a>
+<a aria-label="Instagram" class="social-icon instagram" href="https://www.instagram.com/climbing.cyprus" rel="noopener" target="_blank" title="Instagram">
+<svg fill="none" height="24" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24" width="24">
+<rect height="18" rx="5" width="18" x="3" y="3"></rect>
+<circle cx="12" cy="12" r="4"></circle>
+<circle cx="17.5" cy="6.5" fill="currentColor" r="1" stroke="none"></circle>
+</svg>
+</a>
+</div>
+</div>
+</div>
+<div class="footer-bottom">
+<p>© 2024 <span data-i18n="site-title">ClimbCyprus</span>. <span data-i18n="footer-rights">All Rights Reserved</span>.</p>
+</div>
+</div>
+</footer>
+<!-- Topo Download Modal -->
+<div class="modal-overlay" id="topoModal" style="display: none;">
+<div class="modal-content">
+<button class="modal-close" onclick="document.getElementById('topoModal').style.display='none';">×</button>
+<h3 style="color: #2c5f2d; margin-bottom: 1rem;">הורדת טופו בולדרינג</h3>
+<p style="margin-bottom: 1.5rem; color: #555;">השאירו את האימייל שלכם ונשלח לכם את הטופו בחינם!</p>
+<form action="https://formspree.io/f/mjkdalap" id="topoForm" method="POST">
+<input name="email" placeholder="האימייל שלך" required="" style="width: 100%; padding: 0.75rem; margin-bottom: 1rem; border: 1px solid #ddd; border-radius: 5px; font-family: inherit;" type="email"/>
+<input name="_subject" type="hidden" value="בקשה להורדת טופו בולדרינג"/>
+<input name="request_type" type="hidden" value="topo_download"/>
+<button class="cta-button" style="width: 100%; background: #2c5f2d; color: white; padding: 0.75rem; border: none; border-radius: 5px; cursor: pointer; font-weight: bold;" type="submit">
+                    שלח לי את הטופו
+                </button>
+</form>
+</div>
+</div>
+<script src="../script.js?v=20260810-3"></script>
+<script async="" src="https://www.instagram.com/embed.js"></script>
+<script>
+        // Handle topo form submission inline
+        document.addEventListener('DOMContentLoaded', function() {
+            const lang = document.documentElement.lang || 'he';
+            const topoForms = document.querySelectorAll('form[action*="formspree"]');
+            topoForms.forEach(form => {
+                if (form.querySelector('input[name="request_type"][value="topo_download"]')) {
+                    form.addEventListener('submit', async function(e) {
+                        e.preventDefault();
+
+                        const submitBtn = form.querySelector('button[type="submit"]');
+                        const messageEl = document.getElementById('topoMessage');
+                        const originalText = submitBtn.textContent;
+
+                        submitBtn.disabled = true;
+                        submitBtn.textContent = 'שולח...';
+
+                        try {
+                            const formData = new FormData(form);
+                            const response = await fetch(form.action, {
+                                method: 'POST',
+                                body: formData,
+                                headers: {
+                                    'Accept': 'application/json'
+                                }
+                            });
+
+                            if (response.ok) {
+                                form.reset();
+                                if (messageEl) {
+                                    messageEl.textContent = '✅ תודה! הטופו נשלח לאימייל שלך';
+                                    messageEl.style.color = '#2c5f2d';
+                                    messageEl.style.display = 'block';
+                                }
+                            } else {
+                                throw new Error('Failed to submit');
+                            }
+                        } catch (error) {
+                            if (messageEl) {
+                                messageEl.textContent = '❌ אופס, משהו השתבש. נסה שוב';
+                                messageEl.style.color = '#d32f2f';
+                                messageEl.style.display = 'block';
+                            }
+                        } finally {
+                            submitBtn.disabled = false;
+                            submitBtn.textContent = originalText;
+
+                            if (messageEl) {
+                                setTimeout(() => {
+                                    messageEl.style.display = 'none';
+                                }, 5000);
+                            }
+                        }
+                    });
+
+                    document.querySelectorAll('[data-i18n-placeholder]').forEach(element => {
+                        const key = element.getAttribute('data-i18n-placeholder');
+                        if (translations[lang] && translations[lang][key]) {
+                            element.setAttribute('placeholder', translations[lang][key]);
+                        }
+                    });
+
+                    document.querySelectorAll('[data-auto-hidden-en]').forEach(element => {
+                        element.hidden = false;
+                        element.removeAttribute('data-auto-hidden-en');
+                    });
+
+                    if (document.documentElement.lang === 'en') {
+                        const walker = document.createTreeWalker(document.querySelector('.guide-content'), NodeFilter.SHOW_TEXT);
+                        const textNodes = [];
+                        let node;
+                        while ((node = walker.nextNode())) textNodes.push(node);
+                        textNodes.forEach(textNode => {
+                            if (!/[א-ת]/.test(textNode.nodeValue || '')) return;
+                            const element = textNode.parentElement?.closest('p, h1, h2, h3, h4, h5, a, button, li, label, span, div');
+                            const key = element?.getAttribute('data-i18n') || element?.getAttribute('data-i18n-html');
+                            const hasTranslation = key && translations.en && translations.en[key];
+                            if (element && !hasTranslation) {
+                                element.hidden = true;
+                                element.setAttribute('data-auto-hidden-en', 'true');
+                            }
+                        });
+                    }
+                }
+            });
+        });
+
+        // Close modal on outside click
+        document.addEventListener('DOMContentLoaded', function() {
+            const modal = document.getElementById('topoModal');
+            if (modal) {
+                modal.addEventListener('click', function(e) {
+                    if (e.target === modal) {
+                        modal.style.display = 'none';
+                    }
+                });
+            }
+        });
+
+        // Handle topo form submission
+        document.addEventListener('DOMContentLoaded', function() {
+            const topoForm = document.getElementById('topoForm');
+            if (topoForm) {
+                topoForm.addEventListener('submit', async function(e) {
+                    e.preventDefault();
+
+                    const submitBtn = topoForm.querySelector('button[type="submit"]');
+                    const originalText = submitBtn.textContent;
+                    submitBtn.disabled = true;
+                    submitBtn.textContent = 'שולח...';
+
+                    try {
+                        const formData = new FormData(topoForm);
+                        const response = await fetch(topoForm.action, {
+                            method: 'POST',
+                            body: formData,
+                            headers: {
+                                'Accept': 'application/json'
+                            }
+                        });
+
+                        if (response.ok) {
+                            topoForm.innerHTML = '<p style="text-align: center; color: #2c5f2d; font-weight: bold;"><i class="fas fa-check-circle"></i> הטופו נשלח למייל שלך!</p>';
+                            setTimeout(() => {
+                                closeTopoModal();
+                                topoForm.reset();
+                            }, 2000);
+                        } else {
+                            alert('אירעה שגיאה. נסה שוב.');
+                            submitBtn.disabled = false;
+                            submitBtn.textContent = originalText;
+                        }
+                    } catch (error) {
+                        alert('אירעה שגיאה. נסה שוב.');
+                        submitBtn.disabled = false;
+                        submitBtn.textContent = originalText;
+                    }
+                });
+            }
+
+            // Handle comment form submission
+            const commentForm = document.getElementById('commentForm');
+            if (commentForm) {
+                commentForm.addEventListener('submit', async function(e) {
+                    e.preventDefault();
+
+                    const submitBtn = commentForm.querySelector('button[type="submit"]');
+                    const originalText = submitBtn.textContent;
+                    submitBtn.disabled = true;
+                    submitBtn.textContent = 'שולח...';
+
+                    try {
+                        const formData = new FormData(commentForm);
+                        const response = await fetch(commentForm.action, {
+                            method: 'POST',
+                            body: formData,
+                            headers: {
+                                'Accept': 'application/json'
+                            }
+                        });
+
+                        if (response.ok) {
+                            const successMsg = document.createElement('div');
+                            successMsg.className = 'form-message success-message';
+                            successMsg.innerHTML = '<i class="fas fa-check-circle"></i><p>תודה על התגובה! היא התקבלה ונשלחה אליי בהתראה.</p>';
+                            commentForm.parentNode.insertBefore(successMsg, commentForm);
+                            commentForm.reset();
+                            setTimeout(() => {
+                                successMsg.style.opacity = '0';
+                                setTimeout(() => successMsg.remove(), 300);
+                            }, 5000);
+                        } else {
+                            alert('אירעה שגיאה. נסה שוב.');
+                        }
+                    } catch (error) {
+                        alert('אירעה שגיאה. נסה שוב.');
+                    } finally {
+                        submitBtn.disabled = false;
+                        submitBtn.textContent = originalText;
+                    }
+                });
+            }
+        });
+
+        // Show language note for English visitors
+        document.addEventListener('DOMContentLoaded', function() {
+            // Language note functionality removed - page now fully translated
+
+            // Simple comment form handling - now uses Formspree
+            // Form submits directly to Formspree, no JavaScript needed
+
+            // Load and display approved comments
+            async function loadComments() {
+                try {
+                    const response = await fetch('approved-comments.json');
+                    if (!response.ok) {
+                        throw new Error('Failed to load comments');
+                    }
+                    const data = await response.json();
+                    const container = document.getElementById('commentsContainer');
+
+                    if (!container) return;
+
+                    if (!data.comments || data.comments.length === 0) {
+                        container.innerHTML = document.documentElement.lang === 'en'
+                            ? '<p style="color: #666; text-align: center; padding: 2rem;">No comments yet. Be the first to comment!</p>'
+                            : '<p style="color: #666; text-align: center; padding: 2rem;">אין תגובות עדיין. היו הראשונים להגיב!</p>';
+                        return;
+                    }
+
+                    const countryMeta = {
+                        IL: { flag: '🇮🇱', he: 'ישראל', en: 'Israel' },
+                        CY: { flag: '🇨🇾', he: 'קפריסין', en: 'Cyprus' },
+                        GR: { flag: '🇬🇷', he: 'יוון', en: 'Greece' },
+                        GB: { flag: '🇬🇧', he: 'בריטניה', en: 'United Kingdom' },
+                        US: { flag: '🇺🇸', he: 'ארצות הברית', en: 'United States' },
+                        DE: { flag: '🇩🇪', he: 'גרמניה', en: 'Germany' },
+                        FR: { flag: '🇫🇷', he: 'צרפת', en: 'France' },
+                        AU: { flag: '🇦🇺', he: 'אוסטרליה', en: 'Australia' },
+                        CA: { flag: '🇨🇦', he: 'קנדה', en: 'Canada' },
+                        OTHER: { flag: '🌍', he: 'מדינה אחרת', en: 'Other' }
+                    };
+
+                    container.innerHTML = data.comments
+                        .filter(comment => comment && comment.name && comment.text)
+                        .map(comment => {
+                            const country = countryMeta[comment.country] || countryMeta.OTHER;
+                            const language = document.documentElement.lang === 'en' ? 'en' : 'he';
+                            return `
+                            <div style="background: #f8f9fa; padding: 1.5rem; border-radius: 8px; border-right: 3px solid #2c5f2d;">
+                                <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                                    <strong style="color: #2c5f2d;">${escapeHtml(comment.name)} <span aria-label="${country.en}">${country.flag}</span></strong>
+                                    <span style="color: #999; font-size: 0.9rem;">${country[language]} · ${comment.date}</span>
+                                </div>
+                                <p style="color: #333; line-height: 1.6; margin: 0;">${escapeHtml(comment.text)}</p>
+                            </div>
+                            `;
+                        }).join('');
+                } catch (err) {
+                    console.error('Failed to load comments:', err);
+                    const container = document.getElementById('commentsContainer');
+                    if (container) {
+                        container.innerHTML = document.documentElement.lang === 'en'
+                            ? '<p style="color: #666; text-align: center; padding: 2rem;">No comments yet. Be the first to comment!</p>'
+                            : '<p style="color: #666; text-align: center; padding: 2rem;">אין תגובות עדיין. היו הראשונים להגיב!</p>';
+                    }
+                }
+            }
+
+            function escapeHtml(text) {
+                const div = document.createElement('div');
+                div.textContent = text;
+                return div.innerHTML;
+            }
+
+            // Load comments when page loads
+            if (document.getElementById('commentsContainer')) {
+                loadComments();
+            }
+
+            // Add click handlers to carousel containers for lightbox
+            const carouselContainers = document.querySelectorAll('.carousel-container');
+            if (carouselContainers) {
+                carouselContainers.forEach(container => {
+                    container.addEventListener('click', function(e) {
+                        // Don't open lightbox if clicking on buttons or dots
+                        if (e.target.classList.contains('carousel-btn') ||
+                            e.target.classList.contains('carousel-dot') ||
+                            e.target.closest('.carousel-btn') ||
+                            e.target.closest('.carousel-dots')) {
+                            return;
+                        }
+
+                        // Get the carousel and active image
+                        const carousel = container.closest('.image-carousel');
+                        const images = container.querySelectorAll('.carousel-image');
+                        const activeImage = container.querySelector('.carousel-image.active');
+                        const currentIndex = Array.from(images).findIndex(img => img === activeImage);
+
+                        if (activeImage && currentIndex !== -1) {
+                            console.log('Clicking on carousel, opening lightbox');
+                            if (window.openLightbox) {
+                                window.openLightbox(carousel, currentIndex);
+                            }
+                        }
+                    });
+                });
+            }
+        });
+    </script>
+<script>
+        // Image Carousel functionality
+        function setPlaceSlide(carousel, index) {
+            const slides = carousel.querySelectorAll('.place-carousel-slide');
+            const dots = carousel.querySelectorAll('.place-carousel-dot');
+            if (!slides.length) return;
+            const nextIndex = (index + slides.length) % slides.length;
+            slides.forEach((slide, i) => slide.classList.toggle('active', i === nextIndex));
+            dots.forEach((dot, i) => dot.classList.toggle('active', i === nextIndex));
+        }
+
+        function changePlaceSlide(button, direction) {
+            const carousel = button.closest('[data-place-carousel]');
+            const slides = carousel.querySelectorAll('.place-carousel-slide');
+            const current = Array.from(slides).findIndex(slide => slide.classList.contains('active'));
+            setPlaceSlide(carousel, current + direction);
+        }
+
+        function currentPlaceSlide(dot, index) {
+            setPlaceSlide(dot.closest('[data-place-carousel]'), index);
+        }
+
+        function setWallsSlide(index) {
+            const carousel = document.querySelector('[data-walls-carousel]');
+            if (!carousel) return;
+            const slides = carousel.querySelectorAll('.walls-carousel-slide');
+            const dots = carousel.querySelectorAll('.walls-carousel-dots button');
+            const nextIndex = (index + slides.length) % slides.length;
+            slides.forEach((slide, i) => slide.classList.toggle('active', i === nextIndex));
+            dots.forEach((dot, i) => dot.classList.toggle('active', i === nextIndex));
+        }
+
+        function changeWallsSlide(direction) {
+            const current = [...document.querySelectorAll('.walls-carousel-slide')]
+                .findIndex(slide => slide.classList.contains('active'));
+            setWallsSlide(current + direction);
+        }
+
+        function currentWallsSlide(index) {
+            setWallsSlide(index);
+        }
+
+        // Expose the carousel controls for the inline controls and keyboard/browser integrations.
+        window.setWallsSlide = setWallsSlide;
+        window.changeWallsSlide = changeWallsSlide;
+        window.currentWallsSlide = currentWallsSlide;
+
+        function changeSlide(btn, direction, event) {
+            if (event) event.stopPropagation(); // Prevent lightbox from opening
+            const carousel = btn.closest('.carousel-container');
+            const images = carousel.querySelectorAll('.carousel-image');
+            const dotsContainer = btn.closest('.image-carousel').querySelector('.carousel-dots');
+            const dots = dotsContainer.querySelectorAll('.carousel-dot');
+
+            let currentIndex = Array.from(images).findIndex(img => img.classList.contains('active'));
+
+            images[currentIndex].classList.remove('active');
+            dots[currentIndex].classList.remove('active');
+
+            currentIndex = (currentIndex + direction + images.length) % images.length;
+
+            images[currentIndex].classList.add('active');
+            dots[currentIndex].classList.add('active');
+
+            // Update caption if exists
+            updateCaption(btn.closest('.image-carousel'), currentIndex);
+        }
+
+        function currentSlide(dot, index, event) {
+            if (event) event.stopPropagation(); // Prevent lightbox from opening
+            const carousel = dot.closest('.image-carousel');
+            const images = carousel.querySelectorAll('.carousel-image');
+            const dots = carousel.querySelectorAll('.carousel-dot');
+
+            images.forEach(img => img.classList.remove('active'));
+            dots.forEach(d => d.classList.remove('active'));
+
+            images[index].classList.add('active');
+            dots[index].classList.add('active');
+
+            // Update caption if exists
+            updateCaption(carousel, index);
+        }
+
+        function updateCaption(carousel, index) {
+            const captionsData = carousel.getAttribute('data-captions');
+            if (captionsData) {
+                const captions = JSON.parse(captionsData);
+                const captionElement = carousel.querySelector('.guide-image-caption');
+                if (captionElement && captions[index]) {
+                    captionElement.textContent = captions[index];
+                }
+            }
+        }
+
+        // Lightbox functionality
+        let currentLightboxCarousel = null;
+        let currentLightboxIndex = 0;
+
+        window.openLightbox = function(carousel, index) {
+            console.log('Opening lightbox for carousel, index:', index);
+
+            currentLightboxCarousel = carousel;
+            currentLightboxIndex = index;
+
+            const images = carousel.querySelectorAll('.carousel-image');
+            const imageSrc = images[index].src;
+
+            // Create lightbox if it doesn't exist
+            let lightbox = document.getElementById('imageLightbox');
+            if (!lightbox) {
+                lightbox = document.createElement('div');
+                lightbox.id = 'imageLightbox';
+                lightbox.style.cssText = `
+                    display: none;
+                    position: fixed;
+                    z-index: 9999;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: rgba(0,0,0,0.95);
+                    justify-content: center;
+                    align-items: center;
+                `;
+
+                // Close button (X)
+                const closeBtn = document.createElement('button');
+                closeBtn.innerHTML = '✕';
+                closeBtn.style.cssText = `
+                    position: absolute;
+                    top: 20px;
+                    right: 30px;
+                    background: rgba(255,255,255,0.2);
+                    color: white;
+                    border: 2px solid white;
+                    border-radius: 50%;
+                    width: 50px;
+                    height: 50px;
+                    font-size: 30px;
+                    cursor: pointer;
+                    z-index: 10000;
+                    transition: all 0.3s;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    line-height: 1;
+                `;
+                closeBtn.onmouseover = function() {
+                    this.style.background = 'rgba(255,255,255,0.3)';
+                    this.style.transform = 'scale(1.1)';
+                };
+                closeBtn.onmouseout = function() {
+                    this.style.background = 'rgba(255,255,255,0.2)';
+                    this.style.transform = 'scale(1)';
+                };
+                closeBtn.onclick = function(e) {
+                    e.stopPropagation();
+                    lightbox.style.display = 'none';
+                };
+
+                // Previous button
+                const prevBtn = document.createElement('button');
+                prevBtn.innerHTML = '❮';
+                prevBtn.style.cssText = `
+                    position: absolute;
+                    left: 30px;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    background: rgba(44, 95, 45, 0.7);
+                    color: white;
+                    border: none;
+                    padding: 1rem 1.5rem;
+                    font-size: 2rem;
+                    cursor: pointer;
+                    border-radius: 5px;
+                    z-index: 10000;
+                    transition: all 0.3s;
+                `;
+                prevBtn.onmouseover = function() {
+                    this.style.background = 'rgba(44, 95, 45, 0.9)';
+                };
+                prevBtn.onmouseout = function() {
+                    this.style.background = 'rgba(44, 95, 45, 0.7)';
+                };
+                prevBtn.onclick = function(e) {
+                    e.stopPropagation();
+                    changeLightboxImage(-1);
+                };
+
+                // Next button
+                const nextBtn = document.createElement('button');
+                nextBtn.innerHTML = '❯';
+                nextBtn.style.cssText = `
+                    position: absolute;
+                    right: 30px;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    background: rgba(44, 95, 45, 0.7);
+                    color: white;
+                    border: none;
+                    padding: 1rem 1.5rem;
+                    font-size: 2rem;
+                    cursor: pointer;
+                    border-radius: 5px;
+                    z-index: 10000;
+                    transition: all 0.3s;
+                `;
+                nextBtn.onmouseover = function() {
+                    this.style.background = 'rgba(44, 95, 45, 0.9)';
+                };
+                nextBtn.onmouseout = function() {
+                    this.style.background = 'rgba(44, 95, 45, 0.7)';
+                };
+                nextBtn.onclick = function(e) {
+                    e.stopPropagation();
+                    changeLightboxImage(1);
+                };
+
+                // Image container
+                const imgContainer = document.createElement('div');
+                imgContainer.style.cssText = `
+                    max-width: 90%;
+                    max-height: 90%;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                `;
+
+                const img = document.createElement('img');
+                img.id = 'lightboxImage';
+                img.style.cssText = `
+                    max-width: 100%;
+                    max-height: 85vh;
+                    object-fit: contain;
+                    border-radius: 10px;
+                    box-shadow: 0 0 30px rgba(0,0,0,0.5);
+                `;
+
+                // Caption for lightbox
+                const caption = document.createElement('div');
+                caption.id = 'lightboxCaption';
+                caption.style.cssText = `
+                    color: white;
+                    text-align: center;
+                    font-size: 1.2rem;
+                    margin-top: 1rem;
+                    padding: 0.5rem 1rem;
+                    background: rgba(0,0,0,0.7);
+                    border-radius: 5px;
+                    max-width: 90%;
+                `;
+
+                imgContainer.appendChild(img);
+                imgContainer.appendChild(caption);
+                lightbox.appendChild(closeBtn);
+                lightbox.appendChild(prevBtn);
+                lightbox.appendChild(nextBtn);
+                lightbox.appendChild(imgContainer);
+                document.body.appendChild(lightbox);
+
+                // Close on background click
+                lightbox.addEventListener('click', function(e) {
+                    if (e.target === lightbox) {
+                        this.style.display = 'none';
+                    }
+                });
+
+                // Keyboard navigation
+                document.addEventListener('keydown', function(e) {
+                    if (lightbox.style.display === 'flex') {
+                        if (e.key === 'Escape') {
+                            lightbox.style.display = 'none';
+                        } else if (e.key === 'ArrowLeft') {
+                            changeLightboxImage(-1);
+                        } else if (e.key === 'ArrowRight') {
+                            changeLightboxImage(1);
+                        }
+                    }
+                });
+            }
+
+            // Set image and caption, then show lightbox
+            document.getElementById('lightboxImage').src = imageSrc;
+
+            // Update caption
+            const captionsData = carousel.getAttribute('data-captions');
+            const captionElement = document.getElementById('lightboxCaption');
+            if (captionsData && captionElement) {
+                const captions = JSON.parse(captionsData);
+                captionElement.textContent = captions[index] || '';
+            } else if (captionElement) {
+                // If no data-captions, use the visible caption
+                const visibleCaption = carousel.querySelector('.guide-image-caption');
+                captionElement.textContent = visibleCaption ? visibleCaption.textContent : '';
+            }
+
+            lightbox.style.display = 'flex';
+        }
+
+        window.changeLightboxImage = function(direction) {
+            if (!currentLightboxCarousel) return;
+
+            const images = currentLightboxCarousel.querySelectorAll('.carousel-image');
+            currentLightboxIndex = (currentLightboxIndex + direction + images.length) % images.length;
+
+            document.getElementById('lightboxImage').src = images[currentLightboxIndex].src;
+
+            // Update caption when changing images
+            const captionsData = currentLightboxCarousel.getAttribute('data-captions');
+            const captionElement = document.getElementById('lightboxCaption');
+            if (captionsData && captionElement) {
+                const captions = JSON.parse(captionsData);
+                captionElement.textContent = captions[currentLightboxIndex] || '';
+            } else if (captionElement) {
+                const visibleCaption = currentLightboxCarousel.querySelector('.guide-image-caption');
+                captionElement.textContent = visibleCaption ? visibleCaption.textContent : '';
+            }
+        }
+    </script>
+<script>
+        // Lightweight four-item carousel for the bouldering videos.
+        let currentBoulderingVideo = 0;
+
+        window.showBoulderingVideo = function(index) {
+            const slides = [...document.querySelectorAll('.bouldering-video-slide')];
+            const dots = [...document.querySelectorAll('.bouldering-video-dots button')];
+            if (!slides.length) return;
+
+            currentBoulderingVideo = (index + slides.length) % slides.length;
+            slides.forEach((slide, slideIndex) => {
+                slide.classList.toggle('is-active', slideIndex === currentBoulderingVideo);
+            });
+            dots.forEach((dot, dotIndex) => {
+                const isActive = dotIndex === currentBoulderingVideo;
+                dot.classList.toggle('is-active', isActive);
+                dot.setAttribute('aria-selected', String(isActive));
+            });
+        };
+
+        window.changeBoulderingVideo = function(direction) {
+            window.showBoulderingVideo(currentBoulderingVideo + direction);
+        };
+
+    </script>
+<script>
+        // Keep the guide order intentional: southern crags first, then the northern shortlist.
+        document.addEventListener('DOMContentLoaded', () => {
+            const article = document.querySelector('.guide-content');
+            const north = document.querySelector('#north');
+            const south = document.querySelector('#south');
+            const bouldering = document.querySelector('#bouldering');
+            if (!article || !north || !south || !bouldering) return;
+
+            const southNodes = [];
+            for (let node = south; node && node !== bouldering; node = node.nextElementSibling) {
+                southNodes.push(node);
+            }
+            const southFragment = document.createDocumentFragment();
+            southNodes.forEach(node => southFragment.appendChild(node));
+            article.insertBefore(southFragment, north);
+
+            const moveBefore = (itemName, beforeName) => {
+                const strips = [...article.querySelectorAll('.guide-crag-strip')];
+                const item = strips.find(strip => strip.textContent.includes(itemName));
+                const before = strips.find(strip => strip.textContent.includes(beforeName));
+                if (item && before && item !== before) before.parentNode.insertBefore(item, before);
+            };
+
+            // Keep the requested editorial order while preserving the surrounding guide sections.
+            moveBefore('Goat House', 'Buffawall');
+            moveBefore('Garga-Suyu', 'Buffawall');
+            moveBefore('Gerakopetra', 'Diarizous');
+
+            // Keep the guidebook feature before the FirstBolt strip in the bouldering flow.
+            const firstBolt = article.querySelector('.firstbolt-promo');
+            const boulderingResources = article.querySelector('.bouldering-resources');
+            if (firstBolt && boulderingResources) boulderingResources.after(firstBolt);
+        });
+    </script>
+<script>
+        // Crag medallions use the same lightbox as the carousels when clicked.
+        document.addEventListener('DOMContentLoaded', () => {
+            const singleImageCarousel = document.createElement('div');
+            singleImageCarousel.className = 'image-carousel';
+            singleImageCarousel.style.display = 'none';
+            singleImageCarousel.innerHTML = '<img class="carousel-image active" alt="">';
+            document.body.appendChild(singleImageCarousel);
+
+            document.querySelectorAll('.guide-crag-strip .guide-place-media').forEach(media => {
+                media.addEventListener('click', () => {
+                    const source = media.querySelector('img');
+                    const target = singleImageCarousel.querySelector('.carousel-image');
+                    if (!source || !target || !window.openLightbox) return;
+                    target.src = source.currentSrc || source.src;
+                    target.alt = source.alt;
+                    window.openLightbox(singleImageCarousel, 0);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

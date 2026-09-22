@@ -639,6 +639,11 @@
             }
         ];
 
+        questions.forEach(({ image }) => {
+            const preload = new Image();
+            preload.src = image;
+        });
+
         const quizApp = document.getElementById('quiz-app');
         const result = document.getElementById('quiz-result');
         const ui = copy[lang];

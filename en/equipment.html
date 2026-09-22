@@ -43,7 +43,7 @@
                 return localStorage.getItem('preferred-language') || 'he';
             }
 
-            const savedLang = getInitialLanguage();
+            const savedLang = 'en';
             const html = document.documentElement;
             html.setAttribute('lang', savedLang);
             html.setAttribute('dir', savedLang === 'he' ? 'rtl' : 'ltr');
@@ -114,7 +114,7 @@
 </div>
 </nav>
 <!-- Equipment Rental Hero -->
-<section class="tour-hero equipment-hero" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('pics/rent.webp') center 30%/cover;">
+<section class="tour-hero equipment-hero" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('../pics/rent.webp') center 30%/cover;">
 <div class="tour-hero-content">
 <div class="container">
 <h1 data-i18n="equipment-title" style="color: white;">Climbing Equipment Rental</h1>
@@ -300,7 +300,7 @@
 </div>
 </div>
 <!-- Cyprus Climbing Guidebook Section -->
-<div class="equipment-package" id="guidebook" style="background: linear-gradient(rgba(255,255,255,0.95), rgba(255,255,255,0.95)), url('pics/guide.webp') center/cover; padding: 3rem 2rem; border-radius: 15px; margin-top: 3rem;">
+<div class="equipment-package" id="guidebook" style="background: linear-gradient(rgba(255,255,255,0.95), rgba(255,255,255,0.95)), url('../pics/guide.webp') center/cover; padding: 3rem 2rem; border-radius: 15px; margin-top: 3rem;">
 <div class="equipment-header">
 <h2><i class="fas fa-book"></i> <span data-i18n="guidebook-title">Cyprus Climbing Guidebook</span></h2>
 <p class="guidebook-choice" data-i18n="guidebook-choice">Choose the guidebook that matches your trip: sport climbing or bouldering.</p>

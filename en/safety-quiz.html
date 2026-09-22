@@ -700,15 +700,24 @@
             });
         }
 
+        function shuffleOptions(options) {
+            const shuffled = [...options];
+            for (let index = shuffled.length - 1; index > 0; index -= 1) {
+                const randomIndex = Math.floor(Math.random() * (index + 1));
+                [shuffled[index], shuffled[randomIndex]] = [shuffled[randomIndex], shuffled[index]];
+            }
+            return shuffled;
+        }
+
         function renderQuestion() {
             const question = questions[current];
             const progress = ((current + 1) / questions.length) * 100;
             const image = `<img class="quiz-image" src="${question.image}" alt="${question.imageAlt[lang]}" loading="eager">`;
             const note = `<p class="quiz-q9-note">${ui.note}</p>`;
-            const options = question.options[lang].map((option, index) => `
+            const options = shuffleOptions(question.options[lang].map((text, index) => ({ text, index }))).map(option => `
                 <label class="quiz-option">
-                    <input type="radio" name="quiz-answer" value="${index}">
-                    <span>${option}</span>
+                    <input type="radio" name="quiz-answer" value="${option.index}">
+                    <span>${option.text}</span>
                 </label>
             `).join('');
 

@@ -30,7 +30,7 @@ function rewriteEnglishSeo(html, page) {
     <link rel="alternate" hreflang="he" href="https://climbing-cyprus.com${hebrewPath}">
     <link rel="alternate" hreflang="en" href="https://climbing-cyprus.com${publicPath}">
     <link rel="alternate" hreflang="x-default" href="https://climbing-cyprus.com${hebrewPath}">`;
-  return html
+  const rewritten = html
     .replace(/<meta name="description" content="[^"]*">/i,
       '<meta name="description" content="Rock climbing in Cyprus, guided climbing tours, rappelling, gear rental and lead climbing courses with Climbing Cyprus.">')
     .replace(/<meta property="og:description" content="[^"]*">/i,
@@ -42,6 +42,20 @@ function rewriteEnglishSeo(html, page) {
     .replace(/<link rel="canonical" href="[^"]*">/i,
       `<link rel="canonical" href="https://climbing-cyprus.com${publicPath}">`)
     .replace(/<\/head>/i, `${alternateLinks}\n</head>`);
+
+  if (page === 'safety-quiz.html') {
+    return rewritten
+      .replace(/<title>[^<]*<\/title>/i, '<title>How Good Are You at Clipping Quickdraws? Take the Quiz | Climbing Cyprus</title>')
+      .replace(/property="og:title" content="[^"]*"/i, 'property="og:title" content="How Good Are You at Clipping Quickdraws? Take the Quiz | Climbing Cyprus"')
+      .replace(/name="twitter:title" content="[^"]*"/i, 'name="twitter:title" content="How Good Are You at Clipping Quickdraws? Take the Quiz | Climbing Cyprus"')
+      .replace(/property="og:description" content="[^"]*"/i, 'property="og:description" content="Test your quickdraw clipping skills and lead-climbing decision-making with this short safety quiz."')
+      .replace(/name="twitter:description" content="[^"]*"/i, 'name="twitter:description" content="Test your quickdraw clipping skills and lead-climbing decision-making with this short safety quiz."')
+      .replaceAll('https://climbing-cyprus.com/pics/safety-quiz-share.webp', 'https://climbing-cyprus.com/pics/safety-quiz-share-en.webp')
+      .replace(/property="og:image:alt" content="[^"]*"/i, 'property="og:image:alt" content="How good are you at clipping quickdraws? Safety quiz"')
+      .replace(/property="og:image:width" content="[^"]*"/i, 'property="og:image:width" content="941"')
+      .replace(/property="og:image:height" content="[^"]*"/i, 'property="og:image:height" content="1672"');
+  }
+  return rewritten;
 }
 
 function addHebrewSeo(html, page) {
@@ -61,10 +75,13 @@ for (const page of pages) {
   const sourcePath = path.join(root, page);
   const source = addHebrewSeo(fs.readFileSync(sourcePath, 'utf8'), page);
   fs.writeFileSync(sourcePath, source);
-  const generated = rewriteEnglishSeo(rewriteAssets(source), page)
+  let generated = rewriteEnglishSeo(rewriteAssets(source), page)
     .replace(/<html lang="he"/i, '<html lang="en"')
     .replace(/<html([^>]*?)dir="rtl"/i, '<html$1dir="ltr"')
     .replace(/<title>[^<]*<\/title>/i, '<title>Climbing Cyprus | Rock Climbing and Adventure Tours</title>');
+  if (page === 'safety-quiz.html') {
+    generated = generated.replace(/<title>[^<]*<\/title>/i, '<title>How Good Are You at Clipping Quickdraws? Take the Quiz | Climbing Cyprus</title>');
+  }
   fs.writeFileSync(path.join(output, page), generated);
 }
 

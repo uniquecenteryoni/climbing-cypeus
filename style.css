@@ -336,6 +336,18 @@
     font-size: 0.72rem;
 }
 
+/* Keep the quiz strip inside the course content column. */
+.course-page .tour-main-content .safety-quiz-strip {
+    width: 100% !important;
+    margin-right: 0 !important;
+    margin-left: 0 !important;
+}
+
+.course-page .tour-main-content .safety-quiz-strip-inner {
+    width: 100%;
+    grid-template-columns: minmax(0, 1.08fr) minmax(220px, 0.92fr);
+}
+
 @media (max-width: 720px) {
     .safety-quiz-strip-inner {
         width: 100%;

@@ -348,6 +348,47 @@
             margin-top: 1rem;
         }
 
+        .quiz-complete-screen {
+            display: grid;
+            justify-items: center;
+            gap: 0.9rem;
+            padding: 2.2rem 1.4rem 2.6rem;
+            text-align: center;
+        }
+
+        .quiz-complete-screen img {
+            width: min(100%, 340px);
+            height: 230px;
+            border-radius: 1rem;
+            object-fit: cover;
+            object-position: center;
+            box-shadow: 0 12px 28px rgba(23, 61, 42, 0.16);
+        }
+
+        .quiz-complete-screen h2 {
+            margin: 0;
+            color: var(--quiz-green);
+        }
+
+        .quiz-complete-score {
+            color: var(--quiz-green-light);
+            font-size: 3.4rem;
+            font-weight: 900;
+            line-height: 1;
+        }
+
+        .quiz-complete-screen p {
+            margin: 0;
+            color: var(--quiz-muted);
+            line-height: 1.6;
+        }
+
+        .quiz-complete-screen .quiz-complete-tagline {
+            color: var(--quiz-green);
+            font-size: 1.35rem;
+            font-weight: 900;
+        }
+
         .quiz-q9-note {
             margin: -0.55rem 0 1rem;
             color: var(--quiz-muted);
@@ -456,7 +497,11 @@
                 sending: 'שולח…',
                 sent: 'הפרטים נשלחו בהצלחה. נחזור אליך בהקדם.',
                 sendError: 'לא הצלחנו לשלוח את הפרטים. נסו שוב בעוד רגע.',
-                scoreLabel: 'הציון שלך'
+                scoreLabel: 'הציון שלך',
+                completionTitle: 'הפרטים נשלחו בהצלחה',
+                completionMessage: 'נחזור אליך בהקדם.',
+                completionTagline: 'נתראה במצוק!',
+                completionRetry: 'לעשות את הבוחן שוב'
             },
             en: {
                 title: 'Clipping Skills Quiz',
@@ -487,7 +532,11 @@
                 sending: 'Sending…',
                 sent: 'Your details were sent successfully. We will get back to you soon.',
                 sendError: 'We could not send your details. Please try again in a moment.',
-                scoreLabel: 'Your score'
+                scoreLabel: 'Your score',
+                completionTitle: 'Your details were sent successfully',
+                completionMessage: 'We will get back to you soon.',
+                completionTagline: 'See you at the crag!',
+                completionRetry: 'Take the quiz again'
             }
         };
 
@@ -681,8 +730,6 @@
                     error.textContent = ui.required;
                     return;
                 }
-                document.getElementById('quiz-score').hidden = false;
-                document.getElementById('quiz-result-message').hidden = false;
                 const button = interestForm.querySelector('button[type="submit"]');
                 button.disabled = true;
                 button.textContent = ui.sending;
@@ -698,14 +745,37 @@
                 try {
                     const response = await fetch('https://formspree.io/f/mjkdalap', { method: 'POST', body: payload, headers: { Accept: 'application/json' } });
                     if (!response.ok) throw new Error('Form submission failed');
-                    status.textContent = ui.sent;
-                    interestForm.querySelectorAll('input, button').forEach(input => input.disabled = true);
+                    showCompletionScreen();
                 } catch (submissionError) {
                     button.disabled = false;
                     button.textContent = ui.send;
                     status.textContent = ui.sendError;
                 }
             });
+
+            function showCompletionScreen() {
+                result.innerHTML = `
+                    <div class="quiz-complete-screen">
+                        <img src="pics/safety-quiz-yonatan.webp" alt="יונתן מטפס" loading="eager">
+                        <h2>${ui.completionTitle}</h2>
+                        <div class="quiz-complete-score">${score}/${questions.length}</div>
+                        <p>${ui.scoreLabel}</p>
+                        <p>${ui.completionMessage}</p>
+                        <p class="quiz-complete-tagline">${ui.completionTagline}</p>
+                        <button class="quiz-restart" type="button">${ui.completionRetry}</button>
+                    </div>
+                `;
+                result.querySelector('.quiz-restart').addEventListener('click', () => {
+                    current = 0;
+                    score = 0;
+                    lead = { name: '', email: '', phone: '' };
+                    result.hidden = true;
+                    quizApp.hidden = false;
+                    renderLeadCapture();
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            }
+
             result.querySelector('.quiz-restart').addEventListener('click', () => {
                 current = 0;
                 score = 0;

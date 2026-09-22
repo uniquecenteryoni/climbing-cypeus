@@ -44,8 +44,23 @@ function rewriteEnglishSeo(html, page) {
     .replace(/<\/head>/i, `${alternateLinks}\n</head>`);
 }
 
+function addHebrewSeo(html, page) {
+  if (html.includes('hreflang="en"')) return html;
+  const hebrewPath = page === 'index.html' ? '/' : `/${page}`;
+  const alternateLinks = `
+    <link rel="alternate" hreflang="he" href="https://climbing-cyprus.com${hebrewPath}">
+    <link rel="alternate" hreflang="en" href="https://climbing-cyprus.com/en${hebrewPath}">
+    <link rel="alternate" hreflang="x-default" href="https://climbing-cyprus.com${hebrewPath}">`;
+  const canonical = html.includes('rel="canonical"')
+    ? ''
+    : `\n    <link rel="canonical" href="https://climbing-cyprus.com${hebrewPath}">`;
+  return html.replace(/<\/head>/i, `${canonical}${alternateLinks}\n</head>`);
+}
+
 for (const page of pages) {
-  const source = fs.readFileSync(path.join(root, page), 'utf8');
+  const sourcePath = path.join(root, page);
+  const source = addHebrewSeo(fs.readFileSync(sourcePath, 'utf8'), page);
+  fs.writeFileSync(sourcePath, source);
   const generated = rewriteEnglishSeo(rewriteAssets(source), page)
     .replace(/<html lang="he"/i, '<html lang="en"')
     .replace(/<html([^>]*?)dir="rtl"/i, '<html$1dir="ltr"')

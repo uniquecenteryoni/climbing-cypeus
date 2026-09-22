@@ -654,8 +654,8 @@
             const message = score >= 8 ? ui.resultExcellent : score >= 5 ? ui.resultGood : ui.resultReview;
             result.innerHTML = `
                 <h2>${ui.finished}</h2>
-                <div class="quiz-score">${score}/${questions.length}</div>
-                <p>${message}</p>
+                <div class="quiz-score" id="quiz-score" hidden>${score}/${questions.length}</div>
+                <p id="quiz-result-message" hidden>${message}</p>
                 <form class="quiz-interest-form" id="quiz-interest-form">
                     <h3>${ui.interestTitle}</h3>
                     <p class="quiz-q9-note">${ui.interestPrompt}</p>
@@ -681,6 +681,8 @@
                     error.textContent = ui.required;
                     return;
                 }
+                document.getElementById('quiz-score').hidden = false;
+                document.getElementById('quiz-result-message').hidden = false;
                 const button = interestForm.querySelector('button[type="submit"]');
                 button.disabled = true;
                 button.textContent = ui.sending;

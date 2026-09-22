@@ -10,17 +10,18 @@
     <meta property="og:url" content="https://climbing-cyprus.com/safety-quiz.html">
     <meta property="og:title" content="עד כמה אתה שולט בהקלפות? בחן את עצמך">
     <meta property="og:description" content="בוחן קצר למטפסים: בדקו את השליטה שלכם בהקלפות ובקבלת החלטות בטיפוס הובלה.">
-    <meta property="og:image" content="https://climbing-cyprus.com/pics/safety-quiz-share.jpg">
+    <meta property="og:image" content="https://climbing-cyprus.com/pics/safety-quiz-share.webp">
     <meta property="og:image:alt" content="בוחן שליטה בהקלפות בטיפוס הובלה">
-    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:type" content="image/webp">
     <meta property="og:image:width" content="1672">
     <meta property="og:image:height" content="941">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="עד כמה אתה שולט בהקלפות? בחן את עצמך">
     <meta name="twitter:description" content="בוחן קצר למטפסים: בדקו את השליטה שלכם בהקלפות ובקבלת החלטות בטיפוס הובלה.">
-    <meta name="twitter:image" content="https://climbing-cyprus.com/pics/safety-quiz-share.jpg">
+    <meta name="twitter:image" content="https://climbing-cyprus.com/pics/safety-quiz-share.webp">
     <link rel="icon" type="image/webp" href="favicon.webp?v=20260819">
     <link rel="stylesheet" href="style.css?v=safety-quiz-1">
+    <script src="language-routing.js"></script>
     <style>
         :root {
             --quiz-green: #173d2a;
@@ -504,7 +505,8 @@
     </main>
 
     <script>
-        const lang = new URLSearchParams(window.location.search).get('lang') === 'en' ? 'en' : 'he';
+        const lang = window.location.pathname.startsWith('/en/') ? 'en' :
+            (new URLSearchParams(window.location.search).get('lang') === 'en' ? 'en' : 'he');
         document.documentElement.lang = lang;
         document.documentElement.dir = lang === 'he' ? 'rtl' : 'ltr';
 
@@ -646,6 +648,7 @@
         document.getElementById('quiz-back-link').textContent = ui.back;
         document.querySelectorAll('[data-lang-link]').forEach(link => {
             if (link.dataset.lang === lang) link.setAttribute('aria-current', 'page');
+            link.href = link.dataset.lang === 'en' ? '/en/safety-quiz.html' : '/safety-quiz.html';
         });
 
         function renderLeadCapture() {

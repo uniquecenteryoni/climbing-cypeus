@@ -357,9 +357,10 @@
         }
 
         .quiz-complete-screen img {
-            width: min(100%, 340px);
+            width: 230px;
             height: 230px;
-            border-radius: 1rem;
+            border: 8px solid var(--quiz-lime);
+            border-radius: 50%;
             object-fit: cover;
             object-position: center;
             box-shadow: 0 12px 28px rgba(23, 61, 42, 0.16);
@@ -387,6 +388,32 @@
             color: var(--quiz-green);
             font-size: 1.35rem;
             font-weight: 900;
+        }
+
+        .quiz-review {
+            width: min(100%, 560px);
+            margin: 0.6rem auto 0;
+            padding: 1rem;
+            border-radius: 0.9rem;
+            background: #fff4f1;
+            color: var(--quiz-ink);
+            text-align: right;
+        }
+
+        .quiz-review h3 {
+            margin: 0 0 0.65rem;
+            color: #a34234;
+            font-size: 1.05rem;
+        }
+
+        .quiz-review-item {
+            padding-top: 0.65rem;
+            border-top: 1px solid rgba(163, 66, 52, 0.18);
+            line-height: 1.55;
+        }
+
+        .quiz-review-item + .quiz-review-item {
+            margin-top: 0.65rem;
         }
 
         .quiz-q9-note {
@@ -501,7 +528,9 @@
                 completionTitle: 'הפרטים נשלחו בהצלחה',
                 completionMessage: 'נחזור אליך בהקדם.',
                 completionTagline: 'נתראה במצוק!',
-                completionRetry: 'לעשות את הבוחן שוב'
+                completionRetry: 'לעשות את הבוחן שוב',
+                reviewTitle: 'מה כדאי לרענן?',
+                reviewCorrect: 'התשובה הנכונה:'
             },
             en: {
                 title: 'Clipping Skills Quiz',
@@ -536,7 +565,9 @@
                 completionTitle: 'Your details were sent successfully',
                 completionMessage: 'We will get back to you soon.',
                 completionTagline: 'See you at the crag!',
-                completionRetry: 'Take the quiz again'
+                completionRetry: 'Take the quiz again',
+                reviewTitle: 'What to review',
+                reviewCorrect: 'Correct answer:'
             }
         };
 
@@ -594,6 +625,7 @@
         let current = 0;
         let score = 0;
         let lead = { name: '', email: '', phone: '' };
+        let answers = [];
 
         document.getElementById('quiz-title').textContent = ui.title;
         document.getElementById('quiz-intro').textContent = ui.intro;
@@ -636,6 +668,7 @@
                 }
                 current = 0;
                 score = 0;
+                answers = [];
                 renderQuestion();
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             });
@@ -686,7 +719,8 @@
                     error.textContent = ui.error;
                     return;
                 }
-                if (Number(selected.value) === question.answer) score += 1;
+                answers[current] = Number(selected.value);
+                if (answers[current] === question.answer) score += 1;
                 current += 1;
                 if (current < questions.length) {
                     renderQuestion();
@@ -754,12 +788,27 @@
             });
 
             function showCompletionScreen() {
+                const incorrectQuestions = questions
+                    .map((question, index) => ({ question, index }))
+                    .filter(({ question, index }) => answers[index] !== question.answer);
+                const review = incorrectQuestions.length ? `
+                    <div class="quiz-review">
+                        <h3>${ui.reviewTitle}</h3>
+                        ${incorrectQuestions.map(({ question, index }) => `
+                            <div class="quiz-review-item">
+                                <strong>${ui.question(index + 1, questions.length)}: ${question.text[lang]}</strong><br>
+                                ${ui.reviewCorrect} ${question.options[lang][question.answer]}
+                            </div>
+                        `).join('')}
+                    </div>
+                ` : '';
                 result.innerHTML = `
                     <div class="quiz-complete-screen">
                         <img src="pics/safety-quiz-yonatan.webp" alt="יונתן מטפס" loading="eager">
                         <h2>${ui.completionTitle}</h2>
                         <div class="quiz-complete-score">${score}/${questions.length}</div>
                         <p>${ui.scoreLabel}</p>
+                        ${review}
                         <p>${ui.completionMessage}</p>
                         <p class="quiz-complete-tagline">${ui.completionTagline}</p>
                         <button class="quiz-restart" type="button">${ui.completionRetry}</button>
@@ -768,6 +817,7 @@
                 result.querySelector('.quiz-restart').addEventListener('click', () => {
                     current = 0;
                     score = 0;
+                    answers = [];
                     lead = { name: '', email: '', phone: '' };
                     result.hidden = true;
                     quizApp.hidden = false;
@@ -779,6 +829,7 @@
             result.querySelector('.quiz-restart').addEventListener('click', () => {
                 current = 0;
                 score = 0;
+                answers = [];
                 lead = { name: '', email: '', phone: '' };
                 result.hidden = true;
                 quizApp.hidden = false;

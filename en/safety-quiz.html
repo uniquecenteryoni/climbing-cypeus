@@ -493,11 +493,11 @@
 <a aria-label="Climbing Cyprus" class="quiz-brand" href="index.html">
 <img alt="Climbing Cyprus" src="../pics/climbing-cyprus-logo.webp"/>
 </a>
-<div aria-label="בחירת שפה" class="quiz-language">
+<div aria-label="Language selection" class="quiz-language">
 <a data-lang-link="he" href="/safety-quiz.html">עברית</a>
 <a data-lang-link="en" href="/en/safety-quiz.html">English</a>
 </div>
-<a class="quiz-back-link" href="climber-guide.html" id="quiz-back-link">חזרה למדריך</a>
+<a class="quiz-back-link" href="climber-guide.html" id="quiz-back-link">Back to guide</a>
 </div>
 <header class="quiz-hero">
 <h1 id="quiz-title"></h1>
@@ -593,51 +593,56 @@
 
         const questions = [
             {
-                image: '../pics/safety-quiz-q1.webp', imageAlt: { he: 'מטפס ומערכת חבל על קיר טיפוס', en: 'Climber and rope system on an indoor climbing wall' },
+                image: 'pics/safety-quiz-q1.webp', imageAlt: { he: 'מטפס ומערכת חבל על קיר טיפוס', en: 'Climber and rope system on an indoor climbing wall' },
                 text: { he: 'ציין את הבעיות בתמונה:', en: 'Which problem do you see in the picture?' },
                 options: { he: ['הראנר מוקלף עם הצד הלא נכון', 'הראנר בצבע כתום זועק', 'הראנר קצר מדי', 'כל התשובות נכונות'], en: ['The quickdraw is clipped with the wrong side facing the rope', 'The quickdraw is a bright orange color', 'The quickdraw is too short', 'All answers are correct'] }, answer: 0
             },
             {
-                image: '../pics/safety-quiz-q2.webp', imageAlt: { he: 'קוויק-דרו מונח על שפת סלע', en: 'Quickdraw resting on a rock edge' },
+                image: 'pics/safety-quiz-q2.webp', imageAlt: { he: 'קוויק-דרו מונח על שפת סלע', en: 'Quickdraw resting on a rock edge' },
                 text: { he: 'הקרבינר התחתון נשען על שפת סלע. מה הבחירה הטובה יותר?', en: 'The lower carabiner is resting on a rock edge. What is the better choice?' },
                 options: { he: ['להשאיר אותו כך', 'להשתמש בקוויק-דרו ארוך יותר', 'לקליפ את החבל גבוה יותר', 'לסובב את החבל'], en: ['Leave it as it is', 'Use a longer quickdraw', 'Clip the rope higher', 'Twist the rope'] }, answer: 1
             },
             {
-                image: '../pics/safety-quiz-q3.webp', imageAlt: { he: 'קוויק-דרו שחוק תלוי על קיר סלע', en: 'Worn quickdraw hanging from a bolt on a rock wall' },
+                image: 'pics/safety-quiz-q3.webp', imageAlt: { he: 'קוויק-דרו שחוק תלוי על קיר סלע', en: 'Worn quickdraw hanging from a bolt on a rock wall' },
                 text: { he: 'אתה מטפס ונתקלת בראנר הזה. האם תשתמש בו?', en: 'You are climbing and come across this quickdraw. Would you use it?' },
                 options: { he: ['לא — אשים את הראנר שלי ואפעיל שיקול דעת אם להחזיר את הראנר לבולט בירידה מטה או להשאיר אותו בתחתית המסלול', 'כן — יש ראנרים מעל שנראו תקינים', 'לא — אקליף את הראנר שלי מעל הראנר הלא תקין', 'לא — אקליף את הראנר שלי מתחת לראנר הלא תקין'], en: ['No — I will place my own quickdraw and use my judgment about lowering the faulty quickdraw to the bolt below or leaving it at the bottom of the route', 'Yes — there are quickdraws above that looked fine', 'No — I will clip my quickdraw above the faulty one', 'No — I will clip my quickdraw below the faulty one'] }, answer: 0
             },
             {
-                image: '../pics/safety-quiz-q4.webp', imageAlt: { he: 'קרבינר טיפוס ורצועה', en: 'Climbing carabiner and sling' },
+                image: 'pics/safety-quiz-q4.webp', imageAlt: { he: 'קרבינר טיפוס ורצועה', en: 'Climbing carabiner and sling' },
                 text: { he: 'איך בדרך כלל מזהים את הקרבינר בצד החבל?', en: 'How can you usually identify the rope-side carabiner?' },
                 options: { he: ['לרוב יש לו STRING keeper ו/או שער מכופף', 'הוא תמיד הקרבינר העליון', 'הוא תמיד הקרבינר הגדול יותר', 'אין ביניהם הבדל'], en: ['It often has a STRING keeper and/or a bent gate', 'It is always the upper carabiner', 'It is always the larger carabiner', 'There is no difference'] }, answer: 0
             },
             {
-                image: '../pics/safety-quiz-q5.webp', imageAlt: { he: 'מטפס מושיט יד לקוויק-דרו גבוה', en: 'Climber reaching high to clip a quickdraw' },
+                image: 'pics/safety-quiz-q5.webp', imageAlt: { he: 'מטפס מושיט יד לקוויק-דרו גבוה', en: 'Climber reaching high to clip a quickdraw' },
                 text: { he: 'מטפס מקליפ גבוה כשהוא לא יציב. מה החיסרון העיקרי?', en: 'A climber is clipping very high while unstable. What is the main drawback?' },
                 options: { he: ['אין חיסרון; קליפ גבוה תמיד עדיף', 'זה עלול לדרוש משיכת חבל נוסף ולהגדיל את פוטנציאל הנפילה', 'זה מחזק אוטומטית את הבולט', 'זה מפחית אוטומטית את חיכוך החבל'], en: ['Nothing; high clipping is always better', 'It may require pulling extra rope and increase fall potential', 'It makes the bolt stronger', 'It automatically reduces rope drag'] }, answer: 1
             },
             {
-                image: '../pics/safety-quiz-q6.webp', imageAlt: { he: 'חבל שעובר בצורה לא נכונה דרך קוויק-דרו', en: 'Climbing rope clipped incorrectly through a quickdraw' },
+                image: 'pics/safety-quiz-q6.webp', imageAlt: { he: 'חבל שעובר בצורה לא נכונה דרך קוויק-דרו', en: 'Climbing rope clipped incorrectly through a quickdraw' },
                 text: { he: 'מה הבעיה בתמונה?', en: 'What is the problem in this picture?' },
                 options: { he: ['אין בעיה', 'Back-clipping', 'Z-clipping', 'הקוויק-דרו קצר מדי'], en: ['Nothing is wrong', 'Back-clipping', 'Z-clipping', 'The quickdraw is too short'] }, answer: 2
             },
             {
-                image: '../pics/safety-quiz-q7.webp', imageAlt: { he: 'מטפס לצד קוויק-דרו וחבל על קיר סלע', en: 'Climber beside a quickdraw and rope on a rock wall' },
+                image: 'pics/safety-quiz-q7.webp', imageAlt: { he: 'מטפס לצד קוויק-דרו וחבל על קיר סלע', en: 'Climber beside a quickdraw and rope on a rock wall' },
                 text: { he: 'למה Back-clipping עלול להיות מסוכן?', en: 'Why can back-clipping be dangerous?' },
                 options: { he: ['החבל עלול לעבור מעל השער ולפתוח אותו בנפילה', 'הבולט עלול להשתחרר', 'הרצועה נהיית ארוכה מדי', 'המאבטח מאבד שליטה אוטומטית'], en: ['The rope may run over the gate and open it in a fall', 'The bolt may unscrew', 'The sling becomes too long', 'The belayer automatically loses control'] }, answer: 0
             },
             {
-                image: '../pics/safety-quiz-q8.webp', imageAlt: { he: 'מטפס מדגים מסלול חבל בין קוויק-דרואים', en: 'Climber demonstrating a rope path between quickdraws' },
+                image: 'pics/safety-quiz-q8.webp', imageAlt: { he: 'מטפס מדגים מסלול חבל בין קוויק-דרואים', en: 'Climber demonstrating a rope path between quickdraws' },
                 text: { he: 'מה בדרך כלל יוצר Z-clip?', en: 'What usually creates a Z-clip?' },
                 options: { he: ['לקיחת חבל מתחת לקוויק-דרו הקודם', 'קליפ נמוך מדי', 'שימוש בקרבינר Wiregate', 'שימוש ברצועה ארוכה'], en: ['Taking rope from below the previous quickdraw', 'Clipping too low', 'Using a wiregate', 'Using a long sling'] }, answer: 0
             },
             {
-                image: '../pics/safety-quiz-q9.webp', imageAlt: { he: 'מטפס על מצוק עם קוויק-דרו וחבל', en: 'Climber on a rock face with a quickdraw and rope' },
+                image: 'pics/safety-quiz-q9.webp', imageAlt: { he: 'מטפס על מצוק עם קוויק-דרו וחבל', en: 'Climber on a rock face with a quickdraw and rope' },
                 text: { he: 'מה חייבים לוודא לפני שממשיכים לטפס אחרי הקליפ שבתמונה?', en: 'What must you verify before continuing to climb after the clip shown in the image?' },
                 options: { he: ['שהחבל מוקלף בקרבינר התחתון שמיועד לחבל, שהשער סגור ושכיוון השער מנוגד לכיוון הטיפוס', 'שהחבל עובר מאחורי הגב כדי שלא יפריע', 'שהקוויק-דרו תלוי חופשי בלי חבל בתוכו', 'שאפשר להמשיך בלי להביט בציוד עד הבולט הבא'], en: ['The rope is clipped into the lower rope-side carabiner, the gate is closed, and the gate faces opposite to the direction of climbing', 'The rope runs behind your back so it does not get in the way', 'The quickdraw hangs freely with no rope in it', 'You can continue without checking the gear until the next bolt'] }, answer: 0
             }
         ];
+
+        questions.forEach(({ image }) => {
+            const preload = new Image();
+            preload.src = image;
+        });
 
         const quizApp = document.getElementById('quiz-app');
         const result = document.getElementById('quiz-result');

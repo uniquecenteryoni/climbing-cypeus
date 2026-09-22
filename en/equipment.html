@@ -43,7 +43,7 @@
                 return localStorage.getItem('preferred-language') || 'he';
             }
 
-            const savedLang = 'en';
+            const savedLang = getInitialLanguage();
             const html = document.documentElement;
             html.setAttribute('lang', savedLang);
             html.setAttribute('dir', savedLang === 'he' ? 'rtl' : 'ltr');
@@ -114,7 +114,7 @@
 </div>
 </nav>
 <!-- Equipment Rental Hero -->
-<section class="tour-hero equipment-hero" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('../pics/rent.webp') center 30%/cover;">
+<section class="tour-hero equipment-hero" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('pics/rent.webp') center 30%/cover;">
 <div class="tour-hero-content">
 <div class="container">
 <h1 data-i18n="equipment-title" style="color: white;">Climbing Equipment Rental</h1>
@@ -176,19 +176,19 @@
 <p class="equipment-intro" data-i18n="equipment-boulder-intro">Quality crash pads for climbers who want to practice bouldering</p>
 </div>
 <div class="equipment-list">
-<div aria-label="תמונות קראשפדים להשכרה" class="image-carousel equipment-crashpad-carousel">
+<div aria-label="Crash pad rental photos" class="image-carousel equipment-crashpad-carousel">
 <div class="carousel-container">
-<img alt="קראשפד Ocun להשכרה לבולדרינג בקפריסין" class="carousel-image active" loading="lazy" src="../pics/padrent-improved.webp"/>
-<img alt="קראשפד בשטח בקפריסין" class="carousel-image" loading="lazy" src="../pics/climberguide/crashpad-rental-user.webp"/>
-<button aria-label="תמונה קודמת" class="carousel-btn prev" onclick="changeSlide(this, -1, event)">←</button>
-<button aria-label="תמונה הבאה" class="carousel-btn next" onclick="changeSlide(this, 1, event)">→</button>
+<img alt="Ocun crash pad for bouldering rental in Cyprus" class="carousel-image active" loading="lazy" src="../pics/padrent-improved.webp"/>
+<img alt="Crash pad in the field in Cyprus" class="carousel-image" loading="lazy" src="../pics/climberguide/crashpad-rental-user.webp"/>
+<button aria-label="Previous image" class="carousel-btn prev" onclick="changeSlide(this, -1, event)">←</button>
+<button aria-label="Next image" class="carousel-btn next" onclick="changeSlide(this, 1, event)">→</button>
 </div>
-<div aria-label="בחירת תמונת קראשפד" class="carousel-dots">
+<div aria-label="Choose crash pad image" class="carousel-dots">
 <span class="carousel-dot active" onclick="currentSlide(this, 0, event)"></span>
 <span class="carousel-dot" onclick="currentSlide(this, 1, event)"></span>
 </div>
 </div>
-<p class="crashpad-specs"><strong>Ocun Dominator</strong>, קראשפד מתקפל בגודל כ־100×130 ס״מ, מתאים לבולדרינג ולכיסוי אזור נחיתה בשטח.</p>
+<p class="crashpad-specs"><strong>Ocun Dominator</strong>, a foldable crash pad measuring approximately 100×130 cm, suitable for bouldering and covering landing zones outdoors.</p>
 <!-- YouTube Videos Section -->
 <div class="equipment-bouldering-videos" style="margin: 3rem 0;">
 <h3 style="color: #2c5f2d; margin-bottom: 0.5rem; font-size: 1.5rem; display: flex; align-items: center; gap: 0.5rem;">
@@ -196,7 +196,7 @@
 <span data-i18n="guide-bouldering-videos-title">Cyprus Bouldering</span>
 </h3>
 <p data-i18n="guide-bouldering-videos-subtitle" style="color: #666; margin-bottom: 2rem;">Videos from the Climbing Cyprus channel only, graded 7A and above</p>
-<div aria-label="סרטוני בולדרינג מערוץ Climbing Cyprus בדירוג 7A ומעלה" class="bouldering-video-carousel equipment-bouldering-video-carousel">
+<div aria-label="Bouldering videos from the Climbing Cyprus channel, grade 7A and above" class="bouldering-video-carousel equipment-bouldering-video-carousel">
 <div class="bouldering-video-viewport">
 <article class="bouldering-video-slide is-active" data-video-index="0"><div class="bouldering-video-frame"><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="" loading="lazy" src="https://www.youtube.com/embed/DJCdxaEPol0" title="Cyprus Bouldering | Gymnasium | Crossfit sds - 7A (V6)"></iframe></div><p class="bouldering-video-caption">Cyprus Bouldering | Gymnasium | Crossfit sds - 7A (V6)</p></article>
 <article class="bouldering-video-slide" data-video-index="1"><div class="bouldering-video-frame"><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="" loading="lazy" src="https://www.youtube.com/embed/ye1bPBLu4CI" title="Cyprus Bouldering | Birds Watching | Black headed bunting - 7A (V6)"></iframe></div><p class="bouldering-video-caption">Cyprus Bouldering | Birds Watching | Black headed bunting - 7A (V6)</p></article>
@@ -206,10 +206,10 @@
 <article class="bouldering-video-slide" data-video-index="5"><div class="bouldering-video-frame"><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="" loading="lazy" src="https://www.youtube.com/embed/UeHlRfCaxGQ" title="Cyprus Bouldering | Alikou Bloc | O Zografos - 7A (V6)"></iframe></div><p class="bouldering-video-caption">Cyprus Bouldering | Alikou Bloc | O Zografos - 7A (V6)</p></article>
 <article class="bouldering-video-slide" data-video-index="6"><div class="bouldering-video-frame"><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="" loading="lazy" src="https://www.youtube.com/embed/F2CbUaHU0kQ" title="Cyprus Bouldering | Secret Garden | Glory Hole - 7A (V6)"></iframe></div><p class="bouldering-video-caption">Cyprus Bouldering | Secret Garden | Glory Hole - 7A (V6)</p></article>
 </div>
-<button aria-label="סרטון קודם" class="bouldering-video-arrow bouldering-video-arrow--prev" data-bouldering-direction="-1" type="button">←</button>
-<button aria-label="סרטון הבא" class="bouldering-video-arrow bouldering-video-arrow--next" data-bouldering-direction="1" type="button">→</button>
-<div aria-label="בחירת סרטון בולדרינג" class="bouldering-video-dots" role="tablist">
-<button aria-label="סרטון 1" aria-selected="true" class="is-active" type="button"></button><button aria-label="סרטון 2" aria-selected="false" type="button"></button><button aria-label="סרטון 3" aria-selected="false" type="button"></button><button aria-label="סרטון 4" aria-selected="false" type="button"></button><button aria-label="סרטון 5" aria-selected="false" type="button"></button><button aria-label="סרטון 6" aria-selected="false" type="button"></button><button aria-label="סרטון 7" aria-selected="false" type="button"></button>
+<button aria-label="Previous video" class="bouldering-video-arrow bouldering-video-arrow--prev" data-bouldering-direction="-1" type="button">←</button>
+<button aria-label="Next video" class="bouldering-video-arrow bouldering-video-arrow--next" data-bouldering-direction="1" type="button">→</button>
+<div aria-label="Choose bouldering video" class="bouldering-video-dots" role="tablist">
+<button aria-label="Video 1" aria-selected="true" class="is-active" type="button"></button><button aria-label="Video 2" aria-selected="false" type="button"></button><button aria-label="Video 3" aria-selected="false" type="button"></button><button aria-label="Video 4" aria-selected="false" type="button"></button><button aria-label="Video 5" aria-selected="false" type="button"></button><button aria-label="Video 6" aria-selected="false" type="button"></button><button aria-label="Video 7" aria-selected="false" type="button"></button>
 </div>
 </div>
 <div class="video-grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.75rem; margin-bottom: 1.5rem;">
@@ -300,7 +300,7 @@
 </div>
 </div>
 <!-- Cyprus Climbing Guidebook Section -->
-<div class="equipment-package" id="guidebook" style="background: linear-gradient(rgba(255,255,255,0.95), rgba(255,255,255,0.95)), url('../pics/guide.webp') center/cover; padding: 3rem 2rem; border-radius: 15px; margin-top: 3rem;">
+<div class="equipment-package" id="guidebook" style="background: linear-gradient(rgba(255,255,255,0.95), rgba(255,255,255,0.95)), url('pics/guide.webp') center/cover; padding: 3rem 2rem; border-radius: 15px; margin-top: 3rem;">
 <div class="equipment-header">
 <h2><i class="fas fa-book"></i> <span data-i18n="guidebook-title">Cyprus Climbing Guidebook</span></h2>
 <p class="guidebook-choice" data-i18n="guidebook-choice">Choose the guidebook that matches your trip: sport climbing or bouldering.</p>

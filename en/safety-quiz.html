@@ -4,11 +4,11 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
-<meta content="Rock climbing in Cyprus, guided climbing tours, rappelling, gear rental and lead climbing courses with Climbing Cyprus." name="description"/>
-<title>How Good Are You at Clipping Quickdraws? Take the Quiz | Climbing Cyprus</title>
-<link href="https://climbing-cyprus.com/en/safety-quiz.html" rel="canonical"/>
+<meta content="Test your lead-climbing clipping and decision-making skills with this short safety quiz for climbers." name="description"/>
+<title>Lead Climbing Safety Quiz | Climbing Cyprus</title>
+<link href="https://climbing-cyprus.com/en/safety-quiz" rel="canonical"/>
 <meta content="website" property="og:type"/>
-<meta content="https://climbing-cyprus.com/en/safety-quiz.html" property="og:url"/>
+<meta content="https://climbing-cyprus.com/en/safety-quiz" property="og:url"/>
 <meta content="How Good Are You at Clipping Quickdraws? Take the Quiz | Climbing Cyprus" property="og:title"/>
 <meta content="Test your quickdraw clipping skills and lead-climbing decision-making with this short safety quiz." property="og:description"/>
 <meta content="https://climbing-cyprus.com/pics/safety-quiz-share-en.webp" property="og:image"/>
@@ -480,24 +480,21 @@
             }
         }
     </style>
-<link href="https://climbing-cyprus.com/safety-quiz.html" hreflang="he" rel="alternate"/>
-<link href="https://climbing-cyprus.com/en/safety-quiz.html" hreflang="en" rel="alternate"/>
-<link href="https://climbing-cyprus.com/safety-quiz.html" hreflang="x-default" rel="alternate"/>
-<link href="https://climbing-cyprus.com/safety-quiz.html" hreflang="he" rel="alternate"/>
-<link href="https://climbing-cyprus.com/en/safety-quiz.html" hreflang="en" rel="alternate"/>
-<link href="https://climbing-cyprus.com/safety-quiz.html" hreflang="x-default" rel="alternate"/>
+<link href="https://climbing-cyprus.com/safety-quiz" hreflang="he" rel="alternate"/>
+<link href="https://climbing-cyprus.com/en/safety-quiz" hreflang="en" rel="alternate"/>
+<link href="https://climbing-cyprus.com/safety-quiz" hreflang="x-default" rel="alternate"/>
 </head>
 <body class="safety-quiz-page">
 <main class="quiz-shell">
 <div class="quiz-topbar">
-<a aria-label="Climbing Cyprus" class="quiz-brand" href="index.html">
+<a aria-label="Climbing Cyprus" class="quiz-brand" href="/en/">
 <img alt="Climbing Cyprus" src="../pics/climbing-cyprus-logo.webp"/>
 </a>
 <div aria-label="Language selection" class="quiz-language">
-<a data-lang-link="he" href="/safety-quiz.html">עברית</a>
-<a data-lang-link="en" href="/en/safety-quiz.html">English</a>
+<a data-lang-link="he" href="/safety-quiz">עברית</a>
+<a data-lang-link="en" href="/en/safety-quiz">English</a>
 </div>
-<a class="quiz-back-link" href="climber-guide.html" id="quiz-back-link">Back to guide</a>
+<a class="quiz-back-link" href="/en/climber-guide" id="quiz-back-link">Back to guide</a>
 </div>
 <header class="quiz-hero">
 <h1 id="quiz-title"></h1>
@@ -657,7 +654,7 @@
         document.getElementById('quiz-back-link').textContent = ui.back;
         document.querySelectorAll('[data-lang-link]').forEach(link => {
             if (link.dataset.lang === lang) link.setAttribute('aria-current', 'page');
-            link.href = link.dataset.lang === 'en' ? '/en/safety-quiz.html' : '/safety-quiz.html';
+            link.href = link.dataset.lang === 'en' ? '/en/safety-quiz' : '/safety-quiz';
         });
 
         function renderLeadCapture() {

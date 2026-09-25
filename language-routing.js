@@ -13,7 +13,8 @@
     function pagePathForLanguage(lang) {
         const current = window.location.pathname;
         const withoutEnglishPrefix = current.replace(/^\/en(?:\/|$)/, '/');
-        const normalized = withoutEnglishPrefix === '/index.html' ? '/' : withoutEnglishPrefix;
+        const normalizedPath = withoutEnglishPrefix.replace(/\.html$/, '');
+        const normalized = normalizedPath === '/index' || normalizedPath === '' ? '/' : normalizedPath;
         if (lang === 'en') {
             return `/en${normalized === '/' ? '/' : normalized}`;
         }
@@ -46,7 +47,7 @@
             canonical.rel = 'canonical';
             document.head.appendChild(canonical);
         }
-        canonical.href = `${window.location.origin}${window.location.pathname}`;
+        canonical.href = `${window.location.origin}${window.location.pathname.replace(/\.html$/, '') || '/'}`;
     }
 
     function redirectLegacyLanguageUrl() {

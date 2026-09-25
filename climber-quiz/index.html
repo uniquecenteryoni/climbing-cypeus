@@ -9,11 +9,11 @@
 <body>
   <main class="quiz-shell">
     <p>מעבירים אותך לבוחן הבטיחות…</p>
-    <a href="../safety-quiz.html">להמשך לבוחן</a>
+    <a href="../safety-quiz">להמשך לבוחן</a>
   </main>
   <script>
     const lang = new URLSearchParams(window.location.search).get('lang');
-    window.location.replace(`../safety-quiz.html${lang === 'en' ? '?lang=en' : ''}`);
+    window.location.replace(`../safety-quiz${lang === 'en' ? '?lang=en' : ''}`);
   </script>
 </body>
 </html>

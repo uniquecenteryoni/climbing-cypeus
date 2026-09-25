@@ -3,7 +3,8 @@
 function pagePathForLanguage(lang) {
     const current = window.location.pathname;
     const withoutEnglishPrefix = current.replace(/^\/en(?:\/|$)/, '/');
-    const normalized = withoutEnglishPrefix === '/index.html' ? '/' : (withoutEnglishPrefix || '/');
+    const normalizedPath = withoutEnglishPrefix.replace(/\.html$/, '');
+    const normalized = normalizedPath === '/index' || normalizedPath === '' ? '/' : normalizedPath;
     return lang === 'en' ? `/en${normalized === '/' ? '/' : normalized}` : normalized;
 }
 
@@ -38,7 +39,8 @@ function updateLanguageSeoLinks() {
         canonical.rel = 'canonical';
         document.head.appendChild(canonical);
     }
-    canonical.href = `${origin}${window.location.pathname}`;
+    const canonicalPath = window.location.pathname.replace(/\.html$/, '') || '/';
+    canonical.href = `${origin}${canonicalPath}`;
 }
 
 function redirectFirstVisitByBrowserLanguage() {
@@ -208,15 +210,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Keep the shared logo and gallery navigation from inheriting a contact URL.
     document.querySelectorAll('.navbar .logo').forEach(logo => {
-        logo.setAttribute('href', 'index.html');
+        logo.setAttribute('href', currentLang === 'en' ? '/en/' : '/');
         logo.addEventListener('click', function (e) {
             e.preventDefault();
-            window.location.assign('index.html');
+            window.location.assign(currentLang === 'en' ? '/en/' : '/');
         });
     });
 
     document.querySelectorAll('.navbar a[href*="#gallery"]').forEach(galleryLink => {
-        galleryLink.setAttribute('href', 'index.html#gallery');
+                galleryLink.setAttribute('href', `${currentLang === 'en' ? '/en/' : '/'}#gallery`);
     });
     
     // Add scroll effect to navbar
@@ -471,7 +473,7 @@ function setLanguage(lang) {
 // Check and handle climber guide links when in English mode
 function checkClimberGuideLinks() {
     document.querySelectorAll('[data-quiz-link]').forEach(link => {
-        link.setAttribute('href', currentLang === 'en' ? '/en/safety-quiz.html' : '/safety-quiz.html');
+        link.setAttribute('href', currentLang === 'en' ? '/en/safety-quiz' : '/safety-quiz');
     });
 }
 
@@ -702,7 +704,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const equipmentType = this.getAttribute('data-equipment-type');
             if (!equipmentType) return;
             e.preventDefault();
-            window.location.href = `index.html?equipment=${encodeURIComponent(equipmentType)}#contact`;
+            window.location.href = `${currentLang === 'en' ? '/en/' : '/'}?equipment=${encodeURIComponent(equipmentType)}#contact`;
         });
     });
     
@@ -714,7 +716,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 e.preventDefault();
                 const activityCard = this.closest('.activity-card');
                 const activityTitle = activityCard ? activityCard.querySelector('h3').textContent : '';
-                window.location.href = `index.html?activity=${encodeURIComponent(activityTitle)}#contact`;
+                window.location.href = `${currentLang === 'en' ? '/en/' : '/'}?activity=${encodeURIComponent(activityTitle)}#contact`;
             }
         });
     });
@@ -727,7 +729,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 e.preventDefault();
                 const tourTitle = document.querySelector('.tour-hero h1')?.textContent || 
                                 document.querySelector('h1')?.textContent || '';
-                window.location.href = `index.html?tour=${encodeURIComponent(tourTitle)}#contact`;
+                window.location.href = `${currentLang === 'en' ? '/en/' : '/'}?tour=${encodeURIComponent(tourTitle)}#contact`;
             }
         });
     });

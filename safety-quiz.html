@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="עד כמה אתה שולט בהקלפות? בחן את עצמך בבוחן קצר למטפסים על ראנרים, כיוון הקלפה וקבלת החלטות בטיפוס הובלה.">
     <title>עד כמה אתה שולט בהקלפות? בחן את עצמך | Climbing Cyprus</title>
-    <link rel="canonical" href="https://climbing-cyprus.com/safety-quiz.html">
+    <link rel="canonical" href="https://climbing-cyprus.com/safety-quiz">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://climbing-cyprus.com/safety-quiz.html">
+    <meta property="og:url" content="https://climbing-cyprus.com/safety-quiz">
     <meta property="og:title" content="עד כמה אתה שולט בהקלפות? בחן את עצמך">
     <meta property="og:description" content="בוחן קצר למטפסים: בדקו את השליטה שלכם בהקלפות ובקבלת החלטות בטיפוס הובלה.">
     <meta property="og:image" content="https://climbing-cyprus.com/pics/safety-quiz-share.webp">
@@ -480,21 +480,21 @@
         }
     </style>
 
-    <link rel="alternate" hreflang="he" href="https://climbing-cyprus.com/safety-quiz.html">
-    <link rel="alternate" hreflang="en" href="https://climbing-cyprus.com/en/safety-quiz.html">
-    <link rel="alternate" hreflang="x-default" href="https://climbing-cyprus.com/safety-quiz.html">
+    <link rel="alternate" hreflang="he" href="https://climbing-cyprus.com/safety-quiz">
+    <link rel="alternate" hreflang="en" href="https://climbing-cyprus.com/en/safety-quiz">
+    <link rel="alternate" hreflang="x-default" href="https://climbing-cyprus.com/safety-quiz">
 </head>
 <body class="safety-quiz-page">
     <main class="quiz-shell">
         <div class="quiz-topbar">
-            <a class="quiz-brand" href="index.html" aria-label="Climbing Cyprus">
+            <a class="quiz-brand" href="/" aria-label="Climbing Cyprus">
                 <img src="pics/climbing-cyprus-logo.webp" alt="Climbing Cyprus">
             </a>
             <div class="quiz-language" aria-label="בחירת שפה">
-                <a href="/safety-quiz.html" data-lang-link="he">עברית</a>
-                <a href="/en/safety-quiz.html" data-lang-link="en">English</a>
+                <a href="/safety-quiz" data-lang-link="he">עברית</a>
+                <a href="/en/safety-quiz" data-lang-link="en">English</a>
             </div>
-            <a class="quiz-back-link" href="climber-guide.html" id="quiz-back-link">חזרה למדריך</a>
+            <a class="quiz-back-link" href="/climber-guide" id="quiz-back-link">חזרה למדריך</a>
         </div>
 
         <header class="quiz-hero">
@@ -657,7 +657,7 @@
         document.getElementById('quiz-back-link').textContent = ui.back;
         document.querySelectorAll('[data-lang-link]').forEach(link => {
             if (link.dataset.lang === lang) link.setAttribute('aria-current', 'page');
-            link.href = link.dataset.lang === 'en' ? '/en/safety-quiz.html' : '/safety-quiz.html';
+            link.href = link.dataset.lang === 'en' ? '/en/safety-quiz' : '/safety-quiz';
         });
 
         function renderLeadCapture() {

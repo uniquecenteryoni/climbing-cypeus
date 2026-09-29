@@ -2758,6 +2758,11 @@ h3 {
     color: var(--primary-color);
 }
 
+:where(a, button, input, textarea, select, [role="button"], [tabindex]):focus-visible {
+    outline: 3px solid #f47920;
+    outline-offset: 3px;
+}
+
 /* Hamburger Menu */
 .hamburger {
     display: none;
@@ -2765,6 +2770,8 @@ h3 {
     cursor: pointer;
     gap: 4px;
 }
+
+.hamburger:focus-visible { border-radius: 4px; }
 
 .hamburger span {
     width: 25px;
@@ -4944,6 +4951,37 @@ h3 {
 
 .floating-whatsapp i {
     font-size: 1.35rem;
+}
+
+.seo-support-section {
+    padding: 3rem 0;
+    background: #f5f7f4;
+}
+
+.seo-support-section .container {
+    max-width: 960px;
+}
+
+.seo-support-section h2 {
+    margin-bottom: 0.85rem;
+}
+
+.seo-support-section p {
+    max-width: 820px;
+    margin: 0 auto 1.25rem;
+    line-height: 1.8;
+}
+
+.seo-support-links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.75rem 1.25rem;
+}
+
+.seo-support-links a {
+    color: var(--primary-color);
+    font-weight: 700;
 }
 
 @media (max-width: 600px) {

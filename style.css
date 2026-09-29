@@ -2773,6 +2773,16 @@ h3 {
 
 .hamburger:focus-visible { border-radius: 4px; }
 
+.mid-page-cta {
+    padding: 3.5rem 1rem;
+    background: #173d2a;
+    color: #fff;
+    text-align: center;
+}
+.mid-page-cta h2 { margin: 0 0 0.75rem; color: inherit; }
+.mid-page-cta p { margin: 0 auto 1.5rem; max-width: 42rem; }
+.mid-page-cta .cta-button { display: inline-block; }
+
 .hamburger span {
     width: 25px;
     height: 3px;
@@ -5072,6 +5082,50 @@ h3 {
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: var(--spacing-lg);
     margin-bottom: var(--spacing-md);
+}
+
+.footer-brand-name {
+    display: inline-block;
+    margin-bottom: 0.65rem;
+    color: #234d2c;
+    font-size: 1.25rem;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-decoration: none;
+}
+
+.footer .footer-content {
+    align-items: start;
+    max-width: 1050px;
+    margin-inline: auto;
+    padding-block: clamp(1.25rem, 3vw, 2.25rem);
+}
+
+.footer .footer-section {
+    text-align: start;
+}
+
+.footer .footer-section:first-child {
+    text-align: start;
+}
+
+.footer .footer-section:first-child h3,
+.footer .footer-section:first-child p {
+    margin-inline: 0;
+}
+
+.footer .footer-section ul {
+    padding: 0;
+}
+
+.footer .footer-section ul li a {
+    display: inline-block;
+    padding-block: 0.2rem;
+}
+
+.footer .footer-bottom {
+    padding-block: 1.1rem 0;
+    font-size: 0.9rem;
 }
 
 .footer-section h3,

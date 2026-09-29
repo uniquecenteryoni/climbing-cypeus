@@ -63,6 +63,65 @@ function addFloatingWhatsApp() {
     document.body.appendChild(link);
 }
 
+function upgradeCompactFooter() {
+    const footer = document.querySelector('footer.footer');
+    if (!footer) return;
+
+    const isEnglish = document.documentElement.lang === 'en' || window.location.pathname.startsWith('/en/');
+    const home = isEnglish ? '/en/' : '/';
+    const labels = isEnglish
+        ? { tagline: 'Rock climbing, guided tours and outdoor experiences in Cyprus', links: 'Explore', tours: 'Guided tours', course: 'Lead climbing course', gear: 'Equipment rental', contact: 'Contact', social: 'Follow Climbing Cyprus', rights: 'All rights reserved' }
+        : { tagline: 'טיפוס צוקים, טיולים מודרכים וחוויות טבע בקפריסין', links: 'לגלות', tours: 'טיולים מודרכים', course: 'קורס טיפוס הובלה', gear: 'השכרת ציוד', contact: 'יצירת קשר', social: 'עקבו אחרי Climbing Cyprus', rights: 'כל הזכויות שמורות' };
+
+    const container = document.createElement('div');
+    container.className = 'container';
+    const content = document.createElement('div');
+    content.className = 'footer-content';
+
+    const brand = document.createElement('div');
+    brand.className = 'footer-section footer-brand';
+    brand.innerHTML = `<a class="footer-brand-name" href="${home}">Climbing Cyprus</a><p>${labels.tagline}</p>`;
+
+    const navigation = document.createElement('div');
+    navigation.className = 'footer-section';
+    const heading = document.createElement('h4');
+    heading.textContent = labels.links;
+    const list = document.createElement('ul');
+    [[labels.tours, `${home}#activities`], [labels.course, `${home}course.html`], [labels.gear, `${home}equipment.html`], [labels.contact, `${home}#contact`]].forEach(([label, href]) => {
+        const item = document.createElement('li');
+        const anchor = document.createElement('a');
+        anchor.href = href;
+        anchor.textContent = label;
+        item.appendChild(anchor);
+        list.appendChild(item);
+    });
+    navigation.append(heading, list);
+
+    const social = document.createElement('div');
+    social.className = 'footer-section';
+    const socialHeading = document.createElement('h4');
+    socialHeading.textContent = labels.social;
+    const instagram = document.createElement('a');
+    instagram.className = 'footer-instagram-cta';
+    instagram.href = 'https://www.instagram.com/climbing.cyprus';
+    instagram.target = '_blank';
+    instagram.rel = 'noopener noreferrer';
+    instagram.innerHTML = '<i class="fab fa-instagram" aria-hidden="true"></i>';
+    const socialLabel = document.createElement('span');
+    socialLabel.textContent = 'Instagram';
+    instagram.appendChild(socialLabel);
+    social.append(socialHeading, instagram);
+
+    content.append(brand, navigation, social);
+    const bottom = document.createElement('div');
+    bottom.className = 'footer-bottom';
+    const copyright = document.createElement('p');
+    copyright.innerHTML = `© <span class="current-year">${new Date().getFullYear()}</span> Climbing Cyprus · ${labels.rights}`;
+    bottom.appendChild(copyright);
+    container.append(content, bottom);
+    footer.replaceChildren(container);
+}
+
 function redirectFirstVisitByBrowserLanguage() {
     const path = window.location.pathname;
     const isEnglishPath = path === '/en' || path.startsWith('/en/');
@@ -127,6 +186,8 @@ document.addEventListener('DOMContentLoaded', () => {
     redirectLegacyLanguageUrl();
     updateLanguageSeoLinks();
     addFloatingWhatsApp();
+    upgradeCompactFooter();
+    document.querySelectorAll('.current-year').forEach(year => { year.textContent = new Date().getFullYear(); });
 
     const guideVideo = document.querySelector('.guide-hero iframe');
     const guidePlaceholder = document.querySelector('.guide-video-placeholder');
@@ -199,18 +260,52 @@ document.addEventListener('DOMContentLoaded', () => {
     // Mobile menu toggle
     const hamburger = document.querySelector('.hamburger');
     const navMenu = document.querySelector('.nav-menu');
+
+    const isEnglishPage = document.documentElement.lang === 'en' || window.location.pathname.startsWith('/en/');
+    if (hamburger) {
+        if (navMenu && !navMenu.id) navMenu.id = 'site-navigation';
+        hamburger.setAttribute('role', 'button');
+        hamburger.setAttribute('tabindex', '0');
+        if (navMenu) hamburger.setAttribute('aria-controls', navMenu.id);
+        hamburger.setAttribute('aria-label', isEnglishPage ? 'Open navigation menu' : 'פתיחת תפריט ניווט');
+        hamburger.setAttribute('aria-expanded', 'false');
+    }
+    document.querySelectorAll('button.carousel-btn').forEach(button => {
+        if (!button.hasAttribute('aria-label')) {
+            const previous = button.classList.contains('prev');
+            button.setAttribute('aria-label', isEnglishPage
+                ? (previous ? 'Previous slide' : 'Next slide')
+                : (previous ? 'השקופית הקודמת' : 'השקופית הבאה'));
+        }
+    });
+    document.querySelectorAll('button.lightbox-close').forEach(button => button.setAttribute('aria-label', isEnglishPage ? 'Close viewer' : 'סגירת התצוגה'));
+    document.querySelectorAll('button.lightbox-prev').forEach(button => button.setAttribute('aria-label', isEnglishPage ? 'Previous image' : 'התמונה הקודמת'));
+    document.querySelectorAll('button.lightbox-next').forEach(button => button.setAttribute('aria-label', isEnglishPage ? 'Next image' : 'התמונה הבאה'));
     
     if (hamburger) {
         hamburger.addEventListener('click', () => {
             hamburger.classList.toggle('active');
-            navMenu.classList.toggle('active');
+            if (navMenu) navMenu.classList.toggle('active');
+            const expanded = hamburger.classList.contains('active');
+            hamburger.setAttribute('aria-expanded', String(expanded));
+            hamburger.setAttribute('aria-label', expanded
+                ? (isEnglishPage ? 'Close navigation menu' : 'סגירת תפריט ניווט')
+                : (isEnglishPage ? 'Open navigation menu' : 'פתיחת תפריט ניווט'));
+        });
+        hamburger.addEventListener('keydown', event => {
+            if (event.key === 'Enter' || event.key === ' ') {
+                event.preventDefault();
+                hamburger.click();
+            }
         });
         
         // Close menu when clicking on a link
         document.querySelectorAll('.nav-menu a').forEach(link => {
             link.addEventListener('click', () => {
                 hamburger.classList.remove('active');
-                navMenu.classList.remove('active');
+                if (navMenu) navMenu.classList.remove('active');
+                hamburger.setAttribute('aria-expanded', 'false');
+                hamburger.setAttribute('aria-label', isEnglishPage ? 'Open navigation menu' : 'פתיחת תפריט ניווט');
             });
         });
     }
@@ -513,6 +608,8 @@ function initTestimonialsCarousel() {
     cards.forEach((_, index) => {
         const dot = document.createElement('button');
         dot.className = 'carousel-dot';
+        dot.setAttribute('aria-label', `${document.documentElement.lang === 'en' ? 'Show testimonial' : 'הצגת המלצה'} ${index + 1}`);
+        dot.setAttribute('aria-pressed', String(index === 0));
         if (index === 0) dot.classList.add('active');
         dot.addEventListener('click', () => goToSlide(index));
         dotsContainer.appendChild(dot);
@@ -525,6 +622,7 @@ function initTestimonialsCarousel() {
         dots.forEach(dot => dot.classList.remove('active'));
         cards[index].classList.add('active');
         dots[index].classList.add('active');
+        dots.forEach((dot, dotIndex) => dot.setAttribute('aria-pressed', String(dotIndex === index)));
     }
 
     function goToSlide(index) {
@@ -577,6 +675,7 @@ function initLightbox() {
     function updateLightboxImage() {
         if (images[currentImageIndex]) {
             lightboxImg.src = images[currentImageIndex].src;
+            lightboxImg.alt = images[currentImageIndex].alt || (document.documentElement.lang === 'en' ? 'Rock climbing in Cyprus' : 'טיפוס צוקים בקפריסין');
             counter.textContent = `${currentImageIndex + 1} / ${images.length}`;
         }
     }

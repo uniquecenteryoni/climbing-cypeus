@@ -16,6 +16,8 @@ fs.mkdirSync(output, { recursive: true });
 function rewriteAssets(html) {
   return html
     .replace(/(src|href)="(translations\.js|script\.js|language-routing\.js|style\.css|tour-page\.css|homepage-about-override\.css|favicon\.webp|pics\/|climber-quiz\/|waiver\/)/g, '$1="../$2')
+    .replace(/(image:\s*')pics\//g, '$1../pics/')
+    .replace(/url\((['"]?)pics\//g, 'url($1../pics/')
     .replace(/href="(https?:|#|mailto:|tel:|\/)/g, 'href="__KEEP__$1')
     .replace(/href="(?!__KEEP__)([^"?]+\.html)/g, 'href="$1')
     .replace(/href="__KEEP__/g, 'href="')

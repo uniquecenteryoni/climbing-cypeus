@@ -20,7 +20,7 @@
     <meta name="twitter:description" content="בוחן קצר למטפסים: בדקו את השליטה שלכם בהקלפות ובקבלת החלטות בטיפוס הובלה.">
     <meta name="twitter:image" content="https://climbing-cyprus.com/pics/safety-quiz-share.webp">
     <link rel="icon" type="image/webp" href="favicon.webp?v=20260819">
-    <link rel="stylesheet" href="style.css?v=safety-quiz-1">
+    <link rel="stylesheet" href="style.css?v=20260929-2">
     <script src="language-routing.js"></script>
     <style>
         :root {
@@ -525,7 +525,6 @@
                 error: 'בחרו תשובה כדי להמשיך.',
                 finished: 'הבוחן הסתיים',
                 retry: 'נסו שוב',
-                note: 'התבוננו בתמונה לפני שבוחרים תשובה.',
                 resultExcellent: 'יש לך שליטה טובה בנושא הקלפות. ממשיכים לתרגל, לשמור על תקשורת ולבדוק כל מערכת לפני שמעמיסים עליה.',
                 resultGood: 'יש לך בסיס טוב, וכדאי לרענן כמה נקודות בנושא הקלפות לפני יום הובלה נוסף.',
                 resultReview: 'כדאי לעצור לרענון מודרך של יסודות הקלפות וקבלת ההחלטות לפני שמתקדמים להובלה עצמאית.',
@@ -562,7 +561,6 @@
                 error: 'Choose an answer to continue.',
                 finished: 'Quiz complete',
                 retry: 'Try again',
-                note: 'Look at the image before choosing an answer.',
                 resultExcellent: 'You have strong clipping skills. Keep practicing, communicate clearly, and check every system before loading it.',
                 resultGood: 'You have a good foundation. Review a few clipping points before your next lead-climbing day.',
                 resultReview: 'Refresh the clipping fundamentals and decision-making with an instructor before moving on to independent lead climbing.',
@@ -618,7 +616,7 @@
                 options: { he: ['אין חיסרון; קליפ גבוה תמיד עדיף', 'זה עלול לדרוש משיכת חבל נוסף ולהגדיל את פוטנציאל הנפילה', 'זה מחזק אוטומטית את הבולט', 'זה מפחית אוטומטית את חיכוך החבל'], en: ['Nothing; high clipping is always better', 'It may require pulling extra rope and increase fall potential', 'It makes the bolt stronger', 'It automatically reduces rope drag'] }, answer: 1
             },
             {
-                image: 'pics/safety-quiz-q6.webp', imageAlt: { he: 'חבל שעובר בצורה לא נכונה דרך קוויק-דרו', en: 'Climbing rope clipped incorrectly through a quickdraw' },
+                image: 'pics/safety-quiz-q6.png', imageAlt: { he: 'חבל וקוויק-דרו על לוח הדגמה', en: 'Climbing rope and quickdraw on a demonstration board' },
                 text: { he: 'מה הבעיה בתמונה?', en: 'What is the problem in this picture?' },
                 options: { he: ['אין בעיה', 'Back-clipping', 'Z-clipping', 'הקוויק-דרו קצר מדי'], en: ['Nothing is wrong', 'Back-clipping', 'Z-clipping', 'The quickdraw is too short'] }, answer: 2
             },
@@ -713,7 +711,6 @@
             const question = questions[current];
             const progress = ((current + 1) / questions.length) * 100;
             const image = `<img class="quiz-image" src="${question.image}" alt="${question.imageAlt[lang]}" loading="eager">`;
-            const note = `<p class="quiz-q9-note">${ui.note}</p>`;
             const options = shuffleOptions(question.options[lang].map((text, index) => ({ text, index }))).map(option => `
                 <label class="quiz-option">
                     <input type="radio" name="quiz-answer" value="${option.index}">
@@ -733,7 +730,6 @@
                 </div>
                 <form class="quiz-question-panel" id="quiz-form">
                     ${image}
-                    ${note}
                     <h2>${question.text[lang]}</h2>
                     <fieldset class="quiz-options">
                         <legend class="sr-only">${ui.options}</legend>

@@ -2,8 +2,11 @@
 const translations = {
     he: {
         // Site title and tagline
-        "site-title": "קפריסין בעין אחרת",
+        "site-title": "Climbing Cyprus",
         "site-tagline": "טיפוס צוקים וטיולים מודרכים",
+        "mid-page-cta-title": "מוכנים לתכנן יום טיפוס?",
+        "mid-page-cta-text": "ספרו לי על הקבוצה שלכם ואעזור לבחור את החוויה המתאימה.",
+        "mid-page-cta-button": "בואו נתכנן את ההרפתקה",
         
         // Navigation
         "nav-home": "בית",
@@ -228,7 +231,7 @@ const translations = {
         // Course Page
         "course-title": "קורס הובלה בטבע",
         "course-subtitle": "Lead Climbing",
-        "course-duration": "3–4 ימים",
+        "course-duration": "3 ימים",
         "course-hours": "20 שעות הדרכה",
         "course-level": "20 שעות הדרכה",
         "course-participants": "עד 4 משתתפים",
@@ -272,7 +275,7 @@ const translations = {
         "course-day2-desc4": "בחירת נקודות קליפ, מניעת Back Clip ו־Z Clip, שמירה על חבל מסודר והתמודדות עם מצבים שונים בזמן הטיפוס.",
         "course-day2-activity5": "תרגול הובלה ואבטחה",
         "course-day2-desc5": "החלפת תפקידים בין מטפס למאבטח, תרגול רציף ומשוב אישי.",
-        "course-day3-title": "יום 3, נפילות, ניקוי תחנה ופתרון תקלות",
+        "course-day3-title": "יום 3, נפילות, ניקוי תחנה ותרגול מסכם",
         "course-day3-activity1": "תרגול נפילות",
         "course-day3-desc1": "הכנה מנטלית ופיזית לנפילה, הבנת מרחק נפילה ותרגול נפילות מבוקרות בהדרגה ובתנאים מתאימים.",
         "course-day3-activity2": "תפיסת נפילה",
@@ -282,18 +285,7 @@ const translations = {
         "course-day3-activity4": "פתרון תקלות",
         "course-day3-desc4": "תרגול והתמודדות עם מצבים נפוצים כגון קליפ שגוי, חבל קצר, תקשורת לקויה, עצירה באמצע מסלול ושינוי תכנית.",
         "course-day3-activity5": "סבב מלא",
-        "course-day3-desc5": "טיפוס הובלה, אבטחה, נפילה מבוקרת וניקוי תחנה ברצף, עם משוב לאחר כל סבב.",
-        "course-day4-title": "יום 4, תרגול מסכם ועצמאות",
-        "course-day4-activity1": "תכנון יום טיפוס",
-        "course-day4-desc1": "בחירת מסלולים לפי רמת המטפסים ותנאי השטח, בדיקת מזג אוויר, ציוד נדרש, גישה למצוק ותכנון למצבי חירום.",
-        "course-day4-activity2": "סבבי הובלה מלאים",
-        "course-day4-desc2": "המשתתפים מבצעים סבבי טיפוס מלאים, הכנת הציוד, בדיקת בן זוג, הובלה, אבטחה וניקוי התחנה, תחת השגחת המדריך.",
-        "course-day4-activity3": "תרגול תרחישים",
-        "course-day4-desc3": "התמודדות עם מצבים שונים שעשויים להתרחש במהלך יום טיפוס וקבלת החלטות בצורה בטוחה ואחראית.",
-        "course-day4-activity4": "הערכת מיומנויות",
-        "course-day4-desc4": "בדיקת שליטה בציוד, קשרים, אבטחה, קליפים, ניהול חבל, נפילות, ניקוי תחנה ותגובה למצבים משתנים.",
-        "course-day4-activity5": "משוב ותכנית המשך",
-        "course-day4-desc5": "משוב אישי לכל משתתף, נקודות לשיפור, המלצות להמשך תרגול והגדרת גבולות ברורים להמשך טיפוס בטוח.",
+        "course-day3-desc5": "סבבי הובלה מלאים הכוללים תכנון מסלול, בדיקות בטיחות, טיפוס, אבטחה, תרגול תרחישים וניקוי תחנה. בסיום: הערכת מיומנויות ומשוב אישי.",
         "course-requirements": "דרישות קדם",
         "course-req-experience": "ניסיון:",
         "course-req-experience-desc": "ניסיון קודם בטיפוס עם אבטחה עליונה, Top-Rope",
@@ -306,7 +298,7 @@ const translations = {
         "course-booking": "הזמנת קורס",
         "course-price-from": "400 יורו למשתתף",
         "course-price-per": "לאדם",
-        "course-price-note": "3–4 ימים | 20 שעות הדרכה",
+        "course-price-note": "3 ימים | 20 שעות הדרכה",
         "course-book-btn": "הזמן עכשיו",
         "course-instructor-name": "יונתן",
         "course-instructor-credential": "מדריך טיפוס מוסמך המוכר ע״י ה־UIAA",
@@ -314,7 +306,6 @@ const translations = {
         "course-info-dates": "יש לתאם מראש",
         "course-info-experience": "מתאים לבעלי ניסיון בטיפוס טופ רופ",
         "course-included": "מה כלול",
-        "course-included-guide": "מדריך מוסמך המוכר ע״י ה־UIAA",
         "course-included-equipment": "ציוד מלא",
         "course-included-materials": "חוברת קורס",
         "course-included-certificate": "תעודת הסמכה",
@@ -621,8 +612,11 @@ const translations = {
     
     en: {
         // Site title and tagline
-        "site-title": "ClimbCyprus",
+        "site-title": "Climbing Cyprus",
         "site-tagline": "Rock Climbing and Guided Tours",
+        "mid-page-cta-title": "Ready to plan your climbing day?",
+        "mid-page-cta-text": "Tell me about your group and I’ll help you choose the right experience.",
+        "mid-page-cta-button": "Plan your adventure",
         
         // Navigation
         "nav-home": "Home",
@@ -658,13 +652,13 @@ const translations = {
         // About Me section
         "about-me-title": "About Me",
         "about-me-intro": "Hi, I'm Yonatan, originally from Israel, now living in Cyprus. I am a certified rock climbing and rappelling guide with extensive experience leading tours and courses.",
-        "about-me-passion": "My love for nature and adventure led me to create \"Cyprus Through Different Eyes\" - a unique experience showing visitors the hidden beauty of this magical island.",
+        "about-me-passion": "My love for nature and adventure led me to create Climbing Cyprus, a guided experience that helps visitors discover the island’s landscapes and climbing areas.",
         "about-me-experience": "I specialize in nature hikes, rock climbing and rappelling, providing professional and safe guidance for all levels - from beginners to advanced.",
         "about-quote": "\"Every climbing day is built around the people, their experience, and the adventure that suits them.\"",
         "about-me-approach": "Each tour is built according to the needs, abilities and preferences of the participants.",
         
         // About section
-        "about-title": "Cyprus Through Different Eyes",
+        "about-title": "Climbing Cyprus",
         "about-text-1": "I shape each climbing day around your people, experience, and the area that suits you best. Whether it is your first time on rock or you are experienced climbers looking for a different side of Cyprus.",
         
         
@@ -871,7 +865,7 @@ const translations = {
         // Course Page
         "course-title": "Lead Climbing in Nature",
         "course-subtitle": "Lead Climbing",
-        "course-duration": "3–4 days",
+        "course-duration": "3 days",
         "course-hours": "20 hours of instruction",
         "course-level": "20 hours of instruction",
         "course-participants": "Up to 4 participants",
@@ -915,7 +909,7 @@ const translations = {
         "course-day2-desc4": "Choosing clipping points, avoiding back clips and Z-clips, keeping the rope organised and handling different situations while climbing.",
         "course-day2-activity5": "Lead and Belay Practice",
         "course-day2-desc5": "Rotate between climber and belayer, practise continuously and receive individual feedback.",
-        "course-day3-title": "Day 3, Falls, Anchor Cleaning and Problem Solving",
+        "course-day3-title": "Day 3, Falls, Anchor Cleaning and Final Practice",
         "course-day3-activity1": "Fall Practice",
         "course-day3-desc1": "Mental and physical preparation for falling, understanding fall distance and gradually practising controlled falls in suitable conditions.",
         "course-day3-activity2": "Catching a Fall",
@@ -925,18 +919,7 @@ const translations = {
         "course-day3-activity4": "Problem Solving",
         "course-day3-desc4": "Practise common situations such as incorrect clipping, a short rope, poor communication, stopping mid-route and changing plans.",
         "course-day3-activity5": "Full Cycle",
-        "course-day3-desc5": "Lead, belay, take a controlled fall and clean an anchor in sequence, with feedback after each cycle.",
-        "course-day4-title": "Day 4, Final Practice and Independence",
-        "course-day4-activity1": "Planning a Climbing Day",
-        "course-day4-desc1": "Choose routes by participants’ ability and conditions, check weather, required equipment and crag access, and plan for emergencies.",
-        "course-day4-activity2": "Full Lead Cycles",
-        "course-day4-desc2": "Participants complete full climbing cycles: prepare equipment, perform a partner check, lead, belay and clean the anchor under instructor supervision.",
-        "course-day4-activity3": "Scenario Practice",
-        "course-day4-desc3": "Handle situations that may occur during a climbing day and make safe, responsible decisions.",
-        "course-day4-activity4": "Skills Assessment",
-        "course-day4-desc4": "Assess control of equipment, knots, belaying, clipping, rope management, falls, anchor cleaning and responses to changing situations.",
-        "course-day4-activity5": "Feedback and Next Steps",
-        "course-day4-desc5": "Individual feedback, areas for improvement, recommendations for continued practice and clear boundaries for safe progression.",
+        "course-day3-desc5": "Complete supervised lead cycles: plan a route, complete safety checks, lead and belay, practise scenarios and clean the anchor. Finish with a skills review and individual feedback.",
         "course-requirements": "Prerequisites",
         "course-req-experience": "Experience:",
         "course-req-experience-desc": "Previous experience climbing with top-rope belay",
@@ -949,7 +932,7 @@ const translations = {
         "course-booking": "Course Booking",
         "course-price-from": "€400 per participant",
         "course-price-per": "per person",
-        "course-price-note": "3–4 days | 20 hours of instruction",
+        "course-price-note": "3 days | 20 hours of instruction",
         "course-book-btn": "Book Now",
         "course-instructor-name": "Yonatan",
         "course-instructor-credential": "UIAA-recognised certified climbing instructor",
@@ -957,7 +940,6 @@ const translations = {
         "course-info-dates": "Advance coordination required",
         "course-info-experience": "Suitable for climbers with top-rope experience",
         "course-included": "What's Included",
-        "course-included-guide": "UIAA-recognised certified instructor",
         "course-included-equipment": "Full equipment",
         "course-included-materials": "Course booklet",
         "course-included-certificate": "Certificate of qualification",
@@ -1147,7 +1129,7 @@ const translations = {
         "tour1-duration": "5-6 hours",
         "tour1-difficulty": "Moderate",
         "tour1-group": "Groups up to 15 people",
-        "tour1-overview": "So you're probably also checking the forecast waiting for snow in the Troodos mountains. Checking various weather models shows that the likelihood of snow in the coming year is very high. Winter in Cyprus offers a unique experience of a snowy hike with spectacular views of the snow-covered mountains.",
+        "tour1-overview": "Winter can bring snow to the Troodos Mountains, creating a very different side of Cyprus. Conditions vary from year to year, so check the local forecast before travelling. When the weather allows, the mountain trails offer crisp air, scenic views and the chance to see the island’s highest peaks dusted with snow.",
         "tour1-description": "The tour includes walking on snowy trails, observing the amazing winter landscapes of the Troodos mountains, and getting to know the unique flora and fauna of the area in winter. We'll visit charming mountain villages and enjoy traditional warm Cypriot dishes.",
         "tour1-highlight1": "Walking in snow in the Troodos mountains",
         "tour1-highlight2": "Observing the snowy winter landscapes",
@@ -1416,7 +1398,7 @@ const translations = {
         
         // Background
         "guide-background-title": "Background for Understanding the Island's Crags",
-        "guide-background-p1": "Cyprus was ruled by the British, and Cypriots and Turks lived side by side (sound familiar?). In 1974, there was a coup on the island by the Turks who wanted to be recognized as a state ('Operation Attila' for those interested), and the result - the country was divided so that the Turkish Republic controls 37% of the northern part of the island, with its own currency, language, and ethnic symbols. The Cypriots were left with emotional baggage, souvlaki, and 63% of the country.",
+        "guide-background-p1": "Cyprus has a long and varied history shaped by its location at the crossroads of Europe, Asia and the Middle East. The island has been influenced by many civilizations, including the Greeks, Romans, Byzantines, Venetians, Ottomans and British. Today, visitors can see this history in its archaeological sites, architecture, traditions and diverse regional landscapes.",
         "guide-background-p2": "They tend to call the Turkish part: 'The occupied part of Northern Cyprus' and I actually found many similarities between the situation in Israel and what's happening here. But much lighter, one could say. But we didn't come to talk politics.",
         "guide-background-p3": "From here we jump to the crag review, which, if you understood correctly, we'll divide into crags in Cyprus itself (south) and the northern part of Cyprus that belongs to the Turks. The emphasis will be on the main crags only.",
         
@@ -1479,7 +1461,7 @@ const translations = {
     
     ru: {
         // Site title and tagline
-        "site-title": "ClimbCyprus",
+        "site-title": "Climbing Cyprus",
         "site-tagline": "Скалолазание и Экскурсии",
         
         // Navigation
@@ -1955,7 +1937,7 @@ const translations = {
     
     el: {
         // Site title and tagline
-        "site-title": "ClimbCyprus",
+        "site-title": "Climbing Cyprus",
         "site-tagline": "Αναρρίχηση και Ξεναγήσεις",
         
         // Navigation

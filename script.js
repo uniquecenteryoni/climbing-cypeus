@@ -43,6 +43,26 @@ function updateLanguageSeoLinks() {
     canonical.href = `${origin}${canonicalPath}`;
 }
 
+function addFloatingWhatsApp() {
+    if (document.querySelector('.floating-whatsapp')) return;
+    if (/\/(admin|waiver)\//.test(window.location.pathname)) return;
+
+    const isEnglish = currentLang === 'en' || document.documentElement.lang === 'en';
+    const message = isEnglish
+        ? 'Hi, I’m interested in climbing activities in Cyprus'
+        : 'היי, אני מעוניין/ת בפרטים על פעילויות טיפוס בקפריסין';
+    const label = isEnglish ? 'Message us on WhatsApp' : 'שלחו לנו הודעה בוואטסאפ';
+    const link = document.createElement('a');
+    link.className = 'floating-whatsapp';
+    link.href = `https://wa.me/972504443328?text=${encodeURIComponent(message)}`;
+    link.target = '_blank';
+    link.rel = 'noopener noreferrer';
+    link.setAttribute('aria-label', label);
+    link.innerHTML = '<i class="fab fa-whatsapp" aria-hidden="true"></i><span></span>';
+    link.querySelector('span').textContent = label;
+    document.body.appendChild(link);
+}
+
 function redirectFirstVisitByBrowserLanguage() {
     const path = window.location.pathname;
     const isEnglishPath = path === '/en' || path.startsWith('/en/');
@@ -106,6 +126,7 @@ let currentLang = getInitialLanguage();
 document.addEventListener('DOMContentLoaded', () => {
     redirectLegacyLanguageUrl();
     updateLanguageSeoLinks();
+    addFloatingWhatsApp();
 
     const guideVideo = document.querySelector('.guide-hero iframe');
     const guidePlaceholder = document.querySelector('.guide-video-placeholder');

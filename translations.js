@@ -28,6 +28,10 @@ const translations = {
         "instagram-gallery-title": "רגעים שלכם מהשטח",
         "instagram-gallery-subtitle": "עוד תמונות, סרטונים והשראה מחיי הטיפוס בקפריסין",
         "instagram-gallery-follow": "לעקוב באינסטגרם",
+        "instagram-community-kicker": "קהילת Climbing Cyprus",
+        "instagram-community-title": "החיים על הסלע ממשיכים גם באינסטגרם",
+        "instagram-community-text": "הצטרפו אלינו לרגעים מהשטח, המלצות מקומיות, מסלולים חדשים והשראה ליום הטיפוס הבא שלכם.",
+        "instagram-community-cta": "הצטרפו ועקבו אחרינו",
         
         // Hero section
         "hero-title": "חווית אקסטרים<br><span class=\"hero-accent\">בקפריסין</span>",
@@ -78,7 +82,7 @@ const translations = {
         "activity-course-desc": "קורס מעשי למטפסים מנוסים שרוצים להתקדם בטיפוס הובלה, לשפר טכניקה ולבנות עצמאות על המצוק.",
         "activity-fun-days-title": "ימי כיף וגיבוש בטבע",
         "activity-fun-days-desc": "פעילות קבוצתית מודרכת המשלבת טיפוס, סנפלינג ואתגרי שטח. מתאימה למשפחות, חברים, צוותים וקבוצות.",
-        "activity-btn": "לפרטים נוספים",
+        "activity-btn": "גלו את החוויה",
 
         // Trip planning
         "trip-planning-kicker": "שירותים משלימים",
@@ -130,7 +134,7 @@ const translations = {
         "activities-rappelling-challenge-p": "סנפלינג הוא אחת החוויות המרגשות ביותר שאפשר לעבור בטבע. גלישה מבוקרת במורד צוק או מפל תוך שליטה מלאה.",
         "activities-rappelling-feature1": "ציוד בטיחות מתקדם",
         "activities-rappelling-feature2": "הדרכה מקדימה מפורטת",
-        "activities-rappelling-feature3": "ליווי צמוד של מדריך מוסמך",
+        "activities-rappelling-feature3": "ליווי צמוד של מדריך טיפוס מוסמך",
         "activities-rappelling-feature4": "מתאים למתחילים ומתקדמים",
         "activities-rappelling-feature5": "נקודות סנפלינג מרהיבות",
         "activities-rappelling-locations-title": "מיקומים ייחודיים",
@@ -146,7 +150,7 @@ const translations = {
         "activities-combined-hiking-rappelling-title": "חבילת טיול + סנפלינג",
         "activities-combined-hiking-rappelling-desc": "מחיר למשתתף | ליום מלא | כולל כל הציוד",
         "activities-included-header": "מה כלול בכל פעילות?",
-        "activities-included-guide": "מדריך מוסמך ומנוסה",
+        "activities-included-guide": "מדריך טיפוס מוסמך",
         "activities-included-equipment": "ציוד בטיחות מקצועי ומלא",
         "activities-included-photos": "צילומים במהלך הפעילות",
         "activities-included-briefing": "הדרכה מקדימה מפורטת",
@@ -517,7 +521,10 @@ const translations = {
         "guide-bouldering-guide-kicker": "המלצה שימושית למטפסים",
         "guide-bouldering-guide-title": "הגיידבוק בולדרינג הרישמי של קפריסין כבר מוכן!",
         "guide-bouldering-guide-desc": "הגיידבוק הרשמי ממפה את אזורי הבולדרינג סביב אקאמס, אינייה ודרושיה: כמעט 700 בעיות בדירוגי Font 3–8A, מפות ברורות, נקודות GPS, הוראות הגעה ותמונות של המסלולים. רוב הגישות קצרות, והאזור מתאים במיוחד לסשנים בחורף. צפו בהצצה וקבלו פרטים נוספים.",
-        "guide-bouldering-guide-cta": "לפרטים על המדריך",
+        "guide-bouldering-guide-cta": "רכישה ישירה של גיידבוק הבולדרינג",
+        "guide-topo-temp-title": "טופו בולדרינג לדוגמה — הורדה בחינם",
+        "guide-topo-form-title": "הורידו את הטופו החינמי",
+        "guide-topo-form-subtitle": "השאירו אימייל ונשלח אליכם טופו קצר וחינמי שיעזור לכם להתחיל לתכנן את הסשן.",
         "guide-bouldering-reel-kicker": "הצצה למדריך",
         "guide-cta-order-equipment": "הזמנת ציוד טיפוס",
         "guide-cta-order-guidebook": "הזמנת גייד בוק",
@@ -528,6 +535,8 @@ const translations = {
         "guide-climbing-walls-carousel-kicker": "קירות טיפוס מומלצים בקפריסין",
         "guide-parking-link": "קח אותי לחנייה",
         "guide-instagram-strip-copy": "עוד רגעים והמלצות מהאי",
+        "guide-instagram-community-title": "הצטרפו לקהילה שלנו על הסלע",
+        "guide-instagram-community-text": "עוד רגעים מהשטח, המלצות מקומיות והשראה לטיפוס הבא שלכם.",
         
         // Guidebook Section in Equipment Page
         "guidebook-title": "גייד בוק לטיפוס בקפריסין",
@@ -629,8 +638,8 @@ const translations = {
         "nav-gallery": "Photos",
         "nav-contact": "Contact",
         "nav-climber-guide": "Climber's Guide",
-        "landing-nav-guide": "THE GUIDE",
-        "landing-nav-locations": "LOCATIONS",
+        "landing-nav-guide": "CLIMBER'S GUIDE",
+        "landing-nav-locations": "ACTIVITIES",
         "landing-nav-courses": "COURSES & EXPERIENCES",
         "landing-nav-gallery": "Photos",
         "landing-nav-trip-planning": "TRIP PLANNING",
@@ -638,6 +647,10 @@ const translations = {
         "instagram-gallery-title": "Your moments from the field",
         "instagram-gallery-subtitle": "More photos, videos, and inspiration from climbing in Cyprus",
         "instagram-gallery-follow": "Follow on Instagram",
+        "instagram-community-kicker": "Climbing Cyprus community",
+        "instagram-community-title": "The climbing life continues on Instagram",
+        "instagram-community-text": "Join us for field moments, local recommendations, new routes and inspiration for your next climbing day.",
+        "instagram-community-cta": "Join and follow us",
         
         // Hero section
         "hero-title": "EXTREME EXPERIENCES<br><span class=\"hero-accent\">IN CYPRUS</span>",
@@ -689,7 +702,7 @@ const translations = {
         "activity-course-desc": "A practical course for experienced climbers who want to progress in lead climbing, improve technique, and build independence on the crag.",
         "activity-fun-days-title": "Group Adventure and Fun Days",
         "activity-fun-days-desc": "Guided group activities combining climbing, rappelling, and outdoor challenges for families, friends, teams, and groups.",
-        "activity-btn": "Learn More",
+        "activity-btn": "Discover the experience",
 
         // Trip planning
         "trip-planning-kicker": "Useful trip services",
@@ -741,7 +754,7 @@ const translations = {
         "activities-rappelling-challenge-p": "Rappelling is one of the most exciting experiences you can have in nature. Controlled descent down a cliff or waterfall with complete control.",
         "activities-rappelling-feature1": "Advanced safety equipment",
         "activities-rappelling-feature2": "Detailed preliminary briefing",
-        "activities-rappelling-feature3": "Close supervision by an experienced instructor",
+        "activities-rappelling-feature3": "Close supervision by a certified climbing guide",
         "activities-rappelling-feature4": "Suitable for beginners and advanced",
         "activities-rappelling-feature5": "Spectacular rappelling spots",
         "activities-rappelling-locations-title": "Unique Locations",
@@ -757,7 +770,7 @@ const translations = {
         "activities-combined-hiking-rappelling-title": "Hiking + Rappelling Package",
         "activities-combined-hiking-rappelling-desc": "Price per participant | Full day | Including all equipment",
         "activities-included-header": "What's Included in Every Activity?",
-        "activities-included-guide": "Experienced guide",
+        "activities-included-guide": "Certified climbing guide",
         "activities-included-equipment": "Full professional safety equipment",
         "activities-included-photos": "Photos during the activity",
         "activities-included-briefing": "Detailed preliminary briefing",
@@ -787,11 +800,11 @@ const translations = {
         "activities-rappelling-challenge-p": "Rappelling is one of the most exciting experiences you can have in nature. Controlled descent down a cliff or waterfall with full control.",
         "activities-rappelling-feature1": "Advanced safety equipment",
         "activities-rappelling-feature2": "Detailed preliminary instruction",
-        "activities-rappelling-feature3": "Close supervision by an experienced guide",
+        "activities-rappelling-feature3": "Close supervision by a certified climbing guide",
         "activities-rappelling-feature4": "Suitable for beginners and advanced",
         "activities-rappelling-feature5": "Spectacular rappelling points",
         
-        "activity-btn": "Learn More",
+        "activity-btn": "Discover the experience",
         
         // Testimonials
         "testimonials-title": "Our Clients Say",
@@ -1247,7 +1260,7 @@ const translations = {
         "guide-limassol-desc": "An intimate climbing gym in Limassol, offering a convenient way to stay fit and meet the local climbing community.",
         
         // Climber's Guide - Navigation
-        "guide-nav-logistics": "Rental",
+        "guide-nav-logistics": "Logistics",
         "guide-nav-beside-climbing": "Beside Climbing",
         "guide-nav-north": "North Cyprus",
         "guide-nav-south": "South Cyprus",
@@ -1314,7 +1327,7 @@ const translations = {
         "guide-bouldering-guide-kicker": "A useful recommendation for climbers",
         "guide-bouldering-guide-title": "The official Cyprus bouldering guidebook is ready!",
         "guide-bouldering-guide-desc": "The official guide maps the bouldering areas around Akamas, Ineia and Droushia: nearly 700 problems from Font 3 to 8A, clear maps, GPS pins, approach directions and route photos. Most approaches are short, making the area especially good for winter sessions. Watch the preview and learn more.",
-        "guide-bouldering-guide-cta": "Details about the guide",
+        "guide-bouldering-guide-cta": "Buy the Cyprus bouldering guidebook",
         "guide-bouldering-reel-kicker": "A preview of the guide",
         "guide-cta-order-equipment": "Order climbing equipment",
         "guide-cta-order-guidebook": "Order the guidebook",
@@ -1373,7 +1386,7 @@ const translations = {
         "safety-quiz-cta": "Start the quiz",
         
         // Climber's Guide - Logistics
-        "guide-logistics-title": "Logistic",
+        "guide-logistics-title": "Logistics",
         "guide-logistics-transport": "<strong>Transportation:</strong> You must rent a car - there's no option to manage with public transportation. An Israeli license is sufficient. Note that driving here is on the opposite side. <a href=\"https://getrentacar.tp.st/FD6yLXgf\" target=\"_blank\" rel=\"nofollow sponsored noopener\" style=\"color: #2c5f2d; font-weight: bold; text-decoration: underline;\">Compare rental cars</a>",
         "guide-logistics-airports": "<strong>Where to fly:</strong> 2 main airports: Larnaca and Paphos. All the climbing is concentrated in Paphos, so if you can find a flight there - you've won! You can also book an <a href=\"https://kiwitaxi.tp.st/8Xvx72mG\" target=\"_blank\" rel=\"nofollow sponsored noopener\" style=\"color: #2c5f2d; font-weight: bold; text-decoration: underline;\">airport transfer</a> directly to your accommodation.",
         "guide-logistics-accommodation": "<strong>Where to sleep:</strong> The best option is to find an apartment through Airbnb. You might get lucky and find accommodation near the crags, which is great. Look for your home near the villages of Ineia and Droushia. For those who want to be close to the sea and enjoy both worlds, you can also sleep in Paphos (a bit more nightlife and restaurants) or Polis (amazing beaches), both cities are a 45-minute drive from the crags. <a href=\"https://www.booking.com/searchresults.html?ss=Cyprus\" target=\"_blank\" rel=\"nofollow sponsored noopener\" style=\"color: #2c5f2d; font-weight: bold; text-decoration: underline;\">Search hotels and apartments in Cyprus</a>",
@@ -1387,6 +1400,8 @@ const translations = {
         "guide-climbing-walls-carousel-kicker": "Recommended climbing walls in Cyprus",
         "guide-parking-link": "Take me to parking",
         "guide-instagram-strip-copy": "More island moments and recommendations",
+        "guide-instagram-community-title": "Join our climbing community",
+        "guide-instagram-community-text": "More field moments, local recommendations and inspiration for your next climb.",
         "guide-climbing-walls-intro": "Cyprus offers several quality indoor climbing walls scattered across the island. In recent years, new and modern facilities have opened, offering diverse climbing options for climbers of all levels. The walls are mainly located in major cities and offer an excellent place for training, meeting local climbers, and staying fit on rainy days or extreme heat.",
         "guide-nicosia-title": "Nicosia",
         "guide-redpoint-desc": "<strong><a href=\"https://www.redpointcy.com\" target=\"_blank\" rel=\"noopener\" style=\"color: #2c5f2d; text-decoration: underline;\">RedPoint</a></strong> - The newest and most modern facility on the island, opened in 2022. Combined with a parkour complex and offers a professional climbing experience with Moonboard, Campus board, equipped training room, and a wide variety of routes. The professional and friendly staff will help you progress. Suitable for beginners and experienced climbers alike.",

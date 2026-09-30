@@ -178,6 +178,19 @@
             text-align: justify;
         }
 
+        /* Keep the English guide consistently left-aligned. The guide shares
+           this stylesheet with the Hebrew page, whose editorial intro is RTL. */
+        html[dir="ltr"] .guide-content p,
+        html[dir="ltr"] .guide-content li {
+            text-align: left;
+        }
+
+        html[dir="ltr"] .guide-content ul,
+        html[dir="ltr"] .guide-content ol {
+            padding-left: 2rem;
+            padding-right: 0;
+        }
+
         .guide-content ul, .guide-content ol {
             margin: 1.5rem 0;
             padding-right: 2rem;
@@ -687,6 +700,17 @@
             text-align: right;
         }
 
+        html[dir="ltr"] .guide-content .intro-story,
+        html[dir="ltr"] .guide-content .intro-story .intro-title,
+        html[dir="ltr"] .guide-content .intro-story-body p {
+            text-align: left;
+        }
+
+        html[dir="ltr"] .guide-content .intro-story {
+            margin-left: 0;
+            margin-right: auto;
+        }
+
         .intro-story-body p + p {
             margin-top: 1.25rem;
         }
@@ -1082,8 +1106,8 @@
 </span>
 </a>
 <ul class="nav-menu">
-<li><a data-i18n="landing-nav-guide" href="/en/climber-guide">THE GUIDE</a></li>
-<li><a data-i18n="landing-nav-locations" href="/en/#activities">LOCATIONS</a></li>
+<li><a data-i18n="landing-nav-guide" href="/en/climber-guide">CLIMBER'S GUIDE</a></li>
+<li><a data-i18n="landing-nav-locations" href="/en/#activities">ACTIVITIES</a></li>
 <li><a data-i18n="landing-nav-gallery" href="/en/#gallery">Photos</a></li>
 <li><a data-i18n="landing-nav-trip-planning" href="/en/#trip-planning">TRIP PLANNING</a></li>
 <li><a data-i18n="landing-nav-contact" href="/en/#contact">CONTACT</a></li>
@@ -1113,7 +1137,7 @@
 <div class="container">
 <nav style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap;">
 <a href="#logistics" onmouseout="this.style.background='transparent'" onmouseover="this.style.background='rgba(255,255,255,0.2)'" style="color: white; text-decoration: none; padding: 0.5rem 1.5rem; border-radius: 5px; transition: all 0.3s; font-weight: 500;">
-<i class="fas fa-info-circle"></i> <span data-i18n="guide-nav-logistics">Rental</span>
+<i class="fas fa-info-circle"></i> <span data-i18n="guide-nav-logistics">Logistics</span>
 </a>
 <a href="#beside-climbing" onmouseout="this.style.background='transparent'" onmouseover="this.style.background='rgba(255,255,255,0.2)'" style="color: white; text-decoration: none; padding: 0.5rem 1.5rem; border-radius: 5px; transition: all 0.3s; font-weight: 500;">
 <i class="fas fa-coffee"></i> <span data-i18n="guide-nav-beside-climbing">Beside Climbing</span>
@@ -1134,7 +1158,7 @@
 </div>
 </div>
 <!-- Article Content -->
-<article class="guide-content article-inner">
+<article class="guide-content article-inner climber-guide-en">
 <section aria-labelledby="guide-intro-title" class="intro-story">
 <h2 class="intro-title" data-i18n="guide-intro-title" id="guide-intro-title">Climbing in Cyprus? You’re in the right place.</h2>
 <div class="intro-story-body">
@@ -1142,7 +1166,7 @@
 <p class="intro-author" data-i18n="guide-intro-p2">I’m Yonatan, a climbing guide who lives and climbs here. I’ve put together a short, clear and useful guide to help you get to know the island a little better — from the crags to the logistics.</p>
 </div>
 </section>
-<h2 data-i18n="guide-logistics-title" id="logistics">Logistic</h2>
+<h2 data-i18n="guide-logistics-title" id="logistics">Logistics</h2>
 <div class="guide-place-strip guide-logistics-strip">
 <div class="guide-place-icon"><i aria-hidden="true" class="fas fa-car-side"></i></div>
 <div data-i18n-html="guide-logistics-transport"><strong>Transportation:</strong> You must rent a car - there's no option to manage with public transportation. An Israeli license is sufficient. Note that driving here is on the opposite side. <a href="https://getrentacar.tp.st/FD6yLXgf" rel="nofollow sponsored noopener" style="color: #2c5f2d; font-weight: bold; text-decoration: underline;" target="_blank">Compare rental cars</a></div>
@@ -1220,9 +1244,6 @@
 <div class="guide-guidebook-cta-actions">
 <a class="cta-button guide-cta-equipment" href="/en/equipment#rental">
 <i class="fas fa-hiking"></i> <span data-i18n="guide-cta-order-equipment">Order climbing equipment</span>
-</a>
-<a class="cta-button guide-cta-quiz" data-quiz-link="" href="/en/safety-quiz?lang=he" style="background:#f47920;">
-<i class="fas fa-shield-alt"></i> <span data-i18n="safety-quiz-cta">Start the quiz</span>
 </a>
 <a class="cta-button guide-cta-guidebook" href="https://www.cyprusclimbing.com/" rel="noopener" target="_blank">
 <i class="fas fa-book"></i> <span data-i18n="guide-cta-order-guidebook">Order the guidebook</span>
@@ -1413,13 +1434,18 @@
 <div class="bouldering-guide-copy">
 <h3 data-i18n="guide-bouldering-guide-title">The official Cyprus bouldering guidebook is ready!</h3>
 <p data-i18n="guide-bouldering-guide-desc">The official guide maps the bouldering areas around Akamas, Ineia and Droushia: nearly 700 problems from Font 3 to 8A, clear maps, GPS pins, approach directions and route photos. Most approaches are short, making the area especially good for winter sessions. Watch the preview and learn more.</p>
-<a class="guide-video-link" data-i18n="guide-bouldering-guide-cta" href="https://boulderingcyprus.com/" rel="noopener" target="_blank">Details about the guide</a>
+<a class="guide-video-link" data-i18n="guide-bouldering-guide-cta" href="https://boulderingcyprus.com/" rel="noopener" target="_blank">Buy the Cyprus bouldering guidebook</a>
 </div>
 <div class="bouldering-guide-book">
 <img alt="Cover of the Cyprus bouldering guide" loading="lazy" src="../pics/bouldering-guide-cover.webp"/>
 </div>
 </div>
 <div class="topo-download-compact">
+<div class="topo-strip-copy">
+<span class="topo-strip-kicker" data-i18n="guide-topo-temp-title"><i class="fas fa-download"></i> Temporary bouldering topo - free download</span>
+<h3 data-i18n="guide-topo-form-title"><i class="fas fa-file-pdf"></i> Download the free bouldering topo</h3>
+<p data-i18n="guide-topo-form-subtitle">Leave your email and we will send you a concise free topo to help you plan your session.</p>
+</div>
 <!-- Topo Download Form -->
 <div class="topo-form-compact">
 <form action="https://formspree.io/f/mjkdalap" method="POST" style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
@@ -1466,9 +1492,14 @@
 <section aria-labelledby="beside-climbing-title" class="beside-climbing-section" id="beside-climbing">
 <h2 data-i18n="guide-beside-climbing-title" id="beside-climbing-title">Beside Climbing</h2>
 <p class="beside-climbing-intro" data-i18n="guide-beside-climbing-intro">Recommendations for coffee, food, sea, and nature before climbing, after a session, or on a rest day.</p>
-<div class="guide-instagram-strip">
-<span><i class="fab fa-instagram"></i> <span data-i18n="guide-instagram-strip-copy">More island moments and recommendations</span></span>
-<a href="https://www.instagram.com/climbing.cyprus" rel="noopener" target="_blank"><i aria-hidden="true" class="fab fa-instagram"></i> <span data-i18n="instagram-gallery-follow">Follow on Instagram</span> <i class="fas fa-arrow-up-right-from-square"></i></a>
+<div class="guide-instagram-strip instagram-community-strip">
+<div aria-hidden="true" class="instagram-community-mark"><i class="fab fa-instagram"></i></div>
+<div class="instagram-community-copy">
+<span class="instagram-community-kicker" data-i18n="instagram-community-kicker">Climbing Cyprus community</span>
+<h3 data-i18n="guide-instagram-community-title">Join our climbing community</h3>
+<p data-i18n="guide-instagram-community-text">More field moments, local recommendations and inspiration for your next climb.</p>
+</div>
+<a class="instagram-community-link" href="https://www.instagram.com/climbing.cyprus" rel="noopener" target="_blank"><i aria-hidden="true" class="fab fa-instagram"></i> <span data-i18n="instagram-community-cta">Join and follow us</span> <i class="fas fa-arrow-up-right-from-square"></i></a>
 </div>
 <div class="beside-climbing-grid">
 <div class="beside-category">
@@ -2286,6 +2317,23 @@
                 });
             });
         });
-    </script>
+</script>
+<script>
+function syncGuideCarouselPreview(carousel) {
+const images = Array.from(carousel.querySelectorAll('.carousel-image'));
+const activeIndex = images.findIndex(image => image.classList.contains('active'));
+if (activeIndex < 0 || images.length < 2) return;
+const previousIndex = (activeIndex - 1 + images.length) % images.length;
+const nextIndex = (activeIndex + 1) % images.length;
+images.forEach((image, index) => {
+image.classList.toggle('is-prev', index === previousIndex);
+image.classList.toggle('is-next', index === nextIndex);
+});
+}
+document.querySelectorAll('.image-carousel').forEach(carousel => {
+syncGuideCarouselPreview(carousel);
+new MutationObserver(() => syncGuideCarouselPreview(carousel)).observe(carousel, {subtree: true, attributes: true, attributeFilter: ['class']});
+});
+</script>
 </body>
 </html>

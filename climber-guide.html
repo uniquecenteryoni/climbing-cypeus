@@ -181,6 +181,19 @@
             margin-bottom: 1.5rem;
             text-align: justify;
         }
+
+        /* Keep the English guide consistently left-aligned. The guide shares
+           this stylesheet with the Hebrew page, whose editorial intro is RTL. */
+        html[dir="ltr"] .guide-content p,
+        html[dir="ltr"] .guide-content li {
+            text-align: left;
+        }
+
+        html[dir="ltr"] .guide-content ul,
+        html[dir="ltr"] .guide-content ol {
+            padding-left: 2rem;
+            padding-right: 0;
+        }
         
         .guide-content ul, .guide-content ol {
             margin: 1.5rem 0;
@@ -691,6 +704,17 @@
             text-align: right;
         }
 
+        html[dir="ltr"] .guide-content .intro-story,
+        html[dir="ltr"] .guide-content .intro-story .intro-title,
+        html[dir="ltr"] .guide-content .intro-story-body p {
+            text-align: left;
+        }
+
+        html[dir="ltr"] .guide-content .intro-story {
+            margin-left: 0;
+            margin-right: auto;
+        }
+
         .intro-story-body p + p {
             margin-top: 1.25rem;
         }
@@ -1143,7 +1167,7 @@
     </div>
 
     <!-- Article Content -->
-    <article class="guide-content article-inner">
+    <article class="guide-content article-inner climber-guide-en">
         <section class="intro-story" aria-labelledby="guide-intro-title">
             <h2 id="guide-intro-title" class="intro-title" data-i18n="guide-intro-title">מטפסים בקפריסין? הגעתם למקום הנכון.</h2>
             <div class="intro-story-body">
@@ -1277,9 +1301,6 @@
             <div class="guide-guidebook-cta-actions">
                 <a href="/equipment#rental" class="cta-button guide-cta-equipment">
                     <i class="fas fa-hiking"></i> <span data-i18n="guide-cta-order-equipment">הזמנת ציוד טיפוס</span>
-                </a>
-                <a href="/safety-quiz?lang=he" class="cta-button guide-cta-quiz" data-quiz-link style="background:#f47920;">
-                    <i class="fas fa-shield-alt"></i> <span data-i18n="safety-quiz-cta">התחלת הבוחן</span>
                 </a>
                 <a href="https://www.cyprusclimbing.com/" target="_blank" rel="noopener" class="cta-button guide-cta-guidebook">
                     <i class="fas fa-book"></i> <span data-i18n="guide-cta-order-guidebook">הזמנת גייד בוק</span>
@@ -1523,7 +1544,7 @@
                 <div class="bouldering-guide-copy">
                     <h3 data-i18n="guide-bouldering-guide-title">הגיידבוק בולדרינג הרישמי של קפריסין כבר מוכן!</h3>
                     <p data-i18n="guide-bouldering-guide-desc">מדריך הבולדרינג של קפריסין עושה סדר באזורי הבולדרינג המיוחדים באי. צפו בהצצה וקבלו מידע נוסף על המדריך.</p>
-                    <a class="guide-video-link" href="https://boulderingcyprus.com/" target="_blank" rel="noopener" data-i18n="guide-bouldering-guide-cta"><i class="fas fa-book-open"></i> לפרטים על המדריך</a>
+                    <a class="guide-video-link" href="https://boulderingcyprus.com/" target="_blank" rel="noopener" data-i18n="guide-bouldering-guide-cta"><i class="fas fa-book-open"></i> רכישה ישירה של גיידבוק הבולדרינג</a>
                 </div>
                 <div class="bouldering-guide-book">
                     <img src="pics/bouldering-guide-cover.webp" alt="כריכת גייד הבולדרינג של קפריסין" loading="lazy">
@@ -1531,6 +1552,11 @@
             </div>
             
             <div class="topo-download-compact">
+                <div class="topo-strip-copy">
+                    <span class="topo-strip-kicker" data-i18n="guide-topo-temp-title"><i class="fas fa-download"></i> טופו בולדרינג לדוגמה — הורדה בחינם</span>
+                    <h3 data-i18n="guide-topo-form-title"><i class="fas fa-file-pdf"></i> הורידו את הטופו החינמי</h3>
+                    <p data-i18n="guide-topo-form-subtitle">השאירו אימייל ונשלח אליכם טופו קצר וחינמי שיעזור לכם להתחיל לתכנן את הסשן.</p>
+                </div>
                 <!-- Topo Download Form -->
                 <div class="topo-form-compact">
                     <form action="https://formspree.io/f/mjkdalap" method="POST" style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
@@ -1593,9 +1619,14 @@
             <h2 id="beside-climbing-title" data-i18n="guide-beside-climbing-title">לצד הטיפוס</h2>
             <p class="beside-climbing-intro" data-i18n="guide-beside-climbing-intro">המלצות למקומות שכיף לעצור בהם לפני הטיפוס, אחריו או ביום מנוחה — קפה, אוכל, ים וטבע.</p>
 
-            <div class="guide-instagram-strip">
-                <span><i class="fab fa-instagram"></i> <span data-i18n="guide-instagram-strip-copy">עוד רגעים והמלצות מהאי</span></span>
-                <a href="https://www.instagram.com/climbing.cyprus" target="_blank" rel="noopener"><i class="fab fa-instagram" aria-hidden="true"></i> <span data-i18n="instagram-gallery-follow">לעקוב באינסטגרם</span> <i class="fas fa-arrow-up-right-from-square"></i></a>
+            <div class="guide-instagram-strip instagram-community-strip">
+                <div class="instagram-community-mark" aria-hidden="true"><i class="fab fa-instagram"></i></div>
+                <div class="instagram-community-copy">
+                    <span class="instagram-community-kicker" data-i18n="instagram-community-kicker">קהילת Climbing Cyprus</span>
+                    <h3 data-i18n="guide-instagram-community-title">הצטרפו לקהילה שלנו על הסלע</h3>
+                    <p data-i18n="guide-instagram-community-text">עוד רגעים מהשטח, המלצות מקומיות והשראה לטיפוס הבא שלכם.</p>
+                </div>
+                <a class="instagram-community-link" href="https://www.instagram.com/climbing.cyprus" target="_blank" rel="noopener"><i class="fab fa-instagram" aria-hidden="true"></i> <span data-i18n="instagram-community-cta">הצטרפו ועקבו אחרינו</span> <i class="fas fa-arrow-up-right-from-square"></i></a>
             </div>
 
             <div class="beside-climbing-grid">
@@ -2473,6 +2504,30 @@
                     target.alt = source.alt;
                     window.openLightbox(singleImageCarousel, 0);
                 });
+            });
+        });
+    </script>
+
+    <script>
+        // Keep adjacent images visible so every guide carousel invites browsing.
+        function syncGuideCarouselPreview(carousel) {
+            const images = Array.from(carousel.querySelectorAll('.carousel-image'));
+            const activeIndex = images.findIndex(image => image.classList.contains('active'));
+            if (activeIndex < 0 || images.length < 2) return;
+            const previousIndex = (activeIndex - 1 + images.length) % images.length;
+            const nextIndex = (activeIndex + 1) % images.length;
+            images.forEach((image, index) => {
+                image.classList.toggle('is-prev', index === previousIndex);
+                image.classList.toggle('is-next', index === nextIndex);
+            });
+        }
+
+        document.querySelectorAll('.image-carousel').forEach(carousel => {
+            syncGuideCarouselPreview(carousel);
+            new MutationObserver(() => syncGuideCarouselPreview(carousel)).observe(carousel, {
+                subtree: true,
+                attributes: true,
+                attributeFilter: ['class']
             });
         });
     </script>

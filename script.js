@@ -349,6 +349,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Testimonials Carousel
     initTestimonialsCarousel();
+    initGoogleReviewsCarousel();
     
     // Lightbox
     initLightbox();
@@ -437,6 +438,43 @@ function initClimbingPricing() {
         option.addEventListener('click', () => renderPricing(option.dataset.pricingOption));
     });
     renderPricing('group');
+}
+
+function initGoogleReviewsCarousel() {
+    document.querySelectorAll('[data-google-reviews-carousel]').forEach((carousel) => {
+        const track = carousel.querySelector('.google-reviews-track');
+        const cards = [...carousel.querySelectorAll('.google-review-card')];
+        const dotsContainer = carousel.querySelector('.google-reviews-dots');
+        if (!track || cards.length < 2 || !dotsContainer) return;
+        let index = 0;
+
+        cards.forEach((_, cardIndex) => {
+            const dot = document.createElement('button');
+            dot.type = 'button';
+            dot.className = `google-reviews-dot${cardIndex === 0 ? ' is-active' : ''}`;
+            dot.setAttribute('aria-label', `${document.documentElement.lang === 'en' ? 'Show review' : 'הצגת ביקורת'} ${cardIndex + 1}`);
+            dot.addEventListener('click', () => goTo(cardIndex));
+            dotsContainer.appendChild(dot);
+        });
+        const dots = [...dotsContainer.children];
+
+        function visibleCards() {
+            if (window.matchMedia('(max-width: 560px)').matches) return 1;
+            if (window.matchMedia('(max-width: 800px)').matches) return 2;
+            return 3;
+        }
+        function goTo(nextIndex) {
+            const maxIndex = Math.max(0, cards.length - visibleCards());
+            index = Math.min(Math.max(nextIndex, 0), maxIndex);
+            track.style.transform = `translateX(${index * (cards[0].offsetWidth + 20) * (document.documentElement.dir === 'rtl' ? 1 : -1)}px)`;
+            cards.forEach((card, i) => card.classList.toggle('is-active', i === index));
+            dots.forEach((dot, i) => dot.classList.toggle('is-active', i === Math.min(index, dots.length - 1)));
+        }
+        carousel.querySelector('.google-reviews-arrow.prev')?.addEventListener('click', () => goTo(index - 1));
+        carousel.querySelector('.google-reviews-arrow.next')?.addEventListener('click', () => goTo(index + 1));
+        window.addEventListener('resize', () => goTo(index));
+        goTo(0);
+    });
 }
 
 function initBoulderingVideoCarousels() {

@@ -21,7 +21,7 @@
 <link href="../favicon.webp?v=20260819" rel="apple-touch-icon" sizes="512x512"/>
 <link href="../favicon.webp?v=20260819" rel="shortcut icon" type="image/webp"/>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
-<link href="../style.css?v=20260929-2" rel="stylesheet"/>
+<link href="../style.css?v=20260930-1" rel="stylesheet"/>
 <link href="../tour-page.css" rel="stylesheet"/>
 <!-- Load translations first -->
 <script src="../translations.js?v=20260929-2"></script>
@@ -1560,12 +1560,16 @@
 </div>
 </div>
 <!-- Comments Section -->
-<div class="guide-comments-section article-section full-width-strip">
+<section class="guide-google-reviews article-section full-width-strip" aria-labelledby="guide-google-reviews-title">
 <div class="article-container">
-<h3 data-i18n="guide-comments-title" style="color: #2c5f2d; margin-bottom: 1.5rem; text-align: center;">💬 Comments and questions</h3>
-<p data-i18n="guide-comments-subtitle" style="text-align: center; color: #666; margin-bottom: 2rem;">Share your experience, ask a question, or add a tip for other climbers.</p>
+<div class="google-reviews-heading"><span class="google-reviews-eyebrow"><i class="fab fa-google" aria-hidden="true"></i> Google Reviews</span><h3 data-i18n="guide-google-reviews-title" id="guide-google-reviews-title">What climbers say on Google</h3><p data-i18n="guide-google-reviews-subtitle">Real reviews from climbers who experienced Climbing Cyprus.</p><a class="google-rating-summary" href="https://www.google.com/search?q=climbing+cyprus" rel="noopener" target="_blank"><strong>5.0</strong><span aria-label="5 out of 5 stars" class="google-stars">★★★★★</span><span>13 Google reviews</span></a></div>
+<div class="google-reviews-carousel" data-google-reviews-carousel><button aria-label="Previous Google review" class="google-reviews-arrow prev" type="button">‹</button><div class="google-reviews-viewport"><div class="google-reviews-track">
+<article class="google-review-card is-active"><div class="google-review-top"><span class="google-review-avatar">C</span><div><strong>Christos Kyliakoudis</strong><span>5 days ago · Google</span></div><b aria-label="Google" class="google-mark">G</b></div><div aria-label="5 out of 5 stars" class="google-review-stars">★★★★★ <span>5/5</span></div><p>Excellent Instructor</p><a href="https://www.google.com/search?q=climbing+cyprus" rel="noopener" target="_blank">Read the full review</a></article>
+<article class="google-review-card"><div class="google-review-top"><span class="avatar-pink google-review-avatar">S</span><div><strong>stas piatkovsky</strong><span>6 days ago · Google</span></div><b aria-label="Google" class="google-mark">G</b></div><div aria-label="5 out of 5 stars" class="google-review-stars">★★★★★ <span>5/5</span></div><p>We (a couple of parents and 3 boys) did a climb in Cyprus with Jonathan and it was simply excellent. He is professional, patient and gives a sense of security to those of us who are not young without fear. It was fun, challenging and we all really enjoyed it. Highly recommend!</p><a href="https://www.google.com/search?q=climbing+cyprus" rel="noopener" target="_blank">Read the full review</a></article>
+<article class="google-review-card"><div class="google-review-top"><span class="avatar-gold google-review-avatar">נ</span><div><strong>נועה ארז</strong><span>4 weeks ago · Google</span></div><b aria-label="Google" class="google-mark">G</b></div><div aria-label="5 out of 5 stars" class="google-review-stars">★★★★★ <span>5/5</span></div><p>It was an amazing and powerful experience!!! Jonathan is a wonderful guide. We were 3 friends and 3 boys. Climbing the cliff gave us values that we don't get at other attractions. Dealing with difficulty and helping others strengthened the bond between the boys, between the mothers and of course between mother and son. It was a wonderful lesson and an empowering experience. Jonathan is an excellent guide. Highly recommend for an unforgettable experience.</p><a href="https://www.google.com/search?q=climbing+cyprus" rel="noopener" target="_blank">Read the full review</a></article>
+</div></div><button aria-label="Next Google review" class="google-reviews-arrow next" type="button">›</button><div aria-label="Google reviews" class="google-reviews-dots" role="tablist"></div></div>
 <!-- Simple comment form -->
-<div id="comments-container">
+<div id="comments-container" hidden>
 <div class="comment-form" style="background: #f8f9fa; padding: 1.5rem; border-radius: 8px; margin-bottom: 2rem;">
 <h4 data-i18n="guide-comments-add" style="color: #2c5f2d; margin-bottom: 1rem;">Add a comment</h4>
 <form action="https://formspree.io/f/mjkdalap" id="commentForm" method="POST" style="display: flex; flex-direction: column; gap: 1rem;">
@@ -1599,7 +1603,7 @@
 </div>
 </div>
 </div>
-</div>
+</section>
 </article>
 <!-- Footer -->
 <footer class="footer">
@@ -1663,7 +1667,7 @@
 </form>
 </div>
 </div>
-<script src="../script.js?v=20260929-2"></script>
+<script src="../script.js?v=20260930-1"></script>
 <script async="" src="https://www.instagram.com/embed.js"></script>
 <script>
         // Handle topo form submission inline

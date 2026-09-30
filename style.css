@@ -8440,6 +8440,44 @@ body.landing-page { overflow-x: hidden; }
 [dir="rtl"] .landing-page .testimonials-carousel .carousel-btn.prev { left: auto !important; right: -60px !important; }
 [dir="rtl"] .landing-page .testimonials-carousel .carousel-btn.next { right: auto !important; left: -60px !important; }
 
+/* Google review carousel on the climbing guide page */
+.guide-google-reviews { background: #f7f8f6; padding: clamp(3rem, 6vw, 5.5rem) 0; }
+.google-reviews-heading { text-align: center; max-width: 720px; margin: 0 auto 2rem; }
+.google-reviews-eyebrow { display: inline-flex; align-items: center; gap: .45rem; color: #5f6368; font-size: .85rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+.google-reviews-eyebrow .fa-google { color: #4285f4; }
+.google-reviews-heading h3 { color: #2c5f2d; font-size: clamp(1.8rem, 4vw, 2.7rem); margin: .6rem 0 .55rem; }
+.google-reviews-heading p { color: #68706a; margin: 0 auto 1rem; font-size: 1rem; }
+.google-rating-summary { display: inline-flex; align-items: center; gap: .55rem; color: #4f5a52; font-size: .9rem; text-decoration: none; }
+.google-rating-summary strong { color: #2c5f2d; font-size: 1.2rem; }
+.google-stars, .google-review-stars { color: #fbbc04; letter-spacing: .08em; }
+.google-reviews-carousel { position: relative; max-width: 1120px; margin: 0 auto; padding: 0 3.2rem 2.8rem; }
+.google-reviews-viewport { overflow: hidden; }
+.google-reviews-track { display: flex; gap: 1.25rem; align-items: stretch; }
+.google-review-card { flex: 0 0 calc((100% - 2.5rem) / 3); display: flex; flex-direction: column; min-height: 275px; padding: 1.35rem 1.35rem 1.2rem; background: #fff; border: 1px solid #e7e9e6; border-radius: 18px; box-shadow: 0 8px 24px rgba(34, 60, 38, .08); }
+.google-review-top { display: flex; align-items: center; gap: .75rem; }
+.google-review-top > div { min-width: 0; flex: 1; }
+.google-review-top strong, .google-review-top span { display: block; }
+.google-review-top strong { color: #172018; font-size: 1rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.google-review-top span { color: #7a827b; font-size: .78rem; margin-top: .2rem; }
+.google-review-avatar { display: grid; place-items: center; flex: 0 0 46px; width: 46px; height: 46px; border-radius: 50%; background: #128c79; color: #fff; font-size: 1.35rem; }
+.google-review-avatar.avatar-pink { background: #e94b7b; }
+.google-review-avatar.avatar-gold { background: #e3a62f; }
+.google-mark { font-family: Arial, sans-serif; font-size: 1.55rem; font-weight: 700; background: linear-gradient(135deg, #4285f4 20%, #34a853 42%, #fbbc05 62%, #ea4335 82%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.google-review-stars { margin: 1rem 0 .65rem; font-size: 1.05rem; }
+.google-review-stars span { color: #8a918b; font-size: .78rem; letter-spacing: 0; margin-left: .35rem; }
+.google-review-card p { color: #343b35; line-height: 1.55; font-size: .94rem; margin: 0; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 5; overflow: hidden; }
+.google-review-card a { margin-top: auto; padding-top: 1rem; color: #2c5f2d; font-size: .86rem; font-weight: 700; text-decoration: none; }
+.google-review-card a:hover { text-decoration: underline; }
+.google-reviews-arrow { position: absolute; top: 45%; z-index: 2; display: grid; place-items: center; width: 42px; height: 42px; border: 1px solid #dfe4df; border-radius: 50%; background: #fff; color: #2c5f2d; font-size: 2rem; line-height: 1; cursor: pointer; box-shadow: 0 4px 12px rgba(34, 60, 38, .1); transform: translateY(-50%); }
+.google-reviews-arrow:hover { background: #2c5f2d; color: #fff; }
+.google-reviews-arrow.prev { left: .4rem; }
+.google-reviews-arrow.next { right: .4rem; }
+.google-reviews-dots { position: absolute; bottom: .2rem; left: 0; right: 0; display: flex; justify-content: center; gap: .45rem; }
+.google-reviews-dot { width: 9px; height: 9px; padding: 0; border: 0; border-radius: 50%; background: #c8d0c8; cursor: pointer; }
+.google-reviews-dot.is-active { background: #2c5f2d; transform: scale(1.25); }
+@media (max-width: 800px) { .google-review-card { flex-basis: calc((100% - 1.25rem) / 2); } }
+@media (max-width: 560px) { .google-reviews-carousel { padding-inline: 2.25rem; } .google-review-card { flex-basis: 100%; min-height: 265px; } .google-reviews-arrow { width: 36px; height: 36px; font-size: 1.7rem; } .google-reviews-arrow.prev { left: .15rem; } .google-reviews-arrow.next { right: .15rem; } }
+
 @media (max-width: 700px) {
     .landing-page .guide-content.article-inner {
         --article-width: calc(100vw - 40px);

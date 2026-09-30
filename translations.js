@@ -945,8 +945,8 @@ const translations = {
         "course-included-certificate": "Certificate of qualification",
         
         // Equipment Page
-        "equipment-title": "Climbing Equipment Rental",
-        "equipment-subtitle": "Professional and quality equipment for sport climbing and bouldering",
+        "equipment-title": "Climbing Gear Rental in Cyprus",
+        "equipment-subtitle": "Quality gear for sport climbing, trad climbing and bouldering",
         "equipment-lead-title": "Sport & Trad Climbing Equipment",
         "equipment-lead-intro": "Perfect package for climbers who want independence in sport or trad climbing",
         "equipment-includes": "Package includes:",

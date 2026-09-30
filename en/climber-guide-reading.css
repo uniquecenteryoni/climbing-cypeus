@@ -1,0 +1,88 @@
+/* English article only. The ID keeps shared legacy RTL rules from winning.
+   Navigation, gallery controls, icons and button styling are not typography. */
+#english-climber-guide {
+    direction: ltr !important;
+    text-align: left !important;
+}
+
+body.landing-page #english-climber-guide.guide-content.article-inner.climber-guide-en :is(h2, h3, h4, p, li, figcaption),
+#english-climber-guide :is(.intro-story, .guide-about-climbing-inner,
+    .guide-logistics-strip, .guide-logistics-strip > div:last-child,
+    .guide-crag-strip, .guide-crag-strip > div:last-child,
+    .walls-carousel-copy, .guide-place-tags, .guide-climbing-wall-tip,
+    .article-container, .guide-contact-copy, .beside-category-content,
+    .beside-place, .beside-stay-card, .beside-stay-card > em) {
+    direction: ltr !important;
+    text-align: left !important;
+}
+
+/* Keep the established article edge while limiting long lines. */
+#english-climber-guide > :is(h2, h3),
+#english-climber-guide :is(.intro-story, .guide-about-climbing-inner, .beside-climbing-section) > :is(h2, h3) {
+    padding-inline: 0 !important;
+}
+
+#english-climber-guide > :is(p, ul, ol) {
+    width: min(calc(100% - var(--guide-page-padding) * 2), 820px) !important;
+    margin-left: max(var(--guide-page-padding), calc((100% - var(--guide-article-max-width)) / 2)) !important;
+    margin-right: auto !important;
+}
+
+#english-climber-guide :is(.article-container, .guide-about-climbing-inner) > p {
+    max-width: 820px !important;
+    margin-inline: 0 auto !important;
+}
+
+#english-climber-guide :is(ul, ol) {
+    padding-inline: 1.25em 0;
+}
+
+/* Text starts on the article edge; the existing logistics icons stay visible. */
+#english-climber-guide > .guide-logistics-strip {
+    grid-template-columns: minmax(0, 1fr) 42px !important;
+    grid-template-areas: "copy icon" !important;
+}
+
+#english-climber-guide > .guide-logistics-strip > div:last-child {
+    max-width: 820px;
+}
+
+#english-climber-guide > .guide-shade-strip:not(.guide-about-climbing) {
+    padding-inline: max(var(--guide-page-padding), calc((100% - var(--guide-article-max-width)) / 2)) !important;
+}
+
+#english-climber-guide > .guide-shade-strip > p {
+    margin-inline: 0 auto !important;
+}
+
+@media (max-width: 768px) {
+    #english-climber-guide {
+        --guide-page-padding: 20px;
+    }
+
+    #english-climber-guide > :is(.intro-story, .beside-climbing-section, .guide-videos-section) {
+        padding-inline: 0 !important;
+    }
+
+    #english-climber-guide > .guide-crag-strip {
+        width: 100% !important;
+        max-width: none !important;
+        margin-inline: 0 !important;
+        grid-template-columns: minmax(0, 1fr) !important;
+        grid-template-areas: "copy" "media" !important;
+        padding-inline: 20px !important;
+    }
+
+    #english-climber-guide > .guide-crag-strip > div:last-child {
+        grid-area: copy !important;
+        min-width: 0;
+    }
+
+    #english-climber-guide > .guide-crag-strip > .guide-place-media {
+        grid-area: media !important;
+    }
+
+    #english-climber-guide .firstbolt-promo > .article-container > div:last-child {
+        padding-inline: 20px !important;
+    }
+}

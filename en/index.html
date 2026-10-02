@@ -32,7 +32,7 @@
 <link href="../pics/climbing-cyprus-profile.webp" rel="apple-touch-icon" sizes="180x180"/>
 <link href="../pics/climbing-cyprus-profile.webp" rel="shortcut icon" type="image/webp"/>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
-<link href="../style.css?v=20261002-3" rel="stylesheet"/>
+<link href="../style.css?v=20261002-4" rel="stylesheet"/>
 <link href="../homepage-about-override.css?v=1" rel="stylesheet"/>
 <!-- Schema.org Structured Data for SEO -->
 <script type="application/ld+json">
@@ -397,27 +397,16 @@
 <i class="fab fa-instagram"></i> <span data-i18n="instagram-gallery-follow">Follow on Instagram</span>
 </a>
 </div>
-<div class="gallery-grid">
-<div class="gallery-item"><img alt="Young climbers on an outdoor rock route in Cyprus" loading="lazy" src="../pics/Galerry/young-climbers-cyprus-2026-08-31.webp"/></div>
-<div class="gallery-item"><img alt="Yotam climbing an outdoor route in Cyprus" loading="lazy" src="../pics/Galerry/yotam-climbing-cyprus-2026-08-18.webp"/></div>
-<div class="gallery-item"><img alt="Young climber on a rock with an adult nearby in Cyprus" loading="lazy" src="../pics/Galerry/family-climbing-cyprus-2026-08-15.webp"/></div>
-<div class="gallery-item"><img alt="Young climber on the rock at Ineia, Cyprus" loading="lazy" src="../pics/Galerry/ineia-climbing-2026-08-03.webp"/></div>
-<div class="gallery-item"><img alt="Climber ascending a limestone wall with a rope in Cyprus" loading="lazy" src="../pics/Galerry/383171468_10231047035540685_2129185744748872441_n.webp"/></div>
-<div class="gallery-item"><img alt="Outdoor rock climbing on a limestone crag in Cyprus" loading="lazy" src="../pics/Galerry/383216761_10231061055651179_7408318115947374904_n.webp"/></div>
-<div class="gallery-item"><img alt="Climber moving up a Cyprus rock face" loading="lazy" src="../pics/Galerry/405414812_6795232637240360_634890097103050549_n.webp"/></div>
-<div class="gallery-item"><img alt="Climbing outdoors at a Cyprus crag" loading="lazy" src="../pics/Galerry/405417965_6795230937240530_6092536746828395118_n.webp"/></div>
-<div class="gallery-item"><img alt="Rock climber on a limestone route in Cyprus" loading="lazy" src="../pics/Galerry/406028716_10231406169078799_2498563806091426468_n.webp"/></div>
-<div class="gallery-item"><img alt="Climbing route on a Cyprus limestone cliff" loading="lazy" src="../pics/Galerry/480590784_1694830241378567_5374145619110164345_n.webp"/></div>
-<div class="gallery-item"><img alt="Climbers enjoying an outdoor route in Cyprus" loading="lazy" src="../pics/Galerry/506063081_10238094923733485_799602026524901628_n.webp"/></div>
-<div class="gallery-item"><img alt="Rock climbing in the Cyprus countryside" loading="lazy" src="../pics/Galerry/509149417_10237044053582388_1485234483332448183_n.webp"/></div>
-<div class="gallery-item"><img alt="Climber on a natural rock wall in Cyprus" loading="lazy" src="../pics/Galerry/509358029_10237044052422359_4369913308136085832_n.webp"/></div>
-<div class="gallery-item"><img alt="Outdoor climbing on Cyprus limestone" loading="lazy" src="../pics/Galerry/509364336_10237044051982348_357576111589782597_n.webp"/></div>
-<div class="gallery-item"><img alt="Climber ascending a route at a Cyprus crag" loading="lazy" src="../pics/Galerry/515506635_10238094947614082_4694775992980282887_n.webp"/></div>
-<div class="gallery-item"><img alt="Rock climbing experience in Cyprus" loading="lazy" src="../pics/Galerry/518179241_10237959888837697_1889647328429376286_n.webp"/></div>
-<div class="gallery-item"><img alt="Climber reaching for a hold on a Cyprus rock face" loading="lazy" src="../pics/Galerry/518375203_10237959892397786_7112224617848623395_n.webp"/></div>
-<div class="gallery-item"><img alt="Climbing outdoors among Cyprus hills" loading="lazy" src="../pics/Galerry/519406291_10237959892437787_3121438065262061621_n.webp"/></div>
-<div class="gallery-item"><img alt="A day of rock climbing in Cyprus" loading="lazy" src="../pics/Galerry/520872346_10238094939133870_8397076126365857345_n.webp"/></div>
-<div class="gallery-item"><img alt="Climber on a Cyprus outdoor climbing route" loading="lazy" src="../pics/Galerry/525726429_10238166501842893_7775693765797578174_n.webp"/></div>
+<div aria-label="Your moments carousel" class="moments-carousel">
+<div class="moments-carousel-track">
+<div class="moments-reel"><span class="moments-reel-label">REEL</span><iframe src="https://www.youtube.com/embed/Eele4A2vs-g?enablejsapi=1&amp;mute=1&amp;playsinline=1" title="Climbing moments in Cyprus" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+<div class="gallery-item"><img alt="Children climbing outdoors in Cyprus" loading="lazy" src="../pics/Galerry/young-climbers-cyprus-2026-08-31.webp"/></div>
+<div class="gallery-item"><img alt="A family climbing together in Cyprus" loading="lazy" src="../pics/Galerry/family-climbing-cyprus-2026-08-15.webp"/></div>
+<div class="gallery-item"><img alt="An adult climber on a Cyprus rock route" loading="lazy" src="../pics/Galerry/yotam-climbing-cyprus-2026-08-18.webp"/></div>
+<div class="gallery-item"><img alt="A young climber at Ineia" loading="lazy" src="../pics/Galerry/ineia-climbing-2026-08-03.webp"/></div>
+<div class="gallery-item"><img alt="Climbing clients enjoying a Cyprus route" loading="lazy" src="../pics/Galerry/506063081_10238094923733485_799602026524901628_n.webp"/></div>
+</div>
+<button aria-label="Previous moment" class="moments-carousel-button prev" type="button">→</button><button aria-label="Next moment" class="moments-carousel-button next" type="button">←</button>
 </div>
 </div>
 </section>
@@ -774,6 +763,14 @@ document.querySelectorAll('#contact .interest-option').forEach(function (option)
             window.open(whatsappUrl, '_blank');
         }
     </script>
+<script>
+document.querySelectorAll('.moments-carousel').forEach(function (carousel) {
+    const track = carousel.querySelector('.moments-carousel-track');
+    const step = () => track.querySelector('.gallery-item, .moments-reel')?.getBoundingClientRect().width + 16;
+    carousel.querySelector('.moments-carousel-button.prev')?.addEventListener('click', () => track.scrollBy({ left: -step(), behavior: 'smooth' }));
+    carousel.querySelector('.moments-carousel-button.next')?.addEventListener('click', () => track.scrollBy({ left: step(), behavior: 'smooth' }));
+});
+</script>
 <script async src="https://www.instagram.com/embed.js"></script>
 </body>
 </html>

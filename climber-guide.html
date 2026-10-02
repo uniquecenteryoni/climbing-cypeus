@@ -22,7 +22,7 @@
     <link rel="shortcut icon" type="image/webp" href="favicon.webp?v=20260819">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css?v=20260930-1">
+    <link rel="stylesheet" href="style.css?v=20261002-shade-strip-v2">
     <link rel="stylesheet" href="tour-page.css">
     
     <!-- Load translations first -->
@@ -1100,6 +1100,7 @@
     <link rel="alternate" hreflang="he" href="https://climbing-cyprus.com/climber-guide">
     <link rel="alternate" hreflang="en" href="https://climbing-cyprus.com/en/climber-guide">
     <link rel="alternate" hreflang="x-default" href="https://climbing-cyprus.com/climber-guide">
+<link rel="stylesheet" href="/quiz-integration.css?v=20261002-2">
 </head>
 
 <body class="landing-page">
@@ -1115,7 +1116,6 @@
                 <li><a href="/climber-guide" data-i18n="landing-nav-guide">המדריך למטפס</a></li>
                 <li><a href="/#activities" data-i18n="landing-nav-locations">טיפוס צוקים וסנפלינג</a></li>
                 <li><a href="/#gallery" data-i18n="landing-nav-gallery">Instagram</a></li>
-                <li><a href="/#trip-planning" data-i18n="landing-nav-trip-planning">תכנון הטיול</a></li>
                 <li><a href="/#contact" data-i18n="landing-nav-contact">יצירת קשר</a></li>
             </ul>
             <div class="language-switcher">
@@ -1231,8 +1231,8 @@
                     קפריסין מציעה מספר אזורי טיפוס עם מסלולים למטפסים בכל רמות המיומנות. פאפוס מארחת הן את המצוקים הקשים ביותר והן את הפופולריים ביותר באי, חצי האי אקאמס מציע נופים מרהיבים לאורך החוף הצפון-מערבי, מצוקים איכותיים רבים נמצאים לאורך רכס הרי קירניה, הרי טרודוס משתרעים במרכז האי, וקאבו גרקו משקיף על החוף היפה של איה נאפה.
                 </p>
                 <div class="guide-about-climbing-gallery">
-                    <figure><img src="pics/guidebook1.webp" alt="פריסת אזורי הטיפוס באי" loading="lazy"><figcaption data-i18n="guidebook-image-caption-left">פריסת אזורי הטיפוס באי</figcaption></figure>
-                    <figure><img src="pics/guidebook2.webp" alt="פריסת דירוג המסלולים בקפריסין" loading="lazy"><figcaption data-i18n="guidebook-image-caption-right">פריסת דירוג המסלולים בקפריסין</figcaption></figure>
+                    <figure><img src="pics/guidebook1.webp" alt="פריסת דירוג המסלולים בקפריסין" loading="lazy"><figcaption data-i18n="guidebook-image-caption-left">פריסת דירוג המסלולים בקפריסין</figcaption></figure>
+                    <figure><img src="pics/guidebook2.webp" alt="פריסת אזורי הטיפוס באי" loading="lazy"><figcaption data-i18n="guidebook-image-caption-right">פריסת אזורי הטיפוס באי</figcaption></figure>
                 </div>
                 <p data-i18n-html="guidebook-desc-2">
                     האזורים העיקריים מורכבים מסוגים שונים של אבן גיר שהיא קשה ומסיבית (ללא שכבות) בדיאריזוס ואפיסקופי, עשירה בתכונות (כולל טופות) ברכס קירניה, וחדה ומעוטרת בקאבו גרקו. סלעי חצי האי אקאמס, המציעים טיפוס ספורט, טראד ובולדרינג, הם צורה של אבן חול קומפקטית.
@@ -1299,6 +1299,7 @@
                 <p data-i18n="guide-cta-subtitle">הזמינו ציוד טיפוס איכותי או קבלו את הגייד בוק המקיף</p>
             </div>
             <div class="guide-guidebook-cta-actions">
+<a class="cta-button guide-cta-book" href="/#contact">הזמנת הדרכת טיפוס</a>
                 <a href="/equipment#rental" class="cta-button guide-cta-equipment">
                     <i class="fas fa-hiking"></i> <span data-i18n="guide-cta-order-equipment">הזמנת ציוד טיפוס</span>
                 </a>
@@ -1309,22 +1310,12 @@
             </div>
         </div>
 
-        <section class="safety-quiz-strip full-width-strip" aria-labelledby="safety-quiz-strip-title">
-            <div class="safety-quiz-strip-inner">
-                <div class="safety-quiz-strip-copy">
-                    <p class="safety-quiz-kicker" data-i18n="safety-quiz-kicker">CLIMBING CYPRUS · בוחן קצר למטפסים</p>
-                    <h2 id="safety-quiz-strip-title" data-i18n="safety-quiz-title">עד כמה אתה שולט בהקלפות? בחן את עצמך.</h2>
-                    <p data-i18n="safety-quiz-description">בוחן קצר שיעזור לך לבדוק את השליטה שלך בהקלפות ובקבלת החלטות בטיפוס הובלה.</p>
-                    <a class="safety-quiz-cta" href="/safety-quiz?lang=he" data-quiz-link>
-                        <span data-i18n="safety-quiz-cta">התחלת הבוחן</span>
-                        <i class="fas fa-arrow-left" aria-hidden="true"></i>
-                    </a>
-                </div>
-                <div class="safety-quiz-strip-media">
-                    <img src="pics/safety-quiz-yonatan.webp" alt="יונתן מטפס עם חולצת Petzl" loading="lazy">
-                </div>
-            </div>
-        </section>
+<section id="quizzes" class="home-quizzes full-width-strip" aria-labelledby="home-quizzes-title"><div class="container">
+<h2 id="home-quizzes-title">בדקו את הידע שלכם בטיפוס</h2><p>בחנים קצרים על הקלפות ואבטחת מוביל, עם משוב שיעזור לכם לרענן את הידע.</p>
+<div class="home-quiz-grid">
+<article class="home-quiz-card"><a href="/safety-quiz"><img src="/pics/clipping-quiz-square-he.jpg" alt="שליטה בהקלפות" loading="lazy"></a><div><h3>שליטה בהקלפות</h3><p>9 שאלות על ראנרים וקבלת החלטות בהקלפה.</p><a class="home-quiz-button" href="/safety-quiz">התחלת הבוחן</a></div></article>
+<article class="home-quiz-card"><a href="/lead-belaying-quiz/"><img src="/pics/lead-belaying-quiz-he.jpg" alt="אבטחת מוביל" width="1000" height="1000" loading="lazy"></a><div><h3>אבטחת מוביל</h3><p>10 מצבים מאוירים על מיקום המאבטח, ניהול חבל ומרווח לנפילה.</p><a class="home-quiz-button" href="/lead-belaying-quiz/">התחלת הבוחן</a></div></article>
+</div></div></section>
 
         <h2 id="north" data-i18n="guide-north-title">החלק הצפוני של קפריסין</h2>
 
@@ -1377,14 +1368,20 @@
         </div>
 
         <div class="guide-strip guide-shade-strip full-width-strip guide-shade-between-regions">
-            <div class="article-container">
-            <h4 id="shade-calc" style="color: #2c5f2d; margin-top: 0;" data-i18n-html="guide-shade-calc-title"><i class="fas fa-sun"></i> מחשבון שעות צל</h4>
-            <p style="margin-bottom: 1rem;" data-i18n-html="guide-shade-calc-desc">
-                אחד האתגרים בטיפוס בקפריסין הוא החום, במיוחד בקיץ. פיתחתי <a href="https://uniquecenteryoni.github.io/suncalc/calc.html" target="_blank" rel="noopener" style="color: #2c5f2d; font-weight: bold; text-decoration: underline;">מחשבון שעות צל</a> ייעודי שעוזר למטפסים לדעת בדיוק מתי יהיה צל בכל מצוק לפי התאריך והשעה. הכלי זמין בחינם לכל המטפסים ויכול לעזור לכם לתכנן את יום הטיפוס בצורה מושלמת.
-            </p>
-            <a href="https://uniquecenteryoni.github.io/suncalc/calc.html" target="_blank" rel="noopener" class="cta-button" style="background: #2c5f2d; color: white; padding: 0.75rem 1.5rem; text-decoration: none; border-radius: 5px; display: inline-block;" data-i18n-html="guide-shade-calc-button">
-                <i class="fas fa-calculator"></i> לחץ למחשבון שעות הצל
-            </a>
+            <div class="shade-strip-inner">
+            <div class="shade-strip-copy">
+            <p class="shade-strip-kicker"><i class="fas fa-sun" aria-hidden="true"></i> <span>מחשבון שעות צל</span></p>
+            <h4 id="shade-calc"><span>מצאו את הזמן הטוב ביותר לטפס ב</span> <em>צל</em></h4>
+            <p class="shade-strip-description">אחד האתגרים בטיפוס בקפריסין הוא החום, במיוחד בקיץ. מחשבון שעות הצל עוזר למטפסים לתכנן את הזמן הטוב ביותר לביקור בכל מצוק.</p>
+            <a href="https://uniquecenteryoni.github.io/suncalc/calc.html" target="_blank" rel="noopener" class="shade-strip-cta"><i class="fas fa-calculator" aria-hidden="true"></i><span>לפתיחת מחשבון הצל</span><span aria-hidden="true">←</span></a>
+            </div>
+            <div class="shade-strip-visual" aria-label="המחשה של מסלול השמש ושעות הצל לדוגמה">
+            <img src="pics/climberguide/diarizous.webp" alt="מטפס על מצוק בקפריסין" loading="lazy">
+            <div class="shade-strip-image-wash" aria-hidden="true"></div>
+            <svg class="shade-strip-sunpath" viewBox="0 0 620 360" preserveAspectRatio="none" aria-hidden="true"><path d="M62 270 C180 42 424 20 580 196" fill="none" stroke="#f5ad32" stroke-dasharray="9 12" stroke-linecap="round" stroke-width="3"/><circle cx="260" cy="73" fill="#f5ad32" r="17"/><g fill="none" stroke="#f5ad32" stroke-linecap="round" stroke-width="3"><path d="M260 42v-13"/><path d="M260 104v13"/><path d="M229 73h-13"/><path d="M304 73h13"/><path d="m238 51-9-9"/><path d="m282 95 9 9"/><path d="m282 51 9-9"/><path d="m238 95-9 9"/></g><path d="M80 356 L392 124 L620 79 L620 360 Z" fill="#123d3b" opacity=".22"/></svg>
+            <div class="shade-time shade-time-early">08:00</div><div class="shade-time shade-time-noon">12:00</div><div class="shade-time shade-time-late">16:00</div>
+            <div class="shade-strip-note"><i class="fas fa-mountain" aria-hidden="true"></i> חלון הצל שלכם</div>
+            </div>
             </div>
         </div>
 
@@ -1552,11 +1549,6 @@
             </div>
             
             <div class="topo-download-compact">
-                <div class="topo-strip-copy">
-                    <span class="topo-strip-kicker" data-i18n="guide-topo-temp-title"><i class="fas fa-download"></i> טופו בולדרינג לדוגמה — הורדה בחינם</span>
-                    <h3 data-i18n="guide-topo-form-title"><i class="fas fa-file-pdf"></i> הורידו את הטופו החינמי</h3>
-                    <p data-i18n="guide-topo-form-subtitle">השאירו אימייל ונשלח אליכם טופו קצר וחינמי שיעזור לכם להתחיל לתכנן את הסשן.</p>
-                </div>
                 <!-- Topo Download Form -->
                 <div class="topo-form-compact">
                     <form action="https://formspree.io/f/mjkdalap" method="POST" style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
@@ -1566,43 +1558,27 @@
                         <input type="hidden" name="request_type" value="topo_download">
                         <button type="submit" class="cta-button" data-i18n="guide-topo-form-button"
                                 style="background: #2c5f2d; color: white; padding: 0.75rem 1.5rem; border: none; border-radius: 5px; cursor: pointer; font-weight: bold; font-size: 1rem;">
-                            שלח לי את הטופו
+                            שלחו לי את הטופו המקוצר בחינם
                         </button>
                     </form>
                 <p id="topoMessage" style="margin-top: 0.5rem; font-size: 0.9rem; display: none;"></p>
             </div>
 
-            <section class="guide-instagram-profile-strip" aria-labelledby="guide-instagram-profile-title">
-                <div class="guide-instagram-profile-embed">
-                    <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DbVk8muDBu9/" data-instgrm-version="14">
-                        <a href="https://www.instagram.com/p/DbVk8muDBu9/" target="_blank" rel="noopener">View profile on Instagram</a>
-                    </blockquote>
-                </div>
-                <div class="guide-instagram-profile-copy">
-                    <p class="guide-bouldering-kicker">Climbing Cyprus</p>
-                    <h3 id="guide-instagram-profile-title">הדרכות וימי חוויה בקפריסין</h3>
-                    <p>אפשר להצטרף להדרכות טיפוס לקבוצות, לימי חוויה וכיף בטבע, ולבנות יחד יום שמתאים לרמה ולאופי של הקבוצה. אני מתאים את המסלול לקצב שלכם, משלב הסברים מקצועיים, תרגול בטוח וזמן ליהנות מהנוף — גם אם זו הפעם הראשונה שלכם על מצוק.</p>
-                    <a class="guide-instagram-profile-link" href="https://www.instagram.com/p/DbVk8muDBu9/" target="_blank" rel="noopener"><i class="fab fa-instagram"></i> View profile</a>
-                </div>
-            </section>
             </div>
-            
-            <p class="resource-note" data-i18n-html="guide-topo-crashpads">
-                צריכים קראשפדים לבולדרינג? <a href="/equipment#bouldering" style="color: #1976d2; font-weight: bold; text-decoration: underline;">השכירו ציוד בולדרינג איכותי</a> ישירות ממני!
-            </p>
-            <p class="resource-note" data-i18n-html="guide-topo-klook">
-                מחפשים פעילות ליום מנוחה או למשפחה? <a href="https://klook.tp.st/9luqAvsS" target="_blank" rel="nofollow sponsored noopener" style="color: #1976d2; font-weight: bold; text-decoration: underline;">בדקו פעילויות ואטרקציות בקפריסין דרך Klook</a>.
-            </p>
+            <div class="guide-crashpad-strip resource-note" data-i18n-html="guide-topo-crashpads">
+                צריכים קראשפדים לבולדרינג? <a href="/equipment#bouldering">השכירו ציוד בולדרינג איכותי</a> ישירות ממני!
+            </div>
         </section>
-
-        <div class="guide-strip guide-important-strip full-width-strip">
+        <section class="guide-lead-course-strip full-width-strip" aria-labelledby="guide-lead-course-title">
             <div class="article-container">
-            <h3 style="color: #856404; margin-bottom: 1rem;" data-i18n-html="guide-important-title"><i class="fas fa-info-circle"></i> חשוב לדעת</h3>
-            <p style="color: #856404; line-height: 1.8;" data-i18n="guide-important-text">
-                המצוקים שתוארו כאן הם רק חלק קטן מהאפשרויות הקיימות בקפריסין. הטיפוס באי נמצא בפיתוח מתמיד עם מסלולים חדשים שנפתחים באופן קבוע, מצוקים נוספים שמתגלים ואזורים חדשים שמתפתחים. הקהילה המקומית פעילה ונלהבת, והפוטנציאל לטיפוס באי עדיין רחוק מלהתממש במלואו. מומלץ להתעדכן באינטרנט, ליצור קשר עם מטפסים מקומיים ולהצטרף לקבוצות הפייסבוק של קהילת הטיפוס הקפריסאית לקבלת מידע עדכני על פיתוחים חדשים ותנאים.
-        </p>
+                <div class="guide-lead-course-copy">
+                    <p class="guide-lead-course-kicker">קורס טיפוס הובלה</p>
+                    <h3 id="guide-lead-course-title">מוכנים להוביל את הטיפוס הבא שלכם?</h3>
+                    <p>בנו ביטחון, שפרו את מערכות האבטחה ולמדו את הכישורים שיעזרו לכם לטפס באופן עצמאי במצוקים בקפריסין.</p>
+                </div>
+                <a class="guide-lead-course-cta" href="/course-launch/" rel="noopener"><span>לפרטים על הקורס</span><i aria-hidden="true" class="fas fa-arrow-up-right-from-square"></i></a>
             </div>
-        </div>
+        </section>
 
         <div class="guide-strip guide-contact-strip full-width-strip">
             <div class="article-container">
@@ -1620,14 +1596,14 @@
             <p class="beside-climbing-intro" data-i18n="guide-beside-climbing-intro">המלצות למקומות שכיף לעצור בהם לפני הטיפוס, אחריו או ביום מנוחה — קפה, אוכל, ים וטבע.</p>
 
             <div class="guide-instagram-strip instagram-community-strip">
-                <div class="instagram-community-mark" aria-hidden="true"><i class="fab fa-instagram"></i></div>
+                <a class="instagram-community-photo" href="https://www.instagram.com/climbing.cyprus" target="_blank" rel="noopener" aria-label="צפו בפרופיל Climbing Cyprus באינסטגרם"><img src="pics/climberguide/bouldering-user-1.webp" alt="טיפוס בקפריסין מתוך פרופיל האינסטגרם" loading="lazy"></a>
                 <div class="instagram-community-copy">
                     <span class="instagram-community-kicker" data-i18n="instagram-community-kicker">קהילת Climbing Cyprus</span>
                     <h3 data-i18n="guide-instagram-community-title">הצטרפו לקהילה שלנו על הסלע</h3>
                     <p data-i18n="guide-instagram-community-text">עוד רגעים מהשטח, המלצות מקומיות והשראה לטיפוס הבא שלכם.</p>
                 </div>
-                <a class="instagram-community-link" href="https://www.instagram.com/climbing.cyprus" target="_blank" rel="noopener"><i class="fab fa-instagram" aria-hidden="true"></i> <span data-i18n="instagram-community-cta">הצטרפו ועקבו אחרינו</span> <i class="fas fa-arrow-up-right-from-square"></i></a>
-            </div>
+                <a class="instagram-community-link" href="https://www.instagram.com/climbing.cyprus" target="_blank" rel="noopener"><i class="fab fa-instagram" aria-hidden="true"></i> <span data-i18n="instagram-community-cta">צפו בפרופיל</span> <i class="fas fa-arrow-up-right-from-square"></i></a>
+                </div>
 
             <div class="beside-climbing-grid">
                 <div class="beside-category">

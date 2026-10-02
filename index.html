@@ -33,7 +33,7 @@
     <link rel="shortcut icon" type="image/webp" href="pics/climbing-cyprus-profile.webp">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css?v=20260930-6">
+    <link rel="stylesheet" href="style.css?v=20261002-3">
     <link rel="stylesheet" href="homepage-about-override.css?v=1">
     
     <!-- Schema.org Structured Data for SEO -->
@@ -224,9 +224,10 @@
     <link rel="alternate" hreflang="he" href="https://climbing-cyprus.com/">
     <link rel="alternate" hreflang="en" href="https://climbing-cyprus.com/en/">
     <link rel="alternate" hreflang="x-default" href="https://climbing-cyprus.com/">
+<link rel="stylesheet" href="/quiz-integration.css?v=20261002-3">
 </head>
 
-<body class="landing-page">
+<body class="landing-page homepage">
     <!-- Navigation -->
     <nav class="navbar">
         <div class="container">
@@ -239,7 +240,6 @@
                 <li><a href="/climber-guide" data-i18n="landing-nav-guide">המדריך למטפס</a></li>
                 <li><a href="/#activities" data-i18n="landing-nav-locations">טיפוס צוקים וסנפלינג</a></li>
                 <li><a href="#gallery" data-i18n="landing-nav-gallery">Instagram</a></li>
-                <li><a href="#trip-planning" data-i18n="landing-nav-trip-planning">תכנון הטיול</a></li>
                 <li><a href="#contact" data-i18n="landing-nav-contact">יצירת קשר</a></li>
             </ul>
             <div class="language-switcher">
@@ -336,7 +336,7 @@
                         <h3 data-i18n="activity-climbing-title">יום טיפוס צוקים</h3>
                         <p data-i18n="activity-climbing-desc"><strong>למתחילים:</strong> היכרות בטוחה עם עולם הטיפוס דרך טיפוס "טופ רופ".<br><br>
 <strong>למנוסים:</strong> הובלת מסלולים נבחרים עם דגש על שיפור טכניקה והתייעלות בתנועה עם ליווי מקצועי צמוד.</p>
-                        <a href="/activities" class="activity-btn" data-i18n="activity-btn">גלו את החוויה</a>
+                        <a href="/activities" class="activity-btn" data-i18n="activity-btn">גלה</a>
                     </div>
                 </div>
 
@@ -347,9 +347,9 @@
                         </a>
                     </div>
                     <div class="activity-content">
-                        <h3 data-i18n="activity-rappel-title">סנפלינג (גלישת צוקים)</h3>
+                        <h3 data-i18n="activity-rappel-title">סנפלינג</h3>
                         <p data-i18n="activity-rappel-desc">גלישה מאובטחת ממצוקים שונים ברחבי קפריסין. הפעילות מתאימה לכל הגילאים והרמות. ניתן לשלב זאת עם יום טיול הליכה.</p>
-                        <a href="/activities#rappelling" class="activity-btn" data-i18n="activity-btn">גלו את החוויה</a>
+                        <a href="/activities#rappelling" class="activity-btn" data-i18n="activity-btn">גלה</a>
                     </div>
                 </div>
 
@@ -360,7 +360,7 @@
                     <div class="activity-content">
                         <h3 data-i18n="activity-course-title">קורס טיפוס הובלה</h3>
                         <p data-i18n="activity-course-desc">קורס מרוכז ומעשי בן יומיים המיועד למטפסים שרוצים לקחת את הטיפוס צעד אחד קדימה.</p>
-                        <a href="/course-launch/" class="activity-btn" data-i18n="activity-btn">גלו את החוויה</a>
+                        <a href="/course-launch/" class="activity-btn" data-i18n="activity-btn">גלה</a>
                     </div>
                 </div>
 
@@ -371,116 +371,44 @@
                     <div class="activity-content">
                         <h3 data-i18n="activity-equipment-title">השכרת ציוד טיפוס</h3>
                         <p data-i18n="activity-equipment-desc">השכרת ציוד מקצועי לטיפוס - חבלים, רתמות, קסדות, מכשירי אבטחה, ראנרים וקראשפדים. מושלם למטפסים שרוצים לצאת לעצמאות או לתרגל בולדרינג.</p>
-                        <a href="/equipment" class="activity-btn" data-i18n="activity-btn">גלו את החוויה</a>
+                        <a href="/equipment" class="activity-btn" data-i18n="activity-btn">גלה</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="instagram-community-strip" aria-labelledby="instagram-community-title">
-        <div class="instagram-community-mark" aria-hidden="true"><i class="fab fa-instagram"></i></div>
-        <div class="instagram-community-copy">
-            <span class="instagram-community-kicker" data-i18n="instagram-community-kicker">קהילת Climbing Cyprus</span>
-            <h2 id="instagram-community-title" data-i18n="instagram-community-title">החיים על הסלע ממשיכים גם באינסטגרם</h2>
-            <p data-i18n="instagram-community-text">הצטרפו אלינו לרגעים מהשטח, המלצות מקומיות, מסלולים חדשים והשראה ליום הטיפוס הבא שלכם.</p>
-        </div>
-        <a class="instagram-community-link" href="https://www.instagram.com/climbing.cyprus" target="_blank" rel="noopener">
-            <i class="fab fa-instagram" aria-hidden="true"></i>
-            <span data-i18n="instagram-community-cta">הצטרפו ועקבו אחרינו</span>
-            <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i>
-        </a>
-    </section>
+<section class="homepage-instagram-community-strip" aria-labelledby="homepage-instagram-title">
+    <a class="homepage-instagram-photo" href="https://www.instagram.com/climbing.cyprus" target="_blank" rel="noopener" aria-label="צפו בפרופיל Climbing Cyprus באינסטגרם"><img src="pics/climberguide/bouldering-user-1.webp" alt="טיפוס בקפריסין מתוך פרופיל האינסטגרם" loading="lazy"></a>
+    <div class="homepage-instagram-copy">
+        <span class="instagram-community-kicker">CLIMBING CYPRUS COMMUNITY</span>
+        <h3 id="homepage-instagram-title">הצטרפו לקהילת המטפסים שלנו</h3>
+        <p>רגעים מהשטח, המלצות מקומיות והשראה לטיפוס הבא שלכם.</p>
+    </div>
+    <a class="homepage-instagram-link" href="https://www.instagram.com/climbing.cyprus" target="_blank" rel="noopener"><i class="fab fa-instagram" aria-hidden="true"></i> צפו בפרופיל <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+</section>
 
     <!-- Testimonials Section -->
-    <section id="testimonials" class="testimonials">
-        <div class="container">
-            <h2 data-i18n="testimonials-title">לקוחות מספרים</h2>
-            <div class="testimonials-carousel">
-                <button class="carousel-btn prev" aria-label="Previous">→</button>
-<div class="testimonials-container">
-                    <div class="testimonial-card active">
-                        <div class="testimonial-image">
-                            <img src="pics/costumers/customer1.webp" alt="דניאל אלבז">
-                        </div>
-                        <div class="testimonial-content">
-                            <p class="testimonial-quote" data-i18n="testimonial-1-text">"הילדים שלנו (גילאים 8 ו-11) נהנו מאוד! יונתן ידע איך להתאים את הפעילות לגילם, היה סבלני ומקצועי. החוויה הייתה בלתי נשכחת לכל המשפחה!"</p>
-                            <p class="testimonial-author"><strong data-i18n="testimonial-1-name">דניאל אלבז</strong></p>
-                            <p class="testimonial-location" data-i18n="testimonial-1-city">תל אביב</p>
-                        </div>
-                    </div>
-                    
-                    <div class="testimonial-card">
-                        <div class="testimonial-image">
-                            <img src="pics/costumers/customer2.webp" alt="טל הראל">
-                        </div>
-                        <div class="testimonial-content">
-                            <p class="testimonial-quote" data-i18n="testimonial-2-text">"טיול משפחתי מושלם! הילדים שלנו (6, 9, 12) נהנו בטירוף, ויוני הצליח לגרום לכל אחד להרגיש גיבור. אנחנו כבר מתכננים לחזור!"</p>
-                            <p class="testimonial-author"><strong data-i18n="testimonial-2-name">טל הראל</strong></p>
-                            <p class="testimonial-location" data-i18n="testimonial-2-city">ירושלים</p>
-                        </div>
-                    </div>
-                    
-                    <div class="testimonial-card">
-                        <div class="testimonial-image">
-                            <img src="pics/costumers/customer3.webp" alt="מירב שלם">
-                        </div>
-                        <div class="testimonial-content">
-                            <p class="testimonial-quote" data-i18n="testimonial-3-text">"הבן שלי בן ה-10 לא מפסיק לדבר על יום הטיפוס! יונתן היה מדהים, מקצועי וידע בדיוק איך להעביר ביטחון ולאתגר אותו בצורה מתאימה. ממליץ בחום!"</p>
-                            <p class="testimonial-author"><strong data-i18n="testimonial-3-name">מירב שלם</strong></p>
-                            <p class="testimonial-location" data-i18n="testimonial-3-city">חיפה</p>
-                        </div>
-                    </div>
-                    
-                    <div class="testimonial-card">
-                        <div class="testimonial-image">
-                            <img src="pics/costumers/customer4.webp" alt="סיוון חן">
-                        </div>
-                        <div class="testimonial-content">
-                            <p class="testimonial-quote" data-i18n="testimonial-4-text">"בתי בת ה-7 הייתה קצת חוששת בהתחלה, אבל יונתן היה כל כך סבלני ומעודד שבסוף היא לא רצתה לעזוב! תודה על חוויה מדהימה!"</p>
-                            <p class="testimonial-author"><strong data-i18n="testimonial-4-name">סיוון חן</strong></p>
-                            <p class="testimonial-location" data-i18n="testimonial-4-city">באר שבע</p>
-                        </div>
-                    </div>
-                    
-                    <div class="testimonial-card">
-                        <div class="testimonial-image">
-                            <img src="pics/costumers/customer5.webp" alt="אייל שרעבי">
-                        </div>
-                        <div class="testimonial-content">
-                            <p class="testimonial-quote" data-i18n="testimonial-5-text">"הגעתי עם חבורה של חברים וחיפשנו משהו אתגרי ומרגש. יום הטיפוס עם יונתן היה בדיוק מה שחיפשנו! הוא התאים את הקושי לרמה שלנו, היה מקצועי ובעיקר יודע לגרום לכל הקבוצה להרגיש בטוחים ולהנות. חוויה מעולה שנזכור עוד הרבה זמן!"</p>
-                            <p class="testimonial-author"><strong data-i18n="testimonial-5-name">אייל שרעבי</strong></p>
-                            <p class="testimonial-location" data-i18n="testimonial-5-city">נתניה</p>
-                        </div>
-                    </div>
-                    
-                    <div class="testimonial-card">
-                        <div class="testimonial-image">
-                            <img src="pics/costumers/customer6.webp" alt="ירדן כהן">
-                        </div>
-                        <div class="testimonial-content">
-                            <p class="testimonial-quote" data-i18n="testimonial-6-text">"הבנות שלנו (תאומות בנות 11) קיבלו חוויה של פעם בחיים! יונתן מקצועי, ידע איך להעניק להן ביטחון, ויצרנו זיכרונות משפחתיים מדהימים. תודה רבה!"</p>
-                            <p class="testimonial-author"><strong data-i18n="testimonial-6-name">ירדן כהן</strong></p>
-                            <p class="testimonial-location" data-i18n="testimonial-6-city">הרצליה</p>
-                        </div>
-                    </div>
-                    
-                    <div class="testimonial-card">
-                        <div class="testimonial-image">
-                            <img src="pics/costumers/customer7.webp" alt="הראל וייסמן">
-                        </div>
-                        <div class="testimonial-content">
-                            <p class="testimonial-quote" data-i18n="testimonial-7-text">"חוויה מדהימה! טיפוס הצוקים היה מאתגר בדיוק כמו שרציתי. יונתן מקצועי, סבלני ויודע איך להעביר ביטחון. בהחלט אחזור שוב!"</p>
-                            <p class="testimonial-author"><strong data-i18n="testimonial-7-name">הראל וייסמן</strong></p>
-                            <p class="testimonial-location" data-i18n="testimonial-7-city">רעננה</p>
-                        </div>
-                    </div>
-                </div>
-                <button class="carousel-btn next" aria-label="Next">←</button>
+<section id="testimonials" class="guide-google-reviews article-section full-width-strip" aria-labelledby="guide-google-reviews-title">
+            <div class="container">
+            <div class="google-reviews-heading">
+
+                <h3 id="guide-google-reviews-title" data-i18n="guide-google-reviews-title">מה אומרים עלינו בגוגל</h3>
+                <p data-i18n="guide-google-reviews-subtitle">ביקורות אמיתיות של מטפסים שהתנסו ב־Climbing Cyprus.</p>
+                <a class="google-rating-summary" href="https://www.google.com/search?q=climbing+cyprus" target="_blank" rel="noopener"><strong>5.0</strong><span class="google-stars" aria-label="5 out of 5 stars">★★★★★</span><span>13 Google reviews</span></a>
             </div>
-            <div class="carousel-dots"></div>
-        </div>
-    </section>
+
+            <div class="google-reviews-carousel" data-google-reviews-carousel>
+                <button class="google-reviews-arrow prev" type="button" aria-label="Previous Google review">‹</button>
+                <div class="google-reviews-viewport"><div class="google-reviews-track">
+                    <article class="google-review-card is-active"><div class="google-review-top"><span class="google-review-avatar">C</span><div><strong>Christos Kyliakoudis</strong><span>Google</span></div><b class="google-mark" aria-label="Google">G</b></div><div class="google-review-stars" aria-label="5 out of 5 stars">★★★★★ <span>5/5</span></div><p>Excellent Instructor</p><a href="https://www.google.com/search?q=climbing+cyprus" target="_blank" rel="noopener">Read the full review</a></article>
+                    <article class="google-review-card"><div class="google-review-top"><span class="google-review-avatar avatar-pink">S</span><div><strong>stas piatkovsky</strong><span>Google</span></div><b class="google-mark" aria-label="Google">G</b></div><div class="google-review-stars" aria-label="5 out of 5 stars">★★★★★ <span>5/5</span></div><p>We (a couple of parents and 3 boys) did a climb in Cyprus with Jonathan and it was simply excellent. He is professional, patient and gives a sense of security to those of us who are not young without fear. It was fun, challenging and we all really enjoyed it. Highly recommend!</p><a href="https://www.google.com/search?q=climbing+cyprus" target="_blank" rel="noopener">Read the full review</a></article>
+                    <article class="google-review-card"><div class="google-review-top"><span class="google-review-avatar avatar-gold">נ</span><div><strong>נועה ארז</strong><span>Google</span></div><b class="google-mark" aria-label="Google">G</b></div><div class="google-review-stars" aria-label="5 out of 5 stars">★★★★★ <span>5/5</span></div><p>It was an amazing and powerful experience!!! Jonathan is a wonderful guide. We were 3 friends and 3 boys. Climbing the cliff gave us values that we don't get at other attractions. Dealing with difficulty and helping others strengthened the bond between the boys, between the mothers and of course between mother and son. It was a wonderful lesson and an empowering experience. Jonathan is an excellent guide. Highly recommend for an unforgettable experience.</p><a href="https://www.google.com/search?q=climbing+cyprus" target="_blank" rel="noopener">Read the full review</a></article>
+                </div></div>
+                <button class="google-reviews-arrow next" type="button" aria-label="Next Google review">›</button>
+                <div class="google-reviews-dots" role="tablist" aria-label="Google reviews"></div>
+            </div>
+            </div></section>
     <section class="mid-page-cta" aria-labelledby="mid-page-cta-title">
         <div class="container">
             <h2 id="mid-page-cta-title" data-i18n="mid-page-cta-title">מוכנים לתכנן יום טיפוס?</h2>
@@ -489,6 +417,89 @@
         </div>
     </section>
     <!-- Tours Section -->
+<section id="gallery" class="gallery">
+        <div class="container">
+            <h2 data-i18n="gallery-title">רגעים שלכם</h2>
+            <div class="instagram-gallery-widget instagram-gallery-follow-only">
+                <a href="https://www.instagram.com/climbing.cyprus" target="_blank" rel="noopener" class="instagram-gallery-follow">
+                    <i class="fab fa-instagram"></i> <span data-i18n="instagram-gallery-follow">לעקוב באינסטגרם</span>
+                </a>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item"><img src="pics/Galerry/young-climbers-cyprus-2026-08-31.webp" alt="ילדה מטפסת על מצוק גיר בקפריסין" loading="lazy"></div>
+                <div class="gallery-item"><img src="pics/Galerry/yotam-climbing-cyprus-2026-08-18.webp" alt="מטפס מתקדם במסלול סלע בקפריסין" loading="lazy"></div>
+                <div class="gallery-item"><img src="pics/Galerry/family-climbing-cyprus-2026-08-15.webp" alt="מטפסים מטפסים יחד על מצוק בקפריסין" loading="lazy"></div>
+                <div class="gallery-item"><img src="pics/Galerry/ineia-climbing-2026-08-03.webp" alt="מטפסת צעירה על מצוק באיניה, קפריסין" loading="lazy"></div>
+                <div class="gallery-item"><img src="pics/Galerry/383171468_10231047035540685_2129185744748872441_n.webp" alt="מטפס עולה על קיר גיר עם חבל בקפריסין" loading="lazy"></div>
+                <div class="gallery-item"><img src="pics/Galerry/383216761_10231061055651179_7408318115947374904_n.webp" alt="טיפוס צוקים במצוק גיר טבעי בקפריסין" loading="lazy"></div>
+                <div class="gallery-item"><img src="pics/Galerry/405414812_6795232637240360_634890097103050549_n.webp" alt="מטפס מתקדם על קיר סלע בקפריסין" loading="lazy"></div>
+                <div class="gallery-item"><img src="pics/Galerry/405417965_6795230937240530_6092536746828395118_n.webp" alt="טיפוס צוקים במצוק בקפריסין" loading="lazy"></div>
+                <div class="gallery-item"><img src="pics/Galerry/406028716_10231406169078799_2498563806091426468_n.webp" alt="מטפס במסלול על סלע גיר בקפריסין" loading="lazy"></div>
+                <div class="gallery-item"><img src="pics/Galerry/480590784_1694830241378567_5374145619110164345_n.webp" alt="מסלול טיפוס על מצוק גיר בקפריסין" loading="lazy"></div>
+                <div class="gallery-item"><img src="pics/Galerry/506063081_10238094923733485_799602026524901628_n.webp" alt="מטפסים במסלול טיפוס צוקים בקפריסין" loading="lazy"></div>
+                <div class="gallery-item"><img src="pics/Galerry/509149417_10237044053582388_1485234483332448183_n.webp" alt="טיפוס צוקים בנוף הכפרי של קפריסין" loading="lazy"></div>
+                <div class="gallery-item"><img src="pics/Galerry/509358029_10237044052422359_4369913308136085832_n.webp" alt="מטפס על קיר סלע טבעי בקפריסין" loading="lazy"></div>
+                <div class="gallery-item"><img src="pics/Galerry/509364336_10237044051982348_357576111589782597_n.webp" alt="טיפוס על סלעי הגיר של קפריסין" loading="lazy"></div>
+                <div class="gallery-item"><img src="pics/Galerry/515506635_10238094947614082_4694775992980282887_n.webp" alt="מטפס מתקדם במסלול במצוק בקפריסין" loading="lazy"></div>
+                <div class="gallery-item"><img src="pics/Galerry/518179241_10237959888837697_1889647328429376286_n.webp" alt="חוויית טיפוס צוקים בקפריסין" loading="lazy"></div>
+                <div class="gallery-item"><img src="pics/Galerry/518375203_10237959892397786_7112224617848623395_n.webp" alt="מטפס מושיט יד לאחיזה בקיר סלע בקפריסין" loading="lazy"></div>
+                <div class="gallery-item"><img src="pics/Galerry/519406291_10237959892437787_3121438065262061621_n.webp" alt="טיפוס צוקים בנוף ההררי של קפריסין" loading="lazy"></div>
+                <div class="gallery-item"><img src="pics/Galerry/520872346_10238094939133870_8397076126365857345_n.webp" alt="יום טיפוס צוקים בקפריסין" loading="lazy"></div>
+                <div class="gallery-item"><img src="pics/Galerry/525726429_10238166501842893_7775693765797578174_n.webp" alt="מטפס במסלול טיפוס חיצוני בקפריסין" loading="lazy"></div>
+            </div>
+        </div>
+    </section>
+<section id="quizzes" class="home-quizzes" aria-labelledby="home-quizzes-title"><div class="container">
+<h2 id="home-quizzes-title">בדקו את הידע שלכם בטיפוס</h2><p>בחנים קצרים על הקלפות ואבטחת מוביל, עם משוב שיעזור לכם לרענן את הידע.</p>
+<div class="home-quiz-grid">
+<article class="home-quiz-card"><a href="/safety-quiz"><img src="/pics/clipping-quiz-square-he.jpg" alt="שליטה בהקלפות" loading="lazy"></a><div><h3>שליטה בהקלפות</h3><p>9 שאלות על ראנרים וקבלת החלטות בהקלפה.</p><a class="home-quiz-button" href="/safety-quiz">התחלת הבוחן</a></div></article>
+<article class="home-quiz-card"><a href="/lead-belaying-quiz/"><img src="/pics/lead-belaying-quiz-he.jpg" alt="אבטחת מוביל" width="1000" height="1000" loading="lazy"></a><div><h3>אבטחת מוביל</h3><p>10 מצבים מאוירים על מיקום המאבטח, ניהול חבל ומרווח לנפילה.</p><a class="home-quiz-button" href="/lead-belaying-quiz/">התחלת הבוחן</a></div></article>
+</div><a class="home-quiz-guide" href="/climber-guide">המדריך למטפס</a></div></section>
+
+    <!-- Trip Planning Section -->
+    <section id="trip-planning" class="trip-planning">
+        <div class="container">
+            <div class="trip-planning-header">
+                <p class="section-kicker" data-i18n="trip-planning-kicker">תכנון הטיול</p>
+                <h2 data-i18n="trip-planning-title">מתכננים את הטיול לקפריסין?</h2>
+                <p data-i18n="trip-planning-intro">כל מה שצריך סביב יום הטיפוס — מקום לינה, השכרת רכב, הסעה משדה התעופה ורעיונות לימי המנוחה.</p>
+            </div>
+
+            <div class="trip-planning-grid">
+                <a href="https://www.booking.com/searchresults.html?ss=Cyprus" target="_blank" rel="nofollow sponsored noopener" class="trip-planning-card" data-affiliate-service="booking">
+                    <span class="trip-planning-icon"><i class="fas fa-bed"></i></span>
+                    <h3 data-i18n="trip-planning-hotels-title">לינה ליד המצוקים</h3>
+                    <p data-i18n="trip-planning-hotels-desc">מלונות, דירות ואירוח ליד פאפוס ואזורי הטיפוס.</p>
+                    <span class="trip-planning-link" data-i18n="trip-planning-hotels-cta">מצאו מקום לינה ←</span>
+                </a>
+
+                <a href="https://getrentacar.tp.st/FD6yLXgf" target="_blank" rel="nofollow sponsored noopener" class="trip-planning-card" data-affiliate-service="cars">
+                    <span class="trip-planning-icon"><i class="fas fa-car"></i></span>
+                    <h3 data-i18n="trip-planning-cars-title">השכרת רכב</h3>
+                    <p data-i18n="trip-planning-cars-desc">הדרך הנוחה ביותר להגיע למצוקים, כפרים ומסלולי טבע ברחבי קפריסין.</p>
+                    <span class="trip-planning-link" data-i18n="trip-planning-cars-cta">השוו רכבים ←</span>
+                </a>
+
+                <a href="https://kiwitaxi.tp.st/8Xvx72mG" target="_blank" rel="nofollow sponsored noopener" class="trip-planning-card" data-affiliate-service="transfers">
+                    <span class="trip-planning-icon"><i class="fas fa-shuttle-van"></i></span>
+                    <h3 data-i18n="trip-planning-transfers-title">הסעה משדה התעופה</h3>
+                    <p data-i18n="trip-planning-transfers-desc">דרך פשוטה להגיע משדה התעופה למקום הלינה ולהתחיל את הטיול בנחת.</p>
+                    <span class="trip-planning-link" data-i18n="trip-planning-transfers-cta">בדקו הסעות ←</span>
+                </a>
+
+                <a href="https://www.getyourguide.com/cyprus-l169003/" target="_blank" rel="nofollow sponsored noopener" class="trip-planning-card" data-affiliate-service="activities">
+                    <span class="trip-planning-icon"><i class="fas fa-map-signs"></i></span>
+                    <h3 data-i18n="trip-planning-attractions-title">גלו את קפריסין</h3>
+                    <p data-i18n="trip-planning-attractions-desc">חופים, טיולי הליכה, כפרים ורעיונות לימי המנוחה שבין סשני הטיפוס.</p>
+                    <span class="trip-planning-link" data-i18n="trip-planning-attractions-cta">גלו רעיונות ←</span>
+                </a>
+            </div>
+
+            <p class="affiliate-disclosure" data-i18n="trip-planning-disclosure">חלק מהקישורים הם קישורי שותפים. המחיר עבורכם נשאר זהה, והם עוזרים לתמוך ב־Climbing Cyprus.</p>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
     <section id="tours" class="tours">
         <div class="container">
             <h2 data-i18n="tours-title">מסלולי טיול מוצעים</h2>
@@ -575,83 +586,6 @@
         </div>
     </section>
 
-    <!-- Trip Planning Section -->
-    <section id="trip-planning" class="trip-planning">
-        <div class="container">
-            <div class="trip-planning-header">
-                <span class="section-kicker" data-i18n="trip-planning-kicker">שירותים משלימים</span>
-                <h2 data-i18n="trip-planning-title">מתכננים את הטיול לקפריסין?</h2>
-                <p data-i18n="trip-planning-intro">אספתי כאן את הדברים שבדרך כלל צריך לסגור סביב יום טיפוס או סנפלינג: מקום לינה, רכב, הסעה מהשדה ואטרקציות לימים שלפני או אחרי.</p>
-            </div>
-
-            <div class="trip-planning-grid">
-                <a href="https://www.booking.com/searchresults.html?ss=Cyprus" target="_blank" rel="nofollow sponsored noopener" class="trip-planning-card" data-affiliate-service="booking">
-                    <span class="trip-planning-icon"><i class="fas fa-bed"></i></span>
-                    <h3 data-i18n="trip-planning-hotels-title">לינה בקפריסין</h3>
-                    <p data-i18n="trip-planning-hotels-desc">מלונות, דירות ואירוח ליד אזורי הטיפוס והטיול.</p>
-                    <span class="trip-planning-link" data-i18n="trip-planning-hotels-cta">חיפוש לינה</span>
-                </a>
-
-                <a href="https://getrentacar.tp.st/FD6yLXgf" target="_blank" rel="nofollow sponsored noopener" class="trip-planning-card" data-affiliate-service="cars">
-                    <span class="trip-planning-icon"><i class="fas fa-car"></i></span>
-                    <h3 data-i18n="trip-planning-cars-title">השכרת רכב</h3>
-                    <p data-i18n="trip-planning-cars-desc">רכב הוא הדרך הנוחה ביותר להגיע למצוקים, כפרים ומסלולי טבע.</p>
-                    <span class="trip-planning-link" data-i18n="trip-planning-cars-cta">השוואת רכבים</span>
-                </a>
-
-                <a href="https://kiwitaxi.tp.st/8Xvx72mG" target="_blank" rel="nofollow sponsored noopener" class="trip-planning-card" data-affiliate-service="transfers">
-                    <span class="trip-planning-icon"><i class="fas fa-shuttle-van"></i></span>
-                    <h3 data-i18n="trip-planning-transfers-title">הסעה משדה התעופה</h3>
-                    <p data-i18n="trip-planning-transfers-desc">מתאים למי שמעדיף להגיע רגוע למלון לפני הפעילות.</p>
-                    <span class="trip-planning-link" data-i18n="trip-planning-transfers-cta">בדיקת הסעות</span>
-                </a>
-
-                <a href="https://www.getyourguide.com/cyprus-l169003/" target="_blank" rel="nofollow sponsored noopener" class="trip-planning-card" data-affiliate-service="activities">
-                    <span class="trip-planning-icon"><i class="fas fa-map-signs"></i></span>
-                    <h3 data-i18n="trip-planning-attractions-title">אטרקציות נוספות</h3>
-                    <p data-i18n="trip-planning-attractions-desc">רעיונות לימים חופשיים, משפחות ומי שנשאר עוד קצת באי.</p>
-                    <span class="trip-planning-link" data-i18n="trip-planning-attractions-cta">לראות אפשרויות</span>
-                </a>
-            </div>
-
-            <p class="affiliate-disclosure" data-i18n="trip-planning-disclosure">חלק מהקישורים עשויים להיות קישורי שותפים. המחיר עבורכם נשאר זהה, ובמקרים מסוימים האתר מקבל עמלה קטנה שעוזרת להמשיך ליצור תוכן והמלצות.</p>
-        </div>
-    </section>
-
-    <!-- Gallery Section -->
-    <section id="gallery" class="gallery">
-        <div class="container">
-            <h2 data-i18n="gallery-title">רגעים שלכם</h2>
-            <div class="instagram-gallery-widget instagram-gallery-follow-only">
-                <a href="https://www.instagram.com/climbing.cyprus" target="_blank" rel="noopener" class="instagram-gallery-follow">
-                    <i class="fab fa-instagram"></i> <span data-i18n="instagram-gallery-follow">לעקוב באינסטגרם</span>
-                </a>
-            </div>
-            <div class="gallery-grid">
-                <div class="gallery-item"><img src="pics/Galerry/young-climbers-cyprus-2026-08-31.webp" alt="ילדה מטפסת על מצוק גיר בקפריסין" loading="lazy"></div>
-                <div class="gallery-item"><img src="pics/Galerry/yotam-climbing-cyprus-2026-08-18.webp" alt="מטפס מתקדם במסלול סלע בקפריסין" loading="lazy"></div>
-                <div class="gallery-item"><img src="pics/Galerry/family-climbing-cyprus-2026-08-15.webp" alt="מטפסים מטפסים יחד על מצוק בקפריסין" loading="lazy"></div>
-                <div class="gallery-item"><img src="pics/Galerry/ineia-climbing-2026-08-03.webp" alt="מטפסת צעירה על מצוק באיניה, קפריסין" loading="lazy"></div>
-                <div class="gallery-item"><img src="pics/Galerry/383171468_10231047035540685_2129185744748872441_n.webp" alt="מטפס עולה על קיר גיר עם חבל בקפריסין" loading="lazy"></div>
-                <div class="gallery-item"><img src="pics/Galerry/383216761_10231061055651179_7408318115947374904_n.webp" alt="טיפוס צוקים במצוק גיר טבעי בקפריסין" loading="lazy"></div>
-                <div class="gallery-item"><img src="pics/Galerry/405414812_6795232637240360_634890097103050549_n.webp" alt="מטפס מתקדם על קיר סלע בקפריסין" loading="lazy"></div>
-                <div class="gallery-item"><img src="pics/Galerry/405417965_6795230937240530_6092536746828395118_n.webp" alt="טיפוס צוקים במצוק בקפריסין" loading="lazy"></div>
-                <div class="gallery-item"><img src="pics/Galerry/406028716_10231406169078799_2498563806091426468_n.webp" alt="מטפס במסלול על סלע גיר בקפריסין" loading="lazy"></div>
-                <div class="gallery-item"><img src="pics/Galerry/480590784_1694830241378567_5374145619110164345_n.webp" alt="מסלול טיפוס על מצוק גיר בקפריסין" loading="lazy"></div>
-                <div class="gallery-item"><img src="pics/Galerry/506063081_10238094923733485_799602026524901628_n.webp" alt="מטפסים במסלול טיפוס צוקים בקפריסין" loading="lazy"></div>
-                <div class="gallery-item"><img src="pics/Galerry/509149417_10237044053582388_1485234483332448183_n.webp" alt="טיפוס צוקים בנוף הכפרי של קפריסין" loading="lazy"></div>
-                <div class="gallery-item"><img src="pics/Galerry/509358029_10237044052422359_4369913308136085832_n.webp" alt="מטפס על קיר סלע טבעי בקפריסין" loading="lazy"></div>
-                <div class="gallery-item"><img src="pics/Galerry/509364336_10237044051982348_357576111589782597_n.webp" alt="טיפוס על סלעי הגיר של קפריסין" loading="lazy"></div>
-                <div class="gallery-item"><img src="pics/Galerry/515506635_10238094947614082_4694775992980282887_n.webp" alt="מטפס מתקדם במסלול במצוק בקפריסין" loading="lazy"></div>
-                <div class="gallery-item"><img src="pics/Galerry/518179241_10237959888837697_1889647328429376286_n.webp" alt="חוויית טיפוס צוקים בקפריסין" loading="lazy"></div>
-                <div class="gallery-item"><img src="pics/Galerry/518375203_10237959892397786_7112224617848623395_n.webp" alt="מטפס מושיט יד לאחיזה בקיר סלע בקפריסין" loading="lazy"></div>
-                <div class="gallery-item"><img src="pics/Galerry/519406291_10237959892437787_3121438065262061621_n.webp" alt="טיפוס צוקים בנוף ההררי של קפריסין" loading="lazy"></div>
-                <div class="gallery-item"><img src="pics/Galerry/520872346_10238094939133870_8397076126365857345_n.webp" alt="יום טיפוס צוקים בקפריסין" loading="lazy"></div>
-                <div class="gallery-item"><img src="pics/Galerry/525726429_10238166501842893_7775693765797578174_n.webp" alt="מטפס במסלול טיפוס חיצוני בקפריסין" loading="lazy"></div>
-            </div>
-        </div>
-    </section>
-
     <!-- Lightbox Modal -->
     <div id="lightbox" class="lightbox">
         <button class="lightbox-close">&times;</button>
@@ -676,7 +610,6 @@
             <div class="contact-story">
                 <div class="contact-story-media" aria-hidden="true"></div>
                 <div class="contact-story-content">
-                    <p class="contact-eyebrow">צור קשר</p>
                     <h2>מוכנים להרפתקת<br>הטיפוס הבאה<br>בקפריסין?<span class="contact-underline" aria-hidden="true"></span></h2>
                     <p class="contact-intro">ספרו לי מה אתם מחפשים ואעזור לכם לתכנן את יום הטיפוס, הקורס או הטיול המתאים לכם.</p>
                     <div class="contact-highlights">
@@ -894,5 +827,6 @@
             window.open(whatsappUrl, '_blank');
         }
     </script>
+<script async src="https://www.instagram.com/embed.js"></script>
 </body>
 </html>

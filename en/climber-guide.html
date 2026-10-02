@@ -21,7 +21,7 @@
 <link href="../favicon.webp?v=20260819" rel="apple-touch-icon" sizes="512x512"/>
 <link href="../favicon.webp?v=20260819" rel="shortcut icon" type="image/webp"/>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
-<link href="../style.css?v=20260930-1" rel="stylesheet"/>
+<link href="../style.css?v=20261002-shade-strip-v2" rel="stylesheet"/>
 <link href="../tour-page.css" rel="stylesheet"/>
 <!-- Load translations first -->
 <script src="../translations.js?v=20260929-2"></script>
@@ -1096,6 +1096,7 @@
 <link href="https://climbing-cyprus.com/en/climber-guide" hreflang="en" rel="alternate"/>
 <link href="https://climbing-cyprus.com/climber-guide" hreflang="x-default" rel="alternate"/>
 <link href="climber-guide-reading.css?v=20260930" rel="stylesheet"/>
+<link rel="stylesheet" href="/quiz-integration.css?v=20261002-2">
 </head>
 <body class="landing-page">
 <!-- Navigation -->
@@ -1110,7 +1111,6 @@
 <li><a data-i18n="landing-nav-guide" href="/en/climber-guide">CLIMBER'S GUIDE</a></li>
 <li><a data-i18n="landing-nav-locations" href="/en/#activities">ACTIVITIES</a></li>
 <li><a data-i18n="landing-nav-gallery" href="/en/#gallery">Photos</a></li>
-<li><a data-i18n="landing-nav-trip-planning" href="/en/#trip-planning">TRIP PLANNING</a></li>
 <li><a data-i18n="landing-nav-contact" href="/en/#contact">CONTACT</a></li>
 </ul>
 <div class="language-switcher">
@@ -1197,8 +1197,8 @@
 <h2 data-i18n="guide-about-climbing-title" id="guide-about-climbing-title">About Climbing</h2>
 <p data-i18n-html="guidebook-desc-1">Cyprus offers several climbing areas with routes for climbers of all skill levels. Paphos hosts both the hardest and the most popular crags on the island, the Akamas Peninsula has stunning views across the northwest coast, many high-quality crags are found throughout the Kyrenia mountain range, the Troodos Mountains span the centre of the island, and Cavo Greco overlooks the beautiful coast of Agia Napa.</p>
 <div class="guide-about-climbing-gallery">
-<figure><img alt="Map of climbing areas on the island" loading="lazy" src="../pics/guidebook1.webp"/><figcaption data-i18n="guidebook-image-caption-left">Climbing areas across the island</figcaption></figure>
-<figure><img alt="Map of climbing grades in Cyprus" loading="lazy" src="../pics/guidebook2.webp"/><figcaption data-i18n="guidebook-image-caption-right">Route grade distribution in Cyprus</figcaption></figure>
+<figure><img alt="Map of climbing grades in Cyprus" loading="lazy" src="../pics/guidebook1.webp"/><figcaption data-i18n="guidebook-image-caption-left">Route grade distribution in Cyprus</figcaption></figure>
+<figure><img alt="Map of climbing areas on the island" loading="lazy" src="../pics/guidebook2.webp"/><figcaption data-i18n="guidebook-image-caption-right">Climbing areas across the island</figcaption></figure>
 </div>
 <p data-i18n-html="guidebook-desc-2">The main areas consist of various types of <a href="https://en.wikipedia.org/wiki/Limestone" rel="noopener" target="_blank">limestone</a> that are hard and massive (lacking in layers) in Dhiarizos and Episkopi, highly featured (including <a href="https://en.wikipedia.org/wiki/Tufa" rel="noopener" target="_blank">tufas</a>) in the Kyrenia range, and sharp and featured in Cavo Greco. The Akamas peninsula rocks, which offer sport, trad, and bouldering, are a form of compact <a href="https://en.wikipedia.org/wiki/Sandstone" rel="noopener" target="_blank">sandstone</a>.</p>
 <p data-i18n="guidebook-desc-3">All these sectors provide sport climbing from the low 5s to around 8b+/8c, with many projects still open, and with over 600 routes across more than 20 sectors, Cyprus is a great destination for climbers of every level.</p>
@@ -1243,6 +1243,7 @@
 <p data-i18n="guide-cta-subtitle">Order quality climbing gear or get the comprehensive guidebook</p>
 </div>
 <div class="guide-guidebook-cta-actions">
+<a class="cta-button guide-cta-book" href="/en/#contact">Book a climbing session</a>
 <a class="cta-button guide-cta-equipment" href="/en/equipment#rental">
 <i class="fas fa-hiking"></i> <span data-i18n="guide-cta-order-equipment">Order climbing equipment</span>
 </a>
@@ -1252,22 +1253,12 @@
 </div>
 </div>
 </div>
-<section aria-labelledby="safety-quiz-strip-title" class="safety-quiz-strip full-width-strip">
-<div class="safety-quiz-strip-inner">
-<div class="safety-quiz-strip-copy">
-<p class="safety-quiz-kicker" data-i18n="safety-quiz-kicker">CLIMBING CYPRUS · A short climber quiz</p>
-<h2 data-i18n="safety-quiz-title" id="safety-quiz-strip-title">How well do you control your clipping? Test yourself.</h2>
-<p data-i18n="safety-quiz-description">A short quiz to check your clipping skills and lead-climbing decisions.</p>
-<a class="safety-quiz-cta" data-quiz-link="" href="/en/safety-quiz?lang=he">
-<span data-i18n="safety-quiz-cta">Start the quiz</span>
-<i aria-hidden="true" class="fas fa-arrow-left"></i>
-</a>
-</div>
-<div class="safety-quiz-strip-media">
-<img alt="Yonatan climbing in a Petzl shirt" loading="lazy" src="../pics/safety-quiz-yonatan.webp"/>
-</div>
-</div>
-</section>
+<section id="quizzes" class="home-quizzes full-width-strip" aria-labelledby="home-quizzes-title"><div class="container">
+<h2 id="home-quizzes-title">Test your climbing knowledge</h2><p>Short quizzes on clipping and lead belaying, with feedback to help you review.</p>
+<div class="home-quiz-grid">
+<article class="home-quiz-card"><a href="/en/safety-quiz"><img src="/pics/clipping-quiz-square-en.jpg" alt="Clipping skills" loading="lazy"></a><div><h3>Clipping skills</h3><p>9 questions on quickdraws and clipping decisions.</p><a class="home-quiz-button" href="/en/safety-quiz">Start the quiz</a></div></article>
+<article class="home-quiz-card"><a href="/lead-belaying-quiz/?lang=en"><img src="/pics/lead-belaying-quiz-en.jpg" alt="Lead belaying" width="1000" height="1000" loading="lazy"></a><div><h3>Lead belaying</h3><p>10 illustrated situations on positioning, rope management and fall clearance.</p><a class="home-quiz-button" href="/lead-belaying-quiz/?lang=en">Start the quiz</a></div></article>
+</div></div></section>
 <h2 data-i18n="guide-north-title" id="north">North Cyprus</h2>
 <p data-i18n="guide-north-intro-p1">First, to cross to this part you need to cross a border and show passports. Not a complicated process but can take half an hour if there's traffic at the checkpoint. The local currency there is Turkish Lira, but they obviously also accept euros.</p>
 <p data-i18n="guide-north-intro-p2">The clear disadvantage for tourists is that crossing with a rental car from the Cyprus side to the Turkish side is not such a simple/worthwhile matter, so finding local climbers and joining them will be an excellent option. What's certain is that you mustn't miss these crags!</p>
@@ -1304,10 +1295,25 @@
 <div><h3 data-i18n="guide-north-goat-title">1. Goat House</h3><p data-i18n="guide-north-goat-desc">Probably the best crag in the north. Located in the Kyrenia Mountains, it offers quality sport climbing on technical rock, varied grades, and panoramic views. The easy approach crosses open countryside, making it ideal for a full day of climbing in spring or autumn.</p><span class="guide-place-tags">Outdoor · Full day</span></div>
 </div>
 <div class="guide-strip guide-shade-strip full-width-strip guide-shade-between-regions">
-<div class="article-container">
-<h4 data-i18n-html="guide-shade-calc-title" id="shade-calc" style="color: #2c5f2d; margin-top: 0;"><i class="fas fa-sun"></i> Shade Hours Calculator</h4>
-<p data-i18n-html="guide-shade-calc-desc" style="margin-bottom: 1rem;">Heat is one of the challenges of climbing in Cyprus, especially in summer. This dedicated <a href="https://uniquecenteryoni.github.io/suncalc/calc.html" rel="noopener" style="color: #2c5f2d; font-weight: bold; text-decoration: underline;" target="_blank">shade hours calculator</a> helps climbers plan the best time to visit each crag.</p>
-<a class="cta-button" data-i18n-html="guide-shade-calc-button" href="https://uniquecenteryoni.github.io/suncalc/calc.html" rel="noopener" style="background: #2c5f2d; color: white; padding: 0.75rem 1.5rem; text-decoration: none; border-radius: 5px; display: inline-block;" target="_blank"><i class="fas fa-calculator"></i> Open the shade calculator</a>
+<div class="shade-strip-inner">
+<div class="shade-strip-copy">
+<p class="shade-strip-kicker"><i class="fas fa-sun" aria-hidden="true"></i> <span>SHADE HOURS CALCULATOR</span></p>
+<h4 id="shade-calc"><span>Find the best time to climb in the</span> <em>shade</em></h4>
+<p class="shade-strip-description">Heat is one of the challenges of climbing in Cyprus, especially in summer. This dedicated shade hours calculator helps climbers plan the best time to visit each crag.</p>
+<a class="shade-strip-cta" href="https://uniquecenteryoni.github.io/suncalc/calc.html" rel="noopener" target="_blank"><i class="fas fa-calculator" aria-hidden="true"></i><span>OPEN THE SHADE CALCULATOR</span><span aria-hidden="true">→</span></a>
+</div>
+<div class="shade-strip-visual" aria-label="Illustration showing the sun path and example shade times">
+<img alt="Climber on a Cyprus crag" loading="lazy" src="../pics/climberguide/diarizous.webp"/>
+<div class="shade-strip-image-wash" aria-hidden="true"></div>
+<svg class="shade-strip-sunpath" viewBox="0 0 620 360" preserveAspectRatio="none" aria-hidden="true">
+<path d="M62 270 C180 42 424 20 580 196" fill="none" stroke="#f5ad32" stroke-dasharray="9 12" stroke-linecap="round" stroke-width="3"/>
+<circle cx="260" cy="73" fill="#f5ad32" r="17"/>
+<g fill="none" stroke="#f5ad32" stroke-linecap="round" stroke-width="3"><path d="M260 42v-13"/><path d="M260 104v13"/><path d="M229 73h-13"/><path d="M304 73h13"/><path d="m238 51-9-9"/><path d="m282 95 9 9"/><path d="m282 51 9-9"/><path d="m238 95-9 9"/></g>
+<path d="M80 356 L392 124 L620 79 L620 360 Z" fill="#123d3b" opacity=".22"/>
+</svg>
+<div class="shade-time shade-time-early">08:00</div><div class="shade-time shade-time-noon">12:00</div><div class="shade-time shade-time-late">16:00</div>
+<div class="shade-strip-note"><i class="fas fa-mountain" aria-hidden="true"></i> FIND YOUR SHADE WINDOW</div>
+</div>
 </div>
 </div>
 <h2 data-i18n="guide-south-title" id="south">South Cyprus</h2>
@@ -1442,44 +1448,29 @@
 </div>
 </div>
 <div class="topo-download-compact">
-<div class="topo-strip-copy">
-<span class="topo-strip-kicker" data-i18n="guide-topo-temp-title"><i class="fas fa-download"></i> Temporary bouldering topo - free download</span>
-<h3 data-i18n="guide-topo-form-title"><i class="fas fa-file-pdf"></i> Download the free bouldering topo</h3>
-<p data-i18n="guide-topo-form-subtitle">Leave your email and we will send you a concise free topo to help you plan your session.</p>
-</div>
 <!-- Topo Download Form -->
 <div class="topo-form-compact">
 <form action="https://formspree.io/f/mjkdalap" method="POST" style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
 <input name="email" placeholder="Your email address" aria-label="Your email address" required="" style="flex: 1; min-width: 200px; padding: 0.75rem; border: 1px solid #d7ddd2; border-radius: 5px; font-family: inherit; font-size: 1rem;" type="email"/>
 <input name="_subject" type="hidden" value="Bouldering topo request"/>
 <input name="request_type" type="hidden" value="topo_download"/>
-<button class="cta-button" data-i18n="guide-topo-form-button" style="background: #2c5f2d; color: white; padding: 0.75rem 1.5rem; border: none; border-radius: 5px; cursor: pointer; font-weight: bold; font-size: 1rem;" type="submit">Send me the topo</button>
+<button class="cta-button" data-i18n="guide-topo-form-button" style="background: #2c5f2d; color: white; padding: 0.75rem 1.5rem; border: none; border-radius: 5px; cursor: pointer; font-weight: bold; font-size: 1rem;" type="submit">Send me the free mini topo</button>
 </form>
 <p id="topoMessage" style="margin-top: 0.5rem; font-size: 0.9rem; display: none;"></p>
 </div>
-<section aria-labelledby="guide-instagram-profile-title" class="guide-instagram-profile-strip">
-<div class="guide-instagram-profile-embed">
-<blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DbVk8muDBu9/" data-instgrm-version="14">
-<a href="https://www.instagram.com/p/DbVk8muDBu9/" rel="noopener" target="_blank">View profile on Instagram</a>
-</blockquote>
 </div>
-<div class="guide-instagram-profile-copy">
-<p class="guide-bouldering-kicker">Climbing Cyprus</p>
-<h3 id="guide-instagram-profile-title">Guided climbing days and experiences in Cyprus</h3>
-<p>Join group climbing instruction, fun days in nature and tailor-made experiences. I adapt the route to your pace, combine professional guidance with safe practice and leave time to enjoy the scenery — even if it is your first time on a cliff.</p>
-<a class="guide-instagram-profile-link" href="https://www.instagram.com/p/DbVk8muDBu9/" rel="noopener" target="_blank"><i class="fab fa-instagram"></i> View profile</a>
-</div>
+<div class="guide-crashpad-strip resource-note" data-i18n-html="guide-topo-crashpads">Need crash pads for bouldering? <a href="/en/equipment#bouldering">Rent quality bouldering gear</a> directly from me.</div>
 </section>
-</div>
-<p class="resource-note" data-i18n-html="guide-topo-crashpads">Need crash pads for bouldering? <a href="/en/equipment#bouldering" style="color: #1976d2; font-weight: bold; text-decoration: underline;">Rent quality bouldering gear</a> directly from me.</p>
-<p class="resource-note" data-i18n-html="guide-topo-klook">Looking for an activity on a rest day or for the family? <a href="https://klook.tp.st/9luqAvsS" rel="nofollow sponsored noopener" style="color: #1976d2; font-weight: bold; text-decoration: underline;" target="_blank">Browse Cyprus activities and attractions on Klook</a>.</p>
-</section>
-<div class="guide-strip guide-important-strip full-width-strip">
+<section aria-labelledby="guide-lead-course-title" class="guide-lead-course-strip full-width-strip">
 <div class="article-container">
-<h3 data-i18n-html="guide-important-title" style="color: #856404; margin-bottom: 1rem;"><i class="fas fa-info-circle"></i> Good to know</h3>
-<p data-i18n="guide-important-text" style="color: #856404; line-height: 1.8;">Conditions, access, and route information can change. Check current local information before heading out and climb responsibly.</p>
+<div class="guide-lead-course-copy">
+<p class="guide-lead-course-kicker">LEAD CLIMBING COURSE</p>
+<h3 id="guide-lead-course-title">Ready to lead your next climb?</h3>
+<p>Build confidence, improve your systems and learn the skills to climb independently on Cyprus crags.</p>
 </div>
+<a class="guide-lead-course-cta" href="/en/course" rel="noopener"><span>Explore the course</span><i aria-hidden="true" class="fas fa-arrow-up-right-from-square"></i></a>
 </div>
+</section>
 <div class="guide-strip guide-contact-strip full-width-strip">
 <div class="article-container">
 <div class="guide-contact-copy">
@@ -1494,13 +1485,13 @@
 <h2 data-i18n="guide-beside-climbing-title" id="beside-climbing-title">Beside Climbing</h2>
 <p class="beside-climbing-intro" data-i18n="guide-beside-climbing-intro">Recommendations for coffee, food, sea, and nature before climbing, after a session, or on a rest day.</p>
 <div class="guide-instagram-strip instagram-community-strip">
-<div aria-hidden="true" class="instagram-community-mark"><i class="fab fa-instagram"></i></div>
+<a class="instagram-community-photo" href="https://www.instagram.com/climbing.cyprus" rel="noopener" target="_blank" aria-label="View the Climbing Cyprus Instagram profile"><img src="../pics/climberguide/bouldering-user-1.webp" alt="Climbing in Cyprus from the Instagram profile" loading="lazy"/></a>
 <div class="instagram-community-copy">
 <span class="instagram-community-kicker" data-i18n="instagram-community-kicker">Climbing Cyprus community</span>
 <h3 data-i18n="guide-instagram-community-title">Join our climbing community</h3>
 <p data-i18n="guide-instagram-community-text">More field moments, local recommendations and inspiration for your next climb.</p>
 </div>
-<a class="instagram-community-link" href="https://www.instagram.com/climbing.cyprus" rel="noopener" target="_blank"><i aria-hidden="true" class="fab fa-instagram"></i> <span data-i18n="instagram-community-cta">Join and follow us</span> <i class="fas fa-arrow-up-right-from-square"></i></a>
+<a class="instagram-community-link" href="https://www.instagram.com/climbing.cyprus" rel="noopener" target="_blank"><i aria-hidden="true" class="fab fa-instagram"></i> <span data-i18n="instagram-community-cta">View profile</span> <i class="fas fa-arrow-up-right-from-square"></i></a>
 </div>
 <div class="beside-climbing-grid">
 <div class="beside-category">

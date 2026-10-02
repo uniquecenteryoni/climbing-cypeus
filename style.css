@@ -247,6 +247,255 @@ html[dir="ltr"] .climber-guide-en li {
     }
 }
 
+/* Shade calculator: a full-bleed editorial strip with a calm, visual
+   explanation of the sun/shade relationship. Scoped to this one component. */
+.instagram-community-photo,
+.homepage-instagram-photo {
+    display: block;
+    width: clamp(84px, 12vw, 150px);
+    height: clamp(84px, 12vw, 150px);
+    overflow: hidden;
+    border-radius: 18px;
+    box-shadow: 0 10px 22px rgba(43, 82, 47, .16);
+    transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.instagram-community-photo:hover,
+.instagram-community-photo:focus-visible,
+.homepage-instagram-photo:hover,
+.homepage-instagram-photo:focus-visible {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 28px rgba(43, 82, 47, .22);
+}
+
+.instagram-community-photo img,
+.homepage-instagram-photo img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+body.landing-page .homepage-instagram-community-strip {
+    width: 100vw !important;
+    margin-inline: calc(50% - 50vw) !important;
+    max-width: none !important;
+    grid-template-columns: auto minmax(0, 1fr) auto !important;
+    border-radius: 0 !important;
+}
+
+.guide-lead-course-strip {
+    width: 100vw !important;
+    max-width: none !important;
+    margin-inline: calc(50% - 50vw) !important;
+    padding: 0 !important;
+    border: 0 !important;
+    background: linear-gradient(115deg, #174f3e 0%, #286a42 62%, #3d7f3f 100%) !important;
+    color: #fff;
+    overflow: hidden;
+}
+
+.guide-lead-course-strip > .article-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: clamp(1.5rem, 5vw, 5rem);
+    width: min(calc(100% - 40px), 1280px) !important;
+    max-width: 1280px !important;
+    min-height: 190px;
+    margin-inline: auto !important;
+    padding-block: clamp(2rem, 4vw, 3.5rem) !important;
+}
+
+.guide-lead-course-copy { min-width: 0; }
+.guide-lead-course-kicker { margin: 0 0 .5rem; color: #f9c36a; font-size: .78rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
+.guide-lead-course-copy h3 { margin: 0 0 .6rem; color: #fff !important; font-size: clamp(1.7rem, 3.8vw, 3rem); line-height: 1.05; }
+.guide-lead-course-copy p:last-child { max-width: 700px; margin: 0; color: rgba(255,255,255,.86) !important; line-height: 1.65; }
+.guide-lead-course-cta { display: inline-flex; align-items: center; gap: .65rem; flex: 0 0 auto; padding: .95rem 1.3rem; border-radius: 999px; background: #f47721; color: #fff !important; font-weight: 800; text-decoration: none; transition: transform .2s ease, background-color .2s ease; }
+.guide-lead-course-cta:hover, .guide-lead-course-cta:focus-visible { background: #ff963f; transform: translateY(-2px); }
+
+html[dir="rtl"] .guide-lead-course-strip { direction: rtl; text-align: right; }
+html[dir="ltr"] .guide-lead-course-strip { direction: ltr; text-align: left; }
+
+@media (max-width: 700px) {
+    .homepage-instagram-community-strip { grid-template-columns: auto minmax(0, 1fr) !important; }
+    .homepage-instagram-photo, .instagram-community-photo { width: 88px; height: 88px; }
+    .guide-lead-course-strip > .article-container { display: block; width: calc(100% - 40px) !important; padding-block: 2.5rem !important; }
+    .guide-lead-course-cta { margin-top: 1.25rem; width: 100%; justify-content: center; }
+}
+
+.landing-page .guide-content.article-inner > .guide-lead-course-strip {
+    display: block !important;
+    position: relative !important;
+    width: 100vw !important;
+    max-width: none !important;
+    margin-inline: calc(50% - 50vw) !important;
+}
+
+.landing-page .guide-content.article-inner > .guide-shade-strip {
+    position: relative !important;
+    isolation: isolate;
+    width: 100vw !important;
+    max-width: none !important;
+    margin-inline: calc(50% - 50vw) !important;
+    margin-block: clamp(2.5rem, 5vw, 4.5rem) !important;
+    padding: 0 !important;
+    overflow: hidden;
+    background: #f5efe1 !important;
+    color: #173c3a;
+    border: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+}
+
+.landing-page .guide-content.article-inner > .guide-shade-strip::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    opacity: .28;
+    background-image: radial-gradient(ellipse at 14% 58%, transparent 0 100px, rgba(44,95,45,.10) 101px 102px, transparent 103px 154px, rgba(44,95,45,.08) 155px 156px, transparent 157px 210px, rgba(44,95,45,.06) 211px 212px, transparent 213px);
+    pointer-events: none;
+}
+
+.landing-page .guide-shade-strip .shade-strip-inner {
+    display: grid;
+    grid-template-columns: minmax(0, 45%) minmax(0, 55%);
+    width: min(100%, 1360px);
+    min-height: 420px;
+    margin-inline: auto;
+    padding-inline: 28px;
+}
+
+.landing-page .guide-shade-strip .shade-strip-copy {
+    align-self: center;
+    position: relative;
+    z-index: 2;
+    padding: clamp(2.5rem, 5vw, 4.5rem) clamp(1.25rem, 3vw, 3.25rem) clamp(2.5rem, 5vw, 4.5rem) 0;
+    text-align: left;
+}
+
+.landing-page .guide-shade-strip .shade-strip-kicker {
+    display: flex;
+    align-items: center;
+    gap: .65rem;
+    margin: 0 0 1.15rem;
+    color: #2c5f2d;
+    font-size: .76rem;
+    font-weight: 800;
+    letter-spacing: .13em;
+    line-height: 1.2;
+}
+
+.landing-page .guide-shade-strip .shade-strip-kicker::after {
+    content: "";
+    width: 74px;
+    height: 3px;
+    margin-left: .4rem;
+    border-radius: 99px;
+    background: #e86f18;
+}
+
+.landing-page .guide-shade-strip .shade-strip-kicker i { color: #e86f18; font-size: 1rem; }
+.landing-page .guide-shade-strip h4 {
+    max-width: 570px;
+    margin: 0 0 1.15rem !important;
+    color: #173c3a !important;
+    font-size: clamp(2.35rem, 4.25vw, 4rem) !important;
+    font-weight: 800 !important;
+    letter-spacing: -.045em;
+    line-height: .98 !important;
+}
+.landing-page .guide-shade-strip h4 em { color: #e86f18; font-style: normal; }
+.landing-page .guide-shade-strip .shade-strip-description {
+    max-width: 510px;
+    margin: 0 0 1.7rem !important;
+    color: #49605e;
+    font-size: clamp(.98rem, 1.2vw, 1.12rem);
+    line-height: 1.65;
+}
+.landing-page .guide-shade-strip .shade-strip-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: .75rem;
+    min-height: 50px;
+    padding: .75rem 1.2rem;
+    border-radius: 999px;
+    background: #e86f18;
+    color: #fff;
+    font-size: .82rem;
+    font-weight: 800;
+    letter-spacing: .035em;
+    line-height: 1;
+    text-decoration: none;
+    box-shadow: 0 10px 22px rgba(190, 79, 14, .18);
+    transition: transform .2s ease, background-color .2s ease, box-shadow .2s ease;
+}
+.landing-page .guide-shade-strip .shade-strip-cta i { font-size: 1.05rem; }
+.landing-page .guide-shade-strip .shade-strip-cta > span:last-child { font-size: 1.25rem; line-height: .6; }
+.landing-page .guide-shade-strip .shade-strip-cta:hover,
+.landing-page .guide-shade-strip .shade-strip-cta:focus-visible {
+    background: #c9560e;
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 13px 26px rgba(190, 79, 14, .25);
+}
+.landing-page .guide-shade-strip .shade-strip-cta:focus-visible { outline: 3px solid rgba(23,60,58,.45); outline-offset: 4px; }
+
+.landing-page .guide-shade-strip .shade-strip-visual {
+    position: relative;
+    min-height: 420px;
+    overflow: hidden;
+    background: #315d58;
+    clip-path: polygon(12% 0, 100% 0, 100% 100%, 0 100%);
+}
+.landing-page .guide-shade-strip .shade-strip-visual img,
+.landing-page .guide-shade-strip .shade-strip-image-wash {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+}
+.landing-page .guide-shade-strip .shade-strip-visual img { object-fit: cover; object-position: 60% 48%; filter: saturate(.9) contrast(1.04); }
+.landing-page .guide-shade-strip .shade-strip-image-wash { background: linear-gradient(90deg, #f5efe1 0%, rgba(245,239,225,.5) 9%, rgba(245,239,225,0) 32%), linear-gradient(180deg, rgba(23,60,58,.03), rgba(23,60,58,.12)); pointer-events: none; }
+.landing-page .guide-shade-strip .shade-strip-sunpath { position: absolute; inset: 0; width: 100%; height: 100%; }
+.landing-page .guide-shade-strip .shade-time {
+    position: absolute;
+    bottom: 22%;
+    padding: .35rem .55rem;
+    border: 1px solid rgba(245, 173, 50, .8);
+    border-radius: 6px;
+    background: rgba(23,60,58,.82);
+    color: #fff8df;
+    font-size: .75rem;
+    font-weight: 800;
+    letter-spacing: .04em;
+}
+.landing-page .guide-shade-strip .shade-time::after { content: ""; position: absolute; left: 50%; top: 100%; width: 1px; height: 24px; background: rgba(245,173,50,.8); }
+.landing-page .guide-shade-strip .shade-time-early { left: 17%; }
+.landing-page .guide-shade-strip .shade-time-noon { left: 48%; bottom: 27%; }
+.landing-page .guide-shade-strip .shade-time-late { right: 17%; bottom: 20%; }
+.landing-page .guide-shade-strip .shade-strip-note { position: absolute; right: 1.5rem; bottom: 1.25rem; color: rgba(255,248,223,.85); font-size: .68rem; font-weight: 800; letter-spacing: .12em; }
+.landing-page .guide-shade-strip .shade-strip-note i { margin-right: .35rem; color: #f5ad32; }
+
+html[dir="rtl"] .landing-page .guide-shade-strip .shade-strip-copy { direction: rtl; text-align: right; padding-inline: 0 clamp(1.25rem, 3vw, 3.25rem); }
+html[dir="rtl"] .landing-page .guide-shade-strip .shade-strip-kicker { justify-content: flex-start; }
+html[dir="rtl"] .landing-page .guide-shade-strip .shade-strip-visual { clip-path: polygon(0 0, 88% 0, 100% 100%, 0 100%); }
+html[dir="rtl"] .landing-page .guide-shade-strip .shade-strip-note { right: auto; left: 1.5rem; }
+html[dir="rtl"] .landing-page .guide-shade-strip .shade-strip-note i { margin-right: 0; margin-left: .35rem; }
+
+@media (max-width: 760px) {
+    .landing-page .guide-content.article-inner > .guide-shade-strip { margin-block: 2.5rem !important; }
+    .landing-page .guide-shade-strip .shade-strip-inner { display: flex; flex-direction: column; min-height: 0; padding-inline: 0; }
+    .landing-page .guide-shade-strip .shade-strip-visual { order: 1; min-height: 255px; clip-path: none; }
+    .landing-page .guide-shade-strip .shade-strip-copy { order: 2; padding: 2rem 20px 2.25rem; }
+    .landing-page .guide-shade-strip h4 { font-size: clamp(2rem, 10vw, 2.8rem) !important; }
+    .landing-page .guide-shade-strip .shade-strip-description { font-size: .98rem; }
+    .landing-page .guide-shade-strip .shade-strip-cta { width: 100%; justify-content: center; min-height: 52px; }
+    .landing-page .guide-shade-strip .shade-strip-note { display: none; }
+    .landing-page .guide-shade-strip .shade-strip-sunpath { opacity: .72; }
+}
+
 /* Final LTR cascade: overrides legacy landing-page RTL rules on guide cards. */
 body.landing-page.ltr .climber-guide-en,
 body.landing-page.ltr .climber-guide-en h1,
@@ -499,6 +748,760 @@ body.landing-page.ltr .climber-guide-en .guide-climbing-wall-tip {
     direction: ltr !important;
     text-align: left !important;
     unicode-bidi: plaintext;
+}
+
+/* Final pass for the latest guidebook, crashpad and homepage Instagram layouts. */
+.landing-page .bouldering-resources .bouldering-guide-feature {
+    grid-template-columns: minmax(0, 1.08fr) minmax(260px, .92fr) !important;
+    gap: 0 !important;
+    overflow: hidden !important;
+    border: 1px solid #dce7d8 !important;
+    border-radius: 24px !important;
+    background: linear-gradient(120deg, #f7f5ec 0%, #eef5e9 58%, #dcebd6 100%) !important;
+    box-shadow: 0 18px 48px rgba(31, 69, 39, .12) !important;
+}
+.landing-page .bouldering-resources .bouldering-guide-copy { padding: clamp(28px, 5vw, 64px) !important; }
+.landing-page .bouldering-resources .bouldering-guide-copy h3 { color: #164f3e !important; font-size: clamp(2rem, 4vw, 4.1rem) !important; line-height: .98 !important; }
+.landing-page .bouldering-resources .guide-video-link { display: inline-flex !important; width: fit-content !important; border-radius: 999px !important; background: #f47721 !important; color: #fff !important; box-shadow: 0 10px 22px rgba(244,119,33,.22) !important; text-decoration: none !important; }
+.landing-page .bouldering-resources .guide-video-link:hover, .landing-page .bouldering-resources .guide-video-link:focus-visible { background: #d85e12 !important; transform: translateY(-2px); }
+.landing-page .bouldering-resources .bouldering-guide-book img { width: 100% !important; height: 100% !important; min-height: 320px !important; object-fit: cover !important; }
+.landing-page .bouldering-resources .topo-download-compact { width: 100% !important; max-width: none !important; padding: clamp(14px, 2vw, 22px) !important; border: 1px solid #dce7d8 !important; border-radius: 18px !important; background: #fffdf8 !important; }
+.landing-page .bouldering-resources .guide-crashpad-strip { display: flex !important; width: 100% !important; max-width: none !important; padding: clamp(18px, 2.6vw, 30px) clamp(20px, 3vw, 38px) !important; border: 1px solid #dce7d8 !important; border-radius: 18px !important; background: linear-gradient(100deg, #edf5e7, #f9f5e9) !important; color: #315b3c !important; text-align: right !important; }
+.landing-page .bouldering-resources .guide-crashpad-strip a { color: #f47721 !important; }
+.homepage-instagram-community-strip { display: grid !important; grid-template-columns: auto minmax(0, 1fr) auto !important; align-items: center !important; width: min(calc(100% - 40px), 1320px) !important; min-height: 150px !important; margin: clamp(30px, 5vw, 64px) auto !important; padding: clamp(24px, 4vw, 42px) clamp(24px, 5vw, 72px) !important; overflow: hidden !important; border: 1px solid #d7e2d0 !important; border-radius: 22px !important; background: linear-gradient(105deg, #f1f7eb 0%, #fbfbf4 100%) !important; direction: rtl !important; }
+[lang="en"] body.landing-page .homepage-instagram-community-strip { direction: ltr !important; }
+.homepage-instagram-mark { display: grid !important; place-items: center !important; width: 70px !important; height: 70px !important; border-radius: 20px !important; background: linear-gradient(145deg, #cf277b, #ff7a36) !important; color: #fff !important; font-size: 2rem !important; }
+.homepage-instagram-copy { min-width: 0 !important; text-align: right !important; }
+[lang="en"] .homepage-instagram-copy { text-align: left !important; }
+.homepage-instagram-link { display: inline-flex !important; align-items: center !important; justify-content: center !important; gap: .6rem !important; min-height: 52px !important; padding: .8rem 1.2rem !important; border-radius: 999px !important; background: #2c6a35 !important; color: #fff !important; white-space: nowrap !important; text-decoration: none !important; }
+.homepage-instagram-link:hover, .homepage-instagram-link:focus-visible { background: #1f5128 !important; transform: translateY(-2px); }
+@media (max-width: 760px) {
+    .landing-page .bouldering-resources .bouldering-guide-feature { grid-template-columns: 1fr !important; }
+    .landing-page .bouldering-resources .bouldering-guide-book { order: -1; }
+    .landing-page .bouldering-resources .bouldering-guide-book img { min-height: 240px !important; max-height: 340px; }
+    .landing-page .bouldering-resources .bouldering-guide-copy { padding: 26px 22px 30px !important; }
+    .landing-page .bouldering-resources .guide-video-link { width: 100% !important; }
+    .homepage-instagram-community-strip { grid-template-columns: auto minmax(0, 1fr) !important; width: min(calc(100% - 28px), 1320px) !important; padding: 24px 20px !important; }
+    .homepage-instagram-link { grid-column: 1 / -1 !important; width: 100% !important; white-space: normal !important; }
+}
+@media (max-width: 430px) {
+    .homepage-instagram-community-strip { grid-template-columns: 1fr !important; text-align: center; }
+    .homepage-instagram-mark { margin-inline: auto; }
+    .homepage-instagram-copy, [lang="en"] .homepage-instagram-copy { text-align: center !important; }
+}
+
+/* Latest guidebook and resource refinements. */
+.landing-page .bouldering-resources .bouldering-guide-feature {
+    position: relative;
+    display: grid !important;
+    grid-template-columns: minmax(0, 1.08fr) minmax(260px, .92fr) !important;
+    align-items: stretch;
+    gap: 0 !important;
+    overflow: hidden;
+    margin: clamp(28px, 5vw, 64px) 0 clamp(20px, 3vw, 34px) !important;
+    border: 1px solid #dce7d8;
+    border-radius: 24px;
+    background: linear-gradient(120deg, #f7f5ec 0%, #eef5e9 58%, #dcebd6 100%);
+    box-shadow: 0 18px 48px rgba(31, 69, 39, .12);
+}
+
+.landing-page .bouldering-resources .bouldering-guide-copy {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-width: 0;
+    padding: clamp(28px, 5vw, 64px);
+    direction: rtl;
+    text-align: right;
+}
+
+.landing-page.ltr .bouldering-resources .bouldering-guide-copy {
+    direction: ltr;
+    text-align: left;
+}
+
+.landing-page .bouldering-resources .bouldering-guide-copy h3 {
+    max-width: 700px;
+    margin: 0 0 1rem;
+    color: #164f3e;
+    font-size: clamp(2rem, 4vw, 4.1rem);
+    line-height: .98;
+    letter-spacing: -.04em;
+}
+
+.landing-page .bouldering-resources .bouldering-guide-copy p {
+    max-width: 700px;
+    margin: 0 0 1.5rem;
+    color: #52645a;
+    font-size: clamp(1rem, 1.35vw, 1.2rem);
+    line-height: 1.7;
+}
+
+.landing-page .bouldering-resources .guide-video-link {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    align-self: flex-start;
+    gap: .6rem;
+    width: fit-content;
+    max-width: 100%;
+    padding: .9rem 1.25rem !important;
+    border: 0 !important;
+    border-radius: 999px !important;
+    background: #f47721 !important;
+    color: #fff !important;
+    box-shadow: 0 10px 22px rgba(244, 119, 33, .22);
+    font-weight: 800;
+    text-decoration: none !important;
+    transition: transform .2s ease, background-color .2s ease, box-shadow .2s ease;
+}
+
+.landing-page .bouldering-resources .guide-video-link:hover,
+.landing-page .bouldering-resources .guide-video-link:focus-visible {
+    background: #d85e12 !important;
+    box-shadow: 0 14px 28px rgba(216, 94, 18, .28);
+    transform: translateY(-2px);
+}
+
+.landing-page .bouldering-resources .bouldering-guide-book {
+    min-height: 100%;
+    background: #dcebd6;
+}
+
+.landing-page .bouldering-resources .bouldering-guide-book img {
+    display: block;
+    width: 100% !important;
+    height: 100% !important;
+    min-height: 320px;
+    object-fit: cover;
+    object-position: center;
+}
+
+.landing-page .bouldering-resources .topo-download-compact {
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 0 clamp(18px, 3vw, 32px) !important;
+    padding: clamp(14px, 2vw, 22px) !important;
+    border: 1px solid #dce7d8 !important;
+    border-radius: 18px;
+    background: #fffdf8 !important;
+    box-shadow: 0 10px 24px rgba(31, 69, 39, .06);
+}
+
+.landing-page .bouldering-resources .topo-form-compact,
+.landing-page .bouldering-resources .topo-form-compact form {
+    width: 100%;
+}
+
+.landing-page .bouldering-resources .topo-form-compact form {
+    align-items: stretch;
+}
+
+.landing-page .bouldering-resources .topo-form-compact input[type="email"] {
+    min-height: 48px !important;
+    border: 1px solid #cbd9ca !important;
+    border-radius: 10px !important;
+    background: #fff !important;
+}
+
+.landing-page .bouldering-resources .topo-form-compact .cta-button {
+    min-height: 48px;
+    border-radius: 10px !important;
+    white-space: nowrap;
+    transition: transform .2s ease, background-color .2s ease;
+}
+
+.landing-page .bouldering-resources .topo-form-compact .cta-button:hover,
+.landing-page .bouldering-resources .topo-form-compact .cta-button:focus-visible {
+    background: #3d7f3f !important;
+    transform: translateY(-1px);
+}
+
+.landing-page .bouldering-resources .guide-crashpad-strip {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 0 clamp(24px, 4vw, 48px) !important;
+    padding: clamp(18px, 2.6vw, 30px) clamp(20px, 3vw, 38px) !important;
+    border: 1px solid #dce7d8;
+    border-radius: 18px;
+    background: linear-gradient(100deg, #edf5e7, #f9f5e9);
+    color: #315b3c !important;
+    font-size: clamp(1rem, 1.7vw, 1.35rem);
+    font-weight: 700;
+    line-height: 1.5;
+    text-align: right !important;
+}
+
+.landing-page.ltr .bouldering-resources .guide-crashpad-strip {
+    text-align: left !important;
+}
+
+.landing-page .bouldering-resources .guide-crashpad-strip::before {
+    content: "";
+    flex: 0 0 10px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #f47721;
+    box-shadow: 0 0 0 8px rgba(244, 119, 33, .12);
+}
+
+.landing-page .bouldering-resources .guide-crashpad-strip a {
+    color: #f47721 !important;
+    text-decoration: underline !important;
+    text-underline-offset: 3px;
+}
+
+.homepage-instagram-community-strip {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    align-items: center;
+    gap: clamp(18px, 3vw, 38px);
+    width: min(calc(100% - 40px), 1320px);
+    min-height: 150px;
+    margin: clamp(30px, 5vw, 64px) auto;
+    padding: clamp(24px, 4vw, 42px) clamp(24px, 5vw, 72px);
+    overflow: hidden;
+    border-block: 1px solid #d7e2d0;
+    border-radius: 22px;
+    background: linear-gradient(105deg, #f1f7eb 0%, #fbfbf4 100%);
+    box-shadow: 0 16px 34px rgba(43, 82, 47, .08);
+    direction: rtl;
+}
+
+.en .homepage-instagram-community-strip,
+[lang="en"] .homepage-instagram-community-strip {
+    direction: ltr;
+}
+
+.homepage-instagram-mark {
+    display: grid;
+    place-items: center;
+    width: 70px;
+    height: 70px;
+    border-radius: 20px;
+    background: linear-gradient(145deg, #cf277b, #ff7a36);
+    color: #fff;
+    font-size: 2rem;
+    box-shadow: 0 12px 22px rgba(207, 39, 123, .22);
+}
+
+.homepage-instagram-copy {
+    min-width: 0;
+    text-align: right;
+}
+
+[lang="en"] .homepage-instagram-copy { text-align: left; }
+
+.homepage-instagram-copy .instagram-community-kicker {
+    display: block;
+    margin-bottom: .45rem;
+    color: #6e9540;
+    font-size: .78rem;
+    font-weight: 800;
+    letter-spacing: .11em;
+}
+
+.homepage-instagram-copy h3 {
+    margin: 0 0 .45rem;
+    color: #2c6a35;
+    font-size: clamp(1.5rem, 3vw, 2.25rem);
+    line-height: 1.08;
+}
+
+.homepage-instagram-copy p {
+    margin: 0;
+    color: #5a6b5b;
+    font-size: clamp(.98rem, 1.5vw, 1.18rem);
+}
+
+.homepage-instagram-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: .6rem;
+    min-height: 52px;
+    padding: .8rem 1.2rem;
+    border-radius: 999px;
+    background: #2c6a35;
+    color: #fff;
+    font-weight: 800;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: transform .2s ease, background-color .2s ease;
+}
+
+.homepage-instagram-link:hover,
+.homepage-instagram-link:focus-visible {
+    background: #1f5128;
+    transform: translateY(-2px);
+}
+
+@media (max-width: 760px) {
+    .landing-page .bouldering-resources .bouldering-guide-feature {
+        grid-template-columns: 1fr !important;
+    }
+
+    .landing-page .bouldering-resources .bouldering-guide-book { order: -1; }
+    .landing-page .bouldering-resources .bouldering-guide-book img { min-height: 240px; max-height: 340px; }
+    .landing-page .bouldering-resources .bouldering-guide-copy { padding: 26px 22px 30px; }
+    .landing-page .bouldering-resources .bouldering-guide-copy h3 { font-size: clamp(2rem, 10vw, 3rem); }
+    .landing-page .bouldering-resources .guide-video-link { width: 100%; }
+    .landing-page .bouldering-resources .topo-form-compact form { flex-direction: column; }
+    .landing-page .bouldering-resources .topo-form-compact .cta-button { width: 100%; white-space: normal; }
+    .landing-page .bouldering-resources .guide-crashpad-strip { align-items: flex-start; }
+    .homepage-instagram-community-strip { grid-template-columns: auto minmax(0, 1fr); width: min(calc(100% - 28px), 1320px); padding: 24px 20px; }
+    .homepage-instagram-link { grid-column: 1 / -1; width: 100%; }
+}
+
+@media (max-width: 430px) {
+    .homepage-instagram-community-strip { grid-template-columns: 1fr; text-align: center; }
+    .homepage-instagram-mark { margin-inline: auto; }
+    .homepage-instagram-copy, [lang="en"] .homepage-instagram-copy { text-align: center; }
+}
+
+/* Homepage trip-planning refresh: compact cards, no table-like dividers. */
+#trip-planning.trip-planning {
+    background: #f7f3ec !important;
+}
+#trip-planning .trip-planning-header {
+    max-width: 760px !important;
+    margin: 0 auto 2.5rem !important;
+    text-align: center !important;
+}
+#trip-planning .trip-planning-header .section-kicker {
+    display: block;
+    margin: 0 0 .7rem;
+    color: #e87518;
+    font-size: .76rem;
+    font-weight: 800;
+    letter-spacing: .14em;
+    line-height: 1.2;
+    text-transform: uppercase;
+}
+#trip-planning .trip-planning-header h2 {
+    margin: 0 0 .8rem !important;
+    font-size: clamp(2.1rem, 4vw, 3.35rem) !important;
+    line-height: 1.05 !important;
+}
+#trip-planning .trip-planning-header p:not(.section-kicker) {
+    max-width: 650px;
+    margin: 0 auto !important;
+    color: #394b48 !important;
+    font-size: clamp(1rem, 1.35vw, 1.15rem) !important;
+    line-height: 1.6 !important;
+}
+#trip-planning .trip-planning-grid {
+    display: grid !important;
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+    gap: 1rem !important;
+    direction: ltr !important;
+}
+#trip-planning .trip-planning-card {
+    min-height: 255px !important;
+    padding: 1.35rem !important;
+    border: 1px solid rgba(34, 74, 59, .13) !important;
+    border-radius: 20px !important;
+    background: rgba(255, 255, 253, .82) !important;
+    color: #183a35 !important;
+    text-align: left !important;
+    box-shadow: none !important;
+    transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease;
+}
+#trip-planning .trip-planning-card:first-child,
+#trip-planning .trip-planning-card:nth-child(3) { border-inline-start: 1px solid rgba(34, 74, 59, .13) !important; }
+#trip-planning .trip-planning-card:hover,
+#trip-planning .trip-planning-card:focus-visible {
+    border-color: rgba(232, 117, 24, .42) !important;
+    box-shadow: 0 10px 24px rgba(38, 68, 54, .08) !important;
+    transform: translateY(-3px);
+}
+#trip-planning .trip-planning-icon {
+    width: 44px !important;
+    height: 44px !important;
+    margin: 0 0 1.2rem !important;
+    border: 0 !important;
+    border-radius: 12px !important;
+    background: #fff0dd !important;
+    color: #e87518 !important;
+    font-size: 1.05rem !important;
+}
+#trip-planning .trip-planning-card h3 {
+    margin: 0 0 .55rem !important;
+    color: #245d38 !important;
+    font-size: clamp(1.05rem, 1.45vw, 1.3rem) !important;
+    line-height: 1.2 !important;
+}
+#trip-planning .trip-planning-card p {
+    max-width: 24ch;
+    margin: 0 0 1rem !important;
+    color: #42534f !important;
+    font-size: .95rem !important;
+    line-height: 1.5 !important;
+}
+#trip-planning .trip-planning-link {
+    margin-top: auto !important;
+    border: 0 !important;
+    color: #e87518 !important;
+    font-size: .9rem !important;
+    font-weight: 800 !important;
+    text-decoration: none !important;
+}
+#trip-planning .trip-planning-link::first-letter { letter-spacing: 0; }
+#trip-planning .trip-planning-card:hover .trip-planning-link,
+#trip-planning .trip-planning-card:focus-visible .trip-planning-link { color: #c85c10 !important; }
+#trip-planning .affiliate-disclosure {
+    max-width: 650px !important;
+    margin: 1.45rem auto 0 !important;
+    color: #707773 !important;
+    font-size: .78rem !important;
+    line-height: 1.55 !important;
+    text-align: center !important;
+}
+body.landing-page.ltr #trip-planning,
+body.landing-page.ltr #trip-planning * { direction: ltr; }
+body.landing-page.ltr #trip-planning .trip-planning-header,
+body.landing-page.ltr #trip-planning .trip-planning-card,
+body.landing-page.ltr #trip-planning .affiliate-disclosure { text-align: left !important; }
+body.landing-page.ltr #trip-planning .trip-planning-header { margin-left: 0 !important; margin-right: auto !important; }
+body.landing-page.ltr #trip-planning .affiliate-disclosure { margin-left: 0 !important; margin-right: auto !important; }
+body.landing-page.rtl #trip-planning .trip-planning-card { direction: rtl; text-align: right !important; }
+body.landing-page.rtl #trip-planning .trip-planning-grid { direction: rtl !important; }
+@media (max-width: 900px) {
+    #trip-planning .trip-planning-grid { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+}
+@media (max-width: 560px) {
+    #trip-planning .trip-planning-header { margin-bottom: 1.7rem !important; }
+    #trip-planning .trip-planning-grid { grid-template-columns: 1fr !important; gap: .75rem !important; }
+    #trip-planning .trip-planning-card { min-height: 0 !important; padding: 1.15rem !important; }
+    #trip-planning .trip-planning-icon { margin-bottom: .85rem !important; }
+    #trip-planning .trip-planning-card p { max-width: none; }
+}
+
+/* Keep the guidebook maps matched in size and pair each image with its caption. */
+.guide-about-climbing-gallery figure { display: flex; min-width: 0; flex-direction: column; height: 100%; }
+.guide-about-climbing-gallery img {
+    width: 100% !important;
+    max-width: none !important;
+    height: 260px !important;
+    padding: .55rem;
+    border: 1px solid rgba(44, 95, 45, .12);
+    border-radius: 16px !important;
+    background: #fff;
+    box-shadow: 0 8px 22px rgba(35, 59, 48, .12) !important;
+    object-fit: contain;
+}
+.guide-about-climbing-gallery figcaption { min-height: 1.5em; text-align: center; }
+
+/* Contact section polish. The form structure and all submission behavior stay intact. */
+#contact.contact { background: #f7f3ec !important; padding-block: clamp(4rem, 7vw, 6.5rem) !important; }
+#contact .contact-shell { width: min(1220px, 100%) !important; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important; gap: clamp(1.5rem, 3.5vw, 3.25rem) !important; }
+#contact .contact-story { min-height: 620px !important; overflow: hidden; border-radius: 24px; background: #e8eee7; }
+#contact .contact-story-media { inset: 0 !important; width: 100% !important; border-radius: 24px; background-position: 22% center; box-shadow: none !important; }
+#contact .contact-story::after { background: linear-gradient(90deg, rgba(247,243,236,.02) 15%, rgba(247,243,236,.16) 30%, rgba(247,243,236,.9) 64%, rgba(247,243,236,.98) 100%) !important; }
+#contact .contact-story-content { width: 70% !important; margin-left: 30% !important; padding: 3.25rem 2.3rem 3rem 1.5rem !important; }
+#contact .contact-story h2 { color: #073d38 !important; font-size: clamp(2.45rem, 4vw, 3.65rem) !important; }
+#contact .contact-story .contact-intro { color: #173f3a !important; font-size: 1.08rem !important; line-height: 1.55 !important; }
+#contact .contact-highlight { color: #073d38 !important; font-size: .98rem !important; }
+#contact .contact-highlight-icon { width: 3.4rem !important; height: 3.4rem !important; flex-basis: 3.4rem !important; background: rgba(255,255,255,.78) !important; color: #245d4d !important; font-size: 1.25rem !important; }
+#contact .contact-form-wrapper { padding: clamp(1.5rem, 3vw, 2.5rem) !important; border-radius: 24px !important; background: #fffefa !important; box-shadow: 0 14px 34px rgba(20,50,46,.08) !important; }
+#contact .contact-form-heading p { color: #3e5751 !important; }
+#contact .form-group label { color: #173f3a !important; }
+#contact .form-group input::placeholder, #contact .form-group textarea::placeholder { color: #71817c !important; opacity: 1; }
+body.landing-page.ltr #contact, body.landing-page.ltr #contact * { direction: ltr; }
+body.landing-page.ltr #contact { text-align: left; }
+body.landing-page.rtl #contact, body.landing-page.rtl #contact * { direction: rtl; }
+body.landing-page.rtl #contact { text-align: right; }
+@media (max-width: 900px) {
+    #contact .contact-shell { grid-template-columns: 1fr !important; }
+    #contact .contact-story { min-height: 540px !important; }
+}
+@media (max-width: 620px) {
+    #contact .contact-story { min-height: 0 !important; padding-top: 12rem !important; }
+    #contact .contact-story-content { width: 100% !important; margin: 0 !important; padding: 1.5rem 0 0 !important; }
+    #contact .contact-story-media { height: 15rem !important; }
+}
+
+/* Keep legacy guide-strip theme overrides from flattening the calculator band. */
+.landing-page .guide-content.article-inner > .guide-shade-strip {
+    background: #f5efe1 !important;
+    border: 0 !important;
+}
+
+/* Final homepage-only cascade for the full-bleed Instagram composition. */
+body.landing-page .homepage-instagram-strip {
+    grid-template-columns: minmax(0, 1fr) minmax(380px, 50vw) !important;
+    min-height: clamp(360px, 34vw, 480px) !important;
+    padding: 0 !important;
+    margin-left: calc(50% - 50vw) !important;
+    margin-right: 0 !important;
+}
+
+body.landing-page .homepage-instagram-strip .instagram-community-copy {
+    align-items: flex-start !important;
+    justify-content: center !important;
+    padding: clamp(2.25rem, 5vw, 4.5rem) max(28px, calc((100vw - 1360px) / 2)) !important;
+    text-align: left !important;
+}
+
+body.landing-page .homepage-instagram-strip .instagram-community-media {
+    display: block !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    min-height: 100% !important;
+}
+
+@media (max-width: 700px) {
+    body.landing-page .homepage-instagram-strip {
+        grid-template-columns: minmax(0, 1fr) !important;
+        grid-template-rows: minmax(210px, 43vw) auto !important;
+        min-height: 0 !important;
+    }
+
+    body.landing-page .homepage-instagram-strip .instagram-community-media {
+        grid-row: 1 !important;
+        min-height: 210px !important;
+    }
+
+    body.landing-page .homepage-instagram-strip .instagram-community-copy {
+        grid-row: 2 !important;
+        align-items: center !important;
+        padding: 1.3rem 24px 2.5rem !important;
+        text-align: center !important;
+    }
+}
+
+/* Keep the homepage strip's two-column composition last in the cascade. */
+body.landing-page .homepage-instagram-strip {
+    grid-template-columns: minmax(0, 1fr) minmax(380px, 50vw) !important;
+    min-height: clamp(360px, 34vw, 480px) !important;
+}
+
+body.landing-page .homepage-instagram-strip .instagram-community-copy {
+    align-items: flex-start !important;
+    justify-content: center !important;
+    padding: clamp(2.25rem, 5vw, 4.5rem) max(28px, calc((100vw - 1360px) / 2)) !important;
+    text-align: left !important;
+}
+
+body.landing-page .homepage-instagram-strip .instagram-community-media {
+    display: block !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    min-height: 100% !important;
+}
+
+@media (max-width: 700px) {
+    body.landing-page .homepage-instagram-strip {
+        grid-template-columns: minmax(0, 1fr) !important;
+        grid-template-rows: minmax(210px, 43vw) auto !important;
+        min-height: 0 !important;
+    }
+
+    body.landing-page .homepage-instagram-strip .instagram-community-media {
+        grid-row: 1 !important;
+        min-height: 210px !important;
+    }
+
+    body.landing-page .homepage-instagram-strip .instagram-community-copy {
+        grid-row: 2 !important;
+        align-items: center !important;
+        padding: 1.3rem 24px 2.5rem !important;
+        text-align: center !important;
+    }
+}
+
+/* Homepage Instagram community strip: full-bleed editorial composition. */
+.landing-page .homepage-instagram-strip {
+    position: relative !important;
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) minmax(380px, 50vw) !important;
+    align-items: stretch !important;
+    width: 100vw !important;
+    max-width: none !important;
+    min-height: clamp(360px, 34vw, 480px) !important;
+    margin: clamp(2.5rem, 5vw, 5rem) calc(50% - 50vw) !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    background: #f5f7ef !important;
+    box-shadow: none !important;
+    direction: ltr !important;
+    text-align: left !important;
+}
+
+.landing-page .homepage-instagram-strip::before {
+    content: "";
+    position: absolute;
+    inset: 0 50% 0 0;
+    pointer-events: none;
+    opacity: .34;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='180' viewBox='0 0 240 180' fill='none'%3E%3Cpath d='M-14 54c43-31 80-27 112-6 31 20 61 20 91-1 21-15 38-17 57-13M-10 80c38-22 72-19 103-2 32 18 65 18 97-5 20-14 35-18 53-15M-8 112c35-18 72-18 103-1 33 18 64 15 95-8 18-13 33-16 50-13M4 146c29-13 62-14 91 0 31 15 63 10 91-11 17-12 31-15 46-12' stroke='%2393a57b' stroke-width='1.2' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-size: 240px 180px;
+}
+
+.landing-page .homepage-instagram-strip .instagram-community-copy {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    min-width: 0;
+    padding: clamp(2.25rem, 5vw, 4.5rem) max(28px, calc((100vw - 1360px) / 2)) clamp(2.25rem, 5vw, 4.5rem) max(28px, calc((100vw - 1360px) / 2));
+    direction: ltr !important;
+    text-align: left !important;
+}
+
+.landing-page .homepage-instagram-strip .instagram-community-kicker {
+    margin-bottom: .85rem;
+    color: #718b4e;
+    font-size: clamp(.72rem, 1vw, .88rem);
+    letter-spacing: .12em;
+}
+
+.landing-page .homepage-instagram-strip .instagram-community-kicker::after {
+    content: "";
+    display: inline-block;
+    width: 78px;
+    height: 3px;
+    margin-left: 1rem;
+    vertical-align: middle;
+    background: #eb741f;
+}
+
+.landing-page .homepage-instagram-strip .instagram-community-copy h2 {
+    max-width: 720px;
+    margin: 0 0 .8rem;
+    color: #183246;
+    font-size: clamp(2.1rem, 4.1vw, 4.25rem);
+    font-weight: 800;
+    letter-spacing: -.045em;
+    line-height: .98;
+}
+
+.landing-page .homepage-instagram-strip .instagram-community-subline {
+    margin: 0 0 1.35rem;
+    color: #5a6870;
+    font-size: clamp(1rem, 1.45vw, 1.35rem);
+    line-height: 1.4;
+}
+
+.landing-page .homepage-instagram-strip .instagram-community-handle {
+    display: inline-flex;
+    align-items: center;
+    gap: .7rem;
+    margin-bottom: 1.45rem;
+    color: #183246;
+    font-size: clamp(1.15rem, 2vw, 1.7rem);
+    font-weight: 750;
+}
+
+.landing-page .homepage-instagram-strip .instagram-community-handle i {
+    color: #d76531;
+    font-size: 1.15em;
+}
+
+.landing-page .homepage-instagram-strip .instagram-community-description {
+    display: none;
+}
+
+.landing-page .homepage-instagram-strip .instagram-community-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: .72rem;
+    width: auto;
+    padding: .82rem 1.25rem;
+    border: 1px solid #eb741f !important;
+    border-radius: 999px;
+    background: #eb741f !important;
+    color: #fff !important;
+    font-size: .98rem;
+    font-weight: 800;
+    line-height: 1;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background .2s ease, color .2s ease, transform .2s ease, box-shadow .2s ease;
+}
+
+.landing-page .homepage-instagram-strip .instagram-community-link:hover {
+    background: #d85f16 !important;
+    box-shadow: 0 9px 20px rgba(216, 95, 22, .2);
+    transform: translateY(-2px);
+}
+
+.landing-page .homepage-instagram-strip .instagram-community-arrow {
+    display: inline-block;
+    font-size: 1.35em;
+    line-height: .7;
+    transition: transform .2s ease;
+}
+
+.landing-page .homepage-instagram-strip .instagram-community-link:hover .instagram-community-arrow {
+    transform: translateX(4px);
+}
+
+.landing-page .homepage-instagram-strip .instagram-community-media {
+    position: relative;
+    min-height: 100%;
+    background-image: linear-gradient(90deg, #f5f7ef 0%, rgba(245, 247, 239, .68) 4%, rgba(245, 247, 239, 0) 25%), url("pics/hero-climbing-sunset.webp");
+    background-position: center, 34% center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+@media (max-width: 700px) {
+    .landing-page .homepage-instagram-strip {
+        grid-template-columns: minmax(0, 1fr) !important;
+        grid-template-rows: minmax(210px, 43vw) auto !important;
+        min-height: 0 !important;
+        margin-top: 2.5rem !important;
+        margin-bottom: 2.5rem !important;
+    }
+
+    .landing-page .homepage-instagram-strip .instagram-community-media {
+        grid-row: 1;
+        min-height: 210px;
+        background-image: linear-gradient(180deg, rgba(245, 247, 239, 0) 55%, #f5f7ef 100%), url("pics/hero-climbing-sunset.webp");
+        background-position: center, 35% center;
+    }
+
+    .landing-page .homepage-instagram-strip .instagram-community-copy {
+        grid-row: 2;
+        align-items: center;
+        padding: 1.3rem 24px 2.5rem;
+        text-align: center !important;
+    }
+
+    .landing-page .homepage-instagram-strip .instagram-community-kicker::after {
+        display: none;
+    }
+
+    .landing-page .homepage-instagram-strip .instagram-community-copy h2 {
+        max-width: 560px;
+        font-size: clamp(2rem, 9vw, 3rem);
+        line-height: 1.02;
+    }
+
+    .landing-page .homepage-instagram-strip .instagram-community-subline {
+        margin-bottom: 1rem;
+        font-size: 1rem;
+    }
+
+    .landing-page .homepage-instagram-strip .instagram-community-handle {
+        margin-bottom: 1.15rem;
+        font-size: 1.25rem;
+    }
+
+    .landing-page .homepage-instagram-strip .instagram-community-link {
+        padding-inline: 1.15rem;
+    }
 }
 
 .landing-page.ltr .guide-content.article-inner > .guide-crag-strip > div:last-child h3,
@@ -8695,7 +9698,7 @@ body.landing-page {
 .landing-page .guide-content.article-inner > .firstbolt-promo { background: #d4a72c !important; }
 .landing-page .guide-content.article-inner > .guide-comments-section { background: #ffffff !important; }
 .landing-page .guide-content.article-inner > .guide-important-strip { background: #f7f4ee !important; }
-.landing-page .guide-content.article-inner > .guide-shade-strip { background: #ffffff !important; }
+.landing-page .guide-content.article-inner > .guide-shade-strip { background: #f5efe1 !important; }
 
 .landing-page .guide-content.article-inner > .guide-guidebook-cta-strip > .article-container {
     display: flex !important;
@@ -8922,8 +9925,8 @@ body.landing-page {
     max-width: none !important;
     margin-inline: calc(50% - 50vw) !important;
     padding-inline: 12.5% !important;
-    background: #eef5e8 !important;
-    border-block: 1px solid #cbdcc3 !important;
+    background: #f5efe1 !important;
+    border-block: 0 !important;
     border-radius: 0 !important;
 }
 

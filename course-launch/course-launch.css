@@ -29,7 +29,7 @@ html{scroll-behavior:smooth}
     text-decoration-color: #fff;
 }
 
-/* Rotate the hero photo counter-clockwise while keeping the right-hand panel intact. */
+/* Rotate the hero photo clockwise while keeping the right-hand panel intact. */
 .lead-hero-image {
     position: relative;
     overflow: hidden;

@@ -947,7 +947,7 @@ const translations = {
         "course-req-bring": "What to bring:",
         "course-req-bring-desc": "Climbing shoes (if available), comfortable sportswear, water, lunch, sunscreen, hat",
         "course-booking": "Course Booking",
-        "course-price-from": "€400 per participant",
+        "course-price-from": "€300 per participant",
         "course-price-per": "per person",
         "course-price-note": "3 days | 20 hours of instruction",
         "course-book-btn": "Book Now",

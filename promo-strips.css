@@ -1,0 +1,106 @@
+/* Shared promo system. Keep these rules after legacy page-specific styling. */
+.landing-page {
+    --promo-title-size: clamp(26px, 2.7vw, 44px);
+    --promo-body-size: 18px;
+    --promo-green: #194f29;
+    --promo-cream: #f7f8ef;
+}
+.landing-page :is(.community-copy, .crashpad-copy, .guide-lead-course-copy, .guide-contact-copy, .firstbolt-promo, .guide-planning-copy) h3,
+.landing-page .guide-shade-between-regions h4 {
+    font-family: inherit !important;
+    font-size: var(--promo-title-size) !important;
+    font-weight: 700 !important;
+    line-height: 1.2 !important;
+    letter-spacing: -.02em !important;
+    color: var(--promo-green) !important;
+    margin: 0 0 14px !important;
+    text-align: start !important;
+}
+.landing-page :is(.community-copy, .crashpad-copy, .guide-lead-course-copy, .guide-contact-copy, .guide-planning-copy) p,
+.landing-page .firstbolt-promo p,
+.landing-page .guide-shade-between-regions .shade-strip-description {
+    font-family: inherit !important;
+    font-size: var(--promo-body-size) !important;
+    font-weight: 400 !important;
+    line-height: 1.65 !important;
+    color: #365336 !important;
+    margin: 0 !important;
+    text-align: start !important;
+}
+.landing-page :is(.community-action a, .crashpad-cta, .guide-lead-course-cta, .firstbolt-cta, .shade-strip-cta),
+.landing-page .guide-content.article-inner > .guide-contact-strip .cta-button {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 14px !important;
+    width: fit-content !important;
+    max-width: 100% !important;
+    min-height: 56px !important;
+    padding: 15px 24px !important;
+    border: 0 !important;
+    border-radius: 40px !important;
+    font-family: inherit !important;
+    font-size: 18px !important;
+    font-weight: 700 !important;
+    line-height: 1.4 !important;
+    text-align: center !important;
+    text-decoration: none !important;
+    white-space: normal !important;
+    color: #fff !important;
+    background: #2c6632 !important;
+    box-shadow: 0 5px 16px #244e2b18 !important;
+    transition: transform .2s, background .2s;
+}
+.landing-page .crashpad-banner .crashpad-cta { background: #ec7619 !important; }
+.landing-page :is(.guide-lead-course-cta, .firstbolt-cta, .shade-strip-cta) { margin-top: 22px !important; }
+.landing-page :is(.community-action a, .crashpad-cta, .guide-lead-course-cta, .firstbolt-cta, .shade-strip-cta, .guide-contact-strip .cta-button):hover { filter: brightness(1.06); transform: translateY(-2px); }
+.landing-page :is(.community-action a, .crashpad-cta, .guide-lead-course-cta, .firstbolt-cta, .shade-strip-cta, .guide-contact-strip .cta-button):focus-visible { outline: 3px solid #ec7619; outline-offset: 4px; }
+.landing-page .guide-content.article-inner > :is(.firstbolt-promo, .guide-lead-course-strip, .guide-contact-strip, .guide-shade-between-regions) {
+    background: radial-gradient(ellipse at 0% 100%, #dce8ce88, transparent 35%), repeating-radial-gradient(ellipse at 100% 0%, transparent 0 35px, #bac9ac18 36px 37px, transparent 38px 60px), var(--promo-cream) !important;
+    border-block: 1px solid #dce3d1 !important;
+}
+body.landing-page .guide-content.article-inner > .full-width-strip:is(.firstbolt-promo, .guide-lead-course-strip, .guide-contact-strip) > .article-container {
+    width: min(calc(100% - 48px), 1180px) !important;
+    background: transparent !important;
+    padding-block: 32px !important;
+    direction: inherit !important;
+}
+.landing-page .guide-content.article-inner > .firstbolt-promo > .article-container > div:last-child,
+.landing-page .guide-content.article-inner > .guide-contact-strip .guide-contact-copy { direction: inherit !important; text-align: start !important; }
+.landing-page .firstbolt-brand-logo { max-width: 140px; max-height: 45px; object-fit: contain; margin-bottom: 14px; }
+.landing-page .firstbolt-phone { max-width: 160px !important; margin: 0 auto !important; }
+.landing-page .firstbolt-phone img { max-width: 100%; }
+.landing-page .guide-content.article-inner > .guide-lead-course-strip > .article-container { display: grid !important; grid-template-columns: minmax(0, 1fr) auto !important; gap: 32px !important; align-items: center !important; }
+.landing-page .guide-lead-course-copy { max-width: 850px; }
+.landing-page .guide-lead-course-cta { margin-top: 0 !important; }
+.landing-page #beside-climbing .beside-climbing-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+.landing-page #beside-climbing .beside-category { display: flex; flex-direction: column; min-width: 0; padding: 0; overflow: hidden; }
+.landing-page #beside-climbing .beside-category-media { height: 220px; min-height: 0; border-radius: 0; }
+.landing-page #beside-climbing .beside-category-media img { width: 100%; height: 100%; object-fit: cover; }
+.landing-page #beside-climbing .beside-category-content { padding: 0 24px 24px; }
+/* Home section headings use the same scale as Your Moments, not card headings. */
+body.landing-page.homepage section h2,
+body.landing-page.homepage #trip-planning h2,
+body.landing-page.homepage #contact .contact-story h2 {
+    font-family: inherit !important;
+    font-size: clamp(38px, 4vw, 54px) !important;
+    line-height: 1.1 !important;
+    font-weight: 700 !important;
+    letter-spacing: -.03em !important;
+}
+@media (max-width: 700px) {
+    .landing-page .guide-content.article-inner > .firstbolt-promo > .article-container { display: grid !important; grid-template-columns: minmax(0, 1fr) !important; }
+    .landing-page .firstbolt-promo .article-container > div:last-child { display: flex; flex-direction: column; align-items: center; }
+    .landing-page .guide-content.article-inner > .guide-lead-course-strip > .article-container { grid-template-columns: minmax(0, 1fr) !important; gap: 22px !important; }
+    .landing-page .guide-content.article-inner > .guide-contact-strip .cta-button { justify-self: center !important; }
+    .landing-page :is(.community-copy, .crashpad-copy, .guide-lead-course-copy, .guide-contact-copy, .firstbolt-promo, .guide-planning-copy) :is(h3, p),
+    .landing-page .guide-shade-between-regions :is(h4, .shade-strip-description) { text-align: center !important; }
+    .landing-page :is(.guide-lead-course-cta, .firstbolt-cta, .shade-strip-cta) { margin-inline: auto !important; }
+    .landing-page #beside-climbing .beside-climbing-grid { grid-template-columns: minmax(0, 1fr); }
+    body.landing-page.homepage section h2,
+    body.landing-page.homepage #trip-planning h2,
+    body.landing-page.homepage #contact .contact-story h2 { font-size: clamp(36px, 10vw, 48px) !important; }
+}
+@media (prefers-reduced-motion: reduce) {
+    .landing-page :is(.community-action a, .crashpad-cta, .guide-lead-course-cta, .firstbolt-cta, .shade-strip-cta, .guide-contact-strip .cta-button) { transition: none; }
+}

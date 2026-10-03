@@ -1,0 +1,44 @@
+.home-quizzes { padding: 64px 0; background: #f7f8f3; color: #1e2e25; scroll-margin-top: 100px; }
+.home-quizzes h2 { color: #173d2a; }
+.home-quizzes > .container > p { max-width: 680px; margin: 16px auto 28px; text-align: center; }
+.home-quiz-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 24px; max-width: 960px; margin: auto; }
+.home-quiz-card { background: white; border: 1px solid #dfe7dc; border-radius: 20px; overflow: hidden; box-shadow: 0 12px 30px #173d2a12; }
+.home-quiz-card > a { display: block; background: #e9efe5; aspect-ratio: 1; overflow: hidden; }
+.home-quiz-card img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center; }
+.home-quizzes .home-quiz-card > a { width:100%; aspect-ratio:1 / 1; }
+.home-quizzes .home-quiz-card > a > img { width:100% !important; height:100% !important; max-height:none !important; aspect-ratio:1 / 1; object-fit:cover !important; padding:0 !important; margin:0 !important; }
+.homepage .homepage-instagram-embed { width:min(1098px,calc(100% - 40px)); margin:48px auto; }
+.homepage .homepage-instagram-embed { display:grid !important; grid-template-columns:minmax(0,1fr) minmax(0,1fr); align-items:center; gap:32px; }
+.homepage-instagram-embed .guide-instagram-profile-embed { position:relative; min-width:0; width:100%; }
+.homepage .homepage-instagram-embed iframe.instagram-media { position:static !important; inset:auto !important; transform:none !important; width:100% !important; max-width:540px !important; min-width:0 !important; margin:0 auto !important; display:block !important; }
+.homepage .homepage-instagram-embed .guide-instagram-profile-copy { text-align:start; }
+.homepage .guide-google-reviews > .container { max-width:1098px; }
+.homepage .google-reviews-heading h3 { text-align:center; }
+@media(max-width:600px) { .homepage .homepage-instagram-embed { width:calc(100% - 32px); } .homepage-instagram-embed .instagram-media { min-width:0 !important; width:100% !important; } }
+@media(max-width:700px) { .homepage .homepage-instagram-embed { grid-template-columns:minmax(0,1fr) !important; } }
+.landing-page .guide-content.article-inner > .home-quizzes > .container { padding-block: 40px; }
+.home-quiz-card > div { padding: 24px; }
+.home-quiz-card h3 { color: #173d2a; margin: 0 0 12px; }
+.home-quiz-card p { line-height: 1.7; min-height: 3.4em; margin-bottom: 20px; }
+.home-quiz-button { display: inline-block; background: #173d2a; color: white; padding: 12px 24px; border-radius: 999px; text-decoration: none; font-weight: 700; }
+.home-quiz-guide { display: block; width: fit-content; margin: 24px auto 0; color: #173d2a; font-weight: 700; }
+.home-quizzes a:focus-visible { outline: 3px solid #b5d87a; outline-offset: 4px; }
+@media(max-width:600px) { .home-quiz-grid { grid-template-columns: 1fr; } .home-quizzes { padding: 40px 0; } }
+
+/* Homepage section headings share one centered alignment. */
+.landing-page.homepage section h2 { text-align:center !important; margin-inline:auto !important; }
+.landing-page.homepage section h2::after { margin-inline:auto !important; left:50% !important; right:auto !important; transform:translateX(-50%) !important; }
+.landing-page.homepage .trip-planning-header { text-align:center !important; margin-inline:auto; }
+
+/* Guide actions share the site's green, rounded button treatment. */
+.landing-page .guide-guidebook-cta-actions { display:flex; flex-wrap:wrap; gap:12px; justify-content:center; }
+.landing-page .guide-guidebook-cta-actions a.cta-button { display:inline-flex !important; align-items:center; justify-content:center; gap:10px; flex:1 1 220px; min-height:52px; padding:14px 22px !important; border:1px solid #173d2a !important; border-radius:999px !important; background:#173d2a !important; color:#fff !important; font:inherit; font-weight:700; text-decoration:none !important; text-align:center; box-shadow:none !important; }
+.landing-page .guide-guidebook-cta-actions a.cta-button::after { content:none !important; }
+.landing-page .guide-guidebook-cta-actions a.cta-button:hover { background:#2c5f2d !important; }
+.landing-page .guide-guidebook-cta-actions a.cta-button:focus-visible { outline:3px solid #b5d87a; outline-offset:3px; }
+.landing-page .climbing-walls-carousel button.walls-carousel-button { width:48px !important; height:48px !important; border-radius:14px !important; border:1px solid #173d2a !important; background:#173d2a !important; color:white !important; box-shadow:0 4px 12px #173d2a24 !important; font-size:0 !important; display:grid !important; place-items:center; }
+.landing-page .climbing-walls-carousel button.walls-carousel-button::before { font-size:24px !important; color:inherit !important; line-height:1; }
+.landing-page .climbing-walls-carousel button.walls-carousel-button:hover { background:#2c5f2d !important; }
+.landing-page .climbing-walls-carousel button.walls-carousel-button:focus-visible { outline:3px solid #b5d87a; outline-offset:3px; }
+.landing-page .walls-carousel-dots button { width:10px !important; height:10px !important; border-radius:999px !important; background:#cbd8c7 !important; }
+.landing-page .walls-carousel-dots button.active { width:26px !important; background:#173d2a !important; }

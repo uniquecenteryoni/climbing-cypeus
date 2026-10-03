@@ -346,6 +346,8 @@
     <link rel="alternate" hreflang="he" href="https://climbing-cyprus.com/activities">
     <link rel="alternate" hreflang="en" href="https://climbing-cyprus.com/en/activities">
     <link rel="alternate" hreflang="x-default" href="https://climbing-cyprus.com/activities">
+<link rel="stylesheet" href="site-refinements.css?v=20261002-2">
+<script src="clients-carousel.js" defer></script>
 </head>
 
 <body class="activities-page">
@@ -400,10 +402,9 @@
 
                 <div class="activity-content">
                     <div class="activity-image">
-                        <video autoplay loop muted playsinline>
-                            <source src="pics/short1.mp4" type="video/mp4">
-                            סנפלינג בקפריסין
-                        </video>
+                        <div class="activity-video-frame">
+                            <iframe src="https://www.youtube.com/embed/Eele4A2vs-g?autoplay=1&amp;loop=1&amp;playlist=Eele4A2vs-g&amp;enablejsapi=1&mute=1&playsinline=1" title="Climbing Cyprus video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
                     </div>
                     <div class="activity-text">
                         <h3 data-i18n="activities-climbing-experience-title">יום חווייתי המשלב התמודדות והעצמה</h3>
@@ -430,7 +431,13 @@
 
                 <div class="activity-content">
                     <div class="activity-image">
-                        <img src="pics/Galerry/climb2.webp" alt="טיפוס משפחתי">
+                        <div class="clients-carousel" role="region" aria-label="מטפסים בכל הגילאים" tabindex="0">
+<img src="pics/Galerry/young-climbers-cyprus-2026-08-31.webp" alt="ילדים מטפסים בקפריסין"  loading="lazy">
+<img src="pics/Galerry/family-climbing-cyprus-2026-08-15.webp" alt="טיפוס משפחתי משותף" hidden loading="lazy">
+<img src="pics/Galerry/yotam-climbing-cyprus-2026-08-18.webp" alt="מטפס בוגר על מסלול סלע" hidden loading="lazy">
+<img src="pics/Galerry/ineia-climbing-2026-08-03.webp" alt="מטפסות צעירות באיניה" hidden loading="lazy">
+<img src="pics/Galerry/506063081_10238094923733485_799602026524901628_n.webp" alt="משפחה ומדריך למרגלות המצוק" hidden loading="lazy">
+<button class="clients-prev" type="button" aria-label="תמונה קודמת">›</button><button class="clients-next" type="button" aria-label="תמונה הבאה">‹</button><div class="clients-dots"><button type="button" aria-label="תמונה 1" aria-pressed="true"></button><button type="button" aria-label="תמונה 2" aria-pressed="false"></button><button type="button" aria-label="תמונה 3" aria-pressed="false"></button><button type="button" aria-label="תמונה 4" aria-pressed="false"></button><button type="button" aria-label="תמונה 5" aria-pressed="false"></button></div><span class="clients-count" aria-live="polite">1 / 5</span></div>
                     </div>
                     <div class="activity-text">
                         <h3 data-i18n="activities-climbing-ages-title">מתאים לכל הגילאים</h3>
@@ -457,7 +464,7 @@
             <!-- Rappelling Section -->
             <div class="activity-section" id="rappelling">
                 <div class="activity-header">
-                    <h2 data-i18n="activities-rappelling-header">סנפלינג (גלישה בחבלים)</h2>
+                    <h2 data-i18n="activities-rappelling-header">סנפלינג</h2>
                     <p data-i18n="activities-rappelling-subheader">חוויה אדרנלינית של גלישה בחבלים ממצוקים ומפלים מרהיבים</p>
                 </div>
 
@@ -493,7 +500,7 @@
                 <div class="pricing-box">
                     <h3 data-i18n="activities-rappelling-pricing-title">מחירון סנפלינג</h3>
                     <div class="price">
-                        <span class="currency">€</span>40
+                        <span class="currency">€</span>50
                     </div>
                     <p data-i18n="activities-rappelling-pricing-desc">מחיר למשתתף | מינימום 5 משתתפים | כולל ציוד מקצועי | הדרכה מלאה</p>
                     <a href="/#contact" class="cta-button" data-i18n="activities-rappelling-book">הזמינו עכשיו</a>
@@ -516,14 +523,6 @@
                     <a href="/#contact" class="cta-button" data-i18n="activities-climbing-book">הזמינו עכשיו</a>
                 </div>
 
-                <div class="pricing-box">
-                    <h3 data-i18n="activities-combined-hiking-rappelling-title">חבילת טיול + סנפלינג</h3>
-                    <div class="price">
-                        <span class="currency">€</span>100
-                    </div>
-                    <p data-i18n="activities-combined-hiking-rappelling-desc">מחיר למשתתף | ליום מלא | כולל כל הציוד</p>
-                    <a href="/#contact" class="cta-button" data-i18n="activities-climbing-book">הזמינו עכשיו</a>
-                </div>
             </div>
 
             <!-- What's Included -->

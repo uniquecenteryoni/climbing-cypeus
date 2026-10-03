@@ -1143,8 +1143,8 @@
 <a href="#logistics" onmouseout="this.style.background='transparent'" onmouseover="this.style.background='rgba(255,255,255,0.2)'" style="color: white; text-decoration: none; padding: 0.5rem 1.5rem; border-radius: 5px; transition: all 0.3s; font-weight: 500;">
 <i class="fas fa-info-circle"></i> <span data-i18n="guide-nav-logistics">Logistics</span>
 </a>
-<a href="#beside-climbing" onmouseout="this.style.background='transparent'" onmouseover="this.style.background='rgba(255,255,255,0.2)'" style="color: white; text-decoration: none; padding: 0.5rem 1.5rem; border-radius: 5px; transition: all 0.3s; font-weight: 500;">
-<i class="fas fa-coffee"></i> <span data-i18n="guide-nav-beside-climbing">Beside Climbing</span>
+<a href="#guide-lead-course" onmouseout="this.style.background='transparent'" onmouseover="this.style.background='rgba(255,255,255,0.2)'" style="color: white; text-decoration: none; padding: 0.5rem 1.5rem; border-radius: 5px; transition: all 0.3s; font-weight: 500;">
+<i class="fas fa-graduation-cap"></i> <span data-i18n="guide-nav-lead-course">Lead climbing course</span>
 </a>
 <a href="#north" onmouseout="this.style.background='transparent'" onmouseover="this.style.background='rgba(255,255,255,0.2)'" style="color: white; text-decoration: none; padding: 0.5rem 1.5rem; border-radius: 5px; transition: all 0.3s; font-weight: 500;">
 <i class="fas fa-mountain"></i> <span data-i18n="guide-nav-north">North Cyprus</span>
@@ -1441,7 +1441,7 @@
 </div>
 </section>
 <section class="crashpad-banner full-width-strip" aria-labelledby="crashpad-title"><div class="crashpad-inner"><div class="crashpad-copy"><h3 id="crashpad-title">Need crash pads for bouldering?</h3><p>Easily rent quality bouldering gear for your next session</p></div><a class="crashpad-cta" href="/en/equipment#bouldering"><span>Rent quality bouldering gear</span><span aria-hidden="true">→</span></a><div class="crashpad-personal"><svg viewBox="0 0 120 100" aria-hidden="true"><ellipse cx="60" cy="88" rx="48" ry="7" fill="#284c2520"/><path d="m18 25 55-11 30 62-61 12z" fill="#315e44"/><path d="m23 28 23 53 25-5-21-53z" fill="#90aa79"/><path d="m51 22 24-5 25 57-27 3z" fill="#ef8a30"/><path d="m23 28 24 4 26 45M46 32l5-10m0 59 4 8 18-3-3-8" fill="none" stroke="#183f32" stroke-width="3"/><path d="m86 12 3-9m8 16 8-6m-5 17 11-1" stroke="#ed8c39" stroke-width="3" stroke-linecap="round"/></svg><strong>Directly from me!</strong></div></div></section>
-<section aria-labelledby="guide-lead-course-title" class="guide-lead-course-strip full-width-strip">
+<section id="guide-lead-course" aria-labelledby="guide-lead-course-title" class="guide-lead-course-strip full-width-strip">
 <div class="article-container">
 <div class="guide-lead-course-copy">
 <h3 id="guide-lead-course-title">Ready to lead your next climb?</h3>
@@ -2259,10 +2259,28 @@
             moveBefore('Garga-Suyu', 'Buffawall');
             moveBefore('Gerakopetra', 'Diarizous');
 
-            // Keep the guidebook feature before the FirstBolt strip in the bouldering flow.
+            // Swap the requested editorial strips while preserving their complete content.
             const firstBolt = article.querySelector('.firstbolt-promo');
+            const crashpad = article.querySelector('.crashpad-banner');
             const boulderingResources = article.querySelector('.bouldering-resources');
-            if (firstBolt && boulderingResources) boulderingResources.after(firstBolt);
+            const shade = article.querySelector('.guide-shade-between-regions');
+            const leadCourse = article.querySelector('.guide-lead-course-strip');
+            const community = article.querySelector('.guide-community');
+            const swapNodes = (first, second) => {
+                if (!first || !second || first === second) return;
+                const marker = document.createComment('guide-strip-swap');
+                first.parentNode.insertBefore(marker, first);
+                second.parentNode.insertBefore(first, second);
+                marker.parentNode.insertBefore(second, marker);
+                marker.remove();
+            };
+            swapNodes(firstBolt, crashpad);
+            swapNodes(shade, leadCourse);
+            if (shade && leadCourse) {
+                north.parentNode.insertBefore(leadCourse, north);
+                bouldering.parentNode.insertBefore(shade, bouldering);
+            }
+            if (community && north) article.insertBefore(community, north);
         });
     </script>
 <script>

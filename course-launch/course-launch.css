@@ -28,3 +28,17 @@ html{scroll-behavior:smooth}
 .lead-final-old-price {
     text-decoration-color: #fff;
 }
+
+/* Rotate the hero photo counter-clockwise while keeping the right-hand panel intact. */
+.lead-hero-image {
+    position: relative;
+    overflow: hidden;
+    background: none;
+}
+.lead-hero-image::before {
+    content: '';
+    position: absolute;
+    inset: -22%;
+    background: url('../pics/course-lead-launch-hero.webp') center / cover no-repeat;
+    transform: rotate(-90deg) scale(1.12);
+}

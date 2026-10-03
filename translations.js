@@ -1266,6 +1266,7 @@ const translations = {
         // Climber's Guide - Navigation
         "guide-nav-logistics": "Logistics",
         "guide-nav-beside-climbing": "Beside Climbing",
+        "guide-nav-lead-course": "Lead climbing course",
         "guide-nav-north": "North Cyprus",
         "guide-nav-south": "South Cyprus",
         "guide-nav-bouldering": "Bouldering",

@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap');
+:root { --quiz-green:#173d2a; --quiz-green-light:#2c5f2d; --quiz-lime:#b5d87a; --quiz-ink:#1e2e25; --quiz-muted:#617067; --quiz-paper:#f7f8f3; }
+body { background:var(--quiz-paper); color:var(--quiz-ink); font-family:'Rubik','Segoe UI',Tahoma,Geneva,Verdana,sans-serif; }
+main { width:min(760px,calc(100% - 32px)); max-width:none; margin:auto; padding:1.5rem 0 4rem; }
+header { gap:1rem; margin-bottom:2rem; flex-wrap:wrap; }
+.brand { display:inline-flex; }
+.brand img { width:150px; height:86px; object-fit:contain; }
+.switch { direction:ltr; gap:.35rem; }
+.lang { padding:.35rem .55rem; border-color:#dfe7dc; color:var(--quiz-green-light); font-size:.82rem; font-weight:800; }
+.lang[aria-pressed=true] { background:var(--quiz-green); }
+.quiz-home-link { color:var(--quiz-green-light); text-decoration:none; font-weight:700; }
+#intro, #result { text-align:center; }
+h1 { color:var(--quiz-green); font-size:clamp(2rem,6vw,3.3rem); line-height:1.1; }
+h2 { color:var(--quiz-green); font-size:clamp(1.35rem,4vw,1.85rem); line-height:1.35; }
+.card { border:1px solid #dfe7dc; border-radius:1.25rem; padding:1.75rem 1.4rem 1.5rem; box-shadow:0 18px 45px rgba(23,61,42,.1); }
+.primary { background:var(--quiz-green); font-weight:800; padding:.85rem 1.35rem; border-radius:999px; }
+.primary:hover { background:var(--quiz-green-light); }
+.bar { background:var(--quiz-lime); }
+.progress { height:8px; background:#e9efe5; }
+.choice { padding:.9rem 1rem; border-color:#dfe7dc; border-radius:.75rem; color:var(--quiz-ink); }
+.choice:has(input:checked) { border-color:var(--quiz-green-light); background:#f1f7ea; }
+.choice.good { background:#eff7ed; border-color:#46804a; }
+.choice.wrong { background:#fff3ee; border-color:#bc5b45; }
+.image { direction:ltr; }
+.image .panel:only-child { max-width:400px; margin-inline:auto; }
+.muted,.caption,footer { color:var(--quiz-muted); }
+.eyebrow,.caption,footer { font-size:14px; }
+.actions { justify-content:center; }
+#review { text-align:start; }
+.score { color:var(--quiz-green-light); }
+@media(max-width:600px) { header { justify-content:center; } .quiz-home-link { flex-basis:100%; text-align:center; } .card { padding:1.25rem 1rem; } }

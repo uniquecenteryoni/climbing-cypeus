@@ -10305,3 +10305,5 @@ body.landing-page {
     text-align: left !important;
     unicode-bidi: plaintext;
 }
+/* Lead course promotional price */
+.course-page .price-old { color: #7b847e; font-size: .95rem; font-weight: 500; margin-inline-end: .35rem; }

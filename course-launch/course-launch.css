@@ -8,6 +8,23 @@ html{scroll-behavior:smooth}
 .lead-intro{max-width:900px;margin:0 auto;padding:clamp(4rem,8vw,7rem) 1.25rem;text-align:center}.lead-intro h2,.lead-split-section h2,.lead-bring h2,.lead-final h2{margin:.2rem 0 1rem;font-size:clamp(2.25rem,5vw,4rem);line-height:1.05;letter-spacing:-.04em}.lead-intro>p:not(.lead-kicker){max-width:740px;margin:0 auto;font-size:1.2rem;line-height:1.8}.lead-stat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:3.5rem;text-align:right}.lead-stat{padding:1.3rem 1.5rem;border-top:3px solid var(--orange);background:#fff}.lead-stat strong{display:block;color:var(--orange);font-size:1.65rem;line-height:1.15;margin-bottom:.7rem}.lead-stat span{font-weight:500;line-height:1.6}
 .lead-split-section{display:grid;grid-template-columns:1fr 1fr;direction:ltr}.lead-dark-panel,.lead-route-panel{padding:clamp(3rem,7vw,6rem) max(1.25rem,calc((100vw - 1180px)/2));direction:rtl}.lead-dark-panel{padding-left:clamp(1.25rem,7vw,7rem);background:var(--ink);color:#fff}.lead-route-panel{padding-right:clamp(1.25rem,7vw,7rem);background:#f5e7ca}.lead-dark-panel h2{color:#fff}.lead-dark-panel .lead-kicker{color:#ff7346}.lead-check-list{list-style:none;padding:0;margin:2rem 0 0}.lead-check-list li{position:relative;padding:0 2rem .9rem 0;font-size:1.12rem}.lead-check-list li:before{content:'+';position:absolute;right:0;top:-.15rem;color:#ff7346;font-size:1.5rem;font-weight:900}.lead-route-panel p:not(.lead-kicker){font-size:1.15rem}.airport-badge{display:flex;align-items:center;gap:1rem;margin:1.7rem 0;padding:1rem;border:1px solid #d8c9a9;background:#fff;border-radius:12px}.airport-badge span{display:grid;place-items:center;width:58px;height:58px;border-radius:50%;background:var(--orange);color:#fff;font-size:1.2rem;font-weight:900}.airport-badge strong{font-size:1.1rem}.lead-small-note{font-weight:700}.lead-bring{display:grid;grid-template-columns:1fr 1fr;gap:4rem;max-width:1180px;margin:auto;padding:clamp(4rem,8vw,7rem) 1.25rem}.lead-bring>div>p:not(.lead-kicker){font-size:1.1rem;max-width:480px}.bring-list{display:grid;grid-template-columns:1fr 1fr;gap:1rem;list-style:none;padding:0;margin:0}.bring-list li{display:flex;align-items:center;gap:1rem;padding:1.3rem;background:#fff;border:1px solid var(--line);font-weight:800}.bring-list i{color:var(--orange);font-size:1.4rem;width:1.5rem;text-align:center}.lead-final{display:grid;grid-template-columns:1.3fr .7fr;gap:3rem;align-items:center;max-width:1180px;margin:0 auto 4rem;padding:clamp(2rem,5vw,4rem);background:var(--orange);color:#fff;border-radius:24px}.lead-final .lead-kicker{color:#ffddbd}.lead-final h2{font-size:clamp(2.2rem,4vw,3.4rem)}.lead-final p:not(.lead-kicker){font-size:1.1rem;max-width:600px}.lead-final-action{display:flex;flex-direction:column;gap:1.5rem}.lead-final-action>div{display:flex;align-items:center;gap:1rem}.lead-final-price{font-size:3rem;font-weight:900;line-height:1}.lead-final-action .lead-primary-cta{background:#fff;color:var(--orange)!important;box-shadow:none;text-align:center}.lead-footer{display:flex;justify-content:center;gap:1.5rem;padding:1.5rem;color:#69768a;font-size:.9rem}.lead-footer a{font-weight:900;color:var(--ink);text-decoration:none}
 @media(max-width:760px){.lead-nav{gap:.8rem;padding:.8rem 1rem}.lead-logo img{width:120px}.lead-nav-link{display:none}.lead-hero{display:flex;flex-direction:column}.lead-hero-image{order:1;min-height:330px;width:100%;background-position:center}.lead-hero-content{order:2;padding:3rem 1.25rem 3.5rem}.lead-hero h1{font-size:clamp(3.3rem,17vw,5.3rem)}.lead-meta{gap:.8rem;flex-direction:column}.lead-stat-grid,.lead-split-section,.lead-bring,.lead-final{grid-template-columns:1fr}.lead-stat-grid{gap:.7rem}.lead-dark-panel,.lead-route-panel{padding:3.5rem 1.25rem}.lead-bring{gap:2rem;padding:4rem 1.25rem}.bring-list{grid-template-columns:1fr}.lead-final{margin:0 1rem 3rem;padding:2rem 1.5rem;border-radius:18px}.lead-footer{flex-direction:column;align-items:center;gap:.3rem}}
-.lead-hero-image{background-image:url('../pics/course-lead-paphos.png')}
 .lead-hero-image{background-size:auto 140%;background-position:60% 74%}
 @media(max-width:760px){.lead-hero-image{background-size:auto 145%;background-position:58% 74%}}
+
+/* Make the launch offer unmistakable and keep the crossed-out price legible. */
+.lead-hero-image {
+    background-image: url('../pics/course-lead-launch-hero.webp');
+}
+.lead-old-price span,
+.lead-final-old-price {
+    text-decoration-line: line-through;
+    text-decoration-thickness: 2px;
+    text-decoration-color: var(--orange);
+}
+.lead-price-note {
+    border-radius: 999px;
+    box-shadow: 0 6px 14px #fb4b1530;
+}
+.lead-final-old-price {
+    text-decoration-color: #fff;
+}

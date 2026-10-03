@@ -483,6 +483,7 @@
 <link href="https://climbing-cyprus.com/safety-quiz" hreflang="he" rel="alternate"/>
 <link href="https://climbing-cyprus.com/en/safety-quiz" hreflang="en" rel="alternate"/>
 <link href="https://climbing-cyprus.com/safety-quiz" hreflang="x-default" rel="alternate"/>
+<link rel="stylesheet" href="/quiz-presentation.css?v=20261002">
 </head>
 <body class="safety-quiz-page">
 <main class="quiz-shell">
@@ -495,8 +496,10 @@
 <a data-lang-link="en" href="/en/safety-quiz">English</a>
 </div>
 <a class="quiz-back-link" href="/en/climber-guide" id="quiz-back-link">Back to guide</a>
+<a class="quiz-back-link" href="/en/#quizzes">All quizzes</a>
 </div>
 <header class="quiz-hero">
+<img class="quiz-cover" id="quiz-cover" src="/pics/clipping-quiz-square-en.jpg" alt="Clipping Skills Quiz" width="1024" height="1024">
 <h1 id="quiz-title"></h1>
 <p id="quiz-intro"></p>
 </header>
@@ -657,6 +660,7 @@
         });
 
         function renderLeadCapture() {
+            document.getElementById('quiz-cover').hidden = false;
             quizApp.hidden = false;
             result.hidden = true;
             quizApp.innerHTML = `
@@ -706,6 +710,7 @@
         }
 
         function renderQuestion() {
+            document.getElementById('quiz-cover').hidden = true;
             const question = questions[current];
             const progress = ((current + 1) / questions.length) * 100;
             const image = `<img class="quiz-image" src="${question.image}" alt="${question.imageAlt[lang]}" loading="eager">`;

@@ -119,10 +119,10 @@
 </div>
 <div class="tour-hero-content">
 <div class="container">
-<h1><span data-i18n="course-title">Lead Climbing in Nature</span></h1>
+<h1><span data-i18n="course-title">Lead Climbing Course</span></h1>
 <p class="tour-meta">
 <span><i class="fas fa-calendar-days"></i> <span data-i18n="course-duration">3 days</span></span>
-<span><i class="fas fa-clock"></i> <span data-i18n="course-hours">20 hours of instruction</span></span>
+<span><i class="fas fa-clock"></i> <span data-i18n="course-hours">09:00–16:00 daily · 20 hours of instruction</span></span>
 <span><i class="fas fa-users"></i> <span data-i18n="course-participants">Up to 4 participants</span></span>
 </p>
 </div>
@@ -148,6 +148,7 @@
 <li><i class="fas fa-check"></i> <span data-i18n="course-learn-7">Dynamic belaying and catching falls</span></li>
 <li><i class="fas fa-check"></i> <span data-i18n="course-learn-8">Controlled falls</span></li>
 <li><i class="fas fa-check"></i> <span data-i18n="course-learn-9">Cleaning an anchor</span></li>
+<li><i class="fas fa-check"></i> <span data-i18n="course-learn-13">Practical Training Day</span></li>
 <li><i class="fas fa-check"></i> <span data-i18n="course-learn-10">Solving common problems</span></li>
 <li><i class="fas fa-check"></i> <span data-i18n="course-learn-11">Planning and managing an independent climbing day</span></li>
 <li><i class="fas fa-check"></i> <span data-i18n="course-learn-12">Practical practice on routes of different grades</span></li>
@@ -204,9 +205,9 @@
 <div class="booking-card">
 <h3 data-i18n="course-booking">Course Booking</h3>
 <div class="price">
-<span class="price-amount" data-i18n="course-price-from">€300 per participant</span>
+<del class="price-old">€400</del> <span class="price-amount" data-i18n="course-price-from">€300 per participant</span>
 </div>
-<p data-i18n="course-price-note" style="font-size: 0.9rem; text-align: center; margin-bottom: 1.5rem;">3 days | 20 hours of instruction</p>
+<p data-i18n="course-price-note" style="font-size: 0.9rem; text-align: center; margin-bottom: 1.5rem;">3 days | 09:00–16:00 daily | 20 hours of instruction</p>
 <a class="book-btn" data-i18n="course-book-btn" href="/en/#contact">Book Now</a>
 </div>
 <div class="course-instructor-card">
@@ -254,5 +255,13 @@
 </div>
 </footer>
 <script src="../script.js?v=20260929-2"></script>
+<script>
+document.querySelectorAll('.itinerary').forEach(itinerary => {
+['09:00', '10:30', '12:00', '13:30', '15:00'].forEach((time, index) => {
+const slot = itinerary.querySelectorAll('.itinerary-time')[index];
+if (slot) slot.textContent = time;
+});
+});
+</script>
 </body>
 </html>

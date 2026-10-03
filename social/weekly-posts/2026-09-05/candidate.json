@@ -78,7 +78,7 @@
     "revision_r2_gmail_sent_message_id": "1a089479b801eb1c",
     "revision_r2_email_sent_at": "2026-09-10T06:06:05+03:00",
     "revision_r2_email_subject": "Re: [Climbing Cyprus Approval][CC-20260905-BE5BE86E-R1] טיוטה מתוקנת R2 לאישור",
-    "last_checked_at": "2026-09-30T09:19:50+03:00",
+    "last_checked_at": "2026-10-03T10:39:18+03:00",
     "approval_message_id": "1a08a0bb11cde0f6",
     "approval_received_at": "2026-09-10T09:40:16+03:00",
     "approval_processed_at": "2026-09-11T10:54:22+03:00",
@@ -107,8 +107,8 @@
     "links": {"instagram_feed": "https://www.instagram.com/climbing.cyprus/p/DdtVVvtlV0o/", "facebook_group": "https://www.facebook.com/share/p/17fN6k9H2k/", "facebook_personal_feed": "https://www.facebook.com/yoni.malichi", "youtube_community": "https://www.youtube.com/post/UgkxF_eJq-Id1l1dFVR3Y4_kTUZviyGdPDHT"},
     "website_action": "pending_update",
     "hold_reason": "Remaining people-photo uploads require renewed approval after delay. Request sent in the original thread; already verified published targets must not be repeated.",
-    "last_checked_at": "2026-09-30T09:19:50+03:00",
-    "last_check_notes": "Gmail profile verified as unique.center.yoni@gmail.com; original thread 1a0702d66d294fbe read successfully. Latest thread message remains renewal request 1a0e2c55b8840ae2; there is no later reply. September 24 approval is already processed and was not reused. Website and optional Stories await renewed approval. No new draft, email, upload or publication; verified destinations were not repeated.",
+    "last_checked_at": "2026-10-03T10:39:18+03:00",
+    "last_check_notes": "Gmail profile verified as unique.center.yoni@gmail.com; original thread 1a0702d66d294fbe read successfully. Latest thread message remains renewal request 1a0e2c55b8840ae2; there is no later user reply. September 24 approval is already processed and was not reused. Website and optional Stories await renewed approval. No new draft, email, upload or publication; verified destinations were not repeated.",
     "notes": "Renewed R3 approval 1a0d4246737c432e verified in original Gmail thread and labeled Processed once. Meta, Facebook admin and YouTube brand identities verified. Instagram feed published (Meta ID 18119424125513166), Facebook group published, personal feed share confirmed by success toast, YouTube community published. Story WebP upload did not populate composer after two attempts; PNG format conversion prepared but not uploaded. No new draft or approval email. Do not republish verified targets."
   },
   "publishing_performed": true

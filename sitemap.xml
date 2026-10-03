@@ -24,6 +24,13 @@
    </url>
 
    <url>
+      <loc>https://climbing-cyprus.com/sylabus-lead-course</loc>
+      <lastmod>2026-10-03</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.9</priority>
+   </url>
+
+   <url>
       <loc>https://climbing-cyprus.com/course-launch/</loc>
       <lastmod>2026-09-30</lastmod>
       <changefreq>monthly</changefreq>
@@ -40,6 +47,13 @@
    <url>
       <loc>https://climbing-cyprus.com/safety-quiz</loc>
       <lastmod>2026-09-21</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.8</priority>
+   </url>
+
+   <url>
+      <loc>https://climbing-cyprus.com/lead-belaying-quiz/</loc>
+      <lastmod>2026-10-01</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.8</priority>
    </url>
@@ -93,6 +107,7 @@
    <url><loc>https://climbing-cyprus.com/en/activity-hiking</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
    <url><loc>https://climbing-cyprus.com/en/climber-guide</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
    <url><loc>https://climbing-cyprus.com/en/course</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+   <url><loc>https://climbing-cyprus.com/en/sylabus-lead-course</loc><lastmod>2026-10-03</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
    <url><loc>https://climbing-cyprus.com/equipment</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
    <url><loc>https://climbing-cyprus.com/en/equipment</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
    <url><loc>https://climbing-cyprus.com/en/safety-quiz</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>

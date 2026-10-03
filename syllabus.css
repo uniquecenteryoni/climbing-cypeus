@@ -20,8 +20,11 @@
 .syllabus-nav a:hover, .syllabus-nav a:focus-visible { background: var(--primary-color); color: #fff; }
 
 .syllabus-details { padding: 3.5rem 0 5rem; background: #f6f8f3; }
+.syllabus-details > .container { width: min(1180px, calc(100% - 40px)); margin-inline: auto; }
 .syllabus-grid { display: grid; grid-template-columns: minmax(0, 1.72fr) minmax(260px, .72fr); gap: clamp(2rem, 5vw, 4.5rem); align-items: start; }
 .syllabus-main { min-width: 0; }
+.syllabus-main > section > * { max-width: 100%; }
+.syllabus-main p, .syllabus-main li, .syllabus-main td, .syllabus-main th { text-align: start; }
 .syllabus-main section { scroll-margin-top: 78px; padding: 2.7rem 0; border-bottom: 1px solid var(--syllabus-line); }
 .syllabus-main section:first-child { padding-top: 0; }
 .syllabus-main section:last-child { border-bottom: 0; }

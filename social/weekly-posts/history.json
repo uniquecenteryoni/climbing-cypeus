@@ -284,7 +284,7 @@
     "renewed_approval_received_at": "2026-09-24T18:59:10+03:00",
     "renewed_approval_processed_at": "2026-09-25T09:14:56+03:00",
     "created_at": "2026-09-05T09:07:07+03:00",
-    "last_checked_at": "2026-09-30T09:19:50+03:00",
+    "last_checked_at": "2026-10-03T10:39:18+03:00",
     "renewal_request_message_id": "1a0d3bac88ea5f78",
     "last_check_notes": "Gmail profile verified as unique.center.yoni@gmail.com and approval thread read. Latest message remains the September 27 renewal request 1a0e2c55b8840ae2; no later user reply. The September 24 approval is already processed and was not reused. Remaining website and optional Stories await renewed approval. No new draft, email, upload or publication; completed social destinations were not repeated.",
     "approval_email_status": "renewal_requested_remaining_targets_only",

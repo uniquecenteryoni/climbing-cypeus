@@ -1,0 +1,8 @@
+/* Shared quiz opening: square artwork, description, then start/setup controls. */
+.quiz-cover { display:block; width:100%; max-width:600px; height:auto; aspect-ratio:1; object-fit:cover; margin:0 auto 1.75rem; border-radius:1.25rem; }
+.quiz-cover[hidden] { display:none; }
+.quiz-hero, #intro { text-align:center; }
+.quiz-hero p, #intro > p { max-width:600px; margin-inline:auto; line-height:1.7; }
+.quiz-language a, .quiz-back-link, .quiz-home-link { border:1px solid #dfe7dc; border-radius:999px; padding:.6rem .9rem; text-decoration:none; font-weight:700; }
+.quiz-topbar { flex-wrap:wrap; }
+@media(max-width:600px) { .quiz-cover { border-radius:1rem; } .quiz-topbar { justify-content:center; } }

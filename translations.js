@@ -3,17 +3,17 @@ const translations = {
     he: {
         // Site title and tagline
         "site-title": "Climbing Cyprus",
-        "site-tagline": "טיפוס צוקים וטיולים מודרכים",
+        "site-tagline": "טיפוס צוקים, סנפלינג והשכרת ציוד",
         "mid-page-cta-title": "מוכנים לתכנן יום טיפוס?",
         "mid-page-cta-text": "ספרו לי על הקבוצה שלכם ואעזור לבחור את החוויה המתאימה.",
         "mid-page-cta-button": "בואו נתכנן את ההרפתקה",
         
         // Navigation
         "nav-home": "בית",
-        "nav-about": "קפריסין בעין אחרת",
+        "nav-about": "Climbing Cyprus",
         "nav-about-me": "אודות",
         "nav-activities": "הפעילויות שלנו",
-        "nav-tours": "טיולי הליכה",
+        "nav-tours": "טיפוס צוקים וסנפלינג",
         "nav-climbing": "טיפוס צוקים וסנפלינג",
         "nav-testimonials": "ממליצים",
         "nav-gallery": "תמונות",
@@ -35,7 +35,7 @@ const translations = {
         
         // Hero section
         "hero-title": "חווית אקסטרים<br><span class=\"hero-accent\">בקפריסין</span>",
-        "hero-subtitle": "טיפוס צוקים וסנפלינג מודרכים באי",
+        "hero-subtitle": "טיפוס צוקים, סנפלינג וקורסים בקפריסין",
         "hero-cta": "הזמן את ההרפתקה שלך",
         "hero-feature-locations": "מקומות נבחרים",
         "hero-feature-equipment": "כל הציוד כלול",
@@ -46,13 +46,13 @@ const translations = {
         // About Me section
         "about-me-title": "אודות",
         "about-me-intro": "היי, אני יונתן, במקור מישראל, כיום מתגורר בקפריסין. מדריך מוסמך לטיפוס צוקים וסנפלינג עם ניסיון רב בהדרכות וקורסים.",
-        "about-me-passion": "האהבה שלי לטבע ולהרפתקאות הובילה אותי ליצור את \"קפריסין בעין אחרת\", חוויה ייחודית שמראה למבקרים את היופי הנסתר של האי הקסום הזה.",
-        "about-me-experience": "אני מתמחה בטיולי הליכה בטבע, טיפוס צוקים וסנפלינג, ומספק הדרכה מקצועית ובטוחה לכל הרמות, ממתחילים ועד מתקדמים.",
+        "about-me-passion": "האהבה שלי לטבע ולהרפתקאות הובילה אותי ליצור את Climbing Cyprus — מקום שמחבר מטפסים ליופי הנסתר של האי.",
+        "about-me-experience": "אני מתמחה בטיפוס צוקים, סנפלינג, קורסים והשכרת ציוד, עם דגש על מקצועיות, בטיחות ועצמאות.",
         "about-quote": "״כל יום טיפוס נבנה סביב האנשים, הניסיון והחוויה שמתאימה להם.״",
-        "about-me-approach": "כל טיול נבנה בהתאם לצרכים, ליכולות ולהעדפות של המשתתפים.",
+        "about-me-approach": "כל יום טיפוס וקורס נבנים בהתאם לצרכים, ליכולות ולהעדפות של המשתתפים.",
         
         // About section
-        "about-title": "קפריסין בעין אחרת",
+        "about-title": "Climbing Cyprus",
         "about-text-1": "אני בונה את יום הטיפוס לפי האנשים, הניסיון והאזור שמתאים לכם. בין אם זו הפעם הראשונה שלכם על הסלע ובין אם אתם מטפסים מנוסים ומחפשים חוויה אחרת בקפריסין.",
         
         // Features
@@ -625,7 +625,7 @@ const translations = {
     en: {
         // Site title and tagline
         "site-title": "Climbing Cyprus",
-        "site-tagline": "Rock Climbing and Guided Tours",
+        "site-tagline": "Rock climbing, rappelling and equipment rental",
         "mid-page-cta-title": "Ready to plan your climbing day?",
         "mid-page-cta-text": "Tell me about your group and I’ll help you choose the right experience.",
         "mid-page-cta-button": "Plan your adventure",
@@ -635,7 +635,7 @@ const translations = {
         "nav-about": "About",
         "nav-about-me": "About Me",
         "nav-activities": "Our Activities",
-        "nav-tours": "Hiking Tours",
+        "nav-tours": "Rock climbing & rappelling",
         "nav-climbing": "Rock Climbing",
         "nav-testimonials": "Testimonials",
         "nav-gallery": "Photos",
@@ -657,7 +657,7 @@ const translations = {
         
         // Hero section
         "hero-title": "EXTREME EXPERIENCES<br><span class=\"hero-accent\">IN CYPRUS</span>",
-        "hero-subtitle": "Guided rock climbing and abseiling on the island",
+        "hero-subtitle": "Rock climbing, rappelling and courses in Cyprus",
         "hero-cta": "BOOK YOUR ADVENTURE",
         "hero-feature-locations": "Selected locations",
         "hero-feature-equipment": "All equipment included",
@@ -667,11 +667,11 @@ const translations = {
         
         // About Me section
         "about-me-title": "About Me",
-        "about-me-intro": "Hi, I'm Yonatan, originally from Israel, now living in Cyprus. I am a certified rock climbing and rappelling guide with extensive experience leading tours and courses.",
-        "about-me-passion": "My love for nature and adventure led me to create Climbing Cyprus, a guided experience that helps visitors discover the island’s landscapes and climbing areas.",
-        "about-me-experience": "I specialize in nature hikes, rock climbing and rappelling, providing professional and safe guidance for all levels - from beginners to advanced.",
+        "about-me-intro": "Hi, I'm Yonatan, originally from Israel, now living in Cyprus. I am a certified rock climbing and rappelling instructor with extensive experience in courses and technical training.",
+        "about-me-passion": "My love for nature and adventure led me to create Climbing Cyprus — a practical resource for climbers exploring the island.",
+        "about-me-experience": "I specialize in rock climbing, rappelling, lead-climbing courses and equipment rental, with a focus on professional, safe and independent practice.",
         "about-quote": "\"Every climbing day is built around the people, their experience, and the adventure that suits them.\"",
-        "about-me-approach": "Each tour is built according to the needs, abilities and preferences of the participants.",
+        "about-me-approach": "Each climbing day and course is built around the needs, abilities and goals of the participants.",
         
         // About section
         "about-title": "Climbing Cyprus",
@@ -692,8 +692,8 @@ const translations = {
         "activities-title": "ACTIVITIES",
         "activities-hero-title": "Rock Climbing and Rappelling in Cyprus",
         "activities-hero-subtitle": "An empowering experience and extraordinary adventure",
-        "activity-hiking-title": "Hiking Day in Nature",
-        "activity-hiking-desc": "Guided tours to scenic Mediterranean bays, flowing waterfalls, Troodos mountain streams, or the impressive Paphos forest. Hundreds of different trails to choose from according to your preferences.",
+        "activity-hiking-title": "Hiking Inspiration",
+        "activity-hiking-desc": "Ideas for scenic Mediterranean bays, flowing waterfalls, Troodos mountain streams, and the impressive Paphos forest. Explore hundreds of trails and choose what suits you.",
         "activity-climbing-title": "Rock Climbing Day",
         "activity-climbing-desc": "<strong>For Beginners:</strong> Safe introduction to the world of climbing through \"top rope\" climbing.<br><br><strong>For Advanced:</strong> Leading selected routes with emphasis on improving technique and movement efficiency with close professional guidance.",
         "activity-rappel-title": "Rappelling",
@@ -1393,7 +1393,7 @@ const translations = {
         
         // Climber's Guide - Logistics
         "guide-logistics-title": "Logistics",
-        "guide-logistics-transport": "<strong>Transportation:</strong> You must rent a car - there's no option to manage with public transportation. An Israeli license is sufficient. Note that driving here is on the opposite side. <a href=\"https://getrentacar.tp.st/FD6yLXgf\" target=\"_blank\" rel=\"nofollow sponsored noopener\" style=\"color: #2c5f2d; font-weight: bold; text-decoration: underline;\">Compare rental cars</a>",
+        "guide-logistics-transport": "<strong>Transportation:</strong> You must rent a car - there's no option to manage with public transportation. An Israeli license is sufficient. Note that driving here is on the opposite side. <a href=\"https://www.rentalcars.com/\" target=\"_blank\" rel=\"nofollow sponsored noopener\" style=\"color: #2c5f2d; font-weight: bold; text-decoration: underline;\">Compare rental cars</a>",
         "guide-logistics-airports": "<strong>Where to fly:</strong> 2 main airports: Larnaca and Paphos. All the climbing is concentrated in Paphos, so if you can find a flight there - you've won! You can also book an <a href=\"https://kiwitaxi.tp.st/8Xvx72mG\" target=\"_blank\" rel=\"nofollow sponsored noopener\" style=\"color: #2c5f2d; font-weight: bold; text-decoration: underline;\">airport transfer</a> directly to your accommodation.",
         "guide-logistics-accommodation": "<strong>Where to sleep:</strong> The best option is to find an apartment through Airbnb. You might get lucky and find accommodation near the crags, which is great. Look for your home near the villages of Ineia and Droushia. For those who want to be close to the sea and enjoy both worlds, you can also sleep in Paphos (a bit more nightlife and restaurants) or Polis (amazing beaches), both cities are a 45-minute drive from the crags. <a href=\"https://www.booking.com/searchresults.html?ss=Cyprus\" target=\"_blank\" rel=\"nofollow sponsored noopener\" style=\"color: #2c5f2d; font-weight: bold; text-decoration: underline;\">Search hotels and apartments in Cyprus</a>",
         "guide-logistics-currency": "<strong>Currency:</strong> The official currency in Cyprus (Republic of Cyprus, the southern part) is the Euro (€).",
@@ -1483,7 +1483,7 @@ const translations = {
     ru: {
         // Site title and tagline
         "site-title": "Climbing Cyprus",
-        "site-tagline": "Скалолазание и Экскурсии",
+        "site-tagline": "Скалолазание, спуск и аренда снаряжения",
         
         // Navigation
         "nav-home": "Главная",
@@ -1499,7 +1499,7 @@ const translations = {
         
         // Hero section
         "hero-title": "Не Нужно Далеко Ехать<br>Для Приключений и Особых Впечатлений",
-        "hero-subtitle": "Скалолазание и Экскурсии на Кипре",
+        "hero-subtitle": "Скалолазание, спуск и курсы на Кипре",
         "hero-cta": "Свяжитесь с Нами",
         
         // About Me section
@@ -1528,7 +1528,7 @@ const translations = {
         "activities-hero-title": "Скалолазание и Спуск на Кипре",
         "activities-hero-subtitle": "Вдохновляющий опыт и необыкновенное приключение",
         "activity-hiking-title": "День Похода на Природе",
-        "activity-hiking-desc": "Экскурсии к живописным средиземноморским бухтам, текущим водопадам, горным ручьям Троодоса или впечатляющему лесу Пафоса. Сотни различных маршрутов на выбор в соответствии с вашими предпочтениями.",
+        "activity-hiking-desc": "Идеи для живописных средиземноморских бухт, водопадов, горных ручьев Троодоса и впечатляющего леса Пафоса. Выберите подходящий маршрут для самостоятельного путешествия.",
         "activity-climbing-title": "День Скалолазания",
         "activity-climbing-desc": "<strong>Для Начинающих:</strong> Безопасное знакомство с миром скалолазания через \"верхнюю веревку\".<br><br><strong>Для Опытных:</strong> Ведущие маршруты с акцентом на улучшение техники и эффективности движений с тесным профессиональным руководством.",
         "activity-rappel-title": "Спуск (Rappelling)",
@@ -1959,7 +1959,7 @@ const translations = {
     el: {
         // Site title and tagline
         "site-title": "Climbing Cyprus",
-        "site-tagline": "Αναρρίχηση και Ξεναγήσεις",
+        "site-tagline": "Αναρρίχηση, rappel και ενοικίαση εξοπλισμού",
         
         // Navigation
         "nav-home": "Αρχική",
@@ -1975,7 +1975,7 @@ const translations = {
         
         // Hero section
         "hero-title": "Δεν Χρειάζεται να Πάτε Μακριά<br>Για Περιπέτειες και Ξεχωριστές Εμπειρίες",
-        "hero-subtitle": "Αναρρίχηση και Ξεναγήσεις στην Κύπρο",
+        "hero-subtitle": "Αναρρίχηση, rappel και μαθήματα στην Κύπρο",
         "hero-cta": "Επικοινωνήστε",
         
         // About Me section
@@ -2000,7 +2000,7 @@ const translations = {
         "activities-hero-title": "Αναρρίχηση και Rappel στην Κύπρο",
         "activities-hero-subtitle": "Μια ενδυναμωτική εμπειρία και εξαιρετική περιπέτεια",
         "activity-hiking-title": "Ημερήσια Πεζοπορία στη Φύση",
-        "activity-hiking-desc": "Ξεναγήσεις σε γραφικούς κόλπους της Μεσογείου, ρέοντες καταρράκτες, ρέματα του Τροόδους ή το εντυπωσιακό δάσος της Πάφου. Εκατοντάδες διαφορετικά μονοπάτια για να διαλέξετε σύμφωνα με τις προτιμήσεις σας.",
+        "activity-hiking-desc": "Ιδέες για γραφικούς κόλπους της Μεσογείου, καταρράκτες, ρέματα του Τροόδους και το εντυπωσιακό δάσος της Πάφου. Επιλέξτε μια διαδρομή για ανεξάρτητη εξερεύνηση.",
         "activity-climbing-title": "Ημέρα Αναρρίχησης",
         "activity-climbing-desc": "<strong>Για Αρχάριους:</strong> Ασφαλής εισαγωγή στον κόσμο της αναρρίχησης μέσω \"κορυφαίου σχοινιού\".<br><br><strong>Για Προχωρημένους:</strong> Καθοδήγηση επιλεγμένων διαδρομών με έμφαση στη βελτίωση της τεχνικής και της αποτελεσματικότητας κίνησης με στενή επαγγελματική καθοδήγηση.",
         "activity-rappel-title": "Rappel (Κάθοδος)",

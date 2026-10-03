@@ -63,6 +63,22 @@ function addFloatingWhatsApp() {
     document.body.appendChild(link);
 }
 
+function addBackToTopButton() {
+    if (document.querySelector('.back-to-top')) return;
+    const isEnglish = document.documentElement.lang === 'en' || window.location.pathname.startsWith('/en/');
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = 'back-to-top';
+    button.setAttribute('aria-label', isEnglish ? 'Back to top' : 'חזרה לראש העמוד');
+    button.innerHTML = '<i class="fas fa-arrow-up" aria-hidden="true"></i><span></span>';
+    button.querySelector('span').textContent = isEnglish ? 'Back to top' : 'חזרה לראש העמוד';
+    button.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    document.body.appendChild(button);
+    const update = () => button.classList.toggle('is-visible', window.scrollY > 500);
+    window.addEventListener('scroll', update, { passive: true });
+    update();
+}
+
 function upgradeCompactFooter() {
     const footer = document.querySelector('footer.footer');
     if (!footer) return;
@@ -70,8 +86,8 @@ function upgradeCompactFooter() {
     const isEnglish = document.documentElement.lang === 'en' || window.location.pathname.startsWith('/en/');
     const home = isEnglish ? '/en/' : '/';
     const labels = isEnglish
-        ? { tagline: 'Rock climbing, guided tours and outdoor experiences in Cyprus', links: 'Explore', tours: 'Guided tours', course: 'Lead climbing course', gear: 'Equipment rental', contact: 'Contact', social: 'Follow Climbing Cyprus', rights: 'All rights reserved' }
-        : { tagline: 'טיפוס צוקים, טיולים מודרכים וחוויות טבע בקפריסין', links: 'לגלות', tours: 'טיולים מודרכים', course: 'קורס טיפוס הובלה', gear: 'השכרת ציוד', contact: 'יצירת קשר', social: 'עקבו אחרי Climbing Cyprus', rights: 'כל הזכויות שמורות' };
+        ? { tagline: 'Rock climbing, rappelling and equipment rental in Cyprus', links: 'Explore', tours: 'Rock climbing & rappelling', course: 'Lead climbing course', gear: 'Equipment rental', contact: 'Contact', social: 'Follow Climbing Cyprus', rights: 'All rights reserved' }
+        : { tagline: 'טיפוס צוקים, סנפלינג והשכרת ציוד בקפריסין', links: 'לגלות', tours: 'טיפוס צוקים וסנפלינג', course: 'קורס טיפוס הובלה', gear: 'השכרת ציוד', contact: 'יצירת קשר', social: 'עקבו אחרי Climbing Cyprus', rights: 'כל הזכויות שמורות' };
 
     const container = document.createElement('div');
     container.className = 'container';
@@ -136,8 +152,10 @@ function redirectFirstVisitByBrowserLanguage() {
     }
     if (hasSavedPreference) return;
 
-    const browserIsHebrew = navigator.language && navigator.language.toLowerCase().startsWith('he');
-    const preferred = browserIsHebrew ? 'he' : 'en';
+    const browserLocale = (navigator.language || '').toLowerCase();
+    const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone || '';
+    const isLikelyIsrael = browserLocale === 'he-il' || browserLocale.endsWith('-il') || timezone === 'Asia/Jerusalem';
+    const preferred = isLikelyIsrael ? 'he' : 'en';
     localStorage.setItem('preferred-language', preferred);
     if (preferred === 'en') window.location.replace(pagePathForLanguage('en'));
 }
@@ -161,7 +179,9 @@ function getInitialLanguage() {
     
     const saved = localStorage.getItem('preferred-language');
     if (saved && ['he', 'en'].includes(saved)) return saved;
-    return navigator.language && navigator.language.toLowerCase().startsWith('he') ? 'he' : 'en';
+    const browserLocale = (navigator.language || '').toLowerCase();
+    const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone || '';
+    return (browserLocale === 'he-il' || browserLocale.endsWith('-il') || timezone === 'Asia/Jerusalem') ? 'he' : 'en';
 }
 
 let currentLang = getInitialLanguage();
@@ -186,6 +206,7 @@ document.addEventListener('DOMContentLoaded', () => {
     redirectLegacyLanguageUrl();
     updateLanguageSeoLinks();
     addFloatingWhatsApp();
+    addBackToTopButton();
     upgradeCompactFooter();
     document.querySelectorAll('.current-year').forEach(year => { year.textContent = new Date().getFullYear(); });
 
@@ -466,7 +487,7 @@ function initGoogleReviewsCarousel() {
         function goTo(nextIndex) {
             const maxIndex = Math.max(0, cards.length - visibleCards());
             index = Math.min(Math.max(nextIndex, 0), maxIndex);
-            track.style.transform = `translateX(${index * (cards[0].offsetWidth + 20) * (document.documentElement.dir === 'rtl' ? 1 : -1)}px)`;
+            track.style.transform = `translate3d(${-index * (cards[0].offsetWidth + 20)}px, 0, 0)`;
             cards.forEach((card, i) => card.classList.toggle('is-active', i === index));
             dots.forEach((dot, i) => dot.classList.toggle('is-active', i === Math.min(index, dots.length - 1)));
         }

@@ -24,7 +24,7 @@
     <meta name="twitter:title" content="Climbing Cyprus">
     <meta name="twitter:description" content="טיפוס צוקים, סנפלינג וחוויות טבע בקפריסין">
     <meta name="twitter:image" content="https://climbing-cyprus.com/pics/climbing-cyprus-social-preview.webp">
-    <title>קפריסין בעין אחרת - טיפוס צוקים וטיולים מודרכים</title>
+    <title>Climbing Cyprus - טיפוס צוקים וסנפלינג</title>
     
     <!-- Favicons for all browsers and devices -->
     <link rel="icon" type="image/webp" sizes="32x32" href="pics/climbing-cyprus-profile.webp">
@@ -44,7 +44,7 @@
         {
           "@type": "Organization",
           "@id": "https://climbing-cyprus.com/#organization",
-          "name": "Climbing Cyprus - קפריסין בעין אחרת",
+          "name": "Climbing Cyprus",
           "url": "https://climbing-cyprus.com/",
           "logo": "https://climbing-cyprus.com/pics/climbing-cyprus-logo.webp",
           "sameAs": [
@@ -59,9 +59,9 @@
           "parentOrganization": {
             "@id": "https://climbing-cyprus.com/#organization"
           },
-          "name": "Climbing Cyprus - Rock Climbing & Adventure Tours",
+          "name": "Climbing Cyprus - Rock Climbing, Rappelling & Equipment",
           "image": "https://climbing-cyprus.com/pics/Galerry/climbing.webp",
-          "description": "מדריך טיפוס מוסמך בקפריסין המציע טיולי טיפוס צוקים מודרכים, קורס הובלה, השכרת ציוד טיפוס, וטיולים אקסטרים לכל הרמות. Professional rock climbing guide in Cyprus offering guided climbing tours, lead climbing courses, gear rental, and adventure activities.",
+          "description": "מדריך טיפוס מוסמך בקפריסין המציע טיפוס צוקים, סנפלינג, קורסי הובלה והשכרת ציוד. Certified climbing instructor in Cyprus offering rock climbing, rappelling, lead-climbing courses and equipment rental.",
           "telephone": "+357-99-074662",
           "email": "unique.center.yoni@gmail.com",
           "priceRange": "€€",
@@ -177,8 +177,11 @@
                     return urlLang;
                 }
                 
-                // Otherwise use localStorage or default to Hebrew
-                return localStorage.getItem('preferred-language') || 'he';
+                // Keep an explicit preference; otherwise use Hebrew only for Israeli visitors.
+                const browserLocale = (navigator.language || '').toLowerCase();
+                const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone || '';
+                const isIsrael = browserLocale === 'he-il' || browserLocale.endsWith('-il') || timezone === 'asia/jerusalem';
+                return localStorage.getItem('preferred-language') || (isIsrael ? 'he' : 'en');
             }
             
             const savedLang = getInitialLanguage();
@@ -301,7 +304,7 @@
                     <div class="about-combined-text">
                         <p data-i18n="about-text-1">אני בונה את יום הטיפוס לפי האנשים, הניסיון והאזור שמתאים לכם. בין אם זו הפעם הראשונה שלכם על הסלע ובין אם אתם מטפסים מנוסים ומחפשים חוויה אחרת בקפריסין.</p>
                         <p data-i18n="about-me-intro">היי, אני יונתן, במקור מישראל, כיום מתגורר בקפריסין. מדריך מוסמך לטיפוס צוקים וסנפלינג עם ניסיון רב בהדרכות וקורסים.</p>
-                        <p data-i18n="about-me-passion">האהבה שלי לטבע ולהרפתקאות הובילה אותי ליצור את "קפריסין בעין אחרת", חוויה ייחודית שמראה למבקרים את היופי הנסתר של האי הקסום הזה.</p>
+                        <p data-i18n="about-me-passion">האהבה שלי לטבע ולהרפתקאות הובילה אותי ליצור את Climbing Cyprus — מקום שמחבר מטפסים ליופי הנסתר של האי.</p>
                         <p data-i18n="about-me-experience">אני מתמחה בטיולי הליכה בטבע, טיפוס צוקים וסנפלינג, ומספק הדרכה מקצועית ובטוחה לכל הרמות, ממתחילים ועד מתקדמים.</p>
                         <blockquote data-i18n="about-quote">״כל יום טיפוס נבנה סביב האנשים, הניסיון והחוויה שמתאימה להם.״</blockquote>
                     </div>
@@ -467,7 +470,7 @@
                     <span class="trip-planning-link" data-i18n="trip-planning-hotels-cta">מצאו מקום לינה ←</span>
                 </a>
 
-                <a href="https://getrentacar.tp.st/FD6yLXgf" target="_blank" rel="nofollow sponsored noopener" class="trip-planning-card" data-affiliate-service="cars">
+                <a href="https://www.rentalcars.com/" target="_blank" rel="nofollow sponsored noopener" class="trip-planning-card" data-affiliate-service="cars">
                     <span class="trip-planning-icon"><i class="fas fa-car"></i></span>
                     <h3 data-i18n="trip-planning-cars-title">השכרת רכב</h3>
                     <p data-i18n="trip-planning-cars-desc">הדרך הנוחה ביותר להגיע למצוקים, כפרים ומסלולי טבע ברחבי קפריסין.</p>
@@ -605,9 +608,9 @@
                 <div class="contact-story-media" aria-hidden="true"></div>
                 <div class="contact-story-content">
                     <h2>מוכנים להרפתקת<br>הטיפוס הבאה<br>בקפריסין?<span class="contact-underline" aria-hidden="true"></span></h2>
-                    <p class="contact-intro">ספרו לי מה אתם מחפשים ואעזור לכם לתכנן את יום הטיפוס, הקורס או הטיול המתאים לכם.</p>
+                    <p class="contact-intro">ספרו לי מה אתם מחפשים ואעזור לכם לבחור את שירות הטיפוס, הסנפלינג, הקורס או הציוד שמתאימים לכם.</p>
                     <div class="contact-highlights">
-                        <div class="contact-highlight"><span class="contact-highlight-icon"><i class="fa-solid fa-mountain-sun"></i></span><span>ימי טיפוס<br>מודרכים</span></div>
+                        <div class="contact-highlight"><span class="contact-highlight-icon"><i class="fa-solid fa-mountain-sun"></i></span><span>טיפוס צוקים<br>וסנפלינג</span></div>
                         <div class="contact-highlight"><span class="contact-highlight-icon"><i class="fa-solid fa-graduation-cap"></i></span><span>קורסים<br>ואימוני מיומנויות</span></div>
                         <div class="contact-highlight"><span class="contact-highlight-icon"><i class="fa-solid fa-people-group"></i></span><span>מתחילים, משפחות<br>ומטפסים מנוסים</span></div>
                     </div>
@@ -677,8 +680,8 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h3 data-i18n="site-title">קפריסין בעין אחרת</h3>
-                    <p data-i18n="site-tagline">טיפוס צוקים וטיולים מודרכים</p>
+                        <h3 data-i18n="site-title">Climbing Cyprus</h3>
+                        <p data-i18n="site-tagline">טיפוס צוקים, סנפלינג והשכרת ציוד</p>
                 </div>
                 <div class="footer-section">
                     <h4 data-i18n="footer-links">קישורים</h4>
@@ -723,7 +726,7 @@
         </div>
     </footer>
 
-    <script src="script.js?v=20260929-2"></script>
+    <script src="script.js?v=20261003-1"></script>
     <script>
         // Handle contact form submission with custom success message
         document.addEventListener('DOMContentLoaded', function() {
@@ -810,9 +813,10 @@
             }
             
             // Open WhatsApp
+            const interest = document.getElementById('interest')?.value || (currentLang === 'en' ? 'Climbing Day' : 'יום טיפוס');
             const whatsappMessage = currentLang === 'en'
-                ? `Hi, I’m interested in a climbing experience in Cyprus.\nMy name is ${name}\n${email ? `Email: ${email}` : ''}\n${phone ? `Phone: ${phone}` : ''}\n\n${message}`
-                : `היי, אני מעוניין/ת בחוויית טיפוס בקפריסין.\nשלום, שמי ${name}\n${email ? `אימייל: ${email}` : ''}\n${phone ? `טלפון: ${phone}` : ''}\n\n${message}`;
+                ? `Hi, I’m interested in: ${interest}.\nMy name is ${name}\n${email ? `Email: ${email}` : ''}\n${phone ? `Phone: ${phone}` : ''}\n\n${message}`
+                : `היי, אני מעוניין/ת להזמין: ${interest}.\nשלום, שמי ${name}\n${email ? `אימייל: ${email}` : ''}\n${phone ? `טלפון: ${phone}` : ''}\n\n${message}`;
             
             const whatsappNumber = '972504443328';
             const encodedMessage = encodeURIComponent(whatsappMessage);

@@ -13,7 +13,7 @@
     </script>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" name="viewport"/>
-<meta content="Rock climbing in Cyprus, guided climbing tours, rappelling and outdoor adventures with a certified local guide." name="description"/>
+<meta content="Rock climbing, rappelling, lead-climbing courses and equipment rental in Cyprus." name="description"/>
 <meta content="rock climbing Cyprus, climbing guide Cyprus, climbing gear rental Cyprus, adventure Cyprus, lead climbing course Cyprus, rappelling Cyprus, rock climbing tours, Cyprus outdoor activities" name="keywords"/>
 <meta content="Yonatan Malichi" name="author"/>
 <meta content="Climbing Cyprus" property="og:title"/>
@@ -25,7 +25,7 @@
 <meta content="Climbing Cyprus" name="twitter:title"/>
 <meta content="Rock climbing, rappelling and outdoor adventures in Cyprus." name="twitter:description"/>
 <meta content="https://climbing-cyprus.com/pics/climbing-cyprus-social-preview.webp" name="twitter:image"/>
-<title>Rock Climbing in Cyprus | Guided Tours & Adventure</title>
+<title>Rock Climbing, Rappelling & Equipment Rental in Cyprus | Climbing Cyprus</title>
 <!-- Favicons for all browsers and devices -->
 <link href="../pics/climbing-cyprus-profile.webp" rel="icon" sizes="32x32" type="image/webp"/>
 <link href="../pics/climbing-cyprus-profile.webp" rel="icon" sizes="16x16" type="image/webp"/>
@@ -57,9 +57,9 @@
           "parentOrganization": {
             "@id": "https://climbing-cyprus.com/#organization"
           },
-          "name": "Climbing Cyprus - Rock Climbing & Adventure Tours",
+          "name": "Climbing Cyprus - Rock Climbing, Rappelling & Equipment",
           "image": "https://climbing-cyprus.com/pics/Galerry/climbing.webp",
-          "description": "Certified rock climbing guide in Cyprus offering guided climbing tours, lead climbing courses, gear rental, and outdoor activities for all levels.",
+          "description": "Certified climbing instructor in Cyprus offering rock climbing, rappelling, lead-climbing courses and equipment rental.",
           "telephone": "+357-99-074662",
           "email": "unique.center.yoni@gmail.com",
           "priceRange": "€€",
@@ -124,7 +124,7 @@
                 "itemOffered": {
                   "@type": "Service",
                   "name": "Rock Climbing Day",
-                  "description": "Guided rock climbing in Cyprus for beginners and experienced climbers."
+                  "description": "Rock climbing in Cyprus for beginners and experienced climbers."
                 }
               },
               {
@@ -148,7 +148,7 @@
                 "itemOffered": {
                   "@type": "Service",
                   "name": "Rappelling",
-                  "description": "Guided rappelling adventures in Cyprus."
+                  "description": "Rappelling adventures in Cyprus."
                 }
               }
             ]
@@ -173,8 +173,11 @@
                     return urlLang;
                 }
 
-                // Otherwise use localStorage or default to Hebrew
-                return localStorage.getItem('preferred-language') || 'he';
+                // Keep an explicit preference; otherwise use Hebrew only for Israeli visitors.
+                const browserLocale = (navigator.language || '').toLowerCase();
+                const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone || '';
+                const isIsrael = browserLocale === 'he-il' || browserLocale.endsWith('-il') || timezone === 'asia/jerusalem';
+                return localStorage.getItem('preferred-language') || (isIsrael ? 'he' : 'en');
             }
 
             const savedLang = getInitialLanguage();
@@ -436,7 +439,7 @@
 <p data-i18n="trip-planning-hotels-desc">Find hotels, apartments and guest stays close to Paphos and the climbing areas.</p>
 <span class="trip-planning-link" data-i18n="trip-planning-hotels-cta">Find a place to stay →</span>
 </a>
-<a class="trip-planning-card" data-affiliate-service="cars" href="https://getrentacar.tp.st/FD6yLXgf" rel="nofollow sponsored noopener" target="_blank">
+<a class="trip-planning-card" data-affiliate-service="cars" href="https://www.rentalcars.com/" rel="nofollow sponsored noopener" target="_blank">
 <span class="trip-planning-icon"><i class="fas fa-car"></i></span>
 <h3 data-i18n="trip-planning-cars-title">Car rental</h3>
 <p data-i18n="trip-planning-cars-desc">The easiest way to reach crags, villages and nature trails around Cyprus.</p>
@@ -561,9 +564,9 @@
 <div class="contact-story-media" aria-hidden="true"></div>
 <div class="contact-story-content">
 <h2>Ready for your next<br/>climbing adventure<br/>in Cyprus?<span class="contact-underline" aria-hidden="true"></span></h2>
-<p class="contact-intro">Tell me what you're looking for and I'll help you plan the right climbing day, course or trip.</p>
+<p class="contact-intro">Tell me what you're looking for and I'll help you choose the right climbing, rappelling, course or equipment option.</p>
 <div class="contact-highlights">
-<div class="contact-highlight"><span class="contact-highlight-icon"><i class="fa-solid fa-mountain-sun"></i></span><span>Guiding &amp;<br/>climbing days</span></div>
+<div class="contact-highlight"><span class="contact-highlight-icon"><i class="fa-solid fa-mountain-sun"></i></span><span>Rock climbing<br/>&amp; rappelling</span></div>
 <div class="contact-highlight"><span class="contact-highlight-icon"><i class="fa-solid fa-graduation-cap"></i></span><span>Courses &amp;<br/>skills training</span></div>
 <div class="contact-highlight"><span class="contact-highlight-icon"><i class="fa-solid fa-people-group"></i></span><span>Beginners, families<br/>&amp; experienced climbers</span></div>
 </div>
@@ -628,7 +631,7 @@ document.querySelectorAll('#contact .interest-option').forEach(function (option)
 <div class="footer-content">
 <div class="footer-section">
 <h3 data-i18n="site-title">Climbing Cyprus</h3>
-<p data-i18n="site-tagline">Rock Climbing and Guided Tours</p>
+<p data-i18n="site-tagline">Rock climbing, rappelling and equipment rental</p>
 </div>
 <div class="footer-section">
 <h4 data-i18n="footer-links">Links</h4>
@@ -672,7 +675,7 @@ document.querySelectorAll('#contact .interest-option').forEach(function (option)
 </div>
 </div>
 </footer>
-<script src="../script.js?v=20260929-2"></script>
+<script src="../script.js?v=20261003-1"></script>
 <script>
         // Handle contact form submission with custom success message
         document.addEventListener('DOMContentLoaded', function() {
@@ -759,7 +762,8 @@ document.querySelectorAll('#contact .interest-option').forEach(function (option)
             }
 
             // Open WhatsApp
-            const whatsappMessage = `Hi, I’m interested in a climbing experience in Cyprus.\nMy name is ${name}\n${email ? `Email: ${email}` : ''}\n${phone ? `Phone: ${phone}` : ''}\n\n${message}`;
+            const interest = document.getElementById('interest')?.value || 'Climbing Day';
+            const whatsappMessage = `Hi, I’m interested in: ${interest}.\nMy name is ${name}\n${email ? `Email: ${email}` : ''}\n${phone ? `Phone: ${phone}` : ''}\n\n${message}`;
 
             const whatsappNumber = '972504443328';
             const encodedMessage = encodeURIComponent(whatsappMessage);

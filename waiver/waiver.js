@@ -123,7 +123,7 @@ h1,h2,h3{color:#173f35}header{border-bottom:4px solid #b8d94a;margin-bottom:24px
 </style></head>
 <body>
 <button class="print-button" onclick="window.print()">${isEnglish ? "Print / Save as PDF" : "הדפסה / שמירה כ־PDF"}</button>
-<header><p>${isEnglish ? "Cyprus Through Different Eyes" : "קפריסין בעין אחרת"}</p><h1>${title}</h1></header>
+<header><p>Climbing Cyprus</p><h1>${title}</h1></header>
 <section class="meta">
 <h2>${isEnglish ? "Adult representative" : "נציג/ה בגיר/ה"}</h2>
 <p><strong>${isEnglish ? "Name" : "שם"}:</strong> ${escapeHtml(fieldValue("representative_name"))}</p>

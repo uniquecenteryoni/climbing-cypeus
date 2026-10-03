@@ -13,7 +13,7 @@ html{scroll-behavior:smooth}
 
 /* Make the launch offer unmistakable and keep the crossed-out price legible. */
 .lead-hero-image {
-    background-image: url('../pics/course-lead-launch-hero.webp?v=20261003-2');
+    background-image: url('../pics/course-lead-launch-hero.webp?v=20261003-3');
 }
 .lead-old-price span,
 .lead-final-old-price {
@@ -29,16 +29,9 @@ html{scroll-behavior:smooth}
     text-decoration-color: #fff;
 }
 
-/* Rotate the hero photo clockwise while keeping the right-hand panel intact. */
+/* Show the supplied hero photo in its correct counter-clockwise orientation without cropping. */
 .lead-hero-image {
     position: relative;
     overflow: hidden;
-    background: none;
-}
-.lead-hero-image::before {
-    content: '';
-    position: absolute;
-    inset: -22%;
-    background: url('../pics/course-lead-launch-hero.webp?v=20261003-2') center / cover no-repeat;
-    transform: rotate(90deg) scale(1.12);
+    background: #cfe8ff url('../pics/course-lead-launch-hero.webp?v=20261003-3') center / contain no-repeat;
 }

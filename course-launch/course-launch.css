@@ -40,5 +40,5 @@ html{scroll-behavior:smooth}
     position: absolute;
     inset: -22%;
     background: url('../pics/course-lead-launch-hero.webp') center / cover no-repeat;
-    transform: rotate(-90deg) scale(1.12);
+    transform: rotate(90deg) scale(1.12);
 }

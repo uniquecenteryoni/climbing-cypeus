@@ -13,7 +13,7 @@ html{scroll-behavior:smooth}
 
 /* Make the launch offer unmistakable and keep the crossed-out price legible. */
 .lead-hero-image {
-    background-image: url('../pics/course-lead-launch-hero.webp?v=20261003-3');
+    background-image: url('../pics/course-lead-launch-hero.webp?v=20261004-1');
 }
 .lead-old-price span,
 .lead-final-old-price {
@@ -33,5 +33,5 @@ html{scroll-behavior:smooth}
 .lead-hero-image {
     position: relative;
     overflow: hidden;
-    background: #cfe8ff url('../pics/course-lead-launch-hero.webp?v=20261003-3') center / contain no-repeat;
+    background: #cfe8ff url('../pics/course-lead-launch-hero.webp?v=20261004-1') center / contain no-repeat;
 }

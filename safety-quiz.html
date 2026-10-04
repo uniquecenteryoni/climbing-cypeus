@@ -381,6 +381,17 @@
             box-shadow: 0 12px 28px rgba(23, 61, 42, 0.16);
         }
 
+        .quiz-result-guide {
+            display: block;
+            width: 190px;
+            height: 190px;
+            margin: 0 auto 1rem;
+            border: 7px solid var(--quiz-lime);
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: 0 12px 28px rgba(23, 61, 42, 0.16);
+        }
+
         .quiz-complete-screen h2 {
             margin: 0;
             color: var(--quiz-green);
@@ -524,7 +535,7 @@
                 back: 'חזרה למדריך',
                 question: (number, total) => `שאלה ${number} מתוך ${total}`,
                 options: 'אפשרויות תשובה',
-                submit: 'שלח תשובה',
+                submit: 'המשך',
                 error: 'בחרו תשובה כדי להמשיך.',
                 finished: 'הבוחן הסתיים',
                 retry: 'נסו שוב',
@@ -542,17 +553,17 @@
                 interestPrompt: 'בחרו תשובה כדי שנוכל לחזור אליכם בהתאם.',
                 interestYes: 'כן, מעוניין/ת בפרטים על הדרכה',
                 interestNo: 'לא כרגע',
-                send: 'שליחת התשובה וקבלת הציון',
+                send: 'שליחת הפרטים',
                 sending: 'שולח…',
                 sent: 'הפרטים נשלחו בהצלחה. נחזור אליך בהקדם.',
                 sendError: 'לא הצלחנו לשלוח את הפרטים. נסו שוב בעוד רגע.',
                 scoreLabel: 'הציון שלך',
-                completionTitle: 'הפרטים נשלחו בהצלחה',
+                completionTitle: 'הבוחן הסתיים',
                 completionMessage: 'נחזור אליך בהקדם.',
                 completionTagline: 'נתראה במצוק!',
                 completionRetry: 'לעשות את הבוחן שוב',
-                reviewTitle: 'מה כדאי לרענן?',
-                reviewCorrect: 'התשובה הנכונה:'
+                reviewTitle: '',
+                reviewCorrect: ''
             },
             en: {
                 title: 'Clipping Skills Quiz',
@@ -560,7 +571,7 @@
                 back: 'Back to the guide',
                 question: (number, total) => `Question ${number} of ${total}`,
                 options: 'Answer options',
-                submit: 'Submit answer',
+                submit: 'Continue',
                 error: 'Choose an answer to continue.',
                 finished: 'Quiz complete',
                 retry: 'Try again',
@@ -578,17 +589,17 @@
                 interestPrompt: 'Choose an answer so we know whether to follow up.',
                 interestYes: 'Yes, send me instruction details',
                 interestNo: 'Not right now',
-                send: 'Send and receive my score',
+                send: 'Send my details',
                 sending: 'Sending…',
                 sent: 'Your details were sent successfully. We will get back to you soon.',
                 sendError: 'We could not send your details. Please try again in a moment.',
                 scoreLabel: 'Your score',
-                completionTitle: 'Your details were sent successfully',
+                completionTitle: 'Quiz complete',
                 completionMessage: 'We will get back to you soon.',
                 completionTagline: 'See you at the crag!',
                 completionRetry: 'Take the quiz again',
-                reviewTitle: 'What to review',
-                reviewCorrect: 'Correct answer:'
+                reviewTitle: '',
+                reviewCorrect: ''
             }
         };
 
@@ -742,13 +753,12 @@
                     </fieldset>
                     <div class="quiz-actions">
                         <div class="quiz-error" id="quiz-error" role="alert"></div>
-                        <button class="quiz-submit" type="submit">${ui.submit}</button>
+                        <button class="quiz-submit" type="submit" hidden>${ui.submit}</button>
                     </div>
                 </form>
             `;
 
-            document.getElementById('quiz-form').addEventListener('submit', (event) => {
-                event.preventDefault();
+            const advance = () => {
                 const selected = document.querySelector('input[name="quiz-answer"]:checked');
                 const error = document.getElementById('quiz-error');
                 if (!selected) {
@@ -764,7 +774,9 @@
                 } else {
                     showResult();
                 }
-            });
+            };
+            document.getElementById('quiz-form').addEventListener('change', advance);
+            document.getElementById('quiz-form').addEventListener('submit', (event) => { event.preventDefault(); advance(); });
         }
 
         function showResult() {
@@ -773,6 +785,8 @@
             const message = score >= 8 ? ui.resultExcellent : score >= 5 ? ui.resultGood : ui.resultReview;
             result.innerHTML = `
                 <h2>${ui.finished}</h2>
+                <img class="quiz-result-guide" src="pics/safety-quiz-yonatan.webp" alt="${lang === 'he' ? 'יונתן, המדריך' : 'Yonatan, the instructor'}" loading="eager">
+                <p>${ui.completionMessage}</p>
                 <div class="quiz-score" id="quiz-score" hidden>${score}/${questions.length}</div>
                 <p id="quiz-result-message" hidden>${message}</p>
                 <form class="quiz-interest-form" id="quiz-interest-form">
@@ -791,6 +805,10 @@
                 <button class="quiz-restart" type="button">${ui.retry}</button>
             `;
             const interestForm = document.getElementById('quiz-interest-form');
+            interestForm.addEventListener('change', () => {
+                document.getElementById('quiz-score').hidden = false;
+                document.getElementById('quiz-result-message').hidden = false;
+            });
             interestForm.addEventListener('submit', async (event) => {
                 event.preventDefault();
                 const selected = interestForm.querySelector('input[name="interest"]:checked');
@@ -824,27 +842,12 @@
             });
 
             function showCompletionScreen() {
-                const incorrectQuestions = questions
-                    .map((question, index) => ({ question, index }))
-                    .filter(({ question, index }) => answers[index] !== question.answer);
-                const review = incorrectQuestions.length ? `
-                    <div class="quiz-review">
-                        <h3>${ui.reviewTitle}</h3>
-                        ${incorrectQuestions.map(({ question, index }) => `
-                            <div class="quiz-review-item">
-                                <strong>${ui.question(index + 1, questions.length)}: ${question.text[lang]}</strong><br>
-                                ${ui.reviewCorrect} ${question.options[lang][question.answer]}
-                            </div>
-                        `).join('')}
-                    </div>
-                ` : '';
                 result.innerHTML = `
                     <div class="quiz-complete-screen">
-                        <img src="pics/safety-quiz-yonatan.webp" alt="יונתן מטפס" loading="eager">
+                        <img class="quiz-result-guide" src="pics/safety-quiz-yonatan.webp" alt="${lang === 'he' ? 'יונתן, המדריך' : 'Yonatan, the instructor'}" loading="eager">
                         <h2>${ui.completionTitle}</h2>
                         <div class="quiz-complete-score">${score}/${questions.length}</div>
                         <p>${ui.scoreLabel}</p>
-                        ${review}
                         <p>${ui.completionMessage}</p>
                         <p class="quiz-complete-tagline">${ui.completionTagline}</p>
                         <button class="quiz-restart" type="button">${ui.completionRetry}</button>

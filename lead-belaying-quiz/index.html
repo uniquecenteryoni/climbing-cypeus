@@ -66,4 +66,111 @@ $('start').onclick=()=>{show('quiz');renderQuestion();$('question').focus()};$('
     });
     updateLeadCopy();
 })();
+</script>
+<style>
+  .image.has-image-choices { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); align-items:start; gap:14px; }
+  .image.has-image-choices .panel { display:grid; gap:10px; }
+  .image-choice { display:flex; align-items:flex-start; gap:8px; min-height:74px; padding:12px; border:1px solid #dce2d8; border-radius:12px; color:#254d37; background:#fff; cursor:pointer; line-height:1.45; }
+  .image-choice:has(input:checked) { border-color:#193d2c; background:#f0f5ed; }
+  .image-choice input { margin-top:4px; accent-color:#193d2c; width:18px; height:18px; flex-shrink:0; }
+  .quiz-final-photo { width:190px; height:190px; border:7px solid #b5d87a; border-radius:50%; object-fit:cover; box-shadow:0 12px 28px rgba(23,61,42,.16); }
+  .final-interest { margin:20px auto 0; max-width:520px; padding:18px; border:1px solid #dfe7dc; border-radius:16px; text-align:start; }
+  .final-interest h3 { margin:0 0 10px; color:#193d2c; }
+  .final-interest label { display:flex; gap:8px; align-items:flex-start; margin-top:10px; }
+  .final-interest input { margin-top:4px; accent-color:#193d2c; }
+  #result .card > .score.is-hidden { display:none; }
+  #result .lead-form, #result .training-offer { display:none !important; }
+  @media(max-width:760px) { .image.has-image-choices { grid-template-columns:1fr; } }
+</style>
+<script>
+(function () {
+  const startCard = document.querySelector('#intro .card');
+  const startButton = document.getElementById('start');
+  const startCopy = { he: { name:'שם מלא', required:'נא למלא שם כדי להתחיל.', start:'התחל בוחן' }, en: { name:'Full name', required:'Please enter your name to start.', start:'Start the quiz' } };
+  const nameField = document.createElement('label');
+  nameField.className = 'lead-form';
+  nameField.style.textAlign = 'start';
+  nameField.innerHTML = '<span id="quiz-start-name-label"></span><input id="quiz-start-name" name="name" autocomplete="name" required>';
+  const introHint = document.getElementById('introhint');
+  startCard.insertBefore(nameField, introHint);
+  const startError = document.createElement('p');
+  startError.className = 'lead-form-status';
+  startCard.insertBefore(startError, startButton.parentElement);
+  function updateStartCopy() { document.getElementById('quiz-start-name-label').textContent = startCopy[lang].name; startButton.textContent = startCopy[lang].start; }
+  updateStartCopy();
+  document.querySelectorAll('[data-lang]').forEach(button => button.addEventListener('click', () => setTimeout(updateStartCopy, 0)));
+  startButton.onclick = () => {
+    const name = document.getElementById('quiz-start-name').value.trim();
+    if (!name) { startError.textContent = startCopy[lang].required; document.getElementById('quiz-start-name').focus(); return; }
+    window.quizParticipantName = name;
+    show('quiz'); renderQuestion(); $('question').focus();
+  };
+
+  const OPTION_TEXTS = {
+    he: [
+      ['A — רחוק ובטוח מהקיר', 'B — קרוב לקיר, מחוץ לקו הנפילה', 'C — ישירות מתחת למטפס'],
+      ['לשמור חבל מתוח מדי', 'להחזיק לולאה גדולה', 'להתאים חבל לפי התנועה'],
+      ['לתפוס את כל משקל המטפס', 'לכוון לנחיתה על הרגליים', 'החבל כבר מגן מההתחלה'],
+      ['להמשיך בספוטינג עד הבא', 'לעבור לאבטחה רגילה בשליטה', 'להתרחק כדי לראות טוב יותר'],
+      ['נפילה לקרקע למרות הבולט', 'אין סיכון אחרי בולט ראשון', 'רק תחושת אי־נוחות בבלימה'],
+      ['עודף חבל עלול להגדיל את הנפילה', 'משיכת חבל תמיד מקצרת נפילה', 'הבולט השני מגן רק אחרי הקלפה'],
+      ['לולאה גדולה פותרת הפרש משקל', 'להעריך הרמה, התנגשות ומרווח', 'מכשיר בלימה מבטל הפרש משקל'],
+      ['כן, בלימה ארוכה תמיד בטוחה', 'כן, אם יש בלימה מסייעת', 'לא, נמנעים מפגיעה במדף'],
+      ['המאבטח עלול להימשך קדימה ולאבד שיווי משקל', 'מרחק גדול יותר תמיד מקצר נפילה', 'המרחק לא חשוב אם יד הבלימה על החבל'],
+      ['המאבטח רחוק מהקיר', 'לולאת חבל עודפת בהקלפה נמוכה', 'צד הבלימה אינו מוחזק', 'תיק חוסם את תנועת המאבטח', 'המטפס חובש קסדה']
+    ],
+    en: [
+      ['A — Far enough from the wall', 'B — Near the wall, outside the fall line', 'C — Directly beneath the climber'],
+      ['Keep the rope too tight', 'Keep a large loop ready', 'Adjust slack with movement'],
+      ['Catch the climber’s full weight', 'Guide the fall toward the feet', 'The rope protects from the start'],
+      ['Keep spotting until the next bolt', 'Move to normal belaying with control', 'Move far back to see better'],
+      ['A ground fall despite the bolt', 'No ground risk after one bolt', 'Only an uncomfortable catch'],
+      ['Extra rope can increase the fall', 'Pulling rope always shortens falls', 'The second bolt protects after clipping'],
+      ['A large loop solves the difference', 'Assess lift, collision and clearance', 'A device removes the difference'],
+      ['Yes, longer catches are safer', 'Yes, with assisted braking', 'No, avoid hitting the ledge'],
+      ['The belayer may be pulled forward and lose balance', 'More distance always shortens a fall', 'Distance does not matter with a brake hand'],
+      ['The belayer is far from the wall', 'A large slack loop during a low clip', 'The brake strand is not held', 'A bag blocks belayer movement', 'The climber wears a helmet']
+    ]
+  };
+
+  selected = function () { return [...document.querySelectorAll('#choices input:checked, #image input:checked')].map(input => Number(input.value)); };
+  renderQuestion = function () {
+    const q = DATA[step], t = UI[lang];
+    $('count').textContent = lang==='he' ? `שאלה ${step+1} מתוך 10` : `Question ${step+1} of 10`;
+    $('type').textContent = q.multiple ? t.multi : t.one;
+    $('question').textContent = q.question[lang];
+    $('caption').textContent = q.caption[lang]+' '+t.diagram;
+    const parsed = new DOMParser().parseFromString(SVGS[step], 'image/svg+xml');
+    const panels = [...parsed.querySelector('svg > g').children];
+    const options = OPTION_TEXTS[lang][step] || q.options[lang];
+    const makeSvg = (panel, i) => `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" role="img" aria-label="${escapeHTML(q.caption[lang]+' '+(panels.length>1?String.fromCharCode(65+i):''))}"><g font-family="Arial,sans-serif" fill="#204a3a">${panel.innerHTML}</g></svg>`;
+    const imageChoices = !q.multiple && panels.length > 1 && panels.length === options.length;
+    $('image').className = imageChoices ? 'image has-image-choices' : 'image';
+    $('image').innerHTML = panels.map((panel,i) => `<div class="panel">${makeSvg(panel,i)}${imageChoices ? `<label class="image-choice"><input type="radio" name="answer" value="${i}"><span>${escapeHTML(options[i])}</span></label>` : ''}</div>`).join('');
+    $('choices').hidden = imageChoices;
+    $('choices').innerHTML = `<legend class="sr-only" id="legend">${q.multiple?t.multi:t.one}</legend>` + (imageChoices ? '' : options.map((opt,i)=>`<label class="choice"><input type="${q.multiple?'checkbox':'radio'}" name="answer" value="${i}"><span>${escapeHTML(opt)}</span></label>`).join(''));
+    const check = $('check');
+    check.textContent = t.check; check.hidden = !q.multiple || checked; check.disabled = selected().length === 0;
+    $('next').hidden = true; $('feedback').hidden = true;
+    document.querySelector('.bar').style.width=((step+(checked?1:0))/10*100)+'%';
+    document.querySelector('[role=progressbar]').setAttribute('aria-valuenow',step+(checked?1:0));
+    const advance = () => { answers[step]=selected(); if (step===9) { show('result'); renderResults(); $('resulttitle').focus(); } else { step++; checked=false; renderQuestion(); $('question').focus(); } };
+    $('choices').onchange = () => { if (!q.multiple) setTimeout(advance, 140); else check.disabled = selected().length === 0; };
+    $('image').querySelectorAll('input').forEach(input => input.addEventListener('change', () => setTimeout(advance, 140)));
+    check.onclick = () => { if (q.multiple && selected().length) { checked=true; advance(); } };
+  };
+
+  renderResults = function () {
+    const t=UI[lang], score=DATA.reduce((sum,q,i)=>sum+Number(isCorrect(answers[i]||[],q)),0);
+    $('score').textContent=`${score} / 10`; $('score').classList.add('is-hidden'); $('resulttext').textContent=''; $('resultnote').textContent=t.resultnote;
+    $('review').hidden=true;
+    document.querySelectorAll('#result .lead-form, #result .training-offer').forEach(node=>node.hidden=true);
+    const card=document.querySelector('#result .card');
+    card.querySelectorAll('.final-interest,.quiz-final-photo').forEach(node=>node.remove());
+    const photo=document.createElement('img'); photo.className='quiz-final-photo'; photo.src='/pics/safety-quiz-yonatan.webp'; photo.alt=lang==='he'?'יונתן, המדריך':'Yonatan, the instructor'; card.prepend(photo);
+    const interest=document.createElement('div'); interest.className='final-interest'; interest.innerHTML=`<h3>${lang==='he'?'האם תרצו לקבל פרטים על הדרכה?':'Would you like details about instruction?'}</h3><label><input type="radio" name="final-interest" value="yes"><span>${lang==='he'?'כן, אשמח לפרטים':'Yes, send me details'}</span></label><label><input type="radio" name="final-interest" value="no"><span>${lang==='he'?'לא כרגע':'Not right now'}</span></label>`; card.insertBefore(interest,$('score'));
+    interest.addEventListener('change', event => { if (event.target.name !== 'final-interest') return; $('score').classList.remove('is-hidden'); $('resulttext').textContent=score>=8?t.great:t.improve; });
+  };
+  $('restart').onclick=()=>{step=0;answers=[];checked=false;show('intro');document.getElementById('quiz-start-name').value='';};
+})();
 </script></body></html>

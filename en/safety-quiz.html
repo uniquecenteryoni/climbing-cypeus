@@ -235,6 +235,9 @@
             margin-top: 1.5rem;
         }
 
+        .quiz-question-back { background: transparent; color: var(--quiz-green); border: 1px solid #c9d8c7; }
+        .quiz-final-logo { display: block; width: 150px; max-width: 55%; height: auto; margin: 12px auto 18px; }
+
         .quiz-error {
             min-height: 1.4em;
             color: #a34234;
@@ -717,7 +720,7 @@
             const image = `<img class="quiz-image" src="${question.image}" alt="${question.imageAlt[lang]}" loading="eager">`;
             const options = shuffleOptions(question.options[lang].map((text, index) => ({ text, index }))).map(option => `
                 <label class="quiz-option">
-                    <input type="radio" name="quiz-answer" value="${option.index}">
+                    <input type="radio" name="quiz-answer" value="${option.index}" ${answers[current] === option.index ? 'checked' : ''}>
                     <span>${option.text}</span>
                 </label>
             `).join('');
@@ -740,38 +743,39 @@
                         ${options}
                     </fieldset>
                     <div class="quiz-actions">
+                        <button class="quiz-submit quiz-question-back" type="button" id="quiz-question-back">Back</button>
                         <div class="quiz-error" id="quiz-error" role="alert"></div>
-                        <button class="quiz-submit" type="submit">${ui.submit}</button>
+                        <button class="quiz-submit" type="submit" hidden>${ui.submit}</button>
                     </div>
                 </form>
             `;
 
-            document.getElementById('quiz-form').addEventListener('submit', (event) => {
-                event.preventDefault();
+            const advance = () => {
                 const selected = document.querySelector('input[name="quiz-answer"]:checked');
                 const error = document.getElementById('quiz-error');
-                if (!selected) {
-                    error.textContent = ui.error;
-                    return;
-                }
+                if (!selected) { error.textContent = ui.error; return; }
                 answers[current] = Number(selected.value);
-                if (answers[current] === question.answer) score += 1;
                 current += 1;
-                if (current < questions.length) {
-                    renderQuestion();
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                } else {
-                    showResult();
-                }
+                if (current < questions.length) { renderQuestion(); window.scrollTo({ top: 0, behavior: 'smooth' }); } else { showResult(); }
+            };
+            document.getElementById('quiz-form').addEventListener('change', advance);
+            document.getElementById('quiz-form').addEventListener('submit', (event) => {
+                event.preventDefault();
+                advance();
+            });
+            document.getElementById('quiz-question-back').hidden = current === 0;
+            document.getElementById('quiz-question-back').addEventListener('click', () => {
+                if (current > 0) { current -= 1; renderQuestion(); window.scrollTo({ top: 0, behavior: 'smooth' }); }
             });
         }
 
         function showResult() {
+            score = answers.reduce((total, answer, index) => total + Number(answer === questions[index].answer), 0);
             quizApp.hidden = true;
             result.hidden = false;
             const message = score >= 8 ? ui.resultExcellent : score >= 5 ? ui.resultGood : ui.resultReview;
             result.innerHTML = `
-                <h2>${ui.finished}</h2>
+                <img class="quiz-result-guide" src="../pics/safety-quiz-yonatan.webp" alt="Yonatan, the instructor" loading="eager">
                 <div class="quiz-score" id="quiz-score" hidden>${score}/${questions.length}</div>
                 <p id="quiz-result-message" hidden>${message}</p>
                 <form class="quiz-interest-form" id="quiz-interest-form">
@@ -787,7 +791,6 @@
                     </div>
                 </form>
                 <p class="quiz-send-status" id="quiz-send-status" role="status"></p>
-                <button class="quiz-restart" type="button">${ui.retry}</button>
             `;
             const interestForm = document.getElementById('quiz-interest-form');
             interestForm.addEventListener('submit', async (event) => {
@@ -831,6 +834,7 @@
                 result.innerHTML = `
                     <div class="quiz-complete-screen">
                         <img src="../pics/safety-quiz-yonatan.webp" alt="יונתן מטפס" loading="eager">
+                        <img class="quiz-final-logo" src="../pics/climbing-cyprus-logo.webp" alt="Climbing Cyprus" loading="eager">
                         <h2>${ui.completionTitle}</h2>
                         <div class="quiz-complete-score">${score}/${questions.length}</div>
                         <p>${ui.scoreLabel}</p>

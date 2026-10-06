@@ -124,4 +124,53 @@ $('start').onclick=()=>{show('quiz');renderQuestion();$('question').focus()};$('
   };
   $('restart').onclick=()=>{step=0;answers=[];checked=false;show('intro');document.getElementById('quiz-start-name').value='';document.getElementById('quiz-start-email').value='';document.getElementById('quiz-start-phone').value='';};
 })();
+</script><style>
+#caption, #resultnote, footer { display:none !important; }
+.quiz-final-logo { display:block; width:150px; max-width:55%; height:auto; margin:12px auto 18px; }
+.question-back { margin-inline-end:auto; }
+</style><script>
+(function () {
+  const originalRenderQuestion = renderQuestion;
+  renderQuestion = function () {
+    originalRenderQuestion();
+    const actions = document.querySelector('#quiz .actions');
+    if (!actions) return;
+    let back = document.getElementById('question-back');
+    if (!back) {
+      back = document.createElement('button');
+      back.id = 'question-back';
+      back.type = 'button';
+      back.className = 'secondary question-back';
+      actions.prepend(back);
+      back.addEventListener('click', () => {
+        if (step > 0) { step -= 1; checked = false; renderQuestion(); $('question').focus(); }
+      });
+    }
+    back.textContent = lang === 'he' ? 'חזרה' : 'Back';
+    back.hidden = step === 0;
+    document.querySelectorAll('#quiz input[name="answer"]').forEach(input => {
+      input.checked = (answers[step] || []).includes(Number(input.value));
+    });
+  };
+
+  const originalRenderResults = renderResults;
+  renderResults = function () {
+    originalRenderResults();
+    document.querySelectorAll('#result .actions').forEach(actions => { actions.hidden = true; });
+  };
+
+  const result = document.getElementById('result');
+  new MutationObserver(() => {
+    if (view !== 'result' || document.querySelector('#result .final-interest') || document.querySelector('#result .quiz-final-logo')) return;
+    const card = document.querySelector('#result .card');
+    const score = document.getElementById('score');
+    if (!card || !score || score.classList.contains('is-hidden')) return;
+    const logo = document.createElement('img');
+    logo.className = 'quiz-final-logo';
+    logo.src = '/pics/climbing-cyprus-logo.webp';
+    logo.alt = 'Climbing Cyprus';
+    card.insertBefore(logo, score);
+    document.querySelectorAll('#result .actions').forEach(actions => { actions.hidden = false; });
+  }).observe(result, { childList: true, subtree: true });
+})();
 </script></body></html>

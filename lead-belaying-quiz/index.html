@@ -173,4 +173,59 @@ $('start').onclick=()=>{show('quiz');renderQuestion();$('question').focus()};$('
     document.querySelectorAll('#result .actions').forEach(actions => { actions.hidden = false; });
   }).observe(result, { childList: true, subtree: true });
 })();
+</script><style>
+.score-pair { display:flex; direction:ltr; justify-content:center; align-items:baseline; gap:8px; }
+.score-pair .score-correct { order:1; }
+.score-pair .score-total { order:2; font-size:.6em; color:#647069; }
+.error-check { margin-top:18px; }
+.error-check-list { display:grid; gap:12px; margin-top:14px; text-align:start; }
+.error-check-list[hidden] { display:none; }
+.error-check-item { padding:14px; border-radius:12px; background:#fff3ee; border:1px solid #e5c7bd; }
+</style><script>
+(function () {
+  DATA[0].question.he = 'בבסיס המצוק הזה, איזה מיקום מתאים ביותר לאחר הקלפת הבולט הראשון?';
+  DATA[0].question.en = 'On this base, which starting position is the best choice after clipping the first bolt?';
+
+  const renderQuestionWithImageRule = renderQuestion;
+  renderQuestion = function () {
+    renderQuestionWithImageRule();
+    if (step === 3) document.querySelector('#image .panel')?.remove();
+  };
+
+  const renderResultsWithErrorReview = renderResults;
+  renderResults = function () {
+    renderResultsWithErrorReview();
+    document.getElementById('restart')?.remove();
+    const guide = document.getElementById('guide');
+    if (guide) { guide.textContent = lang === 'he' ? 'דף הבית' : 'Home'; guide.href = lang === 'he' ? '/' : '/en/'; }
+
+    const wrong = DATA.map((question, index) => ({ question, index }))
+      .filter(({ question, index }) => !isCorrect(answers[index] || [], question));
+    const review = document.getElementById('review');
+    review.innerHTML = '';
+    if (wrong.length) {
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.className = 'secondary error-check';
+      button.textContent = lang === 'he' ? 'בדוק טעויות' : 'Check mistakes';
+      const list = document.createElement('div');
+      list.className = 'error-check-list';
+      list.hidden = true;
+      list.innerHTML = wrong.map(({ question, index }) => `<div class="error-check-item"><strong>${index + 1}. ${escapeHTML(question.question[lang])}</strong><br><span>${lang === 'he' ? 'התשובה הנכונה:' : 'Correct answer:'} ${question.correct.map(answer => escapeHTML(question.options[lang][answer])).join(' · ')}</span></div>`).join('');
+      button.addEventListener('click', () => { list.hidden = !list.hidden; });
+      review.append(button, list);
+    }
+    review.hidden = true;
+  };
+
+  const result = document.getElementById('result');
+  new MutationObserver(() => {
+    const score = document.getElementById('score');
+    if (view !== 'result' || !score || score.classList.contains('is-hidden') || score.dataset.formatted === 'true' || document.querySelector('#result .final-interest')) return;
+    document.getElementById('resulttitle').textContent = lang === 'he' ? 'כל הכבוד!' : 'Well done!';
+    score.dataset.formatted = 'true';
+    score.innerHTML = `<span class="score-pair"><span class="score-correct">${score.textContent.split('/')[0].trim()}</span><span class="score-total">/ 10</span></span>`;
+    document.getElementById('review').hidden = false;
+  }).observe(result, { childList: true, subtree: true, attributes: true, attributeFilter: ['class', 'hidden'] });
+})();
 </script></body></html>

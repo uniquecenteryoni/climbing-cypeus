@@ -14,58 +14,6 @@ function renderFeedback(){const q=DATA[step],a=answers[step],ok=isCorrect(a,q),t
 function renderResults(){const t=UI[lang],score=DATA.reduce((s,q,i)=>s+Number(isCorrect(answers[i]||[],q)),0);$('score').textContent=`${score} / 10`;$('resulttext').textContent=score>=8?t.great:t.improve;$('review').innerHTML=`<h2>${t.review}</h2>`+DATA.map((q,i)=>`<details><summary>${i+1}. ${escapeHTML(q.question[lang])} — ${isCorrect(answers[i]||[],q)?t.correct:t.incorrect}</summary><p><strong>${t.yours}:</strong> ${(answers[i]||[]).map(j=>escapeHTML(q.options[lang][j])).join(' · ')||t.none}</p><p><strong>${t.right}:</strong> ${q.correct.map(j=>escapeHTML(q.options[lang][j])).join(' · ')}</p><p>${escapeHTML(q.explanation[lang])}</p></details>`).join('');}
 $('start').onclick=()=>{show('quiz');renderQuestion();$('question').focus()};$('check').onclick=()=>{if(!selected().length)return;answers[step]=selected();checked=true;renderQuestion();$('next').focus()};$('next').onclick=()=>{if(step===9){show('result');renderResults();$('resulttitle').focus()}else{step++;checked=false;renderQuestion();$('question').focus()}};$('restart').onclick=()=>{step=0;answers=[];checked=false;show('quiz');renderQuestion();$('question').focus()};document.querySelectorAll('[data-lang]').forEach(b=>b.onclick=()=>{if(view==='quiz'&&!checked)answers[step]=selected();lang=b.dataset.lang;history.replaceState(null,'',lang==='en'?'?lang=en':location.pathname);applyLanguage()});applyLanguage();
 </script><script>
-(function () {
-    const resultCard = document.querySelector('#result .card');
-    if (!resultCard) return;
-    const leadForm = document.createElement('form');
-    leadForm.className = 'lead-form';
-    leadForm.hidden = true;
-    leadForm.innerHTML = '<h3 id="lead-form-title"></h3><p id="lead-form-intro"></p><label><span id="lead-name-label"></span><input name="name" required autocomplete="name"></label><label><span id="lead-email-label"></span><input name="email" type="email" required autocomplete="email"></label><label><span id="lead-phone-label"></span><input name="phone" type="tel" autocomplete="tel"></label><button class="primary" type="submit" id="lead-submit"></button><p class="lead-form-status" id="lead-form-status" aria-live="polite"></p>';
-    resultCard.appendChild(leadForm);
-    const offer = document.createElement('aside');
-    offer.className = 'training-offer';
-    offer.hidden = true;
-    offer.innerHTML = '<h3 id="training-offer-title"></h3><p id="training-offer-text"></p><a id="training-offer-link" href="/course-launch/"></a>';
-    resultCard.appendChild(offer);
-    const copy = {
-        he: { title: 'רוצים לקבל גם הצעה להדרכת טיפוס?', intro: 'השאירו פרטים ואחזור אליכם עם הצעה מתאימה לקורס או ליום טיפוס.', name: 'שם מלא', email: 'אימייל', phone: 'טלפון (לא חובה)', submit: 'שלחו פרטים וקבלו הצעה', sending: 'שולח…', sent: 'הפרטים נשלחו — אחזור אליכם בקרוב.', failed: 'לא הצלחנו לשלוח כרגע. נסו שוב או פנו אליי בוואטסאפ.', offerTitle: 'רוצים להפוך את הידע לביטחון על המצוק?', offerText: 'קורס ההובלה המעשי כולל אבטחת מוביל, ניהול חבל, נפילות מבוקרות ותרגול על הסלע.', offerLink: 'לפרטים על קורס ההובלה' },
-        en: { title: 'Would you also like a climbing instruction offer?', intro: 'Leave your details and I’ll send a suitable course or climbing-day offer.', name: 'Full name', email: 'Email', phone: 'Phone (optional)', submit: 'Send details and get an offer', sending: 'Sending…', sent: 'Your details were sent — I’ll get back to you soon.', failed: 'We could not send the details right now. Please try again or contact me on WhatsApp.', offerTitle: 'Ready to turn knowledge into confidence on the crag?', offerText: 'The practical lead course covers lead belaying, rope management, controlled falls and hands-on rock practice.', offerLink: 'See the lead climbing course' }
-    };
-    function updateLeadCopy() {
-        const t = copy[lang];
-        document.getElementById('lead-form-title').textContent = t.title;
-        document.getElementById('lead-form-intro').textContent = t.intro;
-        document.getElementById('lead-name-label').textContent = t.name;
-        document.getElementById('lead-email-label').textContent = t.email;
-        document.getElementById('lead-phone-label').textContent = t.phone;
-        document.getElementById('lead-submit').textContent = t.submit;
-        document.getElementById('training-offer-title').textContent = t.offerTitle;
-        document.getElementById('training-offer-text').textContent = t.offerText;
-        const offerLink = document.getElementById('training-offer-link');
-        offerLink.textContent = t.offerLink;
-        offerLink.href = lang === 'he' ? '/course-launch/' : '/en/course';
-    }
-    function revealLeadCapture() {
-        if (!document.getElementById('result').hidden) { leadForm.hidden = false; offer.hidden = false; updateLeadCopy(); }
-    }
-    new MutationObserver(revealLeadCapture).observe(document.getElementById('result'), { attributes: true, attributeFilter: ['hidden'] });
-    document.querySelectorAll('[data-lang]').forEach(button => button.addEventListener('click', () => setTimeout(updateLeadCopy, 0)));
-    leadForm.addEventListener('submit', async event => {
-        event.preventDefault();
-        const t = copy[lang], submit = document.getElementById('lead-submit'), status = document.getElementById('lead-form-status');
-        submit.disabled = true; status.textContent = t.sending;
-        const score = DATA.reduce((total, question, index) => total + Number(isCorrect(answers[index] || [], question)), 0);
-        const payload = new FormData(leadForm);
-        payload.append('score', `${score}/10`); payload.append('quiz', 'Lead belaying safety quiz'); payload.append('interest', 'Lead climbing instruction'); payload.append('_subject', `Lead belaying quiz lead — ${score}/10`);
-        try {
-            const response = await fetch('https://formspree.io/f/mjkdalap', { method: 'POST', body: payload, headers: { Accept: 'application/json' } });
-            if (!response.ok) throw new Error('Form submission failed');
-            status.textContent = t.sent; leadForm.reset();
-        } catch (error) { status.textContent = t.failed; }
-        finally { submit.disabled = false; }
-    });
-    updateLeadCopy();
-})();
 </script>
 <style>
   .image.has-image-choices { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); align-items:start; gap:14px; }
@@ -171,8 +119,8 @@ $('start').onclick=()=>{show('quiz');renderQuestion();$('question').focus()};$('
     const card=document.querySelector('#result .card');
     card.querySelectorAll('.final-interest,.quiz-final-photo').forEach(node=>node.remove());
     const photo=document.createElement('img'); photo.className='quiz-final-photo'; photo.src='/pics/safety-quiz-yonatan.webp'; photo.alt=lang==='he'?'יונתן, המדריך':'Yonatan, the instructor'; card.prepend(photo);
-    const interest=document.createElement('div'); interest.className='final-interest'; interest.innerHTML=`<h3>${lang==='he'?'האם תרצו לקבל פרטים על הדרכה?':'Would you like details about instruction?'}</h3><label><input type="radio" name="final-interest" value="yes"><span>${lang==='he'?'כן, אשמח לפרטים':'Yes, send me details'}</span></label><label><input type="radio" name="final-interest" value="no"><span>${lang==='he'?'לא כרגע':'Not right now'}</span></label>`; card.insertBefore(interest,$('score'));
-    interest.addEventListener('change', event => { if (event.target.name !== 'final-interest') return; $('score').classList.remove('is-hidden'); $('resulttext').textContent=score>=8?t.great:t.improve; });
+    const interest=document.createElement('form'); interest.className='final-interest'; interest.innerHTML=`<h3>${lang==='he'?'האם תרצו לקבל פרטים על הדרכה?':'Would you like details about instruction?'}</h3><label><input type="radio" name="final-interest" value="yes" required><span>${lang==='he'?'כן, אשמח לפרטים':'Yes, send me details'}</span></label><label><input type="radio" name="final-interest" value="no"><span>${lang==='he'?'לא כרגע':'Not right now'}</span></label><button class="primary" type="submit">${lang==='he'?'שלחו וקבלו את הציון':'Submit and show my score'}</button><p class="lead-form-status" id="final-interest-status" role="status"></p>`; card.insertBefore(interest,$('score'));
+    interest.addEventListener('submit', async event => { event.preventDefault(); const selected=interest.querySelector('input[name="final-interest"]:checked'); const button=interest.querySelector('button'); const status=interest.querySelector('#final-interest-status'); if(!selected)return; button.disabled=true; status.textContent=lang==='he'?'שולח…':'Sending…'; const payload=new FormData(); const contact=window.quizParticipantContact||{}; payload.append('name',contact.name||''); payload.append('email',contact.email||''); payload.append('phone',contact.phone||''); payload.append('quiz','Lead belaying safety quiz'); payload.append('score',`${score}/10`); payload.append('training_interest_choice',selected.value); payload.append('training_interest',selected.value==='yes'?'Interested in instruction':'Not interested in instruction'); payload.append('language',lang); payload.append('_subject',`Lead belaying safety quiz — ${score}/10 — training interest: ${selected.value}`); try { const response=await fetch('https://formspree.io/f/mjkdalap',{method:'POST',body:payload,headers:{Accept:'application/json'}}); if(!response.ok)throw new Error('Submission failed'); $('score').classList.remove('is-hidden'); $('resulttext').textContent=score>=8?t.great:t.improve; $('review').hidden=false; interest.remove(); } catch(error) { button.disabled=false; status.textContent=lang==='he'?'לא הצלחנו לשלוח כרגע. נסו שוב.':'We could not send this right now. Please try again.'; } });
   };
   $('restart').onclick=()=>{step=0;answers=[];checked=false;show('intro');document.getElementById('quiz-start-name').value='';document.getElementById('quiz-start-email').value='';document.getElementById('quiz-start-phone').value='';};
 })();

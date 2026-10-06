@@ -508,6 +508,7 @@
 <div class="quiz-result" hidden="" id="quiz-result"></div>
 </section>
 </main>
+<script src="/quiz-lead-config.js?v=20261006"></script>
 <script>
         const lang = window.location.pathname.startsWith('/en/') ? 'en' :
             (new URLSearchParams(window.location.search).get('lang') === 'en' ? 'en' : 'he');
@@ -801,18 +802,9 @@
                 const button = interestForm.querySelector('button[type="submit"]');
                 button.disabled = true;
                 button.textContent = ui.sending;
-                const payload = new FormData();
-                payload.append('name', lead.name);
-                payload.append('email', lead.email);
-                payload.append('phone', lead.phone);
-                payload.append('score', `${score}/${questions.length}`);
                 const wantsTraining = selected.value === 'yes';
-                payload.append('training_interest', wantsTraining ? 'Interested in lead climbing instruction; please follow up.' : 'Not interested at this time.');
-                payload.append('message', `Clipping skills quiz: ${score}/${questions.length}. ${wantsTraining ? 'The participant is interested in instruction; please follow up.' : 'The participant is not interested in instruction at this time.'}`);
-                payload.append('_subject', `New clipping quiz lead — ${score}/${questions.length}${wantsTraining ? ' — interested in instruction' : ''}`);
                 try {
-                    const response = await fetch('https://formspree.io/f/mjkdalap', { method: 'POST', body: payload, headers: { Accept: 'application/json' } });
-                    if (!response.ok) throw new Error('Form submission failed');
+                    await window.submitQuizLead({ contact: lead, quiz: 'Clipping skills quiz', score: `${score}/${questions.length}`, trainingInterest: wantsTraining ? 'yes' : 'no', language: lang });
                     showCompletionScreen();
                 } catch (submissionError) {
                     button.disabled = false;

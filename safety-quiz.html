@@ -236,6 +236,14 @@
 
         .quiz-question-back { background: transparent; color: var(--quiz-green); border: 1px solid #c9d8c7; }
         .quiz-final-logo { display: block; width: 150px; max-width: 55%; height: auto; margin: 12px auto 18px; }
+        .quiz-score-pair { display: flex; direction: ltr; justify-content: center; gap: 12px; color: var(--quiz-green-light); font-size: 3.4rem; font-weight: 900; line-height: 1; }
+        .quiz-score-pair span:last-child { color: var(--quiz-muted); font-size: .55em; }
+        .quiz-error-review { margin: 18px auto; }
+        .quiz-error-list { display: grid; gap: 12px; margin: 14px auto; max-width: 620px; text-align: start; }
+        .quiz-error-list[hidden] { display: none; }
+        .quiz-error-item { padding: 14px; border-radius: 12px; background: #fff3ee; border: 1px solid #e5c7bd; }
+        .quiz-home-button { display: inline-flex; margin-top: 12px; color: var(--quiz-green); font-weight: 800; }
+        .quiz-complete-screen > .quiz-restart { display: none; }
 
         .quiz-error {
             min-height: 1.4em;
@@ -839,36 +847,29 @@
                     <div class="quiz-complete-screen">
                         <img class="quiz-result-guide" src="pics/safety-quiz-yonatan.webp" alt="${lang === 'he' ? 'יונתן, המדריך' : 'Yonatan, the instructor'}" loading="eager">
                         <img class="quiz-final-logo" src="pics/climbing-cyprus-logo.webp" alt="Climbing Cyprus" loading="eager">
-                        <h2>${ui.completionTitle}</h2>
-                        <div class="quiz-complete-score">${score}/${questions.length}</div>
+                        <h2>כל הכבוד!</h2>
+                        <div class="quiz-score-pair"><span>${score}</span><span>${questions.length}</span></div>
                         <p>${ui.scoreLabel}</p>
                         <p>${ui.completionMessage}</p>
                         <p class="quiz-complete-tagline">${ui.completionTagline}</p>
-                        <button class="quiz-restart" type="button">${ui.completionRetry}</button>
+                        <a class="quiz-home-button" href="/">דף הבית</a>
                     </div>
                 `;
-                result.querySelector('.quiz-restart').addEventListener('click', () => {
-                    current = 0;
-                    score = 0;
-                    answers = [];
-                    lead = { name: '', email: '', phone: '' };
-                    result.hidden = true;
-                    quizApp.hidden = false;
-                    renderLeadCapture();
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                });
+                const incorrect = questions.map((question, index) => ({ question, index })).filter(({ question, index }) => answers[index] !== question.answer);
+                if (incorrect.length) {
+                    const button = document.createElement('button');
+                    button.className = 'quiz-submit quiz-error-review';
+                    button.type = 'button';
+                    button.textContent = 'בדוק טעויות';
+                    const list = document.createElement('div');
+                    list.className = 'quiz-error-list';
+                    list.hidden = true;
+                    list.innerHTML = incorrect.map(({ question, index }) => `<div class="quiz-error-item"><strong>${ui.question(index + 1, questions.length)}: ${question.text[lang]}</strong><br>${ui.reviewCorrect || 'התשובה הנכונה:'} ${question.options[lang][question.answer]}</div>`).join('');
+                    button.addEventListener('click', () => { list.hidden = !list.hidden; });
+                    result.querySelector('.quiz-complete-screen').append(button, list);
+                }
             }
 
-            result.querySelector('.quiz-restart').addEventListener('click', () => {
-                current = 0;
-                score = 0;
-                answers = [];
-                lead = { name: '', email: '', phone: '' };
-                result.hidden = true;
-                quizApp.hidden = false;
-                renderLeadCapture();
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            });
         }
 
         renderLeadCapture();

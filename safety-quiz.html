@@ -239,6 +239,8 @@
         .quiz-score-pair { display: flex; direction: ltr; justify-content: center; gap: 12px; color: var(--quiz-green-light); font-size: 3.4rem; font-weight: 900; line-height: 1; }
         .quiz-score-pair span:last-child { color: var(--quiz-muted); font-size: .55em; }
         .quiz-error-review { margin: 18px auto; }
+        .quiz-error-review { background: #193d2c; color: #fff; border-color: #193d2c; }
+        .quiz-final-actions { display: flex; justify-content: center; align-items: center; gap: 12px; flex-wrap: wrap; margin-top: 18px; }
         .quiz-error-list { display: grid; gap: 12px; margin: 14px auto; max-width: 620px; text-align: start; }
         .quiz-error-list[hidden] { display: none; }
         .quiz-error-item { padding: 14px; border-radius: 12px; background: #fff3ee; border: 1px solid #e5c7bd; }
@@ -864,9 +866,14 @@
                     const list = document.createElement('div');
                     list.className = 'quiz-error-list';
                     list.hidden = true;
-                    list.innerHTML = incorrect.map(({ question, index }) => `<div class="quiz-error-item"><strong>${ui.question(index + 1, questions.length)}: ${question.text[lang]}</strong><br>${ui.reviewCorrect || 'התשובה הנכונה:'} ${question.options[lang][question.answer]}</div>`).join('');
+                    list.innerHTML = incorrect.map(({ question, index }) => `<div class="quiz-error-item"><strong>${ui.question(index + 1, questions.length)}: ${question.text[lang]}</strong><br>${ui.reviewCorrect || 'התשובה הנכונה:'} ${question.options[lang][question.answer]}<p>${question.explanation?.[lang] || ''}</p></div>`).join('');
                     button.addEventListener('click', () => { list.hidden = !list.hidden; });
-                    result.querySelector('.quiz-complete-screen').append(button, list);
+                    const home = result.querySelector('.quiz-home-button');
+                    const actions = document.createElement('div');
+                    actions.className = 'quiz-final-actions';
+                    home.replaceWith(actions);
+                    actions.append(home, button);
+                    result.querySelector('.quiz-complete-screen').append(list);
                 }
             }
 

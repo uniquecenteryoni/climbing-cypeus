@@ -177,7 +177,7 @@ $('start').onclick=()=>{show('quiz');renderQuestion();$('question').focus()};$('
 .score-pair { display:flex; direction:ltr; justify-content:center; align-items:baseline; gap:8px; }
 .score-pair .score-correct { order:1; }
 .score-pair .score-total { order:2; font-size:.6em; color:#647069; }
-.error-check { margin-top:18px; }
+.error-check { margin-top:0; background:#193d2c; color:#fff; border-color:#193d2c; }
 .error-check-list { display:grid; gap:12px; margin-top:14px; text-align:start; }
 .error-check-list[hidden] { display:none; }
 .error-check-item { padding:14px; border-radius:12px; background:#fff3ee; border:1px solid #e5c7bd; }
@@ -211,9 +211,10 @@ $('start').onclick=()=>{show('quiz');renderQuestion();$('question').focus()};$('
       const list = document.createElement('div');
       list.className = 'error-check-list';
       list.hidden = true;
-      list.innerHTML = wrong.map(({ question, index }) => `<div class="error-check-item"><strong>${index + 1}. ${escapeHTML(question.question[lang])}</strong><br><span>${lang === 'he' ? 'התשובה הנכונה:' : 'Correct answer:'} ${question.correct.map(answer => escapeHTML(question.options[lang][answer])).join(' · ')}</span></div>`).join('');
+      list.innerHTML = wrong.map(({ question, index }) => `<div class="error-check-item"><strong>${index + 1}. ${escapeHTML(question.question[lang])}</strong><br><span>${lang === 'he' ? 'התשובה הנכונה:' : 'Correct answer:'} ${question.correct.map(answer => escapeHTML(question.options[lang][answer])).join(' · ')}</span><p>${escapeHTML(question.explanation[lang])}</p></div>`).join('');
       button.addEventListener('click', () => { list.hidden = !list.hidden; });
-      review.append(button, list);
+      review.append(list);
+      document.querySelector('#result .actions')?.append(button);
     }
     review.hidden = true;
   };

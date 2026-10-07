@@ -14,7 +14,7 @@ const CONFIG = {
 const HEADERS = [
   'תאריך', 'שם', 'אימייל', 'טלפון', 'סוג', 'בוחן / נושא', 'ציון',
   'עניין בהדרכה', 'שפה', 'הודעה', 'מקור', 'קמפיין', 'רפררר',
-  'סטטוס', 'Gmail message ID'
+  'סטטוס', 'Gmail message ID', 'עניין'
 ];
 
 function setupFormspreeSync() {
@@ -90,7 +90,7 @@ function parseMessage_(message) {
     field_(body, 'name'), field_(body, 'email'), field_(body, 'phone'),
     quiz ? 'בוחן' : 'פנייה', field_(body, 'quiz') || subject, score, training,
     field_(body, 'language'), field_(body, 'message'), field_(body, 'source') || 'לא ידוע',
-    field_(body, 'utm_campaign'), field_(body, 'referrer'), 'חדש', message.getId()
+    field_(body, 'utm_campaign'), field_(body, 'referrer'), 'חדש', message.getId(), field_(body, 'interest')
   ];
 }
 

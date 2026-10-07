@@ -12,7 +12,7 @@
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
-    <meta name="description" content="טיפוס צוקים בקפריסין, השכרת ציוד טיפוס, אקסטרים קפריסין, קורס הובלה קפריסין. מדריך טיפוס מוסמך בקפריסין. Rock climbing Cyprus, climbing gear rental, adventure tours Cyprus, lead climbing course Cyprus.">
+    <meta name="description" content="טיפוס בקפריסין, סנפלינג, קורס טיפוס הובלה ובולדרינג עם מדריך מוסמך. Climbing in Cyprus, rappelling, lead climbing course and bouldering for beginners and experienced climbers.">
     <meta name="keywords" content="טיפוס בקפריסין, השכרת ציוד טיפוס, אטרקציות בקפריסין, אקסטרים קפריסין, מדריך טיפוס קפריסין, קורס הובלה קפריסין, rock climbing Cyprus, climbing guide Cyprus, climbing gear rental Cyprus, adventure Cyprus, lead climbing course Cyprus, rappelling Cyprus, rock climbing tours, Cyprus outdoor activities">
     <meta name="author" content="Yonatan Malichi">
     <meta property="og:title" content="Climbing Cyprus">
@@ -24,7 +24,7 @@
     <meta name="twitter:title" content="Climbing Cyprus">
     <meta name="twitter:description" content="טיפוס צוקים, סנפלינג וחוויות טבע בקפריסין">
     <meta name="twitter:image" content="https://climbing-cyprus.com/pics/climbing-cyprus-social-preview.webp">
-    <title>Climbing Cyprus - טיפוס צוקים וסנפלינג</title>
+    <title>Climbing in Cyprus | טיפוס, סנפלינג ובולדרינג בקפריסין</title>
     
     <!-- Favicons for all browsers and devices -->
     <link rel="icon" type="image/webp" sizes="32x32" href="pics/climbing-cyprus-profile.webp">
@@ -104,7 +104,7 @@
           "aggregateRating": {
             "@type": "AggregateRating",
             "ratingValue": "5",
-            "reviewCount": "7"
+            "reviewCount": "13"
           }
         },
         {
@@ -726,6 +726,7 @@
         </div>
     </footer>
 
+    <script src="/lead-tracking.js?v=20261007"></script>
     <script src="script.js?v=20261003-1"></script>
     <script>
         // Handle contact form submission with custom success message
@@ -742,6 +743,7 @@
                     
                     try {
                         const formData = new FormData(contactForm);
+                        if (window.getLeadAttribution) Object.entries(window.getLeadAttribution()).forEach(([key, value]) => formData.append(key, value || ''));
                         const response = await fetch(contactForm.action, {
                             method: 'POST',
                             body: formData,
@@ -751,6 +753,7 @@
                         });
                         
                         if (response.ok) {
+                            if (window.recordSiteLead) window.recordSiteLead({ name: formData.get('name'), email: formData.get('email'), phone: formData.get('phone'), type: formData.get('interest') === 'Course' ? 'training' : 'contact', interest: formData.get('interest'), message: formData.get('message'), status: 'חדש' });
                             // Show success message
                             showSuccessMessage('ההודעה נשלחה בהצלחה! נחזור אליך בהקדם.');
                             contactForm.reset();

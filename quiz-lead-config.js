@@ -11,10 +11,13 @@
         payload.append('training_interest_choice', trainingInterest);
         payload.append('training_interest', trainingInterest === 'yes' ? 'Interested in instruction' : 'Not interested in instruction');
         payload.append('language', language || document.documentElement.lang || '');
+        const attribution = window.getLeadAttribution ? window.getLeadAttribution() : {};
+        Object.entries(attribution).forEach(([key, value]) => payload.append(key, value || ''));
         payload.append('message', `${quiz}: ${score}. Training interest: ${trainingInterest}.`);
         payload.append('_subject', `${quiz} — ${score} — training interest: ${trainingInterest}`);
         const response = await fetch(endpoint, { method: 'POST', body: payload, headers: { Accept: 'application/json' } });
         if (!response.ok) throw new Error('Quiz lead submission failed');
+        if (window.recordSiteLead) window.recordSiteLead({ name: contact.name, email: contact.email, phone: contact.phone, type: 'quiz', interest: quiz + ' · ' + score, quiz, score, training: trainingInterest === 'yes' ? 'כן' : 'לא', language: language || document.documentElement.lang });
         return response;
     };
 })();

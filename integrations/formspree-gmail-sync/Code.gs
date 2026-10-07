@@ -50,6 +50,21 @@ function syncFormspreeToSheet() {
   sheet.autoResizeColumns(1, HEADERS.length);
 }
 
+/**
+ * JSON endpoint for the static admin panel.
+ * Deploy this project as a Web app (execute as you, access: anyone with the link)
+ * and paste the /exec URL into admin/dashboard.html.
+ */
+function doGet() {
+  const id = PropertiesService.getScriptProperties().getProperty('SPREADSHEET_ID') || CONFIG.spreadsheetId;
+  const sheet = SpreadsheetApp.openById(id).getSheetByName(CONFIG.sheetName);
+  const values = sheet ? sheet.getDataRange().getDisplayValues() : [];
+  const headers = values.shift() || HEADERS;
+  const rows = values.map(row => Object.fromEntries(headers.map((header, i) => [header, row[i] || ''])));
+  return ContentService.createTextOutput(JSON.stringify({ updatedAt: new Date().toISOString(), rows }))
+    .setMimeType(ContentService.MimeType.JSON);
+}
+
 function ensureHeader_(sheet) {
   if (sheet.getLastRow() === 0 || sheet.getRange(1, 1).getValue() !== HEADERS[0]) {
     sheet.getRange(1, 1, 1, HEADERS.length).setValues([HEADERS]);

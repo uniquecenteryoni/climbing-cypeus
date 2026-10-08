@@ -76,12 +76,23 @@ function syncFormspreeToSheet() {
  * Deploy this project as a Web app (execute as you, access: anyone with the link)
  * and paste the /exec URL into admin/dashboard.html.
  */
-function doGet() {
+function doGet(e) {
   const id = PropertiesService.getScriptProperties().getProperty('SPREADSHEET_ID') || CONFIG.spreadsheetId;
   const sheet = SpreadsheetApp.openById(id).getSheetByName(CONFIG.sheetName);
   const values = sheet ? sheet.getDataRange().getDisplayValues() : [];
   const headers = values.shift() || HEADERS;
-  const rows = values.map(row => Object.fromEntries(headers.map((header, i) => [header, row[i] || ''])));
+  const detailId = e && e.parameter ? String(e.parameter.details || '') : '';
+  let rows = values.map(row => {
+    const result = {};
+    headers.forEach((header, i) => {
+      // The full email body can be large. Keep it out of the initial payload;
+      // the dashboard requests it lazily for one selected record only.
+      if (detailId || header !== 'מידע מלא') result[header] = row[i] || '';
+    });
+    if (!detailId) result['מידע מלא'] = '';
+    return result;
+  });
+  if (detailId) rows = rows.filter(row => String(row['Gmail message ID'] || '') === detailId);
   return ContentService.createTextOutput(JSON.stringify({ updatedAt: new Date().toISOString(), rows }))
     .setMimeType(ContentService.MimeType.JSON);
 }

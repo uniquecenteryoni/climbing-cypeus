@@ -14,7 +14,7 @@ const CONFIG = {
 const HEADERS = [
   'תאריך', 'שם', 'אימייל', 'טלפון', 'סוג', 'בוחן / נושא', 'ציון',
   'עניין בהדרכה', 'שפה', 'הודעה', 'מקור', 'קמפיין', 'רפררר',
-  'סטטוס', 'Gmail message ID', 'עניין'
+  'סטטוס', 'Gmail message ID', 'עניין', 'אירוע', 'תאריך אירוע', 'עלות'
 ];
 
 function setupFormspreeSync() {
@@ -70,7 +70,11 @@ function ensureHeader_(sheet) {
     sheet.getRange(1, 1, 1, HEADERS.length).setValues([HEADERS]);
     sheet.getRange(1, 1, 1, HEADERS.length).setFontWeight('bold').setBackground('#1f6a4d').setFontColor('#ffffff');
     sheet.setFrozenRows(1);
+    return;
   }
+  const current = sheet.getRange(1, 1, 1, Math.max(sheet.getLastColumn(), 1)).getValues()[0];
+  const missing = HEADERS.filter(header => !current.includes(header));
+  if (missing.length) sheet.getRange(1, current.length + 1, 1, missing.length).setValues([missing]);
 }
 
 function getExistingMessageIds_(sheet) {
@@ -90,7 +94,8 @@ function parseMessage_(message) {
     field_(body, 'name'), field_(body, 'email'), field_(body, 'phone'),
     quiz ? 'בוחן' : 'פנייה', field_(body, 'quiz') || subject, score, training,
     field_(body, 'language'), field_(body, 'message'), field_(body, 'source') || 'לא ידוע',
-    field_(body, 'utm_campaign'), field_(body, 'referrer'), 'חדש', message.getId(), field_(body, 'interest')
+    field_(body, 'utm_campaign'), field_(body, 'referrer'), 'חדש', message.getId(), field_(body, 'interest'),
+    field_(body, 'event'), field_(body, 'event_date'), field_(body, 'event_price')
   ];
 }
 

@@ -860,6 +860,21 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Auto-fill contact form message based on source
+    function applyContactInterestFromUrl() {
+        const requested = new URLSearchParams(window.location.search).get('interest');
+        const labels = { 'climbing-day': 'יום טיפוס', course: 'קורס', rappelling: 'סנפלינג', equipment: 'השכרת ציוד' };
+        const interest = labels[requested] || requested;
+        if (!interest) return;
+        const options = document.querySelectorAll('#contact .interest-option');
+        const selected = [...options].find(option => option.dataset.interest === interest);
+        if (!selected) return;
+        options.forEach(option => option.classList.toggle('is-selected', option === selected));
+        const hidden = document.getElementById('interest');
+        if (hidden) hidden.value = selected.dataset.interest;
+    }
+
+    applyContactInterestFromUrl();
+
     function prefillContactMessage() {
         const urlParams = new URLSearchParams(window.location.search);
         const equipmentType = urlParams.get('equipment');
@@ -898,7 +913,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const equipmentType = this.getAttribute('data-equipment-type');
             if (!equipmentType) return;
             e.preventDefault();
-            window.location.href = `${currentLang === 'en' ? '/en/' : '/'}?equipment=${encodeURIComponent(equipmentType)}#contact`;
+            window.location.href = `${currentLang === 'en' ? '/en/' : '/'}?interest=equipment&equipment=${encodeURIComponent(equipmentType)}#contact`;
         });
     });
     
@@ -910,7 +925,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 e.preventDefault();
                 const activityCard = this.closest('.activity-card');
                 const activityTitle = activityCard ? activityCard.querySelector('h3').textContent : '';
-                window.location.href = `${currentLang === 'en' ? '/en/' : '/'}?activity=${encodeURIComponent(activityTitle)}#contact`;
+                const interest = this.dataset.contactInterest || (/סנפלינג|rappel/i.test(activityTitle) ? 'rappelling' : 'climbing-day');
+                window.location.href = `${currentLang === 'en' ? '/en/' : '/'}?interest=${interest}&activity=${encodeURIComponent(activityTitle)}#contact`;
             }
         });
     });
@@ -923,7 +939,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 e.preventDefault();
                 const tourTitle = document.querySelector('.tour-hero h1')?.textContent || 
                                 document.querySelector('h1')?.textContent || '';
-                window.location.href = `${currentLang === 'en' ? '/en/' : '/'}?tour=${encodeURIComponent(tourTitle)}#contact`;
+                const page = window.location.pathname.toLowerCase();
+                const interest = this.dataset.contactInterest || (/course|syllabus|sylabus/.test(page) ? 'course' : /equipment/.test(page) ? 'equipment' : 'climbing-day');
+                window.location.href = `${currentLang === 'en' ? '/en/' : '/'}?interest=${interest}&tour=${encodeURIComponent(tourTitle)}#contact`;
             }
         });
     });

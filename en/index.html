@@ -601,10 +601,10 @@
 <div class="form-group form-group-interests">
 <label>What are you interested in?</label>
 <div class="interest-options" role="group" aria-label="What are you interested in?">
-<button type="button" class="interest-option is-selected" data-interest="Climbing Day"><i class="fa-solid fa-person-hiking"></i><span>Climbing Day</span></button>
-<button type="button" class="interest-option" data-interest="Course"><i class="fa-solid fa-graduation-cap"></i><span>Course</span></button>
-<button type="button" class="interest-option" data-interest="Family"><i class="fa-solid fa-people-group"></i><span>Family</span></button>
-<button type="button" class="interest-option" data-interest="Advanced"><i class="fa-solid fa-mountain"></i><span>Advanced</span></button>
+<button type="button" class="interest-option is-selected" data-interest="יום טיפוס"><i class="fa-solid fa-person-hiking"></i><span>Climbing Day</span></button>
+<button type="button" class="interest-option" data-interest="קורס"><i class="fa-solid fa-graduation-cap"></i><span>Course</span></button>
+<button type="button" class="interest-option" data-interest="סנפלינג"><i class="fa-solid fa-person-falling"></i><span>Rappelling</span></button>
+<button type="button" class="interest-option" data-interest="השכרת ציוד"><i class="fa-solid fa-backpack"></i><span>Equipment rental</span></button>
 </div>
 </div>
 <div class="form-group form-group-message">
@@ -612,7 +612,7 @@
 <textarea id="message" name="message" placeholder="e.g. preferred dates, number of people, climbing experience, or any questions..." required="" rows="5"></textarea>
 </div>
 <input name="_subject" type="hidden" value="New contact request - Climbing Cyprus"/>
-<input name="interest" id="interest" type="hidden" value="Climbing Day"/>
+<input name="interest" id="interest" type="hidden" value="יום טיפוס"/>
 <div class="contact-buttons">
 <button class="submit-btn" data-i18n="form-submit" type="submit">Send by Email</button>
 <button class="whatsapp-btn" onclick="sendWhatsApp()" type="button" aria-label="Send your message via WhatsApp">
@@ -683,7 +683,7 @@ document.querySelectorAll('#contact .interest-option').forEach(function (option)
 </div>
 </div>
 </footer>
-<script src="../script.js?v=20261008-2"></script>
+<script src="../script.js?v=20261008-3"></script>
 <script>
         // Handle contact form submission with custom success message
         document.addEventListener('DOMContentLoaded', function() {

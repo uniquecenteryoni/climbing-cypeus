@@ -648,10 +648,10 @@
                     <div class="form-group form-group-interests">
                         <label>במה אתם מתעניינים?</label>
                         <div class="interest-options" role="group" aria-label="במה אתם מתעניינים?">
-                            <button type="button" class="interest-option is-selected" data-interest="Climbing Day"><i class="fa-solid fa-person-hiking"></i><span>יום טיפוס</span></button>
-                            <button type="button" class="interest-option" data-interest="Course"><i class="fa-solid fa-graduation-cap"></i><span>קורס</span></button>
-                            <button type="button" class="interest-option" data-interest="Family"><i class="fa-solid fa-people-group"></i><span>משפחה</span></button>
-                            <button type="button" class="interest-option" data-interest="Advanced"><i class="fa-solid fa-mountain"></i><span>מתקדמים</span></button>
+                            <button type="button" class="interest-option is-selected" data-interest="יום טיפוס"><i class="fa-solid fa-person-hiking"></i><span>יום טיפוס</span></button>
+                            <button type="button" class="interest-option" data-interest="קורס"><i class="fa-solid fa-graduation-cap"></i><span>קורס</span></button>
+                            <button type="button" class="interest-option" data-interest="סנפלינג"><i class="fa-solid fa-person-falling"></i><span>סנפלינג</span></button>
+                            <button type="button" class="interest-option" data-interest="השכרת ציוד"><i class="fa-solid fa-backpack"></i><span>השכרת ציוד</span></button>
                         </div>
                     </div>
                     <div class="form-group form-group-message">
@@ -660,7 +660,7 @@
                     </div>
                     
                     <input type="hidden" name="_subject" value="צור קשר חדש - Cyprus Climbing">
-                    <input type="hidden" name="interest" id="interest" value="Climbing Day">
+                    <input type="hidden" name="interest" id="interest" value="יום טיפוס">
                     
                     <div class="contact-buttons">
                         <button type="submit" class="submit-btn" data-i18n="form-submit">שלח באימייל</button>
@@ -739,7 +739,7 @@
     </footer>
 
     <script src="/lead-tracking.js?v=20261007"></script>
-    <script src="script.js?v=20261008-2"></script>
+    <script src="script.js?v=20261008-3"></script>
     <script>
         // Handle contact form submission with custom success message
         document.addEventListener('DOMContentLoaded', function() {
@@ -765,7 +765,7 @@
                         });
                         
                         if (response.ok) {
-                            if (window.recordSiteLead) window.recordSiteLead({ name: formData.get('name'), email: formData.get('email'), phone: formData.get('phone'), type: formData.get('interest') === 'Course' ? 'training' : 'contact', interest: formData.get('interest'), message: formData.get('message'), status: 'חדש' });
+                            if (window.recordSiteLead) window.recordSiteLead({ name: formData.get('name'), email: formData.get('email'), phone: formData.get('phone'), type: 'contact', interest: formData.get('interest'), message: formData.get('message'), status: 'חדש' });
                             // Show success message
                             showSuccessMessage('ההודעה נשלחה בהצלחה! נחזור אליך בהקדם.');
                             contactForm.reset();

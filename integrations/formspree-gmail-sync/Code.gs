@@ -14,7 +14,9 @@ const CONFIG = {
 const HEADERS = [
   'תאריך', 'שם', 'אימייל', 'טלפון', 'סוג', 'בוחן / נושא', 'ציון',
   'עניין בהדרכה', 'שפה', 'הודעה', 'מקור', 'קמפיין', 'רפררר',
-  'סטטוס', 'Gmail message ID', 'עניין', 'אירוע', 'תאריך אירוע', 'עלות'
+  'סטטוס', 'Gmail message ID', 'עניין', 'אירוע', 'תאריך אירוע', 'עלות',
+  'טופס', 'נציג/ה', 'חתימה אלקטרונית', 'תאריך חתימה', 'אישור סיכונים',
+  'הסכמה רפואית', 'קישור לאישור', 'מידע מלא'
 ];
 
 function setupFormspreeSync() {
@@ -36,13 +38,32 @@ function syncFormspreeToSheet() {
   const ss = SpreadsheetApp.openById(id);
   const sheet = ss.getSheetByName(CONFIG.sheetName) || ss.insertSheet(CONFIG.sheetName);
   ensureHeader_(sheet);
-  const existing = getExistingMessageIds_(sheet);
+  const existing = getExistingMessageRows_(sheet);
   const rows = [];
+  const updates = [];
   GmailApp.search(CONFIG.gmailQuery).forEach(thread => thread.getMessages().forEach(message => {
     const id = message.getId();
-    if (existing.has(id)) return;
-    rows.push(parseMessage_(message));
+    const parsed = parseMessage_(message);
+    if (existing.has(id)) {
+      const rowNumber = existing.get(id);
+      const current = sheet.getRange(rowNumber, 1, 1, HEADERS.length).getValues()[0];
+      let changed = false;
+      parsed.forEach((value, index) => {
+        if (value && !current[index]) {
+          current[index] = value;
+          changed = true;
+        }
+      });
+      if (parsed[4] === 'אישור השתתפות' && current[4] !== 'אישור השתתפות') {
+        current[4] = parsed[4];
+        changed = true;
+      }
+      if (changed) updates.push([rowNumber, current]);
+      return;
+    }
+    rows.push(parsed);
   }));
+  updates.forEach(([rowNumber, row]) => sheet.getRange(rowNumber, 1, 1, HEADERS.length).setValues([row]));
   if (!rows.length) return;
   rows.sort((a, b) => new Date(a[0]) - new Date(b[0]));
   sheet.getRange(sheet.getLastRow() + 1, 1, rows.length, HEADERS.length).setValues(rows);
@@ -77,25 +98,35 @@ function ensureHeader_(sheet) {
   if (missing.length) sheet.getRange(1, current.length + 1, 1, missing.length).setValues([missing]);
 }
 
-function getExistingMessageIds_(sheet) {
-  if (sheet.getLastRow() < 2) return new Set();
-  return new Set(sheet.getRange(2, 15, sheet.getLastRow() - 1, 1).getValues().flat().filter(String));
+function getExistingMessageRows_(sheet) {
+  const rows = new Map();
+  if (sheet.getLastRow() < 2) return rows;
+  sheet.getRange(2, 15, sheet.getLastRow() - 1, 1).getValues().forEach((row, index) => {
+    if (row[0]) rows.set(String(row[0]), index + 2);
+  });
+  return rows;
 }
 
 function parseMessage_(message) {
   const body = message.getPlainBody();
   const subject = message.getSubject();
+  const formType = field_(body, 'form_type');
+  const representative = field_(body, 'representative_name');
+  const waiver = /waiver|health declaration|participation|אישור השתתפות|הצהרת בריאות|וייבר/i.test(subject + ' ' + formType);
   const score = (subject.match(/\d+\/\d+/) || [''])[0];
   const quiz = /quiz|בוחן/i.test(subject + body);
   const training = /training interest:\s*yes|מעוניין/i.test(subject + body) ? 'כן' :
     /training interest:\s*no|לא מעוניין/i.test(subject + body) ? 'לא' : '';
   return [
     message.getDate().toISOString(),
-    field_(body, 'name'), field_(body, 'email'), field_(body, 'phone'),
-    quiz ? 'בוחן' : 'פנייה', field_(body, 'quiz') || subject, score, training,
-    field_(body, 'language'), field_(body, 'message'), field_(body, 'source') || 'לא ידוע',
+    field_(body, 'name') || representative, field_(body, 'email'), field_(body, 'phone'),
+    waiver ? 'אישור השתתפות' : quiz ? 'בוחן' : 'פנייה', waiver ? 'אישור השתתפות והצהרת בריאות' : field_(body, 'quiz') || subject, score, training,
+    field_(body, 'language'), waiver ? '' : field_(body, 'message'), field_(body, 'source') || 'לא ידוע',
     field_(body, 'utm_campaign'), field_(body, 'referrer'), 'חדש', message.getId(), field_(body, 'interest'),
-    field_(body, 'event'), field_(body, 'event_date'), field_(body, 'event_price')
+    field_(body, 'event'), field_(body, 'event_date'), field_(body, 'event_price'),
+    formType, representative, field_(body, 'electronic_signature'), field_(body, 'signature_date'),
+    field_(body, 'risk_and_terms_consent'), field_(body, 'health_data_explicit_consent'),
+    field_(body, '01 — קישור לאישור המלא להדפסה') || field_(body, '01 — PRINTABLE WAIVER LINK'), body
   ];
 }
 

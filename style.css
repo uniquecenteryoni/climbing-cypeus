@@ -247,6 +247,23 @@ html[dir="ltr"] .climber-guide-en li {
     }
 }
 
+/* Keep the mobile menu fully off-canvas in both writing directions. Using a
+   logical inset prevents the RTL menu from reappearing on the wrong side. */
+@media (max-width: 768px) {
+    .navbar .nav-menu {
+        inset-inline-start: -100% !important;
+        inset-inline-end: auto !important;
+        visibility: hidden;
+        pointer-events: none;
+    }
+
+    .navbar .nav-menu.active {
+        inset-inline-start: 0 !important;
+        visibility: visible;
+        pointer-events: auto;
+    }
+}
+
 /* Shade calculator: a full-bleed editorial strip with a calm, visual
    explanation of the sun/shade relationship. Scoped to this one component. */
 .instagram-community-photo,
@@ -10313,3 +10330,35 @@ body.landing-page {
 }
 /* Lead course promotional price */
 .course-page .price-old { color: #7b847e; font-size: .95rem; font-weight: 500; margin-inline-end: .35rem; }
+
+/* Mobile navigation safety net: explicit physical sides keep the drawer
+   off-screen in Safari and in pages that switch direction at runtime. */
+@media (max-width: 768px) {
+    .navbar .nav-menu,
+    .landing-page .nav-menu {
+        left: -100% !important;
+        right: auto !important;
+        visibility: hidden;
+        pointer-events: none;
+    }
+
+    [dir="rtl"] .navbar .nav-menu,
+    [dir="rtl"] .landing-page .nav-menu {
+        left: auto !important;
+        right: -100% !important;
+    }
+
+    .navbar .nav-menu.active,
+    .landing-page .nav-menu.active {
+        left: 0 !important;
+        right: auto !important;
+        visibility: visible;
+        pointer-events: auto;
+    }
+
+    [dir="rtl"] .navbar .nav-menu.active,
+    [dir="rtl"] .landing-page .nav-menu.active {
+        left: auto !important;
+        right: 0 !important;
+    }
+}

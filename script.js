@@ -86,8 +86,8 @@ function upgradeCompactFooter() {
     const isEnglish = document.documentElement.lang === 'en' || window.location.pathname.startsWith('/en/');
     const home = isEnglish ? '/en/' : '/';
     const labels = isEnglish
-        ? { tagline: 'Rock climbing, rappelling and equipment rental in Cyprus', links: 'Explore', tours: 'Rock climbing & rappelling', course: 'Lead climbing course', gear: 'Equipment rental', contact: 'Contact', social: 'Follow Climbing Cyprus', rights: 'All rights reserved' }
-        : { tagline: 'טיפוס צוקים, סנפלינג והשכרת ציוד בקפריסין', links: 'לגלות', tours: 'טיפוס צוקים וסנפלינג', course: 'קורס טיפוס הובלה', gear: 'השכרת ציוד', contact: 'יצירת קשר', social: 'עקבו אחרי Climbing Cyprus', rights: 'כל הזכויות שמורות' };
+        ? { tagline: 'Rock climbing, rappelling and equipment rental in Cyprus', links: 'Explore', tours: 'Rock climbing & rappelling', course: 'Lead climbing course', gear: 'Equipment rental', contact: 'Contact', admin: 'Admin panel', social: 'Follow Climbing Cyprus', rights: 'All rights reserved' }
+        : { tagline: 'טיפוס צוקים, סנפלינג והשכרת ציוד בקפריסין', links: 'לגלות', tours: 'טיפוס צוקים וסנפלינג', course: 'קורס טיפוס הובלה', gear: 'השכרת ציוד', contact: 'יצירת קשר', admin: 'פאנל ניהול', social: 'עקבו אחרי Climbing Cyprus', rights: 'כל הזכויות שמורות' };
 
     const container = document.createElement('div');
     container.className = 'container';
@@ -103,7 +103,7 @@ function upgradeCompactFooter() {
     const heading = document.createElement('h4');
     heading.textContent = labels.links;
     const list = document.createElement('ul');
-    [[labels.tours, `${home}#activities`], [labels.course, `${home}course.html`], [labels.gear, `${home}equipment.html`], [labels.contact, `${home}#contact`]].forEach(([label, href]) => {
+    [[labels.tours, `${home}#activities`], [labels.course, `${home}course.html`], [labels.gear, `${home}equipment.html`], [labels.contact, `${home}#contact`], [labels.admin, '/admin/dashboard']].forEach(([label, href]) => {
         const item = document.createElement('li');
         const anchor = document.createElement('a');
         anchor.href = href;
@@ -268,6 +268,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Language button click
         langButtons.forEach(button => {
             button.addEventListener('click', () => {
+                closeMobileMenu();
                 const lang = button.getAttribute('data-lang');
                 localStorage.setItem('preferred-language', lang);
                 window.location.assign(`${pagePathForLanguage(lang)}${window.location.hash}`);
@@ -283,7 +284,18 @@ document.addEventListener('DOMContentLoaded', () => {
     const navMenu = document.querySelector('.nav-menu');
 
     const isEnglishPage = document.documentElement.lang === 'en' || window.location.pathname.startsWith('/en/');
+    const closeMobileMenu = () => {
+        if (!hamburger) return;
+        hamburger.classList.remove('active');
+        if (navMenu) navMenu.classList.remove('active');
+        hamburger.setAttribute('aria-expanded', 'false');
+        hamburger.setAttribute('aria-label', isEnglishPage ? 'Open navigation menu' : 'פתיחת תפריט ניווט');
+    };
+
     if (hamburger) {
+        // A restored page can retain the old class state (notably on mobile
+        // back/forward navigation). Always begin a new page with the menu closed.
+        closeMobileMenu();
         if (navMenu && !navMenu.id) navMenu.id = 'site-navigation';
         hamburger.setAttribute('role', 'button');
         hamburger.setAttribute('tabindex', '0');
@@ -322,13 +334,16 @@ document.addEventListener('DOMContentLoaded', () => {
         
         // Close menu when clicking on a link
         document.querySelectorAll('.nav-menu a').forEach(link => {
-            link.addEventListener('click', () => {
-                hamburger.classList.remove('active');
-                if (navMenu) navMenu.classList.remove('active');
-                hamburger.setAttribute('aria-expanded', 'false');
-                hamburger.setAttribute('aria-label', isEnglishPage ? 'Open navigation menu' : 'פתיחת תפריט ניווט');
-            });
+            link.addEventListener('click', closeMobileMenu);
         });
+
+        // Close before navigating from any page link, including activity cards.
+        document.querySelectorAll('a[href]').forEach(link => {
+            link.addEventListener('click', closeMobileMenu, { capture: true });
+        });
+
+        window.addEventListener('pagehide', closeMobileMenu);
+        window.addEventListener('scroll', closeMobileMenu, { passive: true });
     }
     
     // Smooth scrolling for anchor links

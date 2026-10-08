@@ -29,7 +29,7 @@ function setupFormspreeSync() {
   ScriptApp.getProjectTriggers()
     .filter(t => t.getHandlerFunction() === 'syncFormspreeToSheet')
     .forEach(t => ScriptApp.deleteTrigger(t));
-  ScriptApp.newTrigger('syncFormspreeToSheet').timeBased().everyHours(1).create();
+  ScriptApp.newTrigger('syncFormspreeToSheet').timeBased().everyMinutes(5).create();
   syncFormspreeToSheet();
 }
 

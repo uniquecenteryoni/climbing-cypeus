@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="קורס הובלה מעשי בקפריסין באזור פאפוס. שלושה ימים של תרגול, בטיחות וביטחון על המצוק במחיר השקה של 300 אירו.">
+    <meta name="description" content="Lead climbing course in Cyprus near Paphos: three practical days, 20 hours of supervised crag training, safety and confidence for top-rope climbers.">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://climbing-cyprus.com/course-launch/">
     <link rel="icon" type="image/webp" href="../favicon.webp">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="../style.css?v=20260929-2">
     <link rel="stylesheet" href="./course-launch.css?v=20261003-2">
-    <title>קורס הובלה בקפריסין | מחיר השקה 300 אירו</title>
+    <title>Lead Climbing Course Cyprus | קורס הובלה בקפריסין</title>
 </head>
 <body class="lead-landing">
     <nav class="lead-nav" aria-label="ניווט ראשי">
@@ -19,7 +19,7 @@
         </a>
         <a class="lead-nav-link" href="#details">פרטי הקורס</a>
         <a class="lead-nav-link" href="#bring">מה להביא</a>
-        <a class="lead-nav-cta" href="#join">שריינו מקום</a>
+        <a class="lead-nav-cta js-lead-modal-trigger" href="#join">שריינו מקום</a>
     </nav>
 
     <main>
@@ -33,7 +33,7 @@
                     <span class="lead-old-price"><span>במקום 400€</span></span>
                     <span class="lead-price-note">מחיר השקה · לזמן מוגבל</span>
                 </div>
-                <a class="lead-primary-cta" href="#join">אני רוצה להצטרף <i class="fa-solid fa-arrow-left" aria-hidden="true"></i></a>
+                <a class="lead-primary-cta js-lead-modal-trigger" href="#join">אני רוצה להצטרף <i class="fa-solid fa-arrow-left" aria-hidden="true"></i></a>
                 <div class="lead-meta" aria-label="פרטי הקורס">
                     <span><i class="fa-regular fa-calendar" aria-hidden="true"></i> 3 ימים</span>
                     <span><i class="fa-regular fa-clock" aria-hidden="true"></i> 20 שעות הדרכה</span>
@@ -47,9 +47,9 @@
             <h2>הצעד הבא שלך בטיפוס</h2>
             <p>שלושה ימים מרוכזים באזור פאפוס, בקצב שמאפשר ללמוד באמת: להבין את שרשרת הבטיחות, להוביל, לאבטח מוביל, לתרגל נפילות מבוקרות, לנקות תחנה ולצאת עם ביטחון להמשיך להתאמן באופן עצמאי.</p>
             <div class="lead-stat-grid lead-days-grid">
-                <article class="lead-stat"><strong>יום ראשון</strong><span>יסודות, שרשרת הבטיחות, ציוד להובלה והובלה מדומה.</span></article>
-                <article class="lead-stat"><strong>יום שני</strong><span>אבטחת מוביל, הובלה ראשונה בפיקוח ותרגול ניהול מסלול.</span></article>
-                <article class="lead-stat"><strong>יום שלישי</strong><span>נפילות מבוקרות, ניקוי תחנה, פתרון תקלות וסבב מלא.</span></article>
+                <article class="lead-stat"><strong>יום ראשון</strong><span>נכיר את שרשרת הבטיחות, נרענן קשרים ו־Partner Check, נעבור על ציוד ההובלה ונתרגל הקלפות והובלה מדומה על מסלולים קלים.</span></article>
+                <article class="lead-stat"><strong>יום שני</strong><span>נתרגל אבטחת מוביל, ניהול חבל ותקשורת נכונה, ואז נעבור בהדרגה להובלה ראשונה בפיקוח ולניהול מסלול מלא.</span></article>
+                <article class="lead-stat"><strong>יום שלישי</strong><span>נתרגל נפילות מבוקרות, ניקוי תחנה ופתרון תקלות, ונבצע סבבי הובלה ואבטחה מלאים עם משוב אישי.</span></article>
             </div>
         </section>
 
@@ -96,11 +96,74 @@
             </div>
             <div class="lead-final-action">
                 <div><span class="lead-final-price">300€</span><span>למשתתף<br><b class="lead-final-old-price">במקום 400€</b></span></div>
-                <a class="lead-primary-cta" href="https://wa.me/972504443328?text=%D7%94%D7%99%D7%99%2C%20%D7%90%D7%A0%D7%99%20%D7%9E%D7%A2%D7%95%D7%A0%D7%99%D7%99%D7%9F%2F%D7%AA%20%D7%91%D7%A7%D7%95%D7%A8%D7%A1%20%D7%94%D7%95%D7%91%D7%9C%D7%94%20%D7%91%D7%A7%D7%A4%D7%A8%D7%99%D7%A1%D7%99%D7%9F" target="_blank" rel="noopener">שריינו מקום בוואטסאפ <i class="fa-brands fa-whatsapp" aria-hidden="true"></i></a>
+                <a class="lead-primary-cta js-lead-modal-trigger" href="#join">שריינו מקום <i class="fa-solid fa-arrow-left" aria-hidden="true"></i></a>
             </div>
         </section>
     </main>
 
+    <div class="lead-modal" id="lead-modal" hidden>
+        <div class="lead-modal-backdrop" data-close-lead-modal></div>
+        <section class="lead-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="lead-modal-title">
+            <button class="lead-modal-close" type="button" aria-label="סגירת החלון" data-close-lead-modal>&times;</button>
+            <div class="lead-modal-content">
+                <p class="lead-kicker">קורס הובלה בקפריסין</p>
+                <h2 id="lead-modal-title">שריינו מקום בקורס</h2>
+                <p>השאירו פרטים ונחזור אליכם כדי לבדוק התאמה, תאריכים וטיסות.</p>
+                <form id="lead-course-form" action="https://formspree.io/f/mjkdalap" method="POST">
+                    <input type="hidden" name="interest" value="קורס הובלה">
+                    <input type="hidden" name="type" value="contact">
+                    <input type="hidden" name="course" value="קורס הובלה בקפריסין">
+                    <input type="hidden" name="_subject" value="פנייה חדשה — קורס הובלה">
+                    <label>שם מלא *<input type="text" name="name" autocomplete="name" required></label>
+                    <label>טלפון *<input type="tel" name="phone" autocomplete="tel" inputmode="tel" required></label>
+                    <label>אימייל *<input type="email" name="email" autocomplete="email" required></label>
+                    <label>הערה או שאלה (לא חובה)<textarea name="message" rows="3"></textarea></label>
+                    <button class="lead-modal-submit" type="submit">שלחו לי פרטים</button>
+                    <p class="lead-modal-status" id="lead-modal-status" role="status" aria-live="polite"></p>
+                </form>
+            </div>
+            <div class="lead-modal-success" hidden>
+                <div class="lead-modal-success-icon">✓</div>
+                <h2>הפרטים התקבלו בהצלחה</h2>
+                <p>תודה! נחזור אליכם בהקדם עם כל הפרטים על הקורס.</p>
+                <button class="lead-modal-submit" type="button" data-close-lead-modal>סגירה</button>
+            </div>
+        </section>
+    </div>
+
     <footer class="lead-footer"><a href="../">Climbing Cyprus</a><span>קורס הובלה באזור פאפוס</span></footer>
+    <script src="../lead-tracking.js?v=20261008"></script>
+    <script>
+        (() => {
+            const modal = document.getElementById('lead-modal');
+            const form = document.getElementById('lead-course-form');
+            const content = modal.querySelector('.lead-modal-content');
+            const success = modal.querySelector('.lead-modal-success');
+            const status = document.getElementById('lead-modal-status');
+            const close = () => { modal.hidden = true; document.body.classList.remove('lead-modal-open'); };
+            const open = (event) => { event.preventDefault(); if (!success.hidden) { success.hidden = true; content.hidden = false; form.reset(); } modal.hidden = false; document.body.classList.add('lead-modal-open'); form.querySelector('input[name="name"]').focus(); };
+            document.querySelectorAll('.js-lead-modal-trigger').forEach((trigger) => trigger.addEventListener('click', open));
+            modal.querySelectorAll('[data-close-lead-modal]').forEach((button) => button.addEventListener('click', close));
+            document.addEventListener('keydown', (event) => { if (event.key === 'Escape' && !modal.hidden) close(); });
+            form.addEventListener('submit', async (event) => {
+                event.preventDefault();
+                const button = form.querySelector('button[type="submit"]');
+                button.disabled = true;
+                button.textContent = 'שולחים…';
+                status.textContent = '';
+                try {
+                    const response = await fetch(form.action, { method: 'POST', body: new FormData(form), headers: { Accept: 'application/json' } });
+                    if (!response.ok) throw new Error('submit failed');
+                    if (window.recordSiteLead) window.recordSiteLead({ name: form.name.value, email: form.email.value, phone: form.phone.value, type: 'contact', interest: 'קורס הובלה', course: 'קורס הובלה בקפריסין', message: form.message.value, status: 'חדש' });
+                    content.hidden = true;
+                    success.hidden = false;
+                } catch (_) {
+                    button.disabled = false;
+                    button.textContent = 'שלחו לי פרטים';
+                    status.textContent = 'אירעה שגיאה בשליחה. נסו שוב בעוד רגע.';
+                }
+            });
+        })();
+    </script>
 </body>
 </html>

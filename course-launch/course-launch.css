@@ -47,10 +47,11 @@ html{scroll-behavior:smooth}
 .lead-course-plan{position:relative;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:2rem;margin-top:4rem;text-align:right}
 .lead-course-plan:before{content:"";position:absolute;top:2rem;right:11%;left:11%;height:1px;background:var(--orange);opacity:.4}
 .lead-day{position:relative;z-index:1;display:flex;flex-direction:column;min-width:0}
-.lead-day-marker{display:grid;place-items:center;width:4rem;height:4rem;margin:0 0 1.35rem auto;border:1px solid var(--orange);border-radius:50%;background:var(--cream);color:var(--orange);font-size:1rem;font-weight:900;letter-spacing:.06em}
+.lead-day-header{text-align:center}
+.lead-day-marker{display:grid;place-items:center;width:4rem;height:4rem;margin:0 auto 1.35rem;border:1px solid var(--orange);border-radius:50%;background:var(--cream);color:var(--orange);font-size:1rem;font-weight:900;letter-spacing:.06em}
 .lead-day-label{margin:0;color:var(--orange);font-size:.9rem;font-weight:900}
 .lead-day h3{margin:.25rem 0 .65rem;font-size:1.55rem;line-height:1.2}
-.lead-day-body > p:not(.lead-day-label):not(.lead-day-goal){margin:0;color:#52627a;line-height:1.7}
+.lead-day-header > p:last-child{margin:0;color:#52627a;line-height:1.7}
 .lead-day details{margin-top:1rem;border-top:1px solid var(--line)}
 .lead-day summary{padding:.85rem 0;color:var(--ink);font-weight:800;cursor:pointer;list-style:none}
 .lead-day summary::-webkit-details-marker{display:none}
@@ -73,10 +74,10 @@ html{scroll-behavior:smooth}
 @media(max-width:900px){.lead-course-plan{gap:1rem}.lead-benefits{grid-template-columns:1fr;gap:1rem}.lead-benefits-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:760px){
     .lead-course-plan{display:block;margin-top:3rem}
-    .lead-course-plan:before{top:2rem;right:2rem;left:auto;width:1px;height:calc(100% - 4rem)}
-    .lead-day{display:grid;grid-template-columns:4rem minmax(0,1fr);gap:1rem;margin-bottom:2rem}
+    .lead-course-plan:before{display:none}
+    .lead-day{display:block;margin-bottom:2rem}
     .lead-day:last-child{margin-bottom:0}
-    .lead-day-marker{margin:0;width:4rem;height:4rem}
+    .lead-day-marker{margin:0 auto 1.35rem;width:4rem;height:4rem}
     .lead-day-body{min-width:0}
     .lead-day-goal{margin-top:1rem}
     .lead-benefits{margin-top:3.5rem;padding:1.75rem 0}

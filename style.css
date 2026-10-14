@@ -5930,9 +5930,71 @@ h3 {
 .instagram-profile-embed {
     width: 100% !important;
     min-width: 0 !important;
-    min-height: 430px;
+    min-height: 520px;
     margin: 0 !important;
     overflow: hidden !important;
+}
+
+.instagram-feed-actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.8rem;
+    margin-top: 1rem;
+    direction: rtl;
+}
+
+.instagram-feed-more,
+.instagram-feed-follow {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    min-height: 44px;
+    padding: 0.7rem 1.15rem;
+    border-radius: 999px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: transform 160ms ease, background-color 160ms ease;
+}
+
+.instagram-feed-more {
+    color: #285c32;
+    border: 1px solid #285c32;
+    background: transparent;
+}
+
+.instagram-feed-more:hover,
+.instagram-feed-more:focus-visible {
+    background: #eef5ec;
+    transform: translateY(-1px);
+}
+
+.instagram-feed-follow {
+    color: #fff;
+    background: #285c32;
+}
+
+.instagram-feed-follow:hover,
+.instagram-feed-follow:focus-visible {
+    background: #1f5128;
+    transform: translateY(-1px);
+}
+
+[lang="en"] .instagram-feed-actions {
+    direction: ltr;
+}
+
+@media (max-width: 560px) {
+    .instagram-feed-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .instagram-feed-more,
+    .instagram-feed-follow {
+        width: 100%;
+    }
 }
 
 .instagram-gallery-widget-icon {

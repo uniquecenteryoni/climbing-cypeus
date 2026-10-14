@@ -5923,28 +5923,8 @@ h3 {
 }
 
 .instagram-live-feed {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(320px, 560px) auto;
-    align-items: center;
-    gap: 1.25rem;
-    margin: -28px 0 2.5rem;
-    padding: 1.25rem;
-}
-
-.instagram-live-feed-copy {
-    min-width: 0;
-}
-
-.instagram-live-feed-copy strong {
-    display: block;
-    color: #285c32;
-}
-
-.instagram-live-feed-copy p {
-    margin: 0.35rem 0 0;
-    color: #687067;
-    font-size: 0.92rem;
-    line-height: 1.5;
+    width: min(100%, 860px);
+    margin: -18px auto 2.5rem;
 }
 
 .instagram-profile-embed {
@@ -5953,17 +5933,6 @@ h3 {
     min-height: 430px;
     margin: 0 !important;
     overflow: hidden !important;
-    background: #fff;
-}
-
-@media (max-width: 900px) {
-    .instagram-live-feed {
-        grid-template-columns: 1fr;
-    }
-
-    .instagram-live-feed .instagram-gallery-follow {
-        justify-self: start;
-    }
 }
 
 .instagram-gallery-widget-icon {

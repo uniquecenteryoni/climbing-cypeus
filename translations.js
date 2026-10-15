@@ -34,8 +34,9 @@ const translations = {
         "instagram-community-cta": "צפו בפרופיל",
         
         // Hero section
-        "hero-title": "חווית אקסטרים<br><span class=\"hero-accent\">בקפריסין</span>",
-        "hero-subtitle": "טיפוס צוקים, סנפלינג וקורסים בקפריסין",
+        "hero-title": "טיפוס בקפריסין<br><span class=\"hero-accent\">Climbing in Cyprus</span>",
+        "hero-subtitle": "טיפוס צוקים בקפריסין, עם הדרכה, אזורי טיפוס ומידע לתכנון הטיול",
+        "home-guide-link": "גלו את מדריך הטיפוס בקפריסין",
         "hero-cta": "הזמן את ההרפתקה שלך",
         "hero-feature-locations": "מקומות נבחרים",
         "hero-feature-equipment": "כל הציוד כלול",
@@ -66,9 +67,9 @@ const translations = {
         "feature-hebrew-desc": "הדרכה אישית וברורה לאורך כל היום",
         
         // Activities
-        "activities-title": "טיפוס צוקים וסנפלינג",
+        "activities-title": "טיפוס, סנפלינג ובולדרינג בקפריסין",
         "activities-hero-title": "טיפוס צוקים וסנפלינג בקפריסין",
-        "activities-hero-subtitle": "חוויה מעצימה והרפתקאה יוצאת דופן",
+        "activities-hero-subtitle": "ימי טיפוס וסנפלינג מודרכים בקפריסין, למתחילים, למשפחות ולמטפסים מנוסים",
         "activity-hiking-title": "יום הליכה בטבע",
         "activity-hiking-desc": "טיול מודרך לנופים למפרצי ים התיכון, למפלים שוצפים, לנחלי הר הטרודוס או ליער פאפוס המרשים. מאות מסלולים שונים שתוכלו לבחור מהם בהתאם להעדפותיכם.",
         "activity-climbing-title": "יום טיפוס צוקים",
@@ -103,7 +104,7 @@ const translations = {
         "trip-planning-disclosure": "חלק מהקישורים הם קישורי שותפים. המחיר עבורכם נשאר זהה, והם עוזרים לתמוך ב־Climbing Cyprus.",
         
         // Activities Page - Detailed
-        "activities-climbing-header": "חשיפה והתנסות בטיפוס צוקים",
+        "activities-climbing-header": "טיפוס צוקים מודרך בקפריסין למתחילים ולמנוסים",
         "activities-climbing-subheader": "יום טיפוס בו נתמודד עם מסלולי טיפוס סלע כאשר המטפס מאובטח מלמעלה",
         "activities-climbing-experience-title": "יום חווייתי המשלב התמודדות והעצמה",
         "activities-climbing-feature1": "מתאים לכל בני המשפחה",
@@ -128,7 +129,7 @@ const translations = {
         "pricing-desc-couple": "",
         "pricing-desc-larger": "בתיאום מראש",
         "activities-climbing-book": "הזמינו עכשיו",
-        "activities-rappelling-header": "סנפלינג",
+        "activities-rappelling-header": "סנפלינג בקפריסין",
         "activities-rappelling-subheader": "חוויה אדרנלינית של גלישה בחבלים ממצוקים ומפלים מרהיבים",
         "activities-rappelling-challenge-title": "אתגר מרגש ובטוח",
         "activities-rappelling-challenge-p": "סנפלינג הוא אחת החוויות המרגשות ביותר שאפשר לעבור בטבע. גלישה מבוקרת במורד צוק או מפל תוך שליטה מלאה.",
@@ -505,8 +506,10 @@ const translations = {
         "tour-cta-button": "צרו קשר",
         
         // Climber's Guide
-        "climber-guide-title": "המדריך למטפס בקפריסין",
-        "climber-guide-subtitle": "על האי השכן והאבנים שפזורים בו",
+        "climber-guide-title": "מדריך הטיפוס בקפריסין: מצוקים, בולדרינג ותכנון טיול",
+        "climber-guide-subtitle": "מידע מעשי על אזורי טיפוס, גישה ותכנון ביקור למטפסים",
+        "guide-last-updated-label": "עודכן לאחרונה:",
+        "guide-last-updated-date": "15 באוקטובר 2026",
         "firstbolt-kicker": "SMART GUIDEBOOK",
         "firstbolt-title": "FirstBolt — מדריך חכם למטפסים",
         "firstbolt-desc": "סרקו את הבולט הראשון וקבלו את המסלול, הדירוג והמידע הרלוונטי. האפליקציה כוללת את מסלולי הטיפוס בקפריסין, וכ־80% מהם כבר ממופים וניתנים לסריקה.",
@@ -656,8 +659,9 @@ const translations = {
         "instagram-community-cta": "View profile",
         
         // Hero section
-        "hero-title": "EXTREME EXPERIENCES<br><span class=\"hero-accent\">IN CYPRUS</span>",
-        "hero-subtitle": "Rock climbing, rappelling and courses in Cyprus",
+        "hero-title": "Climbing in Cyprus<br><span class=\"hero-accent\">Rock, Rappelling & Bouldering</span>",
+        "hero-subtitle": "Rock climbing in Cyprus, with guided sessions, climbing areas and trip-planning information",
+        "home-guide-link": "Explore the Cyprus climbing guide",
         "hero-cta": "BOOK YOUR ADVENTURE",
         "hero-feature-locations": "Selected locations",
         "hero-feature-equipment": "All equipment included",
@@ -689,9 +693,9 @@ const translations = {
         "feature-hebrew-desc": "Clear, personal guidance throughout the day",
         
         // Activities
-        "activities-title": "ACTIVITIES",
+        "activities-title": "Climbing in Cyprus: Climbing, Rappelling & Bouldering",
         "activities-hero-title": "Rock Climbing and Rappelling in Cyprus",
-        "activities-hero-subtitle": "An empowering experience and extraordinary adventure",
+        "activities-hero-subtitle": "Guided climbing and rappelling in Cyprus for beginners, families and experienced climbers",
         "activity-hiking-title": "Hiking Inspiration",
         "activity-hiking-desc": "Ideas for scenic Mediterranean bays, flowing waterfalls, Troodos mountain streams, and the impressive Paphos forest. Explore hundreds of trails and choose what suits you.",
         "activity-climbing-title": "Rock Climbing Day",
@@ -726,7 +730,7 @@ const translations = {
         "trip-planning-disclosure": "Some links are affiliate links. You pay the same price, and they help support Climbing Cyprus.",
         
         // Activities Page - Detailed
-        "activities-climbing-header": "Rock Climbing Introduction and Experience",
+        "activities-climbing-header": "Guided Rock Climbing in Cyprus for Beginners and Experienced Climbers",
         "activities-climbing-subheader": "A climbing day where we tackle rock climbing routes with top-rope safety",
         "activities-climbing-experience-title": "An experiential day combining challenge and empowerment",
         "activities-climbing-feature1": "Suitable for the whole family",
@@ -751,7 +755,7 @@ const translations = {
         "pricing-desc-couple": "",
         "pricing-desc-larger": "By prior arrangement",
         "activities-climbing-book": "Book Now",
-        "activities-rappelling-header": "Rappelling",
+        "activities-rappelling-header": "Rappelling in Cyprus",
         "activities-rappelling-subheader": "An adrenaline experience of rappelling down cliffs and spectacular waterfalls",
         "activities-rappelling-challenge-title": "An exciting and safe challenge",
         "activities-rappelling-challenge-p": "Rappelling is one of the most exciting experiences you can have in nature. Controlled descent down a cliff or waterfall with complete control.",
@@ -1254,8 +1258,10 @@ const translations = {
         "tour-cta-button": "Contact Us",
         
         // Climber's Guide
-        "climber-guide-title": "Cyprus Climbing Information Guide",
-        "climber-guide-subtitle": "About the Neighboring Island and Its Rocks",
+        "climber-guide-title": "Cyprus Climbing Guide: Crags, Bouldering & Trip Planning",
+        "climber-guide-subtitle": "Practical information on climbing areas, access and planning your trip",
+        "guide-last-updated-label": "Last updated:",
+        "guide-last-updated-date": "15 October 2026",
         "firstbolt-kicker": "SMART GUIDEBOOK",
         "firstbolt-title": "FirstBolt — A Smart Guide for Climbers",
         "firstbolt-desc": "Scan the first bolt to get the route, grade, and relevant information. The app includes Cyprus climbing routes, with around 80% already mapped and scannable.",
@@ -1501,6 +1507,7 @@ const translations = {
         // Hero section
         "hero-title": "Не Нужно Далеко Ехать<br>Для Приключений и Особых Впечатлений",
         "hero-subtitle": "Скалолазание, спуск и курсы на Кипре",
+        "home-guide-link": "Откройте путеводитель по скалолазанию на Кипре",
         "hero-cta": "Свяжитесь с Нами",
         
         // About Me section
@@ -1977,6 +1984,7 @@ const translations = {
         // Hero section
         "hero-title": "Δεν Χρειάζεται να Πάτε Μακριά<br>Για Περιπέτειες και Ξεχωριστές Εμπειρίες",
         "hero-subtitle": "Αναρρίχηση, rappel και μαθήματα στην Κύπρο",
+        "home-guide-link": "Δείτε τον οδηγό αναρρίχησης στην Κύπρο",
         "hero-cta": "Επικοινωνήστε",
         
         // About Me section

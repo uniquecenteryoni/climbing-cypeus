@@ -451,28 +451,26 @@ function initEquipmentRentalBuilder() {
     const t = isEnglish ? {
         title: 'Build your equipment rental',
         from: 'Pickup date', to: 'Return date', items: 'Available equipment', qty: 'Quantity',
-        total: 'Estimated total', days: 'rental days', discount: 'Multi-day discount (10%)',
+        total: 'Estimated total', days: 'rental days', discount: 'Multi-day discount (10%)', quantityDiscount: 'Crash pad quantity discount',
         send: 'Continue to order', choose: 'Choose at least one item and both rental dates to continue.', invalidDates: 'The return date must be the same as or later than the pickup date.',
-        names: ['Single rope (60–70 m)', 'Climbing shoes', 'Harness', 'Chalk bag', 'Helmet', '12 quickdraws (set)', 'Belay device (GriGri or tube)', '1 crash pad', '2 crash pads'],
-        promo: '10% off rentals longer than one day',
+        names: ['Single rope (60–70 m)', 'Climbing shoes', 'Harness', 'Chalk bag', 'Helmet', '12 quickdraws (set)', 'Belay device (GriGri or tube)', 'Crash pad'],
+        promo: '10% off rentals longer than one day', padPromo: 'Discount for renting more than one crash pad',
         message: 'Hello, I would like to request this equipment rental:', dates: 'Dates',
-        subtotal: 'Subtotal', estimate: 'Estimated total', note: 'Availability and final price will be confirmed with you.', hint: 'Choose dates and equipment to continue.', hintDates: 'Choose your rental dates to see an estimate.', hintItems: 'Choose at least one item to continue.', hintReady: 'Your request is ready to continue.'
+        subtotal: 'Subtotal', estimate: 'Estimated total', note: 'Availability and final price will be confirmed with you.', hint: 'Choose dates and equipment to continue.', hintDates: 'Estimate shows one rental day until you choose dates.', hintItems: 'Choose at least one item to continue.', hintReady: 'Your request is ready to continue.'
     } : {
         title: 'בונים את הזמנת השכרת הציוד',
         from: 'תאריך איסוף', to: 'תאריך החזרה', items: 'הציוד הזמין', qty: 'כמות',
-        total: 'סה״כ משוער', days: 'ימי השכרה', discount: 'הנחת השכרה לכמה ימים (10%)',
+        total: 'סה״כ משוער', days: 'ימי השכרה', discount: 'הנחת השכרה לכמה ימים (10%)', quantityDiscount: 'הנחה על כמות קראשפדים',
         send: 'המשך להזמנה', choose: 'בחרו לפחות פריט אחד ואת שני תאריכי ההשכרה כדי להמשיך.', invalidDates: 'תאריך ההחזרה חייב להיות זהה לתאריך האיסוף או מאוחר ממנו.',
-        names: ['חבל יחיד (60–70 מטר)', 'נעלי טיפוס', 'רתמה', 'שק מגנזיום', 'קסדה', 'סט של 12 ראנרים', 'מכשיר אבטחה (GriGri או Tube)', 'קראשפד אחד', '2 קראשפדים'],
-        promo: '10% הנחה על השכרה ליותר מיום אחד',
+        names: ['חבל יחיד (60–70 מטר)', 'נעלי טיפוס', 'רתמה', 'שק מגנזיום', 'קסדה', 'סט של 12 ראנרים', 'מכשיר אבטחה (GriGri או Tube)', 'קראשפד'],
+        promo: '10% הנחה על השכרה ליותר מיום אחד', padPromo: 'הנחה על השכרת יותר מקראשפד אחד',
         message: 'שלום, אשמח להזמין את הציוד הבא:', dates: 'תאריכים',
-        subtotal: 'סכום לפני הנחה', estimate: 'סה״כ משוער', note: 'הזמינות והמחיר הסופי יאושרו מולכם.', hint: 'בחרו תאריכים וציוד כדי להמשיך.', hintDates: 'בחרו תאריכי השכרה כדי לראות את הסכום המשוער.', hintItems: 'בחרו לפחות פריט אחד כדי להמשיך.', hintReady: 'ההזמנה מוכנה להמשך.'
+        subtotal: 'סכום לפני הנחה', estimate: 'סה״כ משוער', note: 'הזמינות והמחיר הסופי יאושרו מולכם.', hint: 'בחרו תאריכים וציוד כדי להמשיך.', hintDates: 'המחיר מוצג לפי יום השכרה אחד עד לבחירת תאריכים.', hintItems: 'בחרו לפחות פריט אחד כדי להמשיך.', hintReady: 'ההזמנה מוכנה להמשך.'
     };
     const items = [
         { price: 10 }, { price: 7 }, { price: 5 }, { price: 2 }, { price: 3 },
-        { price: 6 }, { price: 3 }, { price: 15 }, { price: 25 }
+        { price: 6 }, { price: 3 }, { price: 15, quantityDiscount: 5 }
     ];
-    const icons = ['fa-grip-lines-vertical', 'fa-shoe-prints', 'fa-person-hiking', 'fa-bag-shopping', 'fa-helmet-safety', 'fa-link', 'fa-shield-halved', 'fa-cubes-stacked', 'fa-cubes-stacked'];
-    const gearIcon = index => `<i class="fa-solid ${icons[index]}" aria-hidden="true"></i>`;
     // Keep the existing bouldering videos and guidebook cards, while removing the old fixed-price rental packages.
     rental.querySelectorAll('.equipment-package').forEach(card => {
         if (!card.closest('#guidebook, #bouldering-guidebook')) card.remove();
@@ -480,10 +478,10 @@ function initEquipmentRentalBuilder() {
     const builder = document.createElement('section');
     builder.className = 'rental-builder';
     builder.dataset.equipmentRentalBuilder = '';
-    builder.innerHTML = `<header class="rental-builder-heading"><div class="rental-heading-copy"><h2>${t.title}</h2></div><div class="rental-promo"><i class="fas fa-tag" aria-hidden="true"></i><span>${t.promo}</span></div><svg class="rental-mountain-art" viewBox="0 0 400 150" aria-hidden="true"><path d="M0 132 73 55l33 35 54-72 56 67 35-34 76 81H0Z"/><path d="m132 49 28-31 25 30-20-8-14 9-9-8-10 8ZM230 92l21-41 18 23-15-5-8 9-7-4-9 18Z"/><path d="M320 125c16-17 25-35 29-54l9-4 5 18 16 5v35"/></svg></header>
+    builder.innerHTML = `<header class="rental-builder-heading"><div class="rental-heading-copy"><h2>${t.title}</h2></div><div class="rental-promos"><div class="rental-promo"><i class="fas fa-tag" aria-hidden="true"></i><span>${t.promo}</span></div><div class="rental-promo rental-pad-promo"><i class="fas fa-tags" aria-hidden="true"></i><span>${t.padPromo}</span></div></div><svg class="rental-mountain-art" viewBox="0 0 400 150" aria-hidden="true"><path d="M0 132 73 55l33 35 54-72 56 67 35-34 76 81H0Z"/><path d="m132 49 28-31 25 30-20-8-14 9-9-8-10 8ZM230 92l21-41 18 23-15-5-8 9-7-4-9 18Z"/><path d="M320 125c16-17 25-35 29-54l9-4 5 18 16 5v35"/></svg></header>
         <div class="rental-dates"><label><span><i class="far fa-calendar-alt" aria-hidden="true"></i>${t.from}</span><input type="date" data-rental-start required aria-label="${t.from}"></label><label><span><i class="far fa-calendar-alt" aria-hidden="true"></i>${t.to}</span><input type="date" data-rental-end required aria-label="${t.to}"></label></div>
-        <h3 class="rental-items-title"><i class="fas fa-mountain" aria-hidden="true"></i>${t.items}</h3><div class="rental-item-grid">${items.map((item, i) => `<article class="rental-item" data-rental-card="${i}"><div class="rental-item-illustration rental-tone-${i % 4}">${gearIcon(i)}</div><div class="rental-item-details"><h4>${t.names[i]}</h4><div class="rental-quantity" role="group" aria-label="${t.qty}: ${t.names[i]}"><button type="button" class="rental-quantity-minus" data-rental-minus="${i}" aria-label="${isEnglish ? 'Decrease' : 'הפחתת'} ${t.names[i]}" disabled>−</button><input type="number" min="0" step="1" value="0" inputmode="numeric" data-rental-qty="${i}" aria-label="${t.qty}: ${t.names[i]}"><button type="button" class="rental-quantity-plus" data-rental-plus="${i}" aria-label="${isEnglish ? 'Increase' : 'הוספת'} ${t.names[i]}">+</button></div></div></article>`).join('')}</div>
-        <section class="rental-summary" aria-label="${t.total}" aria-live="polite"><div class="rental-summary-metric"><span class="rental-metric-icon"><i class="fas fa-calendar-check" aria-hidden="true"></i></span><span>${t.days}</span><strong data-rental-days>—</strong></div><div class="rental-summary-metric"><span class="rental-metric-icon"><i class="fas fa-tag" aria-hidden="true"></i></span><span>${t.subtotal}</span><strong data-rental-subtotal>€0</strong></div><div class="rental-summary-metric rental-discount-row" data-rental-discount-row hidden><span class="rental-metric-icon"><i class="fas fa-percent" aria-hidden="true"></i></span><span>${t.discount}</span><strong data-rental-discount>−€0</strong></div><div class="rental-summary-metric rental-total"><span class="rental-metric-icon"><i class="fas fa-wallet" aria-hidden="true"></i></span><span>${t.total}</span><strong data-rental-total>€0</strong></div><div class="rental-summary-action"><button type="button" class="rental-send"><span>${t.send}</span><i class="fas fa-arrow-left" aria-hidden="true"></i></button><p class="rental-note" data-rental-hint>${t.hint}</p><p class="rental-note">${t.note}</p><p class="rental-validation" data-rental-validation role="alert" hidden></p></div></section>`;
+        <h3 class="rental-items-title"><i class="fas fa-mountain" aria-hidden="true"></i>${t.items}</h3><div class="rental-item-grid">${items.map((item, i) => `<article class="rental-item" data-rental-card="${i}"><div class="rental-item-illustration rental-tone-${i % 4} rental-image-${i}" aria-hidden="true"></div><div class="rental-item-details"><h4>${t.names[i]}</h4><div class="rental-quantity" role="group" aria-label="${t.qty}: ${t.names[i]}"><button type="button" class="rental-quantity-minus" data-rental-minus="${i}" aria-label="${isEnglish ? 'Decrease' : 'הפחתת'} ${t.names[i]}" disabled>−</button><input type="number" min="0" step="1" value="0" inputmode="numeric" data-rental-qty="${i}" aria-label="${t.qty}: ${t.names[i]}"><button type="button" class="rental-quantity-plus" data-rental-plus="${i}" aria-label="${isEnglish ? 'Increase' : 'הוספת'} ${t.names[i]}">+</button></div></div></article>`).join('')}</div>
+        <section class="rental-summary" aria-label="${t.total}" aria-live="polite"><div class="rental-summary-metric"><span class="rental-metric-icon"><i class="fas fa-calendar-check" aria-hidden="true"></i></span><span>${t.days}</span><strong data-rental-days>1</strong></div><div class="rental-summary-metric"><span class="rental-metric-icon"><i class="fas fa-tag" aria-hidden="true"></i></span><span>${t.subtotal}</span><strong data-rental-subtotal>€0</strong></div><div class="rental-summary-metric rental-discount-row" data-rental-quantity-discount-row hidden><span class="rental-metric-icon"><i class="fas fa-tags" aria-hidden="true"></i></span><span>${t.quantityDiscount}</span><strong data-rental-quantity-discount>−€0</strong></div><div class="rental-summary-metric rental-discount-row" data-rental-discount-row hidden><span class="rental-metric-icon"><i class="fas fa-percent" aria-hidden="true"></i></span><span>${t.discount}</span><strong data-rental-discount>−€0</strong></div><div class="rental-summary-metric rental-total"><span class="rental-metric-icon"><i class="fas fa-wallet" aria-hidden="true"></i></span><span>${t.total}</span><strong data-rental-total>€0</strong></div><div class="rental-summary-action"><button type="button" class="rental-send"><span>${t.send}</span><i class="fas fa-arrow-left" aria-hidden="true"></i></button><p class="rental-note" data-rental-hint>${t.hint}</p><p class="rental-note">${t.note}</p><p class="rental-validation" data-rental-validation role="alert" hidden></p></div></section>`;
     const oldVideos = rental.querySelector('.equipment-bouldering-videos');
     rental.prepend(builder);
     if (oldVideos) builder.after(oldVideos);
@@ -499,13 +497,18 @@ function initEquipmentRentalBuilder() {
         const startDate = start.value ? new Date(`${start.value}T00:00:00`) : null;
         const endDate = end.value ? new Date(`${end.value}T00:00:00`) : null;
         const datesReversed = startDate && endDate && endDate < startDate;
-        const days = startDate && endDate && !datesReversed ? Math.max(1, Math.ceil((endDate - startDate) / 86400000)) : 0;
-        const subtotal = items.reduce((sum, item, i) => sum + item.price * Math.max(0, Math.floor(Number(builder.querySelector(`[data-rental-qty="${i}"]`).value) || 0)), 0) * days;
-        const discount = days > 1 ? subtotal * 0.1 : 0;
+        const days = datesReversed ? 0 : startDate && endDate ? Math.max(1, Math.ceil((endDate - startDate) / 86400000)) : 1;
+        const quantities = items.map((_, i) => Math.max(0, Math.floor(Number(builder.querySelector(`[data-rental-qty="${i}"]`).value) || 0)));
+        const subtotal = items.reduce((sum, item, i) => sum + item.price * quantities[i], 0) * days;
+        const quantityDiscount = Math.max(0, (items[items.length - 1].quantityDiscount || 0) * (quantities[quantities.length - 1] >= 2 ? 1 : 0) * days);
+        const discount = days > 1 ? (subtotal - quantityDiscount) * 0.1 : 0;
+        const total = subtotal - quantityDiscount - discount;
         builder.querySelector('[data-rental-days]').textContent = days || '—';
         builder.querySelector('[data-rental-subtotal]').textContent = money(subtotal);
         builder.querySelector('[data-rental-discount]').textContent = `−${money(discount)}`;
-        builder.querySelector('[data-rental-total]').textContent = money(subtotal - discount);
+        builder.querySelector('[data-rental-quantity-discount]').textContent = `−${money(quantityDiscount)}`;
+        builder.querySelector('[data-rental-total]').textContent = money(total);
+        builder.querySelector('[data-rental-quantity-discount-row]').hidden = !(quantityDiscount > 0);
         builder.querySelector('[data-rental-discount-row]').hidden = !(days > 1 && subtotal > 0);
         builder.querySelector('[data-rental-validation]').textContent = datesReversed ? t.invalidDates : '';
         builder.querySelector('[data-rental-validation]').hidden = !datesReversed;
@@ -518,7 +521,7 @@ function initEquipmentRentalBuilder() {
             builder.querySelector(`[data-rental-card="${i}"]`).classList.toggle('is-selected', quantity > 0);
             builder.querySelector(`[data-rental-minus="${i}"]`).disabled = quantity === 0;
         });
-        return { days, subtotal, discount, total: subtotal - discount };
+        return { days, subtotal, discount, quantityDiscount, total };
     }
     builder.addEventListener('input', calculate);
     builder.querySelectorAll('[data-rental-qty]').forEach(input => input.addEventListener('change', () => {
@@ -536,7 +539,7 @@ function initEquipmentRentalBuilder() {
         input.dispatchEvent(new Event('input', { bubbles: true }));
     }));
     builder.querySelector('.rental-send').addEventListener('click', () => {
-        const { days, subtotal, discount, total } = calculate();
+        const { days, subtotal, discount, quantityDiscount, total } = calculate();
         const quantities = items.map((_, i) => Math.max(0, Math.floor(Number(builder.querySelector(`[data-rental-qty="${i}"]`).value) || 0)));
         const selected = quantities.map((qty, i) => qty ? `${qty} × ${t.names[i]}` : '').filter(Boolean);
         const validation = builder.querySelector('[data-rental-validation]');
@@ -555,6 +558,7 @@ function initEquipmentRentalBuilder() {
         validation.hidden = true;
         validation.textContent = '';
         const lines = [t.message, ...selected, `${t.dates}: ${start.value} – ${end.value} (${days} ${t.days})`, `${t.subtotal}: ${money(subtotal)}`];
+        if (quantityDiscount) lines.push(`${t.quantityDiscount}: −${money(quantityDiscount)}`);
         if (discount) lines.push(`${t.discount}: −${money(discount)}`);
         lines.push(`${t.estimate}: ${money(total)}`);
         window.open(`https://wa.me/972504443328?text=${encodeURIComponent(lines.join('\n'))}`, '_blank', 'noopener');

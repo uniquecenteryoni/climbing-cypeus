@@ -221,6 +221,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const rentalContent = document.querySelector('#rental .tour-content');
     const equipmentInfo = document.querySelector('#rental .equipment-info');
     if (equipmentVideos && rentalContent && equipmentInfo) rentalContent.insertBefore(equipmentVideos, equipmentInfo);
+    initEquipmentRentalBuilder();
 
     document.querySelectorAll('.gallery-item img').forEach(image => {
         image.addEventListener('click', () => {
@@ -441,6 +442,90 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+
+function initEquipmentRentalBuilder() {
+    const rental = document.querySelector('#rental .tour-content');
+    if (!rental || document.querySelector('[data-equipment-rental-builder]')) return;
+
+    const isEnglish = currentLang === 'en';
+    const t = isEnglish ? {
+        title: 'Build your equipment rental', intro: 'Choose what you need, set quantities and rental dates. The live total includes a 10% discount for rentals longer than one day.',
+        from: 'Pickup date', to: 'Return date', items: 'Available equipment', qty: 'Quantity',
+        total: 'Estimated total', days: 'rental days', discount: 'Multi-day discount (10%)',
+        send: 'Send rental request on WhatsApp', choose: 'Select at least one item and both dates.',
+        names: ['Single rope (60–70 m)', 'Climbing shoes', 'Harness', 'Chalk bag', 'Helmet', '12 quickdraws (set)', 'Belay device (GriGri or tube)', '1 crash pad', '2 crash pads'],
+        promo: '10% off rentals longer than one day',
+        message: 'Hello, I would like to request this equipment rental:', dates: 'Dates',
+        subtotal: 'Subtotal', estimate: 'Estimated total', note: 'Availability and final price will be confirmed with you.'
+    } : {
+        title: 'בונים את הזמנת השכרת הציוד', intro: 'בחרו ציוד וכמויות ותאריכי השכרה. הסכום מתעדכן בזמן אמת וכולל 10% הנחה להשכרה של יותר מיום אחד.',
+        from: 'תאריך איסוף', to: 'תאריך החזרה', items: 'הציוד הזמין', qty: 'כמות',
+        total: 'סה״כ משוער', days: 'ימי השכרה', discount: 'הנחת השכרה לכמה ימים (10%)',
+        send: 'שליחת בקשת השכרה בוואטסאפ', choose: 'בחרו לפחות פריט אחד ואת שני התאריכים.',
+        names: ['חבל יחיד (60–70 מטר)', 'נעלי טיפוס', 'רתמה', 'שק מגנזיום', 'קסדה', 'סט של 12 ראנרים', 'מכשיר אבטחה (GriGri או Tube)', 'קראשפד אחד', '2 קראשפדים'],
+        promo: '10% הנחה על השכרה ליותר מיום אחד',
+        message: 'שלום, אשמח להזמין את הציוד הבא:', dates: 'תאריכים',
+        subtotal: 'סכום לפני הנחה', estimate: 'סה״כ משוער', note: 'הזמינות והמחיר הסופי יאושרו מולכם.'
+    };
+    const items = [
+        { price: 10 }, { price: 7 }, { price: 5 }, { price: 2 }, { price: 3 },
+        { price: 6 }, { price: 3 }, { price: 15 }, { price: 25 }
+    ];
+    // Keep the existing bouldering videos and guidebook cards, while removing the old fixed-price rental packages.
+    rental.querySelectorAll('.equipment-package').forEach(card => {
+        if (!card.closest('#guidebook, #bouldering-guidebook')) card.remove();
+    });
+    const builder = document.createElement('section');
+    builder.className = 'rental-builder';
+    builder.dataset.equipmentRentalBuilder = '';
+    builder.innerHTML = `<div class="rental-builder-heading"><div><h2>${t.title}</h2><p>${t.intro}</p></div><div class="rental-promo">${t.promo}</div></div>
+        <div class="rental-dates"><label>${t.from}<input type="date" data-rental-start required></label><label>${t.to}<input type="date" data-rental-end required></label></div>
+        <h3>${t.items}</h3><div class="rental-item-grid">${items.map((item, i) => `<div class="rental-item"><span>${t.names[i]}</span><label>${t.qty}<input type="number" min="0" step="1" value="0" inputmode="numeric" data-rental-qty="${i}" aria-label="${t.qty}: ${t.names[i]}"></label></div>`).join('')}</div>
+        <div class="rental-summary" aria-live="polite"><div><span>${t.days}</span><strong data-rental-days>—</strong></div><div><span>${t.subtotal}</span><strong data-rental-subtotal>€0</strong></div><div class="rental-discount-row" data-rental-discount-row hidden><span>${t.discount}</span><strong data-rental-discount>−€0</strong></div><div class="rental-total"><span>${t.total}</span><strong data-rental-total>€0</strong></div><p class="rental-note">${t.note}</p><button type="button" class="equipment-order-btn rental-send">${t.send}</button><p class="rental-validation" data-rental-validation hidden>${t.choose}</p></div>`;
+    const oldVideos = rental.querySelector('.equipment-bouldering-videos');
+    rental.prepend(builder);
+    if (oldVideos) builder.after(oldVideos);
+
+    const start = builder.querySelector('[data-rental-start]');
+    const end = builder.querySelector('[data-rental-end]');
+    const money = value => `€${value.toFixed(2).replace(/\.00$/, '')}`;
+    const today = new Date();
+    const todayISO = new Date(today.getTime() - today.getTimezoneOffset() * 60000).toISOString().slice(0, 10);
+    start.min = todayISO;
+    end.min = todayISO;
+    function calculate() {
+        const startDate = start.value ? new Date(`${start.value}T00:00:00`) : null;
+        const endDate = end.value ? new Date(`${end.value}T00:00:00`) : null;
+        const days = startDate && endDate && endDate >= startDate ? Math.max(1, Math.ceil((endDate - startDate) / 86400000)) : 0;
+        const subtotal = items.reduce((sum, item, i) => sum + item.price * Math.max(0, Math.floor(Number(builder.querySelector(`[data-rental-qty="${i}"]`).value) || 0)), 0) * days;
+        const discount = days > 1 ? subtotal * 0.1 : 0;
+        builder.querySelector('[data-rental-days]').textContent = days || '—';
+        builder.querySelector('[data-rental-subtotal]').textContent = money(subtotal);
+        builder.querySelector('[data-rental-discount]').textContent = `−${money(discount)}`;
+        builder.querySelector('[data-rental-total]').textContent = money(subtotal - discount);
+        builder.querySelector('[data-rental-discount-row]').hidden = !(days > 1 && subtotal > 0);
+        end.min = start.value || todayISO;
+        return { days, subtotal, discount, total: subtotal - discount };
+    }
+    builder.addEventListener('input', calculate);
+    builder.querySelector('.rental-send').addEventListener('click', () => {
+        const { days, subtotal, discount, total } = calculate();
+        const quantities = items.map((_, i) => Math.max(0, Math.floor(Number(builder.querySelector(`[data-rental-qty="${i}"]`).value) || 0)));
+        const selected = quantities.map((qty, i) => qty ? `${qty} × ${t.names[i]}` : '').filter(Boolean);
+        const validation = builder.querySelector('[data-rental-validation]');
+        if (!selected.length || !start.value || !end.value || !days) {
+            validation.hidden = false;
+            if (!start.value) start.focus(); else if (!end.value) end.focus();
+            return;
+        }
+        validation.hidden = true;
+        const lines = [t.message, ...selected, `${t.dates}: ${start.value} – ${end.value} (${days} ${t.days})`, `${t.subtotal}: ${money(subtotal)}`];
+        if (discount) lines.push(`${t.discount}: −${money(discount)}`);
+        lines.push(`${t.estimate}: ${money(total)}`);
+        window.open(`https://wa.me/972504443328?text=${encodeURIComponent(lines.join('\n'))}`, '_blank', 'noopener');
+    });
+    calculate();
+}
 
 function initClimbingPricing() {
     const pricing = document.querySelector('[data-climbing-pricing]');
@@ -884,14 +969,16 @@ document.addEventListener('DOMContentLoaded', () => {
         const messageField = document.getElementById('message');
         
         if (messageField && (equipmentType || tourType || activityType)) {
-            let prefillText = 'היי אני מעוניין/ת בחווית טיפוס בקפריסין';
+            let prefillText = currentLang === 'en' ? 'Hello, I am interested in climbing in Cyprus.' : 'היי, אני מעוניין/ת בחוויית טיפוס בקפריסין.';
             
             if (equipmentType) {
-                prefillText += `\n\nהיי, אני מתעניין/ת בהשכרת ${equipmentType}. `;
+                prefillText = currentLang === 'en'
+                    ? `Hello, I am interested in renting ${equipmentType}. Please send me more information.`
+                    : `שלום, אני מעוניין/ת בהשכרת ${equipmentType}. אשמח לקבל פרטים נוספים.`;
             } else if (tourType) {
-                prefillText += `\n\nהיי, אני מתעניין/ת בטיול ${tourType}. `;
+                prefillText = currentLang === 'en' ? `Hello, I am interested in the ${tourType} tour. Please send me more information.` : `שלום, אני מעוניין/ת בטיול ${tourType}. אשמח לקבל פרטים נוספים.`;
             } else if (activityType) {
-                prefillText += `\n\nהיי, אני מתעניין/ת ב${activityType}. `;
+                prefillText = currentLang === 'en' ? `Hello, I am interested in ${activityType}. Please send me more information.` : `שלום, אני מעוניין/ת ב${activityType}. אשמח לקבל פרטים נוספים.`;
             }
             
             if (prefillText) {

@@ -10610,3 +10610,9 @@ body.landing-page {
 @media (min-width: 601px) {
     .rental-builder-heading { min-height:170px; padding:3.45rem 1.5rem 1.1rem; }
 }
+.rental-builder-heading { grid-template-rows:auto auto; min-height:0; padding:1.25rem 1.5rem 1.1rem; }
+.rental-heading-copy { grid-row:2; }
+.rental-builder-heading .rental-promo { position:relative; inset:auto; grid-row:1; justify-self:start; }
+@media (max-width: 600px) {
+    .rental-builder-heading { padding:1.2rem 1rem; }
+}

@@ -10647,3 +10647,37 @@ body.landing-page {
 @media (max-width: 600px) {
     .rental-builder-heading { padding:1.2rem 1rem; }
 }
+.rental-item-with-sizes { grid-column:1/-1; display:grid; grid-template-columns:76px minmax(0,1fr); grid-template-rows:auto auto auto; align-items:center; min-height:0; }
+.rental-item-with-sizes .rental-item-illustration { grid-column:1; grid-row:1; align-self:center; }
+.rental-item-with-sizes .rental-item-details { display:contents; }
+.rental-item-with-sizes .rental-item-details h4 { grid-column:2; grid-row:1; align-self:center; }
+.rental-size-heading { grid-column:1/-1; grid-row:2; color:#53645c; font-size:.86rem; font-weight:700; }
+.rental-size-grid { grid-column:1/-1; grid-row:3; display:grid; grid-template-columns:repeat(7,minmax(0,1fr)); gap:.45rem; width:100%; }
+.rental-size-option { display:flex; flex-direction:column; align-items:center; justify-content:center; gap:.35rem; min-width:0; min-height:78px; padding:.45rem .25rem; border:1px solid #d9e6de; border-radius:11px; background:#fff; color:#254737; }
+.rental-size-option.is-available { background:#f4faf6; }
+.rental-size-option.is-unavailable { align-self:center; min-height:42px; border-color:#d3d8d5; background:#e6e9e7; color:#737d77; font:inherit; font-weight:700; cursor:not-allowed; }
+.rental-size-label { color:#174a37; font-size:.96rem; font-weight:800; }
+.rental-size-quantity { display:inline-flex; align-items:center; direction:ltr; height:34px; overflow:hidden; border:1px solid #e3e9e6; border-radius:8px; background:#fff; }
+.rental-size-quantity button { display:grid; width:32px; height:34px; padding:0; place-items:center; border:0; background:#edf1ef; color:#53635b; font:inherit; font-size:1.05rem; font-weight:700; cursor:pointer; }
+.rental-size-quantity button:disabled { color:#aab4ae; cursor:not-allowed; }
+.rental-size-quantity button:last-child { background:var(--rental-green); color:#fff; }
+.rental-size-quantity button:focus-visible { outline:3px solid #f0bd54; outline-offset:1px; }
+.rental-size-quantity input { width:34px; height:34px; min-height:34px; padding:0; border:0; background:#fff; color:#1d3027; font:inherit; font-size:.92rem; font-weight:750; text-align:center; appearance:textfield; }
+.rental-size-quantity input::-webkit-inner-spin-button,.rental-size-quantity input::-webkit-outer-spin-button { margin:0; appearance:none; }
+.rental-summary-metric { display:flex; flex-direction:column; align-items:center; justify-content:center; gap:.45rem; min-height:140px; padding:1rem; text-align:center; }
+.rental-summary-metric > span:not(.rental-metric-icon) { order:2; font-size:.98rem; text-align:center; }
+.rental-summary-metric strong { order:3; grid-column:auto; width:100%; color:#193c2f; font-size:1.3rem; text-align:center; }
+.rental-metric-icon { order:1; grid-column:auto; grid-row:auto; width:48px; height:48px; }
+.rental-summary .rental-total { min-height:140px; }
+.rental-summary .rental-total strong { font-size:1.8rem; }
+@media (max-width:1000px) {
+    .rental-size-grid { grid-template-columns:repeat(5,minmax(0,1fr)); }
+}
+@media (max-width:600px) {
+    .rental-size-grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:.5rem; }
+    .rental-size-option { min-height:76px; }
+    .rental-size-quantity button { width:42px; height:42px; }
+    .rental-size-quantity input { width:38px; height:42px; min-height:42px; }
+    .rental-size-quantity { height:42px; }
+    .rental-summary-metric,.rental-summary .rental-total { min-height:100px; }
+}

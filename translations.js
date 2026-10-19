@@ -34,10 +34,12 @@ const translations = {
         "instagram-community-cta": "צפו בפרופיל",
         
         // Hero section
-        "hero-title": "טיפוס בקפריסין<br><span class=\"hero-accent\">Climbing in Cyprus</span>",
-        "hero-subtitle": "טיפוס צוקים בקפריסין, עם הדרכה, אזורי טיפוס ומידע לתכנון הטיול",
-        "home-guide-link": "גלו את מדריך הטיפוס בקפריסין",
-        "hero-cta": "הזמן את ההרפתקה שלך",
+        "hero-eyebrow": "CLIMBING CYPRUS",
+        "hero-seo-title": "טיפוס צוקים בקפריסין",
+        "hero-title": "קפריסין מזווית אחרת.",
+        "hero-subtitle": "חוויות טיפוס צוקים בקפריסין, הדרכות וקורסים לכל הרמות, במצוקים מרהיבים ובליווי מדריך מוסמך.",
+        "hero-secondary": "גלו את אזורי הטיפוס",
+        "hero-cta": "בואו לטפס איתנו",
         "hero-feature-locations": "מקומות נבחרים",
         "hero-feature-equipment": "כל הציוד כלול",
         "hero-feature-all": "מתאים לכולם",
@@ -659,10 +661,12 @@ const translations = {
         "instagram-community-cta": "View profile",
         
         // Hero section
-        "hero-title": "Climbing in Cyprus<br><span class=\"hero-accent\">Rock, Rappelling & Bouldering</span>",
-        "hero-subtitle": "Rock climbing in Cyprus, with guided sessions, climbing areas and trip-planning information",
-        "home-guide-link": "Explore the Cyprus climbing guide",
-        "hero-cta": "BOOK YOUR ADVENTURE",
+        "hero-eyebrow": "CLIMBING CYPRUS",
+        "hero-seo-title": "Rock Climbing in Cyprus",
+        "hero-title": "Discover Cyprus from New Heights.",
+        "hero-subtitle": "Guided rock climbing in Cyprus, unforgettable climbing adventures and courses for all experience levels, led by a certified local climbing instructor.",
+        "hero-secondary": "Explore Climbing Areas",
+        "hero-cta": "Book Your Climbing Adventure",
         "hero-feature-locations": "Selected locations",
         "hero-feature-equipment": "All equipment included",
         "hero-feature-all": "Suitable for everyone",
@@ -671,7 +675,7 @@ const translations = {
         
         // About Me section
         "about-me-title": "About Me",
-        "about-me-intro": "Hi, I'm Yonatan, originally from Israel, now living in Cyprus. I am a certified rock climbing and rappelling instructor with extensive experience in courses and technical training.",
+        "about-me-intro": "Hi, I'm Yonatan, originally from Israel, now living in Cyprus. I am a certified climbing and rappelling instructor with extensive experience in courses and technical training.",
         "about-me-passion": "My love for nature and adventure led me to create Climbing Cyprus — a practical resource for climbers exploring the island.",
         "about-me-experience": "I specialize in rock climbing, rappelling, lead-climbing courses and equipment rental, with a focus on professional, safe and independent practice.",
         "about-quote": "\"Every climbing day is built around the people, their experience, and the adventure that suits them.\"",
@@ -693,7 +697,7 @@ const translations = {
         "feature-hebrew-desc": "Clear, personal guidance throughout the day",
         
         // Activities
-        "activities-title": "Climbing in Cyprus: Climbing, Rappelling & Bouldering",
+        "activities-title": "ACTIVITIES",
         "activities-hero-title": "Rock Climbing and Rappelling in Cyprus",
         "activities-hero-subtitle": "Guided climbing and rappelling in Cyprus for beginners, families and experienced climbers",
         "activity-hiking-title": "Hiking Inspiration",

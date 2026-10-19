@@ -450,7 +450,7 @@ function initEquipmentRentalBuilder() {
     const isEnglish = currentLang === 'en';
     const t = isEnglish ? {
         title: 'Build your equipment rental',
-        from: 'Pickup date', to: 'Return date', items: 'Available equipment', qty: 'Quantity', size: 'size', availableSizes: 'Available sizes', unavailable: 'Unavailable',
+        from: 'Pickup date', to: 'Return date', items: 'Available equipment', qty: 'Quantity', size: 'size', availableSizes: 'Available sizes', selectSizes: 'Choose sizes', selectedSizes: 'Selected', unavailable: 'Unavailable',
         total: 'Estimated total', days: 'rental days', discount: 'Multi-day discount (10%)', quantityDiscount: 'Crash pad quantity discount',
         send: 'Continue to order', choose: 'Choose at least one item and both rental dates to continue.', invalidDates: 'The return date must be the same as or later than the pickup date.',
         names: ['Single rope (60–70 m)', 'Climbing shoes', 'Harness', 'Chalk bag', 'Helmet', '12 quickdraws (set)', 'Belay device (GriGri or tube)', 'Crash pad'],
@@ -459,7 +459,7 @@ function initEquipmentRentalBuilder() {
         subtotal: 'Subtotal', estimate: 'Estimated total', note: 'Availability and final price will be confirmed with you.', hint: 'Choose dates and equipment to continue.', hintDates: 'Estimate shows one rental day until you choose dates.', hintItems: 'Choose at least one item to continue.', hintReady: 'Your request is ready to continue.'
     } : {
         title: 'בונים את הזמנת השכרת הציוד',
-        from: 'תאריך איסוף', to: 'תאריך החזרה', items: 'הציוד הזמין', qty: 'כמות', size: 'מידה', availableSizes: 'מידות זמינות', unavailable: 'לא זמין',
+        from: 'תאריך איסוף', to: 'תאריך החזרה', items: 'הציוד הזמין', qty: 'כמות', size: 'מידה', availableSizes: 'מידות זמינות', selectSizes: 'בחירת מידות', selectedSizes: 'נבחרו', unavailable: 'לא זמין',
         total: 'סה״כ משוער', days: 'ימי השכרה', discount: 'הנחת השכרה לכמה ימים (10%)', quantityDiscount: 'הנחה על כמות קראשפדים',
         send: 'המשך להזמנה', choose: 'בחרו לפחות פריט אחד ואת שני תאריכי ההשכרה כדי להמשיך.', invalidDates: 'תאריך ההחזרה חייב להיות זהה לתאריך האיסוף או מאוחר ממנו.',
         names: ['חבל יחיד (60–70 מטר)', 'נעלי טיפוס', 'רתמה', 'שק מגנזיום', 'קסדה', 'סט של 12 ראנרים', 'מכשיר אבטחה (GriGri או Tube)', 'קראשפד'],
@@ -484,7 +484,7 @@ function initEquipmentRentalBuilder() {
     const itemControls = (item, index) => {
         const config = sizeOptions[index];
         if (!config) return `<div class="rental-quantity" role="group" aria-label="${t.qty}: ${t.names[index]}"><button type="button" class="rental-quantity-minus" data-rental-minus="${index}" aria-label="${isEnglish ? 'Decrease' : 'הפחתת'} ${t.names[index]}" disabled>−</button><input type="number" min="0" step="1" value="0" inputmode="numeric" data-rental-qty="${index}" aria-label="${t.qty}: ${t.names[index]}"><button type="button" class="rental-quantity-plus" data-rental-plus="${index}" aria-label="${isEnglish ? 'Increase' : 'הוספת'} ${t.names[index]}">+</button></div>`;
-        return `<span class="rental-size-heading">${t.availableSizes}</span><div class="rental-size-grid" role="group" aria-label="${t.availableSizes}: ${t.names[index]}">${config.sizes.map(size => sizeControls(index, size)).join('')}</div>`;
+        return `<details class="rental-size-picker"><summary><span data-size-picker-label="${index}">${t.selectSizes}</span><i class="fas fa-chevron-down" aria-hidden="true"></i></summary><div class="rental-size-panel"><span class="rental-size-heading">${t.availableSizes}</span><div class="rental-size-grid" role="group" aria-label="${t.availableSizes}: ${t.names[index]}">${config.sizes.map(size => sizeControls(index, size)).join('')}</div></div></details>`;
     };
     // Keep the existing bouldering videos and guidebook cards, while removing the old fixed-price rental packages.
     rental.querySelectorAll('.equipment-package').forEach(card => {
@@ -500,6 +500,9 @@ function initEquipmentRentalBuilder() {
     const oldVideos = rental.querySelector('.equipment-bouldering-videos');
     rental.prepend(builder);
     if (oldVideos) builder.after(oldVideos);
+    builder.querySelectorAll('.rental-size-picker').forEach(picker => picker.addEventListener('toggle', () => {
+        picker.closest('.rental-item').classList.toggle('is-size-open', picker.open);
+    }));
 
     const start = builder.querySelector('[data-rental-start]');
     const end = builder.querySelector('[data-rental-end]');
@@ -543,6 +546,13 @@ function initEquipmentRentalBuilder() {
             const count = Math.max(0, Math.floor(Number(input.value) || 0));
             const key = `${input.dataset.rentalSizeIndex}-${input.dataset.rentalSize}`;
             builder.querySelector(`[data-rental-size-minus="${key}"]`).disabled = count === 0;
+        });
+        Object.keys(sizeOptions).forEach(index => {
+            const selected = [...builder.querySelectorAll(`[data-rental-size-index="${index}"]`)].filter(input => Number(input.value) > 0);
+            const label = builder.querySelector(`[data-size-picker-label="${index}"]`);
+            if (label) label.textContent = selected.length
+                ? `${t.selectedSizes}: ${selected.map(input => `${input.dataset.rentalSize} × ${Math.floor(Number(input.value))}`).join(', ')}`
+                : t.selectSizes;
         });
         return { days, subtotal, discount, quantityDiscount, total };
     }

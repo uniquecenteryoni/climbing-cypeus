@@ -10681,3 +10681,68 @@ body.landing-page {
     .rental-size-quantity { height:42px; }
     .rental-summary-metric,.rental-summary .rental-total { min-height:100px; }
 }
+.rental-item-with-sizes {
+    position: relative;
+    z-index: 0;
+    grid-column: auto;
+    display: flex;
+    min-height: 100px;
+    padding: .7rem;
+}
+.rental-item-with-sizes.is-size-open { z-index: 5; }
+.rental-item-with-sizes .rental-item-illustration { flex-basis: 60px; width: 60px; height: 60px; }
+.rental-item-with-sizes .rental-item-details { display: grid; align-content: center; gap: .45rem; }
+.rental-size-picker { position: relative; width: 100%; }
+.rental-size-picker > summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: .5rem;
+    min-height: 36px;
+    padding: .4rem .65rem;
+    border: 1px solid #d9e6de;
+    border-radius: 9px;
+    background: #f4faf6;
+    color: #175b42;
+    font-size: .85rem;
+    font-weight: 700;
+    cursor: pointer;
+    list-style: none;
+}
+.rental-size-picker > summary::-webkit-details-marker { display: none; }
+.rental-size-picker > summary::marker { content: ''; }
+.rental-size-picker > summary i { transition: transform .18s ease; }
+.rental-size-picker[open] > summary i { transform: rotate(180deg); }
+.rental-size-picker > summary:focus-visible { outline: 3px solid #f0bd54; outline-offset: 2px; }
+.rental-size-panel {
+    position: absolute;
+    z-index: 6;
+    inset-block-start: calc(100% + .45rem);
+    inset-inline: 0;
+    width: max(100%, 300px);
+    padding: .75rem;
+    border: 1px solid #d9e6de;
+    border-radius: 12px;
+    background: #fff;
+    box-shadow: 0 12px 32px rgba(28, 63, 49, .18);
+}
+.rental-size-heading { display: block; margin-bottom: .45rem; }
+.rental-size-grid { grid-template-columns: repeat(7, minmax(0, 1fr)); gap: .35rem; }
+.rental-size-option { min-height: 66px; padding: .3rem .15rem; }
+.rental-size-option.is-unavailable { min-height: 34px; }
+.rental-size-quantity button { width: 27px; height: 30px; }
+.rental-size-quantity input { width: 28px; height: 30px; min-height: 30px; }
+.rental-size-quantity { height: 30px; }
+@media (max-width:1000px) {
+    .rental-size-grid { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+}
+@media (max-width:600px) {
+    .rental-item-with-sizes { min-height: 94px; }
+    .rental-item-with-sizes .rental-item-illustration { flex-basis: 56px; width: 56px; height: 56px; }
+    .rental-size-panel { width: max(100%, min(330px, calc(100vw - 3.5rem))); }
+    .rental-size-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    .rental-size-option { min-height: 64px; }
+    .rental-size-quantity button { width: 32px; height: 38px; }
+    .rental-size-quantity input { width: 30px; height: 38px; min-height: 38px; }
+    .rental-size-quantity { height: 38px; }
+}

@@ -450,7 +450,7 @@ function initEquipmentRentalBuilder() {
     const isEnglish = currentLang === 'en';
     const t = isEnglish ? {
         title: 'Build your equipment rental',
-        from: 'Pickup date', to: 'Return date', items: 'Available equipment', qty: 'Quantity', size: 'size', availableSizes: 'Available sizes', selectSizes: 'Choose sizes', selectedSizes: 'Selected', unavailable: 'Unavailable',
+        from: 'Pickup date', to: 'Return date', items: 'Available equipment', qty: 'Quantity', size: 'size', availableSizes: 'Available sizes', selectedItems: 'Your selected equipment', closePicker: 'Close', unavailable: 'Unavailable',
         deviceOptions: 'Choose a belay device', deviceTypes: ['ATC', 'Reverso', 'Smart', 'GriGri'],
         total: 'Estimated total', days: 'rental days', discount: 'Multi-day discount (10%)', quantityDiscount: 'Crash pad quantity discount',
         send: 'Continue to order', choose: 'Choose at least one item and both rental dates to continue.', invalidDates: 'The return date must be the same as or later than the pickup date.',
@@ -460,7 +460,7 @@ function initEquipmentRentalBuilder() {
         subtotal: 'Subtotal', estimate: 'Estimated total', note: 'Availability and final price will be confirmed with you.', hint: 'Choose dates and equipment to continue.', hintDates: 'Estimate shows one rental day until you choose dates.', hintItems: 'Choose at least one item to continue.', hintReady: 'Your request is ready to continue.'
     } : {
         title: 'בונים את הזמנת השכרת הציוד',
-        from: 'תאריך איסוף', to: 'תאריך החזרה', items: 'הציוד הזמין', qty: 'כמות', size: 'מידה', availableSizes: 'מידות זמינות', selectSizes: 'בחירת מידות', selectedSizes: 'נבחרו', unavailable: 'לא זמין',
+        from: 'תאריך איסוף', to: 'תאריך החזרה', items: 'הציוד הזמין', qty: 'כמות', size: 'מידה', availableSizes: 'מידות זמינות', selectedItems: 'הציוד שבחרתם', closePicker: 'סגירה', unavailable: 'לא זמין',
         deviceOptions: 'בחירת מכשיר אבטחה', deviceTypes: ['ATC', 'Reverso', 'Smart', 'GriGri'],
         total: 'סה״כ משוער', days: 'ימי השכרה', discount: 'הנחת השכרה לכמה ימים (10%)', quantityDiscount: 'הנחה על כמות קראשפדים',
         send: 'המשך להזמנה', choose: 'בחרו לפחות פריט אחד ואת שני תאריכי ההשכרה כדי להמשיך.', invalidDates: 'תאריך ההחזרה חייב להיות זהה לתאריך האיסוף או מאוחר ממנו.',
@@ -485,9 +485,9 @@ function initEquipmentRentalBuilder() {
     };
     const itemControls = (item, index) => {
         const config = sizeOptions[index];
-        if (index === 6) return `<div class="rental-belay-controls"><div class="rental-quantity" role="group" aria-label="${t.qty}: ${t.names[index]}"><button type="button" class="rental-quantity-minus" data-rental-minus="6" aria-label="${isEnglish ? 'Decrease' : 'הפחתת'} ${t.names[index]}" disabled>−</button><input type="number" min="0" step="1" value="0" readonly inputmode="numeric" data-rental-qty="6" aria-label="${t.qty}: ${t.names[index]}"><button type="button" class="rental-quantity-plus" data-belay-options-toggle aria-label="${isEnglish ? 'Choose a device' : 'בחירת מכשיר אבטחה'}" aria-expanded="false" aria-haspopup="true">+</button></div><div class="rental-belay-menu" data-belay-options hidden><span>${t.deviceOptions}</span>${t.deviceTypes.map(type => `<button type="button" data-belay-add="${type}">${type}<i class="fas fa-plus" aria-hidden="true"></i></button>`).join('')}</div><span class="rental-belay-selection" data-belay-selection aria-live="polite"></span></div>`;
+        if (index === 6) return `<div class="rental-quantity" role="group" aria-label="${t.qty}: ${t.names[index]}"><button type="button" class="rental-quantity-minus" data-rental-minus="6" aria-label="${isEnglish ? 'Decrease' : 'הפחתת'} ${t.names[index]}" disabled>−</button><input type="number" min="0" step="1" value="0" readonly data-rental-qty="6" aria-label="${t.qty}: ${t.names[index]}"><button type="button" class="rental-quantity-plus" data-rental-open-belay-picker aria-label="${isEnglish ? 'Choose a device' : 'בחירת מכשיר אבטחה'}">+</button></div>`;
+        if (config) return `<div class="rental-quantity" role="group" aria-label="${t.qty}: ${t.names[index]}"><button type="button" class="rental-quantity-minus" data-rental-size-card-minus="${index}" aria-label="${isEnglish ? 'Remove one' : 'הסרת פריט אחד'}: ${t.names[index]}" disabled>−</button><input type="number" min="0" step="1" value="0" readonly data-rental-size-total="${index}" aria-label="${t.qty}: ${t.names[index]}"><button type="button" class="rental-quantity-plus" data-rental-open-size-picker="${index}" aria-label="${isEnglish ? 'Choose a size' : 'בחירת מידה'}: ${t.names[index]}">+</button></div>`;
         if (!config) return `<div class="rental-quantity" role="group" aria-label="${t.qty}: ${t.names[index]}"><button type="button" class="rental-quantity-minus" data-rental-minus="${index}" aria-label="${isEnglish ? 'Decrease' : 'הפחתת'} ${t.names[index]}" disabled>−</button><input type="number" min="0" step="1" value="0" inputmode="numeric" data-rental-qty="${index}" aria-label="${t.qty}: ${t.names[index]}"><button type="button" class="rental-quantity-plus" data-rental-plus="${index}" aria-label="${isEnglish ? 'Increase' : 'הוספת'} ${t.names[index]}">+</button></div>`;
-        return `<details class="rental-size-picker"><summary><span data-size-picker-label="${index}">${t.selectSizes}</span><i class="fas fa-chevron-down" aria-hidden="true"></i></summary><div class="rental-size-panel"><span class="rental-size-heading">${t.availableSizes}</span><div class="rental-size-grid" role="group" aria-label="${t.availableSizes}: ${t.names[index]}">${config.sizes.map(size => sizeControls(index, size)).join('')}</div></div></details>`;
     };
     // Keep the existing bouldering videos and guidebook cards, while removing the old fixed-price rental packages.
     rental.querySelectorAll('.equipment-package').forEach(card => {
@@ -499,20 +499,68 @@ function initEquipmentRentalBuilder() {
     builder.innerHTML = `<header class="rental-builder-heading"><div class="rental-heading-copy"><h2>${t.title}</h2></div><div class="rental-promos"><div class="rental-promo"><i class="fas fa-tag" aria-hidden="true"></i><span>${t.promo}</span></div><div class="rental-promo rental-pad-promo"><i class="fas fa-tags" aria-hidden="true"></i><span>${t.padPromo}</span></div></div><svg class="rental-mountain-art" viewBox="0 0 400 150" aria-hidden="true"><path d="M0 132 73 55l33 35 54-72 56 67 35-34 76 81H0Z"/><path d="m132 49 28-31 25 30-20-8-14 9-9-8-10 8ZM230 92l21-41 18 23-15-5-8 9-7-4-9 18Z"/><path d="M320 125c16-17 25-35 29-54l9-4 5 18 16 5v35"/></svg></header>
         <div class="rental-dates"><label><span><i class="far fa-calendar-alt" aria-hidden="true"></i>${t.from}</span><input type="date" data-rental-start required aria-label="${t.from}"></label><label><span><i class="far fa-calendar-alt" aria-hidden="true"></i>${t.to}</span><input type="date" data-rental-end required aria-label="${t.to}"></label></div>
         <h3 class="rental-items-title"><i class="fas fa-mountain" aria-hidden="true"></i>${t.items}</h3><div class="rental-item-grid">${[1, 2, 0, 3, 4, 5, 6, 7].map(i => { const item = items[i]; return `<article class="rental-item${sizeOptions[i] ? ' rental-item-with-sizes' : ''}" data-rental-card="${i}"><div class="rental-item-illustration rental-tone-${i % 4} rental-image-${i}" aria-hidden="true"></div><div class="rental-item-details"><h4>${t.names[i]}</h4>${itemControls(item, i)}</div></article>`; }).join('')}</div>
+        ${Object.keys(sizeOptions).map(index => `<div class="rental-picker-overlay" data-rental-size-modal="${index}" hidden><section class="rental-picker-dialog" role="dialog" aria-modal="true" aria-labelledby="rental-size-title-${index}" tabindex="-1"><button type="button" class="rental-picker-close" data-rental-picker-close aria-label="${t.closePicker}">×</button><h3 id="rental-size-title-${index}">${t.names[index]}</h3><p>${t.availableSizes}</p><div class="rental-size-grid" role="group" aria-label="${t.availableSizes}: ${t.names[index]}">${sizeOptions[index].sizes.map(size => sizeControls(index, size)).join('')}</div></section></div>`).join('')}
+        <div class="rental-picker-overlay" data-rental-belay-modal hidden><section class="rental-picker-dialog rental-belay-dialog" role="dialog" aria-modal="true" aria-labelledby="rental-belay-title" tabindex="-1"><button type="button" class="rental-picker-close" data-rental-picker-close aria-label="${t.closePicker}">×</button><h3 id="rental-belay-title">${t.deviceOptions}</h3><div class="rental-belay-options">${t.deviceTypes.map(type => `<button type="button" data-belay-add="${type}">${type}<i class="fas fa-plus" aria-hidden="true"></i></button>`).join('')}</div></section></div>
+        <section class="rental-selected-items" data-rental-selected-items hidden aria-live="polite"><h3>${t.selectedItems}</h3><ul data-rental-selected-list></ul></section>
         <section class="rental-summary" aria-label="${t.total}" aria-live="polite"><div class="rental-summary-metric"><span class="rental-metric-icon"><i class="fas fa-calendar-check" aria-hidden="true"></i></span><span>${t.days}</span><strong data-rental-days>1</strong></div><div class="rental-summary-metric"><span class="rental-metric-icon"><i class="fas fa-tag" aria-hidden="true"></i></span><span>${t.subtotal}</span><strong data-rental-subtotal>€0</strong></div><div class="rental-summary-metric rental-discount-row" data-rental-quantity-discount-row hidden><span class="rental-metric-icon"><i class="fas fa-tags" aria-hidden="true"></i></span><span>${t.quantityDiscount}</span><strong data-rental-quantity-discount>−€0</strong></div><div class="rental-summary-metric rental-discount-row" data-rental-discount-row hidden><span class="rental-metric-icon"><i class="fas fa-percent" aria-hidden="true"></i></span><span>${t.discount}</span><strong data-rental-discount>−€0</strong></div><div class="rental-summary-metric rental-total"><span class="rental-metric-icon"><i class="fas fa-wallet" aria-hidden="true"></i></span><span>${t.total}</span><strong data-rental-total>€0</strong></div><div class="rental-summary-action"><button type="button" class="rental-send"><span>${t.send}</span><i class="fas fa-arrow-left" aria-hidden="true"></i></button><p class="rental-note" data-rental-hint>${t.hint}</p><p class="rental-note">${t.note}</p><p class="rental-validation" data-rental-validation role="alert" hidden></p></div></section>`;
     const oldVideos = rental.querySelector('.equipment-bouldering-videos');
     rental.prepend(builder);
     if (oldVideos) builder.after(oldVideos);
-    builder.querySelectorAll('.rental-size-picker').forEach(picker => picker.addEventListener('toggle', () => {
-        picker.closest('.rental-item').classList.toggle('is-size-open', picker.open);
-    }));
-
+    const pickerOverlays = [...builder.querySelectorAll('.rental-picker-overlay')];
+    pickerOverlays.forEach(overlay => document.body.append(overlay));
     const start = builder.querySelector('[data-rental-start]');
     const end = builder.querySelector('[data-rental-end]');
     const selectedBelayDevices = [];
+    const selectedSizesOrder = { 1: [], 2: [] };
+    let activePickerOpener = null;
+    const openPicker = (overlay, opener) => {
+        activePickerOpener = opener;
+        overlay.hidden = false;
+        document.body.classList.add('rental-picker-open');
+        overlay.querySelector('[data-rental-picker-close]').focus();
+    };
+    const closePicker = overlay => {
+        overlay.hidden = true;
+        if (!pickerOverlays.some(candidate => !candidate.hidden)) document.body.classList.remove('rental-picker-open');
+        if (activePickerOpener?.isConnected) activePickerOpener.focus();
+        activePickerOpener = null;
+    };
+    builder.querySelectorAll('[data-rental-open-size-picker]').forEach(button => button.addEventListener('click', () => {
+        openPicker(pickerOverlays.find(overlay => overlay.dataset.rentalSizeModal === button.dataset.rentalOpenSizePicker), button);
+    }));
+    builder.querySelector('[data-rental-open-belay-picker]').addEventListener('click', event => {
+        openPicker(pickerOverlays.find(overlay => overlay.hasAttribute('data-rental-belay-modal')), event.currentTarget);
+    });
+    pickerOverlays.forEach(overlay => {
+        overlay.querySelector('[data-rental-picker-close]').addEventListener('click', () => closePicker(overlay));
+        overlay.addEventListener('click', event => { if (event.target === overlay) closePicker(overlay); });
+        overlay.addEventListener('keydown', event => {
+            if (event.key !== 'Tab') return;
+            const focusable = [...overlay.querySelectorAll('button:not(:disabled), input:not(:disabled)')];
+            const first = focusable[0];
+            const last = focusable[focusable.length - 1];
+            if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); }
+            else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
+        });
+    });
+    document.addEventListener('keydown', event => {
+        if (event.key === 'Escape') {
+            const openOverlay = pickerOverlays.find(overlay => !overlay.hidden);
+            if (openOverlay) closePicker(openOverlay);
+        }
+    });
+    const syncSizeOrder = (index, size, count) => {
+        const order = selectedSizesOrder[index];
+        const currentCount = order.filter(value => value === size).length;
+        if (count > currentCount) for (let n = currentCount; n < count; n++) order.push(size);
+        else if (count < currentCount) {
+            for (let n = currentCount; n > count; n--) order.splice(order.lastIndexOf(size), 1);
+        }
+    };
+    const getSizeInputs = index => pickerOverlays.flatMap(overlay => [...overlay.querySelectorAll(`[data-rental-size-index="${index}"]`)]);
     const getItemQuantity = index => {
         if (index === 6) return selectedBelayDevices.length;
-        if (sizeOptions[index]) return [...builder.querySelectorAll(`[data-rental-size-index="${index}"]`)].reduce((sum, input) => sum + Math.max(0, Math.floor(Number(input.value) || 0)), 0);
+        if (sizeOptions[index]) return getSizeInputs(index).reduce((sum, input) => sum + Math.max(0, Math.floor(Number(input.value) || 0)), 0);
         return Math.max(0, Math.floor(Number(builder.querySelector(`[data-rental-qty="${index}"]`).value) || 0));
     };
     const money = value => `€${value.toFixed(2).replace(/\.00$/, '')}`;
@@ -548,22 +596,33 @@ function initEquipmentRentalBuilder() {
             if (!sizeOptions[i]) {
                 builder.querySelector(`[data-rental-minus="${i}"]`).disabled = quantity === 0;
                 if (i === 6) builder.querySelector('[data-rental-qty="6"]').value = quantity;
+            } else {
+                builder.querySelector(`[data-rental-size-total="${i}"]`).value = quantity;
+                builder.querySelector(`[data-rental-size-card-minus="${i}"]`).disabled = quantity === 0;
             }
         });
-        const belayCounts = selectedBelayDevices.reduce((counts, type) => counts.set(type, (counts.get(type) || 0) + 1), new Map());
-        builder.querySelector('[data-belay-selection]').textContent = [...belayCounts].map(([type, count]) => `${type} × ${count}`).join(' · ');
-        builder.querySelectorAll('[data-rental-size-qty]').forEach(input => {
+        pickerOverlays.forEach(overlay => overlay.querySelectorAll('[data-rental-size-qty]').forEach(input => {
             const count = Math.max(0, Math.floor(Number(input.value) || 0));
             const key = `${input.dataset.rentalSizeIndex}-${input.dataset.rentalSize}`;
-            builder.querySelector(`[data-rental-size-minus="${key}"]`).disabled = count === 0;
-        });
-        Object.keys(sizeOptions).forEach(index => {
-            const selected = [...builder.querySelectorAll(`[data-rental-size-index="${index}"]`)].filter(input => Number(input.value) > 0);
-            const label = builder.querySelector(`[data-size-picker-label="${index}"]`);
-            if (label) label.textContent = selected.length
-                ? `${t.selectedSizes}: ${selected.map(input => `${input.dataset.rentalSize} × ${Math.floor(Number(input.value))}`).join(', ')}`
-                : t.selectSizes;
-        });
+            overlay.querySelector(`[data-rental-size-minus="${key}"]`).disabled = count === 0;
+        }));
+        const selectedRows = items.flatMap((_, i) => {
+            if (sizeOptions[i]) return getSizeInputs(i).map(input => {
+                const quantity = Math.max(0, Math.floor(Number(input.value) || 0));
+                return quantity ? `${quantity} × ${t.names[i]} (${t.size} ${input.dataset.rentalSize})` : '';
+            });
+            if (i === 6) return [...selectedBelayDevices.reduce((counts, type) => counts.set(type, (counts.get(type) || 0) + 1), new Map())]
+                .map(([type, quantity]) => `${quantity} × ${t.names[i]} (${type})`);
+            const quantity = quantities[i];
+            return quantity ? [`${quantity} × ${t.names[i]}`] : [];
+        }).filter(Boolean);
+        const selectedList = builder.querySelector('[data-rental-selected-list]');
+        selectedList.replaceChildren(...selectedRows.map(row => {
+            const li = document.createElement('li');
+            li.textContent = row;
+            return li;
+        }));
+        builder.querySelector('[data-rental-selected-items]').hidden = selectedRows.length === 0;
         return { days, subtotal, discount, quantityDiscount, total };
     }
     builder.addEventListener('input', calculate);
@@ -571,10 +630,11 @@ function initEquipmentRentalBuilder() {
         input.value = String(Math.max(0, Math.floor(Number(input.value) || 0)));
         calculate();
     }));
-    builder.querySelectorAll('[data-rental-size-qty]').forEach(input => input.addEventListener('change', () => {
+    pickerOverlays.forEach(overlay => overlay.querySelectorAll('[data-rental-size-qty]').forEach(input => input.addEventListener('change', () => {
         input.value = String(Math.max(0, Math.floor(Number(input.value) || 0)));
+        syncSizeOrder(input.dataset.rentalSizeIndex, input.dataset.rentalSize, Number(input.value));
         calculate();
-    }));
+    })));
     builder.querySelectorAll('[data-rental-plus]').forEach(button => button.addEventListener('click', () => {
         const input = builder.querySelector(`[data-rental-qty="${button.dataset.rentalPlus}"]`);
         input.value = String(Math.max(0, Math.floor(Number(input.value) || 0) + 1));
@@ -590,32 +650,31 @@ function initEquipmentRentalBuilder() {
         input.value = String(Math.max(0, Math.floor(Number(input.value) || 0) - 1));
         input.dispatchEvent(new Event('input', { bubbles: true }));
     }));
-    builder.querySelectorAll('[data-rental-size-plus], [data-rental-size-minus]').forEach(button => button.addEventListener('click', () => {
+    builder.querySelectorAll('[data-rental-size-card-minus]').forEach(button => button.addEventListener('click', () => {
+        const index = button.dataset.rentalSizeCardMinus;
+        const size = selectedSizesOrder[index].pop();
+        if (!size) return;
+        const input = getSizeInputs(index).find(candidate => candidate.dataset.rentalSize === size);
+        input.value = String(Math.max(0, Number(input.value) - 1));
+        calculate();
+    }));
+    pickerOverlays.forEach(overlay => overlay.querySelectorAll('[data-rental-size-plus], [data-rental-size-minus]').forEach(button => button.addEventListener('click', () => {
         const key = button.dataset.rentalSizePlus || button.dataset.rentalSizeMinus;
-        const input = builder.querySelector(`[data-rental-size-qty="${key}"]`);
+        const input = overlay.querySelector(`[data-rental-size-qty="${key}"]`);
         const delta = button.dataset.rentalSizePlus ? 1 : -1;
         input.value = String(Math.max(0, Math.floor(Number(input.value) || 0) + delta));
-        input.dispatchEvent(new Event('input', { bubbles: true }));
-    }));
-    const belayOptionsToggle = builder.querySelector('[data-belay-options-toggle]');
-    const belayOptionsMenu = builder.querySelector('[data-belay-options]');
-    belayOptionsToggle.addEventListener('click', () => {
-        belayOptionsMenu.hidden = !belayOptionsMenu.hidden;
-        belayOptionsToggle.setAttribute('aria-expanded', String(!belayOptionsMenu.hidden));
-        belayOptionsToggle.closest('.rental-item').classList.toggle('is-belay-open', !belayOptionsMenu.hidden);
-    });
-    builder.querySelectorAll('[data-belay-add]').forEach(button => button.addEventListener('click', () => {
-        selectedBelayDevices.push(button.dataset.belayAdd);
-        belayOptionsMenu.hidden = true;
-        belayOptionsToggle.setAttribute('aria-expanded', 'false');
-        belayOptionsToggle.closest('.rental-item').classList.remove('is-belay-open');
+        syncSizeOrder(input.dataset.rentalSizeIndex, input.dataset.rentalSize, Number(input.value));
         calculate();
-        belayOptionsToggle.focus();
-    }));
+    })));
+    pickerOverlays.forEach(overlay => overlay.querySelectorAll('[data-belay-add]').forEach(button => button.addEventListener('click', () => {
+        selectedBelayDevices.push(button.dataset.belayAdd);
+        calculate();
+        closePicker(button.closest('.rental-picker-overlay'));
+    })));
     builder.querySelector('.rental-send').addEventListener('click', () => {
         const { days, subtotal, discount, quantityDiscount, total } = calculate();
         const selected = items.flatMap((_, i) => {
-            if (sizeOptions[i]) return [...builder.querySelectorAll(`[data-rental-size-index="${i}"]`)].map(input => {
+            if (sizeOptions[i]) return getSizeInputs(i).map(input => {
                 const quantity = Math.max(0, Math.floor(Number(input.value) || 0));
                 return quantity ? `${quantity} × ${t.names[i]} (${t.size} ${input.dataset.rentalSize})` : '';
             });

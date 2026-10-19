@@ -10771,3 +10771,70 @@ body.landing-page {
     .rental-size-quantity input { width: 30px; height: 38px; min-height: 38px; }
     .rental-size-quantity { height: 38px; }
 }
+.rental-size-picker { display: none; }
+.rental-item-with-sizes { grid-column: auto; min-height: 100px; }
+.rental-picker-overlay {
+    position: fixed;
+    z-index: 100000;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    padding: 1rem;
+    background: rgba(11, 31, 23, .56);
+    backdrop-filter: blur(3px);
+}
+.rental-picker-overlay[hidden] { display: none; }
+body.rental-picker-open { overflow: hidden; }
+.rental-picker-dialog {
+    position: relative;
+    width: min(620px, 100%);
+    max-height: min(86vh, 760px);
+    overflow: auto;
+    padding: 1.5rem;
+    border-radius: 18px;
+    background: #fff;
+    color: #25382f;
+    box-shadow: 0 24px 70px rgba(0, 0, 0, .25);
+}
+.rental-picker-dialog:focus { outline: none; }
+.rental-picker-dialog h3 { margin: 0 2.5rem .35rem 0; color: #124737; font-size: 1.35rem; }
+.rental-picker-dialog > p { margin: 0 0 .8rem; color: #71817a; font-size: .9rem; }
+.rental-picker-close {
+    position: absolute;
+    inset-block-start: .8rem;
+    inset-inline-end: .8rem;
+    display: grid;
+    width: 40px;
+    height: 40px;
+    place-items: center;
+    border: 0;
+    border-radius: 50%;
+    background: #f0f5f2;
+    color: #28533f;
+    font-size: 1.65rem;
+    cursor: pointer;
+}
+.rental-picker-close:hover { background: #e2eee6; }
+.rental-picker-dialog .rental-size-grid { grid-template-columns: repeat(7, minmax(0, 1fr)); gap: .55rem; }
+.rental-picker-dialog .rental-size-option { min-height: 76px; padding: .5rem .25rem; }
+.rental-belay-options { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .65rem; margin-top: 1rem; }
+.rental-belay-options button { display: flex; align-items: center; justify-content: space-between; min-height: 58px; padding: .8rem 1rem; border: 0; border-radius: 11px; background: #f1f7f3; color: #174a37; font: inherit; font-weight: 750; cursor: pointer; }
+.rental-belay-options button:hover { background: #e3f0e7; }
+.rental-belay-options button i { color: #25845f; }
+.rental-selected-items { margin: 1.1rem 0 0; padding: 1rem 1.2rem; border-radius: 12px; background: #f2f7f3; color: #25382f; }
+.rental-selected-items[hidden] { display: none; }
+.rental-selected-items h3 { margin: 0 0 .55rem; color: #124737; font-size: 1rem; }
+.rental-selected-items ul { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .35rem 1.25rem; margin: 0; padding-inline-start: 1.2rem; }
+.rental-selected-items li { padding-inline-start: .15rem; color: #4e6258; font-size: .92rem; line-height: 1.4; }
+@media (max-width: 1000px) {
+    .rental-picker-dialog .rental-size-grid { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+}
+@media (max-width: 600px) {
+    .rental-picker-dialog { padding: 1.25rem 1rem 1rem; border-radius: 15px; }
+    .rental-picker-dialog h3 { font-size: 1.15rem; }
+    .rental-picker-dialog .rental-size-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: .4rem; }
+    .rental-picker-dialog .rental-size-option { min-height: 66px; }
+    .rental-selected-items { padding: .85rem; }
+    .rental-selected-items ul { grid-template-columns: 1fr; }
+    .rental-belay-options { grid-template-columns: 1fr 1fr; }
+}

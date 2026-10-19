@@ -10900,3 +10900,79 @@ body.rental-picker-open { overflow: hidden; }
     .rental-picker-dialog .rental-size-quantity button { width: 26px; height: 34px; }
     .rental-picker-dialog .rental-size-quantity input { width: 30px; height: 34px; min-height: 34px; }
 }
+
+/* Keep the chosen items beside the equipment list on wide screens. */
+.rental-selection-layout {
+    display: grid;
+    grid-template-columns: minmax(220px, .8fr) minmax(0, 2fr);
+    align-items: start;
+    gap: 1rem;
+    direction: ltr;
+}
+.rental-selection-layout > .rental-selected-items { grid-column: 1; grid-row: 1; position: sticky; top: 1rem; margin: 0; direction: inherit; }
+.rental-selection-layout > .rental-item-grid { grid-column: 2; grid-row: 1; min-width: 0; }
+.rental-selected-items [data-rental-empty] { margin: 0; color: #64756c; font-size: .92rem; }
+.rental-picker-dialog .rental-size-option.is-unavailable {
+    position: relative;
+    align-self: stretch;
+    min-height: 82px;
+    background: #eceeed;
+}
+.rental-size-unavailable-mark {
+    position: absolute;
+    inset-block-start: .22rem;
+    inset-inline-end: .38rem;
+    color: #cf3434;
+    font-size: 1.2rem;
+    font-weight: 900;
+    line-height: 1;
+}
+.rental-picker-dialog .rental-size-quantity {
+    display: inline-flex;
+    flex-wrap: nowrap;
+    align-items: stretch;
+    justify-content: center;
+    direction: ltr;
+    min-width: 84px;
+    overflow: visible;
+}
+.rental-picker-dialog .rental-size-quantity button {
+    display: grid !important;
+    flex: 0 0 27px;
+    place-items: center;
+    width: 27px;
+    min-width: 27px;
+    padding: 0;
+    visibility: visible;
+    opacity: 1;
+    font-size: 1.05rem;
+    font-weight: 800;
+}
+.rental-picker-dialog .rental-size-quantity button:last-child { background: #25845f; color: #fff; }
+.rental-picker-dialog .rental-size-quantity button:first-child { background: #e9efec; color: #597166; }
+.rental-picker-dialog .rental-size-quantity input {
+    flex: 0 0 30px;
+    width: 30px;
+    min-width: 30px;
+    padding: 0;
+}
+.rental-picker-confirm {
+    display: block;
+    min-width: 150px;
+    min-height: 46px;
+    margin: 1rem 0 0 auto;
+    padding: .65rem 1.4rem;
+    border: 0;
+    border-radius: 10px;
+    background: #124737;
+    color: #fff;
+    font: inherit;
+    font-weight: 750;
+    cursor: pointer;
+}
+.rental-picker-confirm:hover { background: #1d684e; }
+@media (max-width: 800px) {
+    .rental-selection-layout { grid-template-columns: minmax(0, 1fr); gap: .8rem; }
+    .rental-selection-layout > .rental-item-grid { grid-column: 1; grid-row: 1; }
+    .rental-selection-layout > .rental-selected-items { grid-column: 1; grid-row: 2; position: static; }
+}

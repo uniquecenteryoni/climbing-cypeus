@@ -450,7 +450,7 @@ function initEquipmentRentalBuilder() {
     const isEnglish = currentLang === 'en';
     const t = isEnglish ? {
         title: 'Build your equipment rental',
-        from: 'Pickup date', to: 'Return date', items: 'Available equipment', qty: 'Quantity', size: 'size', availableSizes: 'Available sizes', selectedItems: 'Your selected equipment', closePicker: 'Close', unavailable: 'Unavailable',
+        from: 'Pickup date', to: 'Return date', items: 'Available equipment', qty: 'Quantity', size: 'size', availableSizes: 'Available sizes', selectedItems: 'Your selected equipment', selectedEmpty: 'Your selection will appear here.', confirmSizes: 'Confirm sizes', closePicker: 'Close', unavailable: 'Unavailable',
         deviceOptions: 'Choose a belay device', deviceTypes: ['ATC', 'Reverso', 'Smart', 'GriGri'],
         total: 'Estimated total', days: 'rental days', discount: 'Multi-day discount (10%)', quantityDiscount: 'Crash pad quantity discount',
         send: 'Continue to order', choose: 'Choose at least one item and both rental dates to continue.', invalidDates: 'The return date must be the same as or later than the pickup date.',
@@ -460,7 +460,7 @@ function initEquipmentRentalBuilder() {
         subtotal: 'Subtotal', estimate: 'Estimated total', note: 'Availability and final price will be confirmed with you.', hint: 'Choose dates and equipment to continue.', hintDates: 'Estimate shows one rental day until you choose dates.', hintItems: 'Choose at least one item to continue.', hintReady: 'Your request is ready to continue.'
     } : {
         title: 'בונים את הזמנת השכרת הציוד',
-        from: 'תאריך איסוף', to: 'תאריך החזרה', items: 'הציוד הזמין', qty: 'כמות', size: 'מידה', availableSizes: 'מידות זמינות', selectedItems: 'הציוד שבחרתם', closePicker: 'סגירה', unavailable: 'לא זמין',
+        from: 'תאריך איסוף', to: 'תאריך החזרה', items: 'הציוד הזמין', qty: 'כמות', size: 'מידה', availableSizes: 'מידות זמינות', selectedItems: 'הציוד שבחרתם', selectedEmpty: 'הבחירות שלכם יופיעו כאן.', confirmSizes: 'אישור מידות', closePicker: 'סגירה', unavailable: 'לא זמין',
         deviceOptions: 'בחירת מכשיר אבטחה', deviceTypes: ['ATC', 'Reverso', 'Smart', 'GriGri'],
         total: 'סה״כ משוער', days: 'ימי השכרה', discount: 'הנחת השכרה לכמה ימים (10%)', quantityDiscount: 'הנחה על כמות קראשפדים',
         send: 'המשך להזמנה', choose: 'בחרו לפחות פריט אחד ואת שני תאריכי ההשכרה כדי להמשיך.', invalidDates: 'תאריך ההחזרה חייב להיות זהה לתאריך האיסוף או מאוחר ממנו.',
@@ -479,7 +479,7 @@ function initEquipmentRentalBuilder() {
     };
     const sizeControls = (itemIndex, size) => {
         const config = sizeOptions[itemIndex];
-        if (!config.available.has(size)) return `<button type="button" class="rental-size-option is-unavailable" disabled aria-label="${size}, ${t.unavailable}">${size}</button>`;
+        if (!config.available.has(size)) return `<button type="button" class="rental-size-option is-unavailable" disabled aria-label="${size}, ${t.unavailable}"><span class="rental-size-label">${size}</span><span class="rental-size-unavailable-mark" aria-hidden="true">×</span></button>`;
         const key = `${itemIndex}-${size}`;
         return `<div class="rental-size-option is-available"><span class="rental-size-label">${size}</span><div class="rental-size-quantity" role="group" aria-label="${t.qty}, ${t.size} ${size}"><button type="button" data-rental-size-minus="${key}" aria-label="${isEnglish ? 'Decrease' : 'הפחתת'} ${t.qty}, ${t.size} ${size}" disabled>−</button><input type="number" min="0" step="1" value="0" inputmode="numeric" data-rental-size-qty="${key}" data-rental-size-index="${itemIndex}" data-rental-size="${size}" aria-label="${t.qty}, ${t.size} ${size}"><button type="button" data-rental-size-plus="${key}" aria-label="${isEnglish ? 'Increase' : 'הוספת'} ${t.qty}, ${t.size} ${size}">+</button></div></div>`;
     };
@@ -498,12 +498,18 @@ function initEquipmentRentalBuilder() {
     builder.dataset.equipmentRentalBuilder = '';
     builder.innerHTML = `<header class="rental-builder-heading"><div class="rental-heading-copy"><h2>${t.title}</h2></div><div class="rental-promos"><div class="rental-promo"><i class="fas fa-tag" aria-hidden="true"></i><span>${t.promo}</span></div><div class="rental-promo rental-pad-promo"><i class="fas fa-tags" aria-hidden="true"></i><span>${t.padPromo}</span></div></div><svg class="rental-mountain-art" viewBox="0 0 400 150" aria-hidden="true"><path d="M0 132 73 55l33 35 54-72 56 67 35-34 76 81H0Z"/><path d="m132 49 28-31 25 30-20-8-14 9-9-8-10 8ZM230 92l21-41 18 23-15-5-8 9-7-4-9 18Z"/><path d="M320 125c16-17 25-35 29-54l9-4 5 18 16 5v35"/></svg></header>
         <div class="rental-dates"><label><span><i class="far fa-calendar-alt" aria-hidden="true"></i>${t.from}</span><input type="date" data-rental-start required aria-label="${t.from}"></label><label><span><i class="far fa-calendar-alt" aria-hidden="true"></i>${t.to}</span><input type="date" data-rental-end required aria-label="${t.to}"></label></div>
-        <h3 class="rental-items-title"><i class="fas fa-mountain" aria-hidden="true"></i>${t.items}</h3><div class="rental-item-grid">${[0, 1, 2, 3, 4, 5, 6, 7].map(i => { const item = items[i]; return `<article class="rental-item${sizeOptions[i] ? ' rental-item-with-sizes' : ''}" data-rental-card="${i}"><div class="rental-item-illustration rental-tone-${i % 4} rental-image-${i}" aria-hidden="true"></div><div class="rental-item-details"><h4>${t.names[i]}</h4>${itemControls(item, i)}</div></article>`; }).join('')}</div>
-        ${Object.keys(sizeOptions).map(index => `<div class="rental-picker-overlay" data-rental-size-modal="${index}" hidden><section class="rental-picker-dialog" role="dialog" aria-modal="true" aria-labelledby="rental-size-title-${index}" tabindex="-1"><button type="button" class="rental-picker-close" data-rental-picker-close aria-label="${t.closePicker}">×</button><h3 id="rental-size-title-${index}">${t.names[index]}</h3><p>${t.availableSizes}</p><div class="rental-size-grid" role="group" aria-label="${t.availableSizes}: ${t.names[index]}">${sizeOptions[index].sizes.map(size => sizeControls(index, size)).join('')}</div></section></div>`).join('')}
+        <h3 class="rental-items-title"><i class="fas fa-mountain" aria-hidden="true"></i>${t.items}</h3><div class="rental-item-grid" dir="${isEnglish ? 'ltr' : 'rtl'}">${[0, 1, 2, 3, 4, 5, 6, 7].map(i => { const item = items[i]; return `<article class="rental-item${sizeOptions[i] ? ' rental-item-with-sizes' : ''}" data-rental-card="${i}"><div class="rental-item-illustration rental-tone-${i % 4} rental-image-${i}" aria-hidden="true"></div><div class="rental-item-details"><h4>${t.names[i]}</h4>${itemControls(item, i)}</div></article>`; }).join('')}</div>
+        ${Object.keys(sizeOptions).map(index => `<div class="rental-picker-overlay" data-rental-size-modal="${index}" hidden><section class="rental-picker-dialog" role="dialog" aria-modal="true" aria-labelledby="rental-size-title-${index}" tabindex="-1"><button type="button" class="rental-picker-close" data-rental-picker-close aria-label="${t.closePicker}">×</button><h3 id="rental-size-title-${index}">${t.names[index]}</h3><p>${t.availableSizes}</p><div class="rental-size-grid" role="group" aria-label="${t.availableSizes}: ${t.names[index]}">${sizeOptions[index].sizes.map(size => sizeControls(index, size)).join('')}</div><button type="button" class="rental-picker-confirm" data-rental-picker-confirm>${t.confirmSizes}</button></section></div>`).join('')}
         <div class="rental-picker-overlay" data-rental-belay-modal hidden><section class="rental-picker-dialog rental-belay-dialog" role="dialog" aria-modal="true" aria-labelledby="rental-belay-title" tabindex="-1"><button type="button" class="rental-picker-close" data-rental-picker-close aria-label="${t.closePicker}">×</button><h3 id="rental-belay-title">${t.deviceOptions}</h3><div class="rental-belay-options">${t.deviceTypes.map(type => `<button type="button" data-belay-add="${type}">${type}<i class="fas fa-plus" aria-hidden="true"></i></button>`).join('')}</div></section></div>
-        <section class="rental-selected-items" data-rental-selected-items hidden aria-live="polite"><h3>${t.selectedItems}</h3><ul data-rental-selected-list></ul></section>
+        <section class="rental-selected-items" data-rental-selected-items aria-live="polite" dir="${isEnglish ? 'ltr' : 'rtl'}"><h3>${t.selectedItems}</h3><p data-rental-empty>${t.selectedEmpty}</p><ul data-rental-selected-list></ul></section>
         <section class="rental-summary" aria-label="${t.total}" aria-live="polite"><div class="rental-summary-metric"><span class="rental-metric-icon"><i class="fas fa-calendar-check" aria-hidden="true"></i></span><span>${t.days}</span><strong data-rental-days>1</strong></div><div class="rental-summary-metric"><span class="rental-metric-icon"><i class="fas fa-tag" aria-hidden="true"></i></span><span>${t.subtotal}</span><strong data-rental-subtotal>€0</strong></div><div class="rental-summary-metric rental-discount-row" data-rental-quantity-discount-row hidden><span class="rental-metric-icon"><i class="fas fa-tags" aria-hidden="true"></i></span><span>${t.quantityDiscount}</span><strong data-rental-quantity-discount>−€0</strong></div><div class="rental-summary-metric rental-discount-row" data-rental-discount-row hidden><span class="rental-metric-icon"><i class="fas fa-percent" aria-hidden="true"></i></span><span>${t.discount}</span><strong data-rental-discount>−€0</strong></div><div class="rental-summary-metric rental-total"><span class="rental-metric-icon"><i class="fas fa-wallet" aria-hidden="true"></i></span><span>${t.total}</span><strong data-rental-total>€0</strong></div><div class="rental-summary-action"><button type="button" class="rental-send"><span>${t.send}</span><i class="fas fa-arrow-left" aria-hidden="true"></i></button><p class="rental-note" data-rental-hint>${t.hint}</p><p class="rental-note">${t.note}</p><p class="rental-validation" data-rental-validation role="alert" hidden></p></div></section>`;
     const oldVideos = rental.querySelector('.equipment-bouldering-videos');
+    const selectionLayout = document.createElement('div');
+    selectionLayout.className = 'rental-selection-layout';
+    const itemGrid = builder.querySelector('.rental-item-grid');
+    const selectedItems = builder.querySelector('[data-rental-selected-items]');
+    itemGrid.before(selectionLayout);
+    selectionLayout.append(selectedItems, itemGrid);
     rental.prepend(builder);
     if (oldVideos) builder.after(oldVideos);
     const pickerOverlays = [...builder.querySelectorAll('.rental-picker-overlay')];
@@ -533,6 +539,7 @@ function initEquipmentRentalBuilder() {
     });
     pickerOverlays.forEach(overlay => {
         overlay.querySelector('[data-rental-picker-close]').addEventListener('click', () => closePicker(overlay));
+        overlay.querySelector('[data-rental-picker-confirm]')?.addEventListener('click', () => closePicker(overlay));
         overlay.addEventListener('click', event => { if (event.target === overlay) closePicker(overlay); });
         overlay.addEventListener('keydown', event => {
             if (event.key !== 'Tab') return;
@@ -622,7 +629,7 @@ function initEquipmentRentalBuilder() {
             li.textContent = row;
             return li;
         }));
-        builder.querySelector('[data-rental-selected-items]').hidden = selectedRows.length === 0;
+        builder.querySelector('[data-rental-empty]').hidden = selectedRows.length > 0;
         return { days, subtotal, discount, quantityDiscount, total };
     }
     builder.addEventListener('input', calculate);

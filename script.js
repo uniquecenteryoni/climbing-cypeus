@@ -455,9 +455,9 @@ function initEquipmentRentalBuilder() {
         total: 'Estimated total', days: 'rental days', discount: 'Multi-day discount (10%)', quantityDiscount: 'Crash pad quantity discount',
         send: 'Continue to order', choose: 'Choose at least one item and both rental dates to continue.', invalidDates: 'The return date must be the same as or later than the pickup date.',
         names: ['Climbing rope', 'Climbing shoes', 'Harness', 'Chalk bag', 'Helmet', '12 quickdraws (set)', 'Belay device', 'Crash pad'],
-        promo: '10% off rentals longer than one day', padPromo: 'Discount for renting more than one crash pad',
+        promo: '10% off rentals longer than one day', padPromo: 'Discount for renting more than one crash pad', couponPromo: 'Use code TIMNA2026 for 20% off your rental',
         message: 'Hello, I would like to request this equipment rental:', dates: 'Dates',
-        subtotal: 'Subtotal', estimate: 'Estimated total', note: 'Availability and final price will be confirmed with you.', hint: 'Choose dates and equipment to continue.', hintDates: 'Estimate shows one rental day until you choose dates.', hintItems: 'Choose at least one item to continue.', hintReady: 'Your request is ready to continue.'
+        subtotal: 'Subtotal', estimate: 'Estimated total', coupon: 'Have a coupon code?', couponPlaceholder: 'Enter coupon code', applyCoupon: 'Apply', couponDiscount: 'Coupon discount (20%)', couponSuccess: 'Coupon applied: 20% off your rental.', couponInvalid: 'That coupon code is not valid.', continueWhatsApp: 'Continue to WhatsApp', skipCoupon: 'Continue without a coupon', couponApplied: 'Applied', note: 'Availability and final price will be confirmed with you.', hint: 'Choose dates and equipment to continue.', hintDates: 'Estimate shows one rental day until you choose dates.', hintItems: 'Choose at least one item to continue.', hintReady: 'Your request is ready to continue.'
     } : {
         title: 'בונים את הזמנת השכרת הציוד',
         from: 'תאריך איסוף', to: 'תאריך החזרה', items: 'הציוד הזמין', qty: 'כמות', size: 'מידה', availableSizes: 'מידות זמינות', selectedItems: 'הציוד שבחרתם', selectedEmpty: 'הבחירות שלכם יופיעו כאן.', confirmSizes: 'אישור מידות', closePicker: 'סגירה', unavailable: 'לא זמין',
@@ -465,9 +465,9 @@ function initEquipmentRentalBuilder() {
         total: 'סה״כ משוער', days: 'ימי השכרה', discount: 'הנחת השכרה לכמה ימים (10%)', quantityDiscount: 'הנחה על כמות קראשפדים',
         send: 'המשך להזמנה', choose: 'בחרו לפחות פריט אחד ואת שני תאריכי ההשכרה כדי להמשיך.', invalidDates: 'תאריך ההחזרה חייב להיות זהה לתאריך האיסוף או מאוחר ממנו.',
         names: ['חבל טיפוס', 'נעלי טיפוס', 'רתמה', 'שק מגנזיום', 'קסדה', 'סט של 12 ראנרים', 'מכשיר אבטחה', 'קראשפד'],
-        promo: '10% הנחה על השכרה ליותר מיום אחד', padPromo: 'הנחה על השכרת יותר מקראשפד אחד',
+        promo: '10% הנחה על השכרה ליותר מיום אחד', padPromo: 'הנחה על השכרת יותר מקראשפד אחד', couponPromo: 'קוד TIMNA2026 מעניק 20% הנחה על ההשכרה',
         message: 'שלום, אשמח להזמין את הציוד הבא:', dates: 'תאריכים',
-        subtotal: 'סכום לפני הנחה', estimate: 'סה״כ משוער', note: 'הזמינות והמחיר הסופי יאושרו מולכם.', hint: 'בחרו תאריכים וציוד כדי להמשיך.', hintDates: 'המחיר מוצג לפי יום השכרה אחד עד לבחירת תאריכים.', hintItems: 'בחרו לפחות פריט אחד כדי להמשיך.', hintReady: 'ההזמנה מוכנה להמשך.'
+        subtotal: 'סכום לפני הנחה', estimate: 'סה״כ משוער', coupon: 'יש לכם קוד קופון?', couponPlaceholder: 'הזינו קוד קופון', applyCoupon: 'מימוש קופון', couponDiscount: 'הנחת קופון (20%)', couponSuccess: 'הקופון הופעל: 20% הנחה על ההשכרה.', couponInvalid: 'קוד הקופון אינו תקף.', continueWhatsApp: 'המשך לוואטסאפ', skipCoupon: 'המשך בלי קופון', couponApplied: 'הקופון הופעל', note: 'הזמינות והמחיר הסופי יאושרו מולכם.', hint: 'בחרו תאריכים וציוד כדי להמשיך.', hintDates: 'המחיר מוצג לפי יום השכרה אחד עד לבחירת תאריכים.', hintItems: 'בחרו לפחות פריט אחד כדי להמשיך.', hintReady: 'ההזמנה מוכנה להמשך.'
     };
     const items = [
         { price: 10 }, { price: 7 }, { price: 5 }, { price: 2 }, { price: 3 },
@@ -496,13 +496,13 @@ function initEquipmentRentalBuilder() {
     const builder = document.createElement('section');
     builder.className = 'rental-builder';
     builder.dataset.equipmentRentalBuilder = '';
-    builder.innerHTML = `<header class="rental-builder-heading"><div class="rental-heading-copy"><h2>${t.title}</h2></div><div class="rental-promos"><div class="rental-promo"><i class="fas fa-tag" aria-hidden="true"></i><span>${t.promo}</span></div><div class="rental-promo rental-pad-promo"><i class="fas fa-tags" aria-hidden="true"></i><span>${t.padPromo}</span></div></div><svg class="rental-mountain-art" viewBox="0 0 400 150" aria-hidden="true"><path d="M0 132 73 55l33 35 54-72 56 67 35-34 76 81H0Z"/><path d="m132 49 28-31 25 30-20-8-14 9-9-8-10 8ZM230 92l21-41 18 23-15-5-8 9-7-4-9 18Z"/><path d="M320 125c16-17 25-35 29-54l9-4 5 18 16 5v35"/></svg></header>
+    builder.innerHTML = `<header class="rental-builder-heading"><div class="rental-heading-copy"><h2>${t.title}</h2></div><div class="rental-promos"><div class="rental-promo"><i class="fas fa-tag" aria-hidden="true"></i><span>${t.promo}</span></div><div class="rental-promo rental-pad-promo"><i class="fas fa-tags" aria-hidden="true"></i><span>${t.padPromo}</span></div><div class="rental-promo rental-coupon-promo"><i class="fas fa-ticket-alt" aria-hidden="true"></i><span>${t.couponPromo}</span></div></div><svg class="rental-mountain-art" viewBox="0 0 400 150" aria-hidden="true"><path d="M0 132 73 55l33 35 54-72 56 67 35-34 76 81H0Z"/><path d="m132 49 28-31 25 30-20-8-14 9-9-8-10 8ZM230 92l21-41 18 23-15-5-8 9-7-4-9 18Z"/><path d="M320 125c16-17 25-35 29-54l9-4 5 18 16 5v35"/></svg></header>
         <div class="rental-dates"><label><span><i class="far fa-calendar-alt" aria-hidden="true"></i>${t.from}</span><input type="date" data-rental-start required aria-label="${t.from}"></label><label><span><i class="far fa-calendar-alt" aria-hidden="true"></i>${t.to}</span><input type="date" data-rental-end required aria-label="${t.to}"></label></div>
         <h3 class="rental-items-title"><i class="fas fa-mountain" aria-hidden="true"></i>${t.items}</h3><div class="rental-item-grid" dir="${isEnglish ? 'ltr' : 'rtl'}">${[0, 1, 2, 3, 4, 5, 6, 7].map(i => { const item = items[i]; return `<article class="rental-item${sizeOptions[i] ? ' rental-item-with-sizes' : ''}" data-rental-card="${i}"><div class="rental-item-illustration rental-tone-${i % 4} rental-image-${i}" aria-hidden="true"></div><div class="rental-item-details"><h4>${t.names[i]}</h4>${itemControls(item, i)}</div></article>`; }).join('')}</div>
         ${Object.keys(sizeOptions).map(index => `<div class="rental-picker-overlay" data-rental-size-modal="${index}" hidden><section class="rental-picker-dialog" role="dialog" aria-modal="true" aria-labelledby="rental-size-title-${index}" tabindex="-1"><button type="button" class="rental-picker-close" data-rental-picker-close aria-label="${t.closePicker}">×</button><h3 id="rental-size-title-${index}">${t.names[index]}</h3><p>${t.availableSizes}</p><div class="rental-size-grid" role="group" aria-label="${t.availableSizes}: ${t.names[index]}">${sizeOptions[index].sizes.map(size => sizeControls(index, size)).join('')}</div><button type="button" class="rental-picker-confirm" data-rental-picker-confirm>${t.confirmSizes}</button></section></div>`).join('')}
         <div class="rental-picker-overlay" data-rental-belay-modal hidden><section class="rental-picker-dialog rental-belay-dialog" role="dialog" aria-modal="true" aria-labelledby="rental-belay-title" tabindex="-1"><button type="button" class="rental-picker-close" data-rental-picker-close aria-label="${t.closePicker}">×</button><h3 id="rental-belay-title">${t.deviceOptions}</h3><div class="rental-belay-options">${t.deviceTypes.map(type => `<button type="button" data-belay-add="${type}">${type}<i class="fas fa-plus" aria-hidden="true"></i></button>`).join('')}</div></section></div>
         <section class="rental-selected-items" data-rental-selected-items aria-live="polite" dir="${isEnglish ? 'ltr' : 'rtl'}"><h3>${t.selectedItems}</h3><p data-rental-empty>${t.selectedEmpty}</p><ul data-rental-selected-list></ul></section>
-        <section class="rental-summary" aria-label="${t.total}" aria-live="polite"><div class="rental-summary-metric"><span class="rental-metric-icon"><i class="fas fa-calendar-check" aria-hidden="true"></i></span><span>${t.days}</span><strong data-rental-days>1</strong></div><div class="rental-summary-metric"><span class="rental-metric-icon"><i class="fas fa-tag" aria-hidden="true"></i></span><span>${t.subtotal}</span><strong data-rental-subtotal>€0</strong></div><div class="rental-summary-metric rental-discount-row" data-rental-quantity-discount-row hidden><span class="rental-metric-icon"><i class="fas fa-tags" aria-hidden="true"></i></span><span>${t.quantityDiscount}</span><strong data-rental-quantity-discount>−€0</strong></div><div class="rental-summary-metric rental-discount-row" data-rental-discount-row hidden><span class="rental-metric-icon"><i class="fas fa-percent" aria-hidden="true"></i></span><span>${t.discount}</span><strong data-rental-discount>−€0</strong></div><div class="rental-summary-metric rental-total"><span class="rental-metric-icon"><i class="fas fa-wallet" aria-hidden="true"></i></span><span>${t.total}</span><strong data-rental-total>€0</strong></div><div class="rental-summary-action"><button type="button" class="rental-send"><span>${t.send}</span><i class="fas fa-arrow-left" aria-hidden="true"></i></button><p class="rental-note" data-rental-hint>${t.hint}</p><p class="rental-note">${t.note}</p><p class="rental-validation" data-rental-validation role="alert" hidden></p></div></section>`;
+        <section class="rental-summary" aria-label="${t.total}" aria-live="polite"><div class="rental-summary-metric"><span class="rental-metric-icon"><i class="fas fa-calendar-check" aria-hidden="true"></i></span><span>${t.days}</span><strong data-rental-days>1</strong></div><div class="rental-summary-metric"><span class="rental-metric-icon"><i class="fas fa-tag" aria-hidden="true"></i></span><span>${t.subtotal}</span><strong data-rental-subtotal>€0</strong></div><div class="rental-summary-metric rental-discount-row" data-rental-quantity-discount-row hidden><span class="rental-metric-icon"><i class="fas fa-tags" aria-hidden="true"></i></span><span>${t.quantityDiscount}</span><strong data-rental-quantity-discount>−€0</strong></div><div class="rental-summary-metric rental-discount-row" data-rental-discount-row hidden><span class="rental-metric-icon"><i class="fas fa-percent" aria-hidden="true"></i></span><span>${t.discount}</span><strong data-rental-discount>−€0</strong></div><div class="rental-summary-metric rental-discount-row" data-rental-coupon-row hidden><span class="rental-metric-icon"><i class="fas fa-ticket-alt" aria-hidden="true"></i></span><span>${t.couponDiscount}</span><strong data-rental-coupon-discount>−€0</strong></div><div class="rental-summary-metric rental-total"><span class="rental-metric-icon"><i class="fas fa-wallet" aria-hidden="true"></i></span><span>${t.total}</span><strong data-rental-total>€0</strong></div><div class="rental-summary-action"><button type="button" class="rental-send"><span>${t.send}</span><i class="fas fa-arrow-left" aria-hidden="true"></i></button><div class="rental-coupon-step" data-rental-coupon-step hidden><label for="rental-coupon-code">${t.coupon}</label><div class="rental-coupon-form"><input id="rental-coupon-code" type="text" autocomplete="off" autocapitalize="characters" placeholder="${t.couponPlaceholder}" data-rental-coupon-input><button type="button" data-rental-apply-coupon>${t.applyCoupon}</button></div><p class="rental-coupon-status" data-rental-coupon-status role="status" aria-live="polite"></p><button type="button" class="rental-send" data-rental-whatsapp>${t.continueWhatsApp}<i class="fab fa-whatsapp" aria-hidden="true"></i></button><button type="button" class="rental-coupon-skip" data-rental-skip-coupon>${t.skipCoupon}</button></div><p class="rental-note" data-rental-hint>${t.hint}</p><p class="rental-note">${t.note}</p><p class="rental-validation" data-rental-validation role="alert" hidden></p></div></section>`;
     const oldVideos = rental.querySelector('.equipment-bouldering-videos');
     const selectionLayout = document.createElement('div');
     selectionLayout.className = 'rental-selection-layout';
@@ -518,6 +518,7 @@ function initEquipmentRentalBuilder() {
     const end = builder.querySelector('[data-rental-end]');
     const selectedBelayDevices = [];
     const selectedSizesOrder = { 1: [], 2: [] };
+    let couponApplied = false;
     let activePickerOpener = null;
     const openPicker = (overlay, opener) => {
         activePickerOpener = opener;
@@ -584,14 +585,17 @@ function initEquipmentRentalBuilder() {
         const subtotal = items.reduce((sum, item, i) => sum + item.price * quantities[i], 0) * days;
         const quantityDiscount = Math.max(0, (items[items.length - 1].quantityDiscount || 0) * (quantities[quantities.length - 1] >= 2 ? 1 : 0) * days);
         const discount = days > 1 ? (subtotal - quantityDiscount) * 0.1 : 0;
-        const total = subtotal - quantityDiscount - discount;
+        const couponDiscount = couponApplied ? (subtotal - quantityDiscount - discount) * 0.2 : 0;
+        const total = subtotal - quantityDiscount - discount - couponDiscount;
         builder.querySelector('[data-rental-days]').textContent = days || '—';
         builder.querySelector('[data-rental-subtotal]').textContent = money(subtotal);
         builder.querySelector('[data-rental-discount]').textContent = `−${money(discount)}`;
         builder.querySelector('[data-rental-quantity-discount]').textContent = `−${money(quantityDiscount)}`;
+        builder.querySelector('[data-rental-coupon-discount]').textContent = `−${money(couponDiscount)}`;
         builder.querySelector('[data-rental-total]').textContent = money(total);
         builder.querySelector('[data-rental-quantity-discount-row]').hidden = !(quantityDiscount > 0);
         builder.querySelector('[data-rental-discount-row]').hidden = !(days > 1 && subtotal > 0);
+        builder.querySelector('[data-rental-coupon-row]').hidden = !(couponDiscount > 0);
         builder.querySelector('[data-rental-validation]').textContent = datesReversed ? t.invalidDates : '';
         builder.querySelector('[data-rental-validation]').hidden = !datesReversed;
         const hasSelection = quantities.some(quantity => quantity > 0);
@@ -630,7 +634,7 @@ function initEquipmentRentalBuilder() {
             return li;
         }));
         builder.querySelector('[data-rental-empty]').hidden = selectedRows.length > 0;
-        return { days, subtotal, discount, quantityDiscount, total };
+        return { days, subtotal, discount, quantityDiscount, couponDiscount, total };
     }
     builder.addEventListener('input', calculate);
     builder.querySelectorAll('[data-rental-qty]').forEach(input => input.addEventListener('change', () => {
@@ -678,8 +682,19 @@ function initEquipmentRentalBuilder() {
         calculate();
         closePicker(button.closest('.rental-picker-overlay'));
     })));
-    builder.querySelector('.rental-send').addEventListener('click', () => {
-        const { days, subtotal, discount, quantityDiscount, total } = calculate();
+    const sendRentalToWhatsApp = () => {
+        const { days, subtotal, discount, quantityDiscount, couponDiscount, total } = calculate();
+        const validation = builder.querySelector('[data-rental-validation]');
+        const hasSelection = items.some((_, i) => getItemQuantity(i) > 0);
+        const datesReversed = start.value && end.value && new Date(`${end.value}T00:00:00`) < new Date(`${start.value}T00:00:00`);
+        if (datesReversed || !hasSelection || !start.value || !end.value || !days) {
+            validation.textContent = datesReversed ? t.invalidDates : t.choose;
+            validation.hidden = false;
+            builder.querySelector('[data-rental-coupon-step]').hidden = true;
+            builder.querySelector('.rental-send').hidden = false;
+            if (!start.value) start.focus(); else if (!end.value) end.focus();
+            return;
+        }
         const selected = items.flatMap((_, i) => {
             if (sizeOptions[i]) return getSizeInputs(i).map(input => {
                 const quantity = Math.max(0, Math.floor(Number(input.value) || 0));
@@ -691,14 +706,26 @@ function initEquipmentRentalBuilder() {
             const quantity = getItemQuantity(i);
             return quantity ? [`${quantity} × ${t.names[i]}`] : [];
         }).filter(Boolean);
+        validation.hidden = true;
+        validation.textContent = '';
+        const lines = [t.message, ...selected, `${t.dates}: ${start.value} – ${end.value} (${days} ${t.days})`, `${t.subtotal}: ${money(subtotal)}`];
+        if (quantityDiscount) lines.push(`${t.quantityDiscount}: −${money(quantityDiscount)}`);
+        if (discount) lines.push(`${t.discount}: −${money(discount)}`);
+        if (couponApplied) lines.push(`${t.couponDiscount} (${builder.querySelector('[data-rental-coupon-input]').value.trim()}): −${money(couponDiscount)}`);
+        lines.push(`${t.estimate}: ${money(total)}`);
+        window.open(`https://wa.me/972504443328?text=${encodeURIComponent(lines.join('\n'))}`, '_blank', 'noopener');
+    };
+    builder.querySelector('.rental-send').addEventListener('click', () => {
+        calculate();
         const validation = builder.querySelector('[data-rental-validation]');
+        const hasSelection = items.some((_, i) => getItemQuantity(i) > 0);
         if (start.value && end.value && new Date(`${end.value}T00:00:00`) < new Date(`${start.value}T00:00:00`)) {
             validation.textContent = t.invalidDates;
             validation.hidden = false;
             end.focus();
             return;
         }
-        if (!selected.length || !start.value || !end.value || !days) {
+        if (!hasSelection || !start.value || !end.value) {
             validation.textContent = t.choose;
             validation.hidden = false;
             if (!start.value) start.focus(); else if (!end.value) end.focus();
@@ -706,11 +733,37 @@ function initEquipmentRentalBuilder() {
         }
         validation.hidden = true;
         validation.textContent = '';
-        const lines = [t.message, ...selected, `${t.dates}: ${start.value} – ${end.value} (${days} ${t.days})`, `${t.subtotal}: ${money(subtotal)}`];
-        if (quantityDiscount) lines.push(`${t.quantityDiscount}: −${money(quantityDiscount)}`);
-        if (discount) lines.push(`${t.discount}: −${money(discount)}`);
-        lines.push(`${t.estimate}: ${money(total)}`);
-        window.open(`https://wa.me/972504443328?text=${encodeURIComponent(lines.join('\n'))}`, '_blank', 'noopener');
+        builder.querySelector('.rental-send').hidden = true;
+        builder.querySelector('[data-rental-coupon-step]').hidden = false;
+        builder.querySelector('[data-rental-coupon-input]').focus();
+    });
+    const applyRentalCoupon = () => {
+        const input = builder.querySelector('[data-rental-coupon-input]');
+        const valid = input.value.trim().toLowerCase() === 'timna2026'.toLowerCase();
+        couponApplied = valid;
+        const status = builder.querySelector('[data-rental-coupon-status]');
+        status.textContent = valid ? t.couponSuccess : t.couponInvalid;
+        status.classList.toggle('is-success', valid);
+        status.classList.toggle('is-error', !valid);
+        calculate();
+    };
+    builder.querySelector('[data-rental-apply-coupon]').addEventListener('click', applyRentalCoupon);
+    builder.querySelector('[data-rental-coupon-input]').addEventListener('keydown', event => {
+        if (event.key === 'Enter') { event.preventDefault(); applyRentalCoupon(); }
+    });
+    builder.querySelector('[data-rental-coupon-input]').addEventListener('input', () => {
+        if (!couponApplied) return;
+        couponApplied = false;
+        const status = builder.querySelector('[data-rental-coupon-status]');
+        status.textContent = '';
+        status.classList.remove('is-success', 'is-error');
+        calculate();
+    });
+    builder.querySelector('[data-rental-whatsapp]').addEventListener('click', sendRentalToWhatsApp);
+    builder.querySelector('[data-rental-skip-coupon]').addEventListener('click', () => {
+        couponApplied = false;
+        calculate();
+        sendRentalToWhatsApp();
     });
     calculate();
 }

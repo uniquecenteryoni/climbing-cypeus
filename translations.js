@@ -34,17 +34,11 @@ const translations = {
         "instagram-community-cta": "צפו בפרופיל",
         
         // Hero section
-        "hero-eyebrow": "CLIMBING CYPRUS",
         "hero-seo-title": "טיפוס צוקים בקפריסין",
         "hero-title": "קפריסין מזווית אחרת.",
-        "hero-subtitle": "חוויות טיפוס צוקים בקפריסין, הדרכות וקורסים לכל הרמות, במצוקים מרהיבים ובליווי מדריך מוסמך.",
-        "hero-secondary": "גלו את אזורי הטיפוס",
-        "hero-cta": "בואו לטפס איתנו",
-        "hero-feature-locations": "מקומות נבחרים",
-        "hero-feature-equipment": "כל הציוד כלול",
-        "hero-feature-all": "מתאים לכולם",
-        "hero-feature-certified": "מדריך מוסמך",
-        "hero-scroll-cue": "גלו עוד",
+        "hero-subtitle": "טיפוס מודרך לכל הרמות בקפריסין.",
+        "hero-secondary": "אזורי טיפוס",
+        "hero-cta": "בואו לטפס",
         
         // About Me section
         "about-me-title": "אודות",
@@ -661,17 +655,11 @@ const translations = {
         "instagram-community-cta": "View profile",
         
         // Hero section
-        "hero-eyebrow": "CLIMBING CYPRUS",
         "hero-seo-title": "Rock Climbing in Cyprus",
         "hero-title": "Discover Cyprus from New Heights.",
-        "hero-subtitle": "Guided rock climbing in Cyprus, unforgettable climbing adventures and courses for all experience levels, led by a certified local climbing instructor.",
-        "hero-secondary": "Explore Climbing Areas",
-        "hero-cta": "Book Your Climbing Adventure",
-        "hero-feature-locations": "Selected locations",
-        "hero-feature-equipment": "All equipment included",
-        "hero-feature-all": "Suitable for everyone",
-        "hero-feature-certified": "Certified guide",
-        "hero-scroll-cue": "Discover more",
+        "hero-subtitle": "Guided climbing in Cyprus for every level.",
+        "hero-secondary": "Climbing Areas",
+        "hero-cta": "Book a Climb",
         
         // About Me section
         "about-me-title": "About Me",

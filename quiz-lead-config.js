@@ -1,6 +1,6 @@
 /* Shared quiz lead submission contract. Every quiz must submit through this helper. */
 (function () {
-    const endpoint = 'https://formspree.io/f/mjkdalap';
+    const endpoint = 'https://script.google.com/macros/s/AKfycbyQpSz4mG8445buzVR7fvfZTdfzw-wEpgoN7Ojv1IJIcHLZhH5XZJ8QO-VPCLk1-awF7g/exec';
     window.submitQuizLead = async function ({ contact, quiz, score, trainingInterest, language }) {
         const payload = new FormData();
         payload.append('name', contact.name || '');

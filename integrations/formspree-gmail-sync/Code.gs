@@ -1,9 +1,9 @@
 /**
- * Climbing Cyprus — Formspree → Gmail → Google Sheets sync
+ * Climbing Cyprus — website forms → Gmail + Google Sheets
  *
  * Run setupFormspreeSync() once from script.google.com. The script stores the
  * spreadsheet ID in Script Properties, imports existing Formspree emails, and
- * installs an hourly trigger for new messages.
+ * retains the legacy Formspree import and accepts direct website submissions.
  */
 const CONFIG = {
   spreadsheetId: '1OfXQhLIeWuduWEUbJuifDjUnYEZjnjBRV6wMR6o8ZbE',
@@ -31,6 +31,15 @@ function setupFormspreeSync() {
     .forEach(t => ScriptApp.deleteTrigger(t));
   ScriptApp.newTrigger('syncFormspreeToSheet').timeBased().everyMinutes(5).create();
   syncFormspreeToSheet();
+}
+
+/** Run once from the editor to grant the script permission to notify its owner. */
+function authorizeLeadNotifications() {
+  const email = Session.getEffectiveUser().getEmail();
+  if (!email) throw new Error('Run this from the Google account that will own the web app deployment.');
+  MailApp.getRemainingDailyQuota();
+  SpreadsheetApp.openById(CONFIG.spreadsheetId).getSheetByName(CONFIG.sheetName);
+  Logger.log('Lead notifications will be sent to ' + email);
 }
 
 function syncFormspreeToSheet() {
@@ -95,6 +104,69 @@ function doGet(e) {
   if (detailId) rows = rows.filter(row => String(row['Gmail message ID'] || '') === detailId);
   return ContentService.createTextOutput(JSON.stringify({ updatedAt: new Date().toISOString(), rows }))
     .setMimeType(ContentService.MimeType.JSON);
+}
+
+/** Receives JSON POSTs from the static site (sent as text/plain to avoid CORS preflight). */
+function doPost(e) {
+  const raw = e && e.postData ? e.postData.contents : '';
+  const data = raw ? JSON.parse(raw) : {};
+  if (!data || typeof data !== 'object' || Array.isArray(data)) throw new Error('Invalid submission');
+  if (String(data.website || '').trim()) return json_({ ok: true }); // honeypot
+  const fields = data.fields || {};
+  const sender = String(fields.email || '').trim().toLowerCase();
+  if (sender && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(sender)) throw new Error('Invalid email');
+  if (JSON.stringify(data).length > 1800000) throw new Error('Submission is too large');
+  if (sender) {
+    const rateKey = 'sender:' + Utilities.base64EncodeWebSafe(sender);
+    const cache = CacheService.getScriptCache();
+    const count = Number(cache.get(rateKey) || 0);
+    if (count >= 8) throw new Error('Submission rate limit reached');
+    cache.put(rateKey, String(count + 1), 3600);
+  }
+  const submissionId = String(data.submission_id || '').slice(0, 100);
+  const cache = CacheService.getScriptCache();
+  if (submissionId && cache.get('submission:' + submissionId)) return json_({ ok: true, duplicate: true });
+
+  const id = PropertiesService.getScriptProperties().getProperty('SPREADSHEET_ID') || CONFIG.spreadsheetId;
+  const ss = SpreadsheetApp.openById(id);
+  const sheet = ss.getSheetByName(CONFIG.sheetName) || ss.insertSheet(CONFIG.sheetName);
+  ensureHeader_(sheet);
+  const values = Object.fromEntries(Object.entries(fields).map(([key, value]) => [key, String(value == null ? '' : value)]));
+  const subject = values._subject || values.subject || values.quiz || values.request_type || values.form_type || 'פנייה חדשה מהאתר';
+  const waiver = /waiver|health declaration|participation|אישור השתתפות|הצהרת בריאות|וייבר/i.test(subject + ' ' + (values.form_type || ''));
+  const quiz = Boolean(values.quiz || values.score);
+  const full = Object.entries(values).filter(([key]) => !key.startsWith('_')).map(([key, value]) => key + ':\n' + value).join('\n\n');
+  const row = [
+    new Date().toISOString(), values.name || values.representative_name || '', values.email || '', values.phone || '',
+    waiver ? 'אישור השתתפות' : quiz ? 'בוחן' : values.request_type === 'topo_download' ? 'הורדת טופו' : 'פנייה',
+    waiver ? 'אישור השתתפות והצהרת בריאות' : values.quiz || subject, values.score || '',
+    values.training_interest || values.training_interest_choice || '', values.language || '', values.message || values['03 — סיכום מלא מוכן להדפסה'] || values['03 — FULL PRINT-READY SUMMARY'] || '',
+    values.source || data.source || 'direct', values.utm_campaign || values.campaign || data.campaign || '', values.referrer || data.referrer || '', 'חדש', '', values.interest || '',
+    values.event || '', values.event_date || '', values.event_price || '', values.form_type || '', values.representative_name || '',
+    values.electronic_signature || '', values.signature_date || '', values.risk_and_terms_consent || '', values.health_data_explicit_consent || '',
+    values['01 — קישור לאישור המלא להדפסה'] || values['01 — PRINTABLE WAIVER LINK'] || '', full
+  ];
+  const lock = LockService.getScriptLock();
+  lock.waitLock(15000);
+  try {
+    sheet.appendRow(row);
+  } finally { lock.releaseLock(); }
+
+  const recipient = Session.getEffectiveUser().getEmail();
+  if (!recipient) throw new Error('Could not determine the script owner email');
+  const body = 'התקבלה פנייה חדשה באתר Climbing Cyprus.\n\n' + full;
+  const mail = { to: recipient, subject: subject, body: body, replyTo: values.email || undefined };
+  if (data.attachment && data.attachment.base64) {
+    const bytes = Utilities.base64Decode(data.attachment.base64);
+    mail.attachments = [Utilities.newBlob(bytes, data.attachment.mimeType || 'text/html', data.attachment.filename || 'waiver.html')];
+  }
+  MailApp.sendEmail(mail);
+  if (submissionId) cache.put('submission:' + submissionId, '1', 21600);
+  return json_({ ok: true });
+}
+
+function json_(value) {
+  return ContentService.createTextOutput(JSON.stringify(value)).setMimeType(ContentService.MimeType.JSON);
 }
 
 function ensureHeader_(sheet) {

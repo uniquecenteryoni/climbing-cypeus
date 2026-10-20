@@ -1,20 +1,22 @@
-# סנכרון Formspree → Gmail → Google Sheets
+# טפסי האתר → Gmail + Google Sheets
 
-האתר נשאר סטטי. הסקריפט רץ בתוך Google Apps Script, קורא את הודעות Formspree שהגיעו ל־Gmail ומוסיף רק הודעות חדשות ל־Google Sheet.
+האתר נשאר סטטי. טפסי האתר שולחים ישירות ל־Google Apps Script, שמוסיף כל פנייה ל־Google Sheet ושולח התראה לכתובת של חשבון Google שפרסם את ה־Web App. סנכרון Formspree הקיים נשאר כדי לייבא פניות ישנות מ־Gmail.
 
-## הפעלה חד־פעמית
+## הפעלה / עדכון
 
 1. פתח את [Google Sheet של הלידים](https://docs.google.com/spreadsheets/d/1OfXQhLIeWuduWEUbJuifDjUnYEZjnjBRV6wMR6o8ZbE/edit).
 2. בתפריט `Extensions` בחר `Apps Script`.
 3. מחק את הקוד הקיים והדבק את תוכן `Code.gs`.
-4. שמור, בחר בפונקציה `setupFormspreeSync` ולחץ `Run`.
-5. אשר את הרשאות Gmail ו־Google Sheets.
+4. שמור, בחר בפונקציה `setupFormspreeSync` ולחץ `Run` כדי להכין את הגיליון ולשמור על ייבוא הודעות Formspree ישנות.
+5. בחר `authorizeLeadNotifications` ולחץ `Run`. אשר את הרשאות Google Sheets ו־Gmail/Mail.
+6. בחר `Deploy → Manage deployments`, ערוך את פריסת ה־Web App הקיימת, בחר `New version`, והשאר `Execute as: Me` ו־`Who has access: Anyone`. כך כתובת `/exec` הקיימת נשארת תקפה.
+7. העלה ל־GitHub את שינויי האתר שבפרויקט.
 
-הסקריפט יבצע ייבוא ראשוני וייצור טריגר אוטומטי שרץ פעם בשעה. כל הודעה מזוהה לפי `Gmail message ID`, ולכן היא לא תיובא פעמיים.
+הפניות החדשות יישמרו בגיליון ויישלחו במייל ישירות מ־Google. טריגר Formspree ממשיך לייבא הודעות ישנות פעם בחמש דקות ומונע כפילויות לפי `Gmail message ID`.
 
 ## חיבור הנתונים לפאנל באתר
 
-ב־Apps Script בחר `Deploy → New deployment → Web app`, בחר `Execute as: Me` ובחר גישה `Anyone with the link`. העתק את כתובת ה־`/exec` והדבק אותה במקום `const DATA_URL = '';` בקובץ `admin/dashboard.html`. לאחר מכן דחוף את הקובץ ל־GitHub.
+הפאנל כבר משתמש באותה כתובת `/exec` לקריאת הגיליון. פרסם גרסה חדשה של הפריסה הקיימת; אין צורך להחליף את כתובת `DATA_URL`.
 
 הערה: Web App פתוח מאפשר לכל מי שמחזיק בכתובת לקרוא את הנתונים. אם הפרטיות חשובה, השאר את הנתונים בתוך Google Sheets ואל תפעיל Web App ציבורי, או השתמש בהגנת גישה חיצונית.
 

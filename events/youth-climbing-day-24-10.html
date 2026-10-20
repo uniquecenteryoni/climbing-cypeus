@@ -37,7 +37,7 @@
       <div class="form-content">
         <h2>שריינו מקום בקבוצה</h2>
         <p>השאירו פרטים ונחזור אליכם בהקדם לאישור ההרשמה ולפרטי התשלום.</p>
-        <form id="eventRegistration" action="https://formspree.io/f/mjkdalap" method="POST">
+        <form id="eventRegistration" action="https://script.google.com/macros/s/AKfycbyQpSz4mG8445buzVR7fvfZTdfzw-wEpgoN7Ojv1IJIcHLZhH5XZJ8QO-VPCLk1-awF7g/exec" method="POST">
           <input type="hidden" name="event" value="יום טיפוס לנוער 24.10">
           <input type="hidden" name="event_date" value="24.10">
           <input type="hidden" name="event_price" value="50 EUR למשתתף">
@@ -61,5 +61,6 @@
     const form=document.getElementById('eventRegistration');
     form.addEventListener('submit',async e=>{e.preventDefault();const btn=form.querySelector('button');btn.disabled=true;btn.textContent='שולחים…';try{const res=await fetch(form.action,{method:'POST',body:new FormData(form),headers:{Accept:'application/json'}});if(!res.ok)throw new Error('submit');if(window.recordSiteLead)window.recordSiteLead({name:form.name.value,email:form.email.value,phone:form.phone.value,type:'event',event:'יום טיפוס לנוער 24.10',event_date:'24.10',event_price:'50 EUR למשתתף',interest:'הרשמה לאירוע',message:form.message.value,status:'חדש'});form.closest('.form-wrap').classList.add('submitted');document.getElementById('registration').scrollIntoView({behavior:'smooth',block:'center'});}catch(_){btn.disabled=false;btn.textContent='נסו שוב — שליחת הפרטים';alert('אירעה שגיאה בשליחה. נסו שוב או פנו אלינו ישירות.');}});
   </script>
+<script src="/site-form-submit.js?v=20261020"></script>
 </body>
 </html>

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="240mm" height="70mm" viewBox="0 0 240 70">
+  <title>Climbing Cyprus car decal sketch</title>
+  <desc>Single-color white vinyl decal for a black Skoda Yeti. Transparent background; artwork is white.</desc>
+  <g fill="#fff">
+    <!-- Compact mountain-and-climber mark -->
+    <path d="M8 49 30 13l10 16 8-12 22 32H8Zm13-4h42L48 24l-8 13-10-15-9 23Z"/>
+    <circle cx="39" cy="21" r="2.2"/>
+    <path d="m38 24-5 7 5 4 3-6 5 5 2-2-6-8-3 1-1-1Z"/>
+    <!-- Brand name -->
+    <text x="78" y="31" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" letter-spacing="1.2">CLIMBING</text>
+    <text x="78" y="50" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" letter-spacing="1.2">CYPRUS</text>
+    <path d="M78 56h149v1.4H78z"/>
+    <text x="78" y="66" font-family="Arial, Helvetica, sans-serif" font-size="6.2" font-weight="600" letter-spacing="1.05">GUIDING  •  COURSES  •  ADVENTURES</text>
+  </g>
+</svg>

@@ -8539,67 +8539,51 @@ html[dir="rtl"] .guide-planning-card-arrow { transform: rotate(180deg); }
 }
 
 .landing-page .hero h1 {
-    margin: 0 0 12px;
+    margin: 0 0 18px;
     color: #f4f0e6;
-    font-size: clamp(20px, 1.6vw, 25px);
-    font-weight: 700;
-    line-height: 1.2;
-    letter-spacing: 0;
-    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.18);
+    font-family: "Arial Narrow", Impact, sans-serif;
+    font-size: clamp(48px, 6vw, 82px);
+    font-stretch: condensed;
+    font-weight: 900;
+    line-height: 0.9;
+    letter-spacing: -0.035em;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.24);
     text-align: inherit;
 }
 
 .landing-page .hero h1::after {
     content: "";
     display: block;
-    display: none;
+    width: clamp(112px, 18vw, 180px);
+    height: 5px;
+    margin-top: 10px;
+    border-radius: 70% 35% 65% 30%;
+    background: #f36a18;
+    transform: rotate(-2deg);
 }
 
-.landing-page .hero-eyebrow {
-    display: block;
-    margin-bottom: 14px;
-    color: #f5c17a;
-    font-size: 0.82rem;
-    font-weight: 700;
-    letter-spacing: 0.16em;
-}
-
-.landing-page .hero-marketing-title {
-    margin: 0 0 22px;
-    color: #f4f0e6;
-    font-size: clamp(42px, 4.2vw, 64px);
-    font-weight: 700;
-    line-height: 1.08;
-    letter-spacing: -0.02em;
-    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.18);
+.landing-page .hero-accent {
+    color: #b5ca9a;
 }
 
 .landing-page .hero p {
-    margin-bottom: 34px;
+    max-width: 490px;
+    margin: 0 0 24px;
     color: #fff;
-    font-size: clamp(20px, 1.8vw, 24px);
+    font-size: clamp(18px, 1.5vw, 21px);
     font-weight: 400;
-    line-height: 1.35;
+    line-height: 1.4;
     text-align: inherit;
-}
-
-.landing-page .hero-areas-link {
-    display: inline-block;
-    margin-inline-start: 22px;
-    color: #fff;
-    font-size: 1rem;
-    font-weight: 600;
-    text-underline-offset: 5px;
 }
 
 .landing-page .cta-button {
     display: inline-flex;
     align-items: center;
     gap: 14px;
-    min-height: 76px;
-    padding: 0 46px;
-    border-radius: 9px;
-    background: var(--accent-color);
+    min-height: 54px;
+    padding: 0 28px;
+    border-radius: 999px;
+    background: #ed5d0b;
     box-shadow: none;
     color: #fff;
     font-size: 1.12rem;
@@ -8823,66 +8807,17 @@ html[dir="rtl"] .guide-planning-card-arrow { transform: rotate(180deg); }
     }
 
     .landing-page .hero h1 {
-        font-size: 18px;
-    }
-
-    .landing-page .hero h1::after {
-        display: none;
-    }
-
-    .landing-page .hero-eyebrow {
-        margin-bottom: 10px;
-    }
-
-    .landing-page .hero-marketing-title {
-        margin-bottom: 18px;
-        font-size: clamp(36px, 9vw, 48px);
+        font-size: clamp(40px, 9vw, 54px);
     }
 
     .landing-page .hero p {
-        font-size: 20px;
+        font-size: clamp(17px, 4.8vw, 20px);
     }
 
     .landing-page .cta-button {
-        width: 100%;
+        width: auto;
+        min-width: 220px;
         justify-content: center;
-    }
-
-    .landing-page .hero-areas-link {
-        margin: 16px 0 0;
-    }
-
-    .landing-page .hero-scroll-cue {
-        display: none;
-    }
-
-    .landing-page .hero-features {
-        grid-template-columns: repeat(4, minmax(0, 1fr));
-        padding: 10px 52px 12px 8px;
-    }
-
-    .landing-page.rtl .hero-features {
-        padding: 10px 8px 12px 52px;
-    }
-
-    .landing-page .hero-feature {
-        flex-direction: column;
-        gap: 5px;
-        min-height: 62px;
-        padding: 0 5px;
-        font-size: 11px;
-        line-height: 1.15;
-        white-space: normal;
-    }
-
-    .landing-page .hero-feature svg {
-        width: 28px;
-        height: 28px;
-    }
-
-    .landing-page .hero-scroll-cue {
-        bottom: 112px;
-        font-size: 14px;
     }
 }
 

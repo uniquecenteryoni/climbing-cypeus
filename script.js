@@ -469,7 +469,7 @@ function initEquipmentRentalBuilder() {
         title: 'Build your equipment rental',
         from: 'Pickup date', to: 'Return date', items: 'Available equipment', qty: 'Quantity', size: 'size', availableSizes: 'Available sizes', selectedItems: 'Your selected equipment', selectedEmpty: 'Your selection will appear here.', confirmSizes: 'Confirm sizes', closePicker: 'Close', unavailable: 'Unavailable',
         deviceOptions: 'Choose a belay device', deviceTypes: ['ATC', 'Reverso', 'Smart', 'GriGri'],
-        total: 'Estimated total', days: 'rental days', discount: 'Multi-day discount (10%)', quantityDiscount: 'Crash pad quantity discount',
+        total: 'Estimated total', days: 'rental days', discount: 'Multi-day discount (10%)', quantityDiscount: 'Crash pad quantity discount', couponTitle: 'Apply a coupon',
         send: 'Continue to order', choose: 'Choose at least one item and both rental dates to continue.', invalidDates: 'The return date must be the same as or later than the pickup date.',
         names: ['Climbing rope', 'Climbing shoes', 'Harness', 'Chalk bag', 'Helmet', '12 quickdraws (set)', 'Belay device', 'Crash pad'],
         message: 'Hello, I would like to request this equipment rental:', dates: 'Dates',
@@ -478,7 +478,7 @@ function initEquipmentRentalBuilder() {
         title: 'בונים את הזמנת השכרת הציוד',
         from: 'תאריך איסוף', to: 'תאריך החזרה', items: 'הציוד הזמין', qty: 'כמות', size: 'מידה', availableSizes: 'מידות זמינות', selectedItems: 'הציוד שבחרתם', selectedEmpty: 'הבחירות שלכם יופיעו כאן.', confirmSizes: 'אישור מידות', closePicker: 'סגירה', unavailable: 'לא זמין',
         deviceOptions: 'בחירת מכשיר אבטחה', deviceTypes: ['ATC', 'Reverso', 'Smart', 'GriGri'],
-        total: 'סה״כ משוער', days: 'ימי השכרה', discount: 'הנחת השכרה לכמה ימים (10%)', quantityDiscount: 'הנחה על כמות קראשפדים',
+        total: 'סה״כ משוער', days: 'ימי השכרה', discount: 'הנחת השכרה לכמה ימים (10%)', quantityDiscount: 'הנחה על כמות קראשפדים', couponTitle: 'הזנת קופון והמשך להזמנה',
         send: 'המשך להזמנה', choose: 'בחרו לפחות פריט אחד ואת שני תאריכי ההשכרה כדי להמשיך.', invalidDates: 'תאריך ההחזרה חייב להיות זהה לתאריך האיסוף או מאוחר ממנו.',
         names: ['חבל טיפוס', 'נעלי טיפוס', 'רתמה', 'שק מגנזיום', 'קסדה', 'סט של 12 ראנרים', 'מכשיר אבטחה', 'קראשפד'],
         message: 'שלום, אשמח להזמין את הציוד הבא:', dates: 'תאריכים',
@@ -517,7 +517,7 @@ function initEquipmentRentalBuilder() {
         ${Object.keys(sizeOptions).map(index => `<div class="rental-picker-overlay" data-rental-size-modal="${index}" hidden><section class="rental-picker-dialog" role="dialog" aria-modal="true" aria-labelledby="rental-size-title-${index}" tabindex="-1"><button type="button" class="rental-picker-close" data-rental-picker-close aria-label="${t.closePicker}">×</button><h3 id="rental-size-title-${index}">${t.names[index]}</h3><p>${t.availableSizes}</p><div class="rental-size-grid" role="group" aria-label="${t.availableSizes}: ${t.names[index]}">${sizeOptions[index].sizes.map(size => sizeControls(index, size)).join('')}</div><button type="button" class="rental-picker-confirm" data-rental-picker-confirm>${t.confirmSizes}</button></section></div>`).join('')}
         <div class="rental-picker-overlay" data-rental-belay-modal hidden><section class="rental-picker-dialog rental-belay-dialog" role="dialog" aria-modal="true" aria-labelledby="rental-belay-title" tabindex="-1"><button type="button" class="rental-picker-close" data-rental-picker-close aria-label="${t.closePicker}">×</button><h3 id="rental-belay-title">${t.deviceOptions}</h3><div class="rental-belay-options">${t.deviceTypes.map(type => `<button type="button" data-belay-add="${type}">${type}<i class="fas fa-plus" aria-hidden="true"></i></button>`).join('')}</div></section></div>
         <section class="rental-selected-items" data-rental-selected-items aria-live="polite" dir="${isEnglish ? 'ltr' : 'rtl'}"><h3>${t.selectedItems}</h3><p data-rental-empty>${t.selectedEmpty}</p><ul data-rental-selected-list></ul></section>
-        <section class="rental-summary" aria-label="${t.total}" aria-live="polite"><div class="rental-summary-metric"><span class="rental-metric-icon"><i class="fas fa-calendar-check" aria-hidden="true"></i></span><span>${t.days}</span><strong data-rental-days>1</strong></div><div class="rental-summary-metric"><span class="rental-metric-icon"><i class="fas fa-tag" aria-hidden="true"></i></span><span>${t.subtotal}</span><strong data-rental-subtotal>€0</strong></div><div class="rental-summary-metric rental-discount-row" data-rental-quantity-discount-row hidden><span class="rental-metric-icon"><i class="fas fa-tags" aria-hidden="true"></i></span><span>${t.quantityDiscount}</span><strong data-rental-quantity-discount>−€0</strong></div><div class="rental-summary-metric rental-discount-row" data-rental-discount-row hidden><span class="rental-metric-icon"><i class="fas fa-percent" aria-hidden="true"></i></span><span>${t.discount}</span><strong data-rental-discount>−€0</strong></div><div class="rental-summary-metric rental-discount-row" data-rental-coupon-row hidden><span class="rental-metric-icon"><i class="fas fa-ticket-alt" aria-hidden="true"></i></span><span>${t.couponDiscount}</span><strong data-rental-coupon-discount>−€0</strong></div><div class="rental-summary-metric rental-total"><span class="rental-metric-icon"><i class="fas fa-wallet" aria-hidden="true"></i></span><span>${t.total}</span><strong data-rental-total>€0</strong></div><div class="rental-summary-action"><button type="button" class="rental-send"><span>${t.send}</span><i class="fas fa-arrow-left" aria-hidden="true"></i></button><div class="rental-coupon-step" data-rental-coupon-step hidden><label for="rental-coupon-code">${t.coupon}</label><div class="rental-coupon-form"><input id="rental-coupon-code" type="text" autocomplete="off" autocapitalize="characters" placeholder="${t.couponPlaceholder}" data-rental-coupon-input><button type="button" data-rental-apply-coupon>${t.applyCoupon}</button></div><p class="rental-coupon-status" data-rental-coupon-status role="status" aria-live="polite"></p><button type="button" class="rental-send" data-rental-whatsapp>${t.continueWhatsApp}<i class="fab fa-whatsapp" aria-hidden="true"></i></button><button type="button" class="rental-coupon-skip" data-rental-skip-coupon>${t.skipCoupon}</button></div><p class="rental-note" data-rental-hint>${t.hint}</p><p class="rental-note">${t.note}</p><p class="rental-validation" data-rental-validation role="alert" hidden></p></div></section>`;
+        <section class="rental-summary" aria-label="${t.total}" aria-live="polite"><div class="rental-summary-metric"><span class="rental-metric-icon"><i class="fas fa-calendar-check" aria-hidden="true"></i></span><span>${t.days}</span><strong data-rental-days>1</strong></div><div class="rental-summary-metric"><span class="rental-metric-icon"><i class="fas fa-tag" aria-hidden="true"></i></span><span>${t.subtotal}</span><strong data-rental-subtotal>€0</strong></div><div class="rental-summary-metric rental-discount-row" data-rental-quantity-discount-row hidden><span class="rental-metric-icon"><i class="fas fa-tags" aria-hidden="true"></i></span><span>${t.quantityDiscount}</span><strong data-rental-quantity-discount>−€0</strong></div><div class="rental-summary-metric rental-discount-row" data-rental-discount-row hidden><span class="rental-metric-icon"><i class="fas fa-percent" aria-hidden="true"></i></span><span>${t.discount}</span><strong data-rental-discount>−€0</strong></div><div class="rental-summary-metric rental-discount-row" data-rental-coupon-row hidden><span class="rental-metric-icon"><i class="fas fa-ticket-alt" aria-hidden="true"></i></span><span>${t.couponDiscount}</span><strong data-rental-coupon-discount>−€0</strong></div><div class="rental-summary-metric rental-total"><span class="rental-metric-icon"><i class="fas fa-wallet" aria-hidden="true"></i></span><span>${t.total}</span><strong data-rental-total>€0</strong></div><div class="rental-summary-action"><button type="button" class="rental-send"><span>${t.send}</span><i class="fas fa-arrow-left" aria-hidden="true"></i></button><dialog class="rental-coupon-dialog" data-rental-coupon-step aria-labelledby="rental-coupon-title"><button type="button" class="rental-coupon-close" data-rental-coupon-close aria-label="${t.closePicker}">×</button><h3 id="rental-coupon-title">${t.couponTitle}</h3><label class="rental-coupon-label" for="rental-coupon-code">${t.coupon}</label><div class="rental-coupon-form"><input id="rental-coupon-code" type="text" autocomplete="off" autocapitalize="characters" placeholder="${t.couponPlaceholder}" data-rental-coupon-input autofocus><button type="button" data-rental-apply-coupon>${t.applyCoupon}</button></div><p class="rental-coupon-status" data-rental-coupon-status role="status" aria-live="polite"></p><button type="button" class="rental-send" data-rental-whatsapp>${t.continueWhatsApp}<i class="fab fa-whatsapp" aria-hidden="true"></i></button><button type="button" class="rental-coupon-skip" data-rental-skip-coupon>${t.skipCoupon}</button></dialog><p class="rental-note" data-rental-hint>${t.hint}</p><p class="rental-note">${t.note}</p><p class="rental-validation" data-rental-validation role="alert" hidden></p></div></section>`;
     const oldVideos = rental.querySelector('.equipment-bouldering-videos');
     const selectionLayout = document.createElement('div');
     selectionLayout.className = 'rental-selection-layout';
@@ -705,7 +705,7 @@ function initEquipmentRentalBuilder() {
         if (datesReversed || !hasSelection || !start.value || !end.value || !days) {
             validation.textContent = datesReversed ? t.invalidDates : t.choose;
             validation.hidden = false;
-            builder.querySelector('[data-rental-coupon-step]').hidden = true;
+            builder.querySelector('[data-rental-coupon-step]').close();
             builder.querySelector('.rental-send').hidden = false;
             if (!start.value) start.focus(); else if (!end.value) end.focus();
             return;
@@ -729,6 +729,7 @@ function initEquipmentRentalBuilder() {
         if (couponApplied) lines.push(`${t.couponDiscount} (${couponApplied.code}, ${couponApplied.percent}%): −${money(couponDiscount)}`);
         lines.push(`${t.estimate}: ${money(total)}`);
         window.open(`https://wa.me/972504443328?text=${encodeURIComponent(lines.join('\n'))}`, '_blank', 'noopener');
+        return true;
     };
     builder.querySelector('.rental-send').addEventListener('click', () => {
         calculate();
@@ -748,8 +749,8 @@ function initEquipmentRentalBuilder() {
         }
         validation.hidden = true;
         validation.textContent = '';
-        builder.querySelector('.rental-send').hidden = true;
-        builder.querySelector('[data-rental-coupon-step]').hidden = false;
+        const couponDialog = builder.querySelector('[data-rental-coupon-step]');
+        if (!couponDialog.open) couponDialog.showModal();
         builder.querySelector('[data-rental-coupon-input]').focus();
     });
     const applyRentalCoupon = async () => {
@@ -775,11 +776,14 @@ function initEquipmentRentalBuilder() {
         status.classList.remove('is-success', 'is-error');
         calculate();
     });
-    builder.querySelector('[data-rental-whatsapp]').addEventListener('click', sendRentalToWhatsApp);
+    const couponDialog = builder.querySelector('[data-rental-coupon-step]');
+    couponDialog.querySelector('[data-rental-coupon-close]').addEventListener('click', () => couponDialog.close());
+    couponDialog.addEventListener('close', () => builder.querySelector('.rental-send').focus());
+    builder.querySelector('[data-rental-whatsapp]').addEventListener('click', () => { if (sendRentalToWhatsApp()) couponDialog.close(); });
     builder.querySelector('[data-rental-skip-coupon]').addEventListener('click', () => {
         couponApplied = null;
         calculate();
-        sendRentalToWhatsApp();
+        if (sendRentalToWhatsApp()) couponDialog.close();
     });
     calculate();
 }

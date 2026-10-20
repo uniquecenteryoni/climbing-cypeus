@@ -10994,19 +10994,22 @@ body.rental-picker-open { overflow: hidden; }
     .rental-selection-layout > .rental-selected-items { grid-column: 1; grid-row: 2; position: static; }
 }
 .rental-coupon-promo { background: #fff6e5; border-color: #ebd9ad; color: #68501c; }
-.rental-coupon-step { margin-top: .85rem; padding: 1rem; border: 1px solid rgba(255,255,255,.35); border-radius: 13px; background: rgba(255,255,255,.1); text-align: start; }
-.rental-coupon-step[hidden] { display: none; }
-.rental-coupon-step > label { display: block; margin-bottom: .5rem; font-weight: 750; }
+.rental-coupon-dialog { position: fixed; inset: 0; width: min(520px, calc(100% - 32px)); max-height: min(90vh, 720px); margin: auto; padding: 1.5rem; overflow: auto; border: 1px solid #dce7e0; border-radius: 18px; background: #fff; color: #173f32; text-align: start; box-shadow: 0 24px 80px rgba(10, 24, 17, .3); }
+.rental-coupon-dialog::backdrop { background: rgba(8, 18, 13, .66); backdrop-filter: blur(3px); }
+.rental-coupon-dialog h3 { margin: 0 0 1rem; padding-inline-end: 2.5rem; color: #173f32; font-size: 1.35rem; }
+.rental-coupon-dialog .rental-coupon-label { display: block; margin-bottom: .5rem; font-weight: 750; }
+.rental-coupon-close { position: absolute; inset-block-start: .7rem; inset-inline-end: .7rem; display: grid; width: 40px; height: 40px; place-items: center; border: 0; border-radius: 50%; background: #edf5f0; color: #173f32; font-size: 1.5rem; cursor: pointer; }
+.rental-coupon-close:focus-visible, .rental-coupon-form > button:focus-visible { outline: 3px solid #f0bd54; outline-offset: 2px; }
 .rental-coupon-form { display: flex; gap: .5rem; }
 .rental-coupon-form input { flex: 1 1 auto; min-width: 0; min-height: 46px; padding: .65rem .8rem; border: 1px solid #d6e4dd; border-radius: 9px; background: #fff; color: #173f32; font: inherit; text-transform: uppercase; }
 .rental-coupon-form > button { flex: 0 0 auto; min-height: 46px; padding: .6rem .9rem; border: 0; border-radius: 9px; background: #d6eadf; color: #124737; font: inherit; font-weight: 750; cursor: pointer; }
 .rental-coupon-status { min-height: 1.4em; margin: .4rem 0; font-size: .9rem; }
-.rental-coupon-status.is-success { color: #b8f0ce; font-weight: 700; }
-.rental-coupon-status.is-error { color: #ffd1c9; font-weight: 700; }
+.rental-coupon-status.is-success { color: #168257; font-weight: 700; }
+.rental-coupon-status.is-error { color: #b34b3d; font-weight: 700; }
 .rental-coupon-skip { display: block; margin: .65rem auto 0; padding: .35rem .5rem; border: 0; background: transparent; color: inherit; font: inherit; text-decoration: underline; cursor: pointer; }
-.rental-coupon-step .rental-send { min-height: 50px; }
+.rental-coupon-dialog .rental-send { min-height: 50px; }
 @media (max-width: 560px) {
-    .rental-coupon-step { padding: .8rem; }
+    .rental-coupon-dialog { padding: 1.2rem; }
     .rental-coupon-form { flex-wrap: wrap; }
     .rental-coupon-form > button { flex: 1 1 100%; }
 }
@@ -11017,4 +11020,10 @@ body.rental-picker-open { overflow: hidden; }
     font-family: var(--font-primary, "Rubik", sans-serif);
     font-size: 1.3rem !important;
     line-height: 1.25;
+}
+
+/* Give the Hebrew homepage headline more presence. */
+.landing-page.rtl .hero h1 { font-size: clamp(58px, 7.5vw, 96px); }
+@media (max-width: 768px) {
+    .landing-page.rtl .hero h1 { font-size: clamp(48px, 10.5vw, 64px); }
 }

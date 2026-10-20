@@ -1,5 +1,5 @@
 /* Import Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Rubik:wght@300;400;500;600;700;800;900&display=swap');
 
 /* Reset and Base Styles */
 * {
@@ -8541,7 +8541,7 @@ html[dir="rtl"] .guide-planning-card-arrow { transform: rotate(180deg); }
 .landing-page .hero h1 {
     margin: 0 0 18px;
     color: #f4f0e6;
-    font-family: "Arial Narrow", Impact, sans-serif;
+    font-family: inherit;
     font-size: clamp(48px, 6vw, 82px);
     font-stretch: condensed;
     font-weight: 900;
@@ -8549,6 +8549,14 @@ html[dir="rtl"] .guide-planning-card-arrow { transform: rotate(180deg); }
     letter-spacing: -0.035em;
     text-shadow: 0 2px 12px rgba(0, 0, 0, 0.24);
     text-align: inherit;
+}
+
+.landing-page.rtl .hero {
+    font-family: "Rubik", sans-serif;
+}
+
+.landing-page.ltr .hero {
+    font-family: "Montserrat", sans-serif;
 }
 
 .landing-page .hero h1::after {
@@ -8627,6 +8635,10 @@ html[dir="rtl"] .guide-planning-card-arrow { transform: rotate(180deg); }
     direction: rtl;
 }
 
+.landing-page.ltr .hero-features {
+    direction: ltr;
+}
+
 .landing-page .hero-feature {
     display: flex;
     align-items: center;
@@ -8654,6 +8666,30 @@ html[dir="rtl"] .guide-planning-card-arrow { transform: rotate(180deg); }
     stroke-linecap: round;
     stroke-linejoin: round;
     stroke-width: 1.7;
+}
+
+@media (max-width: 768px) {
+    .landing-page .hero-features {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        padding: 8px 16px calc(10px + env(safe-area-inset-bottom));
+    }
+
+    .landing-page .hero-feature {
+        gap: 7px;
+        min-height: 40px;
+        padding: 4px 2px;
+        font-size: 12px;
+        white-space: normal;
+    }
+
+    .landing-page .hero-feature svg {
+        width: 23px;
+        height: 23px;
+    }
+
+    .landing-page .hero-scroll-cue {
+        display: none;
+    }
 }
 
 .landing-page .hero-scroll-cue {
@@ -8818,6 +8854,10 @@ html[dir="rtl"] .guide-planning-card-arrow { transform: rotate(180deg); }
         width: auto;
         min-width: 220px;
         justify-content: center;
+    }
+
+    .landing-page .hero-scroll-cue {
+        display: none;
     }
 }
 

@@ -37,6 +37,11 @@ const translations = {
         "hero-title": "טיפוס צוקים<br><span class=\"hero-accent\">בקפריסין</span>",
         "hero-subtitle": "טיפוס צוקים מודרך לכל הרמות, עם מדריך מוסמך.",
         "hero-cta": "קבעו יום טיפוס",
+        "hero-feature-locations": "מקומות נבחרים",
+        "hero-feature-equipment": "כל הציוד כלול",
+        "hero-feature-all": "מתאים לכולם",
+        "hero-feature-certified": "מדריך מוסמך",
+        "hero-scroll-cue": "גלו עוד",
         
         // About Me section
         "about-me-title": "אודות",
@@ -656,6 +661,11 @@ const translations = {
         "hero-title": "ROCK CLIMBING<br><span class=\"hero-accent\">in Cyprus</span>",
         "hero-subtitle": "Guided rock climbing for every level, with a certified local instructor.",
         "hero-cta": "Book Your Climbing Day",
+        "hero-feature-locations": "Selected locations",
+        "hero-feature-equipment": "All equipment included",
+        "hero-feature-all": "Suitable for everyone",
+        "hero-feature-certified": "Certified guide",
+        "hero-scroll-cue": "Discover more",
         
         // About Me section
         "about-me-title": "About Me",

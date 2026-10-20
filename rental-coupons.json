@@ -1,0 +1,9 @@
+{
+  "coupons": [
+    {
+      "code": "TIMNA2026",
+      "percent": 20,
+      "active": true
+    }
+  ]
+}

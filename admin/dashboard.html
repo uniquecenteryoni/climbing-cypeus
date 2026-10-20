@@ -12,12 +12,31 @@
 .link-builder{margin-top:18px}.link-builder h2{font:700 20px Rubik;margin:0 0 6px}.link-builder-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;align-items:end;margin-top:16px}.link-builder label{display:grid;gap:5px;font-size:13px;color:var(--muted)}.link-builder input,.link-builder select{border:1px solid var(--line);border-radius:8px;padding:11px;background:#fff;color:var(--ink);font:inherit}.link-builder-actions{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:14px}.generated-link{direction:ltr;width:100%;font-size:13px}.link-builder-note{font-size:12px;color:var(--muted);margin:10px 0 0}
 .link-builder-grid{grid-template-columns:repeat(4,1fr)}@media(max-width:950px){.link-builder-grid{grid-template-columns:repeat(2,1fr)}}@media(max-width:560px){.link-builder-grid{grid-template-columns:1fr}}
 </style>
+<style>
+.coupon-manager{margin-top:18px}.coupon-form-grid{display:grid;grid-template-columns:minmax(180px,1.2fr) minmax(130px,.7fr) minmax(130px,.6fr);gap:12px;align-items:end;margin-top:18px}.coupon-form-grid label,.coupon-publish-box>label{display:grid;gap:6px;color:var(--muted);font-size:13px;font-weight:600}.coupon-form-grid input:not([type=checkbox]),.coupon-publish-box>input{width:100%;min-height:42px;border:1px solid var(--line);border-radius:8px;padding:10px;background:#fff;color:var(--ink);font:inherit}.coupon-active-label{display:flex!important;align-items:center;gap:8px;min-height:42px}.coupon-active-label input{width:18px;height:18px;accent-color:var(--green)}.coupon-table{min-width:560px}.coupon-table td:last-child{white-space:nowrap}.coupon-table .btn{padding:6px 10px;margin-inline-end:5px;font-size:12px}.coupon-state{font-weight:700;color:#398254}.coupon-state.inactive{color:#9a6c21}.coupon-publish-box{margin-top:22px;padding:18px;border:1px solid var(--line);border-radius:11px;background:#f7faf8}.coupon-publish-box>input{margin-top:7px}.coupon-publish-box a{color:var(--green);font-weight:700}@media(max-width:650px){.coupon-form-grid{grid-template-columns:1fr 1fr}.coupon-active-label{grid-column:1/-1}}
+</style>
 </head>
 <body>
 <div class="login" id="loginGate"><form class="login-box" id="loginForm"><div class="eyebrow">CLIMBING CYPRUS · PRIVATE</div><h2>כניסה לפאנל</h2><p>הפאנל מיועד לבעל האתר בלבד.</p><label for="adminPassword">סיסמת כניסה</label><input id="adminPassword" type="password" autocomplete="current-password" placeholder="הקלד סיסמה"><div class="login-error" id="loginError"></div><button class="btn primary" style="width:100%">כניסה</button></form></div>
-<div class="app hidden" id="app"><aside class="sidebar"><div class="brand"><strong>Climbing Cyprus</strong><span>ניהול לידים וקהילה</span></div><nav class="nav"><a class="active" href="/admin/dashboard"><span>◈ כל הלידים</span></a><a href="#waivers"><span>✓ אישורי השתתפות</span></a><a href="/"><span>⌂ חזרה לאתר</span></a></nav><div class="sidebar-foot">עדכון אוטומטי<br><strong id="updatedAt">—</strong></div></aside><main class="main"><header class="topbar"><div><div class="eyebrow">CLIMBING CYPRUS · ניהול</div><div class="h1">פאנל לידים</div><div class="sub">כל הלידים במקום אחד, מסודרים מהחדש לישן.</div></div><button class="btn" id="refreshBtn">רענון נתונים ↻</button></header>
+<div class="app hidden" id="app"><aside class="sidebar"><div class="brand"><strong>Climbing Cyprus</strong><span>ניהול לידים וקהילה</span></div><nav class="nav"><a class="active" href="/admin/dashboard"><span>◈ כל הלידים</span></a><a href="#waivers"><span>✓ אישורי השתתפות</span></a><a href="#coupons"><span>％ קופונים</span></a><a href="/"><span>⌂ חזרה לאתר</span></a></nav><div class="sidebar-foot">עדכון אוטומטי<br><strong id="updatedAt">—</strong></div></aside><main class="main"><header class="topbar"><div><div class="eyebrow">CLIMBING CYPRUS · ניהול</div><div class="h1">פאנל לידים</div><div class="sub">כל הלידים במקום אחד, מסודרים מהחדש לישן.</div></div><button class="btn" id="refreshBtn">רענון נתונים ↻</button></header>
 <section class="grid"><div class="card"><span class="metric-label">סה״כ לידים</span><strong class="metric-value" id="totalLeads">—</strong><div class="metric-note">כל הפניות והבחנים</div></div><div class="card"><span class="metric-label">פניות</span><strong class="metric-value" id="contactLeads">—</strong><div class="metric-note">פניות שנשלחו דרך צור קשר</div></div><div class="card"><span class="metric-label">השלמות בחנים</span><strong class="metric-value" id="quizLeads">—</strong><div class="metric-note">לפי שני הבחנים האמיתיים</div></div><div class="card"><span class="metric-label">מעוניינים בהדרכה</span><strong class="metric-value" id="trainingLeads">—</strong><div class="metric-note">סימנו כן</div></div></section>
 <section class="card link-builder" id="climbingLinkBuilder"><h2>מחולל קישור אישי ליום טיפוס</h2><p class="sub">בחרו מצוק, מחיר כולל ושעת מפגש, וקבלו קישור מוכן לשליחה ללקוח.</p><div class="link-builder-grid"><label>שפה<select id="climbingLinkLanguage"><option value="he">עברית</option><option value="en">English</option></select></label><label>מצוק<select id="climbingLinkSite"><option value="grecophatra">מצוק גרקופטרה</option><option value="dierizos">מצוק דיאריזוס</option></select></label><label>מחיר כולל (€)<input id="climbingLinkPrice" type="number" min="0" step="0.01" placeholder="למשל 120"></label><label>שעת מפגש<input id="climbingLinkTime" type="time" value="09:00"></label></div><div class="link-builder-actions"><button class="btn primary" id="generateClimbingLink" type="button">יצירת קישור</button><button class="btn" id="copyClimbingLink" type="button" disabled>העתקת קישור</button><a class="btn hidden" id="openClimbingLink" target="_blank" rel="noopener">פתיחה לבדיקה</a></div><input class="generated-link" id="generatedClimbingLink" type="text" readonly placeholder="הקישור שייווצר יופיע כאן"><p class="link-builder-note" id="climbingLinkStatus">מחיר ריק = הקישור ייווצר בלי מחיר, והוא לא יוצג ללקוח. אפשר ליצור קישורים שונים לכל לקוח בלי לשנות את העמוד עצמו.</p></section>
+<section class="card coupon-manager" id="coupons" aria-labelledby="couponsTitle">
+  <div class="panel-head"><div><h2 id="couponsTitle">ניהול קופונים</h2><p class="sub">הוסיפו קוד והנחה באחוזים. פרסום שומר את הקובץ ב־GitHub ומפעיל עדכון של האתר.</p></div></div>
+  <div class="coupon-form-grid">
+    <label>קוד קופון<input id="couponCode" type="text" maxlength="40" autocomplete="off" placeholder="למשל SUMMER15" dir="ltr"></label>
+    <label>אחוז הנחה<input id="couponPercent" type="number" min="1" max="100" step="1" placeholder="15"></label>
+    <label class="coupon-active-label"><input id="couponActive" type="checkbox" checked> קופון פעיל</label>
+  </div>
+  <div class="workspace-actions"><button class="btn primary" id="couponSaveEdit" type="button">הוספה לרשימה</button><button class="btn hidden" id="couponCancelEdit" type="button">ביטול עריכה</button></div>
+  <div class="table-wrap"><table class="data-table coupon-table"><thead><tr><th>קוד</th><th>הנחה</th><th>סטטוס</th><th>פעולות</th></tr></thead><tbody id="couponRows"></tbody></table></div>
+  <div class="coupon-publish-box">
+    <label for="couponGithubToken">Fine-grained GitHub token עם הרשאת Contents (Read and write) למאגר הזה</label>
+    <input id="couponGithubToken" type="password" autocomplete="off" spellcheck="false" placeholder="ghp_… / github_pat_…" dir="ltr">
+    <p class="link-builder-note">הטוקן משמש רק לפרסום הנוכחי ואינו נשמר. <a href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener">יצירת token ב־GitHub</a></p>
+    <div class="workspace-actions"><button class="btn primary" id="publishCoupons" type="button">פרסום דרך GitHub</button><span id="couponPublishStatus" class="copy-status" role="status" aria-live="polite"></span></div>
+  </div>
+</section>
 <section class="card lead-workspace" id="leads"><div class="panel-head"><div><h2>כל הלידים</h2><p class="sub" id="dataStatus">טוען לידים…</p></div></div><div class="view-tabs" role="tablist" aria-label="סינון לידים"><button class="view-tab active" data-lead-view="all">כל הלידים</button><button class="view-tab" data-lead-view="inquiry">פניות מהאתר</button><button class="view-tab" data-lead-view="quiz">בחנים</button><button class="view-tab" data-lead-view="event">אירועים</button></div><div class="filters"><select id="workspaceEventFilter" data-filter-category="event"><option value="all">כל האירועים</option></select><select id="workspaceQuizFilter" data-filter-category="quiz"><option value="all">כל הבחנים</option></select><select id="workspaceInquiryFilter" data-filter-category="inquiry"><option value="all">כל סוגי הפנייה</option></select><select id="workspaceStatusFilter"><option value="all">כל הסטטוסים</option></select></div><div class="workspace-summary" id="workspaceSummary"></div><div class="workspace-actions"><button class="btn" id="emailToolsToggle" type="button">העתקת מיילים לפי הסינון</button><div class="email-tools hidden" id="emailTools"><label>מתאריך <input id="emailDateFrom" type="date"></label><label>עד תאריך <input id="emailDateTo" type="date"></label><button class="btn primary" id="copyFilteredEmails" type="button">העתק עכשיו</button><span class="copy-status" id="emailCopyStatus"></span></div></div><div class="table-wrap workspace-table"><table class="data-table"><thead><tr><th>תאריך</th><th>שם ופרטי קשר</th><th>קטגוריה</th><th>אירוע / בוחן / סוג פנייה</th><th>טלפון</th><th>סטטוס</th></tr></thead><tbody id="workspaceRows"></tbody></table></div><div class="show-more-wrap"><button class="btn hidden" id="showMoreLeads" type="button">הצג עוד</button></div></section>
 <section class="card lead-workspace" id="waivers"><div class="panel-head"><div><h2>אישורי השתתפות</h2><p class="sub" id="waiverStatus">כל מי שחתם על אישור ההשתתפות והצהרת הבריאות</p></div></div><div class="workspace-summary" id="waiverSummary"></div><div class="table-wrap workspace-table"><table class="data-table"><thead><tr><th>תאריך חתימה</th><th>נציג/ה</th><th>אימייל</th><th>טלפון</th><th>הסכמת בריאות</th><th>סטטוס</th></tr></thead><tbody id="waiverRows"></tbody></table></div><div class="show-more-wrap"><button class="btn hidden" id="showMoreWaivers" type="button">הצג עוד אישורים</button></div></section>
 </main></div>
@@ -65,4 +84,72 @@ function copyFilteredEmails(){const from=$('emailDateFrom').value,to=$('emailDat
 function generateClimbingLink(){const language=$('climbingLinkLanguage').value,site=$('climbingLinkSite').value,price=$('climbingLinkPrice').value.trim(),time=$('climbingLinkTime').value||'09:00',path=language==='en'?'/en/climbing-day.html':'/climbing-day.html',url=new URL(path,window.location.origin);url.searchParams.delete('price');if(site==='dierizos')url.searchParams.set('site','dierizos');if(price!=='')url.searchParams.set('price',price);if(time)url.searchParams.set('time',time);const link=url.toString();$('generatedClimbingLink').value=link;$('copyClimbingLink').disabled=false;$('openClimbingLink').href=link;$('openClimbingLink').classList.remove('hidden');$('climbingLinkStatus').textContent=price===''?'הקישור מוכן — ללא מחיר. אפשר להעתיק ולשלוח ללקוח':'הקישור מוכן — אפשר להעתיק ולשלוח ללקוח'}
 function copyClimbingLink(){const field=$('generatedClimbingLink');field.select();navigator.clipboard.writeText(field.value).then(()=>{$('climbingLinkStatus').textContent='הקישור הועתק ללוח'}).catch(()=>{$('climbingLinkStatus').textContent='לא ניתן להעתיק אוטומטית — סמנו והעתיקו ידנית'})}
 const resetWorkspace=()=>{workspaceLimit=20;updateWorkspaceFilterVisibility();renderLeadWorkspace()};load();$('refreshBtn').onclick=load;['workspaceEventFilter','workspaceQuizFilter','workspaceInquiryFilter','workspaceStatusFilter'].forEach(id=>$(id).onchange=resetWorkspace);document.querySelectorAll('.view-tab').forEach(tab=>tab.onclick=()=>{document.querySelectorAll('.view-tab').forEach(item=>item.classList.remove('active'));tab.classList.add('active');resetWorkspace()});$('showMoreLeads').onclick=()=>{workspaceLimit+=20;renderLeadWorkspace()};$('showMoreWaivers').onclick=()=>{waiverLimit+=20;renderWaivers()};$('emailToolsToggle').onclick=()=>{$('emailTools').classList.toggle('hidden')};$('copyFilteredEmails').onclick=copyFilteredEmails;$('generateClimbingLink').onclick=generateClimbingLink;$('copyClimbingLink').onclick=copyClimbingLink;$('loginForm').onsubmit=e=>{e.preventDefault();if($('adminPassword').value==='climbing8a'){sessionStorage.setItem('ccAdmin','1');$('loginGate').classList.add('hidden');$('app').classList.remove('hidden')}else $('loginError').textContent='סיסמה שגויה'};if(sessionStorage.getItem('ccAdmin')==='1'){$('loginGate').classList.add('hidden');$('app').classList.remove('hidden')}
-</script></body></html>
+</script>
+<script>
+(() => {
+  const api = 'https://api.github.com/repos/uniquecenteryoni/climbing-cypeus/contents/rental-coupons.json';
+  const $ = id => document.getElementById(id);
+  const esc = value => String(value ?? '').replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
+  let coupons = [];
+  let editingIndex = -1;
+  const status = (message, error = false) => { $('couponPublishStatus').textContent = message; $('couponPublishStatus').style.color = error ? '#b34b3d' : '#3e936d'; };
+  const render = () => {
+    $('couponRows').innerHTML = coupons.length ? coupons.map((coupon, index) => `<tr><td dir="ltr"><strong>${esc(coupon.code)}</strong></td><td>${Number(coupon.percent)}%</td><td><span class="coupon-state${coupon.active === false ? ' inactive' : ''}">${coupon.active === false ? 'לא פעיל' : 'פעיל'}</span></td><td><button class="btn" type="button" data-coupon-edit="${index}">עריכה</button><button class="btn" type="button" data-coupon-delete="${index}">מחיקה</button></td></tr>`).join('') : '<tr><td colspan="4"><div class="workspace-empty">אין קופונים ברשימה</div></td></tr>';
+  };
+  const resetForm = () => { editingIndex = -1; $('couponCode').value = ''; $('couponPercent').value = ''; $('couponActive').checked = true; $('couponSaveEdit').textContent = 'הוספה לרשימה'; $('couponCancelEdit').classList.add('hidden'); };
+  const load = async () => {
+    try {
+      const response = await fetch(`${api}?ref=main&t=${Date.now()}`, { headers: { Accept: 'application/vnd.github+json' }, cache: 'no-store' });
+      if (!response.ok) throw new Error(`HTTP ${response.status}`);
+      const file = await response.json();
+      const content = decodeURIComponent(escape(atob(file.content.replace(/\s/g, ''))));
+      const data = JSON.parse(content);
+      coupons = Array.isArray(data.coupons) ? data.coupons : [];
+      render();
+    } catch (error) {
+      status('לא ניתן לטעון את קובץ הקופונים מ־GitHub: ' + error.message, true);
+    }
+  };
+  const encodeBase64 = text => { const bytes = new TextEncoder().encode(text); let binary = ''; bytes.forEach(byte => binary += String.fromCharCode(byte)); return btoa(binary); };
+  $('couponSaveEdit').addEventListener('click', () => {
+    const code = $('couponCode').value.trim().toUpperCase();
+    const percent = Number($('couponPercent').value);
+    if (!/^[A-Z0-9_-]{3,40}$/.test(code)) return status('הקוד צריך לכלול 3–40 תווים באנגלית, מספרים, מקף או קו תחתון.', true);
+    if (!Number.isInteger(percent) || percent < 1 || percent > 100) return status('יש להזין אחוז הנחה בין 1 ל־100.', true);
+    if (coupons.some((coupon, index) => index !== editingIndex && String(coupon.code).toUpperCase() === code)) return status('קוד כזה כבר קיים ברשימה.', true);
+    const coupon = { code, percent, active: $('couponActive').checked };
+    if (editingIndex >= 0) coupons[editingIndex] = coupon; else coupons.push(coupon);
+    render(); resetForm(); status('העדכון נשמר ברשימה. כדי להפעיל אותו באתר, לחצו על „פרסום דרך GitHub”.');
+  });
+  $('couponCancelEdit').addEventListener('click', resetForm);
+  $('couponRows').addEventListener('click', event => {
+    const edit = event.target.closest('[data-coupon-edit]');
+    const remove = event.target.closest('[data-coupon-delete]');
+    if (edit) { editingIndex = Number(edit.dataset.couponEdit); const coupon = coupons[editingIndex]; $('couponCode').value = coupon.code; $('couponPercent').value = coupon.percent; $('couponActive').checked = coupon.active !== false; $('couponSaveEdit').textContent = 'שמירת עריכה'; $('couponCancelEdit').classList.remove('hidden'); }
+    if (remove) { coupons.splice(Number(remove.dataset.couponDelete), 1); render(); resetForm(); status('הקופון הוסר מהרשימה. פרסמו דרך GitHub כדי להחיל את השינוי באתר.'); }
+  });
+  $('publishCoupons').addEventListener('click', async () => {
+    const token = $('couponGithubToken').value.trim();
+    if (!token) return status('הזינו GitHub token כדי לפרסם את העדכונים.', true);
+    const button = $('publishCoupons'); button.disabled = true; status('מפרסם את קובץ הקופונים ב־GitHub…');
+    try {
+      const headers = { Accept: 'application/vnd.github+json', Authorization: `Bearer ${token}`, 'X-GitHub-Api-Version': '2022-11-28' };
+      const current = await fetch(`${api}?ref=main`, { headers, cache: 'no-store' });
+      let sha;
+      if (current.ok) sha = (await current.json()).sha;
+      else if (current.status !== 404) throw new Error(`לא ניתן לקרוא את הקובץ ב־GitHub (HTTP ${current.status})`);
+      const body = { message: 'Update rental coupons from admin', content: encodeBase64(JSON.stringify({ coupons }, null, 2) + '\n'), branch: 'main' };
+      if (sha) body.sha = sha;
+      const response = await fetch(api, { method: 'PUT', headers: { ...headers, 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
+      const result = await response.json();
+      if (!response.ok) throw new Error(result.message || `GitHub החזיר HTTP ${response.status}`);
+      status(`פורסם ב־GitHub. Commit: ${result.commit.sha.slice(0, 7)}. עדכון האתר יופיע לאחר סיום הפריסה.`);
+      $('couponGithubToken').value = '';
+    } catch (error) {
+      status(error.message || 'הפרסום נכשל. בדקו הרשאות token וחיבור לרשת.', true);
+    } finally { button.disabled = false; }
+  });
+  load();
+})();
+</script>
+</body></html>

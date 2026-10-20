@@ -10627,11 +10627,11 @@ body.landing-page {
 @media (min-width: 601px) {
     .rental-builder-heading { min-height:170px; padding:3.45rem 1.5rem 1.1rem; }
 }
-.rental-builder-heading { grid-template-rows:auto auto; min-height:0; padding:1.25rem 1.5rem 1.1rem; }
-.rental-heading-copy { grid-row:2; }
+.rental-builder-heading { grid-template-rows:auto; min-height:0; padding:1.25rem 1.5rem 1.1rem; }
+.rental-heading-copy { grid-row:1; }
 .rental-builder-heading .rental-promo { position:relative; inset:auto; grid-row:1; justify-self:start; }
-.rental-builder-heading { grid-template-rows:auto auto; gap:.65rem; }
-.rental-heading-copy { grid-row:2; }
+.rental-builder-heading { grid-template-rows:auto; gap:.65rem; }
+.rental-heading-copy { grid-row:1; }
 .rental-heading-copy h2 { margin:0; }
 .rental-item-illustration { background-image:url('pics/rental-items-sprite.png'); background-repeat:no-repeat; background-size:400% 200%; }
 .rental-image-0 { background-position:0 0; }
@@ -11009,4 +11009,12 @@ body.rental-picker-open { overflow: hidden; }
     .rental-coupon-step { padding: .8rem; }
     .rental-coupon-form { flex-wrap: wrap; }
     .rental-coupon-form > button { flex: 1 1 100%; }
+}
+
+/* Keep rental summary figures visually consistent across all metrics. */
+.rental-summary .rental-summary-metric strong,
+.rental-summary .rental-total strong {
+    font-family: var(--font-primary, "Rubik", sans-serif);
+    font-size: 1.3rem !important;
+    line-height: 1.25;
 }

@@ -9864,6 +9864,10 @@ html[dir="rtl"] .back-to-top { right: auto; left: 1.25rem; }
     text-align: right !important;
 }
 
+.landing-page .guide-content.article-inner .guide-crag-strip .guide-place-tags {
+    display: none !important;
+}
+
 .landing-page .guide-content.article-inner .south-crag-strip .guide-place-media,
 .landing-page .guide-content.article-inner .south-crag-strip .guide-place-media img,
 .landing-page .guide-content.article-inner .north-crag-medallion .guide-place-media,

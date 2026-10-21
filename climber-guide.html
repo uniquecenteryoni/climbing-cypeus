@@ -22,11 +22,11 @@
     <link rel="shortcut icon" type="image/webp" href="favicon.webp?v=20260819">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css?v=20261002-mobile-contact-v1">
+    <link rel="stylesheet" href="style.css?v=20261021-5">
     <link rel="stylesheet" href="tour-page.css">
     
     <!-- Load translations first -->
-    <script src="translations.js?v=20261015-1"></script>
+    <script src="translations.js?v=20261021-2"></script>
     
     <!-- Apply language settings immediately to prevent flash -->
     <script>
@@ -1138,7 +1138,7 @@
         <div class="guide-video-placeholder" aria-hidden="true"><i class="fas fa-mountain-sun"></i><span data-i18n="guide-video-loading">טוענים את מסע הטיפוס בקפריסין...</span></div>
         <iframe src="https://www.youtube.com/embed/S_oiiK-iIwY?autoplay=1&mute=1&controls=0&loop=1&playlist=S_oiiK-iIwY&start=2&end=12&modestbranding=1&playsinline=1" title="Bouldering in Cyprus" allow="autoplay; encrypted-media" aria-hidden="true"></iframe>
         <div class="container">
-            <h1 data-i18n="climber-guide-title">מדריך הטיפוס בקפריסין: מצוקים, בולדרינג ותכנון טיול</h1>
+            <h1 data-i18n="climber-guide-title">המדריך למטפס בקפריסין</h1>
             <p data-i18n="climber-guide-subtitle">מידע מעשי על אזורי טיפוס, גישה ותכנון ביקור למטפסים</p>
             <p class="guide-last-updated"><span data-i18n="guide-last-updated-label">עודכן לאחרונה:</span> <time datetime="2026-10-15" data-i18n="guide-last-updated-date">15 באוקטובר 2026</time></p>
         </div>
@@ -1149,22 +1149,22 @@
         <div class="container">
             <nav style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap;">
                 <a href="#logistics" style="color: white; text-decoration: none; padding: 0.5rem 1.5rem; border-radius: 5px; transition: all 0.3s; font-weight: 500;" onmouseover="this.style.background='rgba(255,255,255,0.2)'" onmouseout="this.style.background='transparent'">
-                    <i class="fas fa-info-circle"></i> <span data-i18n="guide-nav-logistics">לוגיסטיקה</span>
+                    <span data-i18n="guide-nav-logistics">לוגיסטיקה</span>
                 </a>
                 <a href="#guide-lead-course" style="color: white; text-decoration: none; padding: 0.5rem 1.5rem; border-radius: 5px; transition: all 0.3s; font-weight: 500;" onmouseover="this.style.background='rgba(255,255,255,0.2)'" onmouseout="this.style.background='transparent'">
-                    <i class="fas fa-graduation-cap"></i> <span data-i18n="guide-nav-lead-course">קורס הובלה</span>
+                    <span data-i18n="guide-nav-lead-course">קורס הובלה</span>
                 </a>
                 <a href="#north" style="color: white; text-decoration: none; padding: 0.5rem 1.5rem; border-radius: 5px; transition: all 0.3s; font-weight: 500;" onmouseover="this.style.background='rgba(255,255,255,0.2)'" onmouseout="this.style.background='transparent'">
-                    <i class="fas fa-mountain"></i> <span data-i18n="guide-nav-north">טיפוס בצפון האי</span>
+                    <span data-i18n="guide-nav-north">טיפוס בצפון האי</span>
                 </a>
                 <a href="#south" style="color: white; text-decoration: none; padding: 0.5rem 1.5rem; border-radius: 5px; transition: all 0.3s; font-weight: 500;" onmouseover="this.style.background='rgba(255,255,255,0.2)'" onmouseout="this.style.background='transparent'">
-                    <i class="fas fa-hiking"></i> <span data-i18n="guide-nav-south">טיפוס בדרום האי</span>
+                    <span data-i18n="guide-nav-south">טיפוס בדרום האי</span>
                 </a>
                 <a href="#bouldering" style="color: white; text-decoration: none; padding: 0.5rem 1.5rem; border-radius: 5px; transition: all 0.3s; font-weight: 500;" onmouseover="this.style.background='rgba(255,255,255,0.2)'" onmouseout="this.style.background='transparent'">
-                    <i class="fas fa-hands"></i> <span data-i18n="guide-nav-bouldering">בולדרינג</span>
+                    <span data-i18n="guide-nav-bouldering">בולדרינג</span>
                 </a>
                 <a href="/equipment#rental" style="color: white; text-decoration: none; padding: 0.5rem 1.5rem; border-radius: 5px; transition: all 0.3s; font-weight: 500;" onmouseover="this.style.background='rgba(255,255,255,0.2)'" onmouseout="this.style.background='transparent'">
-                    <i class="fas fa-hiking"></i> <span data-i18n="nav-equipment-rental">השכרת ציוד</span>
+                    <span data-i18n="nav-equipment-rental">השכרת ציוד</span>
                 </a>
             </nav>
         </div>
@@ -1276,10 +1276,6 @@
             <button class="walls-carousel-button next" type="button" aria-label="Next climbing wall">←</button>
             <div class="walls-carousel-dots" role="tablist" aria-label="Climbing walls"><button class="active" type="button" aria-label="RedPoint"></button><button type="button" aria-label="Ungravity"></button><button type="button" aria-label="Rockstar"></button><button type="button" aria-label="Limassol Climbing Club"></button></div>
         </div>
-
-        <p class="guide-climbing-wall-tip" data-i18n-html="guide-climbing-walls-tip">
-            <strong>טיפ מועיל:</strong> מחיר מנוי חודשי בקירות נע בין 50-70 יורו, ורוב הקירות מציעים גם כניסות בודדות. מומלץ להצטרף לקבוצות הפייסבוק של המטפסים המקומיים - זו הדרך הטובה ביותר להכיר שותפים לטיפוס בטבע ולקבל מידע מעודכן על פתיחת מסלולים חדשים.
-        </p>
 
         <div data-hide-in-en>
         <h2 data-i18n="guide-background-title">רקע להבנת ענייני המצוקים באי</h2>
@@ -1574,8 +1570,8 @@
                     <div class="beside-category-media"><img src="pics/climberguide/recommendation-coffee-user.webp" alt="בתי קפה בקפריסין" loading="lazy"></div>
                     <div class="beside-category-content">
                         <h3><i class="fas fa-mug-hot"></i> <span data-i18n="guide-beside-coffee-title">בתי קפה</span></h3>
-                        <a class="beside-place beside-place-featured" href="https://www.google.com/maps/search/?api=1&query=Kallikas+Coffee+Corner+Pano+Arodes+Cyprus" target="_blank" rel="noopener"><strong>Kallikas Coffee Corner <span class="beside-place-badge" data-i18n="guide-beside-featured">מומלץ לקחת על הדרך למצוק</span></strong><span data-i18n="guide-beside-kallikas">Pano Arodes · קפה דרייב־אין — עצירה נוחה לקחת בדרך למצוק</span><em><i class="fas fa-location-dot"></i> <span data-i18n="guide-beside-map">קח אותי לשם ↗</span></em></a>
-                        <a class="beside-place" href="https://www.google.com/maps/search/?api=1&query=Droushia+Platea+Cafe+Cyprus" target="_blank" rel="noopener"><strong>Droushia Platea Cafe</strong><span data-i18n="guide-beside-droushia">Droushia · מקום טוב לאוכל וקפה</span><em><i class="fas fa-location-dot"></i> <span data-i18n="guide-beside-map">קח אותי לשם ↗</span></em></a>
+                        <a class="beside-place beside-place-featured" href="https://www.google.com/maps/search/?api=1&query=Kallikas+Coffee+Corner+Pano+Arodes+Cyprus" target="_blank" rel="noopener"><strong>Kallikas Coffee Corner <span class="beside-place-badge" data-i18n="guide-beside-featured">מומלץ לקחת על הדרך למצוק</span></strong><span data-i18n="guide-beside-kallikas">Pano Arodes · קפה דרייב־אין — עצירה נוחה לקחת בדרך למצוק</span><em><i class="fas fa-location-dot"></i> <span data-i18n="guide-beside-map">קח אותי לשם</span></em></a>
+                        <a class="beside-place" href="https://www.google.com/maps/search/?api=1&query=Droushia+Platea+Cafe+Cyprus" target="_blank" rel="noopener"><strong>Droushia Platea Cafe</strong><span data-i18n="guide-beside-droushia">Droushia · מקום טוב לאוכל וקפה</span><em><i class="fas fa-location-dot"></i> <span data-i18n="guide-beside-map">קח אותי לשם</span></em></a>
                     </div>
                 </div>
 
@@ -1583,8 +1579,8 @@
                     <div class="beside-category-media"><img src="pics/climberguide/recommendation-farmyard.webp" alt="Farmyard Restaurant בקפריסין" loading="lazy"></div>
                     <div class="beside-category-content">
                         <h3><i class="fas fa-utensils"></i> <span data-i18n="guide-beside-food-title">מסעדות</span></h3>
-                        <a class="beside-place" href="https://www.google.com/maps/search/?api=1&query=Farm+Yard+Kathikas+Cyprus" target="_blank" rel="noopener"><strong>Farm Yard</strong><span data-i18n="guide-beside-farm-yard">Kathikas · אוכל אסייתי מעולה</span><em><i class="fas fa-location-dot"></i> <span data-i18n="guide-beside-map">קח אותי לשם ↗</span></em></a>
-                        <a class="beside-place" href="https://www.google.com/maps/search/?api=1&query=Saropoulos+Fish+Tavern+Latchi+Cyprus" target="_blank" rel="noopener"><strong>Saropoulos Fish Tavern</strong><span data-i18n="guide-beside-saropoulos">Latchi · מסעדת דגים טובה באזור</span><em><i class="fas fa-location-dot"></i> <span data-i18n="guide-beside-map">קח אותי לשם ↗</span></em></a>
+                        <a class="beside-place" href="https://www.google.com/maps/search/?api=1&query=Farm+Yard+Kathikas+Cyprus" target="_blank" rel="noopener"><strong>Farm Yard</strong><span data-i18n="guide-beside-farm-yard">Kathikas · אוכל אסייתי מעולה</span><em><i class="fas fa-location-dot"></i> <span data-i18n="guide-beside-map">קח אותי לשם</span></em></a>
+                        <a class="beside-place" href="https://www.google.com/maps/search/?api=1&query=Saropoulos+Fish+Tavern+Latchi+Cyprus" target="_blank" rel="noopener"><strong>Saropoulos Fish Tavern</strong><span data-i18n="guide-beside-saropoulos">Latchi · מסעדת דגים טובה באזור</span><em><i class="fas fa-location-dot"></i> <span data-i18n="guide-beside-map">קח אותי לשם</span></em></a>
                     </div>
                 </div>
 
@@ -1592,9 +1588,9 @@
                     <div class="beside-category-media"><img src="pics/climberguide/recommendation-blue-lagoon.webp" alt="הלגונה הכחולה בקפריסין" loading="lazy"></div>
                     <div class="beside-category-content">
                         <h3><i class="fas fa-water"></i> <span data-i18n="guide-beside-nature-title">חופים וטבע</span></h3>
-                        <a class="beside-place" href="https://www.google.com/maps/search/?api=1&query=Bath+of+Aphrodite+Green+Lagoon+Cyprus" target="_blank" rel="noopener"><strong>Bath of Aphrodite & Green Lagoon</strong><span data-i18n="guide-beside-aphrodite">Latchi · חוף יפה, שקט ומבודד יחסית</span><em><i class="fas fa-location-dot"></i> <span data-i18n="guide-beside-map">קח אותי לשם ↗</span></em></a>
-                        <a class="beside-place" href="https://www.google.com/maps/search/?api=1&query=Sea+Caves+Peyia+Cyprus" target="_blank" rel="noopener"><strong>Sea Caves</strong><span data-i18n="guide-beside-c-caves">ליד Peyia · חוף עם מערות ונוף מרהיב</span><em><i class="fas fa-location-dot"></i> <span data-i18n="guide-beside-map">קח אותי לשם ↗</span></em></a>
-                        <a class="beside-place" href="https://www.google.com/maps/search/?api=1&query=Blue+Lagoon+Latchi+Cyprus" target="_blank" rel="noopener"><strong>Blue Lagoon</strong><span data-i18n="guide-beside-blue-lagoon">Latchi · מים טורקיז ושייט</span><em><i class="fas fa-location-dot"></i> <span data-i18n="guide-beside-map">קח אותי לשם ↗</span></em></a>
+                        <a class="beside-place" href="https://www.google.com/maps/search/?api=1&query=Bath+of+Aphrodite+Green+Lagoon+Cyprus" target="_blank" rel="noopener"><strong>Bath of Aphrodite & Green Lagoon</strong><span data-i18n="guide-beside-aphrodite">Latchi · חוף יפה, שקט ומבודד יחסית</span><em><i class="fas fa-location-dot"></i> <span data-i18n="guide-beside-map">קח אותי לשם</span></em></a>
+                        <a class="beside-place" href="https://www.google.com/maps/search/?api=1&query=Sea+Caves+Peyia+Cyprus" target="_blank" rel="noopener"><strong>Sea Caves</strong><span data-i18n="guide-beside-c-caves">ליד Peyia · חוף עם מערות ונוף מרהיב</span><em><i class="fas fa-location-dot"></i> <span data-i18n="guide-beside-map">קח אותי לשם</span></em></a>
+                        <a class="beside-place" href="https://www.google.com/maps/search/?api=1&query=Blue+Lagoon+Latchi+Cyprus" target="_blank" rel="noopener"><strong>Blue Lagoon</strong><span data-i18n="guide-beside-blue-lagoon">Latchi · מים טורקיז ושייט</span><em><i class="fas fa-location-dot"></i> <span data-i18n="guide-beside-map">קח אותי לשם</span></em></a>
                     </div>
                 </div>
 
@@ -1602,7 +1598,7 @@
                     <div class="beside-category-media"><img src="pics/climberguide/recommendation-waterfall.webp" alt="מפל קרמוטיס בקפריסין" loading="lazy"></div>
                     <div class="beside-category-content">
                         <h3><i class="fas fa-leaf"></i> <span data-i18n="guide-beside-springs-title">מעיינות וטבע</span></h3>
-                        <a class="beside-place" href="https://www.google.com/maps/search/?api=1&query=Kremiotis+Waterfall+Cyprus" target="_blank" rel="noopener"><strong>Kremiotis Waterfall</strong><span data-i18n="guide-beside-kremiotis">ליד Kremiotis Waterfall · מפל טבעי ומרשים</span><em><i class="fas fa-location-dot"></i> <span data-i18n="guide-beside-map">קח אותי לשם ↗</span></em></a>
+                        <a class="beside-place" href="https://www.google.com/maps/search/?api=1&query=Kremiotis+Waterfall+Cyprus" target="_blank" rel="noopener"><strong>Kremiotis Waterfall</strong><span data-i18n="guide-beside-kremiotis">ליד Kremiotis Waterfall · מפל טבעי ומרשים</span><em><i class="fas fa-location-dot"></i> <span data-i18n="guide-beside-map">קח אותי לשם</span></em></a>
                     </div>
                 </div>
             </div>
@@ -1762,7 +1758,7 @@
         </div>
     </div>
 
-    <script src="script.js?v=20260930-1"></script>
+    <script src="script.js?v=20261021-5"></script>
     <script async src="https://www.instagram.com/embed.js"></script>
     <script>
         // Handle topo form submission inline

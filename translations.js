@@ -505,7 +505,7 @@ const translations = {
         "tour-cta-button": "צרו קשר",
         
         // Climber's Guide
-        "climber-guide-title": "מדריך הטיפוס בקפריסין: מצוקים, בולדרינג ותכנון טיול",
+        "climber-guide-title": "המדריך למטפס בקפריסין",
         "climber-guide-subtitle": "מידע מעשי על אזורי טיפוס, גישה ותכנון ביקור למטפסים",
         "guide-last-updated-label": "עודכן לאחרונה:",
         "guide-last-updated-date": "15 באוקטובר 2026",
@@ -591,7 +591,7 @@ const translations = {
         "guide-beside-c-caves": "ליד Peyia · חוף עם מערות ונוף מרהיב",
         "guide-beside-blue-lagoon": "Latchi · מים טורקיז ושייט",
         "guide-beside-kremiotis": "ליד Kremiotis Waterfall · מפל טבעי ומרשים",
-        "guide-beside-map": "קח אותי לשם ↗",
+        "guide-beside-map": "קח אותי לשם",
         "guide-beside-plan-title": "סוגרים את יום הטיפוס",
         "guide-beside-hotels": "לינה בקפריסין",
         "guide-beside-cars": "השוואת רכבים",
@@ -1256,7 +1256,7 @@ const translations = {
         "tour-cta-button": "Contact Us",
         
         // Climber's Guide
-        "climber-guide-title": "Cyprus Climbing Guide: Crags, Bouldering & Trip Planning",
+        "climber-guide-title": "Cyprus Climbing Guide",
         "climber-guide-subtitle": "Practical information on climbing areas, access and planning your trip",
         "guide-last-updated-label": "Last updated:",
         "guide-last-updated-date": "15 October 2026",
@@ -1276,7 +1276,6 @@ const translations = {
         "guide-nav-bouldering": "Bouldering",
         "guide-nav-shade-calc": "Shade Calculator",
 
-        "guide-climbing-walls-tip": "<strong>Useful tip:</strong> Monthly memberships at the walls range from €50–70, and most gyms also offer single-entry passes. Local climbers' Facebook groups are the best way to find outdoor partners and current route updates.",
         "guide-north-buffawall-title": "3. Buffawall",
         "guide-north-buffawall-desc": "Located in a green pastoral valley with views of the open sea. Most routes are smooth slabs up to 40 metres long. There are around 15 routes, mostly grades 7 and above, with several tufas adding variety.",
         "guide-north-garga-title": "2. Garga-Suyu",
@@ -1380,7 +1379,7 @@ const translations = {
         "guide-beside-c-caves": "Near Peyia · caves, sea, and dramatic views",
         "guide-beside-blue-lagoon": "Latchi · turquoise water and boat trips",
         "guide-beside-kremiotis": "Near Kremiotis Waterfall · an impressive natural waterfall",
-        "guide-beside-map": "Take me there ↗",
+        "guide-beside-map": "Take me there",
         "guide-beside-plan-title": "Plan the rest of your day",
         "guide-beside-hotels": "Find accommodation in Cyprus",
         "guide-beside-cars": "Compare rental cars",

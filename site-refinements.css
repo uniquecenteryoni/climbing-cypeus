@@ -87,6 +87,11 @@ html[dir="rtl"] .guide-planning-card-arrow { transform: none; }
     text-underline-offset: 5px;
 }
 
+/* Keep activity actions centered. */
+.landing-page #activities .activity-btn { display: block; width: fit-content; margin: 18px auto 0; }
+
+.landing-page .guide-last-updated { font-size: .72rem; opacity: .78; margin-top: .45rem; }
+
 .guide-last-updated {
     margin: 0.65rem 0 0;
     font-size: 0.9rem;

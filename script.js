@@ -58,8 +58,7 @@ function addFloatingWhatsApp() {
     link.target = '_blank';
     link.rel = 'noopener noreferrer';
     link.setAttribute('aria-label', label);
-    link.innerHTML = '<i class="fab fa-whatsapp" aria-hidden="true"></i><span></span>';
-    link.querySelector('span').textContent = label;
+    link.innerHTML = '<i class="fab fa-whatsapp" aria-hidden="true"></i>';
     document.body.appendChild(link);
 }
 
@@ -829,32 +828,36 @@ function initGoogleReviewsCarousel() {
         const dotsContainer = carousel.querySelector('.google-reviews-dots');
         if (!track || cards.length < 2 || !dotsContainer) return;
         let index = 0;
-
-        cards.forEach((_, cardIndex) => {
-            const dot = document.createElement('button');
-            dot.type = 'button';
-            dot.className = `google-reviews-dot${cardIndex === 0 ? ' is-active' : ''}`;
-            dot.setAttribute('aria-label', `${document.documentElement.lang === 'en' ? 'Show review' : 'הצגת ביקורת'} ${cardIndex + 1}`);
-            dot.addEventListener('click', () => goTo(cardIndex));
-            dotsContainer.appendChild(dot);
-        });
-        const dots = [...dotsContainer.children];
+        let dots = [];
 
         function visibleCards() {
-            if (window.matchMedia('(max-width: 560px)').matches) return 1;
-            if (window.matchMedia('(max-width: 800px)').matches) return 2;
-            return 3;
+            return window.matchMedia('(max-width: 560px)').matches ? 1 : 2;
+        }
+        function buildDots() {
+            const positions = Math.max(1, cards.length - visibleCards() + 1);
+            dotsContainer.replaceChildren();
+            for (let position = 0; position < positions; position += 1) {
+                const dot = document.createElement('button');
+                dot.type = 'button';
+                dot.className = `google-reviews-dot${position === index ? ' is-active' : ''}`;
+                dot.setAttribute('aria-label', `${document.documentElement.lang === 'en' ? 'Show review' : 'הצגת ביקורת'} ${position + 1}`);
+                dot.addEventListener('click', () => goTo(position));
+                dotsContainer.appendChild(dot);
+            }
+            dots = [...dotsContainer.children];
         }
         function goTo(nextIndex) {
             const maxIndex = Math.max(0, cards.length - visibleCards());
             index = Math.min(Math.max(nextIndex, 0), maxIndex);
-            track.style.transform = `translate3d(${-index * (cards[0].offsetWidth + 20)}px, 0, 0)`;
+            const gap = parseFloat(getComputedStyle(track).columnGap) || 0;
+            track.style.transform = `translate3d(${-index * (cards[0].getBoundingClientRect().width + gap)}px, 0, 0)`;
             cards.forEach((card, i) => card.classList.toggle('is-active', i === index));
             dots.forEach((dot, i) => dot.classList.toggle('is-active', i === Math.min(index, dots.length - 1)));
         }
         carousel.querySelector('.google-reviews-arrow.prev')?.addEventListener('click', () => goTo(index - 1));
         carousel.querySelector('.google-reviews-arrow.next')?.addEventListener('click', () => goTo(index + 1));
-        window.addEventListener('resize', () => goTo(index));
+        window.addEventListener('resize', () => { buildDots(); goTo(index); });
+        buildDots();
         goTo(0);
     });
 }

@@ -652,10 +652,7 @@ body.landing-page.ltr .climber-guide-en .guide-climbing-wall-tip {
     transition: transform .2s ease, box-shadow .2s ease, filter .2s ease;
 }
 
-.landing-page #activities .activity-btn::after {
-    content: "↗";
-    font-size: 1.05em;
-}
+.landing-page #activities .activity-btn::after { content: none !important; display: none !important; }
 
 .landing-page #activities .activity-btn:hover {
     background: linear-gradient(135deg, #e05e16, #c84d0f) !important;
@@ -1624,6 +1621,21 @@ body.landing-page.ltr .climber-guide-en .guide-climbing-wall-tip {
 }
 
 /* Final request overrides: full-width strips and peekable guide carousels. */
+/* One typeface throughout English pages; hierarchy comes from size and weight. */
+html[dir="ltr"] body.landing-page,
+html[dir="ltr"] body.landing-page :not(i):not(svg):not(path) {
+    font-family: "Plus Jakarta Sans", sans-serif !important;
+}
+html[dir="ltr"] body.landing-page p,
+html[dir="ltr"] body.landing-page li { font-weight: 300 !important; }
+html[dir="ltr"] body.landing-page h1,
+html[dir="ltr"] body.landing-page h2,
+html[dir="ltr"] body.landing-page h3,
+html[dir="ltr"] body.landing-page h4,
+html[dir="ltr"] body.landing-page h5,
+html[dir="ltr"] body.landing-page h6 { font-weight: 800 !important; }
+.landing-page .guide-last-updated { font-size: .72rem; opacity: .78; margin-top: .45rem; }
+
 .landing-page .guide-content.article-inner .instagram-community-strip,
 .landing-page .instagram-community-strip {
     display: grid !important;
@@ -11033,6 +11045,73 @@ body.rental-picker-open { overflow: hidden; }
     font-size: 1.3rem !important;
     line-height: 1.25;
 }
+
+/* Guide map actions and gallery controls share the Discover orange. */
+.landing-page .guide-place-map-link {
+    display: inline-flex !important;
+    align-items: center;
+    gap: .45rem;
+    margin-top: .7rem;
+    padding: .58rem .9rem;
+    border-radius: 999px;
+    background: #f47920 !important;
+    color: #fff !important;
+    font-size: .9rem;
+    text-decoration: none;
+}
+.landing-page .guide-place-map-link,
+.landing-page .guide-place-map-link span,
+.landing-page .guide-place-map-link i,
+.landing-page .beside-place em,
+.landing-page .beside-place em span,
+.landing-page .beside-place em i {
+    color: #fff !important;
+}
+.landing-page .guide-place-map-link:hover { background: #df6416 !important; color: #fff !important; }
+.landing-page .beside-place em {
+    display: inline-flex !important;
+    align-items: center;
+    gap: .4rem;
+    margin-top: .65rem;
+    padding: .55rem .85rem;
+    border-radius: 999px;
+    background: #f47920;
+    color: #fff !important;
+    font-size: .85rem;
+    font-style: normal;
+    font-weight: 700;
+}
+.landing-page .beside-place em i { color: #fff !important; }
+.landing-page .beside-place:hover em { background: #df6416; color: #fff !important; }
+.landing-page .image-carousel .carousel-btn,
+.landing-page .place-carousel-button,
+.landing-page .walls-carousel-button,
+.landing-page [data-google-reviews-carousel] .google-reviews-arrow {
+    border: 0 !important;
+    background: #f47920 !important;
+    color: #fff !important;
+}
+.landing-page .image-carousel .carousel-btn:hover,
+.landing-page .place-carousel-button:hover,
+.landing-page .walls-carousel-button:hover,
+.landing-page [data-google-reviews-carousel] .google-reviews-arrow:hover {
+    background: #df6416 !important;
+    color: #fff !important;
+}
+.landing-page .google-reviews-dot.is-active { background: #f47920; }
+.landing-page .google-review-card { flex-basis: calc((100% - 1.25rem) / 2); }
+html[dir="ltr"] body.landing-page .guide-content .intro-story-body p { font-size: .98rem !important; line-height: 1.65; }
+@media (max-width: 560px) {
+    .landing-page .google-review-card { flex-basis: 100%; }
+}
+.floating-whatsapp {
+    width: 56px;
+    height: 56px;
+    padding: 0;
+    justify-content: center;
+    border-radius: 50%;
+}
+.floating-whatsapp i { font-size: 1.75rem; }
 
 /* Give the Hebrew homepage headline more presence. */
 .landing-page.rtl .hero h1 { font-size: clamp(58px, 7.5vw, 96px); }

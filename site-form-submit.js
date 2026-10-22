@@ -38,8 +38,11 @@
     const body = init && init.body;
     if (method === 'POST' && url && url.includes('/macros/s/') && body instanceof FormData) {
       const payload = await serialize(body);
-      await nativeFetch(endpoint, { method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'text/plain;charset=UTF-8' }, body: JSON.stringify(payload) });
-      return { ok: true, status: 200, json: async () => ({ ok: true }), text: async () => '{"ok":true}' };
+      const response = await nativeFetch(endpoint, { method: 'POST', headers: { 'Content-Type': 'text/plain;charset=UTF-8' }, body: JSON.stringify(payload) });
+      if (!response.ok) throw new Error('The form service returned an error.');
+      const result = await response.json();
+      if (!result || result.ok !== true) throw new Error('The form service did not confirm receipt.');
+      return { ok: true, status: response.status, json: async () => result, text: async () => JSON.stringify(result) };
     }
     return nativeFetch(input, init);
   };

@@ -113,7 +113,7 @@ function doPost(e) {
   const raw = e && e.postData ? e.postData.contents : '';
   const data = raw ? JSON.parse(raw) : {};
   if (!data || typeof data !== 'object' || Array.isArray(data)) throw new Error('Invalid submission');
-  if (data.action === 'request_delete' || data.action === 'confirm_delete') return handleLeadDeletion_(data);
+  if (data.action === 'delete_lead') return handleLeadDeletion_(data);
   if (String(data.website || '').trim()) return json_({ ok: true }); // honeypot
   const fields = data.fields || {};
   const sender = String(fields.email || '').trim().toLowerCase();
@@ -168,54 +168,18 @@ function doPost(e) {
   return json_({ ok: true });
 }
 
-/** Email-verified, one-time lead deletion for the admin dashboard. */
+/** Deletes the selected lead after the admin confirms in the dashboard. */
 function handleLeadDeletion_(data) {
-  const cache = CacheService.getScriptCache();
-  const token = String(data.token || '').slice(0, 100);
-  if (!/^[\w-]{20,100}$/.test(token)) return json_({ ok: false, error: 'בקשת מחיקה לא תקינה' });
-  const key = 'lead-delete:' + token;
-  if (data.action === 'request_delete') {
-    const rowNumber = Number(data.rowNumber);
-    const id = PropertiesService.getScriptProperties().getProperty('SPREADSHEET_ID') || CONFIG.spreadsheetId;
+  const rowNumber = Number(data.rowNumber);
+  const id = PropertiesService.getScriptProperties().getProperty('SPREADSHEET_ID') || CONFIG.spreadsheetId;
+  const lock = LockService.getScriptLock();
+  lock.waitLock(15000);
+  try {
     const sheet = SpreadsheetApp.openById(id).getSheetByName(CONFIG.sheetName);
     if (!sheet || !Number.isInteger(rowNumber) || rowNumber < 2 || rowNumber > sheet.getLastRow()) return json_({ ok: false, error: 'הליד כבר לא זמין' });
     const row = sheet.getRange(rowNumber, 1, 1, sheet.getLastColumn()).getDisplayValues()[0];
     if (rowFingerprint_(row) !== String(data.fingerprint || '')) return json_({ ok: false, error: 'פרטי הליד השתנו. רעננו את הרשימה ונסו שוב.' });
-    if (cache.get(key)) return json_({ ok: false, error: 'כבר נשלח קוד עבור הבקשה הזו' });
-    const requestLock = LockService.getScriptLock();
-    requestLock.waitLock(15000);
-    if (cache.get('lead-delete-email-cooldown')) {
-      requestLock.releaseLock();
-      return json_({ ok: false, error: 'נשלח קוד לפני רגע. המתינו מעט ונסו שוב.' });
-    }
-    const code = String(Math.floor(100000 + Math.random() * 900000));
-    cache.put(key, JSON.stringify({ code: code, rowNumber: rowNumber, fingerprint: data.fingerprint, attempts: 0 }), 600);
-    cache.put('lead-delete-email-cooldown', '1', 30);
-    requestLock.releaseLock();
-    const recipient = Session.getEffectiveUser().getEmail();
-    if (!recipient) { cache.remove(key); return json_({ ok: false, error: 'לא ניתן לזהות את בעל מערכת הלידים' }); }
-    MailApp.sendEmail(recipient, 'קוד אישור למחיקת ליד', 'הוזנה בקשה למחיקת ליד ממסך הניהול.\n\nקוד חד פעמי: ' + code + '\nהקוד תקף ל־10 דקות. אם לא ביקשת למחוק ליד, אפשר להתעלם מההודעה.');
-    return json_({ ok: true, message: 'שלחנו קוד חד פעמי לאימייל של בעל המערכת' });
-  }
-  const challenge = cache.get(key);
-  if (!challenge) return json_({ ok: false, error: 'הקוד פג או שהבקשה אינה זמינה. התחילו מחיקה מחדש.' });
-  const saved = JSON.parse(challenge);
-  if (String(data.code || '').trim() !== saved.code) {
-    saved.attempts = Number(saved.attempts || 0) + 1;
-    if (saved.attempts >= 5) cache.remove(key);
-    else cache.put(key, JSON.stringify(saved), 600);
-    return json_({ ok: false, error: saved.attempts >= 5 ? 'הקוד שגוי יותר מדי פעמים. התחילו מחיקה מחדש.' : 'הקוד שגוי' });
-  }
-  const lock = LockService.getScriptLock();
-  lock.waitLock(15000);
-  try {
-    const id = PropertiesService.getScriptProperties().getProperty('SPREADSHEET_ID') || CONFIG.spreadsheetId;
-    const sheet = SpreadsheetApp.openById(id).getSheetByName(CONFIG.sheetName);
-    if (!sheet || saved.rowNumber > sheet.getLastRow()) return json_({ ok: false, error: 'הליד כבר לא זמין' });
-    const row = sheet.getRange(saved.rowNumber, 1, 1, sheet.getLastColumn()).getDisplayValues()[0];
-    if (rowFingerprint_(row) !== saved.fingerprint) return json_({ ok: false, error: 'פרטי הליד השתנו. רעננו את הרשימה ונסו שוב.' });
-    sheet.deleteRow(saved.rowNumber);
-    cache.remove(key);
+    sheet.deleteRow(rowNumber);
     return json_({ ok: true });
   } finally { lock.releaseLock(); }
 }

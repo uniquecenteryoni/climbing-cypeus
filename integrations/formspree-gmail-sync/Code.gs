@@ -114,6 +114,8 @@ function doPost(e) {
   const data = raw ? JSON.parse(raw) : {};
   if (!data || typeof data !== 'object' || Array.isArray(data)) throw new Error('Invalid submission');
   if (data.action === 'delete_lead' || data.action === 'delete_leads') return handleLeadDeletion_(data);
+  // Never let an API action fall through to the form-submission path, which appends a row and emails the owner.
+  if (String(data.action || '').trim()) return json_({ ok: false, error: 'Unsupported action' });
   if (String(data.website || '').trim()) return json_({ ok: true }); // honeypot
   const fields = data.fields || {};
   const sender = String(fields.email || '').trim().toLowerCase();

@@ -3,64 +3,77 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="הרשמה ליום טיפוס חווייתי לנוער בקפריסין ב־24.10">
-  <title>יום טיפוס חווייתי לנוער | 24.10 | Climbing Cyprus</title>
+  <meta id="pageDescription" name="description" content="יום טיול טיפוס חווייתי לבני נוער באזור פאפוס, עם טבע, אתגר והדרכה מקצועית.">
+  <title id="pageTitle">יום טיפוס לנוער בפאפוס | Climbing Cyprus</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700;800&family=Rubik:wght@600;700;800&display=swap" rel="stylesheet">
   <style>
     :root{--ink:#122c43;--navy:#102b43;--orange:#e87525;--cream:#fff8ed;--paper:#f7f1e8;--line:#eadccc;--muted:#667687;--white:#fff}
     *{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font-family:Heebo,Arial,sans-serif}a{color:inherit}
-    .page{max-width:1180px;margin:auto;padding:24px 20px 60px}.back{display:inline-flex;gap:8px;align-items:center;text-decoration:none;font-weight:700;color:var(--navy);margin-bottom:18px}
-    .hero{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(320px,.95fr);gap:34px;align-items:center}.poster{width:100%;display:block;border-radius:22px;box-shadow:0 24px 55px #8b5b371c}.eyebrow{font-size:14px;font-weight:800;color:var(--orange);letter-spacing:.04em}.brand{font:800 18px Rubik;margin:10px 0 24px;color:var(--navy)}h1{font:800 clamp(36px,5vw,64px)/1.05 Rubik;margin:0 0 18px;color:var(--navy)}h1 span{color:var(--orange)}.lead{font-size:20px;line-height:1.65;margin:0 0 25px}.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:22px 0}.fact{background:#fff8;border:1px solid var(--line);border-radius:14px;padding:14px;text-align:center}.fact strong{display:block;font:800 22px Rubik;color:var(--navy)}.fact small{color:var(--muted)}
-    .price{background:var(--navy);color:#fff;border-radius:16px;padding:18px 20px;margin:20px 0;font-size:18px}.price strong{font:800 28px Rubik;color:#ffd18e;display:block}.note{color:var(--muted);line-height:1.6}
-    .form-card{background:var(--white);border:1px solid var(--line);border-radius:22px;padding:28px;box-shadow:0 22px 55px #8b5b3712;margin:44px auto 0;max-width:760px}.form-card h2{text-align:center;font:800 30px Rubik;margin:0 0 7px}.form-card>p{text-align:center;color:var(--muted);margin:0 0 22px}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}.field{display:grid;gap:7px}.field.full{grid-column:1/-1}.field label{font-weight:700}.field input,.field textarea{width:100%;border:1px solid #d9e0e6;border-radius:10px;padding:13px 14px;font:inherit;color:var(--ink);background:#fff}.field textarea{min-height:90px;resize:vertical}.field input:focus,.field textarea:focus{outline:3px solid #f9c58e66;border-color:var(--orange)}.submit{width:100%;border:0;border-radius:11px;padding:15px 18px;background:var(--orange);color:#fff;font:800 18px Rubik;cursor:pointer;margin-top:18px}.submit:disabled{opacity:.65;cursor:wait}.consent{font-size:12px;color:var(--muted);line-height:1.5;margin-top:12px}.success{display:none;text-align:center;padding:24px 8px}.success.show{display:block}.success-icon{font-size:44px}.success h3{font:800 28px Rubik;margin:8px 0}.success p{font-size:17px;line-height:1.6;color:var(--muted)}.form-wrap.submitted .form-content{display:none}.form-wrap.submitted .success{display:block}
-    @media(max-width:760px){.page{padding:16px 14px 40px}.hero{grid-template-columns:1fr;gap:24px}.hero-copy{order:-1}.poster{max-height:640px;object-fit:cover;object-position:top}.facts{gap:7px}.fact{padding:11px 5px}.fact strong{font-size:18px}.form-card{padding:22px 16px;margin-top:30px}.form-grid{grid-template-columns:1fr}.field.full{grid-column:auto}}
+    .page{max-width:1180px;margin:auto;padding:24px 20px 60px}.topline{display:flex;align-items:center;justify-content:space-between}.back{display:inline-flex;gap:8px;align-items:center;text-decoration:none;font-weight:700;color:var(--navy);margin-bottom:18px}.lang{border:1px solid var(--line);border-radius:999px;background:#fff;padding:9px 15px;color:var(--navy);font:700 15px Heebo;cursor:pointer;margin-bottom:18px}
+    .hero{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(320px,.95fr);gap:34px;align-items:center}.poster{width:100%;display:block;border-radius:22px;box-shadow:0 24px 55px #8b5b371c}.eyebrow{font-size:14px;font-weight:800;color:var(--orange);letter-spacing:.04em}.brand{font:800 18px Rubik;margin:10px 0 24px;color:var(--navy)}h1{font:800 clamp(36px,5vw,64px)/1.05 Rubik;margin:0 0 18px;color:var(--navy)}h1 span{color:var(--orange)}.lead{font-size:20px;line-height:1.65;margin:0 0 20px}.highlights{display:grid;gap:10px;margin:20px 0}.highlight{display:flex;align-items:center;gap:12px;background:#fff8;border:1px solid var(--line);border-radius:14px;padding:13px 16px;font-weight:600}.highlight b{font-size:20px}.note{color:var(--muted);line-height:1.6}
+    .form-card{background:var(--white);border:1px solid var(--line);border-radius:22px;padding:28px;box-shadow:0 22px 55px #8b5b3712;margin:44px auto 0;max-width:760px}.form-card h2{text-align:center;font:800 30px Rubik;margin:0 0 7px}.form-card>div>p{text-align:center;color:var(--muted);margin:0 0 22px}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}.field{display:grid;gap:7px}.field.full{grid-column:1/-1}.field label{font-weight:700}.field input,.field textarea{width:100%;border:1px solid #d9e0e6;border-radius:10px;padding:13px 14px;font:inherit;color:var(--ink);background:#fff}.field textarea{min-height:90px;resize:vertical}.field input:focus,.field textarea:focus{outline:3px solid #f9c58e66;border-color:var(--orange)}.children{display:grid;gap:10px}.child-row{display:flex;align-items:center;gap:10px}.child-row input{flex:1}.remove-child{border:1px solid var(--line);background:#fff;border-radius:9px;padding:10px 13px;color:var(--navy);font:700 14px Heebo;cursor:pointer}.add-child{justify-self:start;border:0;background:transparent;color:#a84b10;text-decoration:underline;font:700 15px Heebo;cursor:pointer;padding:4px 0}.submit{width:100%;border:0;border-radius:11px;padding:15px 18px;background:var(--orange);color:#fff;font:800 18px Rubik;cursor:pointer;margin-top:18px}.submit:disabled{opacity:.65;cursor:wait}.consent{font-size:12px;color:var(--muted);line-height:1.5;margin-top:12px}.success{display:none;text-align:center;padding:24px 8px}.success.show{display:block}.success-icon{font-size:44px}.success h3{font:800 28px Rubik;margin:8px 0}.success p{font-size:17px;line-height:1.6;color:var(--muted)}.form-wrap.submitted .form-content{display:none}.form-wrap.submitted .success{display:block}
+    @media(max-width:760px){.page{padding:16px 14px 40px}.hero{grid-template-columns:1fr;gap:24px}.hero-copy{order:-1}.poster{max-height:640px;object-fit:cover;object-position:top}.form-card{padding:22px 16px;margin-top:30px}.form-grid{grid-template-columns:1fr}.field.full{grid-column:auto}}
   </style>
 </head>
 <body>
   <main class="page">
-    <a class="back" href="/">← חזרה לאתר Climbing Cyprus</a>
+    <div class="topline"><a class="back" href="/" data-i18n="back">← חזרה לאתר Climbing Cyprus</a><button class="lang" id="languageToggle" type="button" aria-label="Switch to English">EN</button></div>
     <section class="hero">
-      <img class="poster" src="/pics/youth-climbing-day-24-10.webp" alt="מודעה ליום טיפוס חווייתי לנוער בקפריסין">
+      <img class="poster" src="/pics/youth-climbing-day-24-10.webp" alt="מודעה ליום טיפוס לנוער בפאפוס">
       <div class="hero-copy">
-        <div class="eyebrow">CLIMBING CYPRUS · הרשמה לאירוע</div>
-        <div class="brand">חוויה, אתגר ובטיחות בטבע</div>
-        <h1>יום טיפוס חווייתי<br><span>לנוער הישראלי</span></h1>
-        <p class="lead">יום מלא באנרגיה, טיפוס והיכרות עם עולם המצוקים — בליווי מדריך טיפוס מוסמך ובאווירה בטוחה ומהנה.</p>
-        <div class="facts"><div class="fact"><strong>24.10</strong><small>תאריך</small></div><div class="fact"><strong>11:00–15:00</strong><small>שעות</small></div><div class="fact"><strong>10</strong><small>מקומות בקבוצה</small></div></div>
-        <div class="price"><strong>50€ למשתתף</strong>ההרשמה אינה מחייבת תשלום מיידי. לאחר שליחת הפרטים ניצור קשר בהקדם עם כל הפרטים.</div>
-        <p class="note">מיועד לבני ובנות 14–18. אין צורך בניסיון קודם. מספר המקומות מוגבל.</p>
+        <div class="eyebrow" data-i18n="eyebrow">CLIMBING CYPRUS · יום טיול לנוער</div>
+        <div class="brand" data-i18n="brand">חוויה, אתגר וטבע באזור פאפוס</div>
+        <h1><span data-i18n="title1">יום טיפוס</span><br><span data-i18n="title2">לנוער בפאפוס</span></h1>
+        <p class="lead" data-i18n="lead">יום בלתי נשכח של הרפתקה, אתגר וטבע — הזדמנות להתנסות בטיפוס צוקים בחוץ ולגלות את הנופים היפים שסביב פאפוס.</p>
+        <div class="highlights">
+          <div class="highlight"><b>⛰️</b><span data-i18n="highlight1">מתנסים בטיפוס צוקים אמיתי בחוץ</span></div>
+          <div class="highlight"><b>🌿</b><span data-i18n="highlight2">מגלים את הטבע היפה באזור פאפוס</span></div>
+          <div class="highlight"><b>🧗</b><span data-i18n="highlight3">קבוצה קטנה והדרכה מקצועית</span></div>
+        </div>
+        <p class="note" data-i18n="note">מתאים לבני ובנות נוער. לא צריך ניסיון קודם — רק רצון לצאת להרפתקה!</p>
       </div>
     </section>
 
     <section class="form-card form-wrap" id="registration">
       <div class="form-content">
-        <h2>שריינו מקום בקבוצה</h2>
-        <p>השאירו פרטים ונחזור אליכם בהקדם לאישור ההרשמה ולפרטי התשלום.</p>
+        <h2 data-i18n="formTitle">מתעניינים? השאירו פרטים</h2>
+        <p data-i18n="formIntro">נחזור אליכם עם פרטים נוספים ונענה בשמחה על כל שאלה.</p>
         <form id="eventRegistration" action="https://script.google.com/macros/s/AKfycbyQpSz4mG8445buzVR7fvfZTdfzw-wEpgoN7Ojv1IJIcHLZhH5XZJ8QO-VPCLk1-awF7g/exec" method="POST">
-          <input type="hidden" name="event" value="יום טיפוס לנוער 24.10">
-          <input type="hidden" name="event_date" value="24.10">
-          <input type="hidden" name="event_price" value="50 EUR למשתתף">
+          <input type="hidden" name="event" value="יום טיפוס לנוער">
+          <input type="hidden" name="child_ages" id="childAgesValue">
+          <input type="hidden" name="event_price" value="">
           <input type="hidden" name="interest" value="הרשמה לאירוע">
-          <input type="hidden" name="_subject" value="הרשמה חדשה — יום טיפוס לנוער 24.10">
+          <input type="hidden" name="_subject" value="פנייה חדשה — יום טיפוס לנוער">
           <div class="form-grid">
-            <div class="field"><label for="name">שם מלא *</label><input id="name" name="name" required autocomplete="name" placeholder="ישראל ישראלי"></div>
-            <div class="field"><label for="phone">טלפון *</label><input id="phone" name="phone" required autocomplete="tel" inputmode="tel" placeholder="050-0000000"></div>
-            <div class="field full"><label for="email">אימייל *</label><input id="email" type="email" name="email" required autocomplete="email" placeholder="you@example.com"></div>
-            <div class="field full"><label for="message">הערה או שאלה (לא חובה)</label><textarea id="message" name="message" placeholder="למשל: ניסיון קודם בטיפוס, רגישות או שאלה..."></textarea></div>
+            <div class="field"><label for="name" data-i18n="nameLabel">שם מלא של ההורה *</label><input id="name" name="name" required autocomplete="name" placeholder="ישראל ישראלי"></div>
+            <div class="field"><label for="phone" data-i18n="phoneLabel">טלפון *</label><input id="phone" name="phone" required autocomplete="tel" inputmode="tel" placeholder="050-0000000"></div>
+            <div class="field full"><label for="email" data-i18n="emailLabel">אימייל *</label><input id="email" type="email" name="email" required autocomplete="email" placeholder="you@example.com"></div>
+            <div class="field full"><label data-i18n="agesLabel">גילאי הילדים המשתתפים *</label><div class="children" id="childrenAges"></div><button class="add-child" id="addChild" type="button" data-i18n="addChild">+ הוספת ילד/ה</button></div>
+            <div class="field full"><label for="message" data-i18n="messageLabel">הערה או שאלה (לא חובה)</label><textarea id="message" name="message" placeholder="יש משהו שחשוב שנדע?"></textarea></div>
           </div>
-          <button class="submit" type="submit">שלחו פרטים ושמרו לי מקום</button>
-          <p class="consent">בלחיצה על הכפתור אני מאשר/ת שניתן ליצור איתי קשר בנוגע לאירוע. הפרטים ישמשו לטיפול בהרשמה בלבד.</p>
+          <button class="submit" type="submit" data-i18n="submit">שלחו פרטים</button>
+          <p class="consent" data-i18n="consent">בלחיצה על הכפתור אני מאשר/ת שניתן ליצור איתי קשר בנוגע ליום הטיפוס. הפרטים ישמשו לטיפול בפנייה בלבד.</p>
         </form>
       </div>
-      <div class="success" role="status" aria-live="polite"><div class="success-icon">✓</div><h3>הפרטים התקבלו בהצלחה</h3><p>תודה! ניצור איתכם קשר בהקדם כדי לאשר את המקום ולשלוח את כל הפרטים לקראת יום הטיפוס.</p><a class="back" href="/">חזרה לאתר</a></div>
+      <div class="success" role="status" aria-live="polite"><div class="success-icon">✓</div><h3 data-i18n="successTitle">הפרטים התקבלו בהצלחה</h3><p data-i18n="successText">תודה! נחזור אליכם בהקדם עם פרטים נוספים על יום הטיפוס.</p><a class="back" href="/" data-i18n="successBack">חזרה לאתר</a></div>
     </section>
   </main>
   <script src="/lead-tracking.js?v=20261008"></script>
   <script>
+    const translations={
+      he:{back:'← חזרה לאתר Climbing Cyprus',eyebrow:'CLIMBING CYPRUS · יום טיול לנוער',brand:'חוויה, אתגר וטבע באזור פאפוס',title1:'יום טיפוס',title2:'לנוער בפאפוס',lead:'יום בלתי נשכח של הרפתקה, אתגר וטבע — הזדמנות להתנסות בטיפוס צוקים בחוץ ולגלות את הנופים היפים שסביב פאפוס.',highlight1:'מתנסים בטיפוס צוקים אמיתי בחוץ',highlight2:'מגלים את הטבע היפה באזור פאפוס',highlight3:'קבוצה קטנה והדרכה מקצועית',note:'מתאים לבני ובנות נוער. לא צריך ניסיון קודם — רק רצון לצאת להרפתקה!',formTitle:'מתעניינים? השאירו פרטים',formIntro:'נחזור אליכם עם פרטים נוספים ונענה בשמחה על כל שאלה.',nameLabel:'שם מלא של ההורה *',phoneLabel:'טלפון *',emailLabel:'אימייל *',agesLabel:'גילאי הילדים המשתתפים *',addChild:'+ הוספת ילד/ה',messageLabel:'הערה או שאלה (לא חובה)',submit:'שלחו פרטים',consent:'בלחיצה על הכפתור אני מאשר/ת שניתן ליצור איתי קשר בנוגע ליום הטיפוס. הפרטים ישמשו לטיפול בפנייה בלבד.',successTitle:'הפרטים התקבלו בהצלחה',successText:'תודה! נחזור אליכם בהקדם עם פרטים נוספים על יום הטיפוס.',successBack:'חזרה לאתר',agePlaceholder:'גיל הילד/ה',remove:'הסרה',description:'יום טיול טיפוס חווייתי לבני נוער באזור פאפוס, עם טבע, אתגר והדרכה מקצועית.',title:'יום טיפוס לנוער בפאפוס | Climbing Cyprus',sending:'שולחים…',retry:'נסו שוב — שליחת הפרטים',error:'אירעה שגיאה בשליחה. נסו שוב או פנו אלינו ישירות.',switch:'EN'},
+      en:{back:'← Back to Climbing Cyprus',eyebrow:'CLIMBING CYPRUS · TEEN DAY TRIP',brand:'Adventure, challenge and nature in Paphos',title1:'Fun climbing',title2:'for teens in Paphos',lead:'An unforgettable day of adventure, challenge and nature. Try outdoor rock climbing and discover the beautiful landscapes around Paphos.',highlight1:'Try real outdoor rock climbing',highlight2:'Explore beautiful nature around Paphos',highlight3:'Small group and professional guidance',note:'For teens. No previous climbing experience needed — just a sense of adventure!',formTitle:'Interested? Leave your details',formIntro:'We’ll get back to you with more information and will be happy to answer any questions.',nameLabel:'Parent or guardian full name *',phoneLabel:'Phone *',emailLabel:'Email *',agesLabel:'Ages of participating children *',addChild:'+ Add a child',messageLabel:'Note or question (optional)',submit:'Send details',consent:'By submitting, I agree to be contacted about the climbing day. Your details will only be used to respond to this inquiry.',successTitle:'Your details were received',successText:'Thank you! We’ll get back to you soon with more information about the climbing day.',successBack:'Back to website',agePlaceholder:'Child’s age',remove:'Remove',description:'A fun climbing day trip for teens in Paphos, with nature, adventure and professional guidance.',title:'Teen Climbing Day in Paphos | Climbing Cyprus',sending:'Sending…',retry:'Try again — send details',error:'There was a problem sending your details. Please try again or contact us directly.',switch:'עברית'}
+    };
+    let language='he';
+    function setLanguage(next){language=next;const t=translations[language];document.documentElement.lang=language;document.documentElement.dir=language==='he'?'rtl':'ltr';document.title=t.title;document.getElementById('pageDescription').content=t.description;document.querySelectorAll('[data-i18n]').forEach(el=>{const key=el.dataset.i18n;if(t[key])el.textContent=t[key];});document.getElementById('languageToggle').textContent=t.switch;document.getElementById('languageToggle').setAttribute('aria-label',language==='he'?'Switch to English':'Switch to Hebrew');document.getElementById('name').placeholder=language==='he'?'ישראל ישראלי':'Alex Smith';document.getElementById('message').placeholder=language==='he'?'יש משהו שחשוב שנדע?':'Anything we should know?';document.querySelectorAll('.child-age').forEach(input=>input.placeholder=t.agePlaceholder);document.querySelectorAll('.remove-child').forEach(button=>button.textContent=t.remove);}
+    document.getElementById('languageToggle').addEventListener('click',()=>setLanguage(language==='he'?'en':'he'));
+    const childrenAges=document.getElementById('childrenAges');
+    function addChildAge(){const row=document.createElement('div');row.className='child-row';const input=document.createElement('input');input.className='child-age';input.type='number';input.min='1';input.max='19';input.required=true;input.inputMode='numeric';input.placeholder=translations[language].agePlaceholder;input.setAttribute('aria-label',translations[language].agesLabel);const remove=document.createElement('button');remove.type='button';remove.className='remove-child';remove.textContent=translations[language].remove;remove.addEventListener('click',()=>{if(childrenAges.children.length>1)row.remove();});row.append(input,remove);childrenAges.append(row);}
+    document.getElementById('addChild').addEventListener('click',addChildAge);addChildAge();
     const form=document.getElementById('eventRegistration');
-    form.addEventListener('submit',async e=>{e.preventDefault();const btn=form.querySelector('button');btn.disabled=true;btn.textContent='שולחים…';try{const res=await fetch(form.action,{method:'POST',body:new FormData(form),headers:{Accept:'application/json'}});if(!res.ok)throw new Error('submit');if(window.recordSiteLead)window.recordSiteLead({name:form.name.value,email:form.email.value,phone:form.phone.value,type:'event',event:'יום טיפוס לנוער 24.10',event_date:'24.10',event_price:'50 EUR למשתתף',interest:'הרשמה לאירוע',message:form.message.value,status:'חדש'});form.closest('.form-wrap').classList.add('submitted');document.getElementById('registration').scrollIntoView({behavior:'smooth',block:'center'});}catch(_){btn.disabled=false;btn.textContent='נסו שוב — שליחת הפרטים';alert('אירעה שגיאה בשליחה. נסו שוב או פנו אלינו ישירות.');}});
+    form.addEventListener('submit',async e=>{e.preventDefault();const ages=[...document.querySelectorAll('.child-age')].map(input=>input.value.trim());document.getElementById('childAgesValue').value=ages.join(', ');const btn=form.querySelector('.submit');btn.disabled=true;btn.textContent=translations[language].sending;try{const res=await fetch(form.action,{method:'POST',body:new FormData(form),headers:{Accept:'application/json'}});if(!res.ok)throw new Error('submit');if(window.recordSiteLead)window.recordSiteLead({name:form.elements.namedItem('name').value,email:form.elements.namedItem('email').value,phone:form.elements.namedItem('phone').value,type:'event',event:'יום טיפוס לנוער',child_ages:ages.join(', '),interest:'הרשמה לאירוע',message:form.elements.namedItem('message').value,status:'חדש'});form.closest('.form-wrap').classList.add('submitted');document.getElementById('registration').scrollIntoView({behavior:'smooth',block:'center'});}catch(_){btn.disabled=false;btn.textContent=translations[language].retry;alert(translations[language].error);}});
   </script>
-<script src="/site-form-submit.js?v=20261020"></script>
+  <script src="/site-form-submit.js?v=20261020"></script>
 </body>
 </html>

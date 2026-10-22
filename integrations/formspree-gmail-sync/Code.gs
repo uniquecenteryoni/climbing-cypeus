@@ -113,7 +113,7 @@ function doPost(e) {
   const raw = e && e.postData ? e.postData.contents : '';
   const data = raw ? JSON.parse(raw) : {};
   if (!data || typeof data !== 'object' || Array.isArray(data)) throw new Error('Invalid submission');
-  if (data.action === 'delete_lead') return handleLeadDeletion_(data);
+  if (data.action === 'delete_lead' || data.action === 'delete_leads') return handleLeadDeletion_(data);
   if (String(data.website || '').trim()) return json_({ ok: true }); // honeypot
   const fields = data.fields || {};
   const sender = String(fields.email || '').trim().toLowerCase();
@@ -170,17 +170,29 @@ function doPost(e) {
 
 /** Deletes the selected lead after the admin confirms in the dashboard. */
 function handleLeadDeletion_(data) {
-  const rowNumber = Number(data.rowNumber);
+  const requestedRows = data.action === 'delete_leads' ? data.leads : [{ rowNumber: data.rowNumber, fingerprint: data.fingerprint }];
+  if (!Array.isArray(requestedRows) || !requestedRows.length || requestedRows.length > 100) return json_({ ok: false, error: 'בחרו בין ליד אחד ל־100 לידים למחיקה' });
+  const rowsToDelete = requestedRows.map(item => ({ rowNumber: Number(item && item.rowNumber), fingerprint: String(item && item.fingerprint || '') }));
+  if (rowsToDelete.some(item => !Number.isInteger(item.rowNumber) || item.rowNumber < 2 || !item.fingerprint) || new Set(rowsToDelete.map(item => item.rowNumber)).size !== rowsToDelete.length) {
+    return json_({ ok: false, error: 'רשימת הלידים למחיקה אינה תקינה' });
+  }
   const id = PropertiesService.getScriptProperties().getProperty('SPREADSHEET_ID') || CONFIG.spreadsheetId;
   const lock = LockService.getScriptLock();
   lock.waitLock(15000);
   try {
     const sheet = SpreadsheetApp.openById(id).getSheetByName(CONFIG.sheetName);
-    if (!sheet || !Number.isInteger(rowNumber) || rowNumber < 2 || rowNumber > sheet.getLastRow()) return json_({ ok: false, error: 'הליד כבר לא זמין' });
-    const row = sheet.getRange(rowNumber, 1, 1, sheet.getLastColumn()).getDisplayValues()[0];
-    if (rowFingerprint_(row) !== String(data.fingerprint || '')) return json_({ ok: false, error: 'פרטי הליד השתנו. רעננו את הרשימה ונסו שוב.' });
-    sheet.deleteRow(rowNumber);
-    return json_({ ok: true });
+    if (!sheet || rowsToDelete.some(item => item.rowNumber > sheet.getLastRow())) return json_({ ok: false, error: 'אחד הלידים כבר לא זמין' });
+    for (const item of rowsToDelete) {
+      const row = sheet.getRange(item.rowNumber, 1, 1, sheet.getLastColumn()).getDisplayValues()[0];
+      if (rowFingerprint_(row) !== item.fingerprint) return json_({ ok: false, error: 'פרטי אחד הלידים השתנו. רעננו את הרשימה ונסו שוב.' });
+      const type = String(row[4] || '').trim();
+      const form = String(row[19] || row[5] || '');
+      if (type === 'אישור השתתפות' || /אישור השתתפות|הצהרת בריאות|participation waiver|health declaration|waiver/i.test(form)) {
+        return json_({ ok: false, error: 'אישורי השתתפות לא ניתן למחוק מרשימת הלידים' });
+      }
+    }
+    rowsToDelete.sort((a, b) => b.rowNumber - a.rowNumber).forEach(item => sheet.deleteRow(item.rowNumber));
+    return json_({ ok: true, deleted: rowsToDelete.length });
   } finally { lock.releaseLock(); }
 }
 

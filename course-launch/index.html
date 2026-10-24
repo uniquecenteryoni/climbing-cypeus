@@ -9,7 +9,7 @@
     <link rel="icon" type="image/webp" href="../favicon.webp">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="../style.css?v=20260929-2">
-    <link rel="stylesheet" href="./course-launch.css?v=20261009-1">
+    <link rel="stylesheet" href="./course-launch.css?v=20261024-1">
     <title>Lead Climbing Course Cyprus | קורס הובלה בקפריסין</title>
 </head>
 <body class="lead-landing">
@@ -24,14 +24,28 @@
 
     <main>
         <section class="lead-hero">
-            <div class="lead-hero-image" role="img" aria-label="טיפוס הובלה על מצוק בקפריסין"></div>
+            <section class="lead-carousel" aria-label="קורס הובלה בתמונות" aria-roledescription="קרוסלה">
+                <div class="lead-carousel-track" tabindex="0" aria-label="תמונות הקורס — אפשר לגלול או להשתמש בחצים">
+                    <img class="lead-carousel-slide" src="../pics/course-launch/lead-course-1.webp" alt="קורס הובלה בקפריסין — חנוכה 2026" width="1890" height="2363" fetchpriority="high">
+                    <img class="lead-carousel-slide" src="../pics/course-launch/lead-course-2.webp" alt="אבטחת הובלה נכונה" width="1890" height="2363" loading="lazy">
+                    <img class="lead-carousel-slide" src="../pics/course-launch/lead-course-3.webp" alt="תחנות וגולש אחרון" width="1890" height="2363" loading="lazy">
+                    <img class="lead-carousel-slide" src="../pics/course-launch/lead-course-4.webp" alt="נפילות בטוחות" width="1890" height="2363" loading="lazy">
+                    <img class="lead-carousel-slide" src="../pics/course-launch/lead-course-5.webp" alt="תקשורת נכונה" width="1890" height="2363" loading="lazy">
+                    <img class="lead-carousel-slide" src="../pics/course-launch/lead-course-6.webp" alt="תרגול מעשי של טיפוס הובלה" width="1890" height="2363" loading="lazy">
+                </div>
+                <div class="lead-carousel-controls">
+                    <button type="button" data-carousel-prev aria-label="התמונה הקודמת">&#8594;</button>
+                    <span class="lead-carousel-count" aria-live="polite" aria-atomic="true">1 / 6</span>
+                    <button type="button" data-carousel-next aria-label="התמונה הבאה">&#8592;</button>
+                </div>
+            </section>
             <div class="lead-hero-content">
                 <h1>קורס הובלה<br><span>בקפריסין</span></h1>
-                <p class="lead-subtitle">להפוך ממטפסים עצמאיים למובילים בטוחים על המצוק — עם תרגול אמיתי, ליווי צמוד והרבה זמן על הסלע.</p>
+                <p class="lead-subtitle">3 ימים בנופים המדהימים של קפריסין בהם נהפוך למטפסים עצמאיים בשטח, נקבל כלים שימושיים ונתרגל ביחד את כל הדרוש לצאת החוצה ולהרגיש בבית</p>
                 <div class="lead-price-line">
                     <span class="lead-price">300€</span>
                     <span class="lead-old-price"><span>במקום 400€</span></span>
-                    <span class="lead-price-note">מחיר השקה · לזמן מוגבל</span>
+                    <span class="lead-price-note">מחיר השקה לזמן מוגבל</span>
                 </div>
                 <a class="lead-primary-cta js-lead-modal-trigger" href="#join">אני רוצה להצטרף <i class="fa-solid fa-arrow-left" aria-hidden="true"></i></a>
                 <div class="lead-meta" aria-label="פרטי הקורס">
@@ -51,7 +65,6 @@
                 <article class="lead-day">
                     <div class="lead-day-body">
                         <div class="lead-day-header">
-                            <div class="lead-day-marker" aria-hidden="true"><span>01</span></div>
                             <p class="lead-day-label">יום ראשון</p>
                             <h3>יסודות ההובלה והבטיחות</h3>
                             <p>נבנה בסיס מקצועי לעולם טיפוס ההובלה ונלמד להכיר את הציוד, הסיכונים והאחריות של המטפס והמאבטח.</p>
@@ -74,7 +87,6 @@
                 <article class="lead-day">
                     <div class="lead-day-body">
                         <div class="lead-day-header">
-                            <div class="lead-day-marker" aria-hidden="true"><span>02</span></div>
                             <p class="lead-day-label">יום שני</p>
                             <h3>מתיאוריה לטיפוס בשטח</h3>
                             <p>נעמיק בטכניקה, בקבלת החלטות וביכולת להוביל מסלול מתחילתו ועד סופו.</p>
@@ -97,7 +109,6 @@
                 <article class="lead-day">
                     <div class="lead-day-body">
                         <div class="lead-day-header">
-                            <div class="lead-day-marker" aria-hidden="true"><span>03</span></div>
                             <p class="lead-day-label">יום שלישי</p>
                             <h3>תרגול מסכם והדרך לעצמאות</h3>
                             <p>נשלב את כל מה שלמדנו בתרגול מעשי רציף ונתמודד עם מצבים שונים מהשטח.</p>
@@ -135,7 +146,6 @@
 
         <section class="lead-split-section">
             <div class="lead-dark-panel">
-                <p class="lead-kicker">מה נלמד?</p>
                 <h2>כלים להובלה בטוחה ועצמאית</h2>
                 <ul class="lead-check-list">
                     <li>בדיקות בטיחות, קשרים ותקשורת בין מטפס למאבטח</li>
@@ -146,17 +156,14 @@
                 </ul>
             </div>
             <div class="lead-route-panel">
-                <p class="lead-kicker">איך מגיעים?</p>
                 <h2>מחפשים טיסה ל־Paphos</h2>
                 <p>הקורס מתקיים באזור פאפוס שבמערב קפריסין. בחיפוש טיסות חפשו את שדה התעופה:</p>
                 <div class="airport-badge"><span>PFO</span><strong>Paphos International Airport</strong></div>
-                <p class="lead-small-note">התאריכים גמישים וניתן לכוון אותם בתיאום מראש, בהתאם לקבוצה ולטיסות.</p>
             </div>
         </section>
 
         <section class="lead-bring" id="bring">
             <div>
-                <p class="lead-kicker">הכנה לקורס</p>
                 <h2>מה צריך להביא?</h2>
                 <p>מגיעים עם ציוד אישי בסיסי ונכונות לתרגל. את ציוד ההובלה והציוד המקצועי הנוסף נספק במהלך הקורס.</p>
             </div>
@@ -212,6 +219,7 @@
     </div>
 
     <footer class="lead-footer"><a href="../">Climbing Cyprus</a><span>קורס הובלה באזור פאפוס</span></footer>
+    <script src="./course-carousel.js?v=20261024-1" defer></script>
     <script src="../lead-tracking.js?v=20261008"></script>
     <script>
         (() => {

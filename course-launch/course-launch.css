@@ -89,3 +89,12 @@ html{scroll-behavior:smooth}
     .lead-day:nth-child(3){background:#e7eef9}
     .lead-day + .lead-day{border-inline-start:0;border-top:1px solid #ccd6d3;padding-inline-start:1.25rem}
 }
+
+/* Give the launch price clear visual priority over the regular price. */
+.lead-final-action .lead-final-offer{display:grid;gap:.6rem}
+.lead-final-regular{display:flex;align-items:baseline;gap:.65rem;color:#c6dedd;font-size:1rem}
+.lead-final-regular .lead-final-old-price{font-size:1.5rem;font-weight:500;text-decoration-color:currentColor}
+.lead-final-current{display:flex;align-items:center;gap:.85rem}
+.lead-final-current .lead-final-price{font-size:clamp(3.5rem,6vw,4.5rem);color:#ffe278}
+.lead-final-current>span:last-child{font-size:.95rem;line-height:1.5}
+.lead-final .lead-final-action .lead-final-saving{margin:0;color:#ffe278;font-size:1rem;font-weight:700}

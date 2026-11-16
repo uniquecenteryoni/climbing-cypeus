@@ -3794,6 +3794,18 @@ body.landing-page { overflow-x: hidden; }
     justify-content: center;
 }
 
+.course-page-en .tour-hero-content h1 {
+    font-size: clamp(3.25rem, 6vw, 4.75rem) !important;
+}
+
+.course-page-en .tour-hero-content .tour-meta {
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.65rem 1.5rem;
+    font-size: clamp(1.15rem, 2.2vw, 1.5rem);
+    font-weight: 600;
+}
+
 /* Keep the header consistent on every page, including the activity and course heroes. */
 .navbar,
 .landing-page .navbar {

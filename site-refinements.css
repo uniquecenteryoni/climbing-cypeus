@@ -25,6 +25,50 @@
 html[dir="ltr"] .crashpad-inner { direction: ltr; }
 @media(max-width: 1100px) { .crashpad-inner { grid-template-columns: minmax(0, 1fr) auto; gap: 18px; } .crashpad-personal { grid-column: 1 / -1; border: 0; padding: 0; } .crashpad-personal svg { width: 64px; } }
 @media(max-width: 650px) { .crashpad-inner { grid-template-columns: 1fr; text-align: center; gap: 22px; } .landing-page .crashpad-copy h3, .landing-page .crashpad-copy p { text-align: center !important; } .crashpad-cta { padding: 14px 18px; font-size: 17px; } .crashpad-personal strong { font-size: 20px; } .guide-section-nav { padding-block: 8px !important; } .guide-section-nav nav { gap: 8px !important; } .guide-section-nav a { padding: 8px 12px !important; } }
+.activity-jump-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: .75rem;
+    margin-bottom: 2rem;
+}
+
+.activity-jump-links a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding: .5rem 1.125rem;
+    border: 1px solid #a2b79b;
+    border-radius: 999px;
+    color: var(--primary-color);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.activity-jump-links a:hover,
+.activity-jump-links a:focus-visible {
+    background: #edf3e9;
+}
+
+.activity-sections .activity-section[id] {
+    padding: clamp(1rem, 3vw, 2.5rem);
+    scroll-margin-top: 8rem;
+    border: 1px solid #dce6d8;
+    border-radius: 1rem;
+    background: #fff;
+}
+
+.activity-section[id] > .activity-header {
+    padding: clamp(1rem, 3vw, 2rem);
+    border-radius: .75rem;
+    background: #edf3e9;
+}
+
+.activity-section[id] > .pricing-box:last-child {
+    margin-bottom: 0;
+}
+
 .activity-content:has(.activity-video-frame) { align-items: center; }
 .activity-content:has(.activity-video-frame) .activity-image { height: auto; aspect-ratio: 16 / 9; align-self: center; }
 .activity-video-frame { aspect-ratio: 16 / 9; height: 100%; }

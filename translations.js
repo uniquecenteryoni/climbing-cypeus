@@ -103,7 +103,7 @@ const translations = {
         "trip-planning-disclosure": "חלק מהקישורים הם קישורי שותפים. המחיר עבורכם נשאר זהה, והם עוזרים לתמוך ב־Climbing Cyprus.",
         
         // Activities Page - Detailed
-        "activities-climbing-header": "טיפוס צוקים מודרך בקפריסין למתחילים ולמנוסים",
+        "activities-climbing-header": "טיפוס צוקים מודרך",
         "activities-climbing-subheader": "יום טיפוס בו נתמודד עם מסלולי טיפוס סלע כאשר המטפס מאובטח מלמעלה",
         "activities-climbing-experience-title": "יום חווייתי המשלב התמודדות והעצמה",
         "activities-climbing-feature1": "מתאים לכל בני המשפחה",
@@ -728,7 +728,7 @@ const translations = {
         "trip-planning-disclosure": "Some links are affiliate links. You pay the same price, and they help support Climbing Cyprus.",
         
         // Activities Page - Detailed
-        "activities-climbing-header": "Guided Rock Climbing in Cyprus for Beginners and Experienced Climbers",
+        "activities-climbing-header": "Guided Rock Climbing",
         "activities-climbing-subheader": "A climbing day where we tackle rock climbing routes with top-rope safety",
         "activities-climbing-experience-title": "An experiential day combining challenge and empowerment",
         "activities-climbing-feature1": "Suitable for the whole family",
@@ -964,7 +964,7 @@ const translations = {
         "course-included-certificate": "Certificate of qualification",
         
         // Equipment Page
-        "equipment-title": "Climbing Gear Rental in Cyprus",
+        "equipment-title": "Gear Rental",
         "equipment-subtitle": "Quality gear for sport climbing, trad climbing and bouldering",
         "equipment-lead-title": "Sport & Trad Climbing Equipment",
         "equipment-lead-intro": "Perfect package for climbers who want independence in sport or trad climbing",
@@ -1478,7 +1478,7 @@ const translations = {
         "guidebook-order-btn": "Contact to Order",
         
         // Equipment Page Quick Navigation
-        "nav-equipment-rental": "Climbing Equipment Rental",
+        "nav-equipment-rental": "Gear Rental",
         "nav-equipment-bouldering": "Bouldering Gear Rental",
         "nav-equipment-guidebook": "Order Climbing Guidebook",
         

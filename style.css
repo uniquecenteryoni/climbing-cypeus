@@ -1850,14 +1850,14 @@ html[dir="ltr"] body.landing-page h6 { font-weight: 800 !important; }
     grid-template-columns: minmax(0, 1.08fr) minmax(320px, 0.92fr);
     grid-template-areas: "copy media";
     align-items: stretch;
-    direction: rtl;
 }
 
 .safety-quiz-strip-copy {
     grid-area: copy;
     align-self: center;
-    padding: 2.5rem clamp(1.5rem, 5vw, 4.5rem) 2.5rem 2rem;
-    text-align: right;
+    padding-block: 2.5rem;
+    padding-inline: clamp(1.5rem, 5vw, 4.5rem) 2rem;
+    text-align: start;
 }
 
 .safety-quiz-kicker {
@@ -1866,7 +1866,7 @@ html[dir="ltr"] body.landing-page h6 { font-weight: 800 !important; }
     font-size: 0.75rem !important;
     font-weight: 800;
     letter-spacing: 0.12em;
-    text-align: right !important;
+    text-align: start !important;
 }
 
 .safety-quiz-strip h2 {
@@ -1884,7 +1884,7 @@ html[dir="ltr"] body.landing-page h6 { font-weight: 800 !important; }
     color: rgba(255, 255, 255, 0.84) !important;
     font-size: 1.05rem;
     line-height: 1.65;
-    text-align: right !important;
+    text-align: start !important;
 }
 
 .safety-quiz-cta {
@@ -1922,6 +1922,10 @@ html[dir="ltr"] body.landing-page h6 { font-weight: 800 !important; }
     z-index: 1;
     background: linear-gradient(90deg, #173d2a 0%, rgba(23, 61, 42, 0.2) 34%, transparent 65%);
     pointer-events: none;
+}
+
+.safety-quiz-strip-media:dir(rtl)::after {
+    background: linear-gradient(270deg, #173d2a 0%, rgba(23, 61, 42, 0.2) 34%, transparent 65%);
 }
 
 .safety-quiz-strip-media img {
@@ -1966,10 +1970,9 @@ html[dir="ltr"] body.landing-page h6 { font-weight: 800 !important; }
     grid-template-columns: minmax(0, 1.08fr) minmax(220px, 0.92fr);
 }
 
-@media (max-width: 720px) {
-    .safety-quiz-strip-inner {
-        width: 100%;
-        grid-template-columns: 1fr;
+@media (max-width: 768px) {
+    .course-page .tour-main-content .safety-quiz-strip-inner {
+        grid-template-columns: minmax(0, 1fr);
         grid-template-areas: "media" "copy";
     }
 
@@ -1979,7 +1982,8 @@ html[dir="ltr"] body.landing-page h6 { font-weight: 800 !important; }
         height: 250px;
     }
 
-    .safety-quiz-strip-media::after {
+    .safety-quiz-strip-media::after,
+    .safety-quiz-strip-media:dir(rtl)::after {
         background: linear-gradient(180deg, transparent 45%, #173d2a 100%);
     }
 

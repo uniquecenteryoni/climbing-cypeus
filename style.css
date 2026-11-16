@@ -9298,19 +9298,6 @@ body.landing-page { overflow-x: hidden; }
     overflow: hidden !important;
 }
 
-.landing-page .guide-content.article-inner .walls-carousel-media,
-.landing-page .guide-content.article-inner .walls-carousel-media img {
-    width: 250px !important;
-    height: 250px !important;
-    aspect-ratio: 1 / 1 !important;
-    border-radius: 50% !important;
-    overflow: hidden !important;
-}
-
-.landing-page .guide-content.article-inner .walls-carousel-media img {
-    object-fit: cover !important;
-}
-
 .guide-instagram-profile-strip {
     display: grid;
     grid-template-columns: minmax(280px, 420px) minmax(0, 1fr);
@@ -9470,13 +9457,6 @@ body.landing-page { overflow-x: hidden; }
         grid-template-columns: 1fr !important;
     }
 
-    .landing-page .guide-content.article-inner .walls-carousel-media,
-    .landing-page .guide-content.article-inner .walls-carousel-media img {
-        width: 190px !important;
-        height: 190px !important;
-        margin-inline: auto;
-    }
-
     .guide-instagram-profile-strip {
         grid-template-columns: 1fr;
     }
@@ -9514,14 +9494,6 @@ body.landing-page { overflow-x: hidden; }
 .landing-page .guide-content.article-inner > .guide-crag-strip > div:first-child + div {
     direction: rtl !important;
     text-align: right !important;
-}
-
-.landing-page .guide-content.article-inner .walls-carousel-media,
-.landing-page .guide-content.article-inner .walls-carousel-media img {
-    width: 250px !important;
-    height: 250px !important;
-    aspect-ratio: 1 / 1 !important;
-    border-radius: 50% !important;
 }
 
 .beside-affiliate-box {
@@ -9777,11 +9749,27 @@ html[dir="rtl"] .back-to-top { right: auto; left: 1.25rem; }
         max-width: calc(100vw - 40px) !important;
     }
 
-    .landing-page .guide-content.article-inner .walls-carousel-media,
-    .landing-page .guide-content.article-inner .walls-carousel-media img {
-        width: 190px !important;
-        height: 190px !important;
+    .landing-page .guide-content.article-inner .walls-carousel-media {
+        --wall-photo-size: 190px;
     }
+}
+
+.landing-page .guide-content.article-inner .walls-carousel-media {
+    position: relative;
+    align-self: center;
+    justify-self: center;
+    width: min(var(--wall-photo-size, 250px), 100%) !important;
+    height: auto;
+    aspect-ratio: 1;
+    border-radius: 50%;
+}
+
+.landing-page .guide-content.article-inner .walls-carousel-media > img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 /* Stable viewport alignment for all requested full-width bands. */

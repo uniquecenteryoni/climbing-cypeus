@@ -797,19 +797,21 @@ function initClimbingPricing() {
     const from = pricing.querySelector('[data-pricing-from]');
     const perParticipant = pricing.querySelector('[data-pricing-per]');
     const states = {
-        group: { value: '300', descriptionKey: 'pricing-desc-group', currency: true, from: true, perParticipant: true },
-        couple: { value: '250', descriptionKey: 'pricing-desc-couple', currency: true, from: true, perParticipant: true },
-        larger: { value: 'בתיאום מראש', descriptionKey: 'pricing-desc-larger', currency: false, from: false, perParticipant: false }
+        group: { value: '300', currency: true, from: true, perParticipant: true },
+        couple: { value: '250', currency: true, from: true, perParticipant: true },
+        larger: { translationKey: 'pricing-desc-larger', currency: false, from: false, perParticipant: false }
     };
 
     function renderPricing(state) {
-        const selected = states[state] || states.group;
+        const selected = states[state];
         options.forEach(option => {
             const isActive = option.dataset.pricingOption === state;
             option.classList.toggle('is-active', isActive);
             option.setAttribute('aria-selected', String(isActive));
         });
-        value.textContent = selected.value;
+        value.textContent = selected.translationKey
+            ? translations[document.documentElement.lang]?.[selected.translationKey] ?? translations.en[selected.translationKey]
+            : selected.value;
         currency.hidden = !selected.currency;
         if (from) from.hidden = !selected.from;
         if (perParticipant) perParticipant.hidden = !selected.perParticipant;
@@ -818,7 +820,7 @@ function initClimbingPricing() {
     options.forEach(option => {
         option.addEventListener('click', () => renderPricing(option.dataset.pricingOption));
     });
-    renderPricing('group');
+    renderPricing('couple');
 }
 
 function initGoogleReviewsCarousel() {

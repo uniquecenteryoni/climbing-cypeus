@@ -736,25 +736,6 @@ body.landing-page.ltr .climber-guide-en .guide-climbing-wall-tip {
     }
 }
 
-/* Final English guide card order: photo on the left, description on the right. */
-.landing-page.ltr .guide-content.article-inner > .guide-crag-strip {
-    direction: ltr !important;
-    grid-template-columns: minmax(180px, 34%) 1fr !important;
-}
-
-.landing-page.ltr .guide-content.article-inner > .guide-crag-strip > .guide-place-media {
-    grid-column: 1 !important;
-    grid-row: 1 !important;
-    justify-self: start !important;
-}
-
-.landing-page.ltr .guide-content.article-inner > .guide-crag-strip > div:last-child {
-    grid-column: 2 !important;
-    grid-row: 1 !important;
-    direction: ltr !important;
-    text-align: left !important;
-}
-
 .landing-page.ltr .guide-content.article-inner > .guide-crag-strip > div:last-child h3,
 .landing-page.ltr .guide-content.article-inner > .guide-crag-strip > div:last-child p,
 .landing-page.ltr .guide-content.article-inner > .guide-crag-strip > div:last-child a,
@@ -10403,6 +10384,38 @@ body.landing-page {
     }
 }
 
+.landing-page .guide-content.article-inner > .guide-crag-strip:is(.south-crag-strip, .north-crag-medallion) > .guide-place-media {
+    --crag-photo-size: 180px;
+    width: min(var(--crag-photo-size), 100%) !important;
+    height: auto !important;
+    min-width: 0 !important;
+    min-height: 0 !important;
+    align-self: center;
+    box-sizing: border-box;
+    position: relative;
+    aspect-ratio: 1 / 1 !important;
+    border-radius: 50% !important;
+    overflow: hidden;
+}
+
+.landing-page .guide-content.article-inner > .guide-crag-strip:is(.south-crag-strip, .north-crag-medallion) > .guide-place-media > img {
+    position: absolute;
+    inset: 0;
+    display: block;
+    width: 100% !important;
+    height: 100% !important;
+    min-width: 0 !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    object-fit: cover !important;
+}
+
+@media (max-width: 700px) {
+    .landing-page .guide-content.article-inner > .guide-crag-strip:is(.south-crag-strip, .north-crag-medallion) > .guide-place-media {
+        --crag-photo-size: 150px;
+    }
+}
+
 /* EOF mobile safety net for legacy rules above. */
 @media (max-width: 700px) {
     .landing-page .guide-content.article-inner > .guide-logistics-strip,
@@ -10414,34 +10427,27 @@ body.landing-page {
         grid-template-columns: minmax(0, 1fr) !important;
         grid-template-areas: "copy" "media" !important;
     }
-    .landing-page .guide-content.article-inner .south-crag-strip .guide-place-media,
-    .landing-page .guide-content.article-inner .south-crag-strip .guide-place-media img,
-    .landing-page .guide-content.article-inner .north-crag-medallion .guide-place-media,
-    .landing-page .guide-content.article-inner .north-crag-medallion .guide-place-media img {
-        width: min(150px, 100%) !important;
-        height: min(150px, 100%) !important;
-        min-width: 0 !important;
-        min-height: 0 !important;
-    }
 }
 
 /* Final English guide card order: photo on the left, description on the right. */
-.landing-page.ltr .guide-content.article-inner > .guide-crag-strip {
-    direction: ltr !important;
-    grid-template-columns: minmax(180px, 34%) 1fr !important;
-}
+@media (width > 700px) {
+    .landing-page.ltr .guide-content.article-inner > .guide-crag-strip {
+        direction: ltr !important;
+        grid-template-columns: minmax(180px, 34%) 1fr !important;
+    }
 
-.landing-page.ltr .guide-content.article-inner > .guide-crag-strip > .guide-place-media {
-    grid-column: 1 !important;
-    grid-row: 1 !important;
-    justify-self: start !important;
-}
+    .landing-page.ltr .guide-content.article-inner > .guide-crag-strip > .guide-place-media {
+        grid-column: 1 !important;
+        grid-row: 1 !important;
+        justify-self: start !important;
+    }
 
-.landing-page.ltr .guide-content.article-inner > .guide-crag-strip > div:last-child {
-    grid-column: 2 !important;
-    grid-row: 1 !important;
-    direction: ltr !important;
-    text-align: left !important;
+    .landing-page.ltr .guide-content.article-inner > .guide-crag-strip > div:last-child {
+        grid-column: 2 !important;
+        grid-row: 1 !important;
+        direction: ltr !important;
+        text-align: left !important;
+    }
 }
 
 .landing-page.ltr .guide-content.article-inner > .guide-crag-strip > div:last-child h3,

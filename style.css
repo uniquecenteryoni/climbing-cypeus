@@ -2413,7 +2413,7 @@ html[dir="ltr"] body.landing-page h6 { font-weight: 800 !important; }
 
 /* Final mobile header override. */
 @media (max-width: 768px) {
-    .navbar .language-switcher,
+    body:not(.course-page) .navbar .language-switcher,
     .landing-page .language-switcher {
         position: absolute !important;
         top: 50% !important;
@@ -3862,6 +3862,27 @@ body:not(.landing-page) {
         position: relative;
         left: auto;
         margin-inline-start: auto;
+    }
+
+    /* Give the logo, language buttons and menu separate space on mobile. */
+    .course-page .navbar .container {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+        gap: 12px;
+        padding-inline: 16px;
+    }
+
+    .course-page .navbar .logo {
+        max-width: 100%;
+        justify-self: start;
+    }
+
+    .course-page .navbar .language-switcher {
+        margin: 0;
+    }
+
+    .course-page .navbar .nav-right {
+        justify-self: end;
     }
 }
 

@@ -601,6 +601,9 @@ document.querySelectorAll('#contact .interest-option').forEach(function (option)
         if (interest) { interest.value = option.dataset.interest || ''; interest.setAttribute('value', interest.value); }
     });
 });
+if (new URLSearchParams(window.location.search).get('interest') === 'lead-course') {
+    document.querySelector('#contact .interest-option[data-interest="קורס"]').click();
+}
 </script>
 <!-- Footer -->
 <footer class="footer">

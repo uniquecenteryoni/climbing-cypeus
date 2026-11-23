@@ -8,6 +8,7 @@
 const CONFIG = {
   spreadsheetId: '1OfXQhLIeWuduWEUbJuifDjUnYEZjnjBRV6wMR6o8ZbE',
   sheetName: 'לידים',
+  notificationEmail: 'climbing.cyprus.yonatan@gmail.com',
   gmailQuery: 'from:(noreply@formspree.io) newer_than:365d -in:spam -in:trash'
 };
 
@@ -33,10 +34,9 @@ function setupFormspreeSync() {
   syncFormspreeToSheet();
 }
 
-/** Run once from the editor to grant the script permission to notify its owner. */
+/** Run once from the editor to grant permission and check the notification recipient. */
 function authorizeLeadNotifications() {
-  const email = Session.getEffectiveUser().getEmail();
-  if (!email) throw new Error('Run this from the Google account that will own the web app deployment.');
+  const email = CONFIG.notificationEmail;
   MailApp.getRemainingDailyQuota();
   SpreadsheetApp.openById(CONFIG.spreadsheetId).getSheetByName(CONFIG.sheetName);
   Logger.log('Lead notifications will be sent to ' + email);
@@ -157,8 +157,7 @@ function doPost(e) {
     sheet.appendRow(row);
   } finally { lock.releaseLock(); }
 
-  const recipient = Session.getEffectiveUser().getEmail();
-  if (!recipient) throw new Error('Could not determine the script owner email');
+  const recipient = CONFIG.notificationEmail;
   const body = 'התקבלה פנייה חדשה באתר Climbing Cyprus.\n\n' + full;
   const mail = { to: recipient, subject: subject, body: body, replyTo: values.email || undefined };
   if (data.attachment && data.attachment.base64) {

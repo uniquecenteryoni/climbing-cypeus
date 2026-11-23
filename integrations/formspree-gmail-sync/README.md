@@ -1,6 +1,6 @@
 # טפסי האתר → Gmail + Google Sheets
 
-האתר נשאר סטטי. טפסי האתר שולחים ישירות ל־Google Apps Script, שמוסיף כל פנייה ל־Google Sheet ושולח התראה לכתובת של חשבון Google שפרסם את ה־Web App. סנכרון Formspree הקיים נשאר כדי לייבא פניות ישנות מ־Gmail.
+האתר נשאר סטטי. טפסי האתר שולחים ישירות ל־Google Apps Script, שמוסיף כל פנייה ל־Google Sheet ושולח התראה ל־`climbing.cyprus.yonatan@gmail.com`, לפי `CONFIG.notificationEmail`. חשבון Google שמפרסם את ה־Web App נשאר החשבון השולח; כתובת ההתראות אינה תלויה בו. סנכרון Formspree הקיים נשאר כדי לייבא פניות ישנות מ־Gmail.
 
 ## הפעלה / עדכון
 

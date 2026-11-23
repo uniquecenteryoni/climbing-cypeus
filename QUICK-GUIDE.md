@@ -24,7 +24,7 @@
 🇬🇧 English Website: https://climbing-cyprus.com/?lang=en
 
 📱 WhatsApp: +357-99-074662
-📧 Email: unique.center.yoni@gmail.com
+📧 Email: climbing.cyprus.yonatan@gmail.com
 ```
 
 ### לפייסבוק/אינסטגרם - פוסט באנגלית:

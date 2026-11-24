@@ -15,7 +15,8 @@
     document.getElementById(item.directions).hidden = item !== site;
   });
   const time = params.get('time');
-  if (/^([01]?\d|2[0-3]):[0-5]\d$/.test(time || '')) {
+  const validTime = /^([01]?\d|2[0-3]):[0-5]\d$/.test(time || '');
+  if (validTime) {
     document.getElementById('meetingTime').textContent = time;
   }
   const price = params.get('price');
@@ -24,7 +25,8 @@
     document.getElementById('priceCard').hidden = false;
   }
   const duration = Number(params.get('duration'));
-  if (duration >= 0.5 && duration <= 24 && Number.isInteger(duration * 2)) {
+  const validDuration = duration >= 0.5 && duration <= 24 && Number.isInteger(duration * 2);
+  if (validDuration) {
     document.getElementById('activityDuration').textContent = english
       ? `approx. ${duration} hours` : `כ־${duration} שעות`;
     // Keep the approximate itinerary consistent with the selected total time.
@@ -37,6 +39,38 @@
       label.textContent = `${next - roundedElapsed} ${english ? 'minutes' : 'דקות'}`;
       roundedElapsed = next;
     });
+  }
+  // Use UTC for calendar arithmetic so browser timezone and DST cannot shift the date.
+  const date = params.get('date');
+  const activityDate = /^\d{4}-\d{2}-\d{2}$/.test(date || '')
+    ? new Date(`${date}T00:00:00Z`) : null;
+  const validDate = activityDate && Number.isFinite(activityDate.getTime())
+    && activityDate.toISOString().slice(0, 10) === date;
+  const formatDate = value => new Intl.DateTimeFormat(english ? 'en-GB' : 'he-IL', {
+    day: '2-digit', month: '2-digit', year: 'numeric', timeZone: 'UTC'
+  }).format(value);
+  const details = [];
+  if (validDate) details.push(formatDate(activityDate));
+  if (validTime) {
+    const [hours, minutes] = time.split(':').map(Number);
+    const startMinutes = hours * 60 + minutes;
+    const formatTime = total => `${String(Math.floor(total / 60) % 24).padStart(2, '0')}:${String(total % 60).padStart(2, '0')}`;
+    let timeRange = formatTime(startMinutes);
+    if (validDuration) {
+      const endMinutes = startMinutes + duration * 60;
+      timeRange += `–${formatTime(endMinutes)}`;
+      if (endMinutes >= 24 * 60) {
+        timeRange += english ? ' (next day)' : ' (למחרת)';
+      }
+    }
+    details.push(timeRange);
+  }
+  if (details.length) {
+    const heading = document.getElementById('activityHeadingDetails');
+    heading.textContent = details.join(' · ');
+    heading.hidden = false;
+    document.title = `${document.title.split(' | ')[0]} · ${details.join(' · ')} | Climbing Cyprus`;
+    document.querySelector('meta[property="og:title"]').content = document.title;
   }
   // Preserve the customer's settings when switching languages.
   document.querySelectorAll('a.lang, .footer a').forEach(link => {

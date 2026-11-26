@@ -1,5 +1,7 @@
 (() => {
-  const params = new URLSearchParams(location.search);
+  const savedSettings = document.getElementById('climbingDaySettings');
+  const session = savedSettings ? JSON.parse(savedSettings.textContent) : null;
+  const params = session ? new URLSearchParams(session) : new URLSearchParams(location.search);
   const english = document.documentElement.lang === 'en';
   const sites = {
     grecophatra: { title: english ? 'Gerakopetra Cliff' : 'מצוק גרקופטרה', map: 'https://goo.gl/maps/PrhwPXWp1kyT5UC49', directions: 'directionsGrecophatra' },
@@ -75,7 +77,12 @@
   // Preserve the customer's settings when switching languages.
   document.querySelectorAll('a.lang, .footer a').forEach(link => {
     const url = new URL(link.href);
-    url.search = params.toString();
+    if (session) {
+      url.pathname = `/s/${session.code}`;
+      url.search = new URLSearchParams({ lang: english ? 'he' : 'en' }).toString();
+    } else {
+      url.search = params.toString();
+    }
     link.href = url.toString();
   });
 })();

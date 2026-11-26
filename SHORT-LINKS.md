@@ -23,10 +23,18 @@ Create the bindings before deployment; settings apply to the next deployment.
 The existing Git integration deploys `functions/` automatically on a push to
 `main`. Preview deployments require their own bindings/secrets if used for testing.
 
-Saving requires the panel password. A fresh panel login fills it into the message
-builder for the current page; after a page reload, enter it in the builder's
-password field. It is sent only in the HTTPS request body to the same site's API,
-never in a URL or the saved record. There is no new password to remember.
+The normal panel login is verified by `/api/admin-session`. Successful login sets
+an HMAC-signed cookie valid for 30 days, with `HttpOnly`, `Secure`, `SameSite=Strict`
+and the `__Host-` prefix. The browser sends it automatically when saving a link;
+there is no separate password field in the message builder. Reloading the page or
+opening another tab restores the login from the cookie. Passwords and tokens are
+not stored in JavaScript storage. Existing browser sessions created before this
+change must sign in once to obtain the server cookie. An expired login shows the
+normal login form while preserving the activity inputs.
+
+The password is sent only during normal login in the HTTPS request body to the
+same site's API, never in a URL or the saved record. Changing the configured
+server password invalidates existing cookies.
 
 Missing configuration or a failed save produces an error, with copying disabled.
 Unknown activity codes return a bilingual 404 instead of displaying default

@@ -1,9 +1,11 @@
-import { json, passwordMatches, validateSession } from '../_lib/climbing-sessions.js';
+import { hasAdminSession } from '../_lib/admin-auth.js';
+import { json, validateSession } from '../_lib/climbing-sessions.js';
 
 export async function onRequest({ request, env }) {
   if (request.method !== 'POST') return json({ error: 'Method not allowed' }, 405);
   if (request.headers.get('Origin') !== new URL(request.url).origin) return json({ error: 'Invalid origin' }, 403);
   if (!env.CLIMBING_SESSIONS || !env.CLIMBING_ADMIN_PASSWORD) return json({ error: 'Short links are not configured' }, 503);
+  if (!await hasAdminSession(request, env.CLIMBING_ADMIN_PASSWORD)) return json({ error: 'Sign in to the panel' }, 401);
   if (Number(request.headers.get('Content-Length')) > 2048) return json({ error: 'Request too large' }, 413);
   let data;
   try {
@@ -13,7 +15,6 @@ export async function onRequest({ request, env }) {
   } catch {
     return json({ error: 'Invalid JSON' }, 400);
   }
-  if (!await passwordMatches(data?.password, env.CLIMBING_ADMIN_PASSWORD)) return json({ error: 'Invalid password' }, 401);
   const session = validateSession(data);
   if (!session) return json({ error: 'Invalid activity details' }, 400);
   try {
